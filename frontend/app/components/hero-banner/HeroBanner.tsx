@@ -1,31 +1,70 @@
 import Link from "next/link";
 
+const heroFeatures = [
+  ["Authentic Ayurveda", "Rooted in tradition, guided by science."],
+  ["Expert Practitioners", "Experienced doctors for holistic healing."],
+  ["Personalized Care", "Tailored treatments for you."],
+  ["Natural & Safe", "100% natural therapies with lasting results."],
+  ["Holistic Wellness", "Healing mind, body and soul together."],
+];
+
 export function HeroBanner() {
   return (
     <section className="hero-section">
-      <div className="hero-content">
-        <span className="eyebrow">Healing the body. Calming the mind.</span>
-        <h1>
-          The Science of
-          <br />
-          <span className="hero-title-line">
-            Authentic <span>Ayurveda</span>
-          </span>
-        </h1>
-        <p>
-          Rooted in tradition. Backed by research.
-          <br />
-          Tailored for your wellness and longevity.
-        </p>
-        <div className="hero-actions">
-          <Link className="btn btn-primary" href="/appointment">
-            Book A Consultation
-          </Link>
-          <Link className="hero-video-link" href="/gallery">
-            <span aria-hidden="true" />
-            Watch Our Story
-          </Link>
+      <div className="hero-inner">
+        <div className="hero-content">
+          <h1>
+            Ancient Wisdom.
+            <br />
+            <span>Modern Healing.</span>
+            <br />
+            Timeless Wellness.
+          </h1>
+          <div className="hero-title-divider" aria-hidden="true">
+            <i />
+            <span />
+          </div>
+          <p>
+            Experience the perfect blend of ancient Ayurvedic wisdom and modern care for a healthier, balanced life.
+          </p>
+          <div className="hero-actions">
+            <Link className="btn btn-primary" href="/appointment">
+              Book Appointment
+            </Link>
+            <Link className="hero-explore-link" href="/treatments">
+              Explore Treatments
+              <span aria-hidden="true">&rsaquo;</span>
+            </Link>
+          </div>
         </div>
+
+        <div className="hero-visual" aria-hidden="true">
+          <span className="hero-botanical-line" />
+          <span className="hero-glow-ring" />
+          <span className="hero-still-life" />
+          <div className="hero-quick-actions">
+            <span>
+              <i />
+              Free Consultation
+            </span>
+            <span>
+              <i />
+              360 Virtual Tour
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="hero-feature-strip" aria-label="Susrutha Ayurveda highlights">
+        {heroFeatures.map(([title, text]) => (
+          <div className="hero-feature" key={title}>
+            <span className="hero-feature-icon" aria-hidden="true" />
+            <div>
+              <strong>{title}</strong>
+              <p>{text}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

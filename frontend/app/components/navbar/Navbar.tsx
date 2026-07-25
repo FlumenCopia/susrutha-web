@@ -1,6 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import { navigation, siteConfig } from "../../data/site";
+import { siteConfig } from "../../data/site";
+
+const desktopNavigation = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Treatments", href: "/treatments" },
+  { label: "Specialities", href: "/#specialities" },
+  { label: "Doctors", href: "/doctors" },
+  {
+    label: "Pages",
+    href: "#",
+    children: [
+      { label: "Facilities", href: "/facilities" },
+      { label: "Branches", href: "/branches" },
+      { label: "Contact", href: "/contact-us" },
+    ],
+  },
+];
 
 export function Navbar() {
   return (
@@ -11,7 +28,7 @@ export function Navbar() {
         </Link>
 
         <div className="nav-links">
-          {navigation.map((item, index) => (
+          {desktopNavigation.map((item, index) => (
             <div className="nav-item" data-active={index === 0 ? "true" : undefined} key={item.label}>
               <Link href={item.href}>
                 {item.label}
@@ -32,7 +49,8 @@ export function Navbar() {
 
         <div className="nav-actions">
           <a className="phone-link" href={`tel:${siteConfig.phone.replaceAll(" ", "")}`} aria-label="Call Susrutha Ayurveda">
-            <span aria-hidden="true">☎</span>
+            <span aria-hidden="true">&#9742;</span>
+            {siteConfig.phone}
           </a>
           <Link className="btn btn-primary" href="/appointment">
             Book Appointment
@@ -46,7 +64,7 @@ export function Navbar() {
             <span />
           </summary>
           <div className="mobile-panel">
-            {navigation.map((item) => (
+            {desktopNavigation.map((item) => (
               <Link href={item.href} key={item.label}>
                 {item.label}
               </Link>

@@ -4,7 +4,7 @@ import { SectionHeader } from "../common/SectionHeader";
 
 export function SpecialitiesSection() {
   return (
-    <section className="section">
+    <section className="section" id="specialities">
       <SectionHeader
         eyebrow="Specialities"
         title="Care pathways organized by patient need"
