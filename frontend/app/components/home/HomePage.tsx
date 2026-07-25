@@ -7,13 +7,13 @@ import { TestimonialsReferenceSection } from "./TestimonialsReferenceSection";
 
 export function HomePage() {
   return (
-    <>
+    <div className="home-page">
       <HeroBanner />
       <AboutPreviewSection />
       <SignatureTreatmentsSection />
       <CounterSection />
       <DoctorsExpertSection />
       <TestimonialsReferenceSection />
-    </>
+    </div>
   );
 }

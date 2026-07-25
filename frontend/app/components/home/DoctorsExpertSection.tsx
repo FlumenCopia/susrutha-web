@@ -137,7 +137,7 @@ export function DoctorsExpertSection() {
           <Image src="/images/home-hero-reference.png" alt="" fill sizes="330px" />
         </div>
 
-        <div className="doctors-expert-stats" aria-label="Doctor care highlights">
+        {/* <div className="doctors-expert-stats" aria-label="Doctor care highlights">
           {stats.map(([icon, value, label]) => (
             <div className="doctors-expert-stat" data-icon={icon} key={label}>
               <span aria-hidden="true" />
@@ -145,13 +145,13 @@ export function DoctorsExpertSection() {
               <p>{label}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
-        <blockquote className="doctors-expert-quote">
+        {/* <blockquote className="doctors-expert-quote">
           <span aria-hidden="true">&ldquo;</span>
           <p>Healing is not just our profession, it is our purpose rooted in ancient wisdom.</p>
           <i aria-hidden="true" />
-        </blockquote>
+        </blockquote> */}
 
         <div className="doctors-expert-still doctors-expert-still-right" aria-hidden="true">
           <Image src="/images/testimonial-lamp-flowers.png" alt="" fill sizes="260px" />
