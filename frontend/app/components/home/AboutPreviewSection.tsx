@@ -32,8 +32,7 @@ export function AboutPreviewSection() {
           </div>
 
           <p>
-            At Susrutha Ayurvedic Hospital, we blend timeless Ayurvedic wisdom with personalized
-            care to restore balance, promote healing, and enhance your well-being naturally.
+            The long felt desire of the people of Kattakada to have an Ayurvedic Clinic was realized through two visionaries are Ayurvedic Physician Sri. P. Krishna Pillai (Late) and Sri. P.K. Pillai (Late) in 1970. By their untiring and restless efforts the clinic grey up into a run all hospital. Their visions and ambitions were further enhanced by Sri. P.K. Pillai’s son, Prof. Dr. Krishnankutty Nair (Late), HOD of Govt. Ayurveda College Panchakarma Hospital. Dr. Nair, a thorough professional and a karmayogi, also a recipient of many awards. The hospital also started research work under his able guidance. The Research Institute and the hospital is most effectively managed by Dr. Nair's son Dr.Krishnakumar and Daughter Dr.Sreejakrishna along with their dedicated team of professionals.
           </p>
 
           <div className="about-susrutha-actions">

@@ -13,7 +13,7 @@ export function HomePage() {
       <SignatureTreatmentsSection />
       <CounterSection />
       <DoctorsExpertSection />
-      <TestimonialsReferenceSection />
+      {/* <TestimonialsReferenceSection /> */}
     </div>
   );
 }
