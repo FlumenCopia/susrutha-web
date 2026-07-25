@@ -4,76 +4,120 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const signatureTreatments = [
+const treatments = [
   {
     title: "Panchakarma",
-    focus: "Deep cleansing therapy",
-    copy: "A physician-guided detox journey using classical oil therapies, steam, and cleansing methods to restore balance.",
-    image: "/images/treatment-panchakarma.png",
+    copy: "Detoxify and cleanse your body.",
+    image: "/images/treatment-herbal-medicine.png",
+  },
+  {
+    title: "Abhyangam",
+    copy: "Therapeutic oil massage for total relaxation.",
+    image: "/images/treatment-kati-vasti.png",
+  },
+  {
+    title: "Shirodhara",
+    copy: "Calms the mind and nervous system.",
+    image: "/images/treatment-sirodhara.png",
+  },
+  {
+    title: "Herbal Therapies",
+    copy: "Natural herbs for effective healing.",
+    image: "/images/treatment-njavarakizhi.png",
+  },
+  {
+    title: "Nutrition & Diet",
+    copy: "Personalised diet plans for a healthier you.",
+    image: "/images/faq-ayurveda-still-life.png",
+  },
+  {
+    title: "Wellness Programs",
+    copy: "Holistic programs for health & immunity.",
+    image: "/images/ayurveda-village-path.png",
   },
   {
     title: "Kati Vasti",
-    focus: "Back and spine support",
-    copy: "Warm medicated oil therapy focused on the lower back to ease stiffness, support mobility, and calm chronic discomfort.",
+    copy: "Warm oil care for back and spine support.",
     image: "/images/treatment-kati-vasti.png",
   },
   {
     title: "Njavarakizhi",
-    focus: "Strength and nourishment",
-    copy: "A rejuvenating rice-bolus therapy that nourishes tissues, supports recovery, and helps the body regain strength.",
+    copy: "Rejuvenating therapy for strength and recovery.",
     image: "/images/treatment-njavarakizhi.png",
   },
   {
-    title: "Sirodhara",
-    focus: "Mind and sleep care",
-    copy: "A continuous stream of warm herbal oil over the forehead to calm the nervous system and encourage deep relaxation.",
-    image: "/images/treatment-sirodhara.png",
+    title: "Herbal Medicine",
+    copy: "Doctor-guided formulations for long-term wellness.",
+    image: "/images/treatment-herbal-medicine.png",
   },
   {
-    title: "Herbal Medicine",
-    focus: "Personalized formulations",
-    copy: "Authentic herbal preparations selected by our doctors to support digestion, immunity, recovery, and long-term wellness.",
-    image: "/images/treatment-herbal-medicine.png",
+    title: "Ayurveda Retreats",
+    copy: "Restorative programs in a calm healing setting.",
+    image: "/images/ayurveda-hospital-garden.png",
   },
 ];
 
 export function SignatureTreatmentsSection() {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(1);
 
-  const scrollToSlide = useCallback((index: number) => {
+  const maxSlideIndex = Math.max(treatments.length - visibleCount, 0);
+  const slideIndexes = Array.from(
+    new Set([
+      ...Array.from(
+        { length: Math.ceil(treatments.length / Math.max(visibleCount, 1)) },
+        (_, index) => Math.min(index * Math.max(visibleCount, 1), maxSlideIndex),
+      ),
+      maxSlideIndex,
+    ]),
+  );
+  const activeDotIndex = slideIndexes.reduce((closestIndex, slideIndex, index) => {
+    const closestDistance = Math.abs(slideIndexes[closestIndex] - activeIndex);
+    const currentDistance = Math.abs(slideIndex - activeIndex);
+
+    return currentDistance < closestDistance ? index : closestIndex;
+  }, 0);
+
+  const scrollToCard = useCallback((index: number) => {
     const slider = sliderRef.current;
 
     if (!slider) {
       return;
     }
 
-    const slides = Array.from(slider.querySelectorAll<HTMLElement>(".signature-treatment-card"));
-    const target = slides[index];
+    const cards = Array.from(slider.querySelectorAll<HTMLElement>(".treatments-reference-card"));
+    const safeIndex = Math.min(Math.max(index, 0), Math.max(cards.length - 1, 0));
+    const card = cards[safeIndex];
 
-    if (!target) {
+    if (!card) {
       return;
     }
 
+    setActiveIndex(Math.min(safeIndex, Math.max(treatments.length - visibleCount, 0)));
+
     slider.scrollTo({
-      left: target.offsetLeft - slides[0].offsetLeft,
+      left: card.offsetLeft - slider.offsetLeft,
       behavior: "smooth",
     });
-  }, []);
+  }, [visibleCount]);
 
-  const moveSlide = useCallback(
+  const moveSlider = useCallback(
     (direction: 1 | -1) => {
-      setActiveSlide((currentSlide) => {
-        const nextSlide =
-          direction === 1
-            ? (currentSlide + 1) % signatureTreatments.length
-            : (currentSlide - 1 + signatureTreatments.length) % signatureTreatments.length;
+      const maxIndex = Math.max(treatments.length - visibleCount, 0);
+      const step = Math.max(visibleCount, 1);
+      const requestedIndex = activeIndex + direction * step;
+      let nextIndex = requestedIndex;
 
-        scrollToSlide(nextSlide);
-        return nextSlide;
-      });
+      if (direction === 1) {
+        nextIndex = activeIndex >= maxIndex ? 0 : Math.min(requestedIndex, maxIndex);
+      } else {
+        nextIndex = activeIndex <= 0 ? maxIndex : Math.max(requestedIndex, 0);
+      }
+
+      scrollToCard(nextIndex);
     },
-    [scrollToSlide],
+    [activeIndex, scrollToCard, visibleCount],
   );
 
   useEffect(() => {
@@ -83,130 +127,118 @@ export function SignatureTreatmentsSection() {
       return;
     }
 
-    const updateActiveSlide = () => {
-      const slides = Array.from(slider.querySelectorAll<HTMLElement>(".signature-treatment-card"));
-      const sliderStyle = window.getComputedStyle(slider);
-      const sliderLeft =
-        slider.getBoundingClientRect().left + Number.parseFloat(sliderStyle.paddingLeft);
-      let closestIndex = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
+    let animationFrame = 0;
+    const cards = () => Array.from(slider.querySelectorAll<HTMLElement>(".treatments-reference-card"));
 
-      slides.forEach((slide, index) => {
-        const distance = Math.abs(slide.getBoundingClientRect().left - sliderLeft);
+    const updateSliderState = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(() => {
+        const cardElements = cards();
+        const firstCard = cardElements[0];
 
-        if (distance < closestDistance) {
-          closestIndex = index;
-          closestDistance = distance;
+        if (!firstCard) {
+          return;
         }
-      });
 
-      setActiveSlide(closestIndex);
+        const cardWidth = firstCard.getBoundingClientRect().width;
+        const nextCard = cardElements[1];
+        const gap = nextCard ? nextCard.offsetLeft - firstCard.offsetLeft - cardWidth : 0;
+        const nextVisibleCount = Math.max(1, Math.floor((slider.clientWidth + gap) / (cardWidth + gap)));
+        const sliderLeft = slider.getBoundingClientRect().left;
+        let closestIndex = 0;
+        let closestDistance = Number.POSITIVE_INFINITY;
+
+        cardElements.forEach((card, index) => {
+          const distance = Math.abs(card.getBoundingClientRect().left - sliderLeft);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+
+        setVisibleCount(nextVisibleCount);
+        setActiveIndex(Math.min(closestIndex, Math.max(treatments.length - nextVisibleCount, 0)));
+      });
     };
 
-    slider.addEventListener("scroll", updateActiveSlide, { passive: true });
-    window.addEventListener("resize", updateActiveSlide);
-    updateActiveSlide();
+    const resizeObserver = new ResizeObserver(updateSliderState);
+
+    resizeObserver.observe(slider);
+    slider.addEventListener("scroll", updateSliderState, { passive: true });
+    window.addEventListener("resize", updateSliderState);
+    updateSliderState();
 
     return () => {
-      slider.removeEventListener("scroll", updateActiveSlide);
-      window.removeEventListener("resize", updateActiveSlide);
+      window.cancelAnimationFrame(animationFrame);
+      resizeObserver.disconnect();
+      slider.removeEventListener("scroll", updateSliderState);
+      window.removeEventListener("resize", updateSliderState);
     };
   }, []);
 
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const interval = window.setInterval(() => {
-      moveSlide(1);
-    }, 4500);
-
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, [moveSlide]);
-
   return (
-    <section className="signature-treatments-section" aria-labelledby="signature-treatments-title">
-      <div className="signature-treatments-header">
-        <div className="signature-treatment-title-wrap">
-          <span aria-hidden="true" />
-          <h2 id="signature-treatments-title">Our Signature Treatments</h2>
-          <span aria-hidden="true" />
-          <i aria-hidden="true" />
+    <section className="treatments-reference-section" aria-labelledby="treatments-reference-title">
+      <div className="treatments-reference-header">
+        <div>
+          <span className="treatments-reference-eyebrow">
+            <i aria-hidden="true" />
+            Our Treatments
+          </span>
+          <h2 id="treatments-reference-title">Holistic Treatments for Every Body &amp; Mind</h2>
         </div>
 
-        <Link className="signature-treatments-link" href="/treatments">
-          View All Treatments
-          <span aria-hidden="true">&rarr;</span>
-        </Link>
-      </div>
-
-      <p className="signature-treatments-intro">
-        Doctor-led Ayurveda therapies designed around detoxification, pain relief, relaxation,
-        rejuvenation, and sustainable everyday wellness.
-      </p>
-
-      <div className="signature-treatment-slider-wrap">
-        <button
-          className="signature-slider-btn signature-slider-btn-prev"
-          type="button"
-          aria-label="Previous treatment"
-          onClick={() => moveSlide(-1)}
-        >
-          &larr;
-        </button>
-
-        <div className="signature-treatment-slider" ref={sliderRef}>
-          {signatureTreatments.map((treatment) => (
-            <article className="signature-treatment-card" key={treatment.title}>
-              <div className="signature-treatment-image">
-                <Image
-                  src={treatment.image}
-                  alt={`${treatment.title} treatment`}
-                  fill
-                  sizes="(max-width: 700px) 86vw, (max-width: 1100px) 46vw, 20vw"
-                />
-              </div>
-              <div className="signature-treatment-copy">
-                <h3>{treatment.title}</h3>
-                <span>{treatment.focus}</span>
-                <p>{treatment.copy}</p>
-                <Link href="/treatments" aria-label={`Read more about ${treatment.title}`}>
-                  &rarr;
-                </Link>
-              </div>
-            </article>
-          ))}
+        <div className="treatments-reference-actions">
+          <Link className="treatments-reference-link" href="/treatments">
+            View All Treatments
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+          <div className="treatments-reference-controls" aria-label="Treatment slider controls">
+            <button type="button" aria-label="Previous treatment" onClick={() => moveSlider(-1)}>
+              &larr;
+            </button>
+            <button type="button" aria-label="Next treatment" onClick={() => moveSlider(1)}>
+              &rarr;
+            </button>
+          </div>
         </div>
-
-        <button
-          className="signature-slider-btn signature-slider-btn-next"
-          type="button"
-          aria-label="Next treatment"
-          onClick={() => moveSlide(1)}
-        >
-          &rarr;
-        </button>
       </div>
 
-      <div className="signature-treatment-dots" aria-label="Treatment slides">
-        {signatureTreatments.map((treatment, index) => (
+      <div className="treatments-reference-slider" ref={sliderRef}>
+        {treatments.map((treatment) => (
+          <article className="treatments-reference-card" key={treatment.title}>
+            <div className="treatments-reference-image">
+              <Image
+                src={treatment.image}
+                alt={`${treatment.title} treatment`}
+                fill
+                sizes="(max-width: 760px) 84vw, (max-width: 1180px) 31vw, 15vw"
+              />
+            </div>
+            <div className="treatments-reference-copy">
+              <span className="treatments-reference-icon" aria-hidden="true" />
+              <h3>{treatment.title}</h3>
+              <p>{treatment.copy}</p>
+              <i aria-hidden="true" />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="treatments-reference-dots" aria-label="Treatment slides">
+        {slideIndexes.map((index) => (
           <button
             type="button"
-            key={treatment.title}
-            aria-label={`Show ${treatment.title}`}
-            aria-current={activeSlide === index ? "true" : undefined}
+            key={index}
+            aria-label={`Show treatments ${index + 1} to ${Math.min(index + visibleCount, treatments.length)}`}
+            aria-current={slideIndexes[activeDotIndex] === index ? "true" : undefined}
             onClick={() => {
-              setActiveSlide(index);
-              scrollToSlide(index);
+              scrollToCard(index);
             }}
           />
         ))}
       </div>
+
     </section>
   );
 }
