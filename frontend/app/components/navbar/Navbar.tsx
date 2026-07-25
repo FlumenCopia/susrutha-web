@@ -1,23 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { desktopNavigation } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
-
-const desktopNavigation = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Treatments", href: "/treatments" },
-  { label: "Specialities", href: "/#specialities" },
-  { label: "Doctors", href: "/doctors" },
-  {
-    label: "Pages",
-    href: "#",
-    children: [
-      { label: "Facilities", href: "/facilities" },
-      { label: "Branches", href: "/branches" },
-      { label: "Contact", href: "/contact-us" },
-    ],
-  },
-];
 
 export function Navbar() {
   return (
@@ -65,9 +49,16 @@ export function Navbar() {
           </summary>
           <div className="mobile-panel">
             {desktopNavigation.map((item) => (
-              <Link href={item.href} key={item.label}>
-                {item.label}
-              </Link>
+              <div className="mobile-panel-group" key={item.label}>
+                <Link href={item.href}>{item.label}</Link>
+                {item.children ? (
+                  <div>
+                    {item.children.map((child) => (
+                      <Link href={child.href} key={child.label}>{child.label}</Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
             <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}>{siteConfig.phone}</a>
             <Link className="btn btn-primary" href="/appointment">

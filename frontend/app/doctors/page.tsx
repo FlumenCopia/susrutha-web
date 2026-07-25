@@ -1,14 +1,11 @@
 import { SiteShell } from "../components/common/SiteShell";
-import { PageIntro } from "../components/common/PageIntro";
+import { InnerPage } from "../components/inner/InnerPage";
+import { basePages } from "../data/architecture";
 
 export default function DoctorsPage() {
   return (
     <SiteShell>
-      <PageIntro
-        eyebrow="Doctors"
-        title="Doctors and Consultation"
-        copy="A doctor directory with credentials, availability, branch schedules, specialties, and appointment actions."
-      />
+      <InnerPage content={basePages.doctors} />
     </SiteShell>
   );
 }

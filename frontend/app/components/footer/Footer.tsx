@@ -1,41 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { footerNavigation } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
-
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Ayurveda Village", href: "/branches/ayurveda-village" },
-  { label: "Doctors", href: "/doctors" },
-  { label: "Research", href: "/research" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Contact Us", href: "/contact-us" },
-];
-
-const treatmentLinks = [
-  { label: "Panchakarma", href: "/treatments/panchakarma" },
-  { label: "Kati Vasti", href: "/treatments/kati-vasti" },
-  { label: "Njavarakizhi", href: "/treatments/njavarakizhi" },
-  { label: "Sirodhara", href: "/treatments/sirodhara" },
-  { label: "Herbal Medicine", href: "/treatments/herbal-medicine" },
-  { label: "Wellness Programs", href: "/treatments" },
-  { label: "Diet & Nutrition", href: "/treatments" },
-];
-
-const resourceLinks = [
-  { label: "Patient Guidelines", href: "/patient-guidelines" },
-  { label: "FAQs", href: "/faq" },
-  { label: "Careers", href: "/careers" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms & Conditions", href: "/terms" },
-  { label: "Sitemap", href: "/sitemap" },
-];
-
-const footerColumns = [
-  { title: "Quick Links", links: quickLinks },
-  { title: "Treatments", links: treatmentLinks },
-  { title: "Resources", links: resourceLinks },
-];
 
 function LotusMark({ className = "" }: { className?: string }) {
   return (
@@ -82,7 +48,7 @@ export function Footer() {
         </div>
 
         <nav className="footer-link-columns" aria-label="Footer navigation">
-          {footerColumns.map((column) => (
+          {footerNavigation.map((column) => (
             <div className="footer-column" key={column.title}>
               <h3>{column.title}</h3>
               <span />
