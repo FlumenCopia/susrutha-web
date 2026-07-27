@@ -30,14 +30,6 @@ const values = [
   ["leaf", "Personalized Care", "Tailored treatments for every individual."],
 ];
 
-const stats = [
-  ["doctor", "2000+", "Happy Consultations"],
-  ["lotus", "98%", "Patient Satisfaction"],
-  ["bowl", "25+", "Patient Rooms"],
-  ["shield", "20+", "Specialized Therapies"],
-  ["hand", "10+", "Years of Trust"],
-];
-
 export function DoctorsExpertSection() {
   return (
     <section className="doctors-expert-section" aria-labelledby="doctors-expert-title">

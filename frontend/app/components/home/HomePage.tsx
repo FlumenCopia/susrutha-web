@@ -1,19 +1,16 @@
 import { HeroBanner } from "../hero-banner/HeroBanner";
 import { AboutPreviewSection } from "./AboutPreviewSection";
 import { CounterSection } from "./CounterSection";
-import { DoctorsExpertSection } from "./DoctorsExpertSection";
-import { SignatureTreatmentsSection } from "./SignatureTreatmentsSection";
-import { TestimonialsReferenceSection } from "./TestimonialsReferenceSection";
+import { TreatmentsShowcaseSection } from "./TreatmentsShowcaseSection";
 
 export function HomePage() {
   return (
     <div className="home-page">
       <HeroBanner />
       <AboutPreviewSection />
-      <SignatureTreatmentsSection />
+      <TreatmentsShowcaseSection />
       <CounterSection />
-      <DoctorsExpertSection />
-      {/* <TestimonialsReferenceSection /> */}
+      {/* <DoctorsExpertSection /> */}
     </div>
   );
 }

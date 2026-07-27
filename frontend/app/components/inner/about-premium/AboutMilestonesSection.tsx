@@ -52,14 +52,6 @@ const milestones: Milestone[] = [
   },
 ];
 
-const stats = [
-  { value: "25+", label: "Years of\nExperience", icon: "doctorLotus" },
-  { value: "50K+", label: "Happy\nPatients", icon: "people" },
-  { value: "20+", label: "Specialised\nTreatments", icon: "mortar" },
-  { value: "10+", label: "Expert\nDoctors", icon: "doctor" },
-  { value: "98%", label: "Patient\nSatisfaction", icon: "lotus" },
-];
-
 function JourneyIcon({ name }: { name: JourneyIconName }) {
   const common = {
     fill: "none",
@@ -231,7 +223,7 @@ export function AboutMilestonesSection() {
         ))}
       </div>
 
-      <div className="journey-stats" aria-label="Hospital achievements">
+      {/* <div className="journey-stats" aria-label="Hospital achievements">
         {stats.map((item) => (
           <div className="journey-stat" key={item.value}>
             <JourneyIcon name={item.icon as JourneyIconName} />
@@ -243,7 +235,7 @@ export function AboutMilestonesSection() {
             </span>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }
