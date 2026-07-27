@@ -5,24 +5,28 @@ export function AboutHeroSection() {
   return (
     <section className="about-premium-hero">
       <div className="about-premium-hero-copy">
-        <span>About Susrutha</span>
+        <span>About Us</span>
         <h1>
-          Healing with Tradition.
+          Ancient Wisdom.
           <br />
-          Trusted Through Generations.
+          Timeless <em>Care.</em>
         </h1>
         <p>
-          Susrutha Ayurveda brings the wisdom of classical Ayurveda into a calm, hospital-based environment shaped by
-          physician guidance, heritage, research, and deeply personal care.
+          At Susrutha Ayurvedic Hospital, we blend the timeless science of Ayurveda with personalized care to help you
+          live a healthier, balanced life.
         </p>
-        <Link href="#legacy">Discover Our Legacy</Link>
+        <Link href="#legacy">
+          Our Story
+          <span aria-hidden="true" />
+        </Link>
       </div>
       <div className="about-premium-hero-image">
+        <div className="about-premium-hero-botanical" aria-hidden="true" />
         <Image
-          src="/images/about-susrutha-wellness.png"
-          alt="Susrutha Ayurveda consultation and wellness setting"
-          width={980}
-          height={720}
+          src="/images/about-hero-ayurveda-still-life.png"
+          alt="Ayurvedic herbs with marble mortar and brass vessels"
+          width={1536}
+          height={864}
           priority
         />
       </div>

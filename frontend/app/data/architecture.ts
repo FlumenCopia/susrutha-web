@@ -92,6 +92,7 @@ export const desktopNavigation: LinkItem[] = [
     href: "/treatments",
     children: completeSitemap[2].children,
   },
+  { label: "Specialities", href: "/#specialities" },
   {
     label: "Doctors",
     href: "/doctors",
@@ -109,9 +110,9 @@ export const desktopNavigation: LinkItem[] = [
       { label: "Gallery", href: "/gallery" },
       { label: "Blogs", href: "/blogs" },
       { label: "FAQ", href: "/faq" },
+      { label: "Contact", href: "/contact-us" },
     ],
   },
-  { label: "Contact", href: "/contact-us" },
 ];
 
 export const footerNavigation = [

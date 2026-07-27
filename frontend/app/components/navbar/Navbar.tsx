@@ -1,9 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { desktopNavigation } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
 
 export function Navbar() {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <header className="site-header">
       <nav className="navbar" aria-label="Main navigation">
@@ -12,8 +25,14 @@ export function Navbar() {
         </Link>
 
         <div className="nav-links">
-          {desktopNavigation.map((item, index) => (
-            <div className="nav-item" data-active={index === 0 ? "true" : undefined} key={item.label}>
+          {desktopNavigation.map((item) => (
+            <div
+              className="nav-item"
+              data-active={
+                isActive(item.href) || item.children?.some((child) => isActive(child.href)) ? "true" : undefined
+              }
+              key={item.label}
+            >
               <Link href={item.href}>
                 {item.label}
                 {item.children ? <span className="nav-chevron" aria-hidden="true" /> : null}
