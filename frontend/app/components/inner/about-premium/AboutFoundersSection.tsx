@@ -10,7 +10,7 @@ const founders = [
     copy: "18+ years of experience in Panchakarma and holistic healing.",
     image: "/images/founder-nikhil-sharma.png",
     icon: "leaf",
-    href: "/doctors",
+    href: "/doctors/dr-nikhil-sharma",
   },
   {
     name: "Dr. Meera Iyer",
@@ -18,7 +18,7 @@ const founders = [
     copy: "Specialist in women's health, nutrition and preventive care.",
     image: "/images/founder-meera-iyer.png",
     icon: "lotus",
-    href: "/doctors",
+    href: "/doctors/dr-meera-iyer",
   },
   {
     name: "Dr. Arjun Das",
@@ -26,7 +26,7 @@ const founders = [
     copy: "Passionate about Ayurvedic research and evidence-based practices.",
     image: "/images/founder-arjun-das.png",
     icon: "bowl",
-    href: "/doctors",
+    href: "/doctors/dr-arjun-das",
   },
 ] satisfies {
   name: string;

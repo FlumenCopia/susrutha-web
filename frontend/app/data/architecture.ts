@@ -31,6 +31,22 @@ export type PageContent = {
   };
 };
 
+export type DoctorDirectoryItem = {
+  slug: string;
+  title: string;
+  meta: string;
+  text: string;
+  image?: string;
+  experience?: string;
+  patients?: string;
+  availability?: string;
+  languages?: string[];
+  credentials?: string[];
+  focusAreas?: string[];
+  approach?: string[];
+  quote?: string;
+};
+
 export const completeSitemap: LinkItem[] = [
   { label: "Home", href: "/" },
   {
@@ -219,36 +235,126 @@ export const treatments = [
   },
 ];
 
-export const doctorsDirectory = [
+export const doctorsDirectory: DoctorDirectoryItem[] = [
+  {
+    slug: "dr-nikhil-sharma",
+    title: "Dr. Nikhil Sharma",
+    meta: "Founder & Chief Physician | Panchakarma and Holistic Care",
+    text: "Founder physician guiding Panchakarma, detoxification, rejuvenation, and holistic Ayurveda care with a patient-first approach.",
+    image: "/images/founder-nikhil-sharma.png",
+    experience: "18+ Years",
+    patients: "12K+",
+    availability: "Mon, Wed, Fri",
+    languages: ["English", "Malayalam", "Hindi"],
+    credentials: ["Founder & Chief Physician", "Panchakarma planning", "Holistic chronic care"],
+    focusAreas: ["Panchakarma detox", "Chronic wellness", "Digestive balance", "Rejuvenation care"],
+    approach: ["Detailed constitution assessment", "Physician-guided therapy plan", "Diet and routine correction", "Follow-up wellness review"],
+    quote: "Healing works best when classical Ayurveda is personalized with clarity, patience, and trust.",
+  },
+  {
+    slug: "dr-meera-iyer",
+    title: "Dr. Meera Iyer",
+    meta: "Founder & Wellness Director | Women's Health and Preventive Care",
+    text: "Wellness director focused on women's health, nutrition, preventive Ayurveda, and balanced lifestyle planning.",
+    image: "/images/founder-meera-iyer.png",
+    experience: "15+ Years",
+    patients: "9K+",
+    availability: "Tue, Thu, Sat",
+    languages: ["English", "Malayalam", "Tamil"],
+    credentials: ["Founder & Wellness Director", "Women's health guidance", "Nutrition and preventive Ayurveda"],
+    focusAreas: ["Women's wellness", "Preventive care", "Nutrition planning", "Lifestyle balance"],
+    approach: ["Personal wellness mapping", "Nutrition-led care plan", "Gentle therapy selection", "Long-term lifestyle support"],
+    quote: "A balanced life is built through small daily choices, supported by compassionate clinical care.",
+  },
+  {
+    slug: "dr-arjun-das",
+    title: "Dr. Arjun Das",
+    meta: "Founder & Research Director | Ayurvedic Research and Evidence-Based Care",
+    text: "Research director supporting evidence-based Ayurvedic protocols, clinical quality, and patient education.",
+    image: "/images/founder-arjun-das.png",
+    experience: "12+ Years",
+    patients: "7K+",
+    availability: "Mon, Thu, Sat",
+    languages: ["English", "Malayalam", "Hindi"],
+    credentials: ["Founder & Research Director", "Evidence-based Ayurveda", "Clinical quality systems"],
+    focusAreas: ["Ayurvedic research", "Protocol planning", "Patient education", "Preventive health"],
+    approach: ["Evidence-informed consultation", "Structured treatment protocol", "Outcome tracking", "Clear patient education"],
+    quote: "Modern Ayurvedic care should be measurable, thoughtful, and deeply rooted in classical wisdom.",
+  },
   {
     slug: "dr-krishnakumar-k",
     title: "Dr. Krishnakumar K.",
     meta: "MD (Ayur) | Senior Ayurveda Physician",
     text: "Consultation for chronic conditions, Panchakarma planning, and long-term Ayurveda care journeys.",
+    image: "/images/doctor-portrait.png",
+    experience: "20+ Years",
+    patients: "15K+",
+    availability: "On appointment",
+    languages: ["English", "Malayalam"],
+    credentials: ["MD (Ayur)", "Senior Ayurveda Physician", "Chronic disease consultation"],
+    focusAreas: ["Chronic conditions", "Panchakarma planning", "Pain management", "Long-term Ayurveda care"],
+    approach: ["Clinical assessment", "Root-cause care planning", "Therapy and medicine guidance", "Review-based optimization"],
+    quote: "A careful diagnosis helps every treatment become more precise and meaningful.",
   },
   {
     slug: "dr-sreeja-krishna-s",
     title: "Dr. Sreeja Krishna S.",
     meta: "BAMS, MBA Hospital Management",
     text: "Patient-centred consultations with focus on branch care coordination and follow-up planning.",
+    image: "/images/doctor-portrait.png",
+    experience: "12+ Years",
+    patients: "8K+",
+    availability: "Tue, Thu, Sat",
+    languages: ["English", "Malayalam"],
+    credentials: ["BAMS", "MBA Hospital Management", "Patient-care coordination"],
+    focusAreas: ["Consultation planning", "Follow-up care", "Branch coordination", "Preventive wellness"],
+    approach: ["Patient history review", "Care coordination", "Follow-up scheduling", "Family guidance"],
+    quote: "Good care feels organized, understandable, and available when patients need support.",
   },
   {
     slug: "dr-priyanka-r",
     title: "Dr. Priyanka R.",
     meta: "BAMS, MS (Ayur) | Gynaecology and Obstetrics",
     text: "Specialist support for women's health, fertility, antenatal wellness, and postnatal care.",
+    image: "/images/doctor-portrait.png",
+    experience: "10+ Years",
+    patients: "6K+",
+    availability: "Sun, Mon, Wed, Fri",
+    languages: ["English", "Malayalam"],
+    credentials: ["BAMS", "MS (Ayur)", "Ayurvedic Gynaecology and Obstetrics"],
+    focusAreas: ["Women's health", "Fertility support", "Antenatal wellness", "Postnatal care"],
+    approach: ["Sensitive consultation", "Stage-wise care planning", "Diet and routine support", "Continuity of care"],
+    quote: "Women's healthcare needs trust, patience, and care that respects every stage of life.",
   },
   {
     slug: "dr-rajesh-r",
     title: "Dr. Rajesh R.",
     meta: "BAMS, MD (Ayur) | Panchakarma Specialist",
     text: "Focused consultation for Panchakarma planning, pain management, rejuvenation care, and chronic wellness programmes.",
+    image: "/images/doctor-portrait.png",
+    experience: "14+ Years",
+    patients: "10K+",
+    availability: "On appointment",
+    languages: ["English", "Malayalam", "Hindi"],
+    credentials: ["BAMS", "MD (Ayur)", "Panchakarma Specialist"],
+    focusAreas: ["Panchakarma therapy", "Pain care", "Rejuvenation", "Chronic wellness"],
+    approach: ["Therapy eligibility check", "Purification planning", "Daily monitoring", "Post-therapy rasayana care"],
+    quote: "Classical Panchakarma needs careful timing, preparation, and physician supervision.",
   },
   {
     slug: "dr-anju-s",
     title: "Dr. Anju S.",
     meta: "BAMS | Lifestyle and Preventive Ayurveda",
     text: "Patient guidance for lifestyle disorders, diet correction, preventive wellness, digestion, stress, and follow-up care.",
+    image: "/images/doctor-portrait.png",
+    experience: "8+ Years",
+    patients: "5K+",
+    availability: "Mon, Wed, Fri",
+    languages: ["English", "Malayalam"],
+    credentials: ["BAMS", "Lifestyle Ayurveda", "Preventive wellness care"],
+    focusAreas: ["Lifestyle disorders", "Diet correction", "Digestive wellness", "Stress balance"],
+    approach: ["Habit and diet review", "Practical routine design", "Medicine and therapy support", "Progress tracking"],
+    quote: "Prevention becomes possible when health routines feel realistic and sustainable.",
   },
 ];
 
