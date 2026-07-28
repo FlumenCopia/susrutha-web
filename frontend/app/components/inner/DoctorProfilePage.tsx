@@ -37,6 +37,12 @@ const articleCards = [
 ];
 
 const defaultConditions = ["Spine & Joints", "Neuro Rehab", "Rheumatology", "Preventive Care", "General Medicine"];
+const journeyStages = [
+  { title: "Listen", text: "Symptoms, lifestyle, food habits, sleep, digestion, and medical history are reviewed with care." },
+  { title: "Diagnose", text: "The clinical picture is mapped with Ayurvedic assessment and practical treatment priorities." },
+  { title: "Treat", text: "Therapies, medicines, diet, and daily routines are planned around the patient condition." },
+  { title: "Restore", text: "Progress reviews help refine the plan and support long-term balance after treatment." },
+];
 
 function DoctorIcon({ name }: { name: DoctorIconName }) {
   const common = {
@@ -235,9 +241,9 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
           </p>
         </section>
 
-        <section className="doctor-detail-block">
-          <div className="doctor-detail-title-center">
-            <span />
+          <section className="doctor-detail-block">
+            <div className="doctor-detail-title-center">
+              <span />
             <h2>Signature treatments</h2>
             <span />
           </div>
@@ -265,6 +271,51 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
               <article key={item}>
                 <DoctorIcon name={index === 0 ? "spine" : index === 1 ? "target" : "shield"} />
                 <span>{item}</span>
+              </article>
+            ))}
+            </div>
+          </section>
+
+        <section className="doctor-journey-section">
+          <div className="doctor-creative-head">
+            <span>Healing Journey</span>
+            <h2>A Guided Path from Consultation to Recovery</h2>
+            <p>
+              The care journey is designed to feel clear, personal, and supervised from the first consultation through
+              follow-up.
+            </p>
+          </div>
+          <div className="doctor-journey-grid">
+            {journeyStages.map((item, index) => (
+              <article key={item.title}>
+                <strong>{String(index + 1).padStart(2, "0")}</strong>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="doctor-experience-section">
+          <div className="doctor-experience-copy">
+            <span>Care Experience</span>
+            <h2>What Patients Can Expect</h2>
+            <p>
+              Consultations are structured for clarity, comfort, and continuity. Each recommendation is explained in
+              practical language so patients understand the purpose behind every therapy and lifestyle step.
+            </p>
+          </div>
+          <div className="doctor-experience-grid">
+            {[
+              ["Personalized Plan", "Treatment is adapted to constitution, concern, age, strength, and recovery goals."],
+              ["Therapy Supervision", "Classical therapies are coordinated with review points and clinical guidance."],
+              ["Diet & Routine", "Simple food, sleep, activity, and daily rhythm suggestions support lasting results."],
+              ["Follow-up Support", "Progress checks help adjust the plan after treatment and during recovery."],
+            ].map(([title, text], index) => (
+              <article key={title}>
+                <DoctorIcon name={index === 0 ? "target" : index === 1 ? "medicine" : index === 2 ? "leaf" : "calendar"} />
+                <h3>{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
@@ -326,7 +377,16 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
         <div>
           <span>Ready to begin your healing journey?</span>
           <h2>Book an Appointment with {doctor.title}</h2>
-          <Link href="/appointment">Book Appointment Now</Link>
+          <p>Choose a consultation slot and let our care team guide the right next step for your wellness journey.</p>
+          <div className="doctor-banner-actions">
+            <Link href="/appointment">Book Appointment Now</Link>
+            <Link href="/contact-us">Talk to Care Team</Link>
+          </div>
+          <ul aria-label="Appointment highlights">
+            <li>Personalized guidance</li>
+            <li>Doctor-led care</li>
+            <li>Hospital support</li>
+          </ul>
         </div>
       </section>
     </main>

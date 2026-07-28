@@ -1,11 +1,12 @@
 import { SiteShell } from "../components/common/SiteShell";
-import { InnerPage } from "../components/inner/InnerPage";
-import { basePages } from "../data/architecture";
+import { AllTreatmentsSection } from "../components/inner/AllTreatmentsSection";
+import { TreatmentsBannerSection } from "../components/inner/TreatmentsBannerSection";
 
 export default function TreatmentsPage() {
   return (
     <SiteShell>
-      <InnerPage content={basePages.treatments} />
+      <TreatmentsBannerSection />
+      <AllTreatmentsSection />
     </SiteShell>
   );
 }

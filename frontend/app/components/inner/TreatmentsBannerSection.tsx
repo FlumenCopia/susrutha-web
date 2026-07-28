@@ -1,0 +1,83 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const treatmentCategories = [
+  { label: "All Treatments", icon: "grid", active: true },
+  { label: "Panchakarma", icon: "steam" },
+  { label: "Detox & Cleansing", icon: "leaf" },
+  { label: "Women's Health", icon: "woman" },
+  { label: "Pain Management", icon: "body" },
+  { label: "Wellness", icon: "lotus" },
+  { label: "Lifestyle Disorders", icon: "motion" },
+];
+
+export function TreatmentsBannerSection() {
+  return (
+    <section className="treatment-reference-page" aria-labelledby="treatment-reference-title">
+      <div className="treatment-reference-hero">
+        <div className="treatment-hero-copy">
+          <nav className="treatment-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">&rsaquo;</span>
+            <span>Treatments</span>
+          </nav>
+
+          <h1 id="treatment-reference-title">
+            <span className="treatment-title-line">Ancient Wisdom.</span>
+            <span className="treatment-title-line">
+              <em>Healing</em> for Today.
+            </span>
+          </h1>
+
+          <div className="treatment-hero-divider" aria-hidden="true">
+            <span />
+            <i />
+            <span />
+          </div>
+
+          <p>
+            Explore our authentic Ayurvedic therapies crafted to detoxify,
+            rejuvenate and restore balance to your body, mind and soul.
+          </p>
+
+          <Link className="treatment-hero-cta" href="#treatment-categories">
+            Explore Treatments
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
+
+        <div className="treatment-hero-visual" aria-hidden="true">
+          <Image
+            src="/images/treatment-sirodhara.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 58vw"
+          />
+          <div className="treatment-hero-card">
+            <i />
+            <strong>Rooted in Ayurveda</strong>
+            <span>Focused on You</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="treatment-category-shell" id="treatment-categories">
+        <div className="treatment-category-track" role="list" aria-label="Treatment categories">
+          {treatmentCategories.map((category) => (
+            <button
+              className="treatment-category-pill"
+              data-active={category.active ? "true" : undefined}
+              type="button"
+              role="listitem"
+              key={category.label}
+            >
+              <span className="treatment-category-icon" data-icon={category.icon} aria-hidden="true" />
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

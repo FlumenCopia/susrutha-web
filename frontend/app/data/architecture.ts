@@ -103,32 +103,11 @@ export const completeSitemap: LinkItem[] = [
 export const desktopNavigation: LinkItem[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
-  {
-    label: "Treatments",
-    href: "/treatments",
-    children: completeSitemap[2].children,
-  },
-  { label: "Specialities", href: "/#specialities" },
-  {
-    label: "Doctors",
-    href: "/doctors",
-    children: completeSitemap[3].children,
-  },
-  {
-    label: "Pages",
-    href: "#",
-    children: [
-      { label: "Departments", href: "/departments" },
-      { label: "Services", href: "/services" },
-      { label: "Facilities", href: "/facilities" },
-      { label: "Patient Care", href: "/patient-care" },
-      { label: "Testimonials", href: "/testimonials" },
-      { label: "Gallery", href: "/gallery" },
-      { label: "Blogs", href: "/blogs" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Contact", href: "/contact-us" },
-    ],
-  },
+  { label: "Treatments", href: "/treatments" },
+  { label: "Doctors", href: "/doctors" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 export const footerNavigation = [
@@ -172,6 +151,60 @@ export const treatments = [
     title: "Panchakarma",
     meta: "Detoxification and rejuvenation",
     text: "A physician-guided cleansing programme for restoring balance, improving digestion, and supporting long-term wellness.",
+  },
+  {
+    slug: "abhyangam",
+    title: "Abhyangam",
+    meta: "60 - 90 mins",
+    text: "A therapeutic full-body oil massage for relaxation, nourishment, circulation, and body-mind balance.",
+  },
+  {
+    slug: "shirodhara",
+    title: "Shirodhara",
+    meta: "30 - 45 mins",
+    text: "A gentle stream of warm medicated oil used in physician-guided care for stress, sleep, and nervous system calm.",
+  },
+  {
+    slug: "swedana",
+    title: "Swedana",
+    meta: "20 - 30 mins",
+    text: "Herbal steam therapy used to support detoxification, circulation, stiffness relief, and preparatory Ayurvedic care.",
+  },
+  {
+    slug: "nasya",
+    title: "Nasya",
+    meta: "20 - 30 mins",
+    text: "Nasal therapy used in guided care for sinus clearance, head and neck balance, and respiratory comfort.",
+  },
+  {
+    slug: "pizhichil",
+    title: "Pizhichil",
+    meta: "60 - 90 mins",
+    text: "Warm herbal oil bath therapy used to support pain relief, nourishment, relaxation, and rejuvenation.",
+  },
+  {
+    slug: "udvarthanam",
+    title: "Udvarthanam",
+    meta: "45 - 60 mins",
+    text: "A herbal powder therapy used to support metabolism, lymphatic flow, fatigue reduction, and body lightness.",
+  },
+  {
+    slug: "basti",
+    title: "Basti",
+    meta: "30 - 45 mins",
+    text: "A classical medicated enema therapy used in physician-directed Panchakarma care to balance Vata and cleanse the colon.",
+  },
+  {
+    slug: "kati-basti",
+    title: "Kati Basti",
+    meta: "30 - 45 mins",
+    text: "Localized warm oil therapy for lower back pain, stiffness, spine comfort, and mobility support.",
+  },
+  {
+    slug: "garshanam",
+    title: "Garshanam",
+    meta: "30 - 45 mins",
+    text: "Silk glove massage used to support lymphatic flow, exfoliation, skin health, and energizing body care.",
   },
   {
     slug: "womens-health",

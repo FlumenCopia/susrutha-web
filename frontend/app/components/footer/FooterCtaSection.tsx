@@ -21,7 +21,7 @@ function PhoneIcon() {
 export function FooterCtaSection() {
   return (
     <section className="footer-cta-section" aria-label="Book your consultation">
-      <div className="footer-cta-image" aria-hidden="true">
+      {/* <div className="footer-cta-image" aria-hidden="true">
         <Image
           src="/images/faq-ayurveda-still-life.png"
           alt=""
@@ -29,15 +29,15 @@ export function FooterCtaSection() {
           height={360}
           sizes="(max-width: 900px) 100vw, 330px"
         />
-      </div>
+      </div> */}
 
-      <div className="footer-cta-copy">
+      {/* <div className="footer-cta-copy">
         <span>Ready to start your healing journey?</span>
         <h2>Book Your Consultation Today</h2>
         <p>Take the first step towards a healthier, happier you.</p>
-      </div>
+      </div> */}
 
-      <div className="footer-cta-actions">
+      {/* <div className="footer-cta-actions">
         <Link className="footer-cta-button footer-cta-button-primary" href="/appointment">
           Book Appointment
         </Link>
@@ -52,7 +52,7 @@ export function FooterCtaSection() {
             <strong>+91 94470 03191</strong>
           </span>
         </a>
-      </div>
+      </div> */}
     </section>
   );
 }
