@@ -7,6 +7,7 @@ type TreatmentDetailReferencePageProps = {
     title: string;
     meta: string;
     text: string;
+    image?: string;
   };
 };
 
@@ -78,6 +79,7 @@ function slugLabel(slug: string) {
 export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailReferencePageProps) {
   const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Detox" : treatment.meta;
   const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.meta;
+  const bannerImage = treatment.image ?? "/images/treatment-panchakarma.png";
 
   return (
     <div className="treatment-detail-reference">
@@ -131,7 +133,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         </div>
 
         <div className="treatment-detail-visual" aria-hidden="true">
-          <Image src="/images/treatment-panchakarma.png" alt="" fill priority sizes="(max-width: 900px) 100vw, 58vw" />
+          <Image src={bannerImage} alt="" fill priority sizes="(max-width: 900px) 100vw, 58vw" />
           <div className="treatment-detail-floating-card">
             <i />
             <b>Rooted in Ayurveda</b>
