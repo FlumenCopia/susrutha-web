@@ -20887,231 +20887,423 @@ body:has(.treatment-detail-reference) main {
   }
 }
 
-/* Home premium about feature section */
-.home-page .home-about-feature-section {
+/* Home Ayurveda village reference theme */
+.home-page .ayurveda-village-section {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  grid-template-columns: minmax(320px, 0.88fr) minmax(420px, 1fr) minmax(360px, 1.1fr);
+  min-height: clamp(430px, 38vw, 570px);
+  border: 0;
+  background: var(--color-cream);
+}
+
+.home-page .village-copy-panel,
+.home-page .village-program-panel {
+  padding: clamp(54px, 6vw, 104px) clamp(40px, 5vw, 86px);
+}
+
+.home-page .village-copy-panel {
+  background:
+    radial-gradient(circle at 8% 42%, rgba(247, 165, 26, 0.08), transparent 13%),
+    linear-gradient(135deg, #fffaf2, var(--color-cream));
+}
+
+.home-page .village-eyebrow,
+.home-page .village-program-eyebrow {
+  position: relative;
+  margin-bottom: clamp(42px, 4vw, 64px);
+  color: var(--color-gold);
+  font-size: clamp(10px, 0.72vw, 13px);
+  letter-spacing: 0.06em;
+}
+
+.home-page .village-eyebrow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -22px;
+  width: 62px;
+  height: 1px;
+  background: rgba(200, 137, 34, 0.62);
+}
+
+.home-page .village-copy-panel h2 {
+  max-width: 520px;
+  color: #282420;
+  font-size: clamp(27px, 2.35vw, 42px);
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.home-page .village-copy-panel p {
+  max-width: 390px;
+  margin-top: clamp(28px, 3vw, 42px);
+  color: #5c5853;
+  font-size: clamp(13px, 0.9vw, 16px);
+  font-weight: 500;
+  line-height: 1.62;
+}
+
+.home-page .village-link,
+.home-page .village-program-link {
+  gap: clamp(20px, 2vw, 32px);
+  margin-top: clamp(46px, 5vw, 78px);
+  color: var(--color-deep-red);
+  font-size: clamp(11px, 0.78vw, 14px);
+  letter-spacing: 0.07em;
+}
+
+.home-page .village-link span,
+.home-page .village-program-link span {
+  font-size: clamp(20px, 1.75vw, 28px);
+}
+
+.home-page .village-image-panel {
+  min-height: clamp(430px, 38vw, 570px);
+  background: #dcc4a0;
+}
+
+.home-page .village-image-panel img {
+  object-position: center;
+}
+
+.home-page .village-program-panel {
+  background:
+    radial-gradient(circle at 68% 16%, rgba(255, 255, 255, 0.08), transparent 22%),
+    radial-gradient(circle at 32% 84%, rgba(159, 19, 27, 0.42), transparent 30%),
+    linear-gradient(135deg, var(--color-deep-red), var(--color-red) 58%, #7d0e15);
+}
+
+.home-page .village-program-panel::before,
+.home-page .village-program-panel::after {
+  border-color: rgba(247, 165, 26, 0.2);
+}
+
+.home-page .village-program-panel::after {
+  right: clamp(24px, 4vw, 76px);
+  bottom: clamp(12px, 3vw, 42px);
+  width: clamp(120px, 15vw, 230px);
+  height: clamp(190px, 28vw, 370px);
+  opacity: 0.72;
+}
+
+.home-page .village-program-panel::before {
+  right: clamp(78px, 8vw, 142px);
+  bottom: clamp(76px, 8vw, 132px);
+  width: clamp(70px, 9vw, 132px);
+  height: clamp(110px, 16vw, 210px);
+  opacity: 0.64;
+}
+
+.home-page .village-program-eyebrow {
+  margin-bottom: clamp(40px, 3.6vw, 56px);
+  color: rgba(247, 165, 26, 0.86);
+}
+
+.home-page .village-program-eyebrow::after {
+  bottom: -20px;
+  width: 68px;
+  background: rgba(247, 165, 26, 0.48);
+}
+
+.home-page .village-program-panel h3 {
+  max-width: 430px;
+  font-size: clamp(25px, 2.15vw, 38px);
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.home-page .village-program-panel ul {
+  gap: clamp(15px, 1.5vw, 22px);
+  margin-top: clamp(34px, 3.4vw, 52px);
+}
+
+.home-page .village-program-panel li {
+  gap: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(13px, 0.96vw, 17px);
+  font-weight: 500;
+}
+
+.home-page .village-program-panel li::before {
+  color: var(--color-sun);
+  font-size: 15px;
+}
+
+.home-page .village-program-link {
+  color: var(--color-white);
+}
+
+.home-page .village-program-link:hover {
+  color: #ffdca2;
+}
+
+@media (max-width: 1100px) {
+  .home-page .ayurveda-village-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-page .village-copy-panel {
+    grid-column: 1 / -1;
+  }
+
+  .home-page .village-copy-panel h2,
+  .home-page .village-copy-panel p {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-page .ayurveda-village-section {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .village-copy-panel,
+  .home-page .village-program-panel {
+    padding: 46px 22px;
+  }
+
+  .home-page .village-image-panel {
+    min-height: 330px;
+  }
+
+  .home-page .village-copy-panel h2,
+  .home-page .village-program-panel h3 {
+    font-size: clamp(25px, 7vw, 34px);
+  }
+
+  .home-page .village-copy-panel p,
+  .home-page .village-program-panel li {
+    font-size: 13px;
+  }
+
+  .home-page .village-link,
+  .home-page .village-program-link {
+    margin-top: 34px;
+    font-size: 11px;
+  }
+}
+
+/* Home wellness expertise reference section */
+.home-page .home-wellness-expertise {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(360px, 0.9fr) minmax(500px, 1.08fr);
-  gap: clamp(42px, 4.4vw, 82px);
+  grid-template-columns: minmax(340px, 0.86fr) minmax(460px, 1fr);
+  align-items: center;
+  gap: clamp(34px, 4vw, 72px);
   width: 100vw;
   margin: 0 calc(50% - 50vw);
-  padding: clamp(68px, 6.2vw, 104px) clamp(28px, 4.5vw, 84px);
+  padding: clamp(44px, 4.8vw, 76px) clamp(24px, 4.2vw, 76px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 91% 6%, rgba(214, 31, 43, 0.07), transparent 17%),
-    radial-gradient(circle at 97% 88%, rgba(247, 165, 26, 0.12), transparent 18%),
-    linear-gradient(180deg, var(--color-cream), #ffffff 58%, var(--color-ivory));
-  color: var(--color-ink);
+    radial-gradient(circle at 94% 6%, rgba(168, 117, 52, 0.08), transparent 18%),
+    radial-gradient(circle at 96% 86%, rgba(168, 117, 52, 0.08), transparent 17%),
+    #fffdf9;
+  color: #0b2b21;
 }
 
-.home-page .home-about-feature-image-wrap {
+.home-page .home-wellness-visual {
   position: relative;
   z-index: 2;
-  min-height: clamp(470px, 48vw, 700px);
+  min-height: clamp(360px, 40vw, 560px);
 }
 
-.home-page .home-about-feature-outline {
-  position: absolute;
-  inset: -22px 10% 7% -2%;
-  border: 1px solid rgba(214, 31, 43, 0.34);
-  border-radius: 120px 160px 54% 96px;
-  transform: rotate(7deg);
+.home-page .home-wellness-outline {
+  display: none;
 }
 
-.home-page .home-about-feature-image {
+.home-page .home-wellness-photo {
   position: absolute;
-  inset: 0 0 5% 4%;
+  inset: 0 0 4% 3%;
   overflow: hidden;
-  border-radius: 112px 190px 54% 112px;
-  background: var(--color-ivory);
-  box-shadow: 0 32px 80px rgba(159, 19, 27, 0.13);
+  border-radius: 8px;
+  background: #e6ddcf;
+  box-shadow: 0 24px 58px rgba(49, 36, 22, 0.13);
 }
 
-.home-page .home-about-feature-image img {
+.home-page .home-wellness-photo img {
   object-fit: cover;
   object-position: center;
-  transform: scale(1.02);
   transition: transform 800ms ease;
 }
 
-.home-page .home-about-feature-section:hover .home-about-feature-image img {
-  transform: scale(1.06);
+.home-page .home-wellness-expertise:hover .home-wellness-photo img {
+  transform: scale(1.045);
 }
 
-.home-page .home-about-feature-badge {
+.home-page .home-wellness-badge {
   position: absolute;
   left: 0;
   bottom: 0;
   z-index: 3;
   display: grid;
-  gap: 12px;
-  width: clamp(178px, 18vw, 260px);
-  padding: clamp(24px, 2.2vw, 36px);
+  gap: 9px;
+  width: clamp(142px, 14vw, 190px);
+  padding: clamp(18px, 1.7vw, 24px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
-  background: linear-gradient(135deg, var(--color-deep-red), var(--color-red));
+  background: linear-gradient(135deg, #082b20, #0c3a2b);
   color: #ffffff;
-  box-shadow: 0 24px 54px rgba(159, 19, 27, 0.24);
+  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.22);
 }
 
-.home-page .home-about-feature-badge strong {
-  color: #ffd27c;
+.home-page .home-wellness-badge strong {
+  color: #c6944b;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: clamp(42px, 4.4vw, 70px);
+  font-size: clamp(34px, 3.2vw, 48px);
   font-weight: 500;
   line-height: 0.95;
 }
 
-.home-page .home-about-feature-badge span {
+.home-page .home-wellness-badge span {
   color: rgba(255, 255, 255, 0.94);
-  font-size: clamp(16px, 1.25vw, 21px);
-  line-height: 1.5;
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.42;
 }
 
-.home-page .home-about-feature-badge i,
-.home-page .home-about-feature-badge i::before,
-.home-page .home-about-feature-badge i::after {
+.home-page .home-wellness-badge i,
+.home-page .home-wellness-badge i::before,
+.home-page .home-wellness-badge i::after {
   position: absolute;
-  border: 1px solid rgba(255, 210, 124, 0.55);
+  border: 1px solid rgba(198, 148, 75, 0.55);
   border-radius: 999px 0 999px 0;
 }
 
-.home-page .home-about-feature-badge i {
-  right: 22px;
-  bottom: 28px;
-  width: 44px;
-  height: 86px;
+.home-page .home-wellness-badge i {
+  right: 16px;
+  bottom: 18px;
+  width: 30px;
+  height: 58px;
   transform: rotate(-22deg);
 }
 
-.home-page .home-about-feature-badge i::before,
-.home-page .home-about-feature-badge i::after {
+.home-page .home-wellness-badge i::before,
+.home-page .home-wellness-badge i::after {
   content: "";
-  width: 34px;
-  height: 64px;
+  width: 22px;
+  height: 42px;
 }
 
-.home-page .home-about-feature-badge i::before {
+.home-page .home-wellness-badge i::before {
   right: 24px;
   bottom: 10px;
   transform: rotate(-24deg);
 }
 
-.home-page .home-about-feature-badge i::after {
+.home-page .home-wellness-badge i::after {
   left: 20px;
   bottom: -18px;
   transform: rotate(30deg);
 }
 
-.home-page .home-about-feature-content {
+.home-page .home-wellness-content {
   position: relative;
   z-index: 2;
   align-self: center;
-  max-width: 760px;
-  padding-top: clamp(8px, 2vw, 32px);
+  max-width: 620px;
 }
 
-.home-page .home-about-feature-eyebrow {
+.home-page .home-wellness-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  color: var(--color-red);
-  font-size: 13px;
+  gap: 12px;
+  color: #966523;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.home-page .home-about-feature-eyebrow i,
-.home-page .home-about-feature-divider i {
+.home-page .home-wellness-eyebrow i,
+.home-page .home-wellness-divider i {
   position: relative;
   display: inline-block;
-  width: 24px;
-  height: 22px;
+  width: 20px;
+  height: 18px;
 }
 
-.home-page .home-about-feature-eyebrow i::before,
-.home-page .home-about-feature-eyebrow i::after,
-.home-page .home-about-feature-divider i::before,
-.home-page .home-about-feature-divider i::after {
+.home-page .home-wellness-eyebrow i::before,
+.home-page .home-wellness-eyebrow i::after,
+.home-page .home-wellness-divider i::before,
+.home-page .home-wellness-divider i::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 12px;
-  height: 18px;
-  border: 2px solid var(--color-red);
+  width: 10px;
+  height: 15px;
+  border: 1.6px solid #a87534;
   border-radius: 999px 999px 0 999px;
   transform: translate(-50%, -50%) rotate(-34deg);
 }
 
-.home-page .home-about-feature-eyebrow i::after,
-.home-page .home-about-feature-divider i::after {
+.home-page .home-wellness-eyebrow i::after,
+.home-page .home-wellness-divider i::after {
   transform: translate(-50%, -50%) scaleX(-1) rotate(-34deg);
 }
 
-.home-page .home-about-feature-content h2 {
-  max-width: 650px;
-  margin: clamp(22px, 2.2vw, 34px) 0 0;
-  color: var(--color-ink);
+.home-page .home-wellness-content h2 {
+  max-width: 540px;
+  margin: clamp(16px, 1.7vw, 26px) 0 0;
+  color: #10261f;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: clamp(42px, 4.15vw, 68px);
+  font-size: clamp(32px, 3.15vw, 52px);
   font-weight: 500;
   line-height: 1.04;
 }
 
-.home-page .home-about-feature-content h2 em {
-  color: var(--color-red);
+.home-page .home-wellness-content h2 em {
+  color: #a87534;
   font-style: italic;
   font-weight: 400;
 }
 
-.home-page .home-about-feature-divider {
+.home-page .home-wellness-divider {
   display: flex;
   align-items: center;
-  gap: 17px;
-  margin-top: clamp(22px, 2.1vw, 32px);
+  gap: 14px;
+  margin-top: clamp(16px, 1.8vw, 24px);
 }
 
-.home-page .home-about-feature-divider span {
-  width: clamp(52px, 6vw, 94px);
+.home-page .home-wellness-divider span {
+  width: clamp(42px, 5vw, 82px);
   height: 1px;
-  background: var(--color-red);
+  background: #a87534;
   opacity: 0.64;
 }
 
-.home-page .home-about-feature-content > p {
-  max-width: 590px;
-  margin: clamp(22px, 2.1vw, 32px) 0 0;
-  color: var(--color-ink) !important;
-  font-size: clamp(15px, 1.05vw, 19px) !important;
-  line-height: 1.72 !important;
+.home-page .home-wellness-content > p {
+  max-width: 510px;
+  margin: clamp(16px, 1.6vw, 24px) 0 0;
+  color: #363b38 !important;
+  font-size: clamp(13px, 0.9vw, 15px) !important;
+  line-height: 1.62 !important;
 }
 
-.home-page .home-about-feature-stats {
+.home-page .home-wellness-metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: clamp(34px, 3.5vw, 56px);
+  margin-top: clamp(24px, 2.8vw, 40px);
 }
 
-.home-page .home-about-feature-stats article {
+.home-page .home-wellness-metrics article {
   display: grid;
   justify-items: center;
   min-width: 0;
-  padding: 0 clamp(10px, 1.25vw, 22px);
+  padding: 0 clamp(8px, 1.1vw, 18px);
   text-align: center;
 }
 
-.home-page .home-about-feature-stats article + article {
-  border-left: 1px solid rgba(214, 31, 43, 0.22);
+.home-page .home-wellness-metrics article + article {
+  border-left: 1px solid rgba(168, 117, 52, 0.34);
 }
 
-.home-page .home-about-feature-stats svg {
-  width: clamp(30px, 2.55vw, 42px);
-  height: clamp(30px, 2.55vw, 42px);
-  color: var(--color-red);
+.home-page .home-wellness-metrics svg {
+  width: clamp(24px, 2.2vw, 34px);
+  height: clamp(24px, 2.2vw, 34px);
+  color: #a87534;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -21119,242 +21311,248 @@ body:has(.treatment-detail-reference) main {
   stroke-linejoin: round;
 }
 
-.home-page .home-about-feature-stats strong {
-  margin-top: 15px;
-  color: var(--color-deep-red);
+.home-page .home-wellness-metrics strong {
+  margin-top: 10px;
+  color: #8a5d20;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: clamp(32px, 2.75vw, 48px);
+  font-size: clamp(25px, 2.2vw, 36px);
   font-weight: 500;
   line-height: 0.96;
 }
 
-.home-page .home-about-feature-stats span {
-  max-width: 124px;
-  margin-top: 11px;
-  color: var(--color-ink);
-  font-size: clamp(13px, 0.95vw, 16px);
+.home-page .home-wellness-metrics span {
+  max-width: 94px;
+  margin-top: 7px;
+  color: #202826;
+  font-size: clamp(11px, 0.78vw, 13px);
   line-height: 1.42;
 }
 
-.home-page .home-about-feature-link {
+.home-page .home-wellness-link {
   display: inline-flex;
   align-items: center;
-  gap: 20px;
-  min-height: 58px;
-  margin-top: clamp(34px, 3.4vw, 54px);
-  padding: 0 8px 0 30px;
+  gap: 16px;
+  min-height: 46px;
+  margin-top: clamp(24px, 2.8vw, 38px);
+  padding: 0 6px 0 22px;
   border-radius: 999px;
-  background: var(--color-red);
+  background: #082b20;
   color: #ffffff;
-  font-size: clamp(14px, 0.95vw, 16px);
+  font-size: clamp(12px, 0.82vw, 14px);
   font-weight: 600;
-  box-shadow: 0 18px 36px rgba(214, 31, 43, 0.22);
+  box-shadow: 0 18px 36px rgba(8, 43, 32, 0.22);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.home-page .home-about-feature-link span {
+.home-page .home-wellness-link span {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   place-items: center;
   border-radius: 50%;
-  background: var(--color-sun);
+  background: #bf873d;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1;
   transition: transform 180ms ease;
 }
 
-.home-page .home-about-feature-link:hover {
+.home-page .home-wellness-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 42px rgba(214, 31, 43, 0.28);
+  box-shadow: 0 22px 42px rgba(8, 43, 32, 0.26);
 }
 
-.home-page .home-about-feature-link:hover span {
+.home-page .home-wellness-link:hover span {
   transform: translateX(4px);
 }
 
-.home-page .home-about-feature-botanical,
-.home-page .home-about-feature-mortar {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.3;
+.home-page .home-wellness-branch,
+.home-page .home-wellness-mortar {
+  display: none;
 }
 
-.home-page .home-about-feature-botanical {
+.home-page .home-wellness-branch {
   right: clamp(-34px, 1vw, 34px);
   top: clamp(86px, 8vw, 150px);
   width: clamp(180px, 20vw, 350px);
   height: clamp(420px, 38vw, 650px);
 }
 
-.home-page .home-about-feature-botanical::before {
+.home-page .home-wellness-branch::before {
   content: "";
   position: absolute;
   inset: 8% 45% 0 auto;
   width: 1px;
-  background: var(--color-red);
+  background: #a87534;
   transform: rotate(18deg);
   transform-origin: bottom;
 }
 
-.home-page .home-about-feature-botanical::after {
+.home-page .home-wellness-branch::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 53% 12%, transparent 42%, var(--color-red) 43%, var(--color-red) 44%, transparent 45%),
-    radial-gradient(ellipse at 75% 28%, transparent 42%, var(--color-red) 43%, var(--color-red) 44%, transparent 45%),
-    radial-gradient(ellipse at 38% 42%, transparent 42%, var(--color-red) 43%, var(--color-red) 44%, transparent 45%),
-    radial-gradient(ellipse at 82% 58%, transparent 42%, var(--color-red) 43%, var(--color-red) 44%, transparent 45%);
+    radial-gradient(ellipse at 53% 12%, transparent 42%, #a87534 43%, #a87534 44%, transparent 45%),
+    radial-gradient(ellipse at 75% 28%, transparent 42%, #a87534 43%, #a87534 44%, transparent 45%),
+    radial-gradient(ellipse at 38% 42%, transparent 42%, #a87534 43%, #a87534 44%, transparent 45%),
+    radial-gradient(ellipse at 82% 58%, transparent 42%, #a87534 43%, #a87534 44%, transparent 45%);
 }
 
-.home-page .home-about-feature-mortar {
+.home-page .home-wellness-mortar {
   right: clamp(6px, 5vw, 100px);
   bottom: clamp(22px, 4vw, 70px);
   width: clamp(150px, 16vw, 250px);
   height: clamp(120px, 13vw, 200px);
-  border-bottom: 2px solid rgba(159, 19, 27, 0.32);
+  border-bottom: 2px solid rgba(68, 50, 32, 0.5);
   border-radius: 0 0 50% 50%;
 }
 
-.home-page .home-about-feature-mortar::before {
+.home-page .home-wellness-mortar::before {
   content: "";
   position: absolute;
   left: 14%;
   right: 14%;
   bottom: 18%;
   height: 42%;
-  border: 2px solid rgba(159, 19, 27, 0.28);
+  border: 2px solid rgba(68, 50, 32, 0.42);
   border-top-width: 8px;
   border-radius: 50%;
 }
 
-.home-page .home-about-feature-mortar::after {
+.home-page .home-wellness-mortar::after {
   content: "";
   position: absolute;
   right: 12%;
   top: 6%;
   width: 26%;
   height: 60%;
-  border: 2px solid rgba(159, 19, 27, 0.28);
+  border: 2px solid rgba(68, 50, 32, 0.42);
   border-radius: 999px;
   transform: rotate(28deg);
 }
 
 @media (max-width: 1180px) {
-  .home-page .home-about-feature-section {
-    grid-template-columns: minmax(320px, 0.82fr) minmax(430px, 1fr);
-    gap: clamp(34px, 4vw, 62px);
-    padding-inline: clamp(22px, 3vw, 42px);
+  .home-page .home-wellness-expertise {
+    grid-template-columns: minmax(300px, 0.82fr) minmax(390px, 1fr);
+    gap: clamp(28px, 3.6vw, 48px);
+    padding-inline: clamp(20px, 3.2vw, 42px);
   }
 
-  .home-page .home-about-feature-stats {
+  .home-page .home-wellness-content h2 {
+    font-size: clamp(32px, 3.7vw, 48px);
+  }
+
+  .home-page .home-wellness-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 0;
+    gap: 20px 0;
   }
 
-  .home-page .home-about-feature-stats article:nth-child(odd) {
+  .home-page .home-wellness-metrics article:nth-child(odd) {
     border-left: 0;
   }
 }
 
 @media (max-width: 900px) {
-  .home-page .home-about-feature-section {
+  .home-page .home-wellness-expertise {
     grid-template-columns: 1fr;
-    padding-block: 64px 76px;
+    padding: 44px clamp(18px, 5vw, 38px) 56px;
   }
 
-  .home-page .home-about-feature-image-wrap {
-    min-height: min(86vw, 660px);
-    width: min(100%, 680px);
+  .home-page .home-wellness-visual {
+    min-height: min(66vw, 440px);
+    width: min(100%, 560px);
     margin: 0 auto;
   }
 
-  .home-page .home-about-feature-content {
+  .home-page .home-wellness-content {
     max-width: 720px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .home-page .home-about-feature-eyebrow,
-  .home-page .home-about-feature-divider {
+  .home-page .home-wellness-eyebrow,
+  .home-page .home-wellness-divider {
     justify-content: center;
   }
 
-  .home-page .home-about-feature-content > p {
+  .home-page .home-wellness-content > p {
     margin-inline: auto;
   }
 
-  .home-page .home-about-feature-botanical,
-  .home-page .home-about-feature-mortar {
-    opacity: 0.15;
+  .home-page .home-wellness-branch,
+  .home-page .home-wellness-mortar {
+    opacity: 0.14;
   }
 }
 
 @media (max-width: 620px) {
-  .home-page .home-about-feature-section {
-    padding: 52px 16px 66px;
+  .home-page .home-wellness-expertise {
+    padding: 34px 14px 46px;
   }
 
-  .home-page .home-about-feature-image-wrap {
-    min-height: 470px;
+  .home-page .home-wellness-visual {
+    min-height: 300px;
   }
 
-  .home-page .home-about-feature-outline {
-    inset: -12px 8% 12% 0;
-    border-radius: 78px 100px 46% 78px;
+  .home-page .home-wellness-outline {
+    display: none;
   }
 
-  .home-page .home-about-feature-image {
+  .home-page .home-wellness-photo {
     inset: 0 0 9% 0;
-    border-radius: 78px 116px 46% 78px;
+    border-radius: 8px;
   }
 
-  .home-page .home-about-feature-badge {
-    width: min(230px, 68vw);
-    padding: 22px;
-    border-radius: 18px;
+  .home-page .home-wellness-badge {
+    width: min(156px, 58vw);
+    padding: 16px;
+    border-radius: 12px;
   }
 
-  .home-page .home-about-feature-content h2 {
-    font-size: clamp(34px, 9.6vw, 44px);
+  .home-page .home-wellness-content h2 {
+    font-size: clamp(28px, 7.6vw, 36px);
   }
 
-  .home-page .home-about-feature-stats {
+  .home-page .home-wellness-content > p {
+    font-size: 12px !important;
+  }
+
+  .home-page .home-wellness-metrics {
     grid-template-columns: 1fr 1fr;
-    margin-top: 30px;
+    margin-top: 24px;
   }
 
-  .home-page .home-about-feature-stats article {
-    padding: 18px 10px;
+  .home-page .home-wellness-metrics article {
+    padding: 14px 10px;
     border-left: 0 !important;
   }
 
-  .home-page .home-about-feature-stats article:nth-child(even) {
-    border-left: 1px solid rgba(214, 31, 43, 0.22) !important;
+  .home-page .home-wellness-metrics article:nth-child(even) {
+    border-left: 1px solid rgba(168, 117, 52, 0.28) !important;
   }
 
-  .home-page .home-about-feature-stats article:nth-child(n + 3) {
-    border-top: 1px solid rgba(214, 31, 43, 0.18);
+  .home-page .home-wellness-metrics article:nth-child(n + 3) {
+    border-top: 1px solid rgba(168, 117, 52, 0.22);
   }
 
-  .home-page .home-about-feature-link {
+  .home-page .home-wellness-link {
     width: 100%;
     justify-content: space-between;
-    min-height: 54px;
-    margin-top: 28px;
-    padding-left: 22px;
+    min-height: 46px;
+    margin-top: 24px;
+    padding-left: 20px;
   }
 
-  .home-page .home-about-feature-link span {
-    width: 40px;
-    height: 40px;
+  .home-page .home-wellness-link span {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
   }
 
-  .home-page .home-about-feature-botanical,
-  .home-page .home-about-feature-mortar {
+  .home-page .home-wellness-branch,
+  .home-page .home-wellness-mortar {
     display: none;
   }
 }
+
