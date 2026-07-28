@@ -14,10 +14,10 @@ export function AyurvedaVillageSection() {
     <section className="ayurveda-village-section" aria-labelledby="ayurveda-village-title">
       <div className="village-copy-panel">
         <span className="village-eyebrow">Ayurveda Village Experience</span>
-        <h2 id="ayurveda-village-title">
+        {/* <h2 id="ayurveda-village-title">
           A serene environment designed for healing, reflection and renewal.
-        </h2>
-        <p>Experience the perfect blend of nature, tradition and personalized care.</p>
+        </h2> */}
+        <p>Our most exclusive offer for our guest, is the Susrutha Ayurveda Gramam. Located 20 kilometers away from Trivandrum International Airport, Susrutha Ayurveda Gramam is a specially designed ayurvedic villege, catering to the need of the guests, who are looking for an escape from busy routines. Four Ergonomically Designed Cottage, built in tune with Traditional Kerala Architechture, are furnished luxuriously with all amenities, including private treatment room for individual cottage, where one can enjoy the ayurvedic treatments in total privacy.</p>
         <Link className="village-link" href="/branches/ayurveda-village">
           Explore Ayurveda Village
           <span aria-hidden="true">&rarr;</span>
