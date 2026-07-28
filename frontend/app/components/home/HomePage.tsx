@@ -1,13 +1,13 @@
 import { HeroBanner } from "../hero-banner/HeroBanner";
-import { AboutPreviewSection } from "./AboutPreviewSection";
 import { CounterSection } from "./CounterSection";
+import { HomeAboutFeatureSection } from "./HomeAboutFeatureSection";
 import { TreatmentsShowcaseSection } from "./TreatmentsShowcaseSection";
 
 export function HomePage() {
   return (
     <div className="home-page">
       <HeroBanner />
-      <AboutPreviewSection />
+      <HomeAboutFeatureSection />
       <TreatmentsShowcaseSection />
       <CounterSection />
       {/* <DoctorsExpertSection /> */}
