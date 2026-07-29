@@ -1,5 +1,4 @@
 import { Footer } from "../footer/Footer";
-import { FooterCtaSection } from "../footer/FooterCtaSection";
 import { Navbar } from "../navbar/Navbar";
 
 type SiteShellProps = {
@@ -11,7 +10,6 @@ export function SiteShell({ children }: SiteShellProps) {
     <>
       <Navbar />
       <main>{children}</main>
-      <FooterCtaSection />
       <Footer />
     </>
   );
