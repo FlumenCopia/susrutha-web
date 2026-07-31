@@ -8,7 +8,7 @@ const founders = [
     name: "Dr. Nikhil Sharma",
     role: "Founder & Chief Physician",
     copy: "18+ years of experience in Panchakarma and holistic healing.",
-    image: "/images/founder-nikhil-sharma.png",
+    image: "/images/founder-nikhil-sharma.webp",
     icon: "leaf",
     href: "/doctors/dr-nikhil-sharma",
   },
@@ -16,7 +16,7 @@ const founders = [
     name: "Dr. Meera Iyer",
     role: "Founder & Wellness Director",
     copy: "Specialist in women's health, nutrition and preventive care.",
-    image: "/images/founder-meera-iyer.png",
+    image: "/images/founder-meera-iyer.webp",
     icon: "lotus",
     href: "/doctors/dr-meera-iyer",
   },
@@ -24,7 +24,7 @@ const founders = [
     name: "Dr. Arjun Das",
     role: "Founder & Research Director",
     copy: "Passionate about Ayurvedic research and evidence-based practices.",
-    image: "/images/founder-arjun-das.png",
+    image: "/images/founder-arjun-das.webp",
     icon: "bowl",
     href: "/doctors/dr-arjun-das",
   },
@@ -91,7 +91,7 @@ export function AboutFoundersSection() {
     <section className="about-founders-section" aria-labelledby="about-founders-title">
       <div className="about-founders-still" aria-hidden="true">
         <Image
-          src="/images/about-purpose-still-life.png"
+          src="/images/about-purpose-still-life.webp"
           alt=""
           width={620}
           height={390}

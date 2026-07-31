@@ -49,7 +49,7 @@ export function AboutPreviewSection() {
         <div className="about-susrutha-image-wrap">
           <div className="about-susrutha-image">
             <Image
-              src="/images/about-susrutha-wellness.png"
+              src="/images/about-susrutha-wellness.webp"
               alt="Warm Ayurvedic wellness courtyard at Susrutha"
               fill
               sizes="(max-width: 900px) 100vw, 52vw"
@@ -83,7 +83,7 @@ export function AboutPreviewSection() {
         </div>
 
         <div className="about-values-still" aria-hidden="true">
-          <Image src="/images/home-hero-reference.png" alt="" fill sizes="360px" />
+          <Image src="/images/home-hero-reference.webp" alt="" fill sizes="360px" />
         </div>
       </div>
     </section>

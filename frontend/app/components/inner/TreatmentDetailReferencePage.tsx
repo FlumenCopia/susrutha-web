@@ -15,25 +15,25 @@ const benefitCards = [
   {
     title: "Detoxifies Body",
     text: "Eliminates toxins and impurities.",
-    image: "/images/treatment-herbal-medicine.png",
+    image: "/images/treatment-herbal-medicine.webp",
     icon: "lotus",
   },
   {
     title: "Balances Doshas",
     text: "Restores harmony of Vata, Pitta and Kapha.",
-    image: "/images/treatment-sirodhara.png",
+    image: "/images/treatment-sirodhara.webp",
     icon: "body",
   },
   {
     title: "Improves Immunity",
     text: "Strengthens natural defenses.",
-    image: "/images/faq-ayurveda-still-life.png",
+    image: "/images/faq-ayurveda-still-life.webp",
     icon: "leaf",
   },
   {
     title: "Enhances Vitality",
     text: "Rejuvenates tissues and boosts energy.",
-    image: "/images/treatment-panchakarma.png",
+    image: "/images/treatment-panchakarma.webp",
     icon: "woman",
   },
 ];
@@ -79,7 +79,7 @@ function slugLabel(slug: string) {
 export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailReferencePageProps) {
   const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Detox" : treatment.meta;
   const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.meta;
-  const bannerImage = treatment.image ?? "/images/treatment-panchakarma.png";
+  const bannerImage = treatment.image ?? "/images/treatment-panchakarma.webp";
 
   return (
     <div className="treatment-detail-reference">
@@ -187,7 +187,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
 
       <section className="treatment-ideal-panel" id="who-is-it-for">
         <div className="treatment-ideal-image" aria-hidden="true">
-          <Image src="/images/ayurveda-hero.png" alt="" fill sizes="(max-width: 900px) 100vw, 520px" />
+          <Image src="/images/ayurveda-hero.webp" alt="" fill sizes="(max-width: 900px) 100vw, 520px" />
         </div>
         <div className="treatment-ideal-content">
           <span>Who Is It For?</span>
@@ -250,7 +250,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
           </ul>
         </div>
         <div className="treatment-expect-image" aria-hidden="true">
-          <Image src="/images/faq-ayurveda-still-life.png" alt="" fill sizes="(max-width: 900px) 100vw, 360px" />
+          <Image src="/images/faq-ayurveda-still-life.webp" alt="" fill sizes="(max-width: 900px) 100vw, 360px" />
         </div>
       </section>
 
@@ -264,7 +264,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
           <span aria-hidden="true">&rarr;</span>
         </Link>
         <div aria-hidden="true">
-          <Image src="/images/faq-ayurveda-still-life.png" alt="" fill sizes="(max-width: 900px) 100vw, 320px" />
+          <Image src="/images/faq-ayurveda-still-life.webp" alt="" fill sizes="(max-width: 900px) 100vw, 320px" />
         </div>
       </section>
     </div>

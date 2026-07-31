@@ -124,7 +124,7 @@ export function AboutPurposeSection() {
         </p>
         <div className="purpose-still-life">
           <Image
-            src="/images/about-purpose-still-life.png"
+            src="/images/about-purpose-still-life.webp"
             alt="Ayurvedic mortar and herbs"
             width={760}
             height={430}
@@ -153,7 +153,7 @@ export function AboutPurposeSection() {
             <p>To be a global leader in Ayurvedic care, recognized for restoring health, harmony and happiness naturally.</p>
           </div>
           <Image
-            src="/images/about-purpose-vision-plant.png"
+            src="/images/about-purpose-vision-plant.webp"
             alt=""
             width={520}
             height={360}
@@ -184,7 +184,7 @@ export function AboutPurposeSection() {
             </p>
           </div>
           <Image
-            src="/images/about-purpose-mission-bowl.png"
+            src="/images/about-purpose-mission-bowl.webp"
             alt=""
             width={430}
             height={430}

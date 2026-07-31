@@ -48,7 +48,7 @@ export function TreatmentsBannerSection() {
 
         <div className="treatment-hero-visual" aria-hidden="true">
           <Image
-            src="/images/treatment-sirodhara.png"
+            src="/images/treatment-sirodhara.webp"
             alt=""
             fill
             priority

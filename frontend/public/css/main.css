@@ -929,7 +929,7 @@ main {
   padding: 116px clamp(34px, 6vw, 88px) 58px;
   background:
     linear-gradient(90deg, rgba(7, 9, 5, 0.92) 0%, rgba(8, 10, 6, 0.82) 30%, rgba(10, 12, 7, 0.44) 53%, rgba(10, 12, 7, 0.04) 84%),
-    url("/images/hero-courtyard-ayurveda-v2.png") center / cover no-repeat;
+    url("/images/hero-courtyard-ayurveda-v2.webp") center / cover no-repeat;
   isolation: isolate;
 }
 
@@ -1418,7 +1418,7 @@ p {
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(30, 17, 10, 0.06), rgba(30, 17, 10, 0.12)),
-    url("/images/legacy-verandah.png") center / cover no-repeat;
+    url("/images/legacy-verandah.webp") center / cover no-repeat;
   box-shadow: 0 18px 42px rgba(63, 64, 61, 0.12);
 }
 
@@ -1631,7 +1631,7 @@ p {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(255, 250, 242, 1) 0%, rgba(255, 250, 242, 0.98) 52%, rgba(255, 250, 242, 0.58) 68%, rgba(255, 250, 242, 0.05) 100%),
-    url("/images/testimonial-lamp-flowers.png") right center / 48% auto no-repeat,
+    url("/images/testimonial-lamp-flowers.webp") right center / 48% auto no-repeat,
     #fffaf2;
   border-block: 1px solid rgba(63, 64, 61, 0.07);
 }
@@ -1708,7 +1708,7 @@ p {
   bottom: 162px;
   width: min(45vw, 650px);
   height: min(42vw, 520px);
-  background: url("/images/faq-ayurveda-still-life.png") left bottom / contain no-repeat;
+  background: url("/images/faq-ayurveda-still-life.webp") left bottom / contain no-repeat;
   pointer-events: none;
 }
 
@@ -2238,7 +2238,7 @@ p {
   grid-column: 1 / -1;
   background:
     linear-gradient(180deg, rgba(16, 24, 14, 0.04), rgba(16, 24, 14, 0.12)),
-    url("/images/ayurveda-hospital-garden.png") center 54% / cover no-repeat;
+    url("/images/ayurveda-hospital-garden.webp") center 54% / cover no-repeat;
 }
 
 .why-quote-card {
@@ -2284,7 +2284,7 @@ p {
   min-height: 170px;
   background:
     linear-gradient(180deg, rgba(255, 248, 236, 0.04), rgba(255, 248, 236, 0.1)),
-    url("/images/doctor-portrait.png") center 28% / cover no-repeat;
+    url("/images/doctor-portrait.webp") center 28% / cover no-repeat;
 }
 
 .why-doctor-card div:last-child {
@@ -2345,7 +2345,7 @@ p {
   border-radius: 18px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(32, 49, 45, 0.18)),
-    url("/images/about-susrutha-wellness.png") center / cover no-repeat;
+    url("/images/about-susrutha-wellness.webp") center / cover no-repeat;
   box-shadow: 0 24px 60px rgba(64, 43, 20, 0.12);
 }
 
@@ -5256,7 +5256,7 @@ p {
     padding-inline: 46px;
     background:
       linear-gradient(90deg, rgba(255, 250, 242, 1) 0%, rgba(255, 250, 242, 0.98) 56%, rgba(255, 250, 242, 0.7) 76%, rgba(255, 250, 242, 0.22) 100%),
-      url("/images/testimonial-lamp-flowers.png") right center / 52% auto no-repeat,
+      url("/images/testimonial-lamp-flowers.webp") right center / 52% auto no-repeat,
       #fffaf2;
   }
 
@@ -5399,7 +5399,7 @@ p {
     align-items: start;
     background:
       linear-gradient(180deg, rgba(8, 10, 6, 0.94) 0%, rgba(8, 10, 6, 0.78) 50%, rgba(8, 10, 6, 0.38) 100%),
-      url("/images/hero-courtyard-ayurveda-v2.png") 58% center / cover no-repeat;
+      url("/images/hero-courtyard-ayurveda-v2.webp") 58% center / cover no-repeat;
   }
 
   h1 {
@@ -5572,7 +5572,7 @@ p {
     padding: 42px 22px 190px;
     background:
       linear-gradient(180deg, rgba(255, 250, 242, 1) 0%, rgba(255, 250, 242, 0.98) 57%, rgba(255, 250, 242, 0.28) 100%),
-      url("/images/testimonial-lamp-flowers.png") right bottom / auto 200px no-repeat,
+      url("/images/testimonial-lamp-flowers.webp") right bottom / auto 200px no-repeat,
       #fffaf2;
   }
 
@@ -5896,7 +5896,7 @@ p {
   overflow: visible;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 40%, rgba(255, 255, 255, 0.03) 63%),
-    url("/images/home-hero-reference.png") right top / auto 100% no-repeat,
+    url("/images/home-hero-reference.webp") right top / auto 100% no-repeat,
     #fbf5ed;
   isolation: isolate;
 }
@@ -6200,7 +6200,7 @@ p {
     padding-inline: 24px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.74) 52%, rgba(255, 255, 255, 0.08) 100%),
-      url("/images/home-hero-reference.png") center bottom / auto 58% no-repeat,
+      url("/images/home-hero-reference.webp") center bottom / auto 58% no-repeat,
       #fbf5ed;
   }
 
@@ -6245,7 +6245,7 @@ p {
     padding: 0 18px 30px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.84) 54%, rgba(255, 255, 255, 0.04) 100%),
-      url("/images/home-hero-reference.png") 54% bottom / auto 47% no-repeat,
+      url("/images/home-hero-reference.webp") 54% bottom / auto 47% no-repeat,
       #fbf5ed;
   }
 
@@ -6488,7 +6488,7 @@ p {
   padding-inline: clamp(36px, 4.6vw, 48px);
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 39%, rgba(255, 255, 255, 0.12) 66%),
-    url("/images/home-hero-reference.png") right top / auto 100% no-repeat,
+    url("/images/home-hero-reference.webp") right top / auto 100% no-repeat,
     #fbf6ed;
 }
 
@@ -6685,7 +6685,7 @@ p {
     padding: 0 24px 34px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.86) 53%, rgba(255, 255, 255, 0.1) 100%),
-      url("/images/home-hero-reference.png") center bottom / auto 56% no-repeat,
+      url("/images/home-hero-reference.webp") center bottom / auto 56% no-repeat,
       #fbf6ed;
   }
 
@@ -6729,7 +6729,7 @@ p {
     padding: 0 18px 30px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.88) 56%, rgba(255, 255, 255, 0.08) 100%),
-      url("/images/home-hero-reference.png") 56% bottom / auto 43% no-repeat,
+      url("/images/home-hero-reference.webp") 56% bottom / auto 43% no-repeat,
       #fbf6ed;
   }
 
@@ -9203,7 +9203,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   border-radius: 0;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 38%, rgba(255, 255, 255, 0.1) 62%),
-    url("/images/home-hero-reference.png") right top / auto 100% no-repeat,
+    url("/images/home-hero-reference.webp") right top / auto 100% no-repeat,
     #fbf5ed;
   box-shadow: 0 24px 70px rgba(72, 50, 24, 0.08);
   isolation: isolate;
@@ -9423,7 +9423,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
     border-radius: 0;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.86) 50%, rgba(255, 255, 255, 0.08) 100%),
-      url("/images/home-hero-reference.png") center bottom / auto 58% no-repeat,
+      url("/images/home-hero-reference.webp") center bottom / auto 58% no-repeat,
       #fbf6ed;
   }
 
@@ -9475,7 +9475,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
     padding-inline: 18px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.9) 54%, rgba(255, 255, 255, 0.1) 100%),
-      url("/images/home-hero-reference.png") 54% bottom / auto 43% no-repeat,
+      url("/images/home-hero-reference.webp") 54% bottom / auto 43% no-repeat,
       #fbf6ed;
   }
 
@@ -16538,7 +16538,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   border-radius: 26px;
   background:
     linear-gradient(90deg, rgba(15, 59, 41, 0.96), rgba(32, 51, 45, 0.9)),
-    url("/images/testimonial-lamp-flowers.png") right center / cover no-repeat;
+    url("/images/testimonial-lamp-flowers.webp") right center / cover no-repeat;
   box-shadow: 0 28px 70px rgba(15, 59, 41, 0.18);
 }
 
@@ -23668,6 +23668,159 @@ body:has(.conditions-page) {
   border-radius: 24px;
 }
 
+/* Shared navbar normalization */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  min-height: 0 !important;
+  padding: 16px clamp(16px, 4vw, 54px) 0 !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+.navbar {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: clamp(18px, 3vw, 38px) !important;
+  width: auto !important;
+  max-width: 1360px !important;
+  min-height: 74px !important;
+  margin: 0 auto !important;
+  padding: 10px 14px 10px 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.74) !important;
+  border-radius: 0 0 18px 18px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 22px 70px rgba(23, 24, 21, 0.12) !important;
+  backdrop-filter: blur(22px) saturate(140%) !important;
+  pointer-events: auto !important;
+}
+
+.brand {
+  display: inline-flex !important;
+  width: clamp(178px, 19vw, 246px) !important;
+  transition: transform 180ms ease !important;
+}
+
+.brand::before,
+.brand::after {
+  display: none !important;
+}
+
+.brand img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.nav-links {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 2px !important;
+}
+
+.nav-item > a,
+.phone-link {
+  color: var(--color-ink) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.nav-item > a {
+  min-height: 42px !important;
+  padding: 0 12px !important;
+}
+
+.nav-item > a::after {
+  display: block !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 2px !important;
+  width: auto !important;
+  height: 2px !important;
+  background: var(--color-red) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+}
+
+.nav-item > a:hover,
+.nav-item[data-active="true"] > a {
+  color: var(--color-red) !important;
+}
+
+.nav-item > a:hover::after,
+.nav-item[data-active="true"] > a::after {
+  transform: scaleX(1) !important;
+}
+
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.phone-link {
+  display: inline-grid !important;
+  width: 44px !important;
+  height: 44px !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  background: var(--color-red) !important;
+  color: var(--color-white) !important;
+  box-shadow: 0 14px 28px rgba(214, 31, 43, 0.24) !important;
+}
+
+.nav-actions .btn-primary {
+  min-width: auto !important;
+  min-height: 44px !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  padding: 0 20px !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  background: var(--color-red) !important;
+  color: var(--color-white) !important;
+  box-shadow: 0 12px 28px rgba(214, 31, 43, 0.22) !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+.nav-actions .btn-primary::after {
+  content: none !important;
+}
+
+.mobile-menu {
+  display: none !important;
+}
+
+@media (max-width: 1100px) {
+  .navbar {
+    grid-template-columns: auto 1fr auto !important;
+    min-height: 70px !important;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: block !important;
+    justify-self: end !important;
+  }
+}
+
 .conditions-page .conditions-search,
 .conditions-page .conditions-select,
 .conditions-page .conditions-view-button {
@@ -26067,5 +26220,987 @@ body:has(.conditions-page) {
 
   .condition-approach-step > b {
     margin-top: 18px;
+  }
+}
+
+/* Final shared navbar lock */
+body .site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  min-height: 0 !important;
+  padding: 16px clamp(16px, 4vw, 54px) 0 !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+body .site-header .navbar {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: clamp(18px, 3vw, 38px) !important;
+  width: auto !important;
+  max-width: 1360px !important;
+  min-height: 74px !important;
+  margin: 0 auto !important;
+  padding: 10px 14px 10px 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.74) !important;
+  border-radius: 0 0 18px 18px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 22px 70px rgba(23, 24, 21, 0.12) !important;
+  backdrop-filter: blur(22px) saturate(140%) !important;
+  pointer-events: auto !important;
+}
+
+body .site-header .brand {
+  display: inline-flex !important;
+  width: clamp(178px, 19vw, 246px) !important;
+  transition: transform 180ms ease !important;
+}
+
+body .site-header .brand::before,
+body .site-header .brand::after {
+  display: none !important;
+}
+
+body .site-header .brand img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+body .site-header .nav-links {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 2px !important;
+}
+
+body .site-header .nav-item > a {
+  min-height: 42px !important;
+  padding: 0 12px !important;
+  color: var(--color-ink) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+body .site-header .nav-item > a::after {
+  display: block !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 2px !important;
+  width: auto !important;
+  height: 2px !important;
+  background: var(--color-red) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+}
+
+body .site-header .nav-item > a:hover,
+body .site-header .nav-item[data-active="true"] > a {
+  color: var(--color-red) !important;
+}
+
+body .site-header .nav-item > a:hover::after,
+body .site-header .nav-item[data-active="true"] > a::after {
+  transform: scaleX(1) !important;
+}
+
+body .site-header .nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+body .site-header .phone-link {
+  display: inline-grid !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  overflow: hidden !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  background: var(--color-red) !important;
+  color: transparent !important;
+  box-shadow: 0 14px 28px rgba(214, 31, 43, 0.24) !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+body .site-header .phone-link span {
+  color: var(--color-white) !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+body .site-header .nav-actions .btn-primary {
+  min-width: auto !important;
+  min-height: 44px !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  padding: 0 20px !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  background: var(--color-red) !important;
+  color: var(--color-white) !important;
+  box-shadow: 0 12px 28px rgba(214, 31, 43, 0.22) !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+body .site-header .nav-actions .btn-primary::after {
+  content: none !important;
+}
+
+body .site-header .mobile-menu {
+  display: none !important;
+}
+
+@media (max-width: 1100px) {
+  body .site-header .navbar {
+    grid-template-columns: auto 1fr auto !important;
+    min-height: 70px !important;
+  }
+
+  body .site-header .nav-links,
+  body .site-header .nav-actions {
+    display: none !important;
+  }
+
+  body .site-header .mobile-menu {
+    display: block !important;
+    justify-self: end !important;
+  }
+}
+
+/* Final responsive hardening */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+span,
+button,
+label {
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 1100px) {
+  body .site-header {
+    padding: 10px 12px 0 !important;
+  }
+
+  body .site-header .navbar {
+    width: min(100%, 760px) !important;
+    padding: 8px 10px 8px 12px !important;
+  }
+
+  body .site-header .brand {
+    width: clamp(150px, 38vw, 210px) !important;
+  }
+
+  body .site-header .mobile-panel {
+    left: 12px !important;
+    right: 12px !important;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    border-radius: 14px;
+  }
+
+  .home-page .hero-section,
+  .about-premium-page .about-premium-hero,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .conditions-page .conditions-hero,
+  .condition-detail-hero,
+  .inner-hero {
+    padding-top: 112px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  section,
+  main > div,
+  .home-page,
+  .about-premium-page,
+  .conditions-page,
+  .treatment-reference-page,
+  .treatment-detail-reference {
+    max-width: 100%;
+  }
+
+  .hero-section,
+  .hero-inner,
+  .home-wellness-expertise,
+  .ayurveda-village-section,
+  .home-doctors-section,
+  .home-counter-section,
+  .about-susrutha-top,
+  .about-susrutha-values,
+  .doctors-expert-section,
+  .testimonials-reference-section,
+  .footer-main,
+  .footer-bottom,
+  .inner-split,
+  .inner-form,
+  .treatment-reference-hero,
+  .treatment-detail-hero,
+  .treatment-detail-overview,
+  .treatment-ideal-section,
+  .treatment-process-section,
+  .treatment-expect-section,
+  .doctor-profile-hero,
+  .doctor-profile-main,
+  .doctor-info-grid,
+  .doctor-care-grid,
+  .condition-detail-hero,
+  .condition-detail-care,
+  .condition-care-grid,
+  .conditions-care-band,
+  .about-premium-hero,
+  .about-premium-hero-main,
+  .about-story-section,
+  .about-purpose-section,
+  .milestone-showcase-section {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .hero-section,
+  .about-premium-page .about-premium-hero,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .conditions-page .conditions-hero {
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .hero-section,
+  .home-page .hero-section {
+    min-height: auto !important;
+    padding: 112px 18px 42px !important;
+    background-size: auto 58%, cover !important;
+    background-position: center bottom, center !important;
+  }
+
+  .hero-inner,
+  .home-page .hero-inner {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+
+  .hero-content,
+  .home-page .hero-content,
+  .about-premium-hero-copy,
+  .treatment-hero-copy,
+  .treatment-detail-copy,
+  .condition-detail-copy,
+  .conditions-hero-copy,
+  .inner-hero {
+    max-width: 100% !important;
+    padding-inline: 0 !important;
+  }
+
+  .hero-content h1,
+  .home-page .hero-content h1,
+  .about-premium-hero h1,
+  .treatment-hero-copy h1,
+  .treatment-detail-copy h1,
+  .condition-detail-copy h1,
+  .conditions-page .conditions-hero h1,
+  .inner-hero h1 {
+    font-size: clamp(38px, 11vw, 58px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .hero-content p,
+  .home-page .hero-content p,
+  .about-premium-hero p,
+  .treatment-hero-copy p,
+  .treatment-detail-copy p,
+  .condition-detail-copy p,
+  .conditions-hero-copy p,
+  .inner-hero p {
+    max-width: 100% !important;
+    font-size: clamp(15px, 4vw, 18px) !important;
+  }
+
+  .hero-visual,
+  .home-wellness-branch,
+  .home-wellness-mortar,
+  .about-susrutha-botanical,
+  .testimonials-reference-decor,
+  .conditions-rooted-badge,
+  .condition-detail-leaf,
+  .treatment-detail-floating,
+  .about-premium-hero-botanical,
+  .about-premium-hero-badge {
+    display: none !important;
+  }
+
+  .hero-actions,
+  .about-susrutha-actions,
+  .treatments-showcase-actions,
+  .home-wellness-metrics,
+  .home-doctors-values,
+  .conditions-filter-panel,
+  .treatment-category-track,
+  .treatment-detail-facts,
+  .doctor-profile-actions {
+    flex-wrap: wrap !important;
+  }
+
+  .btn,
+  .btn-primary,
+  .hero-explore-link,
+  .about-susrutha-link,
+  .home-wellness-link,
+  .village-link,
+  .village-program-link,
+  .treatments-showcase-all,
+  .footer-consult-button {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .home-wellness-photo,
+  .about-susrutha-image,
+  .village-image-panel,
+  .home-doctors-visual,
+  .doctor-profile-image,
+  .treatment-hero-visual,
+  .treatment-detail-visual,
+  .condition-detail-visual,
+  .conditions-hero-visual,
+  .about-premium-hero-image,
+  .purpose-still-life,
+  .milestone-showcase-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 280px !important;
+    margin-inline: 0 !important;
+  }
+
+  .inner-card-grid,
+  .conditions-card-grid,
+  .all-treatments-grid,
+  .treatment-overview-grid,
+  .treatment-process-grid,
+  .doctor-profile-grid,
+  .doctor-treatments-grid,
+  .doctor-stats-grid,
+  .about-values-grid,
+  .about-founders-grid,
+  .purpose-values,
+  .footer-link-columns,
+  .sitemap-tree,
+  .architecture-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .inner-section,
+  .conditions-content,
+  .all-treatments-section,
+  .treatment-detail-section,
+  .doctor-profile-section,
+  .condition-detail-section,
+  .about-story-section,
+  .about-purpose-section,
+  .about-founders-section,
+  .about-milestones-section,
+  .milestone-showcase-section {
+    padding-inline: 18px !important;
+  }
+
+  .conditions-filter-panel {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    margin-top: 28px !important;
+    padding: 18px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr auto auto !important;
+    gap: 12px !important;
+  }
+
+  .conditions-search,
+  .conditions-select {
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body .site-header {
+    padding: 8px 8px 0 !important;
+  }
+
+  body .site-header .navbar {
+    min-height: 62px !important;
+    padding: 8px 10px !important;
+    border-radius: 0 0 14px 14px !important;
+  }
+
+  body .site-header .brand {
+    width: clamp(138px, 54vw, 188px) !important;
+  }
+
+  body .site-header .mobile-menu summary {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .home-page .hero-section,
+  .about-premium-page .about-premium-hero,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .conditions-page .conditions-hero,
+  .condition-detail-hero,
+  .inner-hero {
+    padding-top: 92px !important;
+  }
+
+  .hero-section,
+  .home-page .hero-section,
+  .inner-hero,
+  .conditions-page .conditions-hero,
+  .condition-detail-hero,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .about-premium-page .about-premium-hero {
+    min-height: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero-content h1,
+  .home-page .hero-content h1,
+  .about-premium-hero h1,
+  .treatment-hero-copy h1,
+  .treatment-detail-copy h1,
+  .condition-detail-copy h1,
+  .conditions-page .conditions-hero h1,
+  .inner-hero h1 {
+    font-size: clamp(34px, 13vw, 48px) !important;
+  }
+
+  .hero-actions,
+  .about-susrutha-actions,
+  .treatments-showcase-actions,
+  .doctor-profile-actions,
+  .inner-cta {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: stretch !important;
+  }
+
+  .hero-actions > *,
+  .about-susrutha-actions > *,
+  .treatments-showcase-actions > *,
+  .doctor-profile-actions > *,
+  .inner-cta > a,
+  .inner-form button {
+    width: 100% !important;
+  }
+
+  .inner-card-grid,
+  .conditions-card-grid,
+  .all-treatments-grid,
+  .treatment-overview-grid,
+  .treatment-process-grid,
+  .doctor-profile-grid,
+  .doctor-treatments-grid,
+  .doctor-stats-grid,
+  .about-values-grid,
+  .about-founders-grid,
+  .purpose-values,
+  .footer-link-columns,
+  .sitemap-tree,
+  .architecture-list,
+  .conditions-filter-panel,
+  .home-wellness-metrics,
+  .home-doctors-values,
+  .condition-approach-flow,
+  .footer-bottom {
+    grid-template-columns: 1fr !important;
+  }
+
+  .conditions-view-button {
+    width: 100% !important;
+  }
+
+  .conditions-hero-visual,
+  .condition-detail-visual,
+  .treatment-hero-visual,
+  .treatment-detail-visual,
+  .doctor-profile-image,
+  .about-premium-hero-image,
+  .home-wellness-photo,
+  .about-susrutha-image,
+  .village-image-panel {
+    min-height: 240px !important;
+    border-radius: 18px !important;
+  }
+
+  .treatments-showcase-card,
+  .inner-card,
+  .condition-card,
+  .doctor-profile-card,
+  .purpose-card,
+  .about-value-card,
+  .footer-consult-card {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .treatments-showcase-grid {
+    grid-auto-columns: minmax(82vw, 1fr) !important;
+  }
+
+  .mobile-panel {
+    width: auto !important;
+  }
+
+  .footer-main,
+  .footer-bottom {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body .site-header .brand {
+    width: 132px !important;
+  }
+
+  body .site-header .mobile-menu summary {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .hero-content h1,
+  .home-page .hero-content h1,
+  .about-premium-hero h1,
+  .treatment-hero-copy h1,
+  .treatment-detail-copy h1,
+  .condition-detail-copy h1,
+  .conditions-page .conditions-hero h1,
+  .inner-hero h1 {
+    font-size: clamp(31px, 12vw, 42px) !important;
+  }
+}
+
+/* Mobile doctor cards readability fix */
+@media (max-width: 900px) {
+  .home-page .home-doctors-section {
+    padding: 56px 16px 44px !important;
+  }
+
+  .home-page .home-doctors-hero,
+  .home-page .home-doctors-grid,
+  .home-page .home-doctors-values {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .home-page .home-doctors-hero,
+  .home-page .home-doctors-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .home-doctors-copy {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+
+  .home-page .home-doctors-copy h2 {
+    max-width: 100% !important;
+    font-size: clamp(38px, 9vw, 56px) !important;
+    line-height: 1.04 !important;
+  }
+
+  .home-page .home-doctors-copy h2 br {
+    display: none !important;
+  }
+
+  .home-page .home-doctors-copy > p {
+    max-width: 100% !important;
+  }
+
+  .home-page .home-doctors-visual,
+  .home-page .home-doctors-seal,
+  .home-page .home-doctors-script {
+    display: none !important;
+  }
+
+  .home-page .home-doctor-card {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto minmax(280px, auto) auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .home-page .home-doctor-card-copy {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 24px 22px 12px !important;
+    text-align: left !important;
+  }
+
+  .home-page .home-doctor-card-copy > span,
+  .home-page .home-doctor-card-copy h3,
+  .home-page .home-doctor-card-copy p {
+    max-width: none !important;
+    width: 100% !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+  }
+
+  .home-page .home-doctor-card-copy > span {
+    margin-top: 18px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .home-page .home-doctor-card-copy h3 {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .home-page .home-doctor-card-copy p {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  .home-page .home-doctor-photo {
+    width: 100% !important;
+    min-height: 300px !important;
+  }
+
+  .home-page .home-doctor-photo img {
+    object-fit: contain !important;
+    object-position: bottom center !important;
+  }
+
+  .home-page .home-doctor-card-foot {
+    min-width: 0 !important;
+    padding: 14px 18px !important;
+  }
+
+  .home-page .home-doctor-card-foot div {
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-page .home-doctors-section {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .home-page .home-doctor-card {
+    grid-template-rows: auto minmax(250px, auto) auto !important;
+  }
+
+  .home-page .home-doctor-photo {
+    min-height: 250px !important;
+  }
+
+  .home-page .home-doctor-card-foot {
+    gap: 12px !important;
+  }
+
+  .home-page .home-doctor-card-foot > a {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* Full-project mobile specificity pass */
+@media (max-width: 900px) {
+  .home-page .hero-section,
+  .home-page .home-wellness-expertise,
+  .home-page .treatments-showcase-section,
+  .home-page .home-doctors-section,
+  .home-page .ayurveda-village-section,
+  .home-page .home-counter-section,
+  .about-premium-page .about-premium-hero,
+  .about-premium-page .about-story-section,
+  .about-premium-page .about-purpose-section,
+  .about-premium-page .journey-section,
+  .about-premium-page .milestone-showcase-section,
+  .about-premium-page .about-founders-section,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .conditions-page .conditions-hero,
+  .conditions-page .conditions-content,
+  .conditions-page .conditions-care-band,
+  .condition-detail-page .condition-detail-hero,
+  .condition-detail-page .condition-care-section,
+  .doctor-profile-page,
+  .inner-section,
+  .inner-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .home-page .hero-inner,
+  .home-page .home-wellness-expertise,
+  .home-page .treatments-showcase-head,
+  .home-page .home-doctors-hero,
+  .home-page .ayurveda-village-section,
+  .home-page .home-counter-layout,
+  .about-premium-page .about-premium-hero-main,
+  .about-premium-page .about-story-section,
+  .about-premium-page .about-purpose-section,
+  .about-premium-page .purpose-card-stack,
+  .about-premium-page .journey-grid,
+  .about-premium-page .milestone-showcase-section,
+  .about-premium-page .about-founders-grid,
+  .treatment-reference-page .treatment-reference-hero,
+  .treatment-reference-page .treatment-category-track,
+  .treatment-detail-reference .treatment-detail-hero,
+  .treatment-detail-reference .treatment-detail-facts,
+  .treatment-detail-reference .treatment-overview-grid,
+  .treatment-detail-reference .treatment-process-grid,
+  .treatment-detail-reference .treatment-detail-related-grid,
+  .conditions-page .conditions-filter-panel,
+  .conditions-page .conditions-card-grid,
+  .conditions-page .conditions-pathway-list,
+  .condition-detail-page .condition-detail-hero,
+  .condition-detail-page .condition-care-top-grid,
+  .condition-detail-page .condition-care-main-grid,
+  .condition-detail-page .condition-symptom-list,
+  .doctor-profile-page .doctor-profile-hero,
+  .doctor-profile-page .doctor-detail-top-row,
+  .doctor-profile-page .doctor-detail-grid,
+  .doctor-profile-page .doctor-treatments-grid,
+  .doctor-profile-page .doctor-education-grid,
+  .doctor-profile-page .doctor-gallery-grid,
+  .inner-card-grid,
+  .inner-form,
+  .footer-main,
+  .footer-bottom {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .home-wellness-content,
+  .home-page .home-doctors-copy,
+  .home-page .treatments-showcase-head,
+  .about-premium-page .about-premium-hero-copy,
+  .about-premium-page .about-story-copy,
+  .about-premium-page .about-purpose-copy,
+  .treatment-reference-page .treatment-hero-copy,
+  .treatment-detail-reference .treatment-detail-copy,
+  .conditions-page .conditions-hero-copy,
+  .condition-detail-page .condition-detail-copy,
+  .doctor-profile-page .doctor-detail-copy,
+  .inner-section-heading {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .home-page .hero-content h1,
+  .home-page .home-wellness-content h2,
+  .home-page .treatments-showcase-head h2,
+  .home-page .home-doctors-copy h2,
+  .home-page .home-counter-copy h2,
+  .about-premium-page .about-premium-hero h1,
+  .about-premium-page .about-story-copy h2,
+  .about-premium-page .about-purpose-copy h2,
+  .about-premium-page .journey-heading h2,
+  .about-premium-page .milestone-showcase-copy h2,
+  .treatment-reference-page .treatment-hero-copy h1,
+  .treatment-detail-reference .treatment-detail-copy h1,
+  .conditions-page .conditions-hero h1,
+  .condition-detail-page .condition-detail-copy h1,
+  .doctor-profile-page .doctor-detail-copy h1,
+  .inner-hero h1,
+  .inner-section-heading h2 {
+    max-width: 100% !important;
+    font-size: clamp(34px, 10vw, 56px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .home-page .home-wellness-photo,
+  .home-page .treatments-card-image,
+  .home-page .village-image-panel,
+  .home-page .home-counter-image,
+  .about-premium-page .about-premium-hero-image,
+  .about-premium-page .purpose-still-life,
+  .about-premium-page .purpose-card > img,
+  .about-premium-page .journey-card-image,
+  .about-premium-page .milestone-showcase-image,
+  .treatment-reference-page .treatment-hero-visual,
+  .treatment-detail-reference .treatment-detail-visual,
+  .treatment-detail-reference .treatment-ideal-image,
+  .treatment-detail-reference .treatment-expect-image,
+  .conditions-page .conditions-hero-visual,
+  .condition-detail-page .condition-detail-visual,
+  .condition-detail-page .condition-care-image-card,
+  .doctor-profile-page .doctor-detail-portrait,
+  .doctor-profile-page .doctor-detail-image,
+  .doctor-profile-page .doctor-gallery-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 240px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .home-page .home-wellness-branch,
+  .home-page .home-wellness-mortar,
+  .home-page .home-doctors-leaf,
+  .home-page .treatments-botanical,
+  .about-premium-page .about-premium-hero-botanical,
+  .about-premium-page .purpose-badge,
+  .about-premium-page .purpose-badge-gold,
+  .conditions-page .conditions-rooted-badge,
+  .condition-detail-page .condition-detail-leaf,
+  .treatment-detail-reference .treatment-detail-floating {
+    display: none !important;
+  }
+
+  .home-page .home-wellness-metrics,
+  .home-page .home-doctors-values,
+  .about-premium-page .about-premium-hero-values,
+  .about-premium-page .purpose-values,
+  .treatment-detail-reference .treatment-detail-tabs,
+  .treatment-detail-reference .treatment-detail-facts,
+  .conditions-page .conditions-filter-panel {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .conditions-page .conditions-filter-panel {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    margin-top: 28px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page .hero-section,
+  .home-page .home-wellness-expertise,
+  .home-page .treatments-showcase-section,
+  .home-page .home-doctors-section,
+  .home-page .ayurveda-village-section,
+  .home-page .home-counter-section,
+  .about-premium-page .about-premium-hero,
+  .about-premium-page .about-story-section,
+  .about-premium-page .about-purpose-section,
+  .about-premium-page .journey-section,
+  .about-premium-page .milestone-showcase-section,
+  .about-premium-page .about-founders-section,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .conditions-page .conditions-hero,
+  .conditions-page .conditions-content,
+  .condition-detail-page .condition-care-section,
+  .doctor-profile-page,
+  .inner-section,
+  .inner-hero {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .home-page .hero-actions,
+  .home-page .about-susrutha-actions,
+  .home-page .treatments-showcase-actions,
+  .home-page .home-doctors-button,
+  .about-premium-page .about-premium-hero-copy a,
+  .treatment-reference-page .treatment-hero-actions,
+  .treatment-detail-reference .treatment-detail-actions,
+  .condition-detail-page .condition-detail-actions,
+  .doctor-profile-page .doctor-detail-actions,
+  .inner-cta,
+  .inner-form {
+    width: 100% !important;
+  }
+
+  .home-page .hero-actions,
+  .home-page .about-susrutha-actions,
+  .home-page .treatments-showcase-actions,
+  .treatment-reference-page .treatment-hero-actions,
+  .treatment-detail-reference .treatment-detail-actions,
+  .condition-detail-page .condition-detail-actions,
+  .doctor-profile-page .doctor-detail-actions,
+  .inner-cta {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .hero-actions > *,
+  .home-page .about-susrutha-actions > *,
+  .home-page .treatments-showcase-actions > *,
+  .home-page .home-doctors-button,
+  .about-premium-page .about-premium-hero-copy a,
+  .treatment-reference-page .treatment-hero-actions > *,
+  .treatment-detail-reference .treatment-detail-actions > *,
+  .condition-detail-page .condition-detail-actions > *,
+  .doctor-profile-page .doctor-detail-actions > *,
+  .inner-cta > *,
+  .inner-form button {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .home-page .home-wellness-photo,
+  .home-page .village-image-panel,
+  .home-page .home-counter-image,
+  .about-premium-page .about-premium-hero-image,
+  .treatment-reference-page .treatment-hero-visual,
+  .treatment-detail-reference .treatment-detail-visual,
+  .conditions-page .conditions-hero-visual,
+  .condition-detail-page .condition-detail-visual,
+  .doctor-profile-page .doctor-detail-portrait,
+  .doctor-profile-page .doctor-detail-image {
+    min-height: 220px !important;
   }
 }

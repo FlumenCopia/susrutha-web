@@ -7,57 +7,57 @@ import { treatments as treatmentDirectory } from "../../data/architecture";
 
 const treatmentVisuals: Record<string, { image: string; icon: string; copy?: string }> = {
   panchakarma: {
-    image: "/images/treatment-panchakarma.png",
+    image: "/images/treatment-panchakarma.webp",
     icon: "lotus",
     copy: "Detoxify and cleanse your body.",
   },
   "womens-health": {
-    image: "/images/ayurveda-village-path.png",
+    image: "/images/ayurveda-village-path.webp",
     icon: "wellness",
     copy: "Holistic care for every stage of womanhood.",
   },
   "child-care": {
-    image: "/images/ayurveda-hospital-garden.png",
+    image: "/images/ayurveda-hospital-garden.webp",
     icon: "sprout",
     copy: "Gentle Ayurveda support for growing children.",
   },
   orthopaedics: {
-    image: "/images/treatment-kati-vasti.png",
+    image: "/images/treatment-kati-vasti.webp",
     icon: "therapy",
     copy: "Focused care for joints, spine and mobility.",
   },
   neurology: {
-    image: "/images/treatment-sirodhara.png",
+    image: "/images/treatment-sirodhara.webp",
     icon: "shiro",
     copy: "Calming care for nerves and recovery support.",
   },
   "skin-care": {
-    image: "/images/treatment-herbal-medicine.png",
+    image: "/images/treatment-herbal-medicine.webp",
     icon: "leaf",
     copy: "Natural herbs for effective skin healing.",
   },
   "lifestyle-disorders": {
-    image: "/images/faq-ayurveda-still-life.png",
+    image: "/images/faq-ayurveda-still-life.webp",
     icon: "sprout",
     copy: "Diet and lifestyle plans for lasting balance.",
   },
   sirodhara: {
-    image: "/images/treatment-sirodhara.png",
+    image: "/images/treatment-sirodhara.webp",
     icon: "shiro",
     copy: "Calms the mind and nervous system.",
   },
   njavarakizhi: {
-    image: "/images/treatment-njavarakizhi.png",
+    image: "/images/treatment-njavarakizhi.webp",
     icon: "therapy",
     copy: "Nourishing therapy for strength and recovery.",
   },
   "kati-vasti": {
-    image: "/images/treatment-kati-vasti.png",
+    image: "/images/treatment-kati-vasti.webp",
     icon: "therapy",
     copy: "Localized oil therapy for lower back care.",
   },
   "herbal-medicine": {
-    image: "/images/treatment-herbal-medicine.png",
+    image: "/images/treatment-herbal-medicine.webp",
     icon: "leaf",
     copy: "Classical formulations for personalized healing.",
   },

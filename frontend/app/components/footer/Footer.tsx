@@ -27,7 +27,7 @@ export function Footer() {
         <div className="footer-botanical footer-botanical-right" aria-hidden="true" />
 
         <div className="footer-brand-panel">
-          <Image src="/images/logo.png" alt="Susrutha Ayurveda logo" width={282} height={88} />
+          <Image src="/images/logo.webp" alt="Susrutha Ayurveda logo" width={282} height={88} />
           <span className="footer-small-line" />
           <h2>
             Healing with Tradition

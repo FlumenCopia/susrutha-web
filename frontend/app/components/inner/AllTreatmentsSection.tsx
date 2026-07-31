@@ -7,7 +7,7 @@ const allTreatments = [
     title: "Panchakarma",
     text: "The ultimate detox therapy to cleanse toxins and restore balance.",
     time: "7 - 21 Days",
-    image: "/images/treatment-panchakarma.png",
+    image: "/images/treatment-panchakarma.webp",
     icon: "lotus",
   },
   {
@@ -15,7 +15,7 @@ const allTreatments = [
     title: "Abhyangam",
     text: "Therapeutic full-body oil massage for relaxation and nourishment.",
     time: "60 - 90 Mins",
-    image: "/images/treatment-sirodhara.png",
+    image: "/images/treatment-sirodhara.webp",
     icon: "steam",
   },
   {
@@ -23,7 +23,7 @@ const allTreatments = [
     title: "Shirodhara",
     text: "Gentle oil therapy for the mind to relieve stress and anxiety.",
     time: "30 - 45 Mins",
-    image: "/images/treatment-sirodhara.png",
+    image: "/images/treatment-sirodhara.webp",
     icon: "body",
   },
   {
@@ -31,7 +31,7 @@ const allTreatments = [
     title: "Swedana",
     text: "Herbal steam therapy to detoxify and improve circulation.",
     time: "20 - 30 Mins",
-    image: "/images/faq-ayurveda-still-life.png",
+    image: "/images/faq-ayurveda-still-life.webp",
     icon: "lotus",
   },
   {
@@ -39,7 +39,7 @@ const allTreatments = [
     title: "Nasya",
     text: "Nasal therapy to clear sinuses and improve head & neck health.",
     time: "20 - 30 Mins",
-    image: "/images/treatment-herbal-medicine.png",
+    image: "/images/treatment-herbal-medicine.webp",
     icon: "leaf",
   },
   {
@@ -47,7 +47,7 @@ const allTreatments = [
     title: "Pizhichil",
     text: "Warm herbal oil bath therapy to relieve pain and rejuvenate.",
     time: "60 - 90 Mins",
-    image: "/images/treatment-sirodhara.png",
+    image: "/images/treatment-sirodhara.webp",
     icon: "leaf",
   },
   {
@@ -55,7 +55,7 @@ const allTreatments = [
     title: "Udvarthanam",
     text: "Herbal powder therapy to reduce fatigue and improve metabolism.",
     time: "45 - 60 Mins",
-    image: "/images/treatment-njavarakizhi.png",
+    image: "/images/treatment-njavarakizhi.webp",
     icon: "steam",
   },
   {
@@ -63,7 +63,7 @@ const allTreatments = [
     title: "Basti",
     text: "Medicated enema therapy to balance Vata and cleanse the colon.",
     time: "30 - 45 Mins",
-    image: "/images/faq-ayurveda-still-life.png",
+    image: "/images/faq-ayurveda-still-life.webp",
     icon: "leaf",
   },
   {
@@ -71,7 +71,7 @@ const allTreatments = [
     title: "Kati Basti",
     text: "Warm oil therapy for lower back pain and stiffness relief.",
     time: "30 - 45 Mins",
-    image: "/images/treatment-kati-vasti.png",
+    image: "/images/treatment-kati-vasti.webp",
     icon: "woman",
   },
   {
@@ -79,7 +79,7 @@ const allTreatments = [
     title: "Garshanam",
     text: "Silk glove massage to improve lymphatic flow and skin health.",
     time: "30 - 45 Mins",
-    image: "/images/treatment-kati-vasti.png",
+    image: "/images/treatment-kati-vasti.webp",
     icon: "motion",
   },
 ];
@@ -168,7 +168,7 @@ export function AllTreatmentsSection() {
           <span aria-hidden="true">&rarr;</span>
         </Link>
         <div className="journey-banner-still" aria-hidden="true">
-          <Image src="/images/faq-ayurveda-still-life.png" alt="" fill sizes="(max-width: 900px) 100vw, 360px" />
+          <Image src="/images/faq-ayurveda-still-life.webp" alt="" fill sizes="(max-width: 900px) 100vw, 360px" />
         </div>
       </div>
     </section>

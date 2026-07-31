@@ -17,12 +17,12 @@ const relevantDoctors = [
   {
     name: "Dr. Krishnakumar K.",
     credential: "BAMS, MD (Ayurveda)",
-    image: "/images/doctor-portrait.png",
+    image: "/images/doctor-portrait.webp",
   },
   {
     name: "Dr. M. K. Saidhaharan",
     credential: "BAMS, MD (Ayurveda)",
-    image: "/images/doctor-rahul-kumar.png",
+    image: "/images/doctor-rahul-kumar.webp",
   },
 ];
 
@@ -195,7 +195,7 @@ export function ConditionDetailCareSection({ condition }: ConditionDetailCareSec
         </div>
 
         <aside className="condition-care-image-card" aria-label={`${condition.title} care highlight`}>
-          <Image src="/images/doctors-ayurveda-mortar-hero.png" alt="" fill sizes="(max-width: 900px) 100vw, 420px" />
+          <Image src="/images/doctors-ayurveda-mortar-hero.webp" alt="" fill sizes="(max-width: 900px) 100vw, 420px" />
           <div className="condition-care-image-overlay">
             <b aria-hidden="true">&ldquo;</b>
             <h2>Healing that addresses the root, not just the symptoms.</h2>

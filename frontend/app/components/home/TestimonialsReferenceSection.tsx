@@ -7,35 +7,35 @@ const testimonials = [
   {
     name: "Priya Menon",
     place: "Bangalore",
-    image: "/images/doctor-portrait.png",
+    image: "/images/doctor-portrait.webp",
     copy:
       "Susrutha's personalized treatments helped me overcome chronic stress and improved my overall well-being. Truly life-changing experience!",
   },
   {
     name: "Rohit Sharma",
     place: "Hyderabad",
-    image: "/images/doctor-portrait.png",
+    image: "/images/doctor-portrait.webp",
     copy:
       "The doctors listen with patience and provide treatments that address the root cause. My energy, sleep, and digestion have improved remarkably.",
   },
   {
     name: "Ananya Iyer",
     place: "Chennai",
-    image: "/images/doctor-portrait.png",
+    image: "/images/doctor-portrait.webp",
     copy:
       "From Panchakarma to diet guidance, everything was so well-planned. I felt cared for at every step of my healing journey.",
   },
   {
     name: "Vikram Nair",
     place: "Kochi",
-    image: "/images/doctor-portrait.png",
+    image: "/images/doctor-portrait.webp",
     copy:
       "The care felt personal, calm, and deeply authentic. The team guided me with clarity throughout my wellness program.",
   },
   {
     name: "Asha Rao",
     place: "Mysore",
-    image: "/images/doctor-portrait.png",
+    image: "/images/doctor-portrait.webp",
     copy:
       "Every visit felt reassuring. The therapies, food guidance, and follow-up helped me feel balanced again.",
   },
@@ -70,10 +70,10 @@ export function TestimonialsReferenceSection() {
   return (
     <section className="testimonials-reference-section" aria-labelledby="testimonials-reference-title">
       <div className="testimonials-reference-decor testimonials-reference-decor-left" aria-hidden="true">
-        <Image src="/images/testimonials-left-corner.png" alt="" fill sizes="520px" />
+        <Image src="/images/testimonials-left-corner.webp" alt="" fill sizes="520px" />
       </div>
       <div className="testimonials-reference-decor testimonials-reference-decor-right" aria-hidden="true">
-        <Image src="/images/home-hero-reference.png" alt="" fill sizes="330px" />
+        <Image src="/images/home-hero-reference.webp" alt="" fill sizes="330px" />
       </div>
 
       <div className="testimonials-reference-inner">

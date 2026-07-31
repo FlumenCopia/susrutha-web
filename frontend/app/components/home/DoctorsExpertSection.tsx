@@ -64,7 +64,7 @@ export function DoctorsExpertSection() {
         <div className="doctors-expert-feature">
           <div className="doctors-expert-portrait">
             <Image
-              src="/images/doctor-portrait.png"
+              src="/images/doctor-portrait.webp"
               alt="Dr. Anjali Nair"
               fill
               sizes="(max-width: 900px) 70vw, 390px"
@@ -100,7 +100,7 @@ export function DoctorsExpertSection() {
             <article className="doctors-expert-card" key={doctor.name}>
               <div className="doctors-expert-card-photo">
                 <Image
-                  src="/images/doctor-portrait.png"
+                  src="/images/doctor-portrait.webp"
                   alt={doctor.name}
                   fill
                   sizes="(max-width: 900px) 120px, 155px"
@@ -126,7 +126,7 @@ export function DoctorsExpertSection() {
         </div>
 
         <div className="doctors-expert-still doctors-expert-still-left" aria-hidden="true">
-          <Image src="/images/home-hero-reference.png" alt="" fill sizes="330px" />
+          <Image src="/images/home-hero-reference.webp" alt="" fill sizes="330px" />
         </div>
 
         {/* <div className="doctors-expert-stats" aria-label="Doctor care highlights">
@@ -146,7 +146,7 @@ export function DoctorsExpertSection() {
         </blockquote> */}
 
         <div className="doctors-expert-still doctors-expert-still-right" aria-hidden="true">
-          <Image src="/images/testimonial-lamp-flowers.png" alt="" fill sizes="260px" />
+          <Image src="/images/testimonial-lamp-flowers.webp" alt="" fill sizes="260px" />
         </div>
       </div>
     </section>

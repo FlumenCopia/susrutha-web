@@ -234,7 +234,7 @@ export function CounterSection() {
 
         <div className="home-counter-band">
           <Image
-            src="/images/testimonial-lamp-flowers.png"
+            src="/images/testimonial-lamp-flowers.webp"
             alt="Traditional Ayurvedic wellness setup"
             fill
             sizes="(max-width: 900px) 100vw, 42vw"

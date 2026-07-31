@@ -26,21 +26,21 @@ const showcaseMilestones: ShowcaseMilestone[] = [
     title: "Ayurveda Village",
     copy: "Gramam cottages opened for holistic living experience.",
     icon: "leaf",
-    image: "/images/ayurveda-hospital-garden.png",
+    image: "/images/ayurveda-hospital-garden.webp",
   },
   {
     year: "2012",
     title: "Partnership",
     copy: "Registered partnership firm strengthening our mission.",
     icon: "partnership",
-    image: "/images/about-purpose-still-life.png",
+    image: "/images/about-purpose-still-life.webp",
   },
   {
     year: "2013",
     title: "Nursing School",
     copy: "Ayurveda nursing education initiated.",
     icon: "cap",
-    image: "/images/about-hero-ayurveda-still-life.png",
+    image: "/images/about-hero-ayurveda-still-life.webp",
     muted: true,
   },
   {
@@ -54,14 +54,14 @@ const showcaseMilestones: ShowcaseMilestone[] = [
     title: "Wellness Care",
     copy: "Personalized wellness programmes expanded for families.",
     icon: "lotus",
-    image: "/images/about-purpose-vision-plant.png",
+    image: "/images/about-purpose-vision-plant.webp",
   },
   {
     year: "Today",
     title: "Continuing the Legacy",
     copy: "Carrying Ayurveda forward with the same purpose: your well-being.",
     icon: "leaf",
-    image: "/images/about-purpose-mission-bowl.png",
+    image: "/images/about-purpose-mission-bowl.webp",
   },
 ];
 
@@ -168,7 +168,7 @@ export function AboutMilestoneShowcaseSection() {
         </div>
         <div className="milestone-showcase-image">
           <Image
-            src="/images/about-purpose-still-life.png"
+            src="/images/about-purpose-still-life.webp"
             alt="Ayurvedic mortar and herbs"
             width={900}
             height={520}

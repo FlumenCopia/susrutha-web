@@ -26,7 +26,7 @@ export function AyurvedaVillageSection() {
 
       <div className="village-image-panel">
         <Image
-          src="/images/ayurveda-village-path.png"
+          src="/images/ayurveda-village-path.webp"
           alt="Ayurveda village pathway with traditional cottages"
           fill
           sizes="(max-width: 800px) 100vw, 34vw"

@@ -102,7 +102,7 @@ export function AboutStorySection() {
       <div className="about-story-image-wrap">
         <div className="about-story-image">
           <Image
-            src="/images/about-story-lotus-courtyard.png"
+            src="/images/about-story-lotus-courtyard.webp"
             alt="Ayurvedic hospital courtyard with lotus emblem and healing plants"
             width={900}
             height={1200}

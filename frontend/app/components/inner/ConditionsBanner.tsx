@@ -86,7 +86,7 @@ export function ConditionsBanner() {
       <div className="conditions-hero-visual" aria-hidden="true">
         <div className="conditions-hero-arch">
           <Image
-            src="/images/doctors-ayurveda-mortar-hero.png"
+            src="/images/doctors-ayurveda-mortar-hero.webp"
             alt=""
             fill
             priority

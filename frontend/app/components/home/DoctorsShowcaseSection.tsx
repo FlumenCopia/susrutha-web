@@ -8,7 +8,7 @@ const doctors = [
     qualification: "BAMS, MD (Ayurveda)",
     summary: "Specialist in Panchakarma & Detoxification",
     experience: "8+ Years",
-    image: "/images/doctor-anjali-nair.png",
+    image: "/images/doctor-anjali-nair.webp",
     icon: "leaf",
     accent: "green",
   },
@@ -18,7 +18,7 @@ const doctors = [
     qualification: "BAMS, MD (Ayurveda)",
     summary: "Expert in Herbal Medicine & Immunity",
     experience: "10+ Years",
-    image: "/images/doctor-arjun-dev.png",
+    image: "/images/doctor-arjun-dev.webp",
     icon: "bowl",
     accent: "gold",
   },
@@ -28,7 +28,7 @@ const doctors = [
     qualification: "BAMS, MD (Ayurveda)",
     summary: "Specialist in Women's Health & Wellness",
     experience: "7+ Years",
-    image: "/images/doctor-meera-das.png",
+    image: "/images/doctor-meera-das.webp",
     icon: "leaf",
     accent: "green",
   },
@@ -38,7 +38,7 @@ const doctors = [
     qualification: "BAMS, MD (Ayurveda)",
     summary: "Expert in Pain Management & Physiotherapy",
     experience: "12+ Years",
-    image: "/images/doctor-rahul-kumar.png",
+    image: "/images/doctor-rahul-kumar.webp",
     icon: "stethoscope",
     accent: "gold",
   },
@@ -167,7 +167,7 @@ export function DoctorsShowcaseSection() {
         <div className="home-doctors-visual" aria-label="Ayurvedic healing">
           <div className="home-doctors-arch">
             <Image
-              src="/images/doctors-ayurveda-mortar-hero.png"
+              src="/images/doctors-ayurveda-mortar-hero.webp"
               alt="Ayurvedic herbs with mortar and pestle"
               fill
               sizes="(max-width: 900px) 88vw, 34vw"

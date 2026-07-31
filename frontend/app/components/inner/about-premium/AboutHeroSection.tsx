@@ -95,7 +95,7 @@ export function AboutHeroSection() {
             <AboutValueIcon icon="leaf" />
           </div>
           <Image
-            src="/images/home-hero-reference.png"
+            src="/images/home-hero-reference.webp"
             alt="Ayurvedic herbs with marble mortar and brass vessels"
             width={1536}
             height={864}

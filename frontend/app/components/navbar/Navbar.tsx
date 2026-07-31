@@ -21,7 +21,7 @@ export function Navbar() {
     <header className="site-header">
       <nav className="navbar" aria-label="Main navigation">
         <Link className="brand" href="/" aria-label="Susrutha Ayurveda home">
-          <Image src="/images/logo.png" alt="Susrutha Ayurveda logo" width={356} height={110} priority />
+          <Image src="/images/logo.webp" alt="Susrutha Ayurveda logo" width={356} height={110} priority />
         </Link>
 
         <div className="nav-links">

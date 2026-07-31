@@ -9,10 +9,10 @@ type DoctorProfilePageProps = {
 type DoctorIconName = "award" | "calendar" | "doctor" | "leaf" | "medicine" | "shield" | "spine" | "target";
 
 const signatureTreatments = [
-  { title: "Panchakarma", meta: "Core Hospital Therapy", image: "/images/treatment-panchakarma.png", icon: "medicine" },
-  { title: "Abhyanga", meta: "External Therapy", image: "/images/treatment-herbal-medicine.png", icon: "leaf" },
-  { title: "Kizhi (Herbal Bolus Fomentation)", meta: "External Therapy", image: "/images/treatment-njavarakizhi.png", icon: "award" },
-  { title: "Vasti (Medicated Enema Therapy)", meta: "Panchakarma Procedure", image: "/images/treatment-kati-vasti.png", icon: "medicine" },
+  { title: "Panchakarma", meta: "Core Hospital Therapy", image: "/images/treatment-panchakarma.webp", icon: "medicine" },
+  { title: "Abhyanga", meta: "External Therapy", image: "/images/treatment-herbal-medicine.webp", icon: "leaf" },
+  { title: "Kizhi (Herbal Bolus Fomentation)", meta: "External Therapy", image: "/images/treatment-njavarakizhi.webp", icon: "award" },
+  { title: "Vasti (Medicated Enema Therapy)", meta: "Panchakarma Procedure", image: "/images/treatment-kati-vasti.webp", icon: "medicine" },
 ] satisfies { title: string; meta: string; image: string; icon: DoctorIconName }[];
 
 const articleCards = [
@@ -20,19 +20,19 @@ const articleCards = [
     title: "Understanding Panchakarma as Hospital Care",
     category: "Panchakarma",
     meta: "May 12, 2024 - 6 min read",
-    image: "/images/about-purpose-still-life.png",
+    image: "/images/about-purpose-still-life.webp",
   },
   {
     title: "Ayurvedic Approach to Chronic Back Pain",
     category: "Spine Care",
     meta: "Apr 28, 2024 - 5 min read",
-    image: "/images/treatment-kati-vasti.png",
+    image: "/images/treatment-kati-vasti.webp",
   },
   {
     title: "Dinacharya: Daily Routine for Better Health",
     category: "Lifestyle",
     meta: "Apr 10, 2024 - 4 min read",
-    image: "/images/treatment-herbal-medicine.png",
+    image: "/images/treatment-herbal-medicine.webp",
   },
 ];
 
@@ -110,7 +110,7 @@ function DoctorIcon({ name }: { name: DoctorIconName }) {
 }
 
 export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
-  const image = doctor.image ?? "/images/doctor-portrait.png";
+  const image = doctor.image ?? "/images/doctor-portrait.webp";
   const focusAreas = doctor.focusAreas?.length ? doctor.focusAreas : ["Panchakarma hospital protocols", "Chronic musculoskeletal conditions", "Integrative inpatient Ayurveda", "Research-oriented clinical practice"];
   const pillars = doctor.approach?.length ? doctor.approach.slice(0, 3) : ["Research-driven Ayurveda", "Panchakarma authority", "Classical Ayurveda + modern hospital practice"];
   const languages = doctor.languages?.length ? doctor.languages.join(", ") : "Malayalam, English, Hindi";
@@ -373,7 +373,7 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
       </section>
 
       <section className="doctor-appointment-banner">
-        <Image src="/images/testimonial-lamp-flowers.png" alt="" fill aria-hidden="true" sizes="100vw" />
+        <Image src="/images/testimonial-lamp-flowers.webp" alt="" fill aria-hidden="true" sizes="100vw" />
         <div>
           <span>Ready to begin your healing journey?</span>
           <h2>Book an Appointment with {doctor.title}</h2>
