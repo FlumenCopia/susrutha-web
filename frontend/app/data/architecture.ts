@@ -153,7 +153,7 @@ export const desktopNavigation: LinkItem[] = [
       { label: "Ecosystem", href: "/departments" },
       { label: "Facilities", href: "/facilities" },
       { label: "Video gallery", href: "/gallery" },
-      { label: "Media", href: "/blogs" },
+      { label: "Media", href: "/media" },
       { label: "Blog", href: "/blogs" },
     ],
   },
