@@ -1,11 +1,10 @@
 import { SiteShell } from "../components/common/SiteShell";
-import { InnerPage } from "../components/inner/InnerPage";
-import { basePages } from "../data/architecture";
+import { BlogPremiumPage } from "../components/blog/BlogPremiumPage";
 
 export default function BlogsPage() {
   return (
     <SiteShell>
-      <InnerPage content={basePages.blogs} />
+      <BlogPremiumPage />
     </SiteShell>
   );
 }
