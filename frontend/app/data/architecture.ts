@@ -101,9 +101,20 @@ export const completeSitemap: LinkItem[] = [
 ];
 
 export const desktopNavigation: LinkItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Treatments", href: "/treatments" },
+  {
+    label: "Treatments",
+    href: "/treatments",
+    children: [
+      { label: "Panchakarma", href: "/treatments/panchakarma" },
+      { label: "Abhyanga", href: "/treatments/abhyangam" },
+      { label: "Shirodhara", href: "/treatments/shirodhara" },
+      { label: "Kizhi (Herbal Bolus Fomentation)", href: "/treatments/njavarakizhi" },
+      { label: "Kati Basti / Greeva Basti", href: "/treatments/kati-basti" },
+      { label: "Vasti (Medicated Enema Therapy)", href: "/treatments/basti" },
+      { label: "Kshara Sutra", href: "/treatments/herbal-medicine" },
+      { label: "Rejuvenation & Rasayana Therapies", href: "/treatments/lifestyle-disorders" },
+    ],
+  },
   {
     label: "Conditions",
     href: "/conditions",
@@ -118,10 +129,31 @@ export const desktopNavigation: LinkItem[] = [
       { label: "Proctology", href: "/conditions/proctology" },
     ],
   },
-  { label: "Doctors", href: "/doctors" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Contact Us", href: "/contact-us" },
+  {
+    label: "Doctors",
+    href: "/doctors",
+    children: [
+      { label: "All Doctors", href: "/doctors" },
+      { label: "Dr. Krishnakumar K.", href: "/doctors/dr-krishnakumar-k" },
+      { label: "Dr. Sreeja Krishna S.", href: "/doctors/dr-sreeja-krishna-s" },
+      { label: "Dr. Priyanka R.", href: "/doctors/dr-priyanka-r" },
+      { label: "Dr. Rajesh R.", href: "/doctors/dr-rajesh-r" },
+    ],
+  },
+  {
+    label: "Explore",
+    href: "/about-us",
+    children: [
+      { label: "About Susrutha", href: "/about-us" },
+      { label: "Facilities", href: "/facilities" },
+      { label: "Patient Care", href: "/patient-care" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Blogs", href: "/blogs" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 export const footerNavigation = [
