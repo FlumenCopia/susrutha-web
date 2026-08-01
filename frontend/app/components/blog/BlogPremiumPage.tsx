@@ -1,11 +1,8 @@
-import { AuthorSection } from "./AuthorSection";
 import { BlogCategories } from "./BlogCategories";
 import { BlogGrid } from "./BlogGrid";
+import { BlogEngagementPanel } from "./BlogEngagementPanel";
 import { BlogHero } from "./BlogHero";
 import { FeaturedBlog } from "./FeaturedBlog";
-import { FooterCta } from "./FooterCta";
-import { NewsletterCta } from "./NewsletterCta";
-import { TrendingArticles } from "./TrendingArticles";
 
 export function BlogPremiumPage() {
   return (
@@ -14,10 +11,7 @@ export function BlogPremiumPage() {
       <BlogCategories />
       <FeaturedBlog />
       <BlogGrid />
-      <TrendingArticles />
-      <NewsletterCta />
-      <AuthorSection />
-      <FooterCta />
+      <BlogEngagementPanel />
     </div>
   );
 }
