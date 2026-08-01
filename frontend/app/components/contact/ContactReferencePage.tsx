@@ -151,6 +151,7 @@ export function ContactReferencePage() {
       <div className="contact-reference-main">
         <section className="contact-reference-hero" aria-labelledby="contact-reference-title">
           <div className="contact-reference-leaves" aria-hidden="true" />
+          <div className="contact-reference-aura" aria-hidden="true" />
           <div className="contact-reference-copy">
             <nav className="contact-reference-breadcrumb" aria-label="Breadcrumb">
               <Link href="/">Home</Link>
@@ -182,6 +183,9 @@ export function ContactReferencePage() {
           </div>
 
           <form className="contact-reference-form" aria-label="Send us a message">
+            <div className="contact-reference-form-mark" aria-hidden="true">
+              <LotusIcon />
+            </div>
             <h2>Send Us a Message</h2>
             <span className="contact-reference-form-rule" aria-hidden="true" />
             <div className="contact-reference-form-grid">
@@ -220,6 +224,7 @@ export function ContactReferencePage() {
         </section>
 
         <section className="contact-reference-info" aria-labelledby="contact-info-title">
+          <div className="contact-reference-info-glow" aria-hidden="true" />
           <h2 id="contact-info-title">Get in Touch</h2>
           <span className="contact-reference-small-rule" aria-hidden="true" />
           <div className="contact-reference-info-grid">
@@ -248,6 +253,9 @@ export function ContactReferencePage() {
           </div>
 
           <div className="contact-reference-map">
+            <div className="contact-reference-map-compass" aria-hidden="true">
+              <LotusIcon />
+            </div>
             <div className="contact-reference-map-lines" aria-hidden="true" />
             <span className="contact-reference-pin" aria-hidden="true">
               <LotusIcon />
