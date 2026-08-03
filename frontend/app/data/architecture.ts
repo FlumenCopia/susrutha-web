@@ -82,6 +82,7 @@ export const completeSitemap: LinkItem[] = [
   { label: "Services", href: "/services" },
   { label: "Facilities", href: "/facilities" },
   { label: "Patient Care", href: "/patient-care" },
+  { label: "International Patients", href: "/international-patients" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Gallery", href: "/gallery" },
   {
@@ -149,7 +150,7 @@ export const desktopNavigation: LinkItem[] = [
       { label: "Ayur Village", href: "/ayurveda-village" },
       { label: "Packages", href: "/packages" },
       { label: "Knowledge Centre", href: "/blogs" },
-      { label: "International patients", href: "/patient-care" },
+      { label: "International patients", href: "/international-patients" },
       { label: "Ecosystem", href: "/departments" },
       { label: "Facilities", href: "/facilities" },
       { label: "Video gallery", href: "/gallery" },
@@ -177,6 +178,7 @@ export const footerNavigation = [
     links: [
       { label: "Book Appointment", href: "/appointment" },
       { label: "Patient Care", href: "/patient-care" },
+      { label: "International Patients", href: "/international-patients" },
       { label: "Facilities", href: "/facilities" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact Us", href: "/contact-us" },
