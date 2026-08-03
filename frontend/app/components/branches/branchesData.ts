@@ -1,3 +1,5 @@
+import type { BranchIconName } from "./BranchIcons";
+
 export const branchHighlights = [
   {
     icon: "shield",
@@ -15,6 +17,12 @@ export const branchHighlights = [
     text: "Holistic Healing",
   },
 ] as const;
+
+export const branchRouteSteps: { icon: BranchIconName; label: string }[] = [
+  { icon: "pin", label: "Select branch" },
+  { icon: "phone", label: "Confirm availability" },
+  { icon: "calendar", label: "Visit with clarity" },
+];
 
 export const branches = [
   {

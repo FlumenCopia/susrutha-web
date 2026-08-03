@@ -1,5 +1,7 @@
+export type BranchIconName = "shield" | "basket" | "building" | "pin" | "clock" | "phone" | "calendar" | "arrow" | "leaf" | "check";
+
 type BranchIconProps = {
-  name: "shield" | "basket" | "building" | "pin" | "clock" | "phone" | "calendar" | "arrow" | "leaf" | "check";
+  name: BranchIconName;
   className?: string;
 };
 

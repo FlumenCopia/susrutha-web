@@ -1,6 +1,6 @@
 import { BranchLocationCard } from "./BranchLocationCard";
 import { BranchIcon } from "./BranchIcons";
-import { branches } from "./branchesData";
+import { branches, branchRouteSteps } from "./branchesData";
 
 export function BranchesLocations() {
   return (
@@ -22,18 +22,12 @@ export function BranchesLocations() {
       </div>
 
       <div className="branches-route-strip" aria-label="Branch care path">
-        <span>
-          <BranchIcon name="pin" />
-          Select branch
-        </span>
-        <span>
-          <BranchIcon name="phone" />
-          Confirm availability
-        </span>
-        <span>
-          <BranchIcon name="calendar" />
-          Visit with clarity
-        </span>
+        {branchRouteSteps.map((step) => (
+          <span key={step.label}>
+            <BranchIcon name={step.icon} />
+            {step.label}
+          </span>
+        ))}
       </div>
     </section>
   );

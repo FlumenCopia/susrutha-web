@@ -32100,3 +32100,1182 @@ body:has(.branches-premium-page) {
     font-size: 24px;
   }
 }
+
+/* Branches home-theme alignment */
+body:has(.branches-premium-page) {
+  background: #fbf7f0;
+}
+
+.branches-premium-page {
+  --branches-green: #17231f;
+  --branches-gold: #a87534;
+  --branches-muted: #38413d;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(168, 117, 52, 0.055), transparent 28%),
+    radial-gradient(circle at 88% 42%, rgba(168, 117, 52, 0.045), transparent 26%),
+    linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
+}
+
+.branches-premium-page::before,
+.branches-premium-page::after {
+  border-color: rgba(149, 117, 77, 0.12);
+}
+
+.branches-hero,
+.branch-location-card,
+.branches-trust-panel {
+  border-color: rgba(149, 117, 77, 0.15);
+  background-color: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 42px rgba(64, 43, 20, 0.1);
+}
+
+.branches-hero {
+  background:
+    radial-gradient(circle at 84% 12%, rgba(168, 117, 52, 0.08), transparent 25%),
+    linear-gradient(135deg, rgba(255, 253, 249, 0.98), rgba(251, 247, 240, 0.92));
+}
+
+.branches-hero::before {
+  color: rgba(168, 117, 52, 0.08);
+}
+
+.branches-premium-page h1,
+.branches-premium-page h2,
+.branches-premium-page h3,
+.branch-location-doctors,
+.branches-route-strip span {
+  color: #17231f !important;
+}
+
+.branches-hero-copy > p,
+.branches-section-heading p,
+.branch-location-description,
+.branches-trust-copy li {
+  color: #38413d !important;
+}
+
+.branches-kicker,
+.branches-section-heading span,
+.branches-trust-copy > span,
+.branches-breadcrumb a {
+  color: #966523;
+}
+
+.branches-button-primary,
+.branches-button-light:hover {
+  background: linear-gradient(135deg, #b78643, #95652d) !important;
+  color: #ffffff !important;
+  box-shadow: 0 16px 34px rgba(128, 84, 33, 0.22) !important;
+}
+
+.branches-button-primary:hover {
+  background: linear-gradient(135deg, #95652d, #7f5324) !important;
+}
+
+.branches-button-secondary {
+  border-color: rgba(149, 117, 77, 0.22);
+  background: rgba(255, 255, 255, 0.72);
+  color: #17231f !important;
+}
+
+.branches-button-secondary:hover {
+  border-color: rgba(168, 117, 52, 0.52);
+}
+
+.branches-button-light {
+  background: #fffdf9;
+  color: #17231f !important;
+}
+
+.branches-hero-highlights article,
+.branch-location-meta span,
+.branch-location-meta a,
+.branches-route-strip span,
+.branches-trust-stats article {
+  border-color: rgba(149, 117, 77, 0.15);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.branches-hero-highlights article > span,
+.branch-location-icon {
+  border-color: rgba(168, 117, 52, 0.32);
+  background: rgba(168, 117, 52, 0.055);
+  color: #a87534;
+}
+
+.branches-hero-card span {
+  background: linear-gradient(135deg, #082b20, #0c3a2b);
+  color: #c6944b;
+}
+
+.branch-location-address,
+.branch-location-meta span,
+.branch-location-meta a,
+.branches-hero-card p {
+  color: #303936 !important;
+}
+
+.branch-location-address svg,
+.branch-location-doctors svg,
+.branches-trust-copy li svg {
+  color: #a87534;
+}
+
+.branch-location-tags span {
+  border-color: rgba(149, 117, 77, 0.12);
+  background: #f7f1e6;
+  color: #202826;
+}
+
+.branches-route-strip {
+  border-color: rgba(149, 117, 77, 0.15);
+  background: rgba(149, 117, 77, 0.12);
+  box-shadow: 0 18px 42px rgba(64, 43, 20, 0.08);
+}
+
+.branches-route-strip svg,
+.branch-location-meta svg {
+  color: #a87534;
+}
+
+.branches-trust-panel {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(168, 117, 52, 0.08), transparent 25%),
+    linear-gradient(135deg, rgba(255, 253, 249, 0.96), rgba(251, 247, 240, 0.9));
+}
+
+.branches-trust-stats strong {
+  color: #8a5d20;
+}
+
+.branches-cta {
+  border-color: rgba(198, 148, 75, 0.28);
+  background:
+    radial-gradient(circle at 4% 20%, rgba(198, 148, 75, 0.2), transparent 24%),
+    linear-gradient(135deg, #082b20, #0c3a2b);
+  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.2);
+}
+
+.branches-cta > div > span {
+  border-color: rgba(198, 148, 75, 0.5);
+  color: #c6944b;
+}
+
+/* Ayur Village premium page */
+body:has(.ayur-village-page) {
+  background: #fbf7f0;
+}
+
+.ayur-village-page {
+  --village-ink: #17231f;
+  --village-muted: #38413d;
+  --village-gold: #a87534;
+  --village-deep: #082b20;
+  --village-deep-2: #0c3a2b;
+  --village-line: rgba(149, 117, 77, 0.15);
+  --village-card: rgba(255, 255, 255, 0.86);
+  width: 100%;
+  padding: clamp(94px, 7vw, 120px) 0 clamp(58px, 6vw, 94px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 14%, rgba(168, 117, 52, 0.07), transparent 26%),
+    linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
+  color: var(--village-ink);
+}
+
+.ayur-village-page h1,
+.ayur-village-page h2,
+.ayur-village-page h3 {
+  color: var(--village-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.ayur-village-page p {
+  color: var(--village-muted) !important;
+}
+
+.ayur-village-page svg {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+}
+
+.ayur-village-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #966523;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ayur-village-eyebrow::before,
+.ayur-village-eyebrow::after {
+  content: "";
+  width: 13px;
+  height: 10px;
+  border: 1.5px solid currentColor;
+  border-width: 1.5px 1.5px 0 0;
+  border-radius: 100% 0;
+  transform: rotate(-38deg);
+}
+
+.ayur-village-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: max-content;
+  padding: 0 24px;
+  border: 1px solid rgba(168, 117, 52, 0.28);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.ayur-village-button svg {
+  font-size: 17px;
+  transition: transform 180ms ease;
+}
+
+.ayur-village-button:hover {
+  transform: translateY(-3px);
+}
+
+.ayur-village-button:hover svg {
+  transform: translateX(4px);
+}
+
+.ayur-village-button-light {
+  background: linear-gradient(135deg, #fff3d7, #f2d59c);
+  color: var(--village-ink) !important;
+  box-shadow: 0 16px 34px rgba(128, 84, 33, 0.2);
+}
+
+.ayur-village-hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(620px, 56vw, 840px);
+  align-items: end;
+  width: 100vw;
+  margin: calc(clamp(94px, 7vw, 120px) * -1) calc(50% - 50vw) 0;
+  padding: clamp(150px, 12vw, 210px) clamp(24px, 7vw, 120px) clamp(28px, 4vw, 56px);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--village-deep);
+}
+
+.ayur-village-hero-bg {
+  z-index: -2;
+  object-fit: cover;
+}
+
+.ayur-village-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(8, 43, 32, 0.98) 0%, rgba(8, 43, 32, 0.82) 38%, rgba(8, 43, 32, 0.18) 72%),
+    linear-gradient(180deg, rgba(8, 43, 32, 0.2) 0%, rgba(8, 43, 32, 0.72) 100%);
+}
+
+.ayur-village-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.ayur-village-hero .ayur-village-eyebrow,
+.ayur-village-ideal .ayur-village-eyebrow {
+  color: #d9b66f;
+}
+
+.ayur-village-hero h1 {
+  max-width: 780px;
+  margin: 22px 0 0;
+  color: #ffffff;
+  font-size: clamp(48px, 5.2vw, 88px);
+  line-height: 1.02;
+}
+
+.ayur-village-hero p {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.75;
+}
+
+.ayur-village-hero .ayur-village-button {
+  margin-top: 34px;
+}
+
+.ayur-village-quote-card {
+  position: absolute;
+  right: clamp(28px, 7vw, 130px);
+  bottom: clamp(92px, 10vw, 170px);
+  z-index: 3;
+  display: grid;
+  align-content: center;
+  width: clamp(190px, 17vw, 270px);
+  min-height: clamp(190px, 18vw, 270px);
+  padding: 28px;
+  border: 1px solid rgba(168, 117, 52, 0.28);
+  border-radius: 8px 28px 8px 28px;
+  background: rgba(255, 253, 249, 0.92);
+  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.24);
+  backdrop-filter: blur(14px);
+}
+
+.ayur-village-quote-card span {
+  position: relative;
+  z-index: 2;
+  color: var(--village-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(26px, 2.2vw, 38px);
+  line-height: 1.1;
+}
+
+.ayur-village-quote-card i {
+  position: absolute;
+  right: 22px;
+  top: 8px;
+  color: rgba(168, 117, 52, 0.08);
+  font-family: Georgia, serif;
+  font-size: 110px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.ayur-village-hero-features {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 1120px);
+  margin-top: clamp(38px, 5vw, 72px);
+  overflow: hidden;
+  border: 1px solid rgba(198, 148, 75, 0.18);
+  border-radius: 18px;
+  background: rgba(8, 43, 32, 0.82);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+.ayur-village-hero-features article {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 92px;
+  padding: 20px 24px;
+}
+
+.ayur-village-hero-features article + article {
+  border-left: 1px solid rgba(198, 148, 75, 0.2);
+}
+
+.ayur-village-hero-features svg {
+  color: #d9b66f;
+  font-size: 32px;
+}
+
+.ayur-village-hero-features h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.ayur-village-experience,
+.ayur-village-gallery-section,
+.ayur-village-cta {
+  width: min(calc(100% - 44px), 1440px);
+  margin-inline: auto;
+}
+
+.ayur-village-experience {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.92fr) minmax(360px, 1fr);
+  gap: clamp(36px, 6vw, 92px);
+  align-items: center;
+  padding: clamp(58px, 6vw, 92px) 0;
+}
+
+.ayur-village-video-card {
+  position: relative;
+  min-height: clamp(330px, 34vw, 480px);
+  overflow: hidden;
+  border-radius: 28px;
+  background: #e6ddcf;
+  box-shadow: 0 24px 58px rgba(49, 36, 22, 0.13);
+  isolation: isolate;
+}
+
+.ayur-village-video-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(8, 43, 32, 0.04), rgba(8, 43, 32, 0.58));
+}
+
+.ayur-village-video-card img,
+.ayur-village-gallery img {
+  object-fit: cover;
+  transition: transform 760ms ease, filter 760ms ease;
+}
+
+.ayur-village-video-card:hover img,
+.ayur-village-gallery article:hover img {
+  filter: saturate(1.08);
+  transform: scale(1.055);
+}
+
+.ayur-village-video-card button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 70px;
+  height: 70px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: #fff3d7;
+  color: var(--village-deep);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.ayur-village-video-card button svg {
+  font-size: 28px;
+}
+
+.ayur-village-video-card strong {
+  position: absolute;
+  left: 34px;
+  bottom: 32px;
+  z-index: 2;
+  max-width: 240px;
+  color: #ffffff;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(26px, 2.4vw, 38px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.ayur-village-experience-copy h2,
+.ayur-village-gallery-head h2 {
+  max-width: 580px;
+  margin: 16px 0 0;
+  font-size: clamp(34px, 3.4vw, 58px);
+  line-height: 1.04;
+}
+
+.ayur-village-experience-copy p,
+.ayur-village-gallery-head p {
+  max-width: 560px;
+  margin: 22px 0 0;
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.ayur-village-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.ayur-village-feature-grid article {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 82px;
+  padding: 18px;
+  border: 1px solid var(--village-line);
+  border-radius: 12px;
+  background: var(--village-card);
+  box-shadow: 0 18px 42px rgba(64, 43, 20, 0.08);
+}
+
+.ayur-village-feature-grid svg,
+.ayur-village-stats svg {
+  color: var(--village-gold);
+  font-size: 30px;
+}
+
+.ayur-village-feature-grid h3 {
+  margin: 0;
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.ayur-village-ideal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  width: 100vw;
+  min-height: clamp(260px, 24vw, 380px);
+  margin: 0 calc(50% - 50vw);
+  padding: clamp(48px, 6vw, 86px) clamp(24px, 7vw, 120px);
+  overflow: hidden;
+  background: var(--village-deep);
+  isolation: isolate;
+}
+
+.ayur-village-ideal > img {
+  z-index: -2;
+  object-fit: cover;
+  object-position: right center;
+  opacity: 0.42;
+}
+
+.ayur-village-ideal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(8, 43, 32, 0.98), rgba(8, 43, 32, 0.78), rgba(8, 43, 32, 0.5));
+}
+
+.ayur-village-ideal h2 {
+  margin: 14px 0 0;
+  color: #ffffff;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 1.08;
+}
+
+.ayur-village-ideal h2 em {
+  color: #d9b66f;
+  font-style: normal;
+}
+
+.ayur-village-ideal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(198, 148, 75, 0.2);
+}
+
+.ayur-village-ideal-grid article {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-height: 120px;
+  padding: 18px 22px;
+  background: rgba(8, 43, 32, 0.72);
+}
+
+.ayur-village-ideal-grid svg {
+  color: #d9b66f;
+  font-size: 40px;
+}
+
+.ayur-village-ideal-grid h3 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.ayur-village-gallery-section {
+  padding: clamp(58px, 6vw, 92px) 0 0;
+}
+
+.ayur-village-gallery-section {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.52fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 58px);
+}
+
+.ayur-village-gallery-head {
+  align-self: center;
+  padding-left: clamp(18px, 2vw, 36px);
+  border-left: 1px solid rgba(168, 117, 52, 0.38);
+}
+
+.ayur-village-gallery-head h2 {
+  font-size: clamp(30px, 2.8vw, 46px);
+}
+
+.ayur-village-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ayur-village-gallery article {
+  position: relative;
+  min-height: clamp(180px, 18vw, 260px);
+  overflow: hidden;
+  border-radius: 18px;
+  background: #e6ddcf;
+  box-shadow: 0 18px 42px rgba(64, 43, 20, 0.1);
+}
+
+.ayur-village-stats {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 28px;
+  overflow: hidden;
+  border: 1px solid var(--village-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 42px rgba(64, 43, 20, 0.08);
+}
+
+.ayur-village-stats article {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-height: 112px;
+  padding: 22px 28px;
+}
+
+.ayur-village-stats article + article {
+  border-left: 1px solid var(--village-line);
+}
+
+.ayur-village-stats strong {
+  color: var(--village-ink);
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(23px, 2vw, 34px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.ayur-village-stats p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.ayur-village-cta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(34px, 4vw, 60px);
+  padding: clamp(24px, 3vw, 38px) clamp(24px, 4vw, 54px);
+  overflow: hidden;
+  border: 1px solid rgba(198, 148, 75, 0.28);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(198, 148, 75, 0.16), transparent 25%),
+    linear-gradient(135deg, var(--village-deep), var(--village-deep-2));
+  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.2);
+}
+
+.ayur-village-cta > div {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.ayur-village-cta > div > span {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  border: 1px solid rgba(198, 148, 75, 0.5);
+  border-radius: 999px;
+  color: #c6944b;
+  font-size: 30px;
+}
+
+.ayur-village-cta h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(28px, 2.8vw, 44px);
+  line-height: 1.05;
+}
+
+.ayur-village-cta p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ayur-village-hero-copy,
+  .ayur-village-hero-features,
+  .ayur-village-quote-card,
+  .ayur-village-experience,
+  .ayur-village-ideal,
+  .ayur-village-gallery-section,
+  .ayur-village-cta {
+    animation: ayurVillageRise 680ms ease both;
+  }
+
+  .ayur-village-hero-features,
+  .ayur-village-experience {
+    animation-delay: 120ms;
+  }
+
+  .ayur-village-quote-card,
+  .ayur-village-gallery-section {
+    animation-delay: 190ms;
+  }
+}
+
+@keyframes ayurVillageRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1120px) {
+  .ayur-village-quote-card {
+    display: none;
+  }
+
+  .ayur-village-hero-features,
+  .ayur-village-ideal-grid,
+  .ayur-village-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ayur-village-hero-features article:nth-child(odd),
+  .ayur-village-stats article:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .ayur-village-experience,
+  .ayur-village-ideal,
+  .ayur-village-gallery-section {
+    grid-template-columns: 1fr;
+  }
+
+  .ayur-village-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .ayur-village-page {
+    padding-top: 78px;
+  }
+
+  .ayur-village-hero {
+    min-height: auto;
+    margin-top: -78px;
+    padding: 132px 18px 24px;
+  }
+
+  .ayur-village-hero::before {
+    background:
+      linear-gradient(90deg, rgba(8, 43, 32, 0.98), rgba(8, 43, 32, 0.72)),
+      linear-gradient(180deg, rgba(8, 43, 32, 0.18), rgba(8, 43, 32, 0.8));
+  }
+
+  .ayur-village-hero h1 {
+    font-size: clamp(38px, 11vw, 54px);
+  }
+
+  .ayur-village-hero p,
+  .ayur-village-experience-copy p,
+  .ayur-village-gallery-head p {
+    font-size: 13px;
+  }
+
+  .ayur-village-hero-features,
+  .ayur-village-feature-grid,
+  .ayur-village-ideal-grid,
+  .ayur-village-gallery,
+  .ayur-village-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .ayur-village-hero-features article + article,
+  .ayur-village-stats article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(198, 148, 75, 0.18);
+  }
+
+  .ayur-village-experience,
+  .ayur-village-gallery-section,
+  .ayur-village-cta {
+    width: calc(100% - 28px);
+  }
+
+  .ayur-village-video-card {
+    min-height: 300px;
+    border-radius: 22px;
+  }
+
+  .ayur-village-experience-copy h2,
+  .ayur-village-gallery-head h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .ayur-village-ideal {
+    padding: 42px 18px;
+  }
+
+  .ayur-village-gallery-head {
+    padding-left: 18px;
+  }
+
+  .ayur-village-gallery article {
+    min-height: 230px;
+  }
+
+  .ayur-village-cta,
+  .ayur-village-cta > div {
+    display: grid;
+  }
+
+  .ayur-village-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .ayur-village-hero-features article,
+  .ayur-village-feature-grid article,
+  .ayur-village-stats article {
+    padding: 16px;
+  }
+
+  .ayur-village-cta {
+    padding: 24px 18px;
+  }
+}
+
+/* Ayur Village responsive typography refinement */
+.ayur-village-page {
+  padding-top: clamp(86px, 6.4vw, 110px);
+}
+
+.ayur-village-eyebrow {
+  font-size: clamp(9px, 0.68vw, 10.5px);
+  letter-spacing: 0.11em;
+}
+
+.ayur-village-button {
+  min-height: 48px;
+  padding-inline: 20px;
+  font-size: clamp(12px, 0.82vw, 13px);
+}
+
+.ayur-village-hero {
+  min-height: clamp(560px, 50vw, 740px);
+  margin-top: calc(clamp(86px, 6.4vw, 110px) * -1);
+  padding-top: clamp(132px, 10vw, 180px);
+}
+
+.ayur-village-hero h1 {
+  max-width: 700px;
+  font-size: clamp(40px, 4.35vw, 72px);
+  line-height: 1.06;
+}
+
+.ayur-village-hero p {
+  max-width: 560px;
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.66;
+}
+
+.ayur-village-quote-card {
+  width: clamp(172px, 14vw, 230px);
+  min-height: clamp(172px, 15vw, 230px);
+  padding: 24px;
+}
+
+.ayur-village-quote-card span {
+  font-size: clamp(22px, 1.8vw, 31px);
+}
+
+.ayur-village-hero-features article {
+  grid-template-columns: 36px minmax(0, 1fr);
+  min-height: 78px;
+  padding: 16px 20px;
+}
+
+.ayur-village-hero-features svg {
+  font-size: 27px;
+}
+
+.ayur-village-hero-features h2,
+.ayur-village-feature-grid h3,
+.ayur-village-ideal-grid h3 {
+  font-size: clamp(12px, 0.82vw, 13px);
+}
+
+.ayur-village-experience {
+  grid-template-columns: minmax(320px, 0.92fr) minmax(320px, 1fr);
+  gap: clamp(28px, 4.6vw, 74px);
+  padding-block: clamp(48px, 5vw, 78px);
+}
+
+.ayur-village-video-card {
+  min-height: clamp(290px, 30vw, 430px);
+}
+
+.ayur-village-video-card button {
+  width: 60px;
+  height: 60px;
+}
+
+.ayur-village-video-card button svg {
+  font-size: 24px;
+}
+
+.ayur-village-video-card strong {
+  left: 28px;
+  bottom: 26px;
+  font-size: clamp(22px, 2vw, 32px);
+}
+
+.ayur-village-experience-copy h2,
+.ayur-village-gallery-head h2 {
+  max-width: 520px;
+  font-size: clamp(29px, 2.8vw, 48px);
+  line-height: 1.08;
+}
+
+.ayur-village-experience-copy p,
+.ayur-village-gallery-head p {
+  max-width: 520px;
+  font-size: clamp(13px, 0.9vw, 14px);
+  line-height: 1.64;
+}
+
+.ayur-village-feature-grid article {
+  grid-template-columns: 38px minmax(0, 1fr);
+  min-height: 72px;
+  padding: 15px;
+}
+
+.ayur-village-feature-grid svg,
+.ayur-village-stats svg {
+  font-size: 25px;
+}
+
+.ayur-village-ideal {
+  min-height: clamp(230px, 21vw, 320px);
+  padding-block: clamp(42px, 5vw, 70px);
+}
+
+.ayur-village-ideal h2 {
+  font-size: clamp(27px, 2.45vw, 40px);
+}
+
+.ayur-village-ideal-grid article {
+  min-height: 104px;
+  padding: 16px 18px;
+}
+
+.ayur-village-ideal-grid svg {
+  font-size: 34px;
+}
+
+.ayur-village-gallery-section {
+  gap: clamp(22px, 3.2vw, 46px);
+  padding-top: clamp(48px, 5vw, 76px);
+}
+
+.ayur-village-gallery {
+  gap: 14px;
+}
+
+.ayur-village-gallery article {
+  min-height: clamp(150px, 15vw, 220px);
+}
+
+.ayur-village-stats article {
+  grid-template-columns: 44px minmax(0, 1fr);
+  min-height: 96px;
+  padding: 18px 22px;
+}
+
+.ayur-village-stats strong {
+  font-size: clamp(20px, 1.55vw, 28px);
+}
+
+.ayur-village-stats p {
+  font-size: 12px;
+}
+
+.ayur-village-cta {
+  padding: clamp(22px, 2.6vw, 32px) clamp(22px, 3.4vw, 44px);
+}
+
+.ayur-village-cta > div > span {
+  width: 58px;
+  height: 58px;
+  font-size: 25px;
+}
+
+.ayur-village-cta h2 {
+  font-size: clamp(24px, 2.25vw, 36px);
+}
+
+.ayur-village-cta p {
+  font-size: 13px;
+}
+
+@media (max-width: 980px) {
+  .ayur-village-hero {
+    min-height: 620px;
+  }
+
+  .ayur-village-hero-features {
+    width: min(100%, 760px);
+  }
+
+  .ayur-village-experience,
+  .ayur-village-gallery-section {
+    width: min(calc(100% - 36px), 760px);
+  }
+
+  .ayur-village-experience {
+    grid-template-columns: 1fr;
+  }
+
+  .ayur-village-ideal {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ayur-village-gallery-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ayur-village-page {
+    padding-top: 72px;
+  }
+
+  .ayur-village-hero {
+    min-height: auto;
+    margin-top: -72px;
+    padding: 122px 16px 22px;
+  }
+
+  .ayur-village-hero h1 {
+    font-size: clamp(34px, 9.8vw, 46px);
+  }
+
+  .ayur-village-hero p {
+    font-size: 13px;
+  }
+
+  .ayur-village-hero-features article {
+    grid-template-columns: 32px minmax(0, 1fr);
+    min-height: 66px;
+    padding: 13px 14px;
+  }
+
+  .ayur-village-hero-features svg {
+    font-size: 24px;
+  }
+
+  .ayur-village-experience,
+  .ayur-village-gallery-section,
+  .ayur-village-cta {
+    width: calc(100% - 24px);
+  }
+
+  .ayur-village-video-card {
+    min-height: clamp(240px, 64vw, 300px);
+  }
+
+  .ayur-village-video-card button {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ayur-village-video-card strong {
+    left: 20px;
+    bottom: 20px;
+    font-size: 23px;
+  }
+
+  .ayur-village-experience-copy h2,
+  .ayur-village-gallery-head h2 {
+    font-size: clamp(27px, 8vw, 36px);
+  }
+
+  .ayur-village-feature-grid article {
+    min-height: 64px;
+  }
+
+  .ayur-village-ideal {
+    padding: 36px 16px;
+  }
+
+  .ayur-village-ideal h2 {
+    font-size: clamp(25px, 7.5vw, 34px);
+  }
+
+  .ayur-village-ideal-grid article {
+    min-height: 86px;
+  }
+
+  .ayur-village-gallery article {
+    min-height: clamp(190px, 58vw, 250px);
+  }
+
+  .ayur-village-stats article {
+    min-height: 82px;
+    padding: 15px;
+  }
+
+  .ayur-village-cta {
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ayur-village-button {
+    min-height: 44px;
+    padding-inline: 16px;
+    font-size: 12px;
+  }
+
+  .ayur-village-hero h1 {
+    font-size: 32px;
+  }
+
+  .ayur-village-hero-features h2,
+  .ayur-village-feature-grid h3,
+  .ayur-village-ideal-grid h3 {
+    font-size: 11.5px;
+  }
+
+  .ayur-village-cta > div > span {
+    width: 50px;
+    height: 50px;
+  }
+}
