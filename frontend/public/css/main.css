@@ -43582,3 +43582,952 @@ body:has(.international-page) .international-help-card a {
   }
 }
 
+/* ==========================================================================
+   TREATMENT INNER PAGE LUXURY UI & RESPONSIVE STYLING
+   ========================================================================== */
+
+.treatment-detail-luxury-wrapper {
+  background: #faf8f4;
+  color: var(--color-ink, #3f403d);
+  overflow-x: hidden;
+}
+
+/* 1. HERO SECTION */
+.treatment-hero-luxury {
+  position: relative;
+  background: radial-gradient(circle at 10% 20%, rgba(159, 19, 27, 0.04) 0%, transparent 40%),
+              linear-gradient(180deg, #f7f2ea 0%, #efe7d9 100%);
+  padding: 60px 24px 80px;
+  border-bottom: 1px solid rgba(200, 137, 34, 0.2);
+  overflow: hidden;
+}
+
+.treatment-hero-ambient-glow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(247, 165, 26, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.treatment-hero-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 clamp(24px, 4.5vw, 80px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.treatment-breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.treatment-breadcrumb-nav a {
+  color: var(--color-deep-red, #9f131b);
+  text-decoration: none;
+}
+
+.treatment-breadcrumb-nav .bc-sep {
+  color: #bbb;
+}
+
+.treatment-breadcrumb-nav .bc-current {
+  color: #333;
+}
+
+.treatment-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(159, 19, 27, 0.08);
+  border: 1px solid rgba(159, 19, 27, 0.2);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-deep-red, #9f131b);
+  margin-bottom: 20px;
+}
+
+.treatment-eyebrow-badge .badge-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-red, #d61f2b);
+  border-radius: 50%;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.treatment-hero-heading {
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 700;
+  color: #1a221f;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.treatment-gold-sparkle {
+  color: var(--color-gold, #c88922);
+}
+
+.treatment-hero-subheading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-deep-red, #9f131b);
+  margin-bottom: 16px;
+}
+
+.treatment-hero-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a524e;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+/* Facts Bar */
+.treatment-facts-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 220, 203, 0.8);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(99, 57, 19, 0.06);
+  margin-bottom: 32px;
+  width: fit-content;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fact-icon {
+  font-size: 22px;
+}
+
+.fact-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #777;
+  font-weight: 600;
+}
+
+.fact-value {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a221f;
+}
+
+.fact-divider {
+  width: 1px;
+  height: 32px;
+  background: #e2dbcf;
+}
+
+.treatment-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.treatment-btn-book {
+  min-height: 52px;
+  padding: 0 32px;
+  font-size: 16px;
+}
+
+.treatment-btn-enquire {
+  min-height: 52px;
+  padding: 0 28px;
+  font-size: 15px;
+}
+
+/* Media Card */
+.treatment-hero-media {
+  position: relative;
+}
+
+.treatment-media-frame {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(15, 23, 20, 0.18);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.treatment-hero-img {
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.treatment-media-frame:hover .treatment-hero-img {
+  transform: scale(1.04);
+}
+
+.treatment-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(15, 23, 20, 0.6) 100%);
+}
+
+.treatment-floating-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.floating-badge-icon {
+  font-size: 26px;
+}
+
+.treatment-floating-badge strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a221f;
+}
+
+.treatment-floating-badge span {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+
+/* 2. STICKY TABS */
+.treatment-sticky-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(200, 137, 34, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.treatment-tabs-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4.5vw, 80px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.treatment-tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.treatment-tab-link {
+  display: inline-block;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 180ms ease;
+}
+
+.treatment-tab-link:hover,
+.treatment-tab-link.active {
+  color: var(--color-deep-red, #9f131b);
+  border-bottom-color: var(--color-red, #d61f2b);
+}
+
+/* 3. MAIN BODY & SECTIONS */
+.treatment-detail-body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px clamp(24px, 4.5vw, 80px) 80px;
+}
+
+.treatment-section-block {
+  margin-bottom: 80px;
+  scroll-margin-top: 80px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-gold, #c88922);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title-luxury {
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: #1a221f;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+
+.section-center-heading {
+  text-align: center;
+}
+
+/* Overview Section */
+.treatment-overview-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.overview-paragraph {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #404844;
+  margin-bottom: 24px;
+}
+
+.ayurveda-wisdom-quote {
+  margin: 24px 0;
+  padding: 24px 30px;
+  background: var(--color-cream, #fff8ec);
+  border-left: 4px solid var(--color-gold, #c88922);
+  border-radius: 0 16px 16px 0;
+}
+
+.ayurveda-wisdom-quote p {
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #2a332e;
+  line-height: 1.5;
+  margin-bottom: 8px !important;
+}
+
+.ayurveda-wisdom-quote cite {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-deep-red, #9f131b);
+  font-style: normal;
+}
+
+.overview-highlight-card {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid rgba(232, 220, 203, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(99, 57, 19, 0.07);
+}
+
+.highlight-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.highlight-icon {
+  font-size: 28px;
+}
+
+.highlight-card-head h3 {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a221f;
+  margin: 0;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.highlight-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a524e;
+  padding-left: 18px;
+  position: relative;
+}
+
+.highlight-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold, #c88922);
+  font-weight: bold;
+}
+
+.highlight-list strong {
+  color: #1a221f;
+}
+
+/* Benefits Grid */
+.benefits-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.benefit-card-luxury {
+  background: #ffffff;
+  border: 1px solid rgba(232, 220, 203, 0.8);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.benefit-card-luxury:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(99, 57, 19, 0.12);
+}
+
+.benefit-img-wrapper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.benefit-img {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.benefit-card-luxury:hover .benefit-img {
+  transform: scale(1.08);
+}
+
+.benefit-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.benefit-badge-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-card-body {
+  padding: 24px;
+}
+
+.benefit-card-body h3 {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a221f;
+  margin-bottom: 8px;
+}
+
+.benefit-card-body p {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #555 !important;
+  margin: 0;
+}
+
+/* Ideal Candidates Section */
+.ideal-candidates-panel {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+  background: #ffffff;
+  border: 1px solid rgba(232, 220, 203, 0.9);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(99, 57, 19, 0.08);
+}
+
+.ideal-media-side {
+  position: relative;
+  min-height: 400px;
+}
+
+.ideal-img {
+  object-fit: cover;
+}
+
+.ideal-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 20, 0.7) 100%);
+}
+
+.ideal-badge-float {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--color-deep-red, #9f131b);
+  text-align: center;
+}
+
+.ideal-content-side {
+  padding: 48px 48px 48px 0;
+}
+
+.ideal-lead {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+.ideal-list-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ideal-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-cream, #fff8ec);
+  border: 1px solid rgba(200, 137, 34, 0.2);
+  border-radius: 16px;
+  transition: border-color 200ms ease;
+}
+
+.ideal-item-card:hover {
+  border-color: var(--color-gold, #c88922);
+}
+
+.ideal-item-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.ideal-item-card h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1a221f;
+  margin: 0 0 2px;
+}
+
+.ideal-item-card p {
+  font-size: 13px !important;
+  color: #666 !important;
+  margin: 0;
+  line-height: 1.5 !important;
+}
+
+/* Process Roadmap Track */
+.process-timeline-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.process-step-card {
+  padding: 28px 20px;
+  background: #ffffff;
+  border: 1px solid rgba(232, 220, 203, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  transition: transform 250ms ease;
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+}
+
+.process-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.step-num {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-gold, #c88922);
+}
+
+.step-icon {
+  font-size: 22px;
+}
+
+.step-phase {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--color-deep-red, #9f131b);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.step-title {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a221f;
+  margin-bottom: 8px;
+}
+
+.step-text {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #555 !important;
+  margin: 0;
+}
+
+/* What to expect & Inclusions Dual Cards */
+.expect-inclusions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.expect-dark-card {
+  padding: 44px;
+  background: linear-gradient(145deg, #0b3b2c 0%, #06261c 100%);
+  border-radius: 24px;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(7, 36, 27, 0.2);
+}
+
+.expect-dark-card .card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-sun, #f7a51a);
+  margin-bottom: 8px;
+}
+
+.expect-dark-card h2 {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 30px;
+  color: #ffffff !important;
+  margin-bottom: 24px;
+}
+
+.expect-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expect-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.expect-dark-card .expect-check-list li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.check-icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: var(--color-sun, #f7a51a);
+  color: #0b3b2c;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-icon.gold {
+  background: var(--color-gold, #c88922);
+  color: #ffffff;
+}
+
+.include-light-card {
+  padding: 44px;
+  background: #ffffff;
+  border: 1px solid rgba(232, 220, 203, 0.9);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(99, 57, 19, 0.06);
+}
+
+.include-light-card .card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-deep-red, #9f131b);
+  margin-bottom: 8px;
+}
+
+.include-light-card h2 {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 30px;
+  color: #1a221f !important;
+  margin-bottom: 24px;
+}
+
+.include-light-card .expect-check-list li {
+  color: #404844;
+}
+
+/* Consultation Luxury CTA Banner */
+.treatment-cta-luxury {
+  position: relative;
+  padding: 60px 48px;
+  background: linear-gradient(135deg, var(--color-deep-red, #9f131b) 0%, #6e0b11 100%);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(159, 19, 27, 0.3);
+  text-align: center;
+}
+
+.cta-ambient-glow {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(247, 165, 26, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.cta-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-sun, #f7a51a);
+  margin-bottom: 12px;
+}
+
+.cta-heading {
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: #ffffff !important;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.cta-text {
+  font-size: 16px !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 32px !important;
+}
+
+.cta-action-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.cta-btn-gold {
+  background: linear-gradient(135deg, var(--color-sun, #f7a51a) 0%, var(--color-gold, #c88922) 100%) !important;
+  color: #1a221f !important;
+  min-height: 52px;
+  padding: 0 34px;
+}
+
+.cta-btn-gold:hover {
+  background: linear-gradient(135deg, #ffb330 0%, #d89628 100%) !important;
+}
+
+.cta-btn-phone {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+  min-height: 52px;
+  padding: 0 28px;
+}
+
+.cta-btn-phone:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: #ffffff !important;
+}
+
+/* 4. RESPONSIVE BREAKPOINTS FOR TREATMENT DETAIL */
+@media (max-width: 1024px) {
+  .treatment-hero-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .treatment-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ideal-candidates-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .ideal-content-side {
+    padding: 32px;
+  }
+
+  .process-timeline-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expect-inclusions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .treatment-hero-luxury {
+    padding: 40px 16px 50px;
+  }
+
+  .treatment-facts-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .fact-divider {
+    display: none;
+  }
+
+  .benefits-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-timeline-track {
+    grid-template-columns: 1fr;
+  }
+
+  .treatment-cta-luxury {
+    padding: 40px 20px;
+  }
+}
+
+/* ==========================================================================
+   FULL-WIDTH OVERRIDES FOR TREATMENT PAGES & SECTIONS
+   ========================================================================== */
+.treatment-detail-luxury-wrapper,
+.treatment-reference-page,
+.all-treatments-section {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.treatment-hero-container,
+.treatment-tabs-container,
+.treatment-detail-body,
+.cta-content-wrapper,
+.all-treatments-section,
+.treatment-journey-banner {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.all-treatments-section {
+  padding-left: clamp(24px, 4.5vw, 80px) !important;
+  padding-right: clamp(24px, 4.5vw, 80px) !important;
+}
+
+.all-treatments-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  width: 100% !important;
+  gap: 28px !important;
+}
+
+.treatment-reference-hero {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: auto !important;
+}
+/* Dev cache invalidate */
+
+
+
