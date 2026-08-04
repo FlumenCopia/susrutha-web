@@ -7,6 +7,8 @@ import { useState } from "react";
 import { desktopNavigation } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
 
+import { NavbarSearch } from "./NavbarSearch";
+
 export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,18 +64,7 @@ export function Navbar() {
         </div>
 
         <div className="nav-actions">
-          <div className="nav-search-box">
-            <svg className="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search treatments, doctors..."
-              aria-label="Search treatments, doctors"
-              className="nav-search-input"
-            />
-          </div>
+          <NavbarSearch />
           <Link className="btn btn-primary nav-book-btn" href="/appointment">
             <svg className="nav-calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
