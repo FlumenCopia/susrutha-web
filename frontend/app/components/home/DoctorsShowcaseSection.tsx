@@ -237,7 +237,7 @@ export function DoctorsShowcaseSection() {
 
               {spotlightDoctor.quote && (
                 <blockquote className="home-spotlight-quote">
-                  "{spotlightDoctor.quote}"
+                  &ldquo;{spotlightDoctor.quote}&rdquo;
                 </blockquote>
               )}
 

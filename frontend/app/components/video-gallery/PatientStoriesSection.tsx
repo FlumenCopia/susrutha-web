@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { patientStoriesData, PatientStory, VideoItem, featuredVideosData } from "./videoGalleryData";
+import { patientStoriesData, PatientStory, VideoItem } from "./videoGalleryData";
 
 type PatientStoriesSectionProps = {
   onPlayVideo: (video: VideoItem) => void;
@@ -84,7 +84,7 @@ export function PatientStoriesSection({ onPlayVideo }: PatientStoriesSectionProp
                 </div>
               </div>
               <blockquote className="vg-story-quote">
-                "{ps.quote}"
+                &ldquo;{ps.quote}&rdquo;
               </blockquote>
             </div>
           </article>

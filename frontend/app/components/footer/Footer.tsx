@@ -91,7 +91,7 @@ export function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>(c) 2024 Susrutha Ayurveda. All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} Susrutha Ayurveda. All Rights Reserved.</p>
         <div className="footer-bottom-mark" aria-hidden="true">
           <span />
           <LotusMark />

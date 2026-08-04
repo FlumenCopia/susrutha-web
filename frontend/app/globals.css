@@ -1,1 +1,53 @@
 @import "../public/css/main.css";
+
+/* Design System Core Overrides & Global Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-ivory, #f8f2e6);
+  color: var(--color-ink, #3f403d);
+  font-family: var(--font-body), "Manrope", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-red, #d61f2b);
+  outline-offset: 2px;
+}
+
+/* Prevent image overflow */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Touch friendly minimum tap targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+}

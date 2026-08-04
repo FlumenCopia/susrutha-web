@@ -43264,3 +43264,321 @@ body:has(.international-page) .international-help-card a {
     height: 280px;
   }
 }
+
+/* ==========================================================================
+   STANDARDIZED DESIGN SYSTEM & RESPONSIVENESS OVERHAUL
+   ========================================================================== */
+
+/* 1. UNIFIED MOBILE MENU & DRAWER STYLING */
+.mobile-menu-wrapper {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nav-links,
+  .nav-actions {
+    display: none !important;
+  }
+
+  .mobile-menu-wrapper {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    background: rgba(159, 19, 27, 0.06);
+    border: 1px solid rgba(159, 19, 27, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background-color 200ms ease, border-color 200ms ease;
+  }
+
+  .mobile-menu-toggle:hover,
+  .mobile-menu-toggle:focus-visible {
+    background: rgba(159, 19, 27, 0.12);
+    border-color: rgba(159, 19, 27, 0.3);
+  }
+
+  .hamburger-bar {
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-deep-red, #9f131b);
+    border-radius: 2px;
+    transition: transform 250ms ease, opacity 250ms ease;
+  }
+
+  .mobile-menu-toggle.open .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-menu-toggle.open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-toggle.open .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 20, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 9998;
+    animation: fadeIn 200ms ease forwards;
+  }
+
+  .mobile-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    background: #fffdfa;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-panel.open {
+    transform: translateX(0);
+  }
+
+  .mobile-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--color-line, rgba(63, 64, 61, 0.14));
+    background: var(--color-cream, #fff8ec);
+  }
+
+  .mobile-panel-title {
+    font-family: var(--font-heading), "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-deep-red, #9f131b);
+  }
+
+  .mobile-panel-close-btn {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .mobile-panel-links {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .mobile-panel-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-panel-group > a {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-ink, #3f403d);
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color 150ms ease;
+  }
+
+  .mobile-panel-group > a.active,
+  .mobile-panel-group > a:hover {
+    color: var(--color-red, #d61f2b);
+  }
+
+  .mobile-sub-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 14px;
+    border-left: 2px solid rgba(159, 19, 27, 0.15);
+  }
+
+  .mobile-sub-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    text-decoration: none;
+    padding: 4px 0;
+  }
+
+  .mobile-sub-links a.active,
+  .mobile-sub-links a:hover {
+    color: var(--color-red, #d61f2b);
+  }
+
+  .mobile-panel-footer {
+    padding: 24px;
+    border-top: 1px solid var(--color-line, rgba(63, 64, 61, 0.14));
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--color-cream, #fff8ec);
+  }
+
+  .mobile-phone-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-deep-red, #9f131b);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-book-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 2. BUTTON DESIGN SYSTEM STANDARDIZATION */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  font-family: var(--font-body), "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-red, #d61f2b) 0%, var(--color-deep-red, #9f131b) 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(159, 19, 27, 0.25);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: linear-gradient(135deg, #e52834 0%, #b81720 100%);
+  box-shadow: 0 12px 28px rgba(159, 19, 27, 0.38);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--color-cream, #fff8ec);
+  color: var(--color-ink, #3f403d) !important;
+  border-color: rgba(200, 137, 34, 0.3);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: #fff2dd;
+  border-color: var(--color-gold, #c88922);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-deep-red, #9f131b) !important;
+  border-color: rgba(159, 19, 27, 0.35);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: rgba(159, 19, 27, 0.06);
+  border-color: var(--color-deep-red, #9f131b);
+}
+
+/* 3. MOBILE FILTER TRACK HORIZONTAL SCROLL FIX */
+.vg-filter-pills-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 2px;
+}
+
+.vg-filter-pills-track::-webkit-scrollbar {
+  display: none;
+}
+
+.vg-filter-pill-deluxe {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* 4. RESPONSIVE CONTAINER & TYPOGRAPHY SCALING */
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(28px, 7vw, 42px) !important;
+    line-height: 1.15 !important;
+  }
+
+  h2 {
+    font-size: clamp(24px, 5.5vw, 32px) !important;
+    line-height: 1.2 !important;
+  }
+
+  h3 {
+    font-size: clamp(18px, 4.5vw, 24px) !important;
+  }
+
+  p {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Fix mobile paddings for hero components */
+  .vg-hero-container,
+  .media-hero-container,
+  .packages-hero-container,
+  .inner-hero {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Prevent grid overflows on small viewports */
+  .vg-stories-grid,
+  .packages-grid,
+  .media-gallery-grid,
+  .doctors-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+

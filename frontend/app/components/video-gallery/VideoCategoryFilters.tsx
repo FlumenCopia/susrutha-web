@@ -73,7 +73,7 @@ export function VideoCategoryFilters({
             >
               <option value="popular">Sort: Most Popular</option>
               <option value="rating">Sort: Highest Rated</option>
-              <option value="newest">Sort: Doctor's Pick</option>
+              <option value="newest">Sort: Doctor&apos;s Pick</option>
             </select>
           </div>
 
