@@ -36965,3 +36965,1622 @@ body:has(.facilities-page) {
     line-height: 1.35;
   }
 }
+
+/* Project-wide responsive typography and layout polish */
+:root {
+  --type-display: clamp(2.25rem, 5.2vw, 4.875rem);
+  --type-title: clamp(1.875rem, 3.2vw, 3rem);
+  --type-card-title: clamp(1.25rem, 1.6vw, 1.75rem);
+  --type-body: clamp(0.9375rem, 0.36vw + 0.86rem, 1.0625rem);
+  --type-small: clamp(0.8125rem, 0.22vw + 0.77rem, 0.9375rem);
+  --space-page-x: clamp(1rem, 4vw, 4rem);
+  --space-section-y: clamp(3rem, 6vw, 5.5rem);
+  --measure-copy: 68ch;
+}
+
+html {
+  font-size: 100%;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--color-ink);
+  font-family: var(--font-body), Arial, "Segoe UI", sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  color: inherit;
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--type-display);
+  line-height: 1.04;
+}
+
+h2 {
+  font-size: var(--type-title);
+  line-height: 1.08;
+}
+
+h3 {
+  font-size: var(--type-card-title);
+  line-height: 1.18;
+}
+
+p,
+li {
+  font-family: var(--font-body), Arial, "Segoe UI", sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+p {
+  max-width: var(--measure-copy);
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body), Arial, "Segoe UI", sans-serif;
+}
+
+button,
+a,
+summary {
+  touch-action: manipulation;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+main,
+main > *,
+[class*="-page"] {
+  min-width: 0;
+}
+
+.section-header,
+.page-intro,
+.inner-section-heading,
+[class$="-section-head"],
+[class$="-section-header"] {
+  width: min(100%, 860px);
+}
+
+.section-header p,
+.page-intro p,
+.inner-section-heading p,
+[class$="-section-head"] p,
+[class$="-section-header"] p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn,
+.btn-primary,
+.btn-secondary,
+[class$="-button"],
+[class$="-cta"],
+[class*="-button-"] {
+  max-width: 100%;
+  min-width: 0;
+  text-align: center;
+  white-space: normal;
+}
+
+input,
+select,
+textarea {
+  min-width: 0;
+}
+
+@media (max-width: 1180px) {
+  .home-page,
+  .about-premium-page,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .condition-detail-page,
+  .conditions-page,
+  .doctor-profile-page,
+  .contact-reference-page,
+  .blog-premium-page,
+  .media-page,
+  .branches-page,
+  .ayur-village-page,
+  .packages-page,
+  .ecosystem-page,
+  .international-patients-page,
+  .facilities-page {
+    overflow-x: clip;
+  }
+
+  .contact-reference-main,
+  .contact-reference-hero,
+  .contact-reference-info-grid,
+  .contact-reference-visit,
+  .blog-premium-hero,
+  .blog-featured,
+  .blog-grid,
+  .media-hero,
+  .media-gallery,
+  .media-video-track,
+  .branches-hero,
+  .branches-locations-grid,
+  .branches-trust-panel,
+  .ayur-village-hero,
+  .ayur-village-experience,
+  .ayur-village-gallery-grid,
+  .packages-hero,
+  .packages-grid,
+  .packages-cta,
+  .ecosystem-hero,
+  .ecosystem-verticals-grid,
+  .ecosystem-cta,
+  .international-hero,
+  .international-promise,
+  .international-program-grid,
+  .international-enquiry,
+  .facilities-hero,
+  .facilities-card-row,
+  .facilities-programs,
+  .facilities-info,
+  .facilities-enquiry {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-reference-main,
+  .blog-premium-main,
+  .media-main,
+  .branches-main,
+  .ayur-village-main,
+  .packages-main,
+  .ecosystem-main,
+  .international-main,
+  .facilities-grid-section,
+  .facilities-programs,
+  .facilities-info,
+  .facilities-enquiry {
+    width: min(100% - (var(--space-page-x) * 2), 1400px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-reference-hero,
+  .blog-premium-hero,
+  .media-hero,
+  .branches-hero,
+  .ayur-village-hero,
+  .packages-hero,
+  .ecosystem-hero,
+  .international-hero,
+  .facilities-hero {
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --type-display: clamp(2.125rem, 10vw, 3.5rem);
+    --type-title: clamp(1.75rem, 7vw, 2.625rem);
+    --type-card-title: clamp(1.125rem, 4.8vw, 1.5rem);
+    --type-body: 0.9375rem;
+    --type-small: 0.8125rem;
+    --space-page-x: 1.125rem;
+    --space-section-y: 3rem;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  p,
+  li {
+    line-height: 1.6;
+  }
+
+  section,
+  [class*="-section"],
+  [class*="-content"],
+  [class*="-panel"],
+  [class*="-grid"],
+  [class*="-row"],
+  [class*="-list"],
+  [class*="-track"] {
+    min-width: 0;
+  }
+
+  .home-page .hero-section,
+  .inner-hero,
+  .page-intro,
+  .about-premium-page .about-premium-hero,
+  .treatment-reference-page,
+  .treatment-detail-reference,
+  .conditions-page .conditions-hero,
+  .condition-detail-page .condition-detail-hero,
+  .doctor-profile-page,
+  .contact-reference-hero,
+  .blog-premium-hero,
+  .media-hero,
+  .branches-hero,
+  .ayur-village-hero,
+  .packages-hero,
+  .ecosystem-hero,
+  .international-hero,
+  .facilities-hero {
+    padding-left: var(--space-page-x) !important;
+    padding-right: var(--space-page-x) !important;
+  }
+
+  .inner-section,
+  .section,
+  .home-page .home-wellness-expertise,
+  .home-page .treatments-showcase-section,
+  .home-page .home-doctors-section,
+  .home-page .ayurveda-village-section,
+  .home-page .home-counter-section,
+  .about-premium-page .about-story-section,
+  .about-premium-page .about-purpose-section,
+  .about-premium-page .about-founders-section,
+  .about-premium-page .about-milestones-section,
+  .about-premium-page .milestone-showcase-section,
+  .contact-reference-info,
+  .contact-reference-visit,
+  .blog-premium-section,
+  .media-gallery-section,
+  .media-video,
+  .media-press,
+  .media-social,
+  .branches-locations,
+  .branches-trust-panel,
+  .ayur-village-experience,
+  .ayur-village-gallery,
+  .ayur-village-ideal,
+  .packages-list-section,
+  .ecosystem-verticals,
+  .international-promise,
+  .international-programs,
+  .facilities-grid-section {
+    padding-top: var(--space-section-y) !important;
+    padding-bottom: var(--space-section-y) !important;
+  }
+
+  .card-grid,
+  .inner-card-grid,
+  .conditions-card-grid,
+  .all-treatments-grid,
+  .about-values-grid,
+  .about-founders-grid,
+  .blog-grid,
+  .media-gallery,
+  .branches-locations-grid,
+  .ayur-village-gallery-grid,
+  .packages-grid,
+  .ecosystem-verticals-grid,
+  .international-program-grid,
+  .facilities-card-row,
+  .facilities-program-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(0.875rem, 3vw, 1.25rem) !important;
+  }
+
+  .contact-reference-form-grid,
+  .inner-form,
+  .international-enquiry-form,
+  .facilities-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .hero-content h1,
+  .page-intro h1,
+  .inner-hero h1,
+  .about-premium-page h1,
+  .treatment-reference-page h1,
+  .treatment-detail-reference h1,
+  .conditions-page h1,
+  .condition-detail-page h1,
+  .doctor-profile-page h1,
+  .contact-reference-page h1,
+  .blog-premium-page h1,
+  .media-page h1,
+  .branches-page h1,
+  .ayur-village-page h1,
+  .packages-page h1,
+  .ecosystem-page h1,
+  .international-patients-page h1,
+  .facilities-page h1 {
+    font-size: var(--type-display) !important;
+    line-height: 1.05 !important;
+  }
+
+  .section-header h2,
+  .inner-section-heading h2,
+  .home-page h2,
+  .about-premium-page h2,
+  .treatment-reference-page h2,
+  .treatment-detail-reference h2,
+  .conditions-page h2,
+  .condition-detail-page h2,
+  .doctor-profile-page h2,
+  .contact-reference-page h2,
+  .blog-premium-page h2,
+  .media-page h2,
+  .branches-page h2,
+  .ayur-village-page h2,
+  .packages-page h2,
+  .ecosystem-page h2,
+  .international-patients-page h2,
+  .facilities-page h2 {
+    font-size: var(--type-title) !important;
+    line-height: 1.1 !important;
+  }
+
+  .home-page h3,
+  .about-premium-page h3,
+  .treatment-reference-page h3,
+  .treatment-detail-reference h3,
+  .conditions-page h3,
+  .condition-detail-page h3,
+  .doctor-profile-page h3,
+  .contact-reference-page h3,
+  .blog-premium-page h3,
+  .media-page h3,
+  .branches-page h3,
+  .ayur-village-page h3,
+  .packages-page h3,
+  .ecosystem-page h3,
+  .international-patients-page h3,
+  .facilities-page h3 {
+    font-size: var(--type-card-title) !important;
+    line-height: 1.22 !important;
+  }
+
+  .home-page p,
+  .about-premium-page p,
+  .treatment-reference-page p,
+  .treatment-detail-reference p,
+  .conditions-page p,
+  .condition-detail-page p,
+  .doctor-profile-page p,
+  .contact-reference-page p,
+  .blog-premium-page p,
+  .media-page p,
+  .branches-page p,
+  .ayur-village-page p,
+  .packages-page p,
+  .ecosystem-page p,
+  .international-patients-page p,
+  .facilities-page p {
+    font-size: var(--type-body) !important;
+    line-height: 1.62 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --type-display: clamp(2rem, 11vw, 3rem);
+    --type-title: clamp(1.625rem, 8.4vw, 2.25rem);
+    --space-page-x: 1rem;
+    --space-section-y: 2.625rem;
+  }
+
+  .card-grid,
+  .inner-card-grid,
+  .conditions-card-grid,
+  .all-treatments-grid,
+  .about-values-grid,
+  .about-founders-grid,
+  .blog-grid,
+  .media-gallery,
+  .branches-locations-grid,
+  .ayur-village-gallery-grid,
+  .packages-grid,
+  .ecosystem-verticals-grid,
+  .international-program-grid,
+  .facilities-card-row,
+  .facilities-program-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .hero-explore-link,
+  [class$="-button"],
+  [class$="-link"],
+  [class*="-button-"] {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .footer-main,
+  .footer-bottom,
+  .site-footer,
+  .contact-reference-main,
+  .blog-premium-main,
+  .media-main,
+  .branches-main,
+  .ayur-village-main,
+  .packages-main,
+  .ecosystem-main,
+  .international-main {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .treatments-showcase-panel,
+  .footer-brand-panel,
+  .footer-consult-card,
+  .contact-reference-form,
+  .contact-reference-info-card,
+  .blog-premium-card,
+  .media-card,
+  .branch-location-card,
+  .package-card,
+  .ecosystem-card,
+  .international-program-card,
+  .facility-card {
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --type-display: clamp(1.875rem, 10.5vw, 2.625rem);
+    --type-title: clamp(1.5rem, 8vw, 2rem);
+    --space-page-x: 0.875rem;
+  }
+
+  .site-header .brand {
+    max-width: calc(100vw - 84px) !important;
+  }
+
+  .home-page .hero-content h1,
+  .page-intro h1,
+  .inner-hero h1,
+  .about-premium-page h1,
+  .treatment-reference-page h1,
+  .treatment-detail-reference h1,
+  .conditions-page h1,
+  .condition-detail-page h1,
+  .doctor-profile-page h1,
+  .contact-reference-page h1,
+  .blog-premium-page h1,
+  .media-page h1,
+  .branches-page h1,
+  .ayur-village-page h1,
+  .packages-page h1,
+  .ecosystem-page h1,
+  .international-patients-page h1,
+  .facilities-page h1 {
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+/* International patients reference page */
+body:has(.international-page) {
+  background: #fffdf8;
+  color: #061d13;
+}
+
+body:has(.international-page) .international-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 130;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto auto auto;
+  align-items: center;
+  gap: 28px;
+  min-height: 44px;
+  padding: 0 clamp(34px, 5vw, 70px);
+  background: linear-gradient(90deg, #003f24, #00351f);
+  color: #fff9e8;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+body:has(.international-page) .international-topbar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+body:has(.international-page) .international-topbar svg {
+  width: 16px;
+  height: 16px;
+  color: #d8ab57;
+}
+
+body:has(.international-page) .site-header {
+  top: 44px !important;
+  z-index: 120 !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(8, 47, 35, 0.12) !important;
+  box-shadow: 0 8px 22px rgba(6, 31, 22, 0.07) !important;
+}
+
+body:has(.international-page) .site-header .navbar {
+  max-width: 100% !important;
+  min-height: 92px !important;
+  padding: 0 clamp(34px, 5vw, 70px) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body:has(.international-page) .site-header .brand {
+  width: 258px !important;
+}
+
+body:has(.international-page) .site-header .nav-links {
+  gap: clamp(18px, 3.6vw, 50px) !important;
+}
+
+body:has(.international-page) .site-header .nav-item > a {
+  color: #06120d !important;
+  font-size: 14px !important;
+  font-weight: 850 !important;
+}
+
+body:has(.international-page) .site-header .nav-actions {
+  gap: 14px !important;
+}
+
+body:has(.international-page) .site-header .phone-link {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 78px !important;
+  height: 46px !important;
+  padding: 0 18px !important;
+  border: 1px solid rgba(8, 47, 35, 0.13) !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(6, 31, 22, 0.06) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+body:has(.international-page) .site-header .phone-link span {
+  display: none !important;
+}
+
+body:has(.international-page) .site-header .phone-link::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  border: 2px solid #06120d;
+  border-radius: 999px;
+  box-shadow: inset 6px 0 0 -4px #06120d, inset -6px 0 0 -4px #06120d;
+}
+
+body:has(.international-page) .site-header .phone-link::after {
+  content: "EN";
+  color: #06120d;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+body:has(.international-page) .site-header .nav-actions .btn-primary {
+  min-height: 46px !important;
+  padding: 0 24px !important;
+  background: #003f24 !important;
+  box-shadow: 0 14px 26px rgba(0, 63, 36, 0.22) !important;
+  font-size: 13px !important;
+  text-transform: none !important;
+}
+
+body:has(.international-page) main {
+  overflow: visible;
+}
+
+body:has(.international-page) .international-page {
+  --international-ink: #061d13;
+  --international-muted: #263c32;
+  --international-green: #003f24;
+  --international-green-2: #005432;
+  --international-gold: #c69b4c;
+  --international-line: rgba(8, 47, 35, 0.12);
+  --international-card: rgba(255, 255, 255, 0.93);
+  position: relative;
+  width: 100%;
+  padding-top: 136px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 28%, rgba(198, 155, 76, 0.08), transparent 19%),
+    linear-gradient(180deg, #fffdf8 0%, #fbf8ef 100%);
+  color: var(--international-ink);
+}
+
+body:has(.international-page) .international-page h1,
+body:has(.international-page) .international-page h2,
+body:has(.international-page) .international-page h3,
+body:has(.international-page) .international-page p {
+  margin: 0;
+}
+
+body:has(.international-page) .international-page h1,
+body:has(.international-page) .international-page h2 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+body:has(.international-page) .international-page p {
+  color: var(--international-muted) !important;
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+
+body:has(.international-page) .international-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--international-green);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body:has(.international-page) .international-eyebrow::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--international-gold);
+  border-width: 2px 2px 0 0;
+  border-radius: 100% 0;
+  transform: rotate(-45deg);
+}
+
+body:has(.international-page) .international-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: max-content !important;
+  min-height: 54px;
+  padding: 0 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--international-green), #002f1b);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 18px 34px rgba(0, 63, 36, 0.22);
+}
+
+body:has(.international-page) .international-button span {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+}
+
+body:has(.international-page) .international-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(420px, 0.85fr) minmax(560px, 1.15fr) !important;
+  align-items: center;
+  gap: clamp(24px, 3vw, 54px);
+  width: 100%;
+  min-height: 450px !important;
+  padding: 58px clamp(40px, 6vw, 86px) 34px !important;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(8, 47, 35, 0.11);
+  background:
+    radial-gradient(circle at 6% 13%, rgba(0, 63, 36, 0.05), transparent 17%),
+    #fffdf8;
+}
+
+body:has(.international-page) .international-leaf-trace {
+  position: absolute;
+  left: -42px;
+  top: 96px;
+  width: 110px;
+  height: 90px;
+  opacity: 0.28;
+  background: url("/images/about-purpose-vision-plant.webp") center / contain no-repeat;
+  pointer-events: none;
+}
+
+body:has(.international-page) .international-flight-line {
+  position: absolute;
+  left: 42%;
+  top: 100px;
+  z-index: 2;
+  color: var(--international-green);
+}
+
+body:has(.international-page) .international-flight-line::before {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 190px;
+  height: 74px;
+  border-bottom: 1px dashed rgba(0, 63, 36, 0.35);
+  border-radius: 0 0 100% 100%;
+  transform: rotate(8deg);
+}
+
+body:has(.international-page) .international-flight-line svg {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-18deg);
+}
+
+body:has(.international-page) .international-hero-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 610px;
+}
+
+body:has(.international-page) .international-hero h1 {
+  margin-top: 24px;
+  color: #0b100c;
+  font-size: clamp(52px, 4.6vw, 78px) !important;
+  line-height: 0.98 !important;
+}
+
+body:has(.international-page) .international-hero h1 em {
+  color: var(--international-green);
+  font-style: normal;
+}
+
+body:has(.international-page) .international-hero p {
+  max-width: 560px;
+  margin-top: 24px;
+}
+
+body:has(.international-page) .international-hero-features {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px;
+  margin-top: 38px;
+}
+
+body:has(.international-page) .international-hero-features article {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+body:has(.international-page) .international-hero-features span,
+body:has(.international-page) .international-card-icon {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(0, 63, 36, 0.14);
+  border-radius: 999px;
+  background: #f7f8ed;
+  color: var(--international-green);
+}
+
+body:has(.international-page) .international-hero-features span {
+  width: 44px;
+  height: 44px;
+}
+
+body:has(.international-page) .international-hero-features svg {
+  width: 24px;
+  height: 24px;
+}
+
+body:has(.international-page) .international-hero-features h2 {
+  color: var(--international-ink);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 11px !important;
+  font-weight: 800;
+  line-height: 1.35 !important;
+}
+
+body:has(.international-page) .international-hero .international-button {
+  margin-top: 34px;
+}
+
+body:has(.international-page) .international-hero-visual {
+  position: relative;
+  z-index: 1;
+  min-height: 430px !important;
+  overflow: hidden;
+  border-left: 12px solid var(--international-green);
+  border-radius: 52% 0 0 52%;
+  box-shadow: -20px 22px 60px rgba(6, 31, 22, 0.18);
+}
+
+body:has(.international-page) .international-hero-visual img {
+  object-fit: cover;
+  object-position: center;
+}
+
+body:has(.international-page) .international-stat-stack {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  gap: 22px;
+  width: 210px;
+  transform: translateY(-50%);
+}
+
+body:has(.international-page) .international-stat-card,
+body:has(.international-page) .international-stat-stack article {
+  display: grid !important;
+  grid-template-columns: 54px minmax(0, 1fr) !important;
+  align-items: center;
+  gap: 14px;
+  min-height: 80px;
+  padding: 14px 18px;
+  border: 1px solid rgba(8, 47, 35, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 36px rgba(6, 31, 22, 0.15);
+}
+
+body:has(.international-page) .international-stat-card svg {
+  grid-row: span 2;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 999px;
+  background: #f5f6e9;
+  color: var(--international-green);
+}
+
+body:has(.international-page) .international-stat-card strong {
+  color: var(--international-ink);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+body:has(.international-page) .international-stat-card span {
+  color: #23362e;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+body:has(.international-page) .international-facilities,
+body:has(.international-page) .international-programs,
+body:has(.international-page) .international-info-grid,
+body:has(.international-page) .international-enquiry {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  padding-left: clamp(40px, 6vw, 86px);
+  padding-right: clamp(40px, 6vw, 86px);
+}
+
+body:has(.international-page) .international-facilities {
+  padding-top: 28px;
+  padding-bottom: 38px;
+}
+
+body:has(.international-page) .international-strip-head {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+body:has(.international-page) .international-strip-head > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+body:has(.international-page) .international-strip-head span {
+  display: block;
+  width: 46px;
+  height: 1px;
+  background: rgba(0, 63, 36, 0.38);
+}
+
+body:has(.international-page) .international-strip-head h2 {
+  color: var(--international-green);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 15px !important;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.2 !important;
+  text-transform: uppercase;
+}
+
+body:has(.international-page) .international-strip-head button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(0, 63, 36, 0.18);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--international-green);
+}
+
+body:has(.international-page) .international-strip-head button:first-child svg {
+  transform: rotate(180deg);
+}
+
+body:has(.international-page) .international-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 18px;
+}
+
+body:has(.international-page) .international-facility-card,
+body:has(.international-page) .international-program-card,
+body:has(.international-page) .international-faq-card,
+body:has(.international-page) .international-world-card,
+body:has(.international-page) .international-enquiry-form,
+body:has(.international-page) .international-help-card,
+body:has(.international-page) .international-support-list {
+  border: 1px solid var(--international-line);
+  border-radius: 12px !important;
+  background: var(--international-card);
+  box-shadow: 0 16px 36px rgba(6, 31, 22, 0.08);
+}
+
+body:has(.international-page) .international-facility-card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  min-height: 405px;
+  padding: 22px 16px 16px;
+}
+
+body:has(.international-page) .international-card-icon {
+  width: 42px;
+  height: 42px;
+}
+
+body:has(.international-page) .international-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+body:has(.international-page) .international-facility-card h3,
+body:has(.international-page) .international-program-card h3 {
+  margin-top: 18px;
+  color: var(--international-ink);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 13px !important;
+  font-weight: 900;
+  line-height: 1.35 !important;
+}
+
+body:has(.international-page) .international-facility-card b {
+  position: absolute;
+  left: 58px;
+  top: 29px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--international-green);
+  color: #ffffff;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+body:has(.international-page) .international-facility-card p,
+body:has(.international-page) .international-program-card p {
+  margin-top: 18px;
+  color: var(--international-ink) !important;
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+body:has(.international-page) .international-facility-image {
+  position: relative;
+  min-height: 145px;
+  margin-top: auto;
+  overflow: hidden;
+  border-radius: 9px;
+}
+
+body:has(.international-page) .international-facility-image img {
+  object-fit: cover;
+}
+
+body:has(.international-page) .international-facility-card > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  color: var(--international-green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+body:has(.international-page) .international-facility-card > a svg,
+body:has(.international-page) .international-program-card > a svg {
+  width: 28px;
+  height: 28px;
+  padding: 8px;
+  border-radius: 999px;
+  background: #eef4e7;
+}
+
+body:has(.international-page) .international-facility-card[data-popular="true"] {
+  background: #003f24;
+}
+
+body:has(.international-page) .international-facility-card[data-popular="true"] h3,
+body:has(.international-page) .international-facility-card[data-popular="true"] p,
+body:has(.international-page) .international-facility-card[data-popular="true"] a {
+  color: #ffffff !important;
+}
+
+body:has(.international-page) .international-programs {
+  display: grid;
+  grid-template-columns: 0.86fr repeat(4, 1fr) !important;
+  gap: 18px;
+  padding-top: 2px;
+  padding-bottom: 34px;
+}
+
+body:has(.international-page) .international-programs-intro {
+  position: relative;
+  padding: 34px 0 0;
+}
+
+body:has(.international-page) .international-programs-intro::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+  width: 190px;
+  height: 150px;
+  opacity: 0.16;
+  background: url("/images/about-purpose-vision-plant.webp") center / contain no-repeat;
+}
+
+body:has(.international-page) .international-programs-intro h2 {
+  max-width: 300px;
+  margin-top: 24px;
+  color: #0b100c;
+  font-size: 36px !important;
+  line-height: 1.08 !important;
+}
+
+body:has(.international-page) .international-programs-intro a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  color: var(--international-green);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+body:has(.international-page) .international-program-grid {
+  display: contents !important;
+}
+
+body:has(.international-page) .international-program-card {
+  position: relative;
+  display: grid;
+  min-height: 235px;
+  overflow: hidden;
+  padding: 24px 22px 18px;
+}
+
+body:has(.international-page) .international-program-card > img {
+  align-self: end;
+  justify-self: center;
+  width: min(100%, 190px);
+  height: 74px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+body:has(.international-page) .international-program-card > a {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  display: grid;
+  width: 36px !important;
+  height: 36px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--international-green);
+  color: #ffffff;
+}
+
+body:has(.international-page) .international-info-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(420px, 1.35fr) minmax(280px, 0.78fr) !important;
+  gap: 18px;
+  padding-bottom: 18px;
+}
+
+body:has(.international-page) .international-faq-card,
+body:has(.international-page) .international-world-card {
+  padding: 26px;
+}
+
+body:has(.international-page) .international-faq-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+body:has(.international-page) .international-faq-list details {
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+body:has(.international-page) .international-faq-list summary {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 14px;
+  color: var(--international-ink);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+  list-style: none;
+}
+
+body:has(.international-page) .international-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+body:has(.international-page) .international-faq-list p {
+  padding: 0 14px 12px;
+  font-size: 12px !important;
+}
+
+body:has(.international-page) .international-faq-card > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--international-green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+body:has(.international-page) .international-world-card {
+  position: relative;
+  overflow: hidden;
+}
+
+body:has(.international-page) .international-world-card h2 {
+  margin-top: 18px;
+  font-size: 34px !important;
+}
+
+body:has(.international-page) .international-world-card p {
+  max-width: 380px;
+  margin-top: 14px;
+  font-size: 12px !important;
+}
+
+body:has(.international-page) .international-map {
+  position: absolute;
+  right: 34px;
+  top: 44px;
+  width: 270px;
+  height: 170px;
+  opacity: 0.16;
+  background:
+    radial-gradient(circle at 45% 45%, rgba(0, 63, 36, 0.26) 0 2px, transparent 3px),
+    radial-gradient(circle at 60% 34%, rgba(0, 63, 36, 0.26) 0 2px, transparent 3px),
+    radial-gradient(circle at 32% 60%, rgba(0, 63, 36, 0.26) 0 2px, transparent 3px);
+}
+
+body:has(.international-page) .international-map svg {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  width: 42px;
+  height: 42px;
+  opacity: 1;
+  transform: rotate(-18deg);
+}
+
+body:has(.international-page) .international-world-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+body:has(.international-page) .international-world-stats .international-stat-card {
+  min-height: 58px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body:has(.international-page) .international-world-stats .international-stat-card svg {
+  width: 46px;
+  height: 46px;
+}
+
+body:has(.international-page) .international-world-stats .international-stat-card strong {
+  font-size: 22px;
+}
+
+body:has(.international-page) .international-travel-card {
+  position: relative;
+  overflow: hidden;
+  padding: 34px 30px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(198, 155, 76, 0.16), transparent 28%),
+    #003f24;
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 63, 36, 0.18);
+}
+
+body:has(.international-page) .international-travel-card h2 {
+  color: #ffffff;
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 18px !important;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body:has(.international-page) .international-travel-card p {
+  max-width: 220px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: 14px !important;
+}
+
+body:has(.international-page) .international-travel-card div {
+  position: absolute;
+  inset: auto 20px 18px auto;
+  width: 160px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  color: rgba(198, 155, 76, 0.72);
+}
+
+body:has(.international-page) .international-travel-card svg {
+  width: 140px;
+  height: 100px;
+}
+
+body:has(.international-page) .international-enquiry {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.72fr) minmax(480px, 1.3fr) minmax(320px, 0.86fr) !important;
+  gap: 18px;
+  padding-bottom: 24px;
+}
+
+body:has(.international-page) .international-support-list {
+  display: grid;
+  gap: 18px;
+  align-content: center;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 88% 90%, rgba(178, 204, 116, 0.22), transparent 26%),
+    rgba(255, 255, 255, 0.9);
+}
+
+body:has(.international-page) .international-support-list article {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+body:has(.international-page) .international-support-list svg {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 999px;
+  background: #f4f6e9;
+  color: var(--international-green);
+}
+
+body:has(.international-page) .international-support-list h3 {
+  color: var(--international-ink);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 13px !important;
+  font-weight: 800;
+  line-height: 1.35 !important;
+}
+
+body:has(.international-page) .international-enquiry-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px;
+  align-content: start;
+  padding: 26px;
+}
+
+body:has(.international-page) .international-enquiry-form label {
+  display: grid;
+  min-width: 0;
+}
+
+body:has(.international-page) .international-enquiry-form label span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+body:has(.international-page) .international-enquiry-form input,
+body:has(.international-page) .international-enquiry-form select,
+body:has(.international-page) .international-enquiry-form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--international-line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--international-ink);
+  font-size: 13px;
+  outline: 0;
+}
+
+body:has(.international-page) .international-enquiry-form textarea {
+  min-height: 74px;
+  padding-block: 16px;
+  resize: vertical;
+}
+
+body:has(.international-page) .international-form-wide {
+  grid-column: 1 / -1;
+}
+
+body:has(.international-page) .international-enquiry-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: max-content;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--international-green);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+body:has(.international-page) .international-enquiry-form button svg {
+  width: 20px;
+  height: 20px;
+}
+
+body:has(.international-page) .international-help-card {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 34px;
+  background:
+    radial-gradient(circle at 88% 74%, rgba(140, 170, 72, 0.2), transparent 28%),
+    linear-gradient(135deg, #fffdf8, #f3f3df);
+}
+
+body:has(.international-page) .international-help-card::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: -12px;
+  width: 170px;
+  height: 190px;
+  background: url("/images/about-purpose-vision-plant.webp") center / contain no-repeat;
+}
+
+body:has(.international-page) .international-help-card h2 {
+  max-width: 250px;
+  color: #0b100c;
+  font-size: 28px !important;
+  line-height: 1.1 !important;
+}
+
+body:has(.international-page) .international-help-card p {
+  max-width: 230px;
+  margin-top: 18px;
+  font-size: 13px !important;
+}
+
+body:has(.international-page) .international-help-card ul {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body:has(.international-page) .international-help-card li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--international-ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+body:has(.international-page) .international-help-card li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--international-green);
+}
+
+body:has(.international-page) .international-help-card a {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 10px 16px;
+  border: 1px solid rgba(198, 155, 76, 0.4);
+  border-radius: 9px;
+  color: var(--international-green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+@media (max-width: 1180px) {
+  body:has(.international-page) .international-topbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: auto;
+    padding: 10px 18px;
+  }
+
+  body:has(.international-page) .international-topbar span:nth-child(n + 3) {
+    display: none;
+  }
+
+  body:has(.international-page) .site-header {
+    top: 40px !important;
+  }
+
+  body:has(.international-page) .international-page {
+    padding-top: 124px;
+  }
+
+  body:has(.international-page) .international-hero,
+  body:has(.international-page) .international-programs,
+  body:has(.international-page) .international-info-grid,
+  body:has(.international-page) .international-enquiry {
+    grid-template-columns: 1fr !important;
+  }
+
+  body:has(.international-page) .international-hero-visual {
+    min-height: 360px !important;
+    border: 1px solid var(--international-line);
+    border-radius: 22px !important;
+  }
+
+  body:has(.international-page) .international-facility-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  body:has(.international-page) .international-program-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-column: auto;
+    gap: 18px;
+  }
+
+}
+
+@media (max-width: 760px) {
+  body:has(.international-page) .international-topbar {
+    grid-template-columns: 1fr;
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  body:has(.international-page) .international-topbar span:nth-child(2) {
+    display: none;
+  }
+
+  body:has(.international-page) .site-header {
+    top: 32px !important;
+  }
+
+  body:has(.international-page) .site-header .navbar {
+    min-height: 66px !important;
+    padding: 8px 12px !important;
+  }
+
+  body:has(.international-page) .international-page {
+    padding-top: 98px;
+  }
+
+  body:has(.international-page) .international-hero {
+    padding: 42px 16px 26px !important;
+  }
+
+  body:has(.international-page) .international-hero h1 {
+    font-size: clamp(38px, 12vw, 54px) !important;
+  }
+
+  body:has(.international-page) .international-hero-features,
+  body:has(.international-page) .international-facility-grid,
+  body:has(.international-page) .international-program-grid,
+  body:has(.international-page) .international-world-stats,
+  body:has(.international-page) .international-enquiry-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  body:has(.international-page) .international-stat-stack {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: auto;
+    margin: 18px;
+    transform: none;
+  }
+
+  body:has(.international-page) .international-facilities,
+  body:has(.international-page) .international-programs,
+  body:has(.international-page) .international-info-grid,
+  body:has(.international-page) .international-enquiry {
+    width: 100% !important;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  body:has(.international-page) .international-strip-head {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(.international-page) .international-strip-head button {
+    display: none;
+  }
+
+  body:has(.international-page) .international-button,
+  body:has(.international-page) .international-enquiry-form button {
+    width: 100% !important;
+  }
+
+  body:has(.international-page) .international-form-wide {
+    grid-column: auto;
+  }
+
+  body:has(.international-page) .international-map {
+    display: none;
+  }
+
+}

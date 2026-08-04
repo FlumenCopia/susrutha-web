@@ -6,9 +6,49 @@ export const internationalHeroFeatures = [
 ] as const;
 
 export const internationalStats = [
-  { icon: "people", value: "25+", label: "Countries" },
+  { icon: "globe", value: "25+", label: "Countries" },
   { icon: "people", value: "10K+", label: "Happy Patients" },
-  { icon: "people", value: "90+", label: "Years of Legacy" },
+  { icon: "flower", value: "90+", label: "Years of Legacy" },
+] as const;
+
+export const internationalFacilities = [
+  {
+    icon: "home",
+    title: "Patient Rooms",
+    text: "Luxurious AC / Non-AC rooms with hot water, attached bath, in-room food and medical service.",
+    image: "/images/about-susrutha-wellness.webp",
+  },
+  {
+    icon: "therapy",
+    title: "Panchakarma Suites",
+    text: "Separate male and female therapy rooms with dedicated therapists trained in classical Kerala protocols.",
+    image: "/images/treatment-panchakarma.webp",
+  },
+  {
+    icon: "comfort",
+    title: "Operation Theatre",
+    text: "On-site OT supporting procedures including Kshara Sutra and related minor surgical Ayurveda care.",
+    image: "/images/ayurveda-hospital-garden.webp",
+    popular: true,
+  },
+  {
+    icon: "heart",
+    title: "Physiotherapy",
+    text: "Integrated rehabilitation support alongside Ayurvedic therapies for spine, joint and neurological recovery.",
+    image: "/images/treatment-kati-vasti.webp",
+  },
+  {
+    icon: "lotus",
+    title: "Yoga Hall",
+    text: "Naturally lit space for guided movement, breathwork and recovery-supportive practices.",
+    image: "/images/legacy-verandah.webp",
+  },
+  {
+    icon: "kerala",
+    title: "Ayur Village",
+    text: "Four traditional cottages with private treatment rooms, approx. 20 min from Trivandrum International Airport.",
+    image: "/images/ayurveda-village-path.webp",
+  },
 ] as const;
 
 export const internationalPrograms = [
@@ -36,6 +76,13 @@ export const internationalPrograms = [
     text: "Extended care for deeper healing and restoration with personalized treatments.",
     image: "/images/treatment-njavarakizhi.webp",
   },
+] as const;
+
+export const internationalSupportItems = [
+  { icon: "mail", title: "Visa assistance & invitation letter" },
+  { icon: "plane", title: "Airport pickup & drop" },
+  { icon: "home", title: "Stay & local travel support" },
+  { icon: "spark", title: "24x7 patient coordinator" },
 ] as const;
 
 export const internationalReasons = [
