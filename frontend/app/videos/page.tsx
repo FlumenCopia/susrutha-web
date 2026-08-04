@@ -7,7 +7,7 @@ export const metadata = {
     "Explore videos on Panchakarma, Abhyanga, Shirodhara, Ayurvedic therapies, yoga, diet, and wellness care.",
 };
 
-export default function GalleryPage() {
+export default function VideosRoute() {
   return (
     <SiteShell>
       <VideoGalleryPage />
