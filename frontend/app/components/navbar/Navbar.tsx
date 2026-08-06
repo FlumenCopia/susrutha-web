@@ -3,15 +3,74 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { desktopNavigation } from "../../data/architecture";
+import { useState, useEffect } from "react";
+import { desktopNavigation, LinkItem } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
+import { getPublicTreatments, getPublicConditions, getPublicDoctors } from "../../services/api";
 
 import { NavbarSearch } from "./NavbarSearch";
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navigation, setNavigation] = useState<LinkItem[]>(desktopNavigation);
+
+  useEffect(() => {
+    async function loadDynamicDropdowns() {
+      try {
+        const [apiTreatments, apiConditions, apiDoctors] = await Promise.all([
+          getPublicTreatments(),
+          getPublicConditions(),
+          getPublicDoctors(),
+        ]);
+
+        const updated = desktopNavigation.map((item) => {
+          if (item.label === "Treatments" && Array.isArray(apiTreatments) && apiTreatments.length > 0) {
+            return {
+              ...item,
+              children: [
+                { label: "All Treatments", href: "/treatments" },
+                ...apiTreatments.map((t: any) => ({
+                  label: t.title || t.name,
+                  href: `/treatments/${t.slug || t._id || t.id}`,
+                })),
+              ],
+            };
+          }
+          if (item.label === "Conditions" && Array.isArray(apiConditions) && apiConditions.length > 0) {
+            return {
+              ...item,
+              children: [
+                { label: "All Conditions", href: "/conditions" },
+                ...apiConditions.map((c: any) => ({
+                  label: c.title || c.name,
+                  href: `/conditions/${c.slug || c._id || c.id}`,
+                })),
+              ],
+            };
+          }
+          if (item.label === "Doctors" && Array.isArray(apiDoctors) && apiDoctors.length > 0) {
+            return {
+              ...item,
+              children: [
+                { label: "All Doctors", href: "/doctors" },
+                ...apiDoctors.map((d: any) => ({
+                  label: d.name,
+                  href: `/doctors/${d.slug || d._id || d.id}`,
+                })),
+              ],
+            };
+          }
+          return item;
+        });
+
+        setNavigation(updated);
+      } catch (err) {
+        console.error("Failed to fetch dynamic dropdowns for Navbar:", err);
+      }
+    }
+    loadDynamicDropdowns();
+  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -38,7 +97,7 @@ export function Navbar() {
         </Link>
 
         <div className="nav-links">
-          {desktopNavigation.map((item) => (
+          {navigation.map((item) => (
             <div
               className="nav-item"
               data-active={
@@ -117,7 +176,7 @@ export function Navbar() {
               </div>
 
               <nav className="mobile-overlay-links">
-                {desktopNavigation.map((item) => (
+                {navigation.map((item) => (
                   <div className="mobile-overlay-group" key={item.label}>
                     <Link
                       href={item.href}

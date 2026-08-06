@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import "./doctors.css";
-import { doctorsData, DoctorItem } from "./doctorsData";
+import { type DoctorItem } from "./doctorsData";
 import { DoctorsHero } from "./DoctorsHero";
 import { DoctorsDepartmentGrid } from "./DoctorsDepartmentGrid";
 import { DynamicDepartment } from "./DoctorsDepartmentGrid";
@@ -30,15 +30,14 @@ const DEPT_ICONS: Record<string, string> = {
 };
 
 export function DoctorsPage() {
-  const [doctorsList, setDoctorsList] = useState<DoctorItem[]>(doctorsData);
+  const [doctorsList, setDoctorsList] = useState<DoctorItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   // Dynamic departments and branches from backend
   const [departments, setDepartments] = useState<DynamicDepartment[]>([
-    { id: "all", name: "All Departments", icon: "🩺", doctorCount: doctorsData.length },
+    { id: "all", name: "All Departments", icon: "🩺", doctorCount: 0 },
   ]);
   const [branches, setBranches] = useState<DynamicBranch[]>([
     { id: "all", name: "All Locations" },
-    { id: "kattakada", name: "Kattakada Main Hospital" },
-    { id: "kowdiar", name: "Kowdiar City OP Outlet" },
   ]);
 
   useEffect(() => {
@@ -81,6 +80,7 @@ export function DoctorsPage() {
     // Load doctors from API
     async function loadDoctors() {
       try {
+        setLoading(true);
         const data = await getPublicDoctors();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: DoctorItem[] = data.map((d: any, idx: number) => ({
@@ -90,7 +90,6 @@ export function DoctorsPage() {
             title: d.title || d.designation || "Ayurveda Specialist",
             designation: d.designation || "Senior Consultant",
             qualification: d.qualifications || d.qualification || "BAMS",
-            // Use departmentId.slug for filter comparison — key fix!
             departmentId: d.departmentId?.slug || d.departmentId || "panchakarma",
             departmentName: d.departmentId?.name || d.departmentName || "Panchakarma & Detox",
             experienceYears: d.experienceYears || 15,
@@ -100,7 +99,6 @@ export function DoctorsPage() {
             reviewsCount: d.reviewsCount || 120,
             image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
             location: d.assignedBranchIds ? d.assignedBranchIds.map((b: any) => b.name || b).join(" & ") : "Kattakada & Kowdiar",
-            // branchIds: use branch codes (lowercase) for filter comparison
             branchIds: d.assignedBranchIds
               ? d.assignedBranchIds.map((b: any) => (b.code || b._id || "").toLowerCase())
               : ["kattakada"],
@@ -116,15 +114,19 @@ export function DoctorsPage() {
             isAvailableToday: true,
           }));
           setDoctorsList(normalized);
-          // Update "All Departments" count
           setDepartments((prev) =>
             prev.map((dept) =>
               dept.id === "all" ? { ...dept, doctorCount: normalized.length } : dept
             )
           );
+        } else {
+          setDoctorsList([]);
         }
       } catch (err) {
         console.error("Failed to load live doctors:", err);
+        setDoctorsList([]);
+      } finally {
+        setLoading(false);
       }
     }
 

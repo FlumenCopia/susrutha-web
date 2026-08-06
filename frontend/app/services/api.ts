@@ -1,6 +1,3 @@
-import { doctorsDirectory, treatments } from "../data/architecture";
-import { conditionDetails } from "../data/conditions";
-
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1/public";
 
 export function getImageDisplayUrl(url?: string | null): string {
@@ -13,28 +10,28 @@ export function getImageDisplayUrl(url?: string | null): string {
   return `${hostBase}${cleanPath}`;
 }
 
-
-async function fetchWithFallback<T>(endpoint: string, fallbackData: T): Promise<T> {
+async function fetchApiData<T>(endpoint: string, defaultVal: T = [] as any): Promise<T> {
   try {
     const res = await fetch(`${API_BASE_URL}${endpoint}`, {
       cache: "no-store",
     });
     if (!res.ok) {
-      return fallbackData;
+      return defaultVal;
     }
     const json = await res.json();
-    if (json.success && json.data) {
+    if (json.success && json.data !== undefined) {
       return json.data;
     }
-    return fallbackData;
+    return defaultVal;
   } catch (error) {
-    return fallbackData;
+    console.error(`Error fetching ${endpoint}:`, error);
+    return defaultVal;
   }
 }
 
 export async function getPublicDoctors(departmentSlug?: string) {
   const endpoint = departmentSlug ? `/doctors?category=${encodeURIComponent(departmentSlug)}&limit=50` : "/doctors";
-  return fetchWithFallback(endpoint, doctorsDirectory);
+  return fetchApiData<any[]>(endpoint, []);
 }
 
 export async function getPublicDoctorsByDepartment(departmentSlug?: string, branchCode?: string) {
@@ -43,77 +40,94 @@ export async function getPublicDoctorsByDepartment(departmentSlug?: string, bran
     params.set("category", departmentSlug);
   }
   if (branchCode) params.set("branchCode", branchCode.toUpperCase());
-  return fetchWithFallback(`/doctors?${params.toString()}`, []);
+  return fetchApiData<any[]>(`/doctors?${params.toString()}`, []);
 }
 
 export async function getPublicDoctorBySlug(slug: string) {
+  const data = await fetchApiData<any>(`/doctors/${encodeURIComponent(slug)}`, null);
+  if (data) return data;
   const all = await getPublicDoctors();
-  const found = Array.isArray(all) ? all.find((d: any) => d.slug === slug || d.id === slug) : null;
-  return found || doctorsDirectory.find((d) => d.slug === slug) || null;
+  return Array.isArray(all) ? all.find((d: any) => d.slug === slug || d._id === slug || d.id === slug) || null : null;
 }
 
 export async function getPublicTreatments() {
-  return fetchWithFallback("/treatments", treatments);
+  return fetchApiData<any[]>("/treatments", []);
 }
 
 export async function getPublicTreatmentBySlug(slug: string) {
+  const data = await fetchApiData<any>(`/treatments/${encodeURIComponent(slug)}`, null);
+  if (data) return data;
   const all = await getPublicTreatments();
-  const found = Array.isArray(all) ? all.find((t: any) => t.slug === slug || t.id === slug) : null;
-  return found || treatments.find((t) => t.slug === slug) || null;
+  return Array.isArray(all) ? all.find((t: any) => t.slug === slug || t._id === slug || t.id === slug) || null : null;
 }
 
 export async function getPublicConditions() {
-  return fetchWithFallback("/conditions", conditionDetails);
+  return fetchApiData<any[]>("/conditions", []);
 }
 
 export async function getPublicConditionBySlug(slug: string) {
+  const data = await fetchApiData<any>(`/conditions/${encodeURIComponent(slug)}`, null);
+  if (data) return data;
   const all = await getPublicConditions();
-  const found = Array.isArray(all) ? all.find((c: any) => c.slug === slug || c.id === slug) : null;
-  return found || conditionDetails.find((c) => c.slug === slug) || null;
+  return Array.isArray(all) ? all.find((c: any) => c.slug === slug || c._id === slug || c.id === slug) || null : null;
 }
 
 export async function getPublicPackages() {
-  return fetchWithFallback("/packages", []);
+  return fetchApiData<any[]>("/packages", []);
+}
+
+export async function getPublicPackageBySlug(slug: string) {
+  const data = await fetchApiData<any>(`/packages/${encodeURIComponent(slug)}`, null);
+  if (data) return data;
+  const all = await getPublicPackages();
+  return Array.isArray(all) ? all.find((p: any) => p.slug === slug || p._id === slug || p.id === slug) || null : null;
 }
 
 export async function getPublicBlogs() {
-  return fetchWithFallback("/blogs", []);
+  return fetchApiData<any[]>("/blogs", []);
+}
+
+export async function getPublicBlogBySlug(slug: string) {
+  const data = await fetchApiData<any>(`/blogs/${encodeURIComponent(slug)}`, null);
+  if (data) return data;
+  const all = await getPublicBlogs();
+  return Array.isArray(all) ? all.find((b: any) => b.slug === slug || b._id === slug || b.id === slug) || null : null;
 }
 
 export async function getPublicFAQs() {
-  return fetchWithFallback("/faqs", []);
+  return fetchApiData<any[]>("/faqs", []);
 }
 
 export async function getPublicBranches() {
-  return fetchWithFallback("/branches", []);
+  return fetchApiData<any[]>("/branches", []);
 }
 
 export async function getPublicInfrastructure() {
-  return fetchWithFallback("/facilities", []);
+  return fetchApiData<any[]>("/facilities", []);
 }
 
 export async function getPublicFacilities() {
-  return fetchWithFallback("/facilities", []);
+  return fetchApiData<any[]>("/facilities", []);
 }
 
 export async function getPublicTestimonials() {
-  return fetchWithFallback("/testimonials", []);
+  return fetchApiData<any[]>("/testimonials", []);
 }
 
 export async function getPublicDepartments() {
-  return fetchWithFallback("/departments", []);
+  return fetchApiData<any[]>("/departments", []);
 }
 
 export async function getPublicVideos() {
-  return fetchWithFallback("/videos", []);
+  return fetchApiData<any[]>("/videos", []);
 }
 
 export async function getPublicMedia() {
-  return fetchWithFallback("/media", []);
+  return fetchApiData<any[]>("/media", []);
 }
 
 export async function getPublicEcosystem() {
-  return fetchWithFallback("/ecosystem", []);
+  return fetchApiData<any[]>("/ecosystem", []);
 }
 
 export async function submitContactEnquiry(payload: { name: string; phone: string; email?: string; subject?: string; message?: string }) {
@@ -124,4 +138,5 @@ export async function submitContactEnquiry(payload: { name: string; phone: strin
   });
   return res.json();
 }
+
 

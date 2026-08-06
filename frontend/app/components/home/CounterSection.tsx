@@ -232,7 +232,7 @@ export function CounterSection() {
           ))}
         </div>
 
-        <div className="home-counter-band">
+        <div className="home-counter-band" style={{ position: "relative" }}>
           <Image
             src="/images/testimonial-lamp-flowers.webp"
             alt="Traditional Ayurvedic wellness setup"

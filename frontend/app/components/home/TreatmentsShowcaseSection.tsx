@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { treatments as treatmentDirectory } from "../../data/architecture";
-import { getImageDisplayUrl } from "../../services/api";
+import { getImageDisplayUrl, getPublicTreatments } from "../../services/api";
 
 type TreatmentMeta = {
   category: "panchakarma" | "spine-joint" | "nerve-stress" | "specialized";
@@ -349,35 +348,18 @@ function TreatmentSvgIcon({ type }: { type: TreatmentMeta["iconType"] }) {
   }
 }
 
-import { getPublicTreatments } from "@/app/services/api";
-
-const initialTreatments = treatmentDirectory.map((treatment) => {
-  const meta = treatmentMetadata[treatment.slug] ?? treatmentMetadata.panchakarma;
-  return {
-    slug: treatment.slug,
-    title: treatment.title,
-    copy: meta.copy || treatment.meta,
-    href: `/treatments/${treatment.slug}`,
-    image: meta.image || treatment.image || "/images/treatment-panchakarma.webp",
-    category: meta.category,
-    categoryLabel: meta.categoryLabel,
-    duration: meta.duration,
-    badge: meta.badge,
-    benefits: meta.benefits,
-    iconType: meta.iconType,
-  };
-});
-
 export function TreatmentsShowcaseSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [treatmentsList, setTreatmentsList] = useState(initialTreatments);
+  const [treatmentsList, setTreatmentsList] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function loadLiveTreatments() {
       try {
+        setLoading(true);
         const data = await getPublicTreatments();
         if (Array.isArray(data) && data.length > 0) {
           const normalized = data.map((t: any) => {
@@ -386,7 +368,7 @@ export function TreatmentsShowcaseSection() {
             return {
               slug,
               title: t.title || t.name,
-              copy: t.shortDescription || meta.copy || t.description,
+              copy: t.shortDescription || meta.copy || t.description || "",
               href: `/treatments/${slug}`,
               image: getImageDisplayUrl(t.coverImage || t.image || meta.image),
               category: meta.category,
@@ -398,9 +380,14 @@ export function TreatmentsShowcaseSection() {
             };
           });
           setTreatmentsList(normalized);
+        } else {
+          setTreatmentsList([]);
         }
       } catch (err) {
         console.error("Failed to load homepage treatments:", err);
+        setTreatmentsList([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadLiveTreatments();
@@ -598,7 +585,7 @@ export function TreatmentsShowcaseSection() {
                     {/* Benefit Tags */}
                     {treatment.benefits && treatment.benefits.length > 0 && (
                       <div className="treatments-card-benefits">
-                        {treatment.benefits.map((b) => (
+                        {treatment.benefits.map((b: string) => (
                           <span key={b} className="benefit-tag">
                             <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10">
                               <path d="M13.78 4.22a.75.75 0 010 1.06l-6.25 6.25a.75.75 0 01-1.06 0L3.72 8.78a.75.75 0 011.06-1.06l2.22 2.22 5.72-5.72a.75.75 0 011.06 0z" />

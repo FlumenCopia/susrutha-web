@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { DoctorBookingDrawer } from "./DoctorBookingDrawer";
 import { getImageDisplayUrl, getPublicDoctors } from "../../services/api";
 
 // Map department slugs to display categories
@@ -50,115 +49,6 @@ type HomeDoctor = {
   quote?: string;
 };
 
-const homeDoctors: HomeDoctor[] = [
-  {
-    slug: "dr-krishnakumar-k",
-    name: "Dr. Krishnakumar K.",
-    specialty: "Senior Ayurveda Physician",
-    category: "Panchakarma",
-    qualification: "MD (Ayurveda) • 20+ Yrs Exp",
-    experience: "20+ Years",
-    rating: "4.98 ★",
-    summary: "Renowned classical Panchakarma master, chronic illness diagnostic specialist, and spine care expert.",
-    image: "/images/doctor-portrait.webp",
-    availability: "Mon, Wed, Fri",
-    tags: ["Panchakarma Master", "Spine Care", "Chronic Illness"],
-    isSpotlight: true,
-    quote: "True Ayurvedic healing does not merely suppress symptoms. It systematically roots out toxic metabolic waste (Ama) to restore your body's natural intelligence.",
-  },
-  {
-    slug: "dr-nikhil-sharma",
-    name: "Dr. Nikhil Sharma",
-    specialty: "Founder & Chief Physician",
-    category: "Panchakarma",
-    qualification: "BAMS, Chief Physician",
-    experience: "18+ Years",
-    rating: "4.97 ★",
-    summary: "Guiding classical Kerala Panchakarma therapies, detox planning, and patient-first hospital care.",
-    image: "/images/founder-nikhil-sharma.webp",
-    availability: "Mon, Wed, Fri",
-    tags: ["Panchakarma", "Legacy Care", "Holistic Health"],
-  },
-  {
-    slug: "dr-meera-iyer",
-    name: "Dr. Meera Iyer",
-    specialty: "Founder & Wellness Director",
-    category: "Women's Health",
-    qualification: "BAMS, Wellness Director",
-    experience: "15+ Years",
-    rating: "4.96 ★",
-    summary: "Specialist in women's health, nutrition planning, preventive Ayurveda, and balanced lifestyle routines.",
-    image: "/images/founder-meera-iyer.webp",
-    availability: "Tue, Thu, Sat",
-    tags: ["Women's Health", "Nutrition", "Preventive Wellness"],
-  },
-  {
-    slug: "dr-arjun-das",
-    name: "Dr. Arjun Das",
-    specialty: "Founder & Research Director",
-    category: "Lifestyle",
-    qualification: "BAMS, Research Director",
-    experience: "12+ Years",
-    rating: "4.94 ★",
-    summary: "Focusing on evidence-based Ayurvedic research protocols, clinical quality systems, and patient education.",
-    image: "/images/founder-arjun-das.webp",
-    availability: "Mon, Thu, Sat",
-    tags: ["Evidence Ayurveda", "Research", "Protocol Care"],
-  },
-  {
-    slug: "dr-sreeja-krishna-s",
-    name: "Dr. Sreeja Krishna S.",
-    specialty: "Chief Consultation Officer",
-    category: "Lifestyle",
-    qualification: "BAMS, MBA Hospital Mgmt",
-    experience: "12+ Years",
-    rating: "4.92 ★",
-    summary: "Specialist in patient consultation planning, preventive health routines, and holistic care coordination.",
-    image: "/images/doctor-sreeja.webp",
-    availability: "Tue, Thu, Sat",
-    tags: ["Preventive Care", "Routine Guidance", "Consultation"],
-  },
-  {
-    slug: "dr-priyanka-r",
-    name: "Dr. Priyanka R.",
-    specialty: "Gynaecology & Obstetrics Specialist",
-    category: "Women's Health",
-    qualification: "BAMS, MS (Ayurveda)",
-    experience: "10+ Years",
-    rating: "4.95 ★",
-    summary: "Dedicated physician for women's reproductive health, fertility preparation, antenatal and postnatal care.",
-    image: "/images/doctor-priyanka.webp",
-    availability: "Mon, Wed, Sat",
-    tags: ["Women's Health", "Fertility Care", "Postnatal"],
-  },
-  {
-    slug: "dr-rajesh-r",
-    name: "Dr. Rajesh R.",
-    specialty: "Panchakarma & Pain Specialist",
-    category: "Spine & Joint",
-    qualification: "BAMS, MD (Ayurveda)",
-    experience: "14+ Years",
-    rating: "4.90 ★",
-    summary: "Focused physician for Kati Basti, lumbar spine rehabilitation, joint stiffness, and neuromuscular care.",
-    image: "/images/doctor-rajesh.webp",
-    availability: "On Appointment",
-    tags: ["Spine Rehab", "Kati Basti", "Neuromuscular"],
-  },
-  {
-    slug: "dr-anju-s",
-    name: "Dr. Anju S.",
-    specialty: "Lifestyle & Preventive Medicine",
-    category: "Lifestyle",
-    qualification: "BAMS",
-    experience: "8+ Years",
-    rating: "4.88 ★",
-    summary: "Expert guidance for metabolic disorders, stress balance, digestion correction, and seasonal food routines.",
-    image: "/images/doctor-anju.webp",
-    availability: "Tue, Thu, Sat",
-    tags: ["Metabolic Health", "Diet Correction", "Stress Balance"],
-  },
-];
-
 const specialtyFilters = [
   "All Specialists",
   "Panchakarma Specialists",
@@ -168,21 +58,21 @@ const specialtyFilters = [
 ] as const;
 
 export function DoctorsShowcaseSection() {
-  const [doctorsList, setDoctorsList] = useState<HomeDoctor[]>(homeDoctors);
+  const [doctorsList, setDoctorsList] = useState<HomeDoctor[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [activeFilter, setActiveFilter] = useState<string>("All Specialists");
-  const [bookingDrawerDoc, setBookingDrawerDoc] = useState<HomeDoctor | null>(null);
   const [isPlayingAudioQuote, setIsPlayingAudioQuote] = useState<boolean>(false);
 
   useEffect(() => {
     async function loadLiveDoctors() {
       try {
+        setLoading(true);
         const data = await getPublicDoctors();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: HomeDoctor[] = data.map((d: any, idx: number) => ({
             slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
             name: d.name || "Doctor",
             specialty: d.designation || d.title || "Ayurveda Specialist",
-            // Use department slug from populated departmentId — no more keyword guessing!
             category: mapDeptToCategory(d.departmentId?.slug || ""),
             qualification: `${d.qualifications || "BAMS"}${d.experienceYears ? " • " + d.experienceYears + "+ Yrs Exp" : ""}`,
             experience: d.experienceText || `${d.experienceYears || 15}+ Years`,
@@ -197,15 +87,20 @@ export function DoctorsShowcaseSection() {
             quote: d.quote || "True Ayurvedic healing systematically roots out metabolic waste to restore natural intelligence.",
           }));
           setDoctorsList(normalized);
+        } else {
+          setDoctorsList([]);
         }
       } catch (err) {
         console.error("Failed to load homepage doctors:", err);
+        setDoctorsList([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadLiveDoctors();
   }, []);
 
-  const spotlightDoctor = doctorsList[0] || homeDoctors[0];
+  const spotlightDoctor = doctorsList[0] || null;
 
   const filteredDoctors = useMemo(() => {
     let list = doctorsList.filter((d) => !d.isSpotlight);
@@ -215,6 +110,10 @@ export function DoctorsShowcaseSection() {
     if (activeFilter === "Lifestyle Medicine") list = doctorsList.filter((d) => d.category === "Lifestyle");
     return list;
   }, [activeFilter, doctorsList]);
+
+  if (!spotlightDoctor) {
+    return null;
+  }
 
   return (
     <section className="home-doctors-section-creative" aria-labelledby="home-doctors-title">
@@ -321,13 +220,12 @@ export function DoctorsShowcaseSection() {
                     <span>{isPlayingAudioQuote ? "Pause" : "Welcome Note"}</span>
                   </button>
 
-                  <button
-                    type="button"
+                  <Link
+                    href={`/appointment?doctor=${encodeURIComponent(spotlightDoctor.slug)}`}
                     className="home-spotlight-book-btn"
-                    onClick={() => setBookingDrawerDoc(spotlightDoctor)}
                   >
                     <span>Book OP Slot</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -338,7 +236,7 @@ export function DoctorsShowcaseSection() {
             <div className="home-doctors-team-header">
               <h3 className="home-team-heading">Specialist Medical Team</h3>
               <Link href="/doctors" className="home-team-view-all">
-                <span>View All 8 Doctors</span>
+                <span>View All {doctorsList.length} Doctors</span>
                 <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
@@ -385,13 +283,12 @@ export function DoctorsShowcaseSection() {
                       </Link>
 
                       {/* Quick Booking Button */}
-                      <button
-                        type="button"
+                      <Link
+                        href={`/appointment?doctor=${encodeURIComponent(doctor.slug)}`}
                         className="home-team-book-btn-sm"
-                        onClick={() => setBookingDrawerDoc(doctor)}
                       >
                         Book OP
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </article>
@@ -423,14 +320,6 @@ export function DoctorsShowcaseSection() {
           </div>
         </div>
       </div>
-
-      {/* Interactive Quick-Book Consultation Drawer */}
-      <DoctorBookingDrawer
-        isOpen={!!bookingDrawerDoc}
-        doctorName={bookingDrawerDoc?.name}
-        specialty={bookingDrawerDoc?.specialty}
-        onClose={() => setBookingDrawerDoc(null)}
-      />
     </section>
   );
 }

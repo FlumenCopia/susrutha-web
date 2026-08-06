@@ -24,7 +24,7 @@ export function AyurvedaVillageSection() {
         </Link>
       </div>
 
-      <div className="village-image-panel">
+      <div className="village-image-panel" style={{ position: "relative" }}>
         <Image
           src="/images/ayurveda-village-path.webp"
           alt="Ayurveda village pathway with traditional cottages"
