@@ -110,14 +110,31 @@ function DoctorIcon({ name }: { name: DoctorIconName }) {
 }
 
 export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
-  const image = doctor.image ?? "/images/doctor-portrait.webp";
-  const focusAreas = doctor.focusAreas?.length ? doctor.focusAreas : ["Panchakarma hospital protocols", "Chronic musculoskeletal conditions", "Integrative inpatient Ayurveda", "Research-oriented clinical practice"];
-  const pillars = doctor.approach?.length ? doctor.approach.slice(0, 3) : ["Research-driven Ayurveda", "Panchakarma authority", "Classical Ayurveda + modern hospital practice"];
-  const languages = doctor.languages?.length ? doctor.languages.join(", ") : "Malayalam, English, Hindi";
-  const conditions = doctor.focusAreas?.length ? [...doctor.focusAreas, ...defaultConditions].slice(0, 5) : defaultConditions;
-  const education = doctor.credentials?.length
-    ? doctor.credentials
+  const image = typeof doctor.image === 'string' ? doctor.image : (doctor as any).photoUrl || "/images/doctor-portrait.webp";
+  const focusAreas = Array.isArray(doctor.focusAreas)
+    ? doctor.focusAreas.map(f => typeof f === 'string' ? f : (f as any).title || String(f))
+    : ["Panchakarma hospital protocols", "Chronic musculoskeletal conditions", "Integrative inpatient Ayurveda", "Research-oriented clinical practice"];
+  const pillars = Array.isArray(doctor.approach)
+    ? doctor.approach.map(a => typeof a === 'string' ? a : String(a)).slice(0, 3)
+    : ["Research-driven Ayurveda", "Panchakarma authority", "Classical Ayurveda + modern hospital practice"];
+  const languages = Array.isArray(doctor.languages)
+    ? doctor.languages.join(", ")
+    : typeof doctor.languages === 'string'
+    ? doctor.languages
+    : "Malayalam, English, Hindi";
+  const conditions = Array.isArray(doctor.focusAreas)
+    ? [...focusAreas, ...defaultConditions].slice(0, 5)
+    : defaultConditions;
+  const education = Array.isArray(doctor.credentials)
+    ? doctor.credentials.map(c => typeof c === 'string' ? c : String(c))
     : ["BAMS", "MD (Ayurveda)", "Reg. No. 12345/2006", "Certified Panchakarma Practitioner"];
+
+  const rawAvailability = (doctor as any).availability;
+  const availabilityText = typeof rawAvailability === 'string'
+    ? rawAvailability
+    : Array.isArray(rawAvailability)
+    ? rawAvailability.map((a: any) => typeof a === 'string' ? a : `${a.days || ''} (${a.timeSlots || ''})`).join(', ')
+    : "Kattakada & Kowdiar (On Appointment)";
 
   return (
     <main className="doctor-detail-page">
@@ -128,15 +145,15 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
             <span>/</span>
             <Link href="/doctors">Doctors</Link>
             <span>/</span>
-            <Link href={`/doctors/${doctor.slug}`}>{doctor.title}</Link>
+            <Link href={`/doctors/${doctor.slug}`}>{doctor.title || (doctor as any).name}</Link>
           </div>
 
           <div className="doctor-detail-hero-grid">
           <div className="doctor-detail-copy">
             <span>Ayurvedic Physician</span>
-            <h1>{doctor.title}</h1>
-            <p className="doctor-detail-meta">{doctor.meta}</p>
-            <p>{doctor.text}</p>
+            <h1>{doctor.title || (doctor as any).name}</h1>
+            <p className="doctor-detail-meta">{doctor.meta || (doctor as any).qualification}</p>
+            <p>{doctor.text || (doctor as any).bio}</p>
 
               <div className="doctor-detail-stats" aria-label="Doctor highlights">
                 <article>
@@ -157,14 +174,18 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
               </div>
 
               <div className="doctor-detail-actions">
-                <Link href="/appointment">Book Appointment</Link>
-                <Link href="/contact-us">Consult Online</Link>
-            </div>
+                <Link href={`/appointment?doctor=${encodeURIComponent((doctor as any).slug || (doctor as any)._id || doctor.title)}`}>
+                  Book Consultation Slot
+                </Link>
+                <Link href={`/appointment?doctor=${encodeURIComponent((doctor as any).slug || (doctor as any)._id || doctor.title)}&mode=video`}>
+                  Consult Online (Video)
+                </Link>
+              </div>
           </div>
 
           <div className="doctor-detail-photo-wrap">
             <div className="doctor-detail-photo">
-              <Image src={image} alt={doctor.title} fill priority sizes="(max-width: 900px) 92vw, 430px" />
+              <Image src={image} alt={doctor.title || (doctor as any).name || 'Doctor'} fill priority sizes="(max-width: 900px) 92vw, 430px" />
             </div>
             <div className="doctor-detail-photo-note">
               <DoctorIcon name="leaf" />
@@ -198,7 +219,7 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
                 <DoctorIcon name="calendar" />
                 <div>
                   <span>Availability</span>
-                  <strong>{doctor.availability ?? "On appointment"}</strong>
+                  <strong>{availabilityText}</strong>
                 </div>
               </article>
             </aside>

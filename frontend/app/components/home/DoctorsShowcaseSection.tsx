@@ -1,9 +1,38 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { DoctorBookingDrawer } from "./DoctorBookingDrawer";
+import { getImageDisplayUrl, getPublicDoctors } from "../../services/api";
+
+// Map department slugs to display categories
+const DEPT_TO_CATEGORY: Record<string, HomeDoctor["category"]> = {
+  "panchakarma": "Panchakarma",
+  "panchakarma-detox": "Panchakarma",
+  "spine-joints": "Spine & Joint",
+  "neck-back-joint": "Spine & Joint",
+  "womens-health": "Women's Health",
+  "prasooti-tantra": "Women's Health",
+  "lifestyle-detox": "Lifestyle",
+  "preventive-medicine": "Lifestyle",
+  "kayachikitsa": "Panchakarma",
+  "skin-hair": "Lifestyle",
+  "rheumatology": "Spine & Joint",
+  "neurology": "Spine & Joint",
+};
+
+function mapDeptToCategory(deptSlug?: string): HomeDoctor["category"] {
+  if (!deptSlug) return "Panchakarma";
+  // Try exact match first
+  if (DEPT_TO_CATEGORY[deptSlug]) return DEPT_TO_CATEGORY[deptSlug];
+  // Fuzzy match by keyword
+  const s = deptSlug.toLowerCase();
+  if (s.includes("women") || s.includes("prasooti") || s.includes("fertility")) return "Women's Health";
+  if (s.includes("spine") || s.includes("joint") || s.includes("neuro") || s.includes("rheum")) return "Spine & Joint";
+  if (s.includes("lifestyle") || s.includes("metabolic") || s.includes("preventive") || s.includes("skin")) return "Lifestyle";
+  return "Panchakarma";
+}
 
 type HomeDoctor = {
   slug: string;
@@ -139,20 +168,53 @@ const specialtyFilters = [
 ] as const;
 
 export function DoctorsShowcaseSection() {
+  const [doctorsList, setDoctorsList] = useState<HomeDoctor[]>(homeDoctors);
   const [activeFilter, setActiveFilter] = useState<string>("All Specialists");
   const [bookingDrawerDoc, setBookingDrawerDoc] = useState<HomeDoctor | null>(null);
   const [isPlayingAudioQuote, setIsPlayingAudioQuote] = useState<boolean>(false);
 
-  const spotlightDoctor = homeDoctors[0];
+  useEffect(() => {
+    async function loadLiveDoctors() {
+      try {
+        const data = await getPublicDoctors();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized: HomeDoctor[] = data.map((d: any, idx: number) => ({
+            slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
+            name: d.name || "Doctor",
+            specialty: d.designation || d.title || "Ayurveda Specialist",
+            // Use department slug from populated departmentId — no more keyword guessing!
+            category: mapDeptToCategory(d.departmentId?.slug || ""),
+            qualification: `${d.qualifications || "BAMS"}${d.experienceYears ? " • " + d.experienceYears + "+ Yrs Exp" : ""}`,
+            experience: d.experienceText || `${d.experienceYears || 15}+ Years`,
+            rating: `${d.rating || 4.9} ★`,
+            summary: d.bio || d.text || "Senior Ayurvedic Physician at Susrutha Ayurveda.",
+            image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
+            availability: d.availability?.length
+              ? d.availability[0].days?.join(", ") || "By Appointment"
+              : "By Appointment",
+            tags: d.specialties || d.focusAreas || ["Panchakarma", "Ayurveda"],
+            isSpotlight: idx === 0,
+            quote: d.quote || "True Ayurvedic healing systematically roots out metabolic waste to restore natural intelligence.",
+          }));
+          setDoctorsList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load homepage doctors:", err);
+      }
+    }
+    loadLiveDoctors();
+  }, []);
+
+  const spotlightDoctor = doctorsList[0] || homeDoctors[0];
 
   const filteredDoctors = useMemo(() => {
-    let list = homeDoctors.filter((d) => !d.isSpotlight);
-    if (activeFilter === "Panchakarma Specialists") list = homeDoctors.filter((d) => d.category === "Panchakarma");
-    if (activeFilter === "Spine & Joint Care") list = homeDoctors.filter((d) => d.category === "Spine & Joint");
-    if (activeFilter === "Women's Health") list = homeDoctors.filter((d) => d.category === "Women's Health");
-    if (activeFilter === "Lifestyle Medicine") list = homeDoctors.filter((d) => d.category === "Lifestyle");
+    let list = doctorsList.filter((d) => !d.isSpotlight);
+    if (activeFilter === "Panchakarma Specialists") list = doctorsList.filter((d) => d.category === "Panchakarma");
+    if (activeFilter === "Spine & Joint Care") list = doctorsList.filter((d) => d.category === "Spine & Joint");
+    if (activeFilter === "Women's Health") list = doctorsList.filter((d) => d.category === "Women's Health");
+    if (activeFilter === "Lifestyle Medicine") list = doctorsList.filter((d) => d.category === "Lifestyle");
     return list;
-  }, [activeFilter]);
+  }, [activeFilter, doctorsList]);
 
   return (
     <section className="home-doctors-section-creative" aria-labelledby="home-doctors-title">
@@ -208,7 +270,7 @@ export function DoctorsShowcaseSection() {
             {/* Clickable Image Linking to Dedicated Doctor Page */}
             <Link href={`/doctors/${spotlightDoctor.slug}`} className="home-spotlight-portrait-wrapper">
               <Image
-                src={spotlightDoctor.image}
+                src={getImageDisplayUrl(spotlightDoctor.image)}
                 alt={spotlightDoctor.name}
                 width={460}
                 height={500}
@@ -287,7 +349,7 @@ export function DoctorsShowcaseSection() {
                   {/* Clickable Portrait Thumb Linking to Dedicated Doctor Page */}
                   <Link href={`/doctors/${doctor.slug}`} className="home-team-card-thumb">
                     <Image
-                      src={doctor.image}
+                      src={getImageDisplayUrl(doctor.image)}
                       alt={doctor.name}
                       width={220}
                       height={240}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { treatments as treatmentDirectory } from "../../data/architecture";
+import { getImageDisplayUrl } from "../../services/api";
 
 type TreatmentMeta = {
   category: "panchakarma" | "spine-joint" | "nerve-stress" | "specialized";
@@ -348,9 +349,10 @@ function TreatmentSvgIcon({ type }: { type: TreatmentMeta["iconType"] }) {
   }
 }
 
-const allTreatments = treatmentDirectory.map((treatment) => {
-  const meta = treatmentMetadata[treatment.slug] ?? treatmentMetadata.panchakarma;
+import { getPublicTreatments } from "@/app/services/api";
 
+const initialTreatments = treatmentDirectory.map((treatment) => {
+  const meta = treatmentMetadata[treatment.slug] ?? treatmentMetadata.panchakarma;
   return {
     slug: treatment.slug,
     title: treatment.title,
@@ -371,11 +373,43 @@ export function TreatmentsShowcaseSection() {
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [treatmentsList, setTreatmentsList] = useState(initialTreatments);
+
+  useEffect(() => {
+    async function loadLiveTreatments() {
+      try {
+        const data = await getPublicTreatments();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized = data.map((t: any) => {
+            const slug = t.slug || `tr-${(t.title || t.name || '').toLowerCase().replace(/\s+/g, '-')}`;
+            const meta = treatmentMetadata[slug] ?? treatmentMetadata.panchakarma;
+            return {
+              slug,
+              title: t.title || t.name,
+              copy: t.shortDescription || meta.copy || t.description,
+              href: `/treatments/${slug}`,
+              image: getImageDisplayUrl(t.coverImage || t.image || meta.image),
+              category: meta.category,
+              categoryLabel: t.category || meta.categoryLabel,
+              duration: t.durationMinutes ? `${t.durationMinutes} Mins` : meta.duration,
+              badge: meta.badge,
+              benefits: t.benefits || meta.benefits,
+              iconType: meta.iconType,
+            };
+          });
+          setTreatmentsList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load homepage treatments:", err);
+      }
+    }
+    loadLiveTreatments();
+  }, []);
 
   const filteredTreatments = useMemo(() => {
-    if (activeCategory === "all") return allTreatments;
-    return allTreatments.filter((t) => t.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "all") return treatmentsList;
+    return treatmentsList.filter((t) => t.category === activeCategory);
+  }, [activeCategory, treatmentsList]);
 
   useEffect(() => {
     const syncItemsPerPage = () => {
@@ -485,7 +519,7 @@ export function TreatmentsShowcaseSection() {
         {/* Filter Category Tabs */}
         <div className="treatments-category-tabs" role="tablist" aria-label="Treatment categories">
           {CATEGORIES.map((cat) => {
-            const count = cat.id === "all" ? allTreatments.length : allTreatments.filter((t) => t.category === cat.id).length;
+            const count = cat.id === "all" ? treatmentsList.length : treatmentsList.filter((t) => t.category === cat.id).length;
             const isActive = activeCategory === cat.id;
 
             return (
@@ -539,7 +573,7 @@ export function TreatmentsShowcaseSection() {
                 <Link href={treatment.href} aria-label={`View ${treatment.title} treatment`}>
                   <div className="treatments-card-image">
                     <Image
-                      src={treatment.image}
+                      src={getImageDisplayUrl(treatment.image)}
                       alt={treatment.title}
                       fill
                       sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, (max-width: 1500px) 30vw, 240px"

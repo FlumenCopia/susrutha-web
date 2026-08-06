@@ -84,9 +84,9 @@ export function AboutHeroSection() {
             At Susrutha Ayurvedic Hospital, we blend the timeless science of Ayurveda with personalized care to help you
             live a healthier, balanced life.
           </p>
-          <Link href="#legacy">
+          <Link href="#story" className="about-hero-story-btn">
             Our Story
-            <span aria-hidden="true" />
+            <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
         <div className="about-premium-hero-image">

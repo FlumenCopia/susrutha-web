@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const heroFeatures = [
-  ["Authentic Ayurveda", "Rooted in tradition, guided by science."],
-  ["Expert Practitioners", "Experienced doctors for holistic healing."],
-  ["Personalized Care", "Tailored treatments for you."],
-  ["Natural & Safe", "100% natural therapies with lasting results."],
-  ["Holistic Wellness", "Healing mind, body and soul together."],
+  { title: "Authentic Ayurveda", text: "Rooted in tradition, guided by science.", icon: "🌿" },
+  { title: "Expert Practitioners", text: "Experienced doctors for holistic healing.", icon: "👨‍⚕️" },
+  { title: "Personalized Care", text: "Tailored treatments for you.", icon: "✨" },
+  { title: "Natural & Safe", text: "100% natural therapies with lasting results.", icon: "🛡️" },
+  { title: "Holistic Wellness", text: "Healing mind, body and soul together.", icon: "☸️" },
 ];
 
 export function HeroBanner() {
@@ -56,9 +56,11 @@ export function HeroBanner() {
       </div>
 
       <div className="hero-feature-strip" aria-label="Susrutha Ayurveda highlights">
-        {heroFeatures.map(([title, text]) => (
+        {heroFeatures.map(({ title, text, icon }) => (
           <div className="hero-feature" key={title}>
-            <span className="hero-feature-icon" aria-hidden="true" />
+            <span className="hero-feature-icon" aria-hidden="true" style={{ display: "grid", placeItems: "center", fontSize: "22px" }}>
+              {icon}
+            </span>
             <div>
               <strong>{title}</strong>
               <p>{text}</p>

@@ -1,14 +1,23 @@
+"use client";
 import React from "react";
-import { doctorDepartments, DoctorDepartment } from "./doctorsData";
+
+export type DynamicDepartment = {
+  id: string;
+  name: string;
+  icon: string;
+  doctorCount: number;
+};
 
 type DoctorsDepartmentGridProps = {
   selectedDeptId: string;
   onSelectDepartment: (deptId: string) => void;
+  departments: DynamicDepartment[];
 };
 
 export function DoctorsDepartmentGrid({
   selectedDeptId,
   onSelectDepartment,
+  departments,
 }: DoctorsDepartmentGridProps) {
   return (
     <section className="doctors-dept-section">
@@ -20,7 +29,7 @@ export function DoctorsDepartmentGrid({
       </div>
 
       <div className="doctors-dept-grid">
-        {doctorDepartments.map((dept: DoctorDepartment) => {
+        {departments.map((dept: DynamicDepartment) => {
           const isActive = selectedDeptId === dept.id;
           return (
             <div
@@ -30,9 +39,7 @@ export function DoctorsDepartmentGrid({
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  onSelectDepartment(dept.id);
-                }
+                if (e.key === "Enter" || e.key === " ") onSelectDepartment(dept.id);
               }}
             >
               <div className="doctors-dept-icon">{dept.icon}</div>
@@ -40,7 +47,7 @@ export function DoctorsDepartmentGrid({
               <div className="doctors-dept-count">
                 {dept.id === "all"
                   ? `${dept.doctorCount} Doctors Available`
-                  : `${dept.doctorCount} Specialist${dept.doctorCount > 1 ? "s" : ""}`}
+                  : `${dept.doctorCount} Specialist${dept.doctorCount !== 1 ? "s" : ""}`}
               </div>
             </div>
           );

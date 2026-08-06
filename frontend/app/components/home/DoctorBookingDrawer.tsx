@@ -135,11 +135,18 @@ export function DoctorBookingDrawer({
               </div>
             </div>
 
-            <div className="doc-drawer-footer">
+            <div className="doc-drawer-footer flex flex-col space-y-2">
               <button type="submit" className="doc-drawer-submit-btn">
-                <span>Confirm Appointment Request</span>
+                <span>Confirm Quick Consultation Request</span>
                 <span aria-hidden="true">&rarr;</span>
               </button>
+              <a
+                href={`/appointment?doctor=${encodeURIComponent(doctorName.toLowerCase().replace(/dr-?/, '').trim())}`}
+                className="text-center text-xs font-semibold text-susrutha-brand hover:underline py-1"
+                onClick={onClose}
+              >
+                Or launch full 3-step slot picker wizard &rarr;
+              </a>
               <span className="doc-drawer-guarantee">🔒 Confidential & Instant Confirmation</span>
             </div>
           </form>

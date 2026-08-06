@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -145,7 +148,36 @@ const contactCards = [
   },
 ];
 
+import { submitContactEnquiry } from "@/app/services/api";
+
 export function ContactReferencePage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.phone) {
+      alert("Please enter your name and phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      await submitContactEnquiry(formData);
+    } catch (err) {
+      console.warn("Contact lead API error:", err);
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
+  };
+
   return (
     <div className="contact-reference-page">
       <div className="contact-reference-main">
@@ -182,44 +214,80 @@ export function ContactReferencePage() {
             </div>
           </div>
 
-          <form className="contact-reference-form" aria-label="Send us a message">
+          <form className="contact-reference-form" aria-label="Send us a message" onSubmit={handleSubmit}>
             <div className="contact-reference-form-mark" aria-hidden="true">
               <LotusIcon />
             </div>
             <h2>Send Us a Message</h2>
             <span className="contact-reference-form-rule" aria-hidden="true" />
-            <div className="contact-reference-form-grid">
-              <label>
-                <ContactIcon type="user" />
-                <input name="name" placeholder="Full Name" />
-              </label>
-              <label>
-                <ContactIcon type="mail" />
-                <input name="email" type="email" placeholder="Email Address" />
-              </label>
-              <label className="wide">
-                <ContactIcon type="phone" />
-                <input name="phone" placeholder="Phone Number" />
-              </label>
-              <label className="wide">
-                <select name="subject" defaultValue="">
-                  <option value="" disabled>
-                    Subject
-                  </option>
-                  <option>Book a consultation</option>
-                  <option>Treatment enquiry</option>
-                  <option>Patient support</option>
-                </select>
-              </label>
-              <label className="wide message">
-                <ContactIcon type="pen" />
-                <textarea name="message" placeholder="Your Message" />
-              </label>
-            </div>
-            <button type="button">
-              Send Message
-              <ContactIcon type="send" />
-            </button>
+            {isSubmitted ? (
+              <div style={{ padding: "2rem 0", color: "#1b4332", textAlign: "center" }}>
+                <h3>Thank You!</h3>
+                <p>Your message has been received. Our care coordinator will contact you shortly.</p>
+              </div>
+            ) : (
+              <>
+                <div className="contact-reference-form-grid">
+                  <label>
+                    <ContactIcon type="user" />
+                    <input
+                      name="name"
+                      placeholder="Full Name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                    />
+                  </label>
+                  <label>
+                    <ContactIcon type="mail" />
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="Email Address"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </label>
+                  <label className="wide">
+                    <ContactIcon type="phone" />
+                    <input
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      required
+                    />
+                  </label>
+                  <label className="wide">
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    >
+                      <option value="" disabled>
+                        Subject
+                      </option>
+                      <option>Book a consultation</option>
+                      <option>Treatment enquiry</option>
+                      <option>Patient support</option>
+                    </select>
+                  </label>
+                  <label className="wide message">
+                    <ContactIcon type="pen" />
+                    <textarea
+                      name="message"
+                      placeholder="Your Message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    />
+                  </label>
+                </div>
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <ContactIcon type="send" />
+                </button>
+              </>
+            )}
           </form>
         </section>
 

@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { desktopNavigation, doctorsDirectory, treatments } from "../../data/architecture";
+import { desktopNavigation } from "../../data/architecture";
+import { getPublicDoctors, getPublicTreatments, getImageDisplayUrl } from "../../services/api";
 
 type SearchResultItem = {
   id: string;
@@ -32,9 +33,38 @@ export function NavbarSearch() {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
+  // Live data fetched from API
+  const [liveDoctors, setLiveDoctors] = useState<{ slug: string; name: string; designation: string; image: string }[]>([]);
+  const [liveTreatments, setLiveTreatments] = useState<{ slug: string; title: string; description: string }[]>([]);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const mobileInputRef = useRef<HTMLInputElement>(null);
+
+  // Fetch live doctors + treatments once on mount
+  useEffect(() => {
+    async function loadSearchData() {
+      try {
+        const [docs, treats] = await Promise.all([getPublicDoctors(), getPublicTreatments()]);
+        if (Array.isArray(docs)) {
+          setLiveDoctors(docs.map((d: any) => ({
+            slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
+            name: d.name || "Doctor",
+            designation: d.designation || d.title || "Ayurveda Specialist",
+            image: getImageDisplayUrl(d.photo || d.photoUrl),
+          })));
+        }
+        if (Array.isArray(treats)) {
+          setLiveTreatments(treats.map((t: any) => ({
+            slug: t.slug || "",
+            title: t.title || t.name || "",
+            description: t.shortDescription || t.description || t.meta || "",
+          })));
+        }
+      } catch {}
+    }
+    loadSearchData();
+  }, []);
 
   // Extract Conditions list from desktopNavigation
   const conditions = useMemo(() => {
@@ -52,35 +82,35 @@ export function NavbarSearch() {
       return { doctors: [], treatments: [], conditions: [], all: [] };
     }
 
-    const matchedDoctors: SearchResultItem[] = doctorsDirectory
+    const matchedDoctors: SearchResultItem[] = liveDoctors
       .filter((doc) => {
-        const textToSearch = `${doc.title} ${doc.meta} ${doc.text} ${(doc.focusAreas || []).join(" ")}`.toLowerCase();
-        return textToSearch.includes(trimmed);
+        const text = `${doc.name} ${doc.designation}`.toLowerCase();
+        return text.includes(trimmed);
       })
       .slice(0, 4)
       .map((doc) => ({
         id: `doc-${doc.slug}`,
         type: "doctor",
-        title: doc.title,
-        subtitle: doc.meta.split("|")[1]?.trim() || doc.meta,
+        title: doc.name,
+        subtitle: doc.designation,
         href: `/doctors/${doc.slug}`,
         image: doc.image || "/images/doctor-portrait.webp",
-        badge: doc.experience || "Specialist",
+        badge: "Specialist",
       }));
 
-    const matchedTreatments: SearchResultItem[] = treatments
+    const matchedTreatments: SearchResultItem[] = liveTreatments
       .filter((t) => {
-        const textToSearch = `${t.title} ${t.meta} ${t.text}`.toLowerCase();
-        return textToSearch.includes(trimmed);
+        const text = `${t.title} ${t.description}`.toLowerCase();
+        return text.includes(trimmed);
       })
       .slice(0, 5)
       .map((t) => ({
         id: `trt-${t.slug}`,
         type: "treatment",
         title: t.title,
-        subtitle: t.meta || t.text,
+        subtitle: t.description || "Ayurvedic Therapy",
         href: `/treatments/${t.slug}`,
-        image: t.image || "/images/treatment-panchakarma.webp",
+        image: "/images/treatment-panchakarma.webp",
         badge: "Therapy",
       }));
 
@@ -104,7 +134,7 @@ export function NavbarSearch() {
       conditions: matchedConditions,
       all,
     };
-  }, [query, conditions]);
+  }, [query, conditions, liveDoctors, liveTreatments]);
 
   // Click outside listener
   useEffect(() => {

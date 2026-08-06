@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
-  featuredVideosData,
+  featuredVideosData as fallbackVideos,
   continueWatchingData,
   VideoCategory,
   VideoItem,
@@ -15,15 +15,49 @@ import { VideoPlaylistsSection } from "./VideoPlaylistsSection";
 import { PatientStoriesSection } from "./PatientStoriesSection";
 import { ContinueWatchingSection } from "./ContinueWatchingSection";
 import { VideoModal } from "./VideoModal";
+import { getPublicVideos, getImageDisplayUrl } from "@/app/services/api";
 
 export function VideoGalleryPage() {
+  const [videoList, setVideoList] = useState<VideoItem[]>(fallbackVideos);
   const [activeCategory, setActiveCategory] = useState<VideoCategory>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("popular");
   const [activeModalVideo, setActiveModalVideo] = useState<VideoItem | null>(null);
 
+  useEffect(() => {
+    async function loadVideos() {
+      try {
+        const data = await getPublicVideos();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized: VideoItem[] = data.map((v: any, idx: number) => {
+            const fb = fallbackVideos[idx] || fallbackVideos[0];
+            return {
+              id: v._id || v.id || fb.id,
+              title: v.title || fb.title,
+              category: (v.category as VideoCategory) || fb.category,
+              duration: v.duration || fb.duration,
+              rating: "4.9 ★",
+              views: "12K Views",
+              description: v.description || fb.description,
+              thumbnail: getImageDisplayUrl(v.thumbnailUrl || v.thumbnail || fb.thumbnail),
+              youtubeId: v.youtubeUrl ? v.youtubeUrl.split('v=')[1] || fb.youtubeId : fb.youtubeId,
+              level: fb.level || "Masterclass",
+              speaker: fb.speaker,
+              transcript: fb.transcript,
+              featured: v.isFeatured || false,
+            };
+          });
+          setVideoList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load live videos:", err);
+      }
+    }
+    loadVideos();
+  }, []);
+
   const filteredVideos = useMemo(() => {
-    let list = featuredVideosData.filter((v) => {
+    let list = videoList.filter((v) => {
       const matchesCategory = activeCategory === "All" || v.category === activeCategory;
       const matchesSearch =
         searchQuery.trim() === "" ||
@@ -41,9 +75,9 @@ export function VideoGalleryPage() {
     }
 
     return list;
-  }, [activeCategory, searchQuery, sortBy]);
+  }, [activeCategory, searchQuery, sortBy, videoList]);
 
-  const spotlightVideo = featuredVideosData[0];
+  const spotlightVideo = videoList[0] || fallbackVideos[0];
 
   return (
     <div className="vg-page-wrapper">

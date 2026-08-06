@@ -1,18 +1,138 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./doctors.css";
 import { doctorsData, DoctorItem } from "./doctorsData";
 import { DoctorsHero } from "./DoctorsHero";
 import { DoctorsDepartmentGrid } from "./DoctorsDepartmentGrid";
+import { DynamicDepartment } from "./DoctorsDepartmentGrid";
 import { DoctorsFilterBar } from "./DoctorsFilterBar";
+import { DynamicBranch } from "./DoctorsFilterBar";
 import { DoctorCard } from "./DoctorCard";
 import { DoctorQuickViewModal } from "./DoctorQuickViewModal";
 import { DoctorMatchAssistant } from "./DoctorMatchAssistant";
 import { DoctorsStatsBanner } from "./DoctorsStatsBanner";
 import { DoctorsCTA } from "./DoctorsCTA";
+import { getPublicDoctors, getPublicDepartments, getPublicBranches, getImageDisplayUrl } from "@/app/services/api";
+
+// Department icon map (fallback for backend departments without icons)
+const DEPT_ICONS: Record<string, string> = {
+  panchakarma: "🫗",
+  "spine-joints": "🦴",
+  "womens-health": "🌸",
+  "lifestyle-detox": "🌱",
+  "skin-hair": "✨",
+  kayachikitsa: "🩺",
+  "preventive-medicine": "💊",
+  rheumatology: "🦵",
+  neurology: "🧠",
+  default: "🏥",
+};
 
 export function DoctorsPage() {
+  const [doctorsList, setDoctorsList] = useState<DoctorItem[]>(doctorsData);
+  // Dynamic departments and branches from backend
+  const [departments, setDepartments] = useState<DynamicDepartment[]>([
+    { id: "all", name: "All Departments", icon: "🩺", doctorCount: doctorsData.length },
+  ]);
+  const [branches, setBranches] = useState<DynamicBranch[]>([
+    { id: "all", name: "All Locations" },
+    { id: "kattakada", name: "Kattakada Main Hospital" },
+    { id: "kowdiar", name: "Kowdiar City OP Outlet" },
+  ]);
+
+  useEffect(() => {
+    // Load departments from API
+    async function loadDepartments() {
+      try {
+        const data = await getPublicDepartments();
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped: DynamicDepartment[] = [
+            { id: "all", name: "All Departments", icon: "🩺", doctorCount: 0 },
+            ...data.map((d: any) => ({
+              id: d.slug || d._id,
+              name: d.name,
+              icon: DEPT_ICONS[d.slug] || DEPT_ICONS.default,
+              doctorCount: d.doctorCount || 0,
+            })),
+          ];
+          setDepartments(mapped);
+        }
+      } catch {}
+    }
+
+    // Load branches from API
+    async function loadBranches() {
+      try {
+        const data = await getPublicBranches();
+        if (Array.isArray(data) && data.length > 0) {
+          const mapped: DynamicBranch[] = [
+            { id: "all", name: "All Locations" },
+            ...data.map((b: any) => ({
+              id: (b.code || b._id || "").toLowerCase(),
+              name: b.name,
+            })),
+          ];
+          setBranches(mapped);
+        }
+      } catch {}
+    }
+
+    // Load doctors from API
+    async function loadDoctors() {
+      try {
+        const data = await getPublicDoctors();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized: DoctorItem[] = data.map((d: any, idx: number) => ({
+            id: d._id || d.id || `doc-${idx}`,
+            slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
+            name: d.name || "Doctor",
+            title: d.title || d.designation || "Ayurveda Specialist",
+            designation: d.designation || "Senior Consultant",
+            qualification: d.qualifications || d.qualification || "BAMS",
+            // Use departmentId.slug for filter comparison — key fix!
+            departmentId: d.departmentId?.slug || d.departmentId || "panchakarma",
+            departmentName: d.departmentId?.name || d.departmentName || "Panchakarma & Detox",
+            experienceYears: d.experienceYears || 15,
+            experienceText: d.experienceText || `${d.experienceYears || 15}+ Years`,
+            patientsCount: d.patientsCount || "10K+",
+            rating: d.rating || 4.9,
+            reviewsCount: d.reviewsCount || 120,
+            image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
+            location: d.assignedBranchIds ? d.assignedBranchIds.map((b: any) => b.name || b).join(" & ") : "Kattakada & Kowdiar",
+            // branchIds: use branch codes (lowercase) for filter comparison
+            branchIds: d.assignedBranchIds
+              ? d.assignedBranchIds.map((b: any) => (b.code || b._id || "").toLowerCase())
+              : ["kattakada"],
+            availableDays: d.availability ? d.availability.flatMap((a: any) => a.days || []) : ["Mon", "Wed", "Fri"],
+            languages: d.languagesSpoken || ["English", "Malayalam"],
+            consultationModes: ["in-person"] as ("in-person" | "video")[],
+            focusAreas: d.specialties || d.focusAreas || ["Panchakarma", "Chronic Wellness"],
+            credentials: [d.qualifications || "BAMS"],
+            quote: d.quote || "Healing with authentic Kerala Ayurveda.",
+            bio: d.bio || d.text || "Senior Ayurvedic Physician.",
+            isFounder: d.isDirector || d.isFounder || false,
+            isPopular: d.isFeatured || d.isPopular || true,
+            isAvailableToday: true,
+          }));
+          setDoctorsList(normalized);
+          // Update "All Departments" count
+          setDepartments((prev) =>
+            prev.map((dept) =>
+              dept.id === "all" ? { ...dept, doctorCount: normalized.length } : dept
+            )
+          );
+        }
+      } catch (err) {
+        console.error("Failed to load live doctors:", err);
+      }
+    }
+
+    loadDepartments();
+    loadBranches();
+    loadDoctors();
+  }, []);
+
   // Filter and view states
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDeptId, setSelectedDeptId] = useState("all");
@@ -58,7 +178,7 @@ export function DoctorsPage() {
 
   // Filtered & Sorted Doctors List
   const filteredDoctors = useMemo(() => {
-    return doctorsData
+    return doctorsList
       .filter((doc) => {
         // Text Search
         if (searchQuery.trim() !== "") {
@@ -132,6 +252,7 @@ export function DoctorsPage() {
       <DoctorsDepartmentGrid
         selectedDeptId={selectedDeptId}
         onSelectDepartment={setSelectedDeptId}
+        departments={departments}
       />
 
       {/* 3. Sticky Filter Toolbar */}
@@ -149,9 +270,11 @@ export function DoctorsPage() {
         viewMode={viewMode}
         onViewModeChange={setViewMode}
         resultCount={filteredDoctors.length}
-        totalCount={doctorsData.length}
+        totalCount={doctorsList.length}
         activeFilterCount={activeFilterCount}
         onClearAllFilters={handleClearAll}
+        departments={departments}
+        branches={branches}
       />
 
       {/* 4. Doctors Listing (Grid or List View) */}

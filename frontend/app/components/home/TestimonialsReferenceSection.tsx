@@ -1,9 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getPublicTestimonials, getImageDisplayUrl } from "@/app/services/api";
 
-const testimonials = [
+type TestimonialItem = {
+  name: string;
+  place: string;
+  image: string;
+  copy: string;
+};
+
+const fallbackTestimonials: TestimonialItem[] = [
   {
     name: "Priya Menon",
     place: "Bangalore",
@@ -48,23 +56,43 @@ const stats = [
   ["shield", "10+", "Specialized Therapies", "Holistic care for every individual"],
 ];
 
-function getVisibleTestimonials(activeIndex: number) {
-  return [-1, 0, 1].map((offset) => {
-    const index = (activeIndex + offset + testimonials.length) % testimonials.length;
+export function TestimonialsReferenceSection() {
+  const [testimonialList, setTestimonialList] = useState<TestimonialItem[]>(fallbackTestimonials);
+  const [activeIndex, setActiveIndex] = useState(1);
 
+  useEffect(() => {
+    async function loadTestimonials() {
+      try {
+        const data = await getPublicTestimonials();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized: TestimonialItem[] = data.map((t: any) => ({
+            name: t.patientName || t.name,
+            place: t.patientLocation || t.place || 'Kerala',
+            image: getImageDisplayUrl(t.patientPhoto || t.image),
+            copy: t.reviewText || t.copy || t.message || '',
+          }));
+          setTestimonialList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load live testimonials:", err);
+      }
+    }
+    loadTestimonials();
+  }, []);
+
+  const visibleTestimonials = [-1, 0, 1].map((offset) => {
+    const len = testimonialList.length || 1;
+    const index = (activeIndex + offset + len) % len;
+    const item = testimonialList[index] || fallbackTestimonials[0];
     return {
-      ...testimonials[index],
+      ...item,
       position: offset === 0 ? "center" : offset < 0 ? "left" : "right",
     };
   });
-}
-
-export function TestimonialsReferenceSection() {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const visibleTestimonials = getVisibleTestimonials(activeIndex);
 
   const move = (direction: 1 | -1) => {
-    setActiveIndex((current) => (current + direction + testimonials.length) % testimonials.length);
+    const len = testimonialList.length || 1;
+    setActiveIndex((current) => (current + direction + len) % len);
   };
 
   return (
@@ -144,7 +172,7 @@ export function TestimonialsReferenceSection() {
         </div>
 
         <div className="testimonials-reference-dots" aria-label="Testimonials">
-          {testimonials.map((testimonial, index) => (
+          {testimonialList.map((testimonial, index) => (
             <button
               type="button"
               key={testimonial.name}

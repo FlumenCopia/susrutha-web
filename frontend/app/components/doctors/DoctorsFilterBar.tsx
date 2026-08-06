@@ -1,5 +1,10 @@
 import React from "react";
-import { doctorBranches, doctorDepartments } from "./doctorsData";
+import { DynamicDepartment } from "./DoctorsDepartmentGrid";
+
+export type DynamicBranch = {
+  id: string;
+  name: string;
+};
 
 type DoctorsFilterBarProps = {
   selectedBranchId: string;
@@ -18,6 +23,8 @@ type DoctorsFilterBarProps = {
   totalCount: number;
   activeFilterCount: number;
   onClearAllFilters: () => void;
+  departments: DynamicDepartment[];
+  branches: DynamicBranch[];
 };
 
 export function DoctorsFilterBar({
@@ -37,6 +44,8 @@ export function DoctorsFilterBar({
   totalCount,
   activeFilterCount,
   onClearAllFilters,
+  departments,
+  branches,
 }: DoctorsFilterBarProps) {
   return (
     <div className="doctors-filter-section">
@@ -51,7 +60,7 @@ export function DoctorsFilterBar({
                 value={selectedDeptId}
                 onChange={(e) => onDeptChange(e.target.value)}
               >
-                {doctorDepartments.map((dept) => (
+                {departments.map((dept) => (
                   <option key={dept.id} value={dept.id}>
                     {dept.name}
                   </option>
@@ -67,7 +76,7 @@ export function DoctorsFilterBar({
                 value={selectedBranchId}
                 onChange={(e) => onBranchChange(e.target.value)}
               >
-                {doctorBranches.map((branch) => (
+                {branches.map((branch) => (
                   <option key={branch.id} value={branch.id}>
                     {branch.name}
                   </option>
@@ -85,7 +94,6 @@ export function DoctorsFilterBar({
               >
                 <option value="all">All Consultation Modes</option>
                 <option value="in-person">🏥 In-Person Hospital Visit</option>
-                <option value="video">💻 Tele-Video Consultation</option>
               </select>
               <span className="doctors-filter-select-arrow">▼</span>
             </div>
@@ -179,7 +187,7 @@ export function DoctorsFilterBar({
             <span style={{ fontWeight: 600, color: "#6a6c67" }}>Active Filters:</span>
             {selectedDeptId !== "all" && (
               <span className="doctors-active-filter-tag">
-                Dept: {doctorDepartments.find((d) => d.id === selectedDeptId)?.name}
+                Dept: {departments.find((d) => d.id === selectedDeptId)?.name}
                 <button
                   type="button"
                   className="doctors-active-filter-remove"
@@ -191,7 +199,7 @@ export function DoctorsFilterBar({
             )}
             {selectedBranchId !== "all" && (
               <span className="doctors-active-filter-tag">
-                Location: {doctorBranches.find((b) => b.id === selectedBranchId)?.name}
+                Location: {branches.find((b) => b.id === selectedBranchId)?.name}
                 <button
                   type="button"
                   className="doctors-active-filter-remove"

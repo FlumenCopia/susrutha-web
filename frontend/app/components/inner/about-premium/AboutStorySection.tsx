@@ -98,7 +98,7 @@ function CircularSealText({
 
 export function AboutStorySection() {
   return (
-    <section className="about-story-section">
+    <section className="about-story-section" id="story">
       <div className="about-story-image-wrap">
         <div className="about-story-image">
           <Image

@@ -51,3 +51,165 @@ canvas {
     min-height: 44px;
   }
 }
+
+/* Susrutha Luxury Selected Branch Indicator & Empty State Theme */
+.apt-selected-branch-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(196, 146, 42, 0.08), rgba(196, 146, 42, 0.16));
+  border: 1px solid rgba(196, 146, 42, 0.3);
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.apt-selected-branch-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #4a3e2e;
+}
+
+.apt-selected-branch-info strong {
+  color: #9a6528;
+  font-weight: 700;
+}
+
+.apt-selected-branch-pin {
+  font-size: 16px;
+}
+
+.apt-btn-change-branch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  background: #ffffff;
+  color: #9a6528 !important;
+  border: 1px solid rgba(196, 146, 42, 0.4);
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(154, 101, 40, 0.1);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+
+.apt-btn-change-branch:hover {
+  background: linear-gradient(135deg, #9a6528 0%, #c4922a 100%);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(154, 101, 40, 0.25);
+  transform: translateY(-1px);
+}
+
+.apt-doctor-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
+  background: linear-gradient(145deg, #ffffff, #fdfaf4);
+  border: 1px dashed rgba(196, 146, 42, 0.35);
+  border-radius: 20px;
+  text-align: center;
+  margin: 16px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.apt-doctor-empty-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(196, 146, 42, 0.12), rgba(196, 146, 42, 0.22));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border: 1px solid rgba(196, 146, 42, 0.3);
+}
+
+.apt-doctor-empty-icon {
+  font-size: 24px;
+}
+
+.apt-doctor-empty-heading {
+  font-family: var(--font-heading, "Cinzel", "Playfair Display", Georgia, serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c251e;
+  margin: 0 0 8px 0;
+}
+
+.apt-doctor-empty-desc {
+  font-size: 14px;
+  color: #6b5a3e;
+  max-width: 480px;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.apt-doctor-empty-desc strong {
+  color: #9a6528;
+  font-weight: 700;
+}
+
+.apt-doctor-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.apt-btn-switch-branch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #9a6528 0%, #c4922a 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(154, 101, 40, 0.28);
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+
+.apt-btn-switch-branch:hover {
+  background: linear-gradient(135deg, #84531e 0%, #b38220 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(154, 101, 40, 0.38);
+}
+
+.apt-btn-switch-dept {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: transparent;
+  color: #6b5a3e !important;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid #d4c5b3;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+
+.apt-btn-switch-dept:hover {
+  background: rgba(196, 146, 42, 0.08);
+  border-color: #9a6528;
+  color: #9a6528 !important;
+}
