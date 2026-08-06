@@ -2,7 +2,12 @@ import Link from "next/link";
 import { PackagesIcon } from "./PackagesIcon";
 import { packages } from "./packagesData";
 
-type PackageItem = (typeof packages)[number];
+export type PackageItem = {
+  icon: string;
+  meta: string;
+  title: string;
+  text: string;
+};
 
 type PackageCardProps = {
   item: PackageItem;

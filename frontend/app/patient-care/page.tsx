@@ -1,11 +1,5 @@
-import { SiteShell } from "../components/common/SiteShell";
-import { InnerPage } from "../components/inner/InnerPage";
-import { basePages } from "../data/architecture";
+import { redirect } from "next/navigation";
 
 export default function PatientCarePage() {
-  return (
-    <SiteShell>
-      <InnerPage content={basePages.patientCare} />
-    </SiteShell>
-  );
+  redirect("/facilities");
 }

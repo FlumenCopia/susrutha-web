@@ -22,7 +22,7 @@ export type PackagesIconName =
   | "arrow";
 
 type PackagesIconProps = {
-  name: PackagesIconName;
+  name: PackagesIconName | string;
 };
 
 export function PackagesIcon({ name }: PackagesIconProps) {
@@ -107,10 +107,12 @@ export function PackagesIcon({ name }: PackagesIconProps) {
     arrow: <path d="M5 12h13M13 6l6 6-6 6" />,
   };
 
+  const iconKey = (name in paths ? name : "lotus") as PackagesIconName;
+
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.7">
-        {paths[name]}
+        {paths[iconKey] || paths.lotus}
       </g>
     </svg>
   );

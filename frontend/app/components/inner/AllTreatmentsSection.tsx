@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getPublicTreatments, getImageDisplayUrl } from "@/app/services/api";
 
-const allTreatments = [
+const initialTreatments = [
   {
     slug: "panchakarma",
     title: "Panchakarma",
@@ -85,6 +89,29 @@ const allTreatments = [
 ];
 
 export function AllTreatmentsSection() {
+  const [treatmentsList, setTreatmentsList] = useState(initialTreatments);
+
+  useEffect(() => {
+    async function loadTreatments() {
+      try {
+        const data = await getPublicTreatments();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized = data.map((t: any) => ({
+            slug: t.slug || `tr-${(t.title || t.name || '').toLowerCase().replace(/\s+/g, '-')}`,
+            title: t.title || t.name,
+            text: t.shortDescription || t.text || t.description || 'Ayurvedic therapeutic treatment.',
+            time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
+            image: getImageDisplayUrl(t.coverImage || t.image),
+            icon: "lotus",
+          }));
+          setTreatmentsList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load treatments:", err);
+      }
+    }
+    loadTreatments();
+  }, []);
   return (
     <section className="all-treatments-section" aria-labelledby="all-treatments-title">
       <div className="all-treatments-head">
@@ -104,7 +131,7 @@ export function AllTreatmentsSection() {
       </div>
 
       <div className="all-treatments-grid">
-        {allTreatments.map((treatment) => (
+        {treatmentsList.map((treatment) => (
           <Link
             className="all-treatment-card"
             href={`/treatments/${treatment.slug}`}

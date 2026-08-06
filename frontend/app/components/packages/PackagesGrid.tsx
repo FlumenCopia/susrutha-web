@@ -1,7 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { PackageCard } from "./PackageCard";
-import { packages } from "./packagesData";
+import { packages as fallbackPackages } from "./packagesData";
+import { getPublicPackages } from "@/app/services/api";
+
+type PackageData = {
+  icon: string;
+  meta: string;
+  title: string;
+  text: string;
+};
 
 export function PackagesGrid() {
+  const [packageList, setPackageList] = useState<PackageData[]>(fallbackPackages as unknown as PackageData[]);
+
+  useEffect(() => {
+    async function loadPackages() {
+      try {
+        const data = await getPublicPackages();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized: PackageData[] = data.map((pkg: any) => ({
+            icon: pkg.icon || "lotus",
+            meta: pkg.meta || `${pkg.durationDays || 7} Days Care`,
+            title: pkg.title,
+            text: pkg.overview || pkg.subtitle || pkg.text || "",
+          }));
+          setPackageList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load live packages:", err);
+      }
+    }
+    loadPackages();
+  }, []);
+
   return (
     <section className="packages-list-section">
       <div className="packages-section-head">
@@ -10,7 +43,7 @@ export function PackagesGrid() {
       </div>
 
       <div className="packages-grid">
-        {packages.map((item) => (
+        {packageList.map((item) => (
           <PackageCard item={item} key={item.title} />
         ))}
       </div>

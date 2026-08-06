@@ -1,6 +1,15 @@
-import Link from "next/link";
+"use client";
 
-const faqs = [
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getPublicFAQs } from "@/app/services/api";
+
+type FAQItem = {
+  question: string;
+  answer: string;
+};
+
+const fallbackFaqs: FAQItem[] = [
   {
     question: "What makes Susrutha Ayurveda unique?",
     answer:
@@ -41,6 +50,26 @@ function LotusIcon() {
 }
 
 export function FaqSection() {
+  const [faqList, setFaqList] = useState<FAQItem[]>(fallbackFaqs);
+
+  useEffect(() => {
+    async function loadFaqs() {
+      try {
+        const data = await getPublicFAQs();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized: FAQItem[] = data.map((f: any) => ({
+            question: f.question,
+            answer: f.answer,
+          }));
+          setFaqList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load live FAQs:", err);
+      }
+    }
+    loadFaqs();
+  }, []);
+
   return (
     <section className="faq-section" aria-labelledby="home-faq-title">
       <div className="faq-layout">
@@ -66,7 +95,7 @@ export function FaqSection() {
         </div>
 
         <div className="faq-list">
-          {faqs.map((faq, index) => (
+          {faqList.map((faq, index) => (
             <details className="faq-item" key={faq.question} open={index === 0}>
               <summary>
                 <span>{String(index + 1).padStart(2, "0")}</span>

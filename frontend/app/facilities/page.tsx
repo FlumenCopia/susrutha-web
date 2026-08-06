@@ -1,11 +1,10 @@
 import { SiteShell } from "../components/common/SiteShell";
-import { InnerPage } from "../components/inner/InnerPage";
-import { basePages } from "../data/architecture";
+import { FacilitiesPage } from "../components/facilities/FacilitiesPage";
 
-export default function FacilitiesPage() {
+export default function FacilitiesRoute() {
   return (
     <SiteShell>
-      <InnerPage content={basePages.facilities} />
+      <FacilitiesPage />
     </SiteShell>
   );
 }
