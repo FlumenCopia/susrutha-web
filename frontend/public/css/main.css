@@ -5360,13 +5360,13 @@ a.inner-card:hover {
 }
 
 .footer-bottom {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
-  min-height: 112px;
-  padding: 24px clamp(28px, 8vw, 146px);
+  flex-wrap: wrap;
+  gap: 24px;
+  min-height: 90px;
+  padding: 20px clamp(28px, 8vw, 146px);
   background:
     radial-gradient(circle at 4% 112%, rgba(205, 164, 123, 0.12), transparent 18%),
     radial-gradient(circle at 96% 112%, rgba(205, 164, 123, 0.12), transparent 18%),
@@ -5377,10 +5377,6 @@ a.inner-card:hover {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
   font-size: 14px;
-}
-
-.footer-bottom p:last-child {
-  justify-self: end;
 }
 
 .footer-bottom-mark {
@@ -44400,7 +44396,7 @@ body:has(.international-page) .international-help-card a {
   position: relative;
   background: radial-gradient(circle at 10% 20%, rgba(159, 19, 27, 0.04) 0%, transparent 40%),
               linear-gradient(180deg, #f7f2ea 0%, #efe7d9 100%);
-  padding: 60px 24px 80px;
+  padding: clamp(110px, 11vw, 145px) 24px 60px;
   border-bottom: 1px solid rgba(200, 137, 34, 0.2);
   overflow: hidden;
 }
@@ -45234,13 +45230,28 @@ body:has(.international-page) .international-help-card a {
 
 /* 4. RESPONSIVE BREAKPOINTS FOR TREATMENT DETAIL */
 @media (max-width: 1024px) {
+  .treatment-hero-luxury {
+    padding: clamp(100px, 13vw, 130px) clamp(16px, 4vw, 32px) 50px;
+  }
+
   .treatment-hero-container {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
+  }
+
+  .treatment-hero-media {
+    max-width: 540px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .treatment-media-frame {
+    height: 320px;
   }
 
   .treatment-overview-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .benefits-card-grid {
@@ -45252,7 +45263,7 @@ body:has(.international-page) .international-help-card a {
   }
 
   .ideal-content-side {
-    padding: 32px;
+    padding: clamp(20px, 4vw, 36px);
   }
 
   .process-timeline-track {
@@ -45264,31 +45275,133 @@ body:has(.international-page) .international-help-card a {
   }
 }
 
+@media (max-width: 768px) {
+  .treatment-tabs-container {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding: 10px 16px;
+    scrollbar-width: none;
+  }
+
+  .treatment-tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .treatment-tab-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  .treatment-detail-body {
+    padding: 36px 16px;
+  }
+}
+
 @media (max-width: 640px) {
   .treatment-hero-luxury {
-    padding: 40px 16px 50px;
+    padding: 100px 16px 40px;
+  }
+
+  .treatment-hero-heading {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+
+  .treatment-hero-subheading {
+    font-size: 17px;
+  }
+
+  .treatment-hero-description {
+    font-size: 14.5px;
+    margin-bottom: 24px;
   }
 
   .treatment-facts-bar {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
     width: 100%;
+    padding: 12px 10px;
+    border-radius: 16px;
+  }
+
+  .fact-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 2px;
+  }
+
+  .fact-icon {
+    font-size: 18px;
+  }
+
+  .fact-label {
+    font-size: 9.5px;
+  }
+
+  .fact-value {
+    font-size: 13px;
   }
 
   .fact-divider {
     display: none;
   }
 
+  .treatment-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .treatment-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .treatment-media-frame {
+    height: 240px;
+    border-radius: 18px;
+  }
+
   .benefits-card-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ideal-list-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .process-timeline-track {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .treatment-cta-luxury {
-    padding: 40px 20px;
+    padding: 36px 16px;
+    border-radius: 20px;
+  }
+
+  .cta-heading {
+    font-size: clamp(22px, 5vw, 32px);
+  }
+
+  .cta-action-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .cta-action-group .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -45346,10 +45459,9 @@ body:has(.international-page) .international-help-card a {
   position: relative;
   background: radial-gradient(circle at 10% 20%, rgba(159, 19, 27, 0.06) 0%, transparent 45%),
               linear-gradient(180deg, #f8f3eb 0%, #ede5d5 100%);
-  padding: 60px clamp(24px, 4.5vw, 80px) 76px;
+  padding: clamp(110px, 11vw, 145px) clamp(20px, 4.5vw, 80px) 60px;
   border-bottom: 1px solid rgba(200, 137, 34, 0.25);
   overflow: hidden;
-  max-height: 620px;
 }
 
 .apt-hero-mesh-glow {
@@ -45755,7 +45867,7 @@ body:has(.international-page) .international-help-card a {
 
 /* 3. WIZARD BOOKING SECTION */
 .apt-booking-luxury {
-  padding: 64px clamp(24px, 4.5vw, 80px) 80px;
+  padding: clamp(115px, 11vw, 145px) clamp(24px, 4.5vw, 80px) 80px;
 }
 
 .apt-booking-grid-wrapper {
@@ -46804,14 +46916,36 @@ body:has(.international-page) .international-help-card a {
 }
 
 /* 7. RESPONSIVE MEDIA QUERIES FOR LUXURY APPOINTMENT PAGE */
+@media (max-width: 1200px) {
+  .apt-hero-container-luxury {
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+  }
+
+  .apt-specialty-pills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .apt-branches-grid-deluxe {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .apt-hero-luxury {
-    max-height: none;
+    padding: clamp(100px, 13vw, 130px) clamp(20px, 4vw, 40px) 50px;
   }
 
   .apt-hero-container-luxury {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
+  }
+
+  .apt-hero-right {
+    display: block;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .apt-hero-visual-frame {
@@ -46819,12 +46953,19 @@ body:has(.international-page) .international-help-card a {
     max-height: 340px;
   }
 
-  .apt-booking-grid-wrapper {
-    grid-template-columns: 1fr;
+  .apt-booking-luxury {
+    padding: 48px clamp(16px, 4vw, 40px) 60px;
   }
 
+  .apt-booking-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .apt-sidebar-summary-luxury,
   .apt-summary-column {
     position: static;
+    top: auto;
   }
 
   .apt-trust-grid {
@@ -46832,33 +46973,24 @@ body:has(.international-page) .international-help-card a {
   }
 
   .apt-branches-grid-deluxe {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .apt-schedule-container {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
-@media (max-width: 640px) {
-  .apt-hero-luxury {
-    padding: 40px 16px 50px;
-    max-height: none;
+@media (max-width: 768px) {
+  .apt-hero-headline {
+    font-size: clamp(28px, 6vw, 40px);
   }
 
-  .apt-hero-right {
-    display: none;
-  }
-
-  .apt-hero-metrics-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    width: 100%;
-  }
-
-  .apt-metric-sep {
-    display: none;
-  }
-
-  .apt-mode-cards-grid {
-    grid-template-columns: 1fr;
+  .apt-hero-subhead {
+    font-size: 15px;
+    margin-bottom: 24px;
   }
 
   .apt-specialty-pills-grid {
@@ -46869,28 +47001,201 @@ body:has(.international-page) .international-help-card a {
     grid-template-columns: 1fr;
   }
 
-  .apt-schedule-container {
+  .apt-branches-grid-deluxe {
     grid-template-columns: 1fr;
+  }
+
+  .apt-wizard-card-luxury {
+    padding: clamp(20px, 4vw, 32px);
+    border-radius: 20px;
+  }
+
+  .apt-trust-section {
+    padding: 36px 20px;
+  }
+
+  .apt-branches-luxury {
+    padding: 48px 20px;
+  }
+
+  .apt-faq-luxury {
+    padding: 48px 20px 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .apt-hero-luxury {
+    padding: 100px 16px 40px;
+  }
+
+  .apt-hero-right {
+    display: block;
+    max-width: 100%;
+  }
+
+  .apt-hero-visual-frame {
+    height: 250px;
+    max-height: 260px;
+    border-radius: 18px;
+  }
+
+  .apt-floating-doc-card {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px 14px;
+  }
+
+  .apt-floating-doc-card strong {
+    font-size: 13px;
+  }
+
+  .apt-floating-doc-card span {
+    font-size: 11px;
+  }
+
+  .apt-hero-metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    padding: 12px 10px;
+    border-radius: 16px;
+  }
+
+  .apt-metric-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 2px;
+  }
+
+  .apt-metric-icon {
+    font-size: 18px;
+  }
+
+  .apt-metric-value {
+    font-size: 13px;
+  }
+
+  .apt-metric-label {
+    font-size: 9.5px;
+    line-height: 1.2;
+  }
+
+  .apt-metric-sep {
+    display: none;
+  }
+
+  .apt-progress-step-track {
+    gap: 4px;
+  }
+
+  .apt-step-indicator {
+    padding: 4px 6px;
+    gap: 6px;
+  }
+
+  .apt-step-indicator .step-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .apt-step-indicator .step-title-text {
+    font-size: 11px;
+  }
+
+  .apt-branch-card-option {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .branch-card-thumb {
+    width: 76px;
+    height: 56px;
+  }
+
+  .branch-card-content h4 {
+    font-size: 14px;
+  }
+
+  .apt-time-slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
   }
 
   .apt-fields-grid-luxury {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .col-span-2 {
     grid-column: span 1;
   }
 
+  .flex-row-fields {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .apt-action-bar {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .apt-action-bar .btn-next-step,
+  .apt-action-bar .btn-prev-step,
+  .apt-action-bar .btn-submit-final,
+  .apt-action-bar button,
+  .apt-action-bar a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
   .apt-trust-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .apt-wizard-card-luxury {
-    padding: 24px 18px;
+    padding: 20px 14px;
+    border-radius: 16px;
+  }
+
+  .apt-faq-trigger {
+    padding: 16px 18px;
+    font-size: 17px;
   }
 
   .apt-faq-content-body {
-    padding: 0 20px 20px;
+    padding: 0 18px 18px 18px;
+  }
+
+  .apt-selected-branch-bar,
+  .apt-selected-doctor-badge {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .branch-card-actions-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apt-hero-luxury {
+    padding: 95px 12px 32px;
+  }
+
+  .apt-step-indicator .step-title-text {
+    display: none;
+  }
+
+  .apt-progress-info {
+    font-size: 11px;
   }
 }
 

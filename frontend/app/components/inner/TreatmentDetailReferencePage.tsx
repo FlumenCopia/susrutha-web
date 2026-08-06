@@ -4,13 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { getImageDisplayUrl } from "../../services/api";
+
 type TreatmentDetailReferencePageProps = {
   treatment: {
     slug: string;
     title: string;
-    meta: string;
-    text: string;
+    meta?: string;
+    text?: string;
     image?: string;
+    coverImage?: string;
+    shortDescription?: string;
+    fullDescription?: string;
+    durationMinutes?: number;
   };
 };
 
@@ -113,9 +119,10 @@ function slugLabel(slug: string) {
 export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailReferencePageProps) {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.meta;
-  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : "5 - 14 Days";
-  const bannerImage = treatment.image ?? "/images/treatment-panchakarma.webp";
+  const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.shortDescription || treatment.meta || "Authentic Ayurvedic Therapy";
+  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.durationMinutes ? `${treatment.durationMinutes} Mins` : "5 - 14 Days";
+  const rawImage = treatment.coverImage || treatment.image || "/images/treatment-panchakarma.webp";
+  const bannerImage = getImageDisplayUrl(rawImage);
 
   const navTabs = [
     { id: "overview", label: "Overview" },

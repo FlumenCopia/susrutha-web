@@ -17,7 +17,7 @@ export function getImageDisplayUrl(url?: string | null): string {
 async function fetchWithFallback<T>(endpoint: string, fallbackData: T): Promise<T> {
   try {
     const res = await fetch(`${API_BASE_URL}${endpoint}`, {
-      next: { revalidate: 60 },
+      cache: "no-store",
     });
     if (!res.ok) {
       return fallbackData;
