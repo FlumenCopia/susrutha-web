@@ -13,10 +13,30 @@ export const ayurVillageExperienceCards = [
 ] as const;
 
 export const ayurVillageIdealFor = [
-  { icon: "lotus", title: "Rejuvenation & Rasayana stays" },
-  { icon: "globe", title: "International patients" },
-  { icon: "people", title: "Couples and private recovery" },
-  { icon: "leaf", title: "Extended therapy programmes" },
+  {
+    icon: "lotus",
+    title: "Rejuvenation & Rasayana",
+    desc: "Immersive anti-aging, vitality renewal, and body revitalization treatments in complete natural serenity.",
+    tag: "Vitality & Renewal",
+  },
+  {
+    icon: "globe",
+    title: "International Guests",
+    desc: "Seamless holistic wellness retreats with private luxury amenities, just 20 km from the airport.",
+    tag: "Global Care",
+  },
+  {
+    icon: "people",
+    title: "Couples & Private Recovery",
+    desc: "Dedicated personal cottages with individual treatment rooms for total privacy and quiet healing.",
+    tag: "Total Privacy",
+  },
+  {
+    icon: "leaf",
+    title: "Extended Panchakarma",
+    desc: "Long-term classical Panchakarma therapy programs guided by master Ayurvedic physicians.",
+    tag: "Deep Healing",
+  },
 ] as const;
 
 export const ayurVillageGallery = [
