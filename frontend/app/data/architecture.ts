@@ -147,7 +147,7 @@ export const desktopNavigation: LinkItem[] = [
       { label: "Branches", href: "/branches" },
       { label: "Ayur Village", href: "/ayurveda-village" },
       { label: "Packages", href: "/packages" },
-      { label: "Knowledge Centre", href: "/blogs" },
+      // { label: "Knowledge Centre", href: "/blogs" },
       { label: "International patients", href: "/international-patients" },
       { label: "Ecosystem", href: "/departments" },
       { label: "Facilities", href: "/facilities" },
