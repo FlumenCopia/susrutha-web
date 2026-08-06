@@ -36085,25 +36085,25 @@ body:has(.ecosystem-page) {
 
 /* International patients premium page */
 body:has(.international-page) {
-  background: #fbf7f0;
+  background: #fffdf8;
 }
 
 .international-page {
-  --international-ink: #14221e;
-  --international-muted: #39423f;
-  --international-deep: #063f2b;
-  --international-deep-2: #082f23;
-  --international-gold: #a87534;
-  --international-cream: #fffdf9;
-  --international-soft: #fbf7f0;
-  --international-line: rgba(149, 117, 77, 0.16);
+  --international-ink: #111b18;
+  --international-muted: #4a5752;
+  --international-deep: #b78643;
+  --international-deep-2: #95652d;
+  --international-gold: #b78643;
+  --international-cream: #fffdf8;
+  --international-soft: #faf6ef;
+  --international-line: rgba(183, 134, 67, 0.16);
   width: 100%;
   padding: clamp(92px, 7vw, 118px) 0 clamp(52px, 5vw, 82px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 8% 12%, rgba(168, 117, 52, 0.08), transparent 22%),
-    radial-gradient(circle at 92% 55%, rgba(6, 63, 43, 0.06), transparent 24%),
-    linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
+    radial-gradient(circle at 8% 12%, rgba(183, 134, 67, 0.08), transparent 22%),
+    radial-gradient(circle at 92% 55%, rgba(183, 134, 67, 0.05), transparent 24%),
+    linear-gradient(180deg, #fffdf8 0%, #faf6ef 100%);
   color: var(--international-ink);
 }
 
@@ -36158,14 +36158,14 @@ body:has(.international-page) {
   justify-content: center;
   gap: 14px;
   width: max-content;
-  border: 1px solid rgba(168, 117, 52, 0.24);
+  border: 1px solid rgba(183, 134, 67, 0.3);
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--international-deep), var(--international-deep-2));
+  background: linear-gradient(135deg, #b78643, #95652d);
   color: #ffffff !important;
   font-size: clamp(12px, 0.82vw, 14px);
   font-weight: 900;
-  box-shadow: 0 18px 40px rgba(6, 63, 43, 0.22);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 14px 30px rgba(128, 84, 33, 0.22);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .international-button {
@@ -36180,15 +36180,16 @@ body:has(.international-page) {
   height: 36px;
   place-items: center;
   border-radius: 999px;
-  background: #fff5dc;
-  color: var(--international-gold);
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
 }
 
 .international-button:hover,
 .international-enquiry-form button:hover,
 .international-help-card a:hover {
-  box-shadow: 0 24px 52px rgba(6, 63, 43, 0.28);
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #a37434, #845521);
+  box-shadow: 0 18px 36px rgba(128, 84, 33, 0.28);
+  transform: translateY(-2px);
 }
 
 .international-hero {
@@ -38647,125 +38648,10 @@ textarea {
     overflow-wrap: anywhere !important;
   }
 }
-
 /* International patients reference page */
 body:has(.international-page) {
   background: #fffdf8;
-  color: #061d13;
-}
-
-body:has(.international-page) .international-topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 130;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr auto auto auto;
-  align-items: center;
-  gap: 28px;
-  min-height: 44px;
-  padding: 0 clamp(34px, 5vw, 70px);
-  background: linear-gradient(90deg, #003f24, #00351f);
-  color: #fff9e8;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-body:has(.international-page) .international-topbar span {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  white-space: nowrap;
-}
-
-body:has(.international-page) .international-topbar svg {
-  width: 16px;
-  height: 16px;
-  color: #d8ab57;
-}
-
-body:has(.international-page) .site-header {
-  top: 44px !important;
-  z-index: 120 !important;
-  padding: 0 !important;
-  background: #ffffff !important;
-  border-bottom: 1px solid rgba(8, 47, 35, 0.12) !important;
-  box-shadow: 0 8px 22px rgba(6, 31, 22, 0.07) !important;
-}
-
-body:has(.international-page) .site-header .navbar {
-  max-width: 100% !important;
-  min-height: 92px !important;
-  padding: 0 clamp(34px, 5vw, 70px) !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: #ffffff !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
-
-body:has(.international-page) .site-header .brand {
-  width: 258px !important;
-}
-
-body:has(.international-page) .site-header .nav-links {
-  gap: clamp(18px, 3.6vw, 50px) !important;
-}
-
-body:has(.international-page) .site-header .nav-item>a {
-  color: #06120d !important;
-  font-size: 14px !important;
-  font-weight: 850 !important;
-}
-
-body:has(.international-page) .site-header .nav-actions {
-  gap: 14px !important;
-}
-
-body:has(.international-page) .site-header .phone-link {
-  display: inline-flex !important;
-  width: auto !important;
-  min-width: 78px !important;
-  height: 46px !important;
-  padding: 0 18px !important;
-  border: 1px solid rgba(8, 47, 35, 0.13) !important;
-  border-radius: 999px !important;
-  background: #ffffff !important;
-  box-shadow: 0 8px 20px rgba(6, 31, 22, 0.06) !important;
-  color: transparent !important;
-  font-size: 0 !important;
-}
-
-body:has(.international-page) .site-header .phone-link span {
-  display: none !important;
-}
-
-body:has(.international-page) .site-header .phone-link::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  border: 2px solid #06120d;
-  border-radius: 999px;
-  box-shadow: inset 6px 0 0 -4px #06120d, inset -6px 0 0 -4px #06120d;
-}
-
-body:has(.international-page) .site-header .phone-link::after {
-  content: "EN";
-  color: #06120d;
-  font-size: 13px;
-  font-weight: 850;
-}
-
-body:has(.international-page) .site-header .nav-actions .btn-primary {
-  min-height: 46px !important;
-  padding: 0 24px !important;
-  background: #003f24 !important;
-  box-shadow: 0 14px 26px rgba(0, 63, 36, 0.22) !important;
-  font-size: 13px !important;
-  text-transform: none !important;
+  color: #111b18;
 }
 
 body:has(.international-page) main {
@@ -38773,20 +38659,20 @@ body:has(.international-page) main {
 }
 
 body:has(.international-page) .international-page {
-  --international-ink: #061d13;
-  --international-muted: #263c32;
-  --international-green: #003f24;
-  --international-green-2: #005432;
-  --international-gold: #c69b4c;
-  --international-line: rgba(8, 47, 35, 0.12);
-  --international-card: rgba(255, 255, 255, 0.93);
+  --international-ink: #111b18;
+  --international-muted: #4a5752;
+  --international-green: #b78643;
+  --international-green-2: #95652d;
+  --international-gold: #b78643;
+  --international-line: rgba(183, 134, 67, 0.16);
+  --international-card: rgba(255, 255, 255, 0.94);
   position: relative;
   width: 100%;
-  padding-top: 136px;
+  padding-top: clamp(100px, 8vw, 130px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 14% 28%, rgba(198, 155, 76, 0.08), transparent 19%),
-    linear-gradient(180deg, #fffdf8 0%, #fbf8ef 100%);
+    radial-gradient(circle at 14% 28%, rgba(183, 134, 67, 0.08), transparent 19%),
+    linear-gradient(180deg, #fffdf8 0%, #faf6ef 100%);
   color: var(--international-ink);
 }
 
@@ -38814,7 +38700,7 @@ body:has(.international-page) .international-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--international-green);
+  color: var(--international-gold);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -38840,12 +38726,19 @@ body:has(.international-page) .international-button {
   width: max-content !important;
   min-height: 54px;
   padding: 0 26px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--international-green), #002f1b);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b78643, #95652d);
   color: #ffffff;
   font-size: 15px;
   font-weight: 800;
-  box-shadow: 0 18px 34px rgba(0, 63, 36, 0.22);
+  box-shadow: 0 14px 30px rgba(128, 84, 33, 0.22);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+body:has(.international-page) .international-button:hover {
+  background: linear-gradient(135deg, #a37434, #845521);
+  box-shadow: 0 18px 36px rgba(128, 84, 33, 0.28);
+  transform: translateY(-2px);
 }
 
 body:has(.international-page) .international-button span {
@@ -38863,11 +38756,11 @@ body:has(.international-page) .international-hero {
   gap: clamp(24px, 3vw, 54px);
   width: 100%;
   min-height: 450px !important;
-  padding: 58px clamp(40px, 6vw, 86px) 34px !important;
+  padding: 42px clamp(40px, 6vw, 86px) 34px !important;
   overflow: hidden;
-  border-bottom: 1px solid rgba(8, 47, 35, 0.11);
+  border-bottom: 1px solid rgba(183, 134, 67, 0.14);
   background:
-    radial-gradient(circle at 6% 13%, rgba(0, 63, 36, 0.05), transparent 17%),
+    radial-gradient(circle at 6% 13%, rgba(183, 134, 67, 0.06), transparent 17%),
     #fffdf8;
 }
 
@@ -38887,7 +38780,7 @@ body:has(.international-page) .international-flight-line {
   left: 42%;
   top: 100px;
   z-index: 2;
-  color: var(--international-green);
+  color: var(--international-gold);
 }
 
 body:has(.international-page) .international-flight-line::before {
@@ -38897,7 +38790,7 @@ body:has(.international-page) .international-flight-line::before {
   top: 18px;
   width: 190px;
   height: 74px;
-  border-bottom: 1px dashed rgba(0, 63, 36, 0.35);
+  border-bottom: 1px dashed rgba(183, 134, 67, 0.45);
   border-radius: 0 0 100% 100%;
   transform: rotate(8deg);
 }
@@ -38917,13 +38810,13 @@ body:has(.international-page) .international-hero-copy {
 
 body:has(.international-page) .international-hero h1 {
   margin-top: 24px;
-  color: #0b100c;
+  color: #111b18;
   font-size: clamp(52px, 4.6vw, 78px) !important;
   line-height: 0.98 !important;
 }
 
 body:has(.international-page) .international-hero h1 em {
-  color: var(--international-green);
+  color: var(--international-gold);
   font-style: normal;
 }
 
@@ -38950,10 +38843,10 @@ body:has(.international-page) .international-hero-features span,
 body:has(.international-page) .international-card-icon {
   display: grid;
   place-items: center;
-  border: 1px solid rgba(0, 63, 36, 0.14);
+  border: 1px solid rgba(183, 134, 67, 0.2);
   border-radius: 999px;
-  background: #f7f8ed;
-  color: var(--international-green);
+  background: #faf3e6;
+  color: var(--international-gold);
 }
 
 body:has(.international-page) .international-hero-features span {
@@ -38983,9 +38876,9 @@ body:has(.international-page) .international-hero-visual {
   z-index: 1;
   min-height: 430px !important;
   overflow: hidden;
-  border-left: 12px solid var(--international-green);
+  border-left: 12px solid var(--international-gold);
   border-radius: 52% 0 0 52%;
-  box-shadow: -20px 22px 60px rgba(6, 31, 22, 0.18);
+  box-shadow: -20px 22px 60px rgba(128, 84, 33, 0.12);
 }
 
 body:has(.international-page) .international-hero-visual img {
@@ -39012,10 +38905,10 @@ body:has(.international-page) .international-stat-stack article {
   gap: 14px;
   min-height: 80px;
   padding: 14px 18px;
-  border: 1px solid rgba(8, 47, 35, 0.12);
+  border: 1px solid rgba(183, 134, 67, 0.16);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 18px 36px rgba(6, 31, 22, 0.15);
+  box-shadow: 0 18px 36px rgba(128, 84, 33, 0.1);
 }
 
 body:has(.international-page) .international-stat-card svg {
@@ -39024,8 +38917,8 @@ body:has(.international-page) .international-stat-card svg {
   height: 48px;
   padding: 12px;
   border-radius: 999px;
-  background: #f5f6e9;
-  color: var(--international-green);
+  background: #faf3e6;
+  color: var(--international-gold);
 }
 
 body:has(.international-page) .international-stat-card strong {
@@ -39036,7 +38929,7 @@ body:has(.international-page) .international-stat-card strong {
 }
 
 body:has(.international-page) .international-stat-card span {
-  color: #23362e;
+  color: #4a5752;
   font-size: 12px;
   font-weight: 650;
 }
@@ -39076,11 +38969,11 @@ body:has(.international-page) .international-strip-head span {
   display: block;
   width: 46px;
   height: 1px;
-  background: rgba(0, 63, 36, 0.38);
+  background: rgba(183, 134, 67, 0.4);
 }
 
 body:has(.international-page) .international-strip-head h2 {
-  color: var(--international-green);
+  color: var(--international-gold);
   font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px !important;
   font-weight: 900;
@@ -39094,10 +38987,10 @@ body:has(.international-page) .international-strip-head button {
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 1px solid rgba(0, 63, 36, 0.18);
+  border: 1px solid rgba(183, 134, 67, 0.24);
   border-radius: 999px;
   background: #ffffff;
-  color: var(--international-green);
+  color: var(--international-gold);
 }
 
 body:has(.international-page) .international-strip-head button:first-child svg {
@@ -39120,7 +39013,7 @@ body:has(.international-page) .international-support-list {
   border: 1px solid var(--international-line);
   border-radius: 12px !important;
   background: var(--international-card);
-  box-shadow: 0 16px 36px rgba(6, 31, 22, 0.08);
+  box-shadow: 0 16px 36px rgba(128, 84, 33, 0.06);
 }
 
 body:has(.international-page) .international-facility-card {
@@ -39157,7 +39050,7 @@ body:has(.international-page) .international-facility-card b {
   top: 29px;
   padding: 5px 10px;
   border-radius: 999px;
-  background: var(--international-green);
+  background: linear-gradient(135deg, #b78643, #95652d);
   color: #ffffff;
   font-size: 9px;
   text-transform: uppercase;
@@ -39188,7 +39081,7 @@ body:has(.international-page) .international-facility-card>a {
   align-items: center;
   justify-content: space-between;
   margin-top: 14px;
-  color: var(--international-green);
+  color: var(--international-gold);
   font-size: 12px;
   font-weight: 900;
 }
@@ -39199,11 +39092,11 @@ body:has(.international-page) .international-program-card>a svg {
   height: 28px;
   padding: 8px;
   border-radius: 999px;
-  background: #eef4e7;
+  background: #faf3e6;
 }
 
 body:has(.international-page) .international-facility-card[data-popular="true"] {
-  background: #003f24;
+  background: linear-gradient(135deg, #b78643, #95652d);
 }
 
 body:has(.international-page) .international-facility-card[data-popular="true"] h3,
@@ -39239,7 +39132,7 @@ body:has(.international-page) .international-programs-intro::after {
 body:has(.international-page) .international-programs-intro h2 {
   max-width: 300px;
   margin-top: 24px;
-  color: #0b100c;
+  color: #111b18;
   font-size: 36px !important;
   line-height: 1.08 !important;
 }
@@ -39249,7 +39142,7 @@ body:has(.international-page) .international-programs-intro a {
   align-items: center;
   gap: 10px;
   margin-top: 26px;
-  color: var(--international-green);
+  color: var(--international-gold);
   font-size: 13px;
   font-weight: 900;
 }
@@ -39284,7 +39177,7 @@ body:has(.international-page) .international-program-card>a {
   height: 36px;
   place-items: center;
   border-radius: 999px;
-  background: var(--international-green);
+  background: linear-gradient(135deg, #b78643, #95652d);
   color: #ffffff;
 }
 
@@ -39339,7 +39232,7 @@ body:has(.international-page) .international-faq-card>a {
   align-items: center;
   gap: 8px;
   margin-top: 16px;
-  color: var(--international-green);
+  color: var(--international-gold);
   font-size: 12px;
   font-weight: 900;
 }
@@ -39368,9 +39261,9 @@ body:has(.international-page) .international-map {
   height: 170px;
   opacity: 0.16;
   background:
-    radial-gradient(circle at 45% 45%, rgba(0, 63, 36, 0.26) 0 2px, transparent 3px),
-    radial-gradient(circle at 60% 34%, rgba(0, 63, 36, 0.26) 0 2px, transparent 3px),
-    radial-gradient(circle at 32% 60%, rgba(0, 63, 36, 0.26) 0 2px, transparent 3px);
+    radial-gradient(circle at 45% 45%, rgba(183, 134, 67, 0.3) 0 2px, transparent 3px),
+    radial-gradient(circle at 60% 34%, rgba(183, 134, 67, 0.3) 0 2px, transparent 3px),
+    radial-gradient(circle at 32% 60%, rgba(183, 134, 67, 0.3) 0 2px, transparent 3px);
 }
 
 body:has(.international-page) .international-map svg {
@@ -39380,6 +39273,7 @@ body:has(.international-page) .international-map svg {
   width: 42px;
   height: 42px;
   opacity: 1;
+  color: var(--international-gold);
   transform: rotate(-18deg);
 }
 
@@ -39413,10 +39307,10 @@ body:has(.international-page) .international-travel-card {
   padding: 34px 30px;
   border-radius: 12px;
   background:
-    radial-gradient(circle at 88% 10%, rgba(198, 155, 76, 0.16), transparent 28%),
-    #003f24;
+    radial-gradient(circle at 88% 10%, rgba(255, 255, 255, 0.15), transparent 28%),
+    linear-gradient(135deg, #8a5a22, #633f14);
   color: #ffffff;
-  box-shadow: 0 16px 36px rgba(0, 63, 36, 0.18);
+  box-shadow: 0 16px 36px rgba(138, 90, 34, 0.2);
 }
 
 body:has(.international-page) .international-travel-card h2 {
@@ -39441,7 +39335,7 @@ body:has(.international-page) .international-travel-card div {
   height: 110px;
   display: grid;
   place-items: center;
-  color: rgba(198, 155, 76, 0.72);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 body:has(.international-page) .international-travel-card svg {
@@ -39462,7 +39356,7 @@ body:has(.international-page) .international-support-list {
   align-content: center;
   padding: 28px;
   background:
-    radial-gradient(circle at 88% 90%, rgba(178, 204, 116, 0.22), transparent 26%),
+    radial-gradient(circle at 88% 90%, rgba(183, 134, 67, 0.12), transparent 26%),
     rgba(255, 255, 255, 0.9);
 }
 
@@ -39478,8 +39372,8 @@ body:has(.international-page) .international-support-list svg {
   height: 44px;
   padding: 10px;
   border-radius: 999px;
-  background: #f4f6e9;
-  color: var(--international-green);
+  background: #faf3e6;
+  color: var(--international-gold);
 }
 
 body:has(.international-page) .international-support-list h3 {
@@ -39544,11 +39438,19 @@ body:has(.international-page) .international-enquiry-form button {
   min-height: 48px;
   padding: 0 24px;
   border: 0;
-  border-radius: 10px;
-  background: var(--international-green);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b78643, #95652d);
   color: #ffffff;
   font-size: 14px;
   font-weight: 900;
+  box-shadow: 0 14px 28px rgba(128, 84, 33, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+body:has(.international-page) .international-enquiry-form button:hover {
+  background: linear-gradient(135deg, #a37434, #845521);
+  box-shadow: 0 18px 34px rgba(128, 84, 33, 0.26);
+  transform: translateY(-2px);
 }
 
 body:has(.international-page) .international-enquiry-form button svg {
@@ -39561,8 +39463,8 @@ body:has(.international-page) .international-help-card {
   overflow: hidden;
   padding: 32px 34px;
   background:
-    radial-gradient(circle at 88% 74%, rgba(140, 170, 72, 0.2), transparent 28%),
-    linear-gradient(135deg, #fffdf8, #f3f3df);
+    radial-gradient(circle at 88% 74%, rgba(183, 134, 67, 0.12), transparent 28%),
+    linear-gradient(135deg, #fffdf8, #fbf4e8);
 }
 
 body:has(.international-page) .international-help-card::after {
@@ -39577,7 +39479,7 @@ body:has(.international-page) .international-help-card::after {
 
 body:has(.international-page) .international-help-card h2 {
   max-width: 250px;
-  color: #0b100c;
+  color: #111b18;
   font-size: 28px !important;
   line-height: 1.1 !important;
 }
@@ -39610,7 +39512,7 @@ body:has(.international-page) .international-help-card li {
 body:has(.international-page) .international-help-card li svg {
   width: 16px;
   height: 16px;
-  color: var(--international-green);
+  color: var(--international-gold);
 }
 
 body:has(.international-page) .international-help-card a {
@@ -39620,31 +39522,19 @@ body:has(.international-page) .international-help-card a {
   align-items: center;
   gap: 10px;
   margin-top: 22px;
-  padding: 10px 16px;
-  border: 1px solid rgba(198, 155, 76, 0.4);
-  border-radius: 9px;
-  color: var(--international-green);
+  padding: 10px 20px;
+  border: 1px solid rgba(183, 134, 67, 0.4);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b78643, #95652d);
+  color: #ffffff !important;
   font-size: 12px;
   font-weight: 900;
+  box-shadow: 0 10px 24px rgba(128, 84, 33, 0.2);
 }
 
 @media (max-width: 1180px) {
-  body:has(.international-page) .international-topbar {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    min-height: auto;
-    padding: 10px 18px;
-  }
-
-  body:has(.international-page) .international-topbar span:nth-child(n + 3) {
-    display: none;
-  }
-
-  body:has(.international-page) .site-header {
-    top: 40px !important;
-  }
-
   body:has(.international-page) .international-page {
-    padding-top: 124px;
+    padding-top: 100px;
   }
 
   body:has(.international-page) .international-hero,
@@ -39670,31 +39560,11 @@ body:has(.international-page) .international-help-card a {
     grid-column: auto;
     gap: 18px;
   }
-
 }
 
 @media (max-width: 760px) {
-  body:has(.international-page) .international-topbar {
-    grid-template-columns: 1fr;
-    padding: 8px 14px;
-    font-size: 11px;
-  }
-
-  body:has(.international-page) .international-topbar span:nth-child(2) {
-    display: none;
-  }
-
-  body:has(.international-page) .site-header {
-    top: 32px !important;
-  }
-
-  body:has(.international-page) .site-header .navbar {
-    min-height: 66px !important;
-    padding: 8px 12px !important;
-  }
-
   body:has(.international-page) .international-page {
-    padding-top: 98px;
+    padding-top: 86px;
   }
 
   body:has(.international-page) .international-hero {
@@ -39751,7 +39621,6 @@ body:has(.international-page) .international-help-card a {
   body:has(.international-page) .international-map {
     display: none;
   }
-
 }
 
 /* ==========================================================================
