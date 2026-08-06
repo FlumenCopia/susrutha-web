@@ -34095,25 +34095,25 @@ body:has(.ayur-village-page) {
   }
 }
 
-/* Packages premium page */
-body:has(.packages-page) {
-  background: #fbf7f0;
+/* Packages premium page */body:has(.packages-page) {
+  background: #faf6f0;
 }
 
 .packages-page {
-  --packages-ink: #17231f;
-  --packages-muted: #38413d;
+  --packages-ink: #173733;
+  --packages-muted: #3e504a;
   --packages-gold: #a87534;
-  --packages-deep: #082b20;
-  --packages-deep-2: #0c3a2b;
-  --packages-line: rgba(149, 117, 77, 0.15);
-  --packages-card: rgba(255, 255, 255, 0.88);
+  --packages-deep: #173733;
+  --packages-deep-2: #0f2724;
+  --packages-line: rgba(168, 117, 52, 0.2);
+  --packages-card: rgba(255, 255, 255, 0.92);
   width: 100%;
   padding: clamp(92px, 7vw, 118px) 0 clamp(58px, 6vw, 94px);
   overflow: hidden;
   background:
-    radial-gradient(circle at 10% 18%, rgba(168, 117, 52, 0.06), transparent 28%),
-    linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
+    radial-gradient(circle at 10% 18%, rgba(168, 117, 52, 0.08), transparent 30%),
+    radial-gradient(circle at 90% 84%, rgba(23, 55, 51, 0.06), transparent 35%),
+    linear-gradient(180deg, #fffdf9 0%, #faf6f0 50%, #f4eae0 100%);
   color: var(--packages-ink);
 }
 
@@ -34121,8 +34121,8 @@ body:has(.packages-page) {
 .packages-page h2,
 .packages-page h3 {
   color: var(--packages-ink);
-  font-family: var(--font-heading), Georgia, serif;
-  font-weight: 500;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-weight: 600;
   letter-spacing: 0;
 }
 
@@ -34140,10 +34140,10 @@ body:has(.packages-page) {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #d9b66f;
+  color: #a87534;
   font-size: clamp(9px, 0.68vw, 11px);
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -34172,17 +34172,17 @@ body:has(.packages-page) {
   justify-content: center;
   gap: 14px;
   width: max-content;
-  padding: 0 22px;
-  border: 1px solid rgba(168, 117, 52, 0.28);
-  border-radius: 8px;
+  padding: 0 24px;
+  border: 1px solid rgba(168, 117, 52, 0.35);
+  border-radius: 999px;
   font-size: clamp(12px, 0.82vw, 13px);
-  font-weight: 800;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+  font-weight: 700;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease, background 200ms ease, color 200ms ease;
 }
 
 .packages-button svg {
   font-size: 16px;
-  transition: transform 180ms ease;
+  transition: transform 200ms ease;
 }
 
 .packages-button:hover {
@@ -34194,9 +34194,15 @@ body:has(.packages-page) {
 }
 
 .packages-button-light {
-  background: linear-gradient(135deg, #fff3d7, #f2d59c);
-  color: var(--packages-ink) !important;
-  box-shadow: 0 16px 34px rgba(128, 84, 33, 0.2);
+  background: linear-gradient(135deg, #a87534 0%, #8a5d20 100%);
+  color: #ffffff !important;
+  box-shadow: 0 14px 32px rgba(138, 93, 32, 0.25);
+  border: none;
+}
+
+.packages-button-light:hover {
+  background: linear-gradient(135deg, #b8833e 0%, #9a6928 100%);
+  box-shadow: 0 18px 40px rgba(138, 93, 32, 0.35);
 }
 
 .packages-hero {
@@ -34208,7 +34214,7 @@ body:has(.packages-page) {
   margin: calc(clamp(92px, 7vw, 118px) * -1) calc(50% - 50vw) 0;
   padding: clamp(138px, 10vw, 182px) clamp(24px, 7vw, 120px) clamp(32px, 4vw, 58px);
   overflow: hidden;
-  background: var(--packages-deep);
+  background: #173733;
   isolation: isolate;
 }
 
@@ -34224,8 +34230,8 @@ body:has(.packages-page) {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(8, 43, 32, 0.98) 0%, rgba(8, 43, 32, 0.82) 42%, rgba(8, 43, 32, 0.2) 76%),
-    linear-gradient(180deg, rgba(8, 43, 32, 0.16), rgba(8, 43, 32, 0.74));
+    linear-gradient(180deg, rgba(23, 55, 51, 0.42) 0%, rgba(15, 39, 36, 0.76) 100%),
+    radial-gradient(circle at 10% 20%, rgba(168, 117, 52, 0.15), transparent 40%);
 }
 
 .packages-hero-copy {
@@ -34234,10 +34240,15 @@ body:has(.packages-page) {
   max-width: 720px;
 }
 
+.packages-hero .packages-eyebrow {
+  color: #f5d796;
+}
+
 .packages-hero h1 {
   max-width: 720px;
   margin: 20px 0 0;
   color: #ffffff;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: clamp(42px, 4.5vw, 76px);
   line-height: 1.04;
 }
@@ -34245,7 +34256,7 @@ body:has(.packages-page) {
 .packages-hero p {
   max-width: 600px;
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
   font-size: clamp(14px, 1vw, 17px);
   line-height: 1.68;
 }
@@ -34263,30 +34274,31 @@ body:has(.packages-page) {
   gap: 18px;
   width: clamp(210px, 18vw, 290px);
   padding: 28px;
-  border: 1px solid rgba(198, 148, 75, 0.35);
+  border: 1px solid rgba(168, 117, 52, 0.32);
   border-radius: 20px 8px 20px 8px;
-  background: rgba(8, 43, 32, 0.62);
-  color: #d9b66f;
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 253, 249, 0.94);
+  color: #a87534;
+  box-shadow: 0 24px 54px rgba(138, 93, 32, 0.14);
   backdrop-filter: blur(16px);
 }
 
 .packages-hero-note svg {
   font-size: 34px;
+  color: #a87534;
 }
 
 .packages-hero-note strong {
-  color: #ffffff;
-  font-family: var(--font-heading), Georgia, serif;
+  color: #173733;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: clamp(24px, 2vw, 36px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.14;
 }
 
 .packages-hero-note span {
   width: 32px;
   height: 2px;
-  background: #d9b66f;
+  background: #a87534;
 }
 
 .packages-hero-features {
@@ -34297,11 +34309,11 @@ body:has(.packages-page) {
   width: min(100%, 1240px);
   margin-top: clamp(36px, 5vw, 72px);
   overflow: hidden;
-  border: 1px solid rgba(198, 148, 75, 0.2);
-  border-radius: 18px;
-  background: rgba(8, 43, 32, 0.88);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 117, 52, 0.28);
+  border-radius: 20px;
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 20px 48px rgba(138, 93, 32, 0.1);
+  backdrop-filter: blur(16px);
 }
 
 .packages-hero-features article {
@@ -34314,7 +34326,7 @@ body:has(.packages-page) {
 }
 
 .packages-hero-features article+article {
-  border-left: 1px solid rgba(198, 148, 75, 0.2);
+  border-left: 1px solid rgba(168, 117, 52, 0.2);
 }
 
 .packages-hero-features span {
@@ -34322,24 +34334,25 @@ body:has(.packages-page) {
   width: 52px;
   height: 52px;
   place-items: center;
-  border: 1px solid rgba(198, 148, 75, 0.52);
+  border: 1px solid rgba(168, 117, 52, 0.35);
   border-radius: 999px;
-  color: #d9b66f;
+  background: rgba(168, 117, 52, 0.08);
+  color: #a87534;
   font-size: 28px;
 }
 
 .packages-hero-features h2 {
   margin: 0;
-  color: #ffffff;
-  font-family: var(--font-body), Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 800;
+  color: #173733;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.35;
 }
 
 .packages-hero-features p {
   margin: 6px 0 0;
-  color: rgba(255, 255, 255, 0.78) !important;
+  color: #3e504a !important;
   font-size: 12px;
   line-height: 1.45;
 }
@@ -34381,11 +34394,12 @@ body:has(.packages-page) {
 }
 
 .packages-section-head .packages-eyebrow {
-  color: #966523;
+  color: #a87534;
 }
 
 .packages-section-head h2 {
   margin: 18px 0 0;
+  color: #173733;
   font-size: clamp(32px, 3.2vw, 54px);
   line-height: 1.06;
 }
@@ -34395,59 +34409,74 @@ body:has(.packages-page) {
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
 .package-card {
   display: grid;
-  grid-template-columns: 62px minmax(0, 1fr);
+  grid-template-columns: 58px minmax(0, 1fr);
   gap: 20px;
   min-height: 235px;
-  padding: 28px;
-  border: 1px solid var(--packages-line);
-  border-radius: 12px;
-  background: var(--packages-card);
-  box-shadow: 0 18px 42px rgba(64, 43, 20, 0.09);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  padding: 28px 24px;
+  border: 1px solid rgba(168, 117, 52, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 36px rgba(138, 93, 32, 0.07);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease, border-color 300ms ease;
 }
 
 .package-card:hover {
-  border-color: rgba(168, 117, 52, 0.34);
-  box-shadow: 0 26px 58px rgba(64, 43, 20, 0.13);
-  transform: translateY(-5px);
+  border-color: rgba(168, 117, 52, 0.5);
+  box-shadow: 0 24px 50px rgba(138, 93, 32, 0.14);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .package-card-icon {
   display: grid;
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   place-items: center;
-  border-radius: 999px;
-  background: #f3eedf;
-  color: var(--packages-deep);
-  font-size: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(168, 117, 52, 0.12), rgba(23, 55, 51, 0.06));
+  border: 1px solid rgba(168, 117, 52, 0.3);
+  color: #a87534;
+  font-size: 28px;
+  transition: all 300ms ease;
+}
+
+.package-card:hover .package-card-icon {
+  background: linear-gradient(135deg, #173733, #0f2724);
+  color: #f5d796;
+  border-color: #d4a35f;
+  transform: scale(1.06) rotate(5deg);
 }
 
 .package-card-meta {
   display: block;
-  min-height: 28px;
-  color: #966523;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  min-height: 24px;
+  color: #a87534;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
   line-height: 1.35;
   text-transform: uppercase;
 }
 
 .package-card h3 {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
+  color: #173733;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: clamp(22px, 1.7vw, 30px);
-  line-height: 1.1;
+  font-weight: 600;
+  line-height: 1.15;
 }
 
 .package-card p {
-  margin: 14px 0 0;
-  font-size: 13px;
+  margin: 12px 0 0;
+  color: #3e504a !important;
+  font-size: 13.5px;
   line-height: 1.62;
 }
 
@@ -34456,14 +34485,19 @@ body:has(.packages-page) {
   align-items: center;
   gap: 10px;
   margin-top: 20px;
-  color: var(--packages-deep);
+  color: #a87534;
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 800;
+  transition: color 200ms ease;
 }
 
 .package-card a svg {
   font-size: 15px;
-  transition: transform 180ms ease;
+  transition: transform 200ms ease;
+}
+
+.package-card a:hover {
+  color: #173733;
 }
 
 .package-card a:hover svg {
@@ -34477,20 +34511,22 @@ body:has(.packages-page) {
   grid-template-columns: minmax(280px, 1fr) auto auto;
   gap: 28px;
   align-items: center;
-  margin-top: 26px;
-  padding: 28px 32px;
+  margin-top: clamp(34px, 4vw, 60px);
+  padding: clamp(28px, 3.2vw, 42px) clamp(28px, 4vw, 58px);
   overflow: hidden;
-  border: 1px solid rgba(198, 148, 75, 0.28);
-  border-radius: 18px;
-  background: var(--packages-deep);
-  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.2);
+  border: 1px solid rgba(168, 117, 52, 0.32);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(168, 117, 52, 0.15), transparent 30%),
+    linear-gradient(135deg, #fffaf4 0%, #f6eee2 100%);
+  box-shadow: 0 24px 54px rgba(138, 93, 32, 0.12);
 }
 
 .packages-cta>img {
   z-index: -2;
   object-fit: cover;
   object-position: left center;
-  opacity: 0.42;
+  opacity: 0.18;
 }
 
 .packages-cta::before {
@@ -34498,27 +34534,30 @@ body:has(.packages-page) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(8, 43, 32, 0.94), rgba(8, 43, 32, 0.84));
+  background:
+    radial-gradient(circle at 10% 20%, rgba(168, 117, 52, 0.08), transparent 40%),
+    linear-gradient(180deg, rgba(250, 246, 240, 0.95), rgba(244, 234, 224, 0.95));
 }
 
 .packages-cta h2 {
   margin: 0;
-  color: #ffffff;
-  font-size: clamp(25px, 2.35vw, 40px);
+  color: #173733;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: clamp(26px, 2.5vw, 42px);
   line-height: 1.08;
 }
 
 .packages-cta p {
   margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.82) !important;
-  font-size: 14px;
+  color: #3e504a !important;
+  font-size: 14.5px;
 }
 
 .packages-cta-benefits {
   display: grid;
   grid-template-columns: repeat(3, minmax(90px, 1fr));
-  gap: 1px;
-  background: rgba(198, 148, 75, 0.22);
+  gap: 12px;
+  background: transparent;
 }
 
 .packages-cta-benefits article {
@@ -34526,22 +34565,26 @@ body:has(.packages-page) {
   justify-items: center;
   gap: 8px;
   min-width: 0;
-  padding: 12px 18px;
-  background: rgba(8, 43, 32, 0.64);
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 117, 52, 0.22);
+  box-shadow: 0 10px 24px rgba(138, 93, 32, 0.06);
   text-align: center;
 }
 
 .packages-cta-benefits svg {
-  color: #d9b66f;
+  color: #a87534;
   font-size: 28px;
 }
 
 .packages-cta-benefits h3 {
   margin: 0;
-  color: #ffffff;
-  font-family: var(--font-body), Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 800;
+  color: #173733;
+  font-family: var(--font-heading), "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1.25;
 }
 

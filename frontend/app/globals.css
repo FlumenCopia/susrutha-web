@@ -1,4 +1,4 @@
-@import "../public/css/main.css";
+@import "tailwindcss";
 
 /* Design System Core Overrides & Global Reset */
 *,
