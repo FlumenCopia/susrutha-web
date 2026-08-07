@@ -1,16 +1,23 @@
 import { notFound } from "next/navigation";
 import { SiteShell } from "../../components/common/SiteShell";
 import { TreatmentDetailReferencePage } from "../../components/inner/TreatmentDetailReferencePage";
-import { treatments } from "../../data/architecture";
-import { getPublicTreatmentBySlug } from "../../services/api";
+import { getPublicTreatmentBySlug, getPublicTreatments } from "../../services/api";
 import { generateMedicalProcedureSchema } from "../../utils/jsonLd";
 
 type TreatmentDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return treatments.map((item) => ({ slug: item.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  try {
+    const list = await getPublicTreatments();
+    if (Array.isArray(list)) {
+      return list.map((item: any) => ({ slug: item.slug || item._id }));
+    }
+  } catch (err) {}
+  return [];
 }
 
 export default async function TreatmentDetailPage({ params }: TreatmentDetailPageProps) {
@@ -35,3 +42,4 @@ export default async function TreatmentDetailPage({ params }: TreatmentDetailPag
     </SiteShell>
   );
 }
+

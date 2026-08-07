@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { PackageCard } from "./PackageCard";
-import { packages as fallbackPackages } from "./packagesData";
 import { getPublicPackages } from "@/app/services/api";
 
 type PackageData = {
@@ -13,11 +12,13 @@ type PackageData = {
 };
 
 export function PackagesGrid() {
-  const [packageList, setPackageList] = useState<PackageData[]>(fallbackPackages as unknown as PackageData[]);
+  const [packageList, setPackageList] = useState<PackageData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function loadPackages() {
       try {
+        setLoading(true);
         const data = await getPublicPackages();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: PackageData[] = data.map((pkg: any) => ({
@@ -27,9 +28,14 @@ export function PackagesGrid() {
             text: pkg.overview || pkg.subtitle || pkg.text || "",
           }));
           setPackageList(normalized);
+        } else {
+          setPackageList([]);
         }
       } catch (err) {
         console.error("Failed to load live packages:", err);
+        setPackageList([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadPackages();
@@ -42,11 +48,18 @@ export function PackagesGrid() {
         <h2>Structured care, meaningful healing</h2>
       </div>
 
-      <div className="packages-grid">
-        {packageList.map((item) => (
-          <PackageCard item={item} key={item.title} />
-        ))}
-      </div>
+      {!loading && packageList.length === 0 ? (
+        <div style={{ padding: "40px 0", textAlign: "center", opacity: 0.7 }}>
+          <p>No care packages currently available.</p>
+        </div>
+      ) : (
+        <div className="packages-grid">
+          {packageList.map((item) => (
+            <PackageCard item={item} key={item.title} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
+

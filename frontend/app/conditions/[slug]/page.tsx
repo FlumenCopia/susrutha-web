@@ -3,19 +3,27 @@ import { SiteShell } from "../../components/common/SiteShell";
 import { ConditionApproachSection } from "../../components/inner/ConditionApproachSection";
 import { ConditionDetailBanner } from "../../components/inner/ConditionDetailBanner";
 import { ConditionDetailCareSection } from "../../components/inner/ConditionDetailCareSection";
-import { conditionDetails } from "../../data/conditions";
+import { getPublicConditionBySlug, getPublicConditions } from "../../services/api";
 
 type ConditionDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return conditionDetails.map((item) => ({ slug: item.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  try {
+    const list = await getPublicConditions();
+    if (Array.isArray(list)) {
+      return list.map((item: any) => ({ slug: item.slug || item._id }));
+    }
+  } catch (err) {}
+  return [];
 }
 
 export default async function ConditionDetailPage({ params }: ConditionDetailPageProps) {
   const { slug } = await params;
-  const condition = conditionDetails.find((item) => item.slug === slug);
+  const condition = await getPublicConditionBySlug(slug);
 
   if (!condition) {
     notFound();
@@ -31,3 +39,4 @@ export default async function ConditionDetailPage({ params }: ConditionDetailPag
     </SiteShell>
   );
 }
+

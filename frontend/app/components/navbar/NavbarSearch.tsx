@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { desktopNavigation } from "../../data/architecture";
-import { getPublicDoctors, getPublicTreatments, getImageDisplayUrl } from "../../services/api";
+import { getPublicDoctors, getPublicTreatments, getPublicConditions, getImageDisplayUrl } from "../../services/api";
 
 type SearchResultItem = {
   id: string;
@@ -36,16 +36,21 @@ export function NavbarSearch() {
   // Live data fetched from API
   const [liveDoctors, setLiveDoctors] = useState<{ slug: string; name: string; designation: string; image: string }[]>([]);
   const [liveTreatments, setLiveTreatments] = useState<{ slug: string; title: string; description: string }[]>([]);
+  const [liveConditions, setLiveConditions] = useState<{ slug: string; title: string; description: string }[]>([]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const mobileInputRef = useRef<HTMLInputElement>(null);
 
-  // Fetch live doctors + treatments once on mount
+  // Fetch live doctors + treatments + conditions once on mount
   useEffect(() => {
     async function loadSearchData() {
       try {
-        const [docs, treats] = await Promise.all([getPublicDoctors(), getPublicTreatments()]);
+        const [docs, treats, conds] = await Promise.all([
+          getPublicDoctors(),
+          getPublicTreatments(),
+          getPublicConditions(),
+        ]);
         if (Array.isArray(docs)) {
           setLiveDoctors(docs.map((d: any) => ({
             slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
@@ -59,6 +64,13 @@ export function NavbarSearch() {
             slug: t.slug || "",
             title: t.title || t.name || "",
             description: t.shortDescription || t.description || t.meta || "",
+          })));
+        }
+        if (Array.isArray(conds)) {
+          setLiveConditions(conds.map((c: any) => ({
+            slug: c.slug || "",
+            title: c.name || c.title || "",
+            description: c.description || c.summary || c.text || "",
           })));
         }
       } catch {}
@@ -114,7 +126,11 @@ export function NavbarSearch() {
         badge: "Therapy",
       }));
 
-    const matchedConditions: SearchResultItem[] = conditions
+    const condSource = liveConditions.length > 0
+      ? liveConditions.map((c) => ({ title: c.title, href: `/conditions/${c.slug}` }))
+      : conditions;
+
+    const matchedConditions: SearchResultItem[] = condSource
       .filter((c) => c.title.toLowerCase().includes(trimmed))
       .slice(0, 3)
       .map((c) => ({
@@ -134,7 +150,7 @@ export function NavbarSearch() {
       conditions: matchedConditions,
       all,
     };
-  }, [query, conditions, liveDoctors, liveTreatments]);
+  }, [query, conditions, liveDoctors, liveTreatments, liveConditions]);
 
   // Click outside listener
   useEffect(() => {

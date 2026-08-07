@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { pressItems as fallbackPress } from "./mediaData";
 import { getPublicMedia } from "@/app/services/api";
 
 type PressItem = {
@@ -11,28 +10,37 @@ type PressItem = {
 };
 
 export function PressSection() {
-  const [items, setItems] = useState<PressItem[]>(
-    fallbackPress.map((p, i) => ({ id: `p-${i}`, title: p, summary: "Editorial recognition for patient-centred Ayurveda, physician guidance, and authentic Kerala treatment traditions." }))
-  );
+  const [items, setItems] = useState<PressItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function loadMedia() {
       try {
+        setLoading(true);
         const data = await getPublicMedia();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: PressItem[] = data.map((m: any, idx: number) => ({
             id: m._id || m.id || `m-${idx}`,
-            title: m.title || fallbackPress[idx] || 'Susrutha Media Coverage',
+            title: m.title || 'Susrutha Media Coverage',
             summary: m.summary || m.content || 'Editorial recognition for patient-centred Ayurveda, physician guidance, and authentic Kerala treatment traditions.',
           }));
           setItems(normalized);
+        } else {
+          setItems([]);
         }
       } catch (err) {
         console.error("Failed to load live media:", err);
+        setItems([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadMedia();
   }, []);
+
+  if (!loading && items.length === 0) {
+    return null;
+  }
 
   return (
     <section className="media-press" aria-labelledby="press-title">
@@ -52,3 +60,4 @@ export function PressSection() {
     </section>
   );
 }
+

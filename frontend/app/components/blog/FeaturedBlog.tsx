@@ -1,13 +1,55 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArticleMeta } from "./ArticleMeta";
 import { ArrowIcon } from "./BlogIcons";
 import { BlogSectionHeader } from "./BlogSectionHeader";
-import { blogArticles } from "./blogData";
+import { getPublicBlogs, getImageDisplayUrl } from "@/app/services/api";
 
 export function FeaturedBlog() {
-  const [primary, secondary, tertiary] = blogArticles;
-  const sideArticles = [secondary, tertiary];
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function loadFeatured() {
+      try {
+        setLoading(true);
+        const data = await getPublicBlogs();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized = data.map((b: any, idx: number) => ({
+            slug: b.slug || `blog-${idx}`,
+            title: b.title || b.name || "Ayurveda Blog",
+            category: b.category || "Wellness",
+            excerpt: b.excerpt || b.summary || b.meta || "",
+            image: getImageDisplayUrl(b.coverImage || b.image),
+            readTime: b.readTimeMinutes ? `${b.readTimeMinutes} min read` : "5 min read",
+            date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "Recent",
+            author: b.authorName || b.author || "Susrutha Team",
+          }));
+          setBlogs(normalized);
+        } else {
+          setBlogs([]);
+        }
+      } catch (err) {
+        console.error("Failed to load featured blogs:", err);
+        setBlogs([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadFeatured();
+  }, []);
+
+  if (!loading && blogs.length === 0) {
+    return null;
+  }
+
+  const primary = blogs[0];
+  const sideArticles = blogs.slice(1, 3);
+
+  if (!primary) return null;
 
   return (
     <section className="blog-premium-featured" aria-labelledby="featured-articles-title">
@@ -48,3 +90,4 @@ export function FeaturedBlog() {
     </section>
   );
 }
+

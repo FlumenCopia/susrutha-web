@@ -11,44 +11,6 @@ type TestimonialItem = {
   copy: string;
 };
 
-const fallbackTestimonials: TestimonialItem[] = [
-  {
-    name: "Priya Menon",
-    place: "Bangalore",
-    image: "/images/doctor-portrait.webp",
-    copy:
-      "Susrutha's personalized treatments helped me overcome chronic stress and improved my overall well-being. Truly life-changing experience!",
-  },
-  {
-    name: "Rohit Sharma",
-    place: "Hyderabad",
-    image: "/images/doctor-portrait.webp",
-    copy:
-      "The doctors listen with patience and provide treatments that address the root cause. My energy, sleep, and digestion have improved remarkably.",
-  },
-  {
-    name: "Ananya Iyer",
-    place: "Chennai",
-    image: "/images/doctor-portrait.webp",
-    copy:
-      "From Panchakarma to diet guidance, everything was so well-planned. I felt cared for at every step of my healing journey.",
-  },
-  {
-    name: "Vikram Nair",
-    place: "Kochi",
-    image: "/images/doctor-portrait.webp",
-    copy:
-      "The care felt personal, calm, and deeply authentic. The team guided me with clarity throughout my wellness program.",
-  },
-  {
-    name: "Asha Rao",
-    place: "Mysore",
-    image: "/images/doctor-portrait.webp",
-    copy:
-      "Every visit felt reassuring. The therapies, food guidance, and follow-up helped me feel balanced again.",
-  },
-];
-
 const stats = [
   ["people", "25K+", "Happy Patients", "Healed with care and compassion"],
   ["lotus", "98%", "Patient Satisfaction", "Trusted by thousands across India"],
@@ -57,12 +19,14 @@ const stats = [
 ];
 
 export function TestimonialsReferenceSection() {
-  const [testimonialList, setTestimonialList] = useState<TestimonialItem[]>(fallbackTestimonials);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [testimonialList, setTestimonialList] = useState<TestimonialItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     async function loadTestimonials() {
       try {
+        setLoading(true);
         const data = await getPublicTestimonials();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: TestimonialItem[] = data.map((t: any) => ({
@@ -72,18 +36,27 @@ export function TestimonialsReferenceSection() {
             copy: t.reviewText || t.copy || t.message || '',
           }));
           setTestimonialList(normalized);
+        } else {
+          setTestimonialList([]);
         }
       } catch (err) {
         console.error("Failed to load live testimonials:", err);
+        setTestimonialList([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadTestimonials();
   }, []);
 
+  if (!loading && testimonialList.length === 0) {
+    return null;
+  }
+
   const visibleTestimonials = [-1, 0, 1].map((offset) => {
     const len = testimonialList.length || 1;
     const index = (activeIndex + offset + len) % len;
-    const item = testimonialList[index] || fallbackTestimonials[0];
+    const item = testimonialList[index] || { name: "", place: "", image: "", copy: "" };
     return {
       ...item,
       position: offset === 0 ? "center" : offset < 0 ? "left" : "right",
