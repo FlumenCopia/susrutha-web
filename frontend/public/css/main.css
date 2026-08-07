@@ -45444,6 +45444,49 @@ body:has(.international-page) .international-help-card a {
   min-height: auto !important;
 }
 
+@media (max-width: 900px) {
+  .treatment-reference-page .treatment-reference-hero {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    background: #fffdf8 !important;
+    overflow: visible !important;
+  }
+
+  .treatment-reference-page .treatment-hero-visual {
+    --treatment-mobile-image-height: clamp(320px, 56vw, 430px);
+    order: 1 !important;
+    min-height: var(--treatment-mobile-image-height) !important;
+    padding-top: 0 !important;
+    border-radius: 0 0 22px 22px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .treatment-reference-page .treatment-hero-visual img {
+    height: 100% !important;
+    object-position: 58% center !important;
+    transform: none !important;
+  }
+
+  .treatment-reference-page .treatment-hero-copy {
+    order: 2 !important;
+    padding: clamp(34px, 6vw, 54px) clamp(20px, 5vw, 42px) clamp(64px, 9vw, 88px) !important;
+    background: #fffdf8 !important;
+  }
+
+  .treatment-reference-page .treatment-title-line {
+    white-space: normal !important;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .treatment-reference-page .treatment-hero-visual {
+    --treatment-mobile-image-height: clamp(270px, 72vw, 340px);
+    border-radius: 0 0 18px 18px !important;
+  }
+}
+
 /* ==========================================================================
    ULTRA-LUXURY REUSABLE APPOINTMENT PAGE COMPONENT STYLES
    ========================================================================== */

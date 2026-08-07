@@ -154,7 +154,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             </div>
 
             <h1 id="treatment-detail-title" className="treatment-hero-heading">
-              {treatment.title} <span className="treatment-gold-sparkle">✦</span>
+              {treatment.title}
             </h1>
 
             <p className="treatment-hero-subheading">{subtitle}</p>
