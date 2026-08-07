@@ -300,7 +300,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                     className="benefit-img"
                   />
                   <div className="benefit-img-overlay" />
-                  <span className="benefit-badge-icon">{card.icon}</span>
                 </div>
                 <div className="benefit-card-body">
                   <h3>{card.title}</h3>
@@ -336,7 +335,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               <div className="ideal-list-grid">
                 {idealForItems.map((item) => (
                   <div className="ideal-item-card" key={item.title}>
-                    <span className="ideal-item-icon">{item.icon}</span>
                     <div>
                       <h4>{item.title}</h4>
                       <p>{item.subtitle}</p>
@@ -361,7 +359,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               <article className="process-step-card" key={stepItem.step}>
                 <div className="process-step-header">
                   <span className="step-num">{stepItem.step}</span>
-                  <span className="step-icon">{stepItem.icon}</span>
                 </div>
                 <span className="step-phase">{stepItem.phase}</span>
                 <h3 className="step-title">{stepItem.title}</h3>
