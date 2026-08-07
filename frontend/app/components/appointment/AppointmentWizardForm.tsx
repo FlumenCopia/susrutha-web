@@ -4,9 +4,6 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import {
-  branchLocations as fallbackBranches,
-  specialtyOptions as fallbackSpecialties,
-  doctorOptions as fallbackDoctors,
   timeSlots as defaultTimeSlots,
 } from "./appointmentData";
 import { getPublicDoctors, getPublicDoctorsByDepartment, getPublicBranches, getPublicDepartments, getImageDisplayUrl } from "../../services/api";
@@ -104,16 +101,16 @@ function AppointmentWizardContent() {
   const branchQuery = searchParams.get("branch") || searchParams.get("branchId");
   const specialtyQuery = searchParams.get("specialty") || searchParams.get("department");
 
-  const [doctors, setDoctors] = useState<any[]>(fallbackDoctors);
-  const [branches, setBranches] = useState<any[]>(fallbackBranches);
-  const [specialties, setSpecialties] = useState<any[]>(fallbackSpecialties);
-  const [filteredDoctors, setFilteredDoctors] = useState<any[]>(fallbackDoctors);
+  const [doctors, setDoctors] = useState<any[]>([]);
+  const [branches, setBranches] = useState<any[]>([]);
+  const [specialties, setSpecialties] = useState<any[]>([]);
+  const [filteredDoctors, setFilteredDoctors] = useState<any[]>([]);
   const [isDoctorLoading, setIsDoctorLoading] = useState(false);
 
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const [selectedBranchId, setSelectedBranchId] = useState<string>("kattakada");
-  const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("panchakarma");
-  const [selectedDoctorId, setSelectedDoctorId] = useState<string>("dr-krishnakumar");
+  const [selectedBranchId, setSelectedBranchId] = useState<string>("");
+  const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("");
+  const [selectedDoctorId, setSelectedDoctorId] = useState<string>("");
   const [selectedSlotId, setSelectedSlotId] = useState<string>("slot-m1");
   const [autoSelectedMsg, setAutoSelectedMsg] = useState<string | null>(null);
 
@@ -298,17 +295,17 @@ function AppointmentWizardContent() {
   }, [doctorQuery, branchQuery, specialtyQuery, doctors, branches, specialties]);
 
   const selectedBranch = useMemo(
-    () => branches.find((b) => b.id === selectedBranchId || b._id === selectedBranchId) || branches[0] || fallbackBranches[0],
+    () => branches.find((b) => b.id === selectedBranchId || b._id === selectedBranchId) || branches[0] || null,
     [branches, selectedBranchId]
   );
 
   const selectedSpecialty = useMemo(
-    () => specialties.find((s) => s.id === selectedSpecialtyId) || specialties[0] || fallbackSpecialties[0],
+    () => specialties.find((s) => s.id === selectedSpecialtyId) || specialties[0] || null,
     [specialties, selectedSpecialtyId]
   );
 
   const selectedDoctor = useMemo(
-    () => doctors.find((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId) || doctors[0] || fallbackDoctors[0],
+    () => doctors.find((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId) || doctors[0] || null,
     [doctors, selectedDoctorId]
   );
 

@@ -467,4 +467,10 @@ canvas {
   }
 }
 
+/* Next.js Image fill Layout Protection */
+img[data-nimg="fill"],
+img[style*="position: absolute"] {
+  height: 100% !important;
+  max-width: none !important;
+}
 

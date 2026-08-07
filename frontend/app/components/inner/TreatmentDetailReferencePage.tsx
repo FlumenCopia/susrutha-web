@@ -4,13 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { getImageDisplayUrl } from "../../services/api";
+
 type TreatmentDetailReferencePageProps = {
   treatment: {
     slug: string;
     title: string;
-    meta: string;
-    text: string;
+    meta?: string;
+    text?: string;
     image?: string;
+    coverImage?: string;
+    shortDescription?: string;
+    fullDescription?: string;
+    durationMinutes?: number;
   };
 };
 
@@ -113,9 +119,10 @@ function slugLabel(slug: string) {
 export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailReferencePageProps) {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.meta;
-  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : "5 - 14 Days";
-  const bannerImage = treatment.image ?? "/images/treatment-panchakarma.webp";
+  const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.shortDescription || treatment.meta || "Authentic Ayurvedic Therapy";
+  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.durationMinutes ? `${treatment.durationMinutes} Mins` : "5 - 14 Days";
+  const rawImage = treatment.coverImage || treatment.image || "/images/treatment-panchakarma.webp";
+  const bannerImage = getImageDisplayUrl(rawImage);
 
   const navTabs = [
     { id: "overview", label: "Overview" },
@@ -147,7 +154,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             </div>
 
             <h1 id="treatment-detail-title" className="treatment-hero-heading">
-              {treatment.title} <span className="treatment-gold-sparkle">✦</span>
+              {treatment.title}
             </h1>
 
             <p className="treatment-hero-subheading">{subtitle}</p>
@@ -293,7 +300,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                     className="benefit-img"
                   />
                   <div className="benefit-img-overlay" />
-                  <span className="benefit-badge-icon">{card.icon}</span>
                 </div>
                 <div className="benefit-card-body">
                   <h3>{card.title}</h3>
@@ -329,7 +335,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               <div className="ideal-list-grid">
                 {idealForItems.map((item) => (
                   <div className="ideal-item-card" key={item.title}>
-                    <span className="ideal-item-icon">{item.icon}</span>
                     <div>
                       <h4>{item.title}</h4>
                       <p>{item.subtitle}</p>
@@ -354,7 +359,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               <article className="process-step-card" key={stepItem.step}>
                 <div className="process-step-header">
                   <span className="step-num">{stepItem.step}</span>
-                  <span className="step-icon">{stepItem.icon}</span>
                 </div>
                 <span className="step-phase">{stepItem.phase}</span>
                 <h3 className="step-title">{stepItem.title}</h3>

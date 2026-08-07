@@ -105,7 +105,6 @@ export function Footer() {
           <LotusMark />
           <span />
         </div>
-        <p>Crafted with care. Inspired by tradition.</p>
       </div>
     </footer>
   );

@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'susruthaayurveda.com', pathname: '/**' },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/uploads/:path*',
+        destination: 'http://localhost:5000/uploads/:path*',
+      },
+    ];
+  },
   async headers() {
     return [
       {

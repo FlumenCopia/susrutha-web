@@ -54,11 +54,6 @@ export function TreatmentsBannerSection() {
             priority
             sizes="(max-width: 900px) 100vw, 58vw"
           />
-          <div className="treatment-hero-card">
-            <i />
-            <strong>Rooted in Ayurveda</strong>
-            <span>Focused on You</span>
-          </div>
         </div>
       </div>
 

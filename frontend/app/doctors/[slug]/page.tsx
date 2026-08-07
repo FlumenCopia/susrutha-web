@@ -1,16 +1,23 @@
 import { notFound } from "next/navigation";
 import { SiteShell } from "../../components/common/SiteShell";
 import { DoctorProfilePage } from "../../components/inner/DoctorProfilePage";
-import { doctorsDirectory } from "../../data/architecture";
-import { getPublicDoctorBySlug } from "../../services/api";
+import { getPublicDoctorBySlug, getPublicDoctors } from "../../services/api";
 import { generatePhysicianSchema } from "../../utils/jsonLd";
 
 type DoctorDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return doctorsDirectory.map((item) => ({ slug: item.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  try {
+    const docs = await getPublicDoctors();
+    if (Array.isArray(docs)) {
+      return docs.map((item: any) => ({ slug: item.slug || item._id }));
+    }
+  } catch (err) {}
+  return [];
 }
 
 export default async function DoctorDetailPage({ params }: DoctorDetailPageProps) {
@@ -35,3 +42,4 @@ export default async function DoctorDetailPage({ params }: DoctorDetailPageProps
     </SiteShell>
   );
 }
+

@@ -9,34 +9,6 @@ type FAQItem = {
   answer: string;
 };
 
-const fallbackFaqs: FAQItem[] = [
-  {
-    question: "What makes Susrutha Ayurveda unique?",
-    answer:
-      "At Susrutha Ayurveda, we blend ancient Ayurvedic wisdom with modern understanding. Our treatments are personalized, holistic, and focused on long-term healing, not just symptom relief.",
-  },
-  {
-    question: "Are the treatments safe?",
-    answer:
-      "Yes. Every treatment plan is recommended after consultation with qualified doctors and adapted to your age, health condition, and recovery goals.",
-  },
-  {
-    question: "How long does a typical treatment take?",
-    answer:
-      "The duration depends on the therapy and your condition. Some therapies are completed in a single session, while Panchakarma and wellness programs may require multiple days.",
-  },
-  {
-    question: "Do I need to follow a specific diet?",
-    answer:
-      "Your doctor may suggest simple food and lifestyle guidance to support the therapy. These recommendations are practical, personalized, and explained during consultation.",
-  },
-  {
-    question: "Can Ayurveda help with chronic conditions?",
-    answer:
-      "Ayurveda can support many chronic concerns through personalized care, lifestyle correction, and consistent follow-up. A doctor consultation helps decide the right approach.",
-  },
-];
-
 function LotusIcon() {
   return (
     <svg viewBox="0 0 48 36" aria-hidden="true" focusable="false">
@@ -50,11 +22,13 @@ function LotusIcon() {
 }
 
 export function FaqSection() {
-  const [faqList, setFaqList] = useState<FAQItem[]>(fallbackFaqs);
+  const [faqList, setFaqList] = useState<FAQItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function loadFaqs() {
       try {
+        setLoading(true);
         const data = await getPublicFAQs();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: FAQItem[] = data.map((f: any) => ({
@@ -62,13 +36,22 @@ export function FaqSection() {
             answer: f.answer,
           }));
           setFaqList(normalized);
+        } else {
+          setFaqList([]);
         }
       } catch (err) {
         console.error("Failed to load live FAQs:", err);
+        setFaqList([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadFaqs();
   }, []);
+
+  if (!loading && faqList.length === 0) {
+    return null;
+  }
 
   return (
     <section className="faq-section" aria-labelledby="home-faq-title">

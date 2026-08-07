@@ -1,6 +1,10 @@
-import Link from "next/link";
+"use client";
 
-const conditions = [
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getPublicConditions } from "@/app/services/api";
+
+const initialConditions = [
   {
     title: "Spine & Joints",
     text: "Back pain, neck stiffness, arthritis, posture strain, and mobility concerns supported through Ayurveda and rehab.",
@@ -71,6 +75,28 @@ function LeafMark() {
 }
 
 export function ConditionsContentSection() {
+  const [conditionsList, setConditionsList] = useState(initialConditions);
+
+  useEffect(() => {
+    async function loadConditions() {
+      try {
+        const data = await getPublicConditions();
+        if (Array.isArray(data) && data.length > 0) {
+          const normalized = data.map((c: any) => ({
+            title: c.name || c.title,
+            text: c.description || c.summary || c.text || "Physician-guided Ayurvedic care and recovery.",
+            href: `/conditions/${c.slug || c._id || c.id}`,
+            category: c.category || "Speciality Care",
+          }));
+          setConditionsList(normalized);
+        }
+      } catch (err) {
+        console.error("Failed to load backend conditions:", err);
+      }
+    }
+    loadConditions();
+  }, []);
+
   return (
     <>
       <section className="conditions-content" aria-labelledby="condition-pathways-title">
@@ -84,7 +110,7 @@ export function ConditionsContentSection() {
         </div>
 
         <div className="conditions-card-grid">
-          {conditions.map((condition, index) => (
+          {conditionsList.map((condition, index) => (
             <Link className="condition-card" href={condition.href} key={condition.title}>
               <span>{condition.category}</span>
               <h3>{condition.title}</h3>

@@ -2,7 +2,6 @@
 
 import { useState, useMemo, useEffect } from "react";
 import {
-  featuredVideosData as fallbackVideos,
   continueWatchingData,
   VideoCategory,
   VideoItem,
@@ -18,7 +17,8 @@ import { VideoModal } from "./VideoModal";
 import { getPublicVideos, getImageDisplayUrl } from "@/app/services/api";
 
 export function VideoGalleryPage() {
-  const [videoList, setVideoList] = useState<VideoItem[]>(fallbackVideos);
+  const [videoList, setVideoList] = useState<VideoItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [activeCategory, setActiveCategory] = useState<VideoCategory>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("popular");
@@ -27,30 +27,45 @@ export function VideoGalleryPage() {
   useEffect(() => {
     async function loadVideos() {
       try {
+        setLoading(true);
         const data = await getPublicVideos();
         if (Array.isArray(data) && data.length > 0) {
           const normalized: VideoItem[] = data.map((v: any, idx: number) => {
-            const fb = fallbackVideos[idx] || fallbackVideos[0];
+            let ytId = "";
+            if (v.youtubeUrl) {
+              const match = v.youtubeUrl.match(/(?:v=|\/embed\/|\/watch\?v=|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+              if (match) ytId = match[1];
+            }
             return {
-              id: v._id || v.id || fb.id,
-              title: v.title || fb.title,
-              category: (v.category as VideoCategory) || fb.category,
-              duration: v.duration || fb.duration,
-              rating: "4.9 ★",
-              views: "12K Views",
-              description: v.description || fb.description,
-              thumbnail: getImageDisplayUrl(v.thumbnailUrl || v.thumbnail || fb.thumbnail),
-              youtubeId: v.youtubeUrl ? v.youtubeUrl.split('v=')[1] || fb.youtubeId : fb.youtubeId,
-              level: fb.level || "Masterclass",
-              speaker: fb.speaker,
-              transcript: fb.transcript,
+              id: v._id || v.id || `v-${idx}`,
+              title: v.title || "Ayurvedic Video",
+              category: (v.category as VideoCategory) || "All",
+              duration: v.duration || "10 mins",
+              rating: `${v.rating || 4.9} ★`,
+              views: `${v.viewsCount || 1000} Views`,
+              description: v.description || "",
+              thumbnail: getImageDisplayUrl(v.thumbnailUrl || v.thumbnail),
+              youtubeId: ytId || "dQw4w9WgXcQ",
+              level: v.level || "Masterclass",
+              speaker: {
+                name: typeof v.speaker === 'object' ? (v.speaker.name || "Dr. Susrutha Team") : (v.speaker || "Dr. Susrutha Team"),
+                role: typeof v.speaker === 'object' ? (v.speaker.role || v.speaker.title || "Ayurvedic Physician") : "Ayurvedic Physician",
+                avatar: getImageDisplayUrl(typeof v.speaker === 'object' ? v.speaker.avatar : null),
+                verified: true,
+              },
+              transcript: v.transcript || "",
               featured: v.isFeatured || false,
             };
           });
           setVideoList(normalized);
+        } else {
+          setVideoList([]);
         }
       } catch (err) {
         console.error("Failed to load live videos:", err);
+        setVideoList([]);
+      } finally {
+        setLoading(false);
       }
     }
     loadVideos();
@@ -77,7 +92,16 @@ export function VideoGalleryPage() {
     return list;
   }, [activeCategory, searchQuery, sortBy, videoList]);
 
-  const spotlightVideo = videoList[0] || fallbackVideos[0];
+  if (!loading && videoList.length === 0) {
+    return (
+      <div className="vg-page-wrapper" style={{ padding: "80px 20px", textAlign: "center" }}>
+        <h2>Video Gallery</h2>
+        <p style={{ opacity: 0.7, marginTop: "12px" }}>No videos available in the gallery at this time.</p>
+      </div>
+    );
+  }
+
+  const spotlightVideo = videoList[0] || null;
 
   return (
     <div className="vg-page-wrapper">
