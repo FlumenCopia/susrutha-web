@@ -213,3 +213,113 @@ canvas {
   border-color: #9a6528;
   color: #9a6528 !important;
 }
+
+/* Floating Action Buttons (WhatsApp & Scroll-to-Top) */
+.floating-buttons-container {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.floating-btn {
+  pointer-events: auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  position: relative;
+  color: #ffffff;
+}
+
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
+}
+
+.scroll-top-btn {
+  background: linear-gradient(135deg, #1b3626 0%, #2a4d38 100%);
+  border: 1px solid rgba(196, 146, 42, 0.4);
+  color: #c4922a;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  background: linear-gradient(135deg, #9a6528 0%, #c4922a 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 25px rgba(154, 101, 40, 0.4);
+}
+
+.floating-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: rgba(28, 28, 26, 0.92);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+}
+
+.floating-btn:hover .floating-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 768px) {
+  .floating-buttons-container {
+    bottom: 20px;
+    right: 20px;
+    gap: 10px;
+  }
+
+  .floating-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .floating-tooltip {
+    display: none;
+  }
+}
+
