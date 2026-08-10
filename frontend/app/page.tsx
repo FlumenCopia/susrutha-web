@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Homebanner } from "./components/home/";
+import { Homebanner } from "./components/home/Homebanner";
 export default function page() {
 
   return (
