@@ -1,17 +1,16 @@
-import { SiteShell } from "./components/common/SiteShell";
-import { HomePage } from "./components/home/HomePage";
-import { generateMedicalClinicSchema } from "./utils/jsonLd";
 
-export default function Home() {
-  const clinicSchema = generateMedicalClinicSchema();
+"use client";
+
+import { Homebanner } from "./components/home/HomePage";
+export default function page() {
 
   return (
-    <SiteShell>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }}
-      />
-      <HomePage />
-    </SiteShell>
+
+     <>
+     <Homebanner />
+     
+     
+     
+     </>
   );
 }
