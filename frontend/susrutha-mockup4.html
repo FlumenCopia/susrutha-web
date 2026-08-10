@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Susrutha | Ayurvedic Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+        .parallax-wrapper {
+            clip-path: inset(0);
+        }
+        .parallax-bg {
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .shadow-glows {
+            box-shadow: 0 20px 40px -15px rgba(14, 36, 24, 0.05);
+        }
+        .bronze-gradient-text {
+            background: linear-gradient(to right, #B08A4B, #8B6B35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fbf9f4; }
+        ::-webkit-scrollbar-thumb { background: #66785F; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#000a04",
+                      "background": "#fbf9f4",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#cec6b6",
+                      "inverse-surface": "#30312e",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#fbf9f4",
+                      "on-primary-fixed": "#092014",
+                      "tertiary-fixed-dim": "#ebc07b",
+                      "on-surface-variant": "#424843",
+                      "surface-container-high": "#eae8e3",
+                      "outline-variant": "#c2c8c2",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e4e2dd",
+                      "tertiary-container": "#2d1d00",
+                      "surface": "#fbf9f4",
+                      "on-secondary-fixed": "#1f1b12",
+                      "secondary-fixed": "#eae1d2",
+                      "surface-dim": "#dbdad5",
+                      "on-primary-fixed-variant": "#354c3e",
+                      "inverse-primary": "#b3cdba",
+                      "primary-fixed": "#cfe9d6",
+                      "on-error": "#ffffff",
+                      "secondary": "#645e51",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#0e2418",
+                      "on-background": "#1b1c19",
+                      "on-tertiary-fixed-variant": "#5e4107",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#758d7c",
+                      "on-secondary-container": "#686255",
+                      "surface-container-highest": "#e4e2dd",
+                      "tertiary-fixed": "#ffdeac",
+                      "outline": "#737973",
+                      "surface-tint": "#4c6455",
+                      "surface-container": "#f0eee9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#a68143",
+                      "on-tertiary-fixed": "#281900",
+                      "tertiary": "#0e0700",
+                      "on-surface": "#1b1c19",
+                      "on-secondary-fixed-variant": "#4b463b",
+                      "secondary-container": "#e8dfcf",
+                      "surface-container-low": "#f5f3ee",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#b3cdba",
+                      "inverse-on-surface": "#f2f1ec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "80px",
+                      "unit": "8px",
+                      "margin-mobile": "24px",
+                      "gutter": "32px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["EB Garamond"],
+                      "display-lg": ["EB Garamond"],
+                      "headline-lg": ["EB Garamond"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "headline-md": ["EB Garamond"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                      "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                      "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                      "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "400" }]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-primary">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] rounded-full bg-surface/70 backdrop-blur-3xl border border-outline/30 z-50 flex justify-between items-center px-8 py-4 shadow-glows transition-all duration-500">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-headline-md tracking-widest text-primary">SUSRUTHA</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-tertiary-fixed-variant font-bold border-b border-on-tertiary-fixed-variant transition-colors duration-500 font-label-sm text-label-sm" href="#">HOME</a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors duration-500" href="#">TREATMENTS</a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors duration-500" href="#">RETREATS</a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors duration-500" href="#">HERITAGE</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary scale-110 active:scale-95 transition-transform">search</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-all active:scale-95">RESERVE</button>
+<button class="material-symbols-outlined md:hidden text-primary">menu</button>
+</div>
+</header>
+<main>
+<!-- Section 1: Cinematic Hero -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-margin-mobile md:px-margin-desktop">
+<span class="inline-block font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-[0.3em] mb-6 reveal-up">ESTABLISHED 1970</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 leading-[1.05] reveal-up delay-100">
+                    Ancient Wisdom.<br/><span class="italic font-light">Modern Healing.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-12 max-w-2xl mx-auto reveal-up delay-200">
+                    Susrutha embodies the intersection of ancient Ayurvedic wisdom and modern ultra-luxury hospitality, offering curated journeys for the soul.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 reveal-up delay-300">
+<button class="group flex items-center gap-3 bg-primary text-on-primary px-10 py-5 rounded-full transition-all hover:pr-12 active:scale-95">
+<span class="font-label-sm text-label-sm tracking-widest">START YOUR JOURNEY</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<button class="flex items-center gap-2 text-primary border-b border-primary/20 pb-1 hover:border-primary transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm tracking-widest">WATCH THE FILM</span>
+</button>
+</div>
+</div>
+<!-- Hero Bottom Decorative -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+<span class="text-[10px] tracking-[0.4em] font-bold opacity-30">SCROLL</span>
+<div class="w-[1px] h-12 bg-primary/20"></div>
+</div>
+</section>
+<!-- Section 2: Legacy -->
+<section class="py-40 bg-surface-container-low overflow-hidden">
+<div class="container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 reveal-up">
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest uppercase mb-4 block">Our Heritage</span>
+<h2 class="font-display-lg text-headline-lg text-primary mb-8">Fifty-Five Years of Timeless Tradition</h2>
+<p class="font-body-lg text-body-lg text-secondary mb-10 leading-relaxed">
+                            Founded in 1970 by Dr. Ananda Varma, Susrutha has evolved into a global sanctuary for those seeking profound tranquility. Our lineage is built on the rigorous application of clinical excellence and multi-generational trust.
+                        </p>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div>
+<div class="text-headline-md font-display-lg text-primary mb-1">1970</div>
+<div class="font-label-sm text-label-sm text-on-secondary-container">FOUNDING YEAR</div>
+</div>
+<div>
+<div class="text-headline-md font-display-lg text-primary mb-1">120K+</div>
+<div class="font-label-sm text-label-sm text-on-secondary-container">HEALED SOULS</div>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary group" href="#">
+                            LEARN MORE ABOUT OUR ROOTS
+                            <span class="w-12 h-px bg-primary/30 group-hover:w-16 transition-all"></span>
+</a>
+</div>
+<div class="md:col-span-6 md:col-start-7 reveal-up delay-200">
+<div class="relative group">
+<div class="aspect-[4/5] overflow-hidden rounded-[40px]">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A vintage black and white artistic photograph of an elderly Ayurvedic master carefully sorting dried herbs in a traditional courtyard. Sunlight streams through wooden shutters, illuminating the dust motes and creating a sense of history. The composition is cinematic and editorial, emphasizing the textures of the stone and the heritage of the practice." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI8LVoaxSDbPGCljdyi2UpRyIkg-0862ktNI6Y2SdqNsw4Sgvi1AJq8ujtcgj2egMs-Zs-TBqpjg2TvwM6huvkciV7wbhqKQ3qmP525wcTHWf68BSuAZLzWSPky9k1auH_nkk8LlIjquAznsvHR0uVoFBA2amOUIFNhZFTXE8tYFMhFtP8v5H6AxKnaZy6XEqmMQD5V_Au1ILVIFlJALfa9lXcz4yj2RBQ8qfrvznRRnvwFPF1OwYtdPKMeyx16424BhNrTM4FDgH5"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-64 h-64 bg-surface rounded-3xl p-8 shadow-glows hidden md:block">
+<p class="font-display-lg text-headline-md italic text-primary leading-tight">"Health is not just absence of disease, but presence of vitality."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Healing Journey (Horizontal Interactive Timeline) -->
+<section class="py-40 bg-surface">
+<div class="container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-24">
+<h2 class="font-display-lg text-headline-lg text-primary reveal-up">The Path to Wholeness</h2>
+<div class="w-20 h-px bg-on-tertiary-fixed-variant/40 mx-auto mt-6 reveal-up delay-100"></div>
+</div>
+<div class="relative overflow-x-auto pb-20 px-margin-desktop scrollbar-hide">
+<div class="flex min-w-[1200px] gap-gutter justify-between items-start relative">
+<!-- Connector Line -->
+<div class="absolute top-10 left-0 right-0 h-px bg-outline-variant/30 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center max-w-[240px] text-center group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-8 border border-outline/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 shadow-glows">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant mb-4">STEP 01</span>
+<h3 class="font-display-lg text-headline-md mb-4 text-primary">Consultation</h3>
+<p class="text-body-md text-secondary">A deep diagnostic exploration of your Prakriti (constitution) and current imbalances.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center max-w-[240px] text-center group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-8 border border-outline/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 shadow-glows">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant mb-4">STEP 02</span>
+<h3 class="font-display-lg text-headline-md mb-4 text-primary">Diagnosis</h3>
+<p class="text-body-md text-secondary">Scientific pulse-reading and observation to map out your personalized healing roadmap.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center max-w-[240px] text-center group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-8 border border-outline/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 shadow-glows">
+<span class="material-symbols-outlined text-3xl">fluid_med</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant mb-4">STEP 03</span>
+<h3 class="font-display-lg text-headline-md mb-4 text-primary">Treatment</h3>
+<p class="text-body-md text-secondary">A series of synchronized therapies including Shirodhara, Abhyanga, and herbal purification.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center max-w-[240px] text-center group">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-8 border border-outline/20 group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 shadow-glows">
+<span class="material-symbols-outlined text-3xl">self_improvement</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant mb-4">STEP 04</span>
+<h3 class="font-display-lg text-headline-md mb-4 text-primary">Recovery</h3>
+<p class="text-body-md text-secondary">Sustainable lifestyle and dietary integration for lifelong vitality and harmony.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Signature Treatments (Luxury Cards) -->
+<section class="py-40 bg-surface-container-lowest">
+<div class="container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-20 reveal-up">
+<div class="max-w-xl">
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest uppercase mb-4 block">The Experience</span>
+<h2 class="font-display-lg text-headline-lg text-primary">Signature Healing Rituals</h2>
+</div>
+<button class="hidden md:block font-label-sm text-label-sm text-primary tracking-widest border border-primary/20 px-8 py-4 rounded-full hover:bg-primary hover:text-on-primary transition-all">VIEW ALL TREATMENTS</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Treatment 1 -->
+<div class="group cursor-pointer reveal-up">
+<div class="relative overflow-hidden rounded-[40px] aspect-[3/4] mb-8 shadow-glows">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A macro, editorial shot of warm herbal oil being gently poured onto a stone surface, surrounded by fresh green leaves and small jasmine flowers. The lighting is soft and warm, highlighting the golden translucence of the oil. The aesthetic is clean, luxurious, and ultra-minimal, emphasizing natural textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh_jFoSomUy_aHqk-jQ_n-gBpstLn0TpaQJ5KlB-dkjNXjLIHUtgSfLZytuyEFolonm1MZcHwoNyYjSK9w1S9k6UjqolJs0grH5MVxy4U--MdtKGoWzDOaKYrgaYYZFSlrRY44-JTj3mTITR2p8Yh2WAljD6Fzdl-pSYn-yru5phn3QKJjt8JUdeQLAM8saUeynMZDchXwN0edo6LG9H1Fs3HxwOaOeIeGmaKEIPvzUsa9KZ4Pg6d9gFfIW02HW3T7QrI8-iB9HCr0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+<span class="text-on-primary font-label-sm text-label-sm tracking-widest">DISCOVER RITUAL</span>
+</div>
+</div>
+<h3 class="font-display-lg text-headline-md text-primary mb-2">Shirodhara Bliss</h3>
+<p class="text-body-md text-secondary line-clamp-2">A rhythmic pouring of herbal oils onto the forehead to calm the nervous system.</p>
+<div class="mt-4 flex items-center gap-2 text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 90 MINS
+                            <span class="mx-2">•</span>
+<span class="material-symbols-outlined text-sm">payments</span> $240
+                        </div>
+</div>
+<!-- Treatment 2 -->
+<div class="group cursor-pointer reveal-up delay-100">
+<div class="relative overflow-hidden rounded-[40px] aspect-[3/4] mb-8 shadow-glows">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A top-down artistic composition of various dried Ayurvedic roots, turmeric powder, and fresh neem leaves arranged on a textured hand-carved wooden bowl. The background is a soft beige linen cloth. The lighting is high-key and airy, creating a sense of purity and clinical excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHfNtwrN5wxUXWI9frodzlFxqBB-IVoASS4GSz_Pt2XucxO8ct-J-PoT96MeZX7_ZzvdYJJfZ6uSNoqZI_kLkIqCNqbXjOCoKyPsH7EJVzydy2_D4FgRFplj2GQgSdxhfRSsAstSRlp4qbVBssEqDcvG-gBQyzp3I4YkQcgEV9Q-4Mrk3rp-LIQ3fiTmDB6YHIStlVUnuwIsO3G9QyukqP_B0ioUJiGYcsKNU9GumjIHpr5OgQfvVYMlHmHMCzMboiGqRvSKphfHBA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+<span class="text-on-primary font-label-sm text-label-sm tracking-widest">DISCOVER RITUAL</span>
+</div>
+</div>
+<h3 class="font-display-lg text-headline-md text-primary mb-2">Panchakarma Detox</h3>
+<p class="text-body-md text-secondary line-clamp-2">Five-fold purification therapy designed to deeply cleanse and rejuvenate the body.</p>
+<div class="mt-4 flex items-center gap-2 text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 7 DAYS
+                            <span class="mx-2">•</span>
+<span class="material-symbols-outlined text-sm">payments</span> FROM $3,500
+                        </div>
+</div>
+<!-- Treatment 3 -->
+<div class="group cursor-pointer reveal-up delay-200">
+<div class="relative overflow-hidden rounded-[40px] aspect-[3/4] mb-8 shadow-glows">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A woman receiving a back massage using traditional warm herbal bundles (Potli). Only her shoulders and the therapist's hands are visible. The atmosphere is serene, with soft-focus candlelight in the background. The color palette is composed of warm sand, olive green, and deep browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWabfcdX-_Ff3I5rhOLAsAr0N473rCVLDXezEr8BTlyLrroJWYEphjWj9ujW8siW2hO4nGCht4PALzIFXM6lkcS0aT_IY3_QSDmuygf9ZAn5rjkiC5JUOk2UnXcsCJ-hB1IB5mDDZCigVenvT4ontphHzYZlgC86Xu9Y0dBMHtRgiM07el8wByK7VaTrGdrghpBgn8O4oaRUBncwcewnJV9k2AzFCP6ZtzVWl9xun95CMG8Jfl0eT-7gVVSx-Zsq3TOgdMHnnRUQhi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+<span class="text-on-primary font-label-sm text-label-sm tracking-widest">DISCOVER RITUAL</span>
+</div>
+</div>
+<h3 class="font-display-lg text-headline-md text-primary mb-2">Abhyanga Massage</h3>
+<p class="text-body-md text-secondary line-clamp-2">Full body warm oil massage that improves circulation and boosts the immune system.</p>
+<div class="mt-4 flex items-center gap-2 text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 60 MINS
+                            <span class="mx-2">•</span>
+<span class="material-symbols-outlined text-sm">payments</span> $180
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Why Choose Us (Bento-style Grid) -->
+<section class="py-40 bg-surface">
+<div class="container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4 flex flex-col justify-center reveal-up">
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest uppercase mb-4 block">The Susrutha Way</span>
+<h2 class="font-display-lg text-headline-lg text-primary mb-8 leading-tight">Crafting an Ecosystem of Total Wellness</h2>
+<p class="font-body-lg text-body-lg text-secondary mb-10">We prioritize vast whitespace to provide breathing room for your mind, reflecting the mental clarity associated with Ayurvedic healing.</p>
+</div>
+<div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-10 rounded-[32px] border border-outline/10 hover:border-on-tertiary-fixed-variant/30 transition-all reveal-up">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">clinical_notes</span>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary mb-4">Evidence-Based</h4>
+<p class="text-body-md text-secondary">Blending ancient protocols with contemporary medical insights for measurable results.</p>
+</div>
+<div class="bg-surface-container-low p-10 rounded-[32px] border border-outline/10 hover:border-on-tertiary-fixed-variant/30 transition-all reveal-up delay-100">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary mb-4">Pure Sourcing</h4>
+<p class="text-body-md text-secondary">All oils and herbs are ethically harvested from our private botanical gardens.</p>
+</div>
+<div class="bg-surface-container-low p-10 rounded-[32px] border border-outline/10 hover:border-on-tertiary-fixed-variant/30 transition-all reveal-up delay-200">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">king_bed</span>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary mb-4">Ultra-Luxury</h4>
+<p class="text-body-md text-secondary">Immersive retreats that offer world-class hospitality and profound tranquility.</p>
+</div>
+<div class="bg-surface-container-low p-10 rounded-[32px] border border-outline/10 hover:border-on-tertiary-fixed-variant/30 transition-all reveal-up delay-300">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary mb-4">Master lineage</h4>
+<p class="text-body-md text-secondary">Over 50 years of accumulated wisdom passed through three generations of healers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Meet Our Doctors (Editorial Portrait Gallery) -->
+<section class="py-40 bg-surface-container-highest/30">
+<div class="container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-24 reveal-up">
+<h2 class="font-display-lg text-headline-lg text-primary">The Custodians of Wisdom</h2>
+<p class="text-body-lg text-secondary mt-4 max-w-2xl mx-auto">Meet the world-renowned practitioners dedicated to your holistic well-being.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Doctor 1 -->
+<div class="reveal-up">
+<div class="aspect-[2/3] rounded-[40px] overflow-hidden mb-6 group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A professional editorial portrait of a senior Ayurvedic doctor with silver hair, wearing a high-quality minimal cream linen tunic. He has a warm, trustworthy expression. The lighting is soft and directional, creating a gentle shadow on one side of his face. The background is a clean, textured stone wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVFfDEjsIentiG1FCz6G5Aqh9aGswZK2lht4TNC7O6LSWllsk6L2-FGUsvtXwigJCleI3vRUhaY785YVuLjNawv7BCelN2zETixLJixvym7S4LljfcxaDLdGK2tbu66inEo-rvIOyEkGGRkiGBS6whEi6_qbaVYAtVCiXd0N9tk8v1Do4swzxfHVKytZkuuDYKMk6B9Yidj5y3f2BwBoZjCf_BEcNbXlks-1yr2PN9N0QnVA1ga-WpnQFgSFTH6UhBW2n0q5LQk-ho"/>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary">Dr. Vikram Varma</h4>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest block mt-2">CHIEF MEDICAL OFFICER</span>
+</div>
+<!-- Doctor 2 -->
+<div class="reveal-up delay-100">
+<div class="aspect-[2/3] rounded-[40px] overflow-hidden mb-6 group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A portrait of a serene female Ayurvedic physician in her late 40s. She is wearing a modern, minimal olive green silk saree. She holds a small ceramic bowl of dried medicinal flowers. The photo is styled like a luxury wellness magazine cover. Soft daylight fills the frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2ZYtLGoY5M5BPbJjI6pkZD_tnoS95tHHaKrag_Z8QHjY8L6PvaG22WgADQj4NZ5Q-ZNVMUn64cMhxLzUROEbBnJrsEgNvAhqzk0niUZPHTfdIO3bu6CKQKkdL4NfK9R2SS9g0_T7OS0FeHjD8isC2ZZqn6Xf4vmbIg2XOvPHwjU-55zuXSulprFveQr2oZR0uZ4guqiX_zI5r3csxIeXuIwzfy2NZXLdjA0wTB-auRDLyMoZOxrHU3tYT1q99sUsCcb7XcrFA2dDp"/>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary">Dr. Maya Nair</h4>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest block mt-2">RITUAL DESIGNER</span>
+</div>
+<!-- Doctor 3 -->
+<div class="reveal-up delay-200">
+<div class="aspect-[2/3] rounded-[40px] overflow-hidden mb-6 group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A high-end editorial photo of a young, professional Ayurvedic researcher. He is standing in a modern laboratory filled with copper distillation equipment and fresh green plants. He wears a minimal white coat over a beige shirt. The mood is clinical yet organic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwElIm23mDa8_PISbaNeVOwqEWeNRUi0-MNjQZKJm3gwY2blzbtUF-0Qvw4kwbS6GqkD-JXNaE1wrMeBnRHba8LViMbIAO7jc8a810QSKGMTiEb0_9vE5ePpPjmPWySFoG_ca2vHRrgV5VfCu2VW1_se07mAb4Cd65rK_2BTA6ulgO2pFEmBhzm4gwMuSS0MCS8tcs9PBKO7OzII395iwYJtzxFgTwhLkBbulkg1lPCfQ0xOtrG1atOxHU622komcGm_uj8C24wSEA"/>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary">Dr. Aryan Gupta</h4>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest block mt-2">HERBAL SCIENCE LEAD</span>
+</div>
+<!-- Doctor 4 -->
+<div class="reveal-up delay-300">
+<div class="aspect-[2/3] rounded-[40px] overflow-hidden mb-6 group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A portrait of an elderly, wise-looking Ayurvedic therapist with calm eyes and a peaceful smile. She is surrounded by lush green tropical foliage in a soft-focus background. The image evokes a sense of deep ancestral knowledge and compassion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX_Wyq1lVJxYt0Y5OJ7C5Olb0GwMSGIW-yTzCuBPA-wZKpdne49wyyM3S3iAhb7oVKkZkVJIi65vT0Ikv8-yv0VzxQdMfwsTyp1tl_EC_P-MTefJyx3N872KmmITrqiJwN-bVdhAn6UcLQcn38Kv2TTAd_4_saRBQIfyjvC07HzbRzxtvldTaOpG9NbJnVkU_6mh--9S7O5g4lcQYsEIlVfP5aSkXQyIchheyJznOSUATl2lduYtR4i8ARe8JCMqC-v3pHAfC0f7rE"/>
+</div>
+<h4 class="font-display-lg text-headline-md text-primary">Dr. Lakshmi Rao</h4>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant tracking-widest block mt-2">WELLNESS CONSULTANT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Healing Environment (Immersive Fullscreen) -->
+<section class="h-[819px] relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/20 z-10"></div>
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover parallax-bg" data-alt="A wide-angle, cinematic view of a luxury Ayurvedic retreat villa overlooking a misty forest valley at sunrise. The architecture features clean lines, warm wood, and large floor-to-ceiling glass windows that blend the interior with the surrounding nature. The lighting is ethereal and tranquil, with golden sunrays piercing through the morning mist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4H9r2fYNsz6xIn54aeeG9XzpzO3ThZWd1VDSv-U6YUlw9mKhOPgq5AsBfwp7eYflbW1S2F6BLjA0ghq63BtNJ9DQKkfR3pnmYOi0dNiVjADZ4cxKcGkcEWhaXYve6tNDxpUV1eBXWXBapQreSLAcVUWO8ghe_oiGqIiydsHc-BEzCNEOmUr7bLTqVut7BOsQ85dvyDTh0_SwM_vLSveIgSrBu8zaNmloaU661CrFdFuBSbQIUjNI4sWAXlZq_AtcAnJCir-kKJ_e-"/>
+</div>
+<div class="relative z-20 text-center text-on-primary max-w-3xl px-6 reveal-up">
+<h2 class="font-display-lg text-display-lg mb-8">Sanctuaries of Stillness</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90">Designed as an architectural ode to tranquility, our facilities provide the perfect canvas for your transformation.</p>
+<button class="bg-surface text-primary px-10 py-5 rounded-full font-label-sm text-label-sm tracking-widest hover:bg-on-tertiary-fixed transition-all">EXPLORE THE FACILITIES</button>
+</div>
+</section>
+<!-- Section 10: Locations & Map -->
+<section class="py-40 bg-surface">
+<div class="container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 reveal-up">
+<h2 class="font-display-lg text-headline-lg text-primary mb-12">Visit Our Sanctuaries</h2>
+<div class="space-y-6">
+<div class="p-8 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer group border border-outline/5 active:scale-[0.98]">
+<h4 class="font-display-lg text-headline-md text-primary mb-2">Himalayan Retreat</h4>
+<p class="text-body-md text-secondary mb-4">Rishikesh, Uttarakhand, India</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</div>
+<div class="p-8 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer group border border-outline/5 active:scale-[0.98]">
+<h4 class="font-display-lg text-headline-md text-primary mb-2">Kerala Waterfront</h4>
+<p class="text-body-md text-secondary mb-4">Alleppey Backwaters, Kerala, India</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</div>
+<div class="p-8 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer group border border-outline/5 active:scale-[0.98]">
+<h4 class="font-display-lg text-headline-md text-primary mb-2">Urban Oasis</h4>
+<p class="text-body-md text-secondary mb-4">New Delhi, NCR, India</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-6 md:col-start-7 reveal-up delay-200">
+<div class="aspect-square rounded-[40px] overflow-hidden border border-outline/10 shadow-glows">
+<img class="w-full h-full object-cover" data-location="Rishikesh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVE_bI5Z_LTlNP8jtP2CorUDcZ2FNWxYCm5BXknVjMUbg4_lZgfAds3n7E5D7iPDSRSjZPekaV2Gm2MplT11vvcJKAeyZ6HBiGTzuE-WGvXVS2yzaIPWw0PpK8mZanOxmfqRoTVRSKDRycgdEWngEOSyYYgLT2lSlJ7kLgt81F5E32qqdQOb8gN-f2z9Ujevt4UqlAyOM3-ccuiQN6JaIB8inNIZByAmo1H01FuZcZXgCNkXjhGm75q66Ee76IxT3qDKTOoohaDeFi"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Anchor -->
+<footer class="w-full rounded-t-[40px] mt-40 bg-primary px-margin-desktop py-20 flex flex-col md:flex-row justify-between items-start gap-gutter">
+<div class="md:w-1/3">
+<h2 class="font-display-lg text-headline-lg text-surface-bright mb-8">SUSRUTHA</h2>
+<p class="text-on-primary-container font-body-md mb-8 max-w-sm">Crafting multi-generational legacies of health and harmony through the timeless art of Ayurveda.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary-container/30 flex items-center justify-center text-on-primary-container hover:bg-surface-bright hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container/30 flex items-center justify-center text-on-primary-container hover:bg-surface-bright hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary-container/30 flex items-center justify-center text-on-primary-container hover:bg-surface-bright hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">call</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:w-2/3">
+<div>
+<h5 class="text-tertiary-fixed-dim font-label-sm text-label-sm mb-6 uppercase tracking-widest">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Legacy</a></li>
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Treatments</a></li>
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Doctors</a></li>
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Retreats</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-tertiary-fixed-dim font-label-sm text-label-sm mb-6 uppercase tracking-widest">Privacy</h5>
+<ul class="space-y-4">
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Cookies Policy</a></li>
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Data Protection</a></li>
+<li><a class="text-outline-variant/60 font-label-sm text-label-sm hover:text-tertiary-fixed transition-all" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h5 class="text-tertiary-fixed-dim font-label-sm text-label-sm mb-6 uppercase tracking-widest">Journal</h5>
+<p class="text-outline-variant/60 text-body-md mb-6">Receive wisdom and updates twice a month.</p>
+<div class="flex border-b border-outline-variant/30 pb-2">
+<input class="bg-transparent border-none text-on-primary-container focus:ring-0 placeholder:text-outline-variant/30 flex-grow" placeholder="Your Email" type="email"/>
+<button class="material-symbols-outlined text-tertiary-fixed-dim">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="w-full pt-12 mt-12 border-t border-on-primary-container/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-outline-variant/40 text-label-sm font-label-sm">© 1970-2024 Susrutha Ayurvedic Excellence. All Rights Reserved.</span>
+<div class="flex gap-8">
+<a class="text-outline-variant/40 text-label-sm font-label-sm hover:text-surface-bright" href="#">INSTAGRAM</a>
+<a class="text-outline-variant/40 text-label-sm font-label-sm hover:text-surface-bright" href="#">LINKEDIN</a>
+</div>
+</div>
+</footer>
+<script>
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Simple Parallax Effect
+        window.addEventListener('scroll', () => {
+            const parallaxBgs = document.querySelectorAll('.parallax-bg');
+            parallaxBgs.forEach(bg => {
+                const speed = 0.3;
+                const rect = bg.parentElement.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const yPos = -(rect.top * speed);
+                    bg.style.transform = `translateY(${yPos}px) scale(1.1)`;
+                }
+            });
+
+            // Header shrink on scroll
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('py-2', 'w-[88%]');
+                header.classList.remove('py-4', 'w-[92%]');
+            } else {
+                header.classList.remove('py-2', 'w-[88%]');
+                header.classList.add('py-4', 'w-[92%]');
+            }
+        });
+
+        // Subtle follow mouse interaction for treatment cards
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>
