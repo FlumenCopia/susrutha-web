@@ -13,6 +13,7 @@ export default function NotFound() {
           <Link className="btn btn-secondary" href="/contact-us">Contact Us</Link>
         </div>
       </section>
+      
     </SiteShell>
   );
 }
