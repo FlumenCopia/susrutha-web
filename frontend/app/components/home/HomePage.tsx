@@ -4,11 +4,14 @@ import { CounterSection } from "./CounterSection";
 import { DoctorsShowcaseSection } from "./DoctorsShowcaseSection";
 import { HomeWellnessExpertiseSection } from "./HomeWellnessExpertiseSection";
 import { TreatmentsShowcaseSection } from "./TreatmentsShowcaseSection";
+import { Timeloop } from "../home/Timeloop";
 
 export function HomePage() {
   return (
     <div className="home-page">
       <HeroBanner />
+      <Timeloop />
+
       <HomeWellnessExpertiseSection />
       <TreatmentsShowcaseSection />
       <DoctorsShowcaseSection />
