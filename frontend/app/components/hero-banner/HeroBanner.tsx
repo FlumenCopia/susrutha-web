@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useRef, useEffect } from "react";
 import "./hero-banner.css";
 
 interface HeroBannerProps {
@@ -8,6 +9,7 @@ interface HeroBannerProps {
   buttonText?: string;
   buttonLink?: string;
   imageSrc?: string;
+  videoSrc?: string;
 }
 
 export function HeroBanner({
@@ -15,7 +17,31 @@ export function HeroBanner({
   buttonText = "BOOK NOW",
   buttonLink = "/appointment",
   imageSrc = "https://zenora.1onestrong.com/wp-content/uploads/2025/07/Image-01.jpg",
+  videoSrc = "/bannervideo.mp4",
 }: HeroBannerProps) {
+  const [videoError, setVideoError] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current && videoSrc && !videoError) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setVideoPlaying(true);
+          })
+          .catch((err) => {
+            console.warn(
+              "Autoplay prevented or video playback error, displaying thumbnail fallback:",
+              err
+            );
+            setVideoError(true);
+          });
+      }
+    }
+  }, [videoSrc, videoError]);
+
   const marqueeItems = [
     "RELAX",
     "REJUVENATE",
@@ -33,18 +59,41 @@ export function HeroBanner({
       {/* Floating Hero Card */}
       <div className="hero-card-wrapper">
         <div className="hero-card-inner">
-          {/* Background Image / Media */}
+          {/* Background Media (Video or Thumbnail Image) */}
           <div className="hero-media-wrapper">
+            {/* Always render Thumbnail Image as base layer */}
             <img
               src={imageSrc}
               alt="Spa Treatment Wellness"
-              className="hero-media-img"
+              className={`hero-media-img ${videoPlaying ? "fade-out" : "active"}`}
               onError={(e) => {
-                // Fallback to local high-res asset if remote image is slow/blocked
                 (e.currentTarget as HTMLImageElement).src =
                   "/images/about-susrutha-wellness.webp";
               }}
             />
+
+            {/* Background Video Layer */}
+            {videoSrc && !videoError && (
+              <video
+                ref={videoRef}
+                src={videoSrc}
+                className="hero-media-video"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                poster={imageSrc}
+                onPlay={() => setVideoPlaying(true)}
+                onLoadedData={() => {
+                  setVideoPlaying(true);
+                  videoRef.current?.play().catch(() => {});
+                }}
+                onError={() => setVideoError(true)}
+              >
+                <source src={videoSrc} type="video/mp4" />
+              </video>
+            )}
           </div>
 
           {/* Dark Overlay Gradient */}
