@@ -4,7 +4,7 @@ import { CounterSection } from "./CounterSection";
 import { DoctorsShowcaseSection } from "./DoctorsShowcaseSection";
 import { HomeWellnessExpertiseSection } from "./HomeWellnessExpertiseSection";
 import { TreatmentsShowcaseSection } from "./TreatmentsShowcaseSection";
-import { Timeloop } from "../home/Timeloop";
+import Timeloop from "./Timeloop";
 
 export function HomePage() {
   return (
