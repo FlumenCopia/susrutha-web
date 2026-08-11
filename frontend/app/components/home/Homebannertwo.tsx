@@ -889,3 +889,6 @@ export function Homebannertwo() {
     </div>
   );
 }
+
+export default Homebannertwo;
+

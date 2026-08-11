@@ -1,16 +1,12 @@
-
 "use client";
 
-import Homebannertwo  from "./components/home/Homebannertwo";
+import Homebannertwo from "./components/home/Homebannertwo";
 
-export default function page() {
-
+export default function Page() {
   return (
-
-     <>
-     <Homebannertwo />
-     
-     
-     </>
+    <>
+      <Homebannertwo />
+    </>
   );
 }
+
