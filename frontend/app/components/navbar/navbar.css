@@ -1,0 +1,270 @@
+/* Luxury New Style Navbar for Susrutha Ayurveda */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+/* Fixed Header Wrapper */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 16px 24px;
+  transition: all 0.35s ease;
+  pointer-events: none;
+}
+
+/* Floating Pure White Navbar Container */
+.navbar {
+  pointer-events: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 28px;
+  background: #ffffff;
+  border: 1px solid rgba(230, 230, 230, 0.8);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header Scrolled State */
+.site-header.scrolled .navbar {
+  background: #ffffff;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.14);
+  padding: 8px 24px;
+}
+
+/* Brand / Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover {
+  transform: scale(1.02);
+}
+
+.brand img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Individual Nav Item */
+.nav-item {
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-item > a {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: #2c3531;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav-item > a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #1b3d33, #9a6528);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item:hover > a,
+.nav-item[data-active="true"] > a {
+  color: #1b3d33;
+}
+
+.nav-item:hover > a::after,
+.nav-item[data-active="true"] > a::after {
+  width: 100%;
+}
+
+/* Dropdown Chevron */
+.nav-chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.25s ease;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+
+.nav-item:hover .nav-chevron {
+  transform: rotate(225deg) translate(-2px, -2px);
+  opacity: 1;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 18px;
+  padding: 10px;
+  min-width: 220px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(6px);
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px 16px;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #3f403d;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.dropdown a:hover {
+  background: rgba(27, 61, 51, 0.06);
+  color: #1b3d33;
+  transform: translateX(4px);
+}
+
+/* Right Nav Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Book Button */
+.nav-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #1b3d33 0%, #2a5648 100%);
+  color: #ffffff !important;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 100px;
+  box-shadow: 0 4px 18px rgba(27, 61, 51, 0.22);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-book-btn:hover {
+  background: linear-gradient(135deg, #153229 0%, #21473b 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(27, 61, 51, 0.32);
+}
+
+.nav-calendar-icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+/* Mobile Menu Trigger & Hamburger */
+.mobile-menu-wrapper {
+  display: none;
+}
+
+.mobile-menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-bar {
+  width: 24px;
+  height: 2px;
+  background-color: #2c3531;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 12px 16px;
+  }
+
+  .navbar {
+    padding: 8px 18px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 10px 12px;
+  }
+
+  .navbar {
+    padding: 6px 14px;
+    border-radius: 30px;
+  }
+
+  .brand img {
+    height: 36px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-book-btn {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+  }
+}

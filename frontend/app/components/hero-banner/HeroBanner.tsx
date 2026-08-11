@@ -13,7 +13,7 @@ interface HeroBannerProps {
 export function HeroBanner({
   title = "Renew Your Body, Refresh Your Soul",
   buttonText = "BOOK NOW",
-  buttonLink = "/contact-us",
+  buttonLink = "/appointment",
   imageSrc = "https://zenora.1onestrong.com/wp-content/uploads/2025/07/Image-01.jpg",
 }: HeroBannerProps) {
   const marqueeItems = [

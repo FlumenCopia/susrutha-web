@@ -9,6 +9,7 @@ import { siteConfig } from "../../data/site";
 import { getPublicTreatments, getPublicConditions, getPublicDoctors } from "../../services/api";
 
 import { NavbarSearch } from "./NavbarSearch";
+import "./navbar.css";
 
 export function Navbar() {
   const pathname = usePathname();
