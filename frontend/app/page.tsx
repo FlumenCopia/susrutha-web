@@ -1,14 +1,14 @@
 
 "use client";
 
-import { Homebanner } from "./components/home/Homebanner";
+import Homebannertwo  from "./components/home/Homebannertwo";
+
 export default function page() {
 
   return (
 
      <>
-     <Homebanner />
-     
+     <Homebannertwo />
      
      
      </>
