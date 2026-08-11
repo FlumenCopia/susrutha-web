@@ -42,18 +42,6 @@ export function HeroBanner({
     }
   }, [videoSrc, videoError]);
 
-  const marqueeItems = [
-    "RELAX",
-    "REJUVENATE",
-    "TREATMENTS",
-    "RELAX",
-    "REJUVENATE",
-    "TREATMENTS",
-    "RELAX",
-    "REJUVENATE",
-    "TREATMENTS",
-  ];
-
   return (
     <section className="hero-banner-root">
       {/* Floating Hero Card */}
@@ -121,30 +109,6 @@ export function HeroBanner({
                 </svg>
               </span>
             </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Infinite Horizontal Marquee Ticker */}
-      <div className="hero-marquee-container" aria-hidden="true">
-        <div className="hero-marquee-track">
-          {/* First Marquee Group */}
-          <div className="marquee-group">
-            {marqueeItems.map((item, index) => (
-              <span key={`grp1-${index}`} className="marquee-item-wrapper">
-                <span className="marquee-word">{item}</span>
-                <span className="marquee-symbol">⊹</span>
-              </span>
-            ))}
-          </div>
-          {/* Duplicate Marquee Group for Seamless Continuous Loop */}
-          <div className="marquee-group">
-            {marqueeItems.map((item, index) => (
-              <span key={`grp2-${index}`} className="marquee-item-wrapper">
-                <span className="marquee-word">{item}</span>
-                <span className="marquee-symbol">⊹</span>
-              </span>
-            ))}
           </div>
         </div>
       </div>
