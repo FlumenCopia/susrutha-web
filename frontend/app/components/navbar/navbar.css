@@ -48,7 +48,7 @@
 }
 
 .brand img {
-  height: 44px;
+  height: 34px;
   width: auto;
   object-fit: contain;
 }
@@ -66,7 +66,7 @@
   padding: 8px 0;
 }
 
-.nav-item > a {
+.nav-item>a {
   font-family: "Outfit", sans-serif;
   font-size: 0.94rem;
   font-weight: 500;
@@ -80,7 +80,7 @@
   position: relative;
 }
 
-.nav-item > a::after {
+.nav-item>a::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -92,13 +92,13 @@
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-item:hover > a,
-.nav-item[data-active="true"] > a {
+.nav-item:hover>a,
+.nav-item[data-active="true"]>a {
   color: #1b3d33;
 }
 
-.nav-item:hover > a::after,
-.nav-item[data-active="true"] > a::after {
+.nav-item:hover>a::after,
+.nav-item[data-active="true"]>a::after {
   width: 100%;
 }
 
@@ -171,26 +171,34 @@
 }
 
 /* Book Button */
-.nav-book-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  background: linear-gradient(135deg, #1b3d33 0%, #2a5648 100%);
+.nav-book-btn,
+body .site-header .nav-actions .btn-primary,
+body .site-header .nav-actions .nav-book-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 10px 24px !important;
+  background: linear-gradient(135deg, #c81d28 0%, #9f131b 100%) !important;
   color: #ffffff !important;
-  font-family: "Outfit", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: "Outfit", sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-radius: 100px !important;
+  box-shadow: 0 4px 18px rgba(200, 29, 40, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.nav-book-btn:hover {
-  background: linear-gradient(135deg, #153229 0%, #21473b 100%);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 24px rgba(27, 61, 51, 0.32);
+.nav-book-btn:hover,
+body .site-header .nav-actions .btn-primary:hover,
+body .site-header .nav-actions .nav-book-btn:hover {
+  background: linear-gradient(135deg, #ae1721 0%, #870f16 100%) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 6px 24px rgba(200, 29, 40, 0.45) !important;
 }
 
 .nav-calendar-icon {
@@ -253,7 +261,7 @@
   }
 
   .brand img {
-    height: 36px;
+    height: 28px;
   }
 
   .nav-actions {
