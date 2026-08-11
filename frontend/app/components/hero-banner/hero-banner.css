@@ -9,24 +9,22 @@
   overflow: hidden;
 }
 
-/* Floating Hero Card Container */
+/* Full Cover Hero Card Container */
 .hero-card-wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 16px 24px 0 24px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-card-inner {
   position: relative;
   width: 100%;
-  height: 80vh;
-  min-height: 580px;
-  max-height: 780px;
-  border-radius: 36px;
-  /* Top-left curved notch effect matching Zenora original UI */
-  border-top-left-radius: 48px;
+  height: 85vh;
+  min-height: 620px;
+  max-height: 920px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 /* Background Media (Image or Video) */
@@ -159,7 +157,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1.2rem 0;
   overflow: hidden;
-  margin-top: 16px;
+  margin-top: 0;
   position: relative;
 }
 
@@ -235,14 +233,13 @@
 
 @media (max-width: 768px) {
   .hero-card-wrapper {
-    padding: 12px 12px 0 12px;
+    padding: 0;
   }
 
   .hero-card-inner {
-    height: 55vh;
-    min-height: 420px;
-    border-radius: 24px;
-    border-top-left-radius: 32px;
+    height: 70vh;
+    min-height: 480px;
+    border-radius: 0;
   }
 
   .hero-content-wrapper {
@@ -266,7 +263,7 @@
 
   .hero-marquee-container {
     padding: 0.9rem 0;
-    margin-top: 12px;
+    margin-top: 0;
   }
 
   .marquee-word {
