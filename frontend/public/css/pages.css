@@ -2,7 +2,7 @@
 
 /* Reference-style doctor detail page */
 .doctor-detail-page {
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #fff8ec;
   color: #20332d;
 }
@@ -156,7 +156,7 @@
 .doctor-detail-photo {
   position: relative;
   min-height: 510px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 14px;
   background: #eadfce;
   box-shadow: 0 22px 52px rgba(64, 42, 19, 0.15);
@@ -520,7 +520,7 @@
 
 .doctor-appointment-banner {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: min(calc(100% - 40px), 1120px);
   min-height: 230px;
   margin: 0 auto 70px;
@@ -929,7 +929,7 @@
 
 .doctor-detail-glance {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .doctor-detail-glance::before {
@@ -955,7 +955,7 @@
   width: min(100%, 1360px);
   margin: 0 auto 58px;
   padding: clamp(34px, 4vw, 58px);
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(198, 137, 34, 0.18);
   border-radius: 24px;
   background:
@@ -1206,7 +1206,7 @@
   position: relative;
   min-height: 250px;
   padding: 30px 24px 26px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(198, 137, 34, 0.18);
   border-radius: 22px;
   background:
@@ -1260,7 +1260,7 @@
   grid-template-columns: minmax(280px, 0.58fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 64px);
   padding: clamp(34px, 4vw, 58px);
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 26px;
   background:
     linear-gradient(90deg, rgba(15, 59, 41, 0.96), rgba(32, 51, 45, 0.9)),
@@ -1361,7 +1361,7 @@
 .doctor-article-panel,
 .doctor-faq-panel {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-color: rgba(198, 137, 34, 0.2);
   background:
     radial-gradient(circle at 95% 8%, rgba(198, 137, 34, 0.12), transparent 22%),
@@ -1406,7 +1406,7 @@
 
 .doctor-article-grid a {
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(198, 137, 34, 0.14);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.72);
@@ -1462,7 +1462,7 @@
 .doctor-faq-panel details {
   position: relative;
   z-index: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-color: rgba(198, 137, 34, 0.18);
   background: rgba(255, 255, 255, 0.76);
   box-shadow: 0 12px 28px rgba(70, 45, 22, 0.05);
@@ -1760,7 +1760,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   padding-top: clamp(112px, 7.03vw, 135px);
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #fffdf8;
 }
 
@@ -1961,7 +1961,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   z-index: 1;
   min-width: 0;
   min-height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #6f431e;
 }
 
@@ -2839,7 +2839,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .all-treatment-card {
   min-width: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(86, 70, 48, 0.11);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.96);
@@ -2856,7 +2856,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 .all-treatment-image {
   position: relative;
   min-height: clamp(218px, 14.4vw, 282px);
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 17px 17px 0 0;
   background: #eadfcd;
 }
@@ -3079,7 +3079,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   gap: clamp(22px, 2.25vw, 42px);
   min-height: 214px;
   margin-top: clamp(50px, 4.1vw, 68px);
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(168, 117, 52, 0.13);
   border-radius: 20px;
   background:
@@ -3637,7 +3637,7 @@ body:has(.treatment-detail-reference) main {
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   padding: clamp(44px, 4.8vw, 76px) clamp(24px, 4.2vw, 76px);
-  overflow: hidden;
+  /* overflow: hidden; */
   background:
     radial-gradient(circle at 94% 6%, rgba(168, 117, 52, 0.08), transparent 18%),
     radial-gradient(circle at 96% 86%, rgba(168, 117, 52, 0.08), transparent 17%),
@@ -3658,7 +3658,7 @@ body:has(.treatment-detail-reference) main {
 .home-page .home-wellness-photo {
   position: absolute;
   inset: 0 0 4% 3%;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 8px;
   background: #e6ddcf;
   box-shadow: 0 24px 58px rgba(49, 36, 22, 0.13);
@@ -3683,7 +3683,7 @@ body:has(.treatment-detail-reference) main {
   gap: 9px;
   width: clamp(142px, 14vw, 190px);
   padding: clamp(18px, 1.7vw, 24px);
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
   background: linear-gradient(135deg, #082b20, #0c3a2b);
@@ -4108,8 +4108,8 @@ body:has(.treatment-detail-reference) main {
 
 /* Conditions page */
 .conditions-page {
-  min-height: 100vh;
-  overflow: hidden;
+  /* min-height: 100vh; */
+  /* overflow: hidden; */
   background: #f5efe4;
   color: #102c20;
 }
@@ -4248,7 +4248,7 @@ body:has(.treatment-detail-reference) main {
 .conditions-hero-arch {
   position: absolute;
   inset: 0 22px 0 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-left: 3px solid rgba(194, 142, 55, 0.9);
   border-top: 3px solid rgba(194, 142, 55, 0.9);
   border-radius: 430px 430px 0 0;
@@ -4511,7 +4511,7 @@ body:has(.treatment-detail-reference) main {
   display: grid;
   min-height: 292px;
   padding: 30px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(211, 198, 178, 0.82);
   border-radius: 18px;
   background:
@@ -5665,7 +5665,7 @@ body:has(.conditions-page) {
 
 /* Condition detail banner */
 .condition-detail-page {
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #fffaf2;
   color: #123c27;
 }
@@ -5676,7 +5676,7 @@ body:has(.conditions-page) {
   display: grid;
   grid-template-columns: minmax(420px, 0.95fr) minmax(520px, 1.18fr);
   min-height: clamp(560px, 38vw, 680px);
-  overflow: hidden;
+  /* overflow: hidden; */
   border-top: 1px solid rgba(211, 198, 178, 0.82);
   background:
     radial-gradient(circle at 14% 22%, rgba(184, 127, 47, 0.045), transparent 26%),
@@ -5852,7 +5852,7 @@ body:has(.conditions-page) {
   position: relative;
   z-index: 2;
   min-height: inherit;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 390px 0 0 0;
   background: #3b2617;
 }
@@ -6233,7 +6233,7 @@ body:has(.conditions-page) {
   position: relative;
   min-height: 136px;
   padding: 14px 16px;
-  overflow: hidden;
+  /* overflow: hidden; */
   background:
     radial-gradient(circle at 88% 82%, rgba(189, 132, 56, 0.16), transparent 28%),
     #f4efe4;
@@ -6367,7 +6367,7 @@ body:has(.conditions-page) {
   top: 110px;
   display: block;
   min-height: 410px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 24px;
   background: #123c27;
   box-shadow: 0 22px 54px rgba(28, 45, 33, 0.16);
@@ -6668,7 +6668,7 @@ body:has(.conditions-page) {
 .condition-care-consult-card {
   position: relative;
   padding: 54px 28px 28px;
-  overflow: hidden;
+  /* overflow: hidden; */
   background:
     radial-gradient(circle at 105% 85%, rgba(199, 165, 84, 0.13), transparent 34%),
     linear-gradient(135deg, #eef1df 0%, #f5f0e4 100%);
@@ -7169,7 +7169,7 @@ body:has(.conditions-page) {
   min-height: 600px;
   margin: 0 auto;
   padding: 52px clamp(28px, 4.8vw, 90px) 56px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(217, 202, 178, 0.92);
   border-radius: 32px;
   background:
@@ -7741,7 +7741,7 @@ body .site-header .nav-actions .btn-primary::after {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(168, 117, 52, 0.25);
   border-radius: 50%;
   background: #eee8dd;
@@ -7778,7 +7778,7 @@ body .site-header .nav-actions .btn-primary::after {
   font-size: 13.5px;
   font-weight: 700;
   line-height: 1.2;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -7787,7 +7787,7 @@ body .site-header .nav-actions .btn-primary::after {
   margin-top: 2px;
   color: #636b67;
   font-size: 11.5px;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -8537,7 +8537,7 @@ label {
 
 .contact-reference-main {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-top: 112px;
 }
 
@@ -8754,7 +8754,7 @@ label {
   align-content: start;
   min-width: 0;
   padding: clamp(34px, 4.2vw, 56px) clamp(28px, 4vw, 48px) 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(200, 155, 60, 0.18);
   border-radius: 32px;
   background:
@@ -8910,7 +8910,7 @@ label {
   z-index: 1;
   width: 100%;
   margin-top: 24px;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -8937,7 +8937,7 @@ label {
   width: min(calc(100% - 92px), 1820px);
   margin: 0 auto;
   padding: 42px clamp(42px, 5.5vw, 90px) 58px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(200, 155, 60, 0.16);
   border-radius: 28px;
   background:
@@ -9036,7 +9036,7 @@ label {
 .contact-reference-map {
   position: relative;
   min-height: clamp(380px, 38vw, 560px);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .contact-reference-still img {
@@ -9320,7 +9320,7 @@ label {
   --blog-gold: #c89b3c;
   --blog-muted: #59615d;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   background:
     radial-gradient(circle at 8% 12%, rgba(200, 155, 60, 0.1), transparent 22%),
     radial-gradient(circle at 88% 8%, rgba(14, 63, 37, 0.08), transparent 20%),
@@ -9355,7 +9355,7 @@ label {
   position: absolute;
   inset: 0;
   z-index: -3;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .blog-premium-hero-bg img {
@@ -19749,4 +19749,4 @@ body:has(.international-page) .international-help-card a {
   }
 
 }
-
+

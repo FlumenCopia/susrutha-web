@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "../public/css/main.css";
+
+import "../public/css/base.css";
+import "../public/css/components.css"; 
+// import "../public/css/pages.css"; 
+import "../public/css/responsive.css";
 
 export const metadata: Metadata = {
   title: "Susrutha Ayurveda | Panchakarma Hospital in Thiruvananthapuram",

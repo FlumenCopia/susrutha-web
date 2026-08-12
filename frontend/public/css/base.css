@@ -848,9 +848,9 @@ textarea {
   font: inherit;
 }
 
-main {
+/* main {
   overflow: hidden;
-}
+} */
 
 .site-header {
   position: fixed;
