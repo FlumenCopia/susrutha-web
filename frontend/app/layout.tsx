@@ -3,7 +3,7 @@ import "./globals.css";
 
 import "../public/css/base.css";
 import "../public/css/components.css"; 
-// import "../public/css/pages.css"; 
+import "../public/css/pages.css"; 
 import "../public/css/responsive.css";
 
 export const metadata: Metadata = {

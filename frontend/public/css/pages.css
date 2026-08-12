@@ -2,7 +2,6 @@
 
 /* Reference-style doctor detail page */
 .doctor-detail-page {
-  /* overflow: hidden; */
   background: #fff8ec;
   color: #20332d;
 }
@@ -156,7 +155,6 @@
 .doctor-detail-photo {
   position: relative;
   min-height: 510px;
-  /* overflow: hidden; */
   border-radius: 14px;
   background: #eadfce;
   box-shadow: 0 22px 52px rgba(64, 42, 19, 0.15);
@@ -520,7 +518,6 @@
 
 .doctor-appointment-banner {
   position: relative;
-  /* overflow: hidden; */
   width: min(calc(100% - 40px), 1120px);
   min-height: 230px;
   margin: 0 auto 70px;
@@ -929,7 +926,6 @@
 
 .doctor-detail-glance {
   position: relative;
-  /* overflow: hidden; */
 }
 
 .doctor-detail-glance::before {
@@ -955,7 +951,6 @@
   width: min(100%, 1360px);
   margin: 0 auto 58px;
   padding: clamp(34px, 4vw, 58px);
-  /* overflow: hidden; */
   border: 1px solid rgba(198, 137, 34, 0.18);
   border-radius: 24px;
   background:
@@ -1206,7 +1201,6 @@
   position: relative;
   min-height: 250px;
   padding: 30px 24px 26px;
-  /* overflow: hidden; */
   border: 1px solid rgba(198, 137, 34, 0.18);
   border-radius: 22px;
   background:
@@ -1260,7 +1254,6 @@
   grid-template-columns: minmax(280px, 0.58fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 64px);
   padding: clamp(34px, 4vw, 58px);
-  /* overflow: hidden; */
   border-radius: 26px;
   background:
     linear-gradient(90deg, rgba(15, 59, 41, 0.96), rgba(32, 51, 45, 0.9)),
@@ -1361,7 +1354,6 @@
 .doctor-article-panel,
 .doctor-faq-panel {
   position: relative;
-  /* overflow: hidden; */
   border-color: rgba(198, 137, 34, 0.2);
   background:
     radial-gradient(circle at 95% 8%, rgba(198, 137, 34, 0.12), transparent 22%),
@@ -1406,7 +1398,6 @@
 
 .doctor-article-grid a {
   padding: 0;
-  /* overflow: hidden; */
   border: 1px solid rgba(198, 137, 34, 0.14);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.72);
@@ -1462,7 +1453,6 @@
 .doctor-faq-panel details {
   position: relative;
   z-index: 1;
-  /* overflow: hidden; */
   border-color: rgba(198, 137, 34, 0.18);
   background: rgba(255, 255, 255, 0.76);
   box-shadow: 0 12px 28px rgba(70, 45, 22, 0.05);
@@ -1760,7 +1750,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   padding-top: clamp(112px, 7.03vw, 135px);
-  /* overflow: hidden; */
   background: #fffdf8;
 }
 
@@ -1961,7 +1950,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   z-index: 1;
   min-width: 0;
   min-height: 100%;
-  /* overflow: hidden; */
   background: #6f431e;
 }
 
@@ -2839,7 +2827,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .all-treatment-card {
   min-width: 0;
-  /* overflow: hidden; */
   border: 1px solid rgba(86, 70, 48, 0.11);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.96);
@@ -2856,7 +2843,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 .all-treatment-image {
   position: relative;
   min-height: clamp(218px, 14.4vw, 282px);
-  /* overflow: hidden; */
   border-radius: 17px 17px 0 0;
   background: #eadfcd;
 }
@@ -3079,7 +3065,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   gap: clamp(22px, 2.25vw, 42px);
   min-height: 214px;
   margin-top: clamp(50px, 4.1vw, 68px);
-  /* overflow: hidden; */
   border: 1px solid rgba(168, 117, 52, 0.13);
   border-radius: 20px;
   background:
@@ -3637,7 +3622,6 @@ body:has(.treatment-detail-reference) main {
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   padding: clamp(44px, 4.8vw, 76px) clamp(24px, 4.2vw, 76px);
-  /* overflow: hidden; */
   background:
     radial-gradient(circle at 94% 6%, rgba(168, 117, 52, 0.08), transparent 18%),
     radial-gradient(circle at 96% 86%, rgba(168, 117, 52, 0.08), transparent 17%),
@@ -3658,7 +3642,6 @@ body:has(.treatment-detail-reference) main {
 .home-page .home-wellness-photo {
   position: absolute;
   inset: 0 0 4% 3%;
-  /* overflow: hidden; */
   border-radius: 8px;
   background: #e6ddcf;
   box-shadow: 0 24px 58px rgba(49, 36, 22, 0.13);
@@ -3683,7 +3666,6 @@ body:has(.treatment-detail-reference) main {
   gap: 9px;
   width: clamp(142px, 14vw, 190px);
   padding: clamp(18px, 1.7vw, 24px);
-  /* overflow: hidden; */
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
   background: linear-gradient(135deg, #082b20, #0c3a2b);
@@ -4109,7 +4091,6 @@ body:has(.treatment-detail-reference) main {
 /* Conditions page */
 .conditions-page {
   /* min-height: 100vh; */
-  /* overflow: hidden; */
   background: #f5efe4;
   color: #102c20;
 }
@@ -4248,7 +4229,6 @@ body:has(.treatment-detail-reference) main {
 .conditions-hero-arch {
   position: absolute;
   inset: 0 22px 0 0;
-  /* overflow: hidden; */
   border-left: 3px solid rgba(194, 142, 55, 0.9);
   border-top: 3px solid rgba(194, 142, 55, 0.9);
   border-radius: 430px 430px 0 0;
@@ -4511,7 +4491,6 @@ body:has(.treatment-detail-reference) main {
   display: grid;
   min-height: 292px;
   padding: 30px;
-  /* overflow: hidden; */
   border: 1px solid rgba(211, 198, 178, 0.82);
   border-radius: 18px;
   background:
@@ -5665,7 +5644,6 @@ body:has(.conditions-page) {
 
 /* Condition detail banner */
 .condition-detail-page {
-  /* overflow: hidden; */
   background: #fffaf2;
   color: #123c27;
 }
@@ -5676,7 +5654,6 @@ body:has(.conditions-page) {
   display: grid;
   grid-template-columns: minmax(420px, 0.95fr) minmax(520px, 1.18fr);
   min-height: clamp(560px, 38vw, 680px);
-  /* overflow: hidden; */
   border-top: 1px solid rgba(211, 198, 178, 0.82);
   background:
     radial-gradient(circle at 14% 22%, rgba(184, 127, 47, 0.045), transparent 26%),
@@ -5852,7 +5829,6 @@ body:has(.conditions-page) {
   position: relative;
   z-index: 2;
   min-height: inherit;
-  /* overflow: hidden; */
   border-radius: 390px 0 0 0;
   background: #3b2617;
 }
@@ -6233,7 +6209,6 @@ body:has(.conditions-page) {
   position: relative;
   min-height: 136px;
   padding: 14px 16px;
-  /* overflow: hidden; */
   background:
     radial-gradient(circle at 88% 82%, rgba(189, 132, 56, 0.16), transparent 28%),
     #f4efe4;
@@ -6367,7 +6342,6 @@ body:has(.conditions-page) {
   top: 110px;
   display: block;
   min-height: 410px;
-  /* overflow: hidden; */
   border-radius: 24px;
   background: #123c27;
   box-shadow: 0 22px 54px rgba(28, 45, 33, 0.16);
@@ -6668,7 +6642,6 @@ body:has(.conditions-page) {
 .condition-care-consult-card {
   position: relative;
   padding: 54px 28px 28px;
-  /* overflow: hidden; */
   background:
     radial-gradient(circle at 105% 85%, rgba(199, 165, 84, 0.13), transparent 34%),
     linear-gradient(135deg, #eef1df 0%, #f5f0e4 100%);
@@ -7169,7 +7142,6 @@ body:has(.conditions-page) {
   min-height: 600px;
   margin: 0 auto;
   padding: 52px clamp(28px, 4.8vw, 90px) 56px;
-  /* overflow: hidden; */
   border: 1px solid rgba(217, 202, 178, 0.92);
   border-radius: 32px;
   background:
@@ -7741,7 +7713,6 @@ body .site-header .nav-actions .btn-primary::after {
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  /* overflow: hidden; */
   border: 1px solid rgba(168, 117, 52, 0.25);
   border-radius: 50%;
   background: #eee8dd;
@@ -7778,7 +7749,6 @@ body .site-header .nav-actions .btn-primary::after {
   font-size: 13.5px;
   font-weight: 700;
   line-height: 1.2;
-  /* overflow: hidden; */
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -7787,7 +7757,6 @@ body .site-header .nav-actions .btn-primary::after {
   margin-top: 2px;
   color: #636b67;
   font-size: 11.5px;
-  /* overflow: hidden; */
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -7963,7 +7932,6 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 img,
@@ -8323,7 +8291,6 @@ label {
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    overflow-x: hidden !important;
   }
 
 
@@ -8537,7 +8504,6 @@ label {
 
 .contact-reference-main {
   position: relative;
-  /* overflow: hidden; */
   padding-top: 112px;
 }
 
@@ -8754,7 +8720,6 @@ label {
   align-content: start;
   min-width: 0;
   padding: clamp(34px, 4.2vw, 56px) clamp(28px, 4vw, 48px) 40px;
-  /* overflow: hidden; */
   border: 1px solid rgba(200, 155, 60, 0.18);
   border-radius: 32px;
   background:
@@ -8910,7 +8875,6 @@ label {
   z-index: 1;
   width: 100%;
   margin-top: 24px;
-  /* overflow: hidden; */
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -8937,7 +8901,6 @@ label {
   width: min(calc(100% - 92px), 1820px);
   margin: 0 auto;
   padding: 42px clamp(42px, 5.5vw, 90px) 58px;
-  /* overflow: hidden; */
   border: 1px solid rgba(200, 155, 60, 0.16);
   border-radius: 28px;
   background:
@@ -9036,7 +8999,6 @@ label {
 .contact-reference-map {
   position: relative;
   min-height: clamp(380px, 38vw, 560px);
-  /* overflow: hidden; */
 }
 
 .contact-reference-still img {
@@ -9320,7 +9282,6 @@ label {
   --blog-gold: #c89b3c;
   --blog-muted: #59615d;
   position: relative;
-  /* overflow: hidden; */
   background:
     radial-gradient(circle at 8% 12%, rgba(200, 155, 60, 0.1), transparent 22%),
     radial-gradient(circle at 88% 8%, rgba(14, 63, 37, 0.08), transparent 20%),
@@ -9355,7 +9316,6 @@ label {
   position: absolute;
   inset: 0;
   z-index: -3;
-  /* overflow: hidden; */
 }
 
 .blog-premium-hero-bg img {
@@ -9481,7 +9441,6 @@ label {
 
 .blog-premium-hero-feature {
   position: relative;
-  overflow: hidden;
   padding: 30px;
   border: 1px solid rgba(255, 250, 240, 0.24);
   border-radius: 28px;
@@ -9636,7 +9595,6 @@ label {
   display: grid;
   align-content: end;
   min-height: 320px;
-  overflow: hidden;
   border-radius: 28px;
   background: #10261f;
   box-shadow: 0 30px 70px rgba(60, 42, 18, 0.14);
@@ -9744,7 +9702,6 @@ label {
   grid-template-rows: minmax(240px, 1fr) auto;
   height: 100%;
   min-height: 470px;
-  overflow: hidden;
   border: 1px solid rgba(168, 117, 52, 0.16);
   border-radius: 26px;
   background: rgba(255, 253, 248, 0.9);
@@ -9770,7 +9727,6 @@ label {
   position: relative;
   display: block;
   min-height: 240px;
-  overflow: hidden;
   background: #dfd4c3;
 }
 
@@ -9816,7 +9772,6 @@ label {
   display: grid;
   align-content: end;
   min-height: 440px;
-  overflow: hidden;
   padding: 26px;
   border-radius: 28px;
   background: #10261f;
@@ -9862,7 +9817,6 @@ label {
   width: min(calc(100% - 44px), 1480px);
   margin: clamp(82px, 8vw, 132px) auto 0;
   padding: clamp(36px, 5vw, 72px);
-  overflow: hidden;
   border: 1px solid rgba(200, 155, 60, 0.28);
   border-radius: 34px;
   background:
@@ -10193,7 +10147,6 @@ label {
 }
 
 .blog-premium-hero-feature {
-  overflow: hidden;
   border-color: rgba(221, 212, 199, 0.72);
   box-shadow: 0 28px 80px rgba(35, 35, 35, 0.14);
 }
@@ -10288,7 +10241,6 @@ label {
 
 .blog-premium-newsletter,
 .blog-premium-footer-cta {
-  overflow: hidden;
   background:
     radial-gradient(circle at 84% 18%, rgba(200, 155, 60, 0.22), transparent 28%),
     linear-gradient(135deg, #123f24 0%, #0d2f1b 100%);
@@ -10582,7 +10534,6 @@ label {
 
 /* Blog responsive/debug pass */
 body:has(.blog-premium-page) {
-  overflow-x: hidden;
 }
 
 body:has(.blog-premium-page) main {
@@ -10862,7 +10813,6 @@ body:has(.blog-premium-page) .site-header {
 
 /* Premium media page */
 body:has(.media-page) {
-  overflow-x: hidden;
   background: #080909;
 }
 
@@ -10914,7 +10864,6 @@ body:has(.media-page) main {
   min-height: clamp(680px, 72vw, 940px);
   padding: clamp(70px, 8vw, 130px) clamp(18px, 5vw, 88px);
   align-items: center;
-  overflow: hidden;
 }
 
 .media-hero>img {
@@ -11115,7 +11064,6 @@ body:has(.media-page) main {
 .media-featured article {
   position: relative;
   min-height: clamp(520px, 54vw, 780px);
-  overflow: hidden;
   border: 1px solid var(--media-line);
   border-radius: 34px;
   background: #0f1713;
@@ -11217,7 +11165,6 @@ body:has(.media-page) main {
 .media-card {
   position: relative;
   min-height: 310px;
-  overflow: hidden;
   border: 1px solid var(--media-line);
   border-radius: 28px;
   background: #111;
@@ -11281,7 +11228,6 @@ body:has(.media-page) main {
   position: relative;
   flex: 0 0 clamp(300px, 34vw, 520px);
   min-height: 360px;
-  overflow: hidden;
   border: 1px solid var(--media-line);
   border-radius: 28px;
   background: #111;
@@ -11391,7 +11337,6 @@ body:has(.media-page) main {
 .media-social article {
   position: relative;
   aspect-ratio: 1;
-  overflow: hidden;
   border: 1px solid var(--media-line);
   border-radius: 24px;
   background: #111;
@@ -11423,7 +11368,6 @@ body:has(.media-page) main {
   display: grid;
   margin-bottom: clamp(76px, 9vw, 132px);
   padding: clamp(38px, 7vw, 92px);
-  overflow: hidden;
   border: 1px solid rgba(200, 155, 60, 0.22);
   border-radius: 34px;
   background:
@@ -11588,7 +11532,6 @@ body:has(.media-page) {
   min-height: clamp(520px, 52vw, 720px);
   margin: 0 auto;
   padding: clamp(54px, 6vw, 92px);
-  overflow: hidden;
   border: 1px solid #DDD4C7;
   border-radius: 34px;
   background: #FFFFFF;
@@ -11913,7 +11856,6 @@ body:has(.media-page) {
   width: min(calc(100% - 44px), 1320px);
   margin: clamp(48px, 5vw, 76px) auto 0;
   padding: clamp(30px, 5vw, 68px);
-  overflow: hidden;
   border: 1px solid rgba(221, 212, 199, 0.94);
   border-radius: 34px;
   background:
@@ -12140,7 +12082,6 @@ body:has(.branches-premium-page) {
   isolation: isolate;
   min-height: 100vh;
   padding: clamp(98px, 8vw, 128px) 0 clamp(64px, 7vw, 108px);
-  overflow: hidden;
   background:
     radial-gradient(circle at 8% 8%, rgba(200, 155, 60, 0.17), transparent 24%),
     radial-gradient(circle at 94% 16%, rgba(18, 63, 36, 0.12), transparent 26%),
@@ -12206,7 +12147,6 @@ body:has(.branches-premium-page) {
   align-items: center;
   min-height: clamp(520px, 50vw, 700px);
   padding: clamp(30px, 4.5vw, 68px);
-  overflow: hidden;
   border: 1px solid rgba(221, 212, 199, 0.92);
   border-radius: 34px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 236, 0.78));
@@ -12341,7 +12281,6 @@ body:has(.branches-premium-page) {
 
 .branches-hero-visual {
   min-height: clamp(320px, 38vw, 560px);
-  overflow: hidden;
   border: 10px solid rgba(255, 255, 255, 0.72);
   border-radius: 32px;
   background: #ddd4c7;
@@ -12496,7 +12435,6 @@ body:has(.branches-premium-page) {
 
 .branch-location-card {
   position: relative;
-  overflow: hidden;
   border: 1px solid rgba(221, 212, 199, 0.94);
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.86);
@@ -12513,7 +12451,6 @@ body:has(.branches-premium-page) {
 .branch-location-image {
   position: relative;
   min-height: clamp(240px, 24vw, 330px);
-  overflow: hidden;
   background: #ddd4c7;
 }
 
@@ -12645,7 +12582,6 @@ body:has(.branches-premium-page) {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   margin-top: clamp(24px, 3vw, 42px);
-  overflow: hidden;
   border: 1px solid rgba(221, 212, 199, 0.94);
   border-radius: 22px;
   background: rgba(18, 63, 36, 0.1);
@@ -12677,7 +12613,6 @@ body:has(.branches-premium-page) {
   align-items: stretch;
   margin-top: clamp(34px, 4vw, 62px);
   padding: clamp(24px, 3vw, 38px);
-  overflow: hidden;
   border: 1px solid rgba(221, 212, 199, 0.95);
   border-radius: 30px;
   background:
@@ -12723,7 +12658,6 @@ body:has(.branches-premium-page) {
 .branches-trust-image {
   position: relative;
   min-height: 300px;
-  overflow: hidden;
   border: 8px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
   background: #ddd4c7;
@@ -12768,7 +12702,6 @@ body:has(.branches-premium-page) {
   justify-content: space-between;
   margin-top: clamp(26px, 3vw, 44px);
   padding: clamp(24px, 3vw, 38px) clamp(24px, 4vw, 54px);
-  overflow: hidden;
   border: 1px solid rgba(200, 155, 60, 0.25);
   border-radius: 28px;
   background:
@@ -13329,7 +13262,6 @@ body:has(.ayur-village-page) {
   --village-card: rgba(255, 255, 255, 0.86);
   width: 100%;
   padding: clamp(94px, 7vw, 120px) 0 clamp(58px, 6vw, 94px);
-  overflow: hidden;
   background:
     radial-gradient(circle at 10% 14%, rgba(168, 117, 52, 0.07), transparent 26%),
     linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
@@ -13420,7 +13352,6 @@ body:has(.ayur-village-page) {
   width: 100vw;
   margin: calc(clamp(94px, 7vw, 120px) * -1) calc(50% - 50vw) 0;
   padding: clamp(150px, 12vw, 210px) clamp(24px, 7vw, 120px) clamp(28px, 4vw, 56px);
-  overflow: hidden;
   isolation: isolate;
   background: var(--village-deep);
 }
@@ -13515,7 +13446,6 @@ body:has(.ayur-village-page) {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   width: min(100%, 1120px);
   margin-top: clamp(38px, 5vw, 72px);
-  overflow: hidden;
   border: 1px solid rgba(198, 148, 75, 0.18);
   border-radius: 18px;
   background: rgba(8, 43, 32, 0.82);
@@ -13568,7 +13498,6 @@ body:has(.ayur-village-page) {
 .ayur-village-video-card {
   position: relative;
   min-height: clamp(330px, 34vw, 480px);
-  overflow: hidden;
   border-radius: 28px;
   background: #e6ddcf;
   box-shadow: 0 24px 58px rgba(49, 36, 22, 0.13);
@@ -13690,7 +13619,6 @@ body:has(.ayur-village-page) {
   min-height: clamp(260px, 24vw, 380px);
   margin: 0 calc(50% - 50vw);
   padding: clamp(48px, 6vw, 86px) clamp(24px, 7vw, 120px);
-  overflow: hidden;
   background: var(--village-deep);
   isolation: isolate;
 }
@@ -13781,7 +13709,6 @@ body:has(.ayur-village-page) {
 .ayur-village-gallery article {
   position: relative;
   min-height: clamp(180px, 18vw, 260px);
-  overflow: hidden;
   border-radius: 18px;
   background: #e6ddcf;
   box-shadow: 0 18px 42px rgba(64, 43, 20, 0.1);
@@ -13792,7 +13719,6 @@ body:has(.ayur-village-page) {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 28px;
-  overflow: hidden;
   border: 1px solid var(--village-line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.78);
@@ -13833,7 +13759,6 @@ body:has(.ayur-village-page) {
   justify-content: space-between;
   margin-top: clamp(34px, 4vw, 60px);
   padding: clamp(24px, 3vw, 38px) clamp(24px, 4vw, 54px);
-  overflow: hidden;
   border: 1px solid rgba(198, 148, 75, 0.28);
   border-radius: 22px;
   background:
@@ -14348,7 +14273,6 @@ body:has(.packages-page) {
   --packages-card: rgba(255, 255, 255, 0.88);
   width: 100%;
   padding: clamp(92px, 7vw, 118px) 0 clamp(58px, 6vw, 94px);
-  overflow: hidden;
   background:
     radial-gradient(circle at 10% 18%, rgba(168, 117, 52, 0.06), transparent 28%),
     linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
@@ -14445,7 +14369,6 @@ body:has(.packages-page) {
   min-height: clamp(560px, 48vw, 760px);
   margin: calc(clamp(92px, 7vw, 118px) * -1) calc(50% - 50vw) 0;
   padding: clamp(138px, 10vw, 182px) clamp(24px, 7vw, 120px) clamp(32px, 4vw, 58px);
-  overflow: hidden;
   background: var(--packages-deep);
   isolation: isolate;
 }
@@ -14534,7 +14457,6 @@ body:has(.packages-page) {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   width: min(100%, 1240px);
   margin-top: clamp(36px, 5vw, 72px);
-  overflow: hidden;
   border: 1px solid rgba(198, 148, 75, 0.2);
   border-radius: 18px;
   background: rgba(8, 43, 32, 0.88);
@@ -14717,7 +14639,6 @@ body:has(.packages-page) {
   align-items: center;
   margin-top: 26px;
   padding: 28px 32px;
-  overflow: hidden;
   border: 1px solid rgba(198, 148, 75, 0.28);
   border-radius: 18px;
   background: var(--packages-deep);
@@ -14952,7 +14873,6 @@ body:has(.ecosystem-page) {
   --ecosystem-card: rgba(255, 255, 255, 0.88);
   width: 100%;
   padding: clamp(92px, 7vw, 118px) 0 clamp(58px, 6vw, 94px);
-  overflow: hidden;
   background:
     radial-gradient(circle at 12% 18%, rgba(168, 117, 52, 0.055), transparent 28%),
     radial-gradient(circle at 88% 42%, rgba(168, 117, 52, 0.045), transparent 26%),
@@ -15042,7 +14962,6 @@ body:has(.ecosystem-page) {
   min-height: clamp(540px, 48vw, 740px);
   margin: calc(clamp(92px, 7vw, 118px) * -1) calc(50% - 50vw) 0;
   padding: clamp(140px, 10vw, 182px) clamp(24px, 7vw, 112px) clamp(28px, 4vw, 54px);
-  overflow: hidden;
   background: #fffdf9;
   isolation: isolate;
 }
@@ -15101,7 +15020,6 @@ body:has(.ecosystem-page) {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  overflow: hidden;
   border: 1px solid var(--ecosystem-line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.9);
@@ -15190,7 +15108,6 @@ body:has(.ecosystem-page) {
 .ecosystem-card {
   position: relative;
   min-height: 290px;
-  overflow: hidden;
   border: 1px solid var(--ecosystem-line);
   border-radius: 18px;
   background: var(--ecosystem-card);
@@ -15295,7 +15212,6 @@ body:has(.ecosystem-page) {
   align-items: center;
   margin-top: 34px;
   padding: 28px 32px;
-  overflow: hidden;
   border: 1px solid var(--ecosystem-line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.86);
@@ -16001,7 +15917,6 @@ body:has(.ecosystem-page) {
 
 /* Ecosystem hero premium banner details */
 .ecosystem-hero {
-  overflow: hidden;
 }
 
 .ecosystem-hero::after {
@@ -16211,7 +16126,6 @@ body:has(.international-page) {
   --international-line: rgba(149, 117, 77, 0.16);
   width: 100%;
   padding: clamp(92px, 7vw, 118px) 0 clamp(52px, 5vw, 82px);
-  overflow: hidden;
   background:
     radial-gradient(circle at 8% 12%, rgba(168, 117, 52, 0.08), transparent 22%),
     radial-gradient(circle at 92% 55%, rgba(6, 63, 43, 0.06), transparent 24%),
@@ -16313,7 +16227,6 @@ body:has(.international-page) {
   margin: calc(clamp(92px, 7vw, 118px) * -1) calc(50% - 50vw) 0;
   padding: clamp(142px, 10vw, 180px) clamp(22px, 6vw, 108px) clamp(34px, 5vw, 72px);
   isolation: isolate;
-  overflow: hidden;
   background:
     radial-gradient(circle at 92% 15%, rgba(168, 117, 52, 0.12), transparent 24%),
     linear-gradient(105deg, #fffdf9 0%, #fffdf9 45%, #f7efe2 45.3%, #fffaf1 46.1%, #fffdf9 100%);
@@ -16458,7 +16371,6 @@ body:has(.international-page) {
   min-height: clamp(400px, 42vw, 650px);
   align-self: stretch;
   margin-right: calc(clamp(22px, 6vw, 108px) * -1);
-  overflow: hidden;
   border-radius: 46% 0 0 46%;
   border-left: 10px solid rgba(168, 117, 52, 0.52);
   box-shadow: -28px 30px 70px rgba(64, 43, 20, 0.18);
@@ -16599,7 +16511,6 @@ body:has(.international-page) {
 
 .international-program-card {
   position: relative;
-  overflow: hidden;
   border: 1px solid var(--international-line);
   border-radius: 18px 8px 18px 8px;
   background: rgba(255, 253, 249, 0.92);
@@ -16616,7 +16527,6 @@ body:has(.international-page) {
 .international-program-media {
   position: relative;
   min-height: 155px;
-  overflow: hidden;
 }
 
 .international-program-media img {
@@ -16686,7 +16596,6 @@ body:has(.international-page) {
   align-items: center;
   margin-top: 34px;
   padding: clamp(26px, 3vw, 42px);
-  overflow: hidden;
   border: 1px solid var(--international-line);
   border-radius: 22px 8px 22px 8px;
   background:
@@ -16829,7 +16738,6 @@ body:has(.international-page) {
 
 .international-world-card {
   position: relative;
-  overflow: hidden;
 }
 
 .international-map {
@@ -16912,7 +16820,6 @@ body:has(.international-page) {
 .international-enquiry-intro {
   position: relative;
   min-height: 250px;
-  overflow: hidden;
   padding: 34px;
   border-radius: 18px 8px 18px 8px;
   background:
@@ -16971,7 +16878,6 @@ body:has(.international-page) {
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
 
@@ -17020,7 +16926,6 @@ body:has(.international-page) {
 
 .international-help-card {
   position: relative;
-  overflow: hidden;
   padding: 34px;
   background:
     radial-gradient(circle at 92% 14%, rgba(6, 63, 43, 0.11), transparent 26%),
@@ -17337,7 +17242,6 @@ body:has(.facilities-page) {
   --facilities-line: rgba(149, 117, 77, 0.16);
   width: 100%;
   padding: clamp(92px, 7vw, 118px) 0 clamp(54px, 6vw, 90px);
-  overflow: hidden;
   background:
     radial-gradient(circle at 8% 14%, rgba(168, 117, 52, 0.07), transparent 24%),
     radial-gradient(circle at 92% 60%, rgba(6, 63, 43, 0.06), transparent 26%),
@@ -17423,7 +17327,6 @@ body:has(.facilities-page) {
   min-height: clamp(620px, 54vw, 820px);
   margin: calc(clamp(92px, 7vw, 118px) * -1) calc(50% - 50vw) 0;
   padding: clamp(142px, 10vw, 180px) clamp(22px, 6vw, 108px) clamp(34px, 5vw, 70px);
-  overflow: hidden;
   isolation: isolate;
   background:
     linear-gradient(105deg, #fffdf9 0%, #fffdf9 45%, rgba(168, 117, 52, 0.18) 45.2%, #fffaf1 46.1%, #fffdf9 100%);
@@ -17513,7 +17416,6 @@ body:has(.facilities-page) {
   min-height: clamp(400px, 42vw, 650px);
   align-self: stretch;
   margin-right: calc(clamp(22px, 6vw, 108px) * -1);
-  overflow: hidden;
   border-radius: 46% 0 0 46%;
   border-left: 10px solid rgba(6, 63, 43, 0.55);
   box-shadow: -28px 30px 70px rgba(64, 43, 20, 0.18);
@@ -17650,7 +17552,6 @@ body:has(.facilities-page) {
   align-content: start;
   min-height: 386px;
   padding: 22px 16px 16px;
-  overflow: hidden;
   border: 1px solid var(--facilities-line);
   border-radius: 16px 6px 16px 6px;
   background: rgba(255, 253, 249, 0.94);
@@ -17691,7 +17592,6 @@ body:has(.facilities-page) {
   position: relative;
   min-height: 128px;
   margin-top: 18px;
-  overflow: hidden;
   border-radius: 12px 4px 12px 4px;
 }
 
@@ -17785,7 +17685,6 @@ body:has(.facilities-page) {
   display: grid;
   align-content: start;
   min-height: 230px;
-  overflow: hidden;
   padding: 24px;
   border: 1px solid var(--facilities-line);
   border-radius: 16px 6px 16px 6px;
@@ -17884,7 +17783,6 @@ body:has(.facilities-page) {
 
 .facilities-trust-card {
   position: relative;
-  overflow: hidden;
   background:
     radial-gradient(circle at 82% 24%, rgba(6, 63, 43, 0.08), transparent 24%),
     repeating-linear-gradient(90deg, transparent 0 22px, rgba(6, 63, 43, 0.03) 23px),
@@ -17992,7 +17890,6 @@ body:has(.facilities-page) {
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
 
@@ -18035,7 +17932,6 @@ body:has(.facilities-page) {
 
 .facilities-help-card {
   position: relative;
-  overflow: hidden;
   padding: 34px;
   background:
     radial-gradient(circle at 92% 20%, rgba(6, 63, 43, 0.12), transparent 26%),
@@ -18779,7 +18675,6 @@ body:has(.international-page) .international-page {
   position: relative;
   width: 100%;
   padding-top: 136px;
-  overflow: hidden;
   background:
     radial-gradient(circle at 14% 28%, rgba(198, 155, 76, 0.08), transparent 19%),
     linear-gradient(180deg, #fffdf8 0%, #fbf8ef 100%);
@@ -18860,7 +18755,6 @@ body:has(.international-page) .international-hero {
   width: 100%;
   min-height: 450px !important;
   padding: 58px clamp(40px, 6vw, 86px) 34px !important;
-  overflow: hidden;
   border-bottom: 1px solid rgba(8, 47, 35, 0.11);
   background:
     radial-gradient(circle at 6% 13%, rgba(0, 63, 36, 0.05), transparent 17%),
@@ -18978,7 +18872,6 @@ body:has(.international-page) .international-hero-visual {
   position: relative;
   z-index: 1;
   min-height: 430px !important;
-  overflow: hidden;
   border-left: 12px solid var(--international-green);
   border-radius: 52% 0 0 52%;
   box-shadow: -20px 22px 60px rgba(6, 31, 22, 0.18);
@@ -19171,7 +19064,6 @@ body:has(.international-page) .international-facility-image {
   position: relative;
   min-height: 145px;
   margin-top: auto;
-  overflow: hidden;
   border-radius: 9px;
 }
 
@@ -19258,7 +19150,6 @@ body:has(.international-page) .international-program-card {
   position: relative;
   display: grid;
   min-height: 235px;
-  overflow: hidden;
   padding: 24px 22px 18px;
 }
 
@@ -19342,7 +19233,6 @@ body:has(.international-page) .international-faq-card>a {
 
 body:has(.international-page) .international-world-card {
   position: relative;
-  overflow: hidden;
 }
 
 body:has(.international-page) .international-world-card h2 {
@@ -19405,7 +19295,6 @@ body:has(.international-page) .international-world-stats .international-stat-car
 
 body:has(.international-page) .international-travel-card {
   position: relative;
-  overflow: hidden;
   padding: 34px 30px;
   border-radius: 12px;
   background:
@@ -19503,7 +19392,6 @@ body:has(.international-page) .international-enquiry-form label span {
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
 
@@ -19554,7 +19442,6 @@ body:has(.international-page) .international-enquiry-form button svg {
 
 body:has(.international-page) .international-help-card {
   position: relative;
-  overflow: hidden;
   padding: 32px 34px;
   background:
     radial-gradient(circle at 88% 74%, rgba(140, 170, 72, 0.2), transparent 28%),
