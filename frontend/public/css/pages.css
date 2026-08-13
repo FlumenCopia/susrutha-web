@@ -1908,7 +1908,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   margin-top: 43px;
   padding: 0 11px 0 33px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #0d3d2d 0%, #052013 100%);
+  background: linear-gradient(135deg, #000a04 0%, #000a04 100%);
   color: #ffffff;
   font-size: clamp(15px, 0.94vw, 18px);
   font-weight: 600;
@@ -2011,7 +2011,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .treatment-category-pill[data-active="true"] {
   padding-right: clamp(28px, 1.9vw, 40px);
-  background: linear-gradient(135deg, #0d3d2d 0%, #052013 100%);
+  background: linear-gradient(135deg, #000a04 0%, #000a04 100%);
   color: #ffffff;
   box-shadow: 0 13px 30px rgba(4, 26, 17, 0.18);
 }
@@ -2697,7 +2697,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
   gap: 0;
   padding-inline: 28px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #0d3d2d 0%, #000a04 100%) !important;
+  background: linear-gradient(135deg, #000a04 0%, #000a04 100%) !important;
   box-shadow: 0 18px 36px rgba(4, 24, 15, 0.18) !important;
   color: #ffffff !important;
   font-size: 14px;
@@ -2982,7 +2982,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .all-treatment-body h3 {
-  color: #102d24;
+  color: #000a04;
   font-size: clamp(23px, 1.45vw, 29px);
   font-weight: 500;
   line-height: 1.08;
@@ -3151,7 +3151,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   min-height: 54px;
   padding: 0 9px 0 25px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #0d3d2d 0%, #052013 100%);
+  background: linear-gradient(135deg, #000a04 0%, #000a04 100%);
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
