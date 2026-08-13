@@ -67,12 +67,12 @@ export function ConditionsBanner() {
           <span>We Treat</span>
         </h1>
 
-        <div className="conditions-title-rule" aria-hidden="true">
+        {/* <div className="conditions-title-rule" aria-hidden="true">
           <span />
           <i>
             <LeafMark />
           </i>
-        </div>
+        </div> */}
 
         <p>
           Ayurvedic care for every condition.

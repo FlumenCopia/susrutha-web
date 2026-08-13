@@ -3147,7 +3147,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   margin-top: clamp(48px, 4vw, 68px);
   border: 1px solid rgba(168, 117, 52, 0.13);
   border-radius: 20px;
-  background:#fff;
+  background: #fff;
   box-shadow: 0 22px 48px rgba(67, 47, 24, 0.09);
   overflow: hidden;
 }
@@ -4493,7 +4493,7 @@ body:has(.treatment-detail-reference) main {
 .conditions-section-head h2,
 .conditions-care-band h2 {
   margin: 0;
-  color: #0d3424;
+  color: #000a04;
   font-size: clamp(38px, 3.5vw, 62px);
   font-weight: 600;
   line-height: 1.04;
@@ -4544,7 +4544,7 @@ body:has(.treatment-detail-reference) main {
 .condition-card h3 {
   max-width: 250px;
   margin: 24px 0 0;
-  color: #102c20;
+  color: #000a04;
   font-size: clamp(28px, 1.8vw, 36px);
   font-weight: 700;
   line-height: 1.04;
@@ -4576,7 +4576,7 @@ body:has(.treatment-detail-reference) main {
   height: 46px;
   place-items: center;
   border-radius: 50%;
-  background: #123c27;
+  background: #000a04;
   color: #ffffff;
   font-size: 26px;
   line-height: 1;
@@ -4591,7 +4591,7 @@ body:has(.treatment-detail-reference) main {
   border-radius: 28px;
   background:
     linear-gradient(135deg, rgba(9, 43, 28, 0.94), rgba(18, 60, 39, 0.94)),
-    #0b341f;
+    #000a04;
   color: #fffaf0;
   box-shadow: 0 28px 70px rgba(34, 25, 13, 0.18);
 }
@@ -5109,11 +5109,8 @@ body:has(.conditions-page) {
   gap: 12px;
   min-height: 48px;
   padding: 0 24px;
-  border: 1px solid rgba(213, 197, 169, 0.58);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: #153928;
-  box-shadow: 0 12px 28px rgba(83, 61, 34, 0.06);
+  color: #000a04;
   backdrop-filter: blur(10px);
 }
 
@@ -5547,8 +5544,7 @@ body:has(.conditions-page) {
 .conditions-page .conditions-breadcrumb a,
 .conditions-page .conditions-breadcrumb>span,
 .conditions-page .conditions-search input,
-.conditions-page .conditions-select select {
-}
+.conditions-page .conditions-select select {}
 
 .conditions-page .conditions-breadcrumb a,
 .conditions-page .conditions-breadcrumb>span {
@@ -5597,8 +5593,7 @@ body:has(.conditions-page) {
 
 .conditions-page .conditions-rooted-badge span,
 .conditions-page .conditions-rooted-badge strong,
-.conditions-page .conditions-rooted-badge em {
-}
+.conditions-page .conditions-rooted-badge em {}
 
 .conditions-page .conditions-rooted-badge span {
   font-size: clamp(21px, 1.3vw, 27px);
@@ -10483,8 +10478,7 @@ label {
 }
 
 /* Blog responsive/debug pass */
-body:has(.blog-premium-page) {
-}
+body:has(.blog-premium-page) {}
 
 body:has(.blog-premium-page) main {
   overflow-x: clip;
@@ -15834,8 +15828,7 @@ body:has(.ecosystem-page) {
 }
 
 /* Ecosystem hero premium banner details */
-.ecosystem-hero {
-}
+.ecosystem-hero {}
 
 .ecosystem-hero::after {
   content: "";
@@ -18114,8 +18107,7 @@ a,
 button,
 input,
 select,
-textarea {
-}
+textarea {}
 
 button,
 a,
@@ -19532,4 +19524,3 @@ body:has(.international-page) .international-help-card a {
   }
 
 }
-
