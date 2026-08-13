@@ -496,7 +496,6 @@ p {
 .home-counter-item strong {
   display: block;
   color: #253f38;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 2.08vw, 33px);
   font-weight: 500;
   line-height: 1;
@@ -644,7 +643,6 @@ p {
   max-width: 430px;
   margin: 34px 0 0;
   color: #192421;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(44px, 4.5vw, 75px);
   font-weight: 500;
   line-height: 1.08;
@@ -823,7 +821,6 @@ p {
 
 .doctors-expert-badge strong {
   color: #a87534;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 42px;
   font-weight: 500;
   line-height: 1;
@@ -870,7 +867,6 @@ p {
 .doctors-expert-profile h3 {
   margin: 10px 0 4px;
   color: #192421;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(34px, 3vw, 48px);
   font-weight: 500;
   line-height: 1.08;
@@ -980,7 +976,6 @@ p {
 .doctors-expert-card-copy h3 {
   margin: 0;
   color: #17231f;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(26px, 2vw, 34px);
   font-weight: 500;
   line-height: 1.15;
@@ -1098,7 +1093,6 @@ p {
   display: block;
   margin-top: 8px;
   color: #17231f;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 2.1vw, 34px);
   font-weight: 500;
   line-height: 1;
@@ -1122,7 +1116,6 @@ p {
 .doctors-expert-quote>span {
   display: block;
   color: rgba(168, 117, 52, 0.5);
-  font-family: Georgia, serif;
   font-size: 62px;
   line-height: 0.75;
 }
@@ -1130,7 +1123,6 @@ p {
 .doctors-expert-quote p {
   margin: 0;
   color: #17231f !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(22px, 2vw, 30px) !important;
   font-style: italic;
   line-height: 1.42;
@@ -1625,7 +1617,6 @@ p {
 .testimonials-reference-heading h2 {
   margin: 26px 0 0;
   color: #192421;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(44px, 4.4vw, 76px);
   font-weight: 500;
   line-height: 1.08;
@@ -1708,7 +1699,6 @@ p {
   left: 28px;
   top: 32px;
   color: rgba(168, 117, 52, 0.66);
-  font-family: Georgia, serif;
   font-size: 62px;
   line-height: 0.75;
 }
@@ -1755,7 +1745,6 @@ p {
 .testimonials-reference-card h3 {
   margin: 0;
   color: #192421;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(24px, 1.8vw, 31px);
   font-weight: 500;
 }
@@ -1864,7 +1853,6 @@ p {
 .testimonials-reference-stat strong {
   display: block;
   color: #192421;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(26px, 2.2vw, 36px);
   font-weight: 500;
   line-height: 1;
@@ -2165,7 +2153,6 @@ p {
 .home-page .doctors-expert-intro h2,
 .home-page .testimonials-reference-heading h2 {
   color: var(--home-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -2851,7 +2838,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .home-page .about-values-heading h3 {
   margin: 0;
   color: #20312d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(30px, 2.2vw, 42px);
   font-weight: 500;
 }
@@ -4358,7 +4344,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .purpose-value h3 {
   color: #152b28;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px !important;
   font-weight: 800;
   line-height: 1.25 !important;
@@ -4961,7 +4946,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .home-page .home-counter-item strong {
   display: block;
   color: #20312d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(42px, 3.1vw, 58px);
   font-weight: 500;
   line-height: 0.96;
@@ -5239,7 +5223,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .home-page .home-value-item h3 {
   margin-top: 30px;
   color: #15231f;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(22px, 1.9vw, 32px);
   font-weight: 600;
   line-height: 1.12;
@@ -5400,7 +5383,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .home-page .home-counter-item strong {
   margin-top: clamp(22px, 2vw, 32px);
   color: #d9a15c;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(48px, 4.3vw, 78px);
   font-weight: 500;
   line-height: 0.95;
@@ -6504,7 +6486,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-premium-page .about-premium-hero-value h3 {
   margin-top: 20px;
   color: #173733;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(22px, 1.55vw, 28px);
   font-weight: 600;
   line-height: 1.1;
@@ -6863,7 +6844,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   align-items: center;
   gap: 12px;
   color: #2f5834;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: clamp(12px, 0.95vw, 15px);
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -6887,7 +6867,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-founders-head h2 {
   margin: 20px 0 18px;
   color: #202531;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(42px, 4.1vw, 70px);
   font-weight: 500;
   letter-spacing: 0;
@@ -6969,7 +6948,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-founders-note p {
   margin: 0;
   color: #202531;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(20px, 1.55vw, 28px);
   line-height: 1.32;
 }
@@ -7057,7 +7035,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-founder-body h3 {
   margin: 0 0 8px;
   color: #1f2630;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 2vw, 32px);
   font-weight: 500;
   letter-spacing: 0;

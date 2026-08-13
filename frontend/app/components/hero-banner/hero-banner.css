@@ -103,7 +103,6 @@
 }
 
 .hero-main-title {
-  font-family: "Italiana", "Playfair Display", Georgia, serif;
   font-size: clamp(2.4rem, 5.2vw, 4.2rem);
   font-weight: 400;
   line-height: 1.12;
@@ -126,7 +125,6 @@
 }
 
 .hero-cta-text {
-  font-family: "Outfit", sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 2.5px;

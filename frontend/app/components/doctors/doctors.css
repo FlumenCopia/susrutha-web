@@ -5,7 +5,6 @@
   color: var(--color-ink, #3f403d);
   min-height: 100vh;
   padding-bottom: 80px;
-  font-family: var(--font-body), "Manrope", sans-serif;
 }
 
 /* ==========================================================================
@@ -56,7 +55,6 @@
 }
 
 .doctors-hero-title {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: clamp(32px, 4.5vw, 56px);
   font-weight: 700;
   line-height: 1.15;
@@ -120,7 +118,6 @@
 }
 
 .doctors-hero-stat-val {
-  font-family: var(--font-heading), serif;
   font-size: 22px;
   font-weight: 700;
   color: #262725;
@@ -168,7 +165,6 @@
   background: transparent;
   outline: none;
   font-size: 16px;
-  font-family: inherit;
   color: var(--color-ink, #3f403d);
   padding: 8px 0;
 }
@@ -246,7 +242,6 @@
 }
 
 .doctors-dept-title {
-  font-family: var(--font-heading), serif;
   font-size: clamp(24px, 3vw, 36px);
   font-weight: 700;
   color: #262725;
@@ -563,7 +558,6 @@
 }
 
 .doctors-empty-title {
-  font-family: var(--font-heading), serif;
   font-size: 24px;
   font-weight: 700;
   color: #262725;
@@ -708,7 +702,6 @@
 }
 
 .doctor-card-name {
-  font-family: var(--font-heading), serif;
   font-size: 22px;
   font-weight: 700;
   color: #262725;
@@ -962,7 +955,6 @@
 }
 
 .doctor-modal-info-col h3 {
-  font-family: var(--font-heading), serif;
   font-size: 26px;
   font-weight: 700;
   color: #262725;
@@ -1050,7 +1042,6 @@
 }
 
 .doctors-assistant-title {
-  font-family: var(--font-heading), serif;
   font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 700;
   margin: 0 0 10px;
@@ -1155,7 +1146,6 @@
 }
 
 .doctors-stat-number {
-  font-family: var(--font-heading), serif;
   font-size: 42px;
   font-weight: 700;
   color: var(--color-deep-red, #9f131b);
@@ -1212,7 +1202,6 @@
 }
 
 .doctors-cta-title {
-  font-family: var(--font-heading), serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 700;
   color: #262725;

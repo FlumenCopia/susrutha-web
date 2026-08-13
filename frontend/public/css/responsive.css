@@ -201,7 +201,6 @@
 }
 
 .vg-hero-title {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 60px;
   font-weight: 500;
   line-height: 1.06;
@@ -245,7 +244,6 @@
 }
 
 .vg-metric-num {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 22px;
   font-weight: 700;
   color: #e5b974;
@@ -1302,7 +1300,6 @@
 }
 
 .vg-hero-title {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 58px;
   font-weight: 500;
   line-height: 1.08;
@@ -1534,7 +1531,6 @@
 }
 
 .vg-section-title {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 32px;
   font-weight: 600;
   color: #122c22;
@@ -2176,7 +2172,6 @@
 }
 
 .vg-empty-state h3 {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 24px;
   color: #122c22;
   margin: 0 0 6px;
@@ -2618,7 +2613,6 @@
 }
 
 .vg-hero-title {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 52px;
   font-weight: 500;
   line-height: 1.1;
@@ -2722,7 +2716,6 @@
 }
 
 .vg-section-title {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 30px;
   font-weight: 600;
   color: #122c22;
@@ -3071,7 +3064,6 @@
 }
 
 .home-doctors-title-creative {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 50px;
   font-weight: 600;
   line-height: 1.12;
@@ -3171,7 +3163,6 @@
 }
 
 .home-spotlight-metric {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 22px;
   font-weight: 700;
   color: #e5b974;
@@ -3212,7 +3203,6 @@
 }
 
 .home-spotlight-name {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 28px;
   font-weight: 700;
   color: #122c22;
@@ -3347,7 +3337,6 @@
 }
 
 .home-team-heading {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 24px;
   font-weight: 700;
   color: #122c22;
@@ -3476,7 +3465,6 @@
 }
 
 .home-team-name {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 19px;
   font-weight: 700;
   color: #122c22;
@@ -3572,7 +3560,6 @@
 }
 
 .doc-drawer-title {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 32px;
   font-weight: 700;
   color: #122c22;
@@ -3710,7 +3697,6 @@
 }
 
 .doc-drawer-success h4 {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 26px;
   color: #122c22;
   margin: 0 0 10px;
@@ -3862,7 +3848,6 @@
 }
 
 .home-doctors-trust-number {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 32px;
   font-weight: 700;
   color: #0b3b2c;
@@ -4067,7 +4052,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: inherit;
   font-size: 22px;
   font-weight: 700;
   color: #1a2925;
@@ -4156,7 +4140,6 @@
   min-height: 48px;
   padding: 0 24px;
   border-radius: 9999px;
-  font-family: var(--font-body), "Manrope", sans-serif;
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
@@ -4361,7 +4344,6 @@
 }
 
 .treatment-hero-heading {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(34px, 4.5vw, 54px);
   font-weight: 700;
   color: #1a221f;
@@ -4582,7 +4564,6 @@
 }
 
 .section-title-luxury {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 700;
   color: #1a221f;
@@ -4625,7 +4606,6 @@
 }
 
 .ayurveda-wisdom-quote p {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: 20px;
   font-style: italic;
   color: #2a332e;
@@ -4660,7 +4640,6 @@
 }
 
 .highlight-card-head h3 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 22px;
   font-weight: 700;
   color: #1a221f;
@@ -4743,7 +4722,6 @@
 }
 
 .benefit-card-body h3 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 20px;
   font-weight: 700;
   color: #1a221f;
@@ -4872,7 +4850,6 @@
 }
 
 .step-num {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 28px;
   font-weight: 700;
   color: var(--color-gold, #c88922);
@@ -4889,7 +4866,6 @@
 }
 
 .step-title {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 18px;
   font-weight: 700;
   color: #1a221f;
@@ -4928,7 +4904,6 @@
 }
 
 .expect-dark-card h2 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 30px;
   color: #ffffff !important;
   margin-bottom: 24px;
@@ -4992,7 +4967,6 @@
 }
 
 .include-light-card h2 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 30px;
   color: #1a221f !important;
   margin-bottom: 24px;
@@ -5041,7 +5015,6 @@
 }
 
 .cta-heading {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 700;
   color: #ffffff !important;
@@ -5462,7 +5435,6 @@
 }
 
 .apt-hero-headline {
-  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(34px, 4.5vw, 54px);
   font-weight: 700;
   color: #1a221f;
@@ -5509,7 +5481,6 @@
 
 .apt-metric-value {
   display: block;
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--color-deep-red, #9f131b);
@@ -5767,7 +5738,6 @@
 }
 
 .apt-trust-card h3 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 20px;
   font-weight: 700;
   color: #1a221f;
@@ -5896,7 +5866,6 @@
 }
 
 .step-title-block h2 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 28px;
   font-weight: 700;
   color: #1a221f;
@@ -6172,7 +6141,6 @@
   padding: 12px 18px;
   border: 1.5px solid #dcd5c9;
   border-radius: 14px;
-  font-family: var(--font-body), sans-serif;
   font-size: 15px;
   background: #ffffff;
   color: #1a221f;
@@ -6297,7 +6265,6 @@
 }
 
 .apt-section-title-luxury {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: clamp(30px, 3.8vw, 42px);
   font-weight: 700;
   color: #1a221f;
@@ -6369,7 +6336,6 @@
 }
 
 .branch-card-body-deluxe h3 {
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 23px;
   font-weight: 700;
   color: #1a221f;
@@ -6466,7 +6432,6 @@
   justify-content: space-between;
   background: transparent;
   border: none;
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 20px;
   font-weight: 700;
   color: #1a221f;
@@ -6904,7 +6869,6 @@
   max-width: 720px;
   margin: 16px 0 10px !important;
   color: #153a2e !important;
-  font-family: var(--font-heading), "Cormorant Garamond", serif !important;
   font-size: clamp(38px, 4.5vw, 58px) !important;
   font-weight: 500 !important;
   line-height: 1.02 !important;
@@ -7006,7 +6970,6 @@
   padding: 24px 26px 18px;
   border-bottom: 1px solid rgba(180, 123, 52, 0.14);
   color: #17372d;
-  font-family: var(--font-heading), "Cormorant Garamond", serif;
   font-size: 29px;
   font-weight: 600;
 }

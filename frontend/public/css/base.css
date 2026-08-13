@@ -266,7 +266,6 @@
   align-items: baseline;
   gap: 4px;
   color: #20312d;
-  font-family: inherit;
   font-weight: 700;
 }
 
@@ -847,12 +846,10 @@ body {
   background: var(--color-cream);
   color: #000000;
   font-size: 18px;
-  font-family: var(--font-body), Arial, sans-serif;
 }
 
 a {
   color: inherit;
-  font-family: var(--font-body), Arial, sans-serif;
   text-decoration: none;
 }
 
@@ -1073,7 +1070,6 @@ h2,
 h3 {
   margin: 0;
   color: var(--color-ink);
-  font-family: var(--font-heading), Georgia, serif;
   line-height: 1;
   letter-spacing: 0;
 }
@@ -1094,7 +1090,6 @@ h3 {
 
 p {
   color: #000000;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 18px;
   line-height: 1.8;
 }
@@ -1495,7 +1490,6 @@ p {
   justify-self: end;
   margin-top: 48px;
   color: var(--color-deep-red);
-  font-family: Georgia, serif;
   font-size: 78px;
   line-height: 0.8;
 }
@@ -1510,7 +1504,6 @@ p {
 .testimonial-strip-copy p {
   margin: 0;
   color: #343530;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px;
   font-weight: 700;
   line-height: 1.42;
@@ -1704,7 +1697,6 @@ p {
 
 .faq-item summary strong {
   color: #20211e;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(23px, 1.75vw, 31px);
   font-weight: 500;
   line-height: 1.2;
@@ -2060,7 +2052,6 @@ p {
 }
 
 .why-feature h3 {
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 12px;
   font-weight: 900;
   line-height: 1.25;
@@ -2105,7 +2096,6 @@ p {
 .why-quote-card span {
   display: block;
   color: rgba(255, 255, 255, 0.38);
-  font-family: Georgia, serif;
   font-size: 64px;
   line-height: 0.42;
 }
@@ -2315,7 +2305,6 @@ a.inner-card:hover {
 
 .inner-card h3 {
   color: #30342f;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 18px;
   font-weight: 800;
   line-height: 1.25;
@@ -2480,7 +2469,6 @@ a.inner-card:hover {
 .about-premium-page h2,
 .about-premium-page h3 {
   color: var(--about-charcoal);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -2489,7 +2477,6 @@ a.inner-card:hover {
 .about-premium-page li,
 .about-premium-page span,
 .about-premium-page a {
-  font-family: var(--font-body), Arial, sans-serif;
 }
 
 .about-premium-hero {
@@ -3005,7 +2992,6 @@ a.inner-card:hover {
 
 .journey-stat strong {
   color: #a87534;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(34px, 2.8vw, 48px);
   font-weight: 500;
   line-height: 0.95;
@@ -3587,7 +3573,6 @@ a.inner-card:hover {
 
 .purpose-value h3 {
   color: #152b28;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
 }
@@ -3934,7 +3919,6 @@ a.inner-card:hover {
 
 .milestone-showcase-card strong {
   color: #a87534;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 25px;
   line-height: 1;
 }
@@ -4038,7 +4022,6 @@ a.inner-card:hover {
   max-width: 900px;
   margin: 44px auto 0;
   color: #173733;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 1.95vw, 32px);
   font-style: normal;
   line-height: 1.22;
@@ -4337,7 +4320,6 @@ a.inner-card:hover {
 
 .footer-column h3 {
   color: #191a17;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -4402,7 +4384,6 @@ a.inner-card:hover {
 
 .footer-consult-card h3 {
   color: #1a2925;
-  font-family: inherit;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.12em;

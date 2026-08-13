@@ -68,7 +68,6 @@
 .doctor-detail-copy h1 {
   margin: 18px 0 10px;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(44px, 4vw, 66px);
   font-weight: 500;
   line-height: 1.05;
@@ -242,7 +241,6 @@
 .doctor-detail-title-center h2 {
   margin: 0 0 24px;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(28px, 2.2vw, 38px);
   font-weight: 500;
   line-height: 1.15;
@@ -321,7 +319,6 @@
 .doctor-treatment-grid h3 {
   margin: 0 0 7px;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: 0;
@@ -427,7 +424,6 @@
 .doctor-article-grid h3 {
   margin: 8px 0;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.25;
@@ -502,7 +498,6 @@
 .doctor-education-grid h3 {
   margin: 16px 0 7px;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0;
@@ -548,7 +543,6 @@
 .doctor-appointment-banner h2 {
   margin: 12px 0 22px;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(30px, 2.5vw, 42px);
   font-weight: 500;
   line-height: 1.15;
@@ -981,7 +975,6 @@
 .doctor-philosophy-panel h2 {
   margin: 16px 0 0;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(30px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1.12;
@@ -1166,7 +1159,6 @@
 .doctor-experience-copy h2 {
   margin: 14px 0 0;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(32px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1.08;
@@ -1228,7 +1220,6 @@
   border-radius: 50%;
   background: #0f3b29;
   color: #fff8ec;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 24px;
   font-weight: 500;
 }
@@ -1236,7 +1227,6 @@
 .doctor-journey-grid h3 {
   margin: 24px 0 12px;
   color: #20332d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 28px;
   font-weight: 500;
 }
@@ -1308,7 +1298,6 @@
 .doctor-experience-grid h3 {
   margin: 16px 0 10px;
   color: #fffdf8;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 25px;
   font-weight: 500;
 }
@@ -3675,7 +3664,6 @@ body:has(.treatment-detail-reference) main {
 
 .home-page .home-wellness-badge strong {
   color: #c6944b;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(34px, 3.2vw, 48px);
   font-weight: 500;
   line-height: 0.95;
@@ -3772,7 +3760,6 @@ body:has(.treatment-detail-reference) main {
   max-width: 540px;
   margin: clamp(16px, 1.7vw, 26px) 0 0;
   color: #10261f;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(32px, 3.15vw, 52px);
   font-weight: 500;
   line-height: 1.04;
@@ -3838,7 +3825,6 @@ body:has(.treatment-detail-reference) main {
 .home-page .home-wellness-metrics strong {
   margin-top: 10px;
   color: #8a5d20;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 2.2vw, 36px);
   font-weight: 500;
   line-height: 0.96;
@@ -4166,7 +4152,6 @@ body:has(.treatment-detail-reference) main {
 .conditions-hero h1 {
   margin: 38px 0 0;
   color: #fffaf0;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(72px, 7.4vw, 128px);
   font-weight: 500;
   line-height: 0.96;
@@ -4213,7 +4198,6 @@ body:has(.treatment-detail-reference) main {
 .conditions-hero-copy p {
   margin: 34px 0 0;
   color: rgba(255, 250, 240, 0.94);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 1.7vw, 33px);
   font-weight: 600;
   line-height: 1.8;
@@ -4314,14 +4298,12 @@ body:has(.treatment-detail-reference) main {
 }
 
 .conditions-rooted-badge span {
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(22px, 1.55vw, 31px);
   line-height: 1.05;
 }
 
 .conditions-rooted-badge strong {
   margin-top: 4px;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(26px, 1.8vw, 38px);
   font-weight: 700;
   line-height: 1.05;
@@ -4337,7 +4319,6 @@ body:has(.treatment-detail-reference) main {
 .conditions-rooted-badge em {
   max-width: 130px;
   color: #d2aa5a;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(19px, 1.28vw, 26px);
   font-style: normal;
   line-height: 1.24;
@@ -4466,7 +4447,6 @@ body:has(.treatment-detail-reference) main {
 .conditions-care-band h2 {
   margin: 0;
   color: #0d3424;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(38px, 3.5vw, 62px);
   font-weight: 600;
   line-height: 1.04;
@@ -4518,7 +4498,6 @@ body:has(.treatment-detail-reference) main {
   max-width: 250px;
   margin: 24px 0 0;
   color: #102c20;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(28px, 1.8vw, 36px);
   font-weight: 700;
   line-height: 1.04;
@@ -4536,7 +4515,6 @@ body:has(.treatment-detail-reference) main {
   right: 24px;
   top: 22px;
   color: rgba(16, 44, 32, 0.08);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 68px;
   font-weight: 700;
   line-height: 1;
@@ -5116,7 +5094,6 @@ body:has(.conditions-page) {
   align-items: center;
   gap: 8px;
   color: #bd8639;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 17px;
   font-weight: 600;
 }
@@ -5129,7 +5106,6 @@ body:has(.conditions-page) {
 
 .conditions-page .conditions-breadcrumb>span {
   color: #153928;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 17px;
 }
 
@@ -5175,7 +5151,6 @@ body:has(.conditions-page) {
   max-width: 580px;
   margin-top: 30px;
   color: #38413d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(23px, 1.55vw, 31px);
   font-weight: 500;
   line-height: 1.86;
@@ -5304,7 +5279,6 @@ body:has(.conditions-page) {
 
 .conditions-page .conditions-search input,
 .conditions-page .conditions-select select {
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 20px;
 }
 
@@ -5546,7 +5520,6 @@ body:has(.conditions-page) {
 .conditions-page .conditions-breadcrumb>span,
 .conditions-page .conditions-search input,
 .conditions-page .conditions-select select {
-  font-family: var(--font-body), Arial, sans-serif;
 }
 
 .conditions-page .conditions-breadcrumb a,
@@ -5569,7 +5542,6 @@ body:has(.conditions-page) {
 .conditions-page .conditions-hero h1 {
   max-width: 590px;
   color: #20312d;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(54px, 4.05vw, 76px);
   font-weight: 500;
   line-height: 1.12;
@@ -5583,7 +5555,6 @@ body:has(.conditions-page) {
 .conditions-page .conditions-hero-copy p {
   max-width: 560px;
   color: #303936;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.75;
@@ -5600,7 +5571,6 @@ body:has(.conditions-page) {
 .conditions-page .conditions-rooted-badge span,
 .conditions-page .conditions-rooted-badge strong,
 .conditions-page .conditions-rooted-badge em {
-  font-family: var(--font-heading), Georgia, serif;
 }
 
 .conditions-page .conditions-rooted-badge span {
@@ -5709,7 +5679,6 @@ body:has(.conditions-page) {
   gap: 12px;
   margin-bottom: clamp(34px, 3.6vw, 56px);
   color: #59615d;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
@@ -5729,7 +5698,6 @@ body:has(.conditions-page) {
   gap: 8px;
   margin-bottom: 18px;
   color: #b87922;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
   line-height: 1.2;
@@ -5748,7 +5716,6 @@ body:has(.conditions-page) {
   max-width: 700px;
   margin: 0;
   color: #123c27;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(56px, 4.25vw, 82px);
   font-weight: 500;
   line-height: 1.02;
@@ -5759,7 +5726,6 @@ body:has(.conditions-page) {
   max-width: 650px;
   margin: 22px 0 0;
   color: #151915;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: clamp(16px, 1.12vw, 20px);
   font-weight: 500;
   line-height: 1.66;
@@ -5768,7 +5734,6 @@ body:has(.conditions-page) {
 .condition-detail-review {
   margin: 24px 0 0;
   color: #151915;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: clamp(16px, 1vw, 18px);
   font-weight: 500;
   line-height: 1.5;
@@ -5794,7 +5759,6 @@ body:has(.conditions-page) {
   min-height: 58px;
   padding: 0 30px;
   border-radius: 999px;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px;
   font-weight: 800;
   line-height: 1;
@@ -5888,7 +5852,6 @@ body:has(.conditions-page) {
 .condition-detail-badge span,
 .condition-detail-badge em {
   max-width: 150px;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: clamp(11px, 0.72vw, 14px);
   font-style: normal;
   font-weight: 700;
@@ -6188,7 +6151,6 @@ body:has(.conditions-page) {
 .condition-care-mini-card h2 {
   margin: 10px 0 6px;
   color: #123c27;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -6199,7 +6161,6 @@ body:has(.conditions-page) {
 .condition-care-mini-card p {
   margin: 0;
   color: #555d58;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 9.5px;
   font-weight: 500;
   line-height: 1.48;
@@ -6230,7 +6191,6 @@ body:has(.conditions-page) {
   display: block;
   max-width: 116px;
   color: #123c27;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.12;
@@ -6240,7 +6200,6 @@ body:has(.conditions-page) {
   max-width: 136px;
   margin: 6px 0 12px;
   color: #5c635f;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 9.5px;
   line-height: 1.45;
 }
@@ -6256,7 +6215,6 @@ body:has(.conditions-page) {
   border-radius: 999px;
   background: #123c27;
   color: #ffffff;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 8.5px;
   font-weight: 800;
 }
@@ -6289,7 +6247,6 @@ body:has(.conditions-page) {
 .condition-care-heading h2 {
   margin: 0;
   color: #123c27;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.05em;
@@ -6300,7 +6257,6 @@ body:has(.conditions-page) {
 .condition-care-block p,
 .condition-care-block li {
   color: #434b47;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.68;
@@ -6332,7 +6288,6 @@ body:has(.conditions-page) {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.78);
   color: #525955;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 10.5px;
   font-weight: 700;
 }
@@ -6373,7 +6328,6 @@ body:has(.conditions-page) {
   max-width: 260px;
   margin: 0 auto 14px;
   color: #fffaf2;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.18;
@@ -6391,7 +6345,6 @@ body:has(.conditions-page) {
   place-items: center;
   border-top: 1px solid rgba(255, 250, 242, 0.22);
   color: rgba(255, 250, 242, 0.88);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 8.5px;
   font-weight: 700;
 }
@@ -6521,7 +6474,6 @@ body:has(.conditions-page) {
 .condition-care-mini-card h2,
 .condition-care-heading h2 {
   color: #103d27;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -6537,7 +6489,6 @@ body:has(.conditions-page) {
 .condition-care-list li,
 .condition-package-list li {
   color: #151915;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px;
   font-weight: 600;
   line-height: 1.75;
@@ -6624,7 +6575,6 @@ body:has(.conditions-page) {
 .condition-care-doctor strong {
   display: block;
   color: #151915;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 1.35;
@@ -6634,7 +6584,6 @@ body:has(.conditions-page) {
   display: block;
   margin-top: 4px;
   color: #3f4944;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 600;
 }
@@ -6791,7 +6740,6 @@ body:has(.conditions-page) {
   display: block;
   height: 38px;
   color: #d6aa51;
-  font-family: Georgia, serif;
   font-size: 78px;
   line-height: 0.9;
 }
@@ -6980,7 +6928,6 @@ body:has(.conditions-page) {
 
 .condition-care-mini-card h2,
 .condition-care-heading h2 {
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 17px;
   font-weight: 700;
   line-height: 1.1;
@@ -7014,7 +6961,6 @@ body:has(.conditions-page) {
 
 .condition-care-consult-card span {
   max-width: 185px;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 31px;
   line-height: 1.12;
 }
@@ -7192,7 +7138,6 @@ body:has(.conditions-page) {
 .condition-approach-title-wrap h2 {
   margin: 0;
   color: #123c27;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(40px, 3.1vw, 58px);
   font-weight: 700;
   line-height: 1.04;
@@ -7273,7 +7218,6 @@ body:has(.conditions-page) {
 .condition-approach-step strong {
   margin-top: 34px;
   color: #123c27;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 25px;
   font-weight: 900;
   line-height: 1;
@@ -7284,7 +7228,6 @@ body:has(.conditions-page) {
   min-height: 128px;
   margin: 26px 0 0;
   color: #151915;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: clamp(22px, 1.5vw, 28px);
   font-weight: 500;
   line-height: 1.42;
@@ -7294,7 +7237,6 @@ body:has(.conditions-page) {
   max-width: 260px;
   margin: -8px 0 0;
   color: #555d58;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: clamp(18px, 1.15vw, 22px);
   font-weight: 500;
   line-height: 1.38;
@@ -7526,7 +7468,6 @@ body .site-header .nav-actions .btn-primary::after {
    ========================================================================== */
 .nav-search-container {
   position: relative;
-  font-family: inherit;
 }
 
 .nav-search-box {
@@ -8468,7 +8409,6 @@ label {
     radial-gradient(circle at 94% 7%, rgba(13, 69, 36, 0.08), transparent 20%),
     linear-gradient(180deg, #fffdf8 0%, var(--contact-bg) 42%, #f7f0e5 100%);
   color: var(--contact-text);
-  font-family: var(--font-body), Arial, sans-serif;
 }
 
 .contact-reference-page a {
@@ -8605,7 +8545,6 @@ label {
 .contact-reference-copy h1 {
   margin: 0;
   color: var(--contact-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(58px, 6.1vw, 96px);
   font-weight: 600;
   letter-spacing: 0;
@@ -8773,7 +8712,6 @@ label {
   z-index: 1;
   margin: 0;
   color: var(--contact-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(30px, 2.45vw, 40px);
   font-weight: 500;
   line-height: 1.1;
@@ -8971,7 +8909,6 @@ label {
 .contact-reference-info-grid h3 {
   margin: 0 0 14px;
   color: var(--contact-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 19px;
   font-weight: 600;
 }
@@ -9044,7 +8981,6 @@ label {
 
 .contact-reference-quote strong {
   color: var(--contact-gold);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 42px;
   line-height: 0.7;
 }
@@ -9052,7 +8988,6 @@ label {
 .contact-reference-quote p {
   margin: 18px 0 24px;
   color: var(--contact-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(23px, 1.8vw, 30px);
   line-height: 1.24;
 }
@@ -9377,7 +9312,6 @@ label {
   max-width: 920px;
   margin: 26px 0 0;
   color: #fffaf0 !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(58px, 8vw, 126px);
   font-weight: 500;
   letter-spacing: 0;
@@ -9479,7 +9413,6 @@ label {
 .blog-premium-hero-feature h2 {
   margin: 24px 0 0;
   color: #fffaf0 !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(30px, 3vw, 44px);
   font-weight: 500;
   line-height: 1.06;
@@ -9577,7 +9510,6 @@ label {
 .blog-premium-section-head h2 {
   margin: 0;
   color: var(--blog-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(38px, 4.6vw, 76px);
   font-weight: 500;
   line-height: 1.02;
@@ -9632,7 +9564,6 @@ label {
   max-width: 720px;
   margin: 18px 0 0;
   color: #fffaf0 !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(28px, 3.4vw, 58px);
   font-weight: 500;
   line-height: 1.04;
@@ -9739,7 +9670,6 @@ label {
 .blog-premium-card h3 {
   margin: 18px 0 0;
   color: var(--blog-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 1.9vw, 36px);
   font-weight: 600;
   line-height: 1.08;
@@ -9791,7 +9721,6 @@ label {
   z-index: 1;
   margin: 16px 0 0;
   color: #fffaf0 !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 30px;
   font-weight: 500;
   line-height: 1.06;
@@ -9838,7 +9767,6 @@ label {
 .blog-premium-footer-cta h2 {
   margin: 18px 0 0;
   color: #fffaf0 !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(36px, 4.8vw, 72px);
   font-weight: 500;
   line-height: 1.02;
@@ -9910,7 +9838,6 @@ label {
 .blog-premium-author-card h3 {
   margin: 0;
   color: var(--blog-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 28px;
   line-height: 1.05;
 }
@@ -10382,7 +10309,6 @@ label {
 .blog-premium-hero-stats dt {
   margin: 0;
   color: #123F24;
-  font-family: var(--font-serif);
   font-size: clamp(21px, 1.7vw, 28px);
   line-height: 1;
 }
@@ -10919,7 +10845,6 @@ body:has(.media-page) main {
 .media-cta h2 {
   margin: 0;
   color: var(--media-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
   text-wrap: balance;
@@ -11000,7 +10925,6 @@ body:has(.media-page) main {
   padding: 18px 24px;
   color: var(--media-gold);
   font-size: 34px;
-  font-family: var(--font-heading), Georgia, serif;
 }
 
 .media-categories {
@@ -11195,7 +11119,6 @@ body:has(.media-page) main {
 .media-events h3 {
   margin: 12px 0 0;
   color: var(--media-ink) !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(24px, 2vw, 34px);
   font-weight: 500;
   line-height: 1.08;
@@ -11293,7 +11216,6 @@ body:has(.media-page) main {
 
 .media-awards span {
   color: var(--media-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(24px, 2.2vw, 36px);
   line-height: 1.08;
 }
@@ -11323,7 +11245,6 @@ body:has(.media-page) main {
 
 .media-events time {
   color: var(--media-gold);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 34px;
   line-height: 1;
 }
@@ -11879,7 +11800,6 @@ body:has(.media-page) {
   right: clamp(18px, 4vw, 58px);
   top: clamp(14px, 3vw, 38px);
   color: rgba(18, 63, 36, 0.06);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(76px, 12vw, 170px);
   line-height: 1;
   pointer-events: none;
@@ -11902,7 +11822,6 @@ body:has(.media-page) {
   max-width: 560px;
   margin: 18px 0 0;
   color: #123F24 !important;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(34px, 4.4vw, 66px);
   font-weight: 500;
   line-height: 1.02;
@@ -12116,7 +12035,6 @@ body:has(.branches-premium-page) {
 .branches-premium-page h2,
 .branches-premium-page h3 {
   color: var(--branches-green);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -12159,7 +12077,6 @@ body:has(.branches-premium-page) {
   right: clamp(24px, 5vw, 80px);
   top: clamp(22px, 4vw, 64px);
   color: rgba(18, 63, 36, 0.055);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(68px, 10vw, 150px);
   line-height: 1;
   pointer-events: none;
@@ -12329,7 +12246,6 @@ body:has(.branches-premium-page) {
   border-radius: 999px;
   background: var(--branches-green);
   color: #ffffff;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: 28px;
   line-height: 1;
 }
@@ -12382,7 +12298,6 @@ body:has(.branches-premium-page) {
 
 .branches-hero-highlights h2 {
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 900;
 }
@@ -12682,7 +12597,6 @@ body:has(.branches-premium-page) {
 
 .branches-trust-stats strong {
   color: var(--branches-green);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(36px, 3.4vw, 52px);
   font-weight: 500;
   line-height: 1;
@@ -13272,7 +13186,6 @@ body:has(.ayur-village-page) {
 .ayur-village-page h2,
 .ayur-village-page h3 {
   color: var(--village-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -13423,7 +13336,6 @@ body:has(.ayur-village-page) {
   position: relative;
   z-index: 2;
   color: var(--village-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(26px, 2.2vw, 38px);
   line-height: 1.1;
 }
@@ -13433,7 +13345,6 @@ body:has(.ayur-village-page) {
   right: 22px;
   top: 8px;
   color: rgba(168, 117, 52, 0.08);
-  font-family: Georgia, serif;
   font-size: 110px;
   font-style: normal;
   line-height: 1;
@@ -13474,7 +13385,6 @@ body:has(.ayur-village-page) {
 .ayur-village-hero-features h2 {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.45;
@@ -13553,7 +13463,6 @@ body:has(.ayur-village-page) {
   z-index: 2;
   max-width: 240px;
   color: #ffffff;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(26px, 2.4vw, 38px);
   font-weight: 500;
   line-height: 1.08;
@@ -13603,7 +13512,6 @@ body:has(.ayur-village-page) {
 
 .ayur-village-feature-grid h3 {
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.45;
@@ -13674,7 +13582,6 @@ body:has(.ayur-village-page) {
 .ayur-village-ideal-grid h3 {
   margin: 0;
   color: rgba(255, 255, 255, 0.92);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.45;
@@ -13740,7 +13647,6 @@ body:has(.ayur-village-page) {
 
 .ayur-village-stats strong {
   color: var(--village-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(23px, 2vw, 34px);
   font-weight: 500;
   line-height: 1;
@@ -14283,7 +14189,6 @@ body:has(.packages-page) {
 .packages-page h2,
 .packages-page h3 {
   color: var(--packages-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -14438,7 +14343,6 @@ body:has(.packages-page) {
 
 .packages-hero-note strong {
   color: #ffffff;
-  font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(24px, 2vw, 36px);
   font-weight: 500;
   line-height: 1.14;
@@ -14491,7 +14395,6 @@ body:has(.packages-page) {
 .packages-hero-features h2 {
   margin: 0;
   color: #ffffff;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 14px;
   font-weight: 800;
   line-height: 1.35;
@@ -14698,7 +14601,6 @@ body:has(.packages-page) {
 .packages-cta-benefits h3 {
   margin: 0;
   color: #ffffff;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 12px;
   font-weight: 800;
   line-height: 1.25;
@@ -14884,7 +14786,6 @@ body:has(.ecosystem-page) {
 .ecosystem-page h2,
 .ecosystem-page h3 {
   color: var(--ecosystem-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -15052,7 +14953,6 @@ body:has(.ecosystem-page) {
 
 .ecosystem-hero-highlights h2 {
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px;
   font-weight: 900;
   line-height: 1.35;
@@ -15272,7 +15172,6 @@ body:has(.ecosystem-page) {
 .ecosystem-values h3 {
   max-width: 110px;
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 12px;
   font-weight: 900;
   line-height: 1.3;
@@ -15978,7 +15877,6 @@ body:has(.ecosystem-page) {
 
 .ecosystem-hero-mini-stats strong {
   color: #082b20;
-  font-family: var(--font-cormorant), serif;
   font-size: clamp(22px, 2.2vw, 31px);
   font-weight: 800;
   line-height: 0.95;
@@ -16137,7 +16035,6 @@ body:has(.international-page) {
 .international-page h2,
 .international-page h3 {
   color: var(--international-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -16359,7 +16256,6 @@ body:has(.international-page) {
 
 .international-hero-features h2 {
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 11px;
   font-weight: 850;
   line-height: 1.28;
@@ -16648,7 +16544,6 @@ body:has(.international-page) {
 .international-reason-list h3 {
   max-width: 130px;
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 12px;
   font-weight: 850;
   line-height: 1.35;
@@ -17253,7 +17148,6 @@ body:has(.facilities-page) {
 .facilities-page h2,
 .facilities-page h3 {
   color: var(--facilities-ink);
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -17575,7 +17469,6 @@ body:has(.facilities-page) {
 
 .facility-card h3 {
   margin: 18px 0 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 900;
   line-height: 1.3;
@@ -17703,7 +17596,6 @@ body:has(.facilities-page) {
 
 .facilities-program-grid h3 {
   margin: 18px 0 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   font-weight: 900;
 }
@@ -17868,7 +17760,6 @@ body:has(.facilities-page) {
 
 .facilities-support-list h3 {
   margin: 0;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 12px;
   font-weight: 850;
   line-height: 1.35;
@@ -18161,7 +18052,6 @@ html {
 
 body {
   color: var(--color-ink);
-  font-family: var(--font-body), Arial, "Segoe UI", sans-serif;
   font-size: var(--type-body);
   line-height: 1.65;
 }
@@ -18173,7 +18063,6 @@ h4,
 h5 {
   margin-block-start: 0;
   color: inherit;
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
   overflow-wrap: anywhere;
@@ -18197,7 +18086,6 @@ h3 {
 
 p,
 li {
-  font-family: var(--font-body), Arial, "Segoe UI", sans-serif;
   font-size: var(--type-body);
   line-height: 1.65;
 }
@@ -18211,7 +18099,6 @@ button,
 input,
 select,
 textarea {
-  font-family: var(--font-body), Arial, "Segoe UI", sans-serif;
 }
 
 button,
@@ -18690,7 +18577,6 @@ body:has(.international-page) .international-page p {
 
 body:has(.international-page) .international-page h1,
 body:has(.international-page) .international-page h2 {
-  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -18858,7 +18744,6 @@ body:has(.international-page) .international-hero-features svg {
 
 body:has(.international-page) .international-hero-features h2 {
   color: var(--international-ink);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 11px !important;
   font-weight: 800;
   line-height: 1.35 !important;
@@ -18970,7 +18855,6 @@ body:has(.international-page) .international-strip-head span {
 
 body:has(.international-page) .international-strip-head h2 {
   color: var(--international-green);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 15px !important;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -19034,7 +18918,6 @@ body:has(.international-page) .international-facility-card h3,
 body:has(.international-page) .international-program-card h3 {
   margin-top: 18px;
   color: var(--international-ink);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px !important;
   font-weight: 900;
   line-height: 1.35 !important;
@@ -19306,7 +19189,6 @@ body:has(.international-page) .international-travel-card {
 
 body:has(.international-page) .international-travel-card h2 {
   color: #ffffff;
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 18px !important;
   font-weight: 900;
   text-transform: uppercase;
@@ -19369,7 +19251,6 @@ body:has(.international-page) .international-support-list svg {
 
 body:has(.international-page) .international-support-list h3 {
   color: var(--international-ink);
-  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px !important;
   font-weight: 800;
   line-height: 1.35 !important;
