@@ -8689,9 +8689,7 @@ label {
   padding: clamp(34px, 4.2vw, 56px) clamp(28px, 4vw, 48px) 40px;
   border: 1px solid rgba(200, 155, 60, 0.18);
   border-radius: 32px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 252, 246, 0.88)),
-    rgba(255, 255, 255, 0.9);
+  background: #fff;
   box-shadow: 0 34px 90px rgba(55, 41, 24, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(18px);
 }
@@ -8706,14 +8704,7 @@ label {
   pointer-events: none;
 }
 
-.contact-reference-form::after {
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border: 1px solid rgba(200, 155, 60, 0.1);
-  border-radius: 24px;
-  pointer-events: none;
-}
+
 
 .contact-reference-form-mark {
   position: absolute;
@@ -8780,7 +8771,7 @@ label {
   padding: 0 18px;
   border: 1px solid rgba(18, 35, 22, 0.1);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.78);
+  background: #fff;
   color: #9a9a94;
   box-shadow: 0 10px 24px rgba(51, 36, 18, 0.035);
   transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
