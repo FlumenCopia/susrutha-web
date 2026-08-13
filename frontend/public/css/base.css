@@ -21,11 +21,6 @@
   --color-ivory: #fff7f0;               /* Ayora Signature Ivory Background */
   --color-white: #ffffff;
   --color-line: rgba(55, 39, 24, 0.16); /* Ayora Subtle Border Line */
-
-  /* Ayora Typography System - System Font Stack */
-  --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-accent: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 /* Home treatments reference section */
