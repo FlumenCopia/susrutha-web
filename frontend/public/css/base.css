@@ -122,7 +122,6 @@
 
 .home-page .treatments-showcase-head h2 em {
   color: #a87534;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -1881,7 +1880,6 @@ p {
 .faq-consult-card i {
   color: var(--color-white);
   font-size: 30px;
-  font-style: normal;
 }
 
 .faq-footer-line {
@@ -2520,7 +2518,6 @@ a.inner-card:hover {
 
 .about-premium-hero h1 em {
   color: #a87534;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -2728,7 +2725,6 @@ a.inner-card:hover {
 
 .journey-heading h2 em {
   color: #a87534;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -3119,7 +3115,6 @@ a.inner-card:hover {
   top: 50%;
   color: #a87534;
   font-size: 8px;
-  font-style: normal;
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
@@ -3177,7 +3172,6 @@ a.inner-card:hover {
 
 .about-story-copy h2 em {
   color: #a87534;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -3351,7 +3345,6 @@ a.inner-card:hover {
 
 .about-purpose-copy h2 em {
   color: #a87534;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -3459,7 +3452,6 @@ a.inner-card:hover {
 
 .purpose-card h3 em {
   color: #a87534;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -3653,7 +3645,6 @@ a.inner-card:hover {
 
 .milestone-showcase-copy h2 em {
   color: #b47b2d;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -4023,7 +4014,6 @@ a.inner-card:hover {
   margin: 44px auto 0;
   color: #173733;
   font-size: clamp(25px, 1.95vw, 32px);
-  font-style: normal;
   line-height: 1.22;
   text-align: center;
 }
@@ -4032,7 +4022,6 @@ a.inner-card:hover {
   display: inline-block;
   color: #b47b2d;
   font-size: 54px;
-  font-style: normal;
   line-height: 0;
   transform: translateY(14px);
 }

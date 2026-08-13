@@ -12,9 +12,13 @@ export function HomePage() {
       <HeroBanner />
       {/* <Timeloop /> */}
 
-      <HomeWellnessExpertiseSection />
-      <TreatmentsShowcaseSection />
-      <DoctorsShowcaseSection />
+
+
+
+
+      {/* <HomeWellnessExpertiseSection /> */}
+      {/* <TreatmentsShowcaseSection /> */}
+      {/* <DoctorsShowcaseSection /> */}
       <AyurvedaVillageSection />
       <CounterSection />
     </div>

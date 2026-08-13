@@ -1004,7 +1004,6 @@
 }
 
 .vg-story-quote {
-  font-style: italic;
   font-size: 13.5px;
   color: #55625b;
   line-height: 1.45;
@@ -3227,7 +3226,6 @@
 }
 
 .home-spotlight-quote {
-  font-style: italic;
   font-size: 14px;
   color: #4a544e;
   line-height: 1.55;
@@ -4607,7 +4605,6 @@
 
 .ayurveda-wisdom-quote p {
   font-size: 20px;
-  font-style: italic;
   color: #2a332e;
   line-height: 1.5;
   margin-bottom: 8px !important;
@@ -4617,7 +4614,6 @@
   font-size: 13px;
   font-weight: 700;
   color: var(--color-deep-red, #9f131b);
-  font-style: normal;
 }
 
 .overview-highlight-card {

@@ -193,7 +193,6 @@
 }
 
 .marquee-word {
-  font-style: normal;
   font-size: 1.4rem;
   font-size: 1.4rem;
   font-weight: 400;
@@ -204,7 +203,6 @@
 }
 
 .marquee-symbol {
-  font-style: normal;
   font-size: 1.2rem;
   color: #55625c;
   margin: 0 2rem;

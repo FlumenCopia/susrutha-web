@@ -1839,7 +1839,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .treatment-title-line em {
   color: #a46822;
-  font-style: normal;
   font-weight: 500;
 }
 
@@ -2456,7 +2455,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
 
 .treatment-title-line em {
   color: #a46822;
-  font-style: normal;
 }
 
 .treatment-hero-divider {
@@ -3087,7 +3085,6 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .journey-banner-copy h2 em {
   color: #a46822;
-  font-style: normal;
 }
 
 .journey-banner-copy p {
@@ -3767,7 +3764,6 @@ body:has(.treatment-detail-reference) main {
 
 .home-page .home-wellness-content h2 em {
   color: #a87534;
-  font-style: italic;
   font-weight: 400;
 }
 
@@ -4320,7 +4316,6 @@ body:has(.treatment-detail-reference) main {
   max-width: 130px;
   color: #d2aa5a;
   font-size: clamp(19px, 1.28vw, 26px);
-  font-style: normal;
   line-height: 1.24;
 }
 
@@ -4532,7 +4527,6 @@ body:has(.treatment-detail-reference) main {
   background: #123c27;
   color: #ffffff;
   font-size: 26px;
-  font-style: normal;
   line-height: 1;
 }
 
@@ -5549,7 +5543,6 @@ body:has(.conditions-page) {
 
 .conditions-page .conditions-hero h1 span {
   color: #a87534;
-  font-style: italic;
 }
 
 .conditions-page .conditions-hero-copy p {
@@ -5741,7 +5734,6 @@ body:has(.conditions-page) {
 
 .condition-detail-review em {
   color: #0b4a2c;
-  font-style: italic;
 }
 
 .condition-detail-actions {
@@ -5853,7 +5845,6 @@ body:has(.conditions-page) {
 .condition-detail-badge em {
   max-width: 150px;
   font-size: clamp(11px, 0.72vw, 14px);
-  font-style: normal;
   font-weight: 700;
   letter-spacing: 0.24em;
   line-height: 1.35;
@@ -6511,7 +6502,6 @@ body:has(.conditions-page) {
   display: block;
   margin-top: 10px;
   color: #103d27;
-  font-style: normal;
 }
 
 .condition-care-list,
@@ -13346,7 +13336,6 @@ body:has(.ayur-village-page) {
   top: 8px;
   color: rgba(168, 117, 52, 0.08);
   font-size: 110px;
-  font-style: normal;
   line-height: 1;
 }
 
@@ -13555,7 +13544,6 @@ body:has(.ayur-village-page) {
 
 .ayur-village-ideal h2 em {
   color: #d9b66f;
-  font-style: normal;
 }
 
 .ayur-village-ideal-grid {
@@ -14892,7 +14880,6 @@ body:has(.ecosystem-page) {
 .ecosystem-hero h1 em {
   display: block;
   color: #0d6f35;
-  font-style: normal;
 }
 
 .ecosystem-hero p {
@@ -14990,7 +14977,6 @@ body:has(.ecosystem-page) {
 
 .ecosystem-section-head h2 em {
   color: #0d6f35;
-  font-style: normal;
 }
 
 .ecosystem-section-head p {
@@ -15141,7 +15127,6 @@ body:has(.ecosystem-page) {
 
 .ecosystem-cta h2 em {
   color: #0d6f35;
-  font-style: normal;
 }
 
 .ecosystem-cta p {
@@ -16209,7 +16194,6 @@ body:has(.international-page) {
 .international-hero h1 em {
   display: block;
   color: var(--international-deep);
-  font-style: normal;
 }
 
 .international-hero p {
@@ -16366,7 +16350,6 @@ body:has(.international-page) {
 
 .international-section-head h2 em {
   color: var(--international-deep);
-  font-style: normal;
 }
 
 .international-program-controls {
@@ -17251,7 +17234,6 @@ body:has(.facilities-page) {
 .facilities-hero h1 em {
   display: block;
   color: var(--facilities-deep);
-  font-style: normal;
 }
 
 .facilities-hero p {
@@ -18700,7 +18682,6 @@ body:has(.international-page) .international-hero h1 {
 
 body:has(.international-page) .international-hero h1 em {
   color: var(--international-green);
-  font-style: normal;
 }
 
 body:has(.international-page) .international-hero p {

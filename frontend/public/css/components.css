@@ -650,7 +650,6 @@ p {
 
 .doctors-expert-intro h2 em {
   color: #a87534;
-  font-style: italic;
 }
 
 .doctors-expert-divider {
@@ -1124,7 +1123,6 @@ p {
   margin: 0;
   color: #17231f !important;
   font-size: clamp(22px, 2vw, 30px) !important;
-  font-style: italic;
   line-height: 1.42;
 }
 
@@ -1625,7 +1623,6 @@ p {
 .testimonials-reference-heading h2 em {
   display: block;
   color: #a87534;
-  font-style: normal;
 }
 
 .testimonials-reference-divider {
@@ -2714,7 +2711,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .home-page .about-susrutha-copy h2 em {
   color: #a87534;
-  font-style: normal;
 }
 
 .home-page .about-susrutha-divider,
@@ -3979,7 +3975,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
   .about-premium-page .purpose-card h3 em {
     color: #a87534 !important;
-    font-style: italic;
     font-weight: 500;
   }
 
@@ -4156,7 +4151,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .about-purpose-copy h2 em {
   color: #a87534;
-  font-style: italic;
   font-weight: 500;
 }
 
@@ -4235,7 +4229,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .purpose-card h3 em {
   color: #a87534;
-  font-style: italic;
   font-weight: 500;
 }
 
@@ -5128,7 +5121,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .home-page .home-counter-heading h2 em {
   color: #a87534;
-  font-style: italic;
   font-weight: 500;
 }
 
@@ -5998,7 +5990,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .about-premium-hero h1 em {
   color: #a87534;
-  font-style: italic;
 }
 
 .about-premium-page .about-premium-hero p {
@@ -6257,7 +6248,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .about-premium-hero h1 em {
   color: #a87534;
-  font-style: italic;
   font-weight: 500;
 }
 
@@ -6875,7 +6865,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-founders-head h2 em {
   color: #426a35;
-  font-style: italic;
   font-weight: 500;
 }
 
@@ -7080,7 +7069,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-founders-team a i {
   color: inherit;
   font-size: 22px;
-  font-style: normal;
   letter-spacing: 0;
 }
 
