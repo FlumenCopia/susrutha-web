@@ -7281,7 +7281,6 @@
 @media (max-width: 640px) {
 
   main :is(.inner-card-grid,
-    .all-treatments-grid,
     .conditions-card-grid,
     .about-values-grid,
     .about-founders-grid,
@@ -7301,6 +7300,50 @@
     .contact-reference-support,
     .contact-reference-form-grid) {
     grid-template-columns: 1fr !important;
+  }
+
+  .all-treatments-grid,
+  body:has(.treatment-reference-page) .all-treatments-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .all-treatment-card {
+    border-radius: 14px !important;
+  }
+
+  .all-treatment-image {
+    aspect-ratio: 1.25 / 1 !important;
+    min-height: 120px !important;
+  }
+
+  .all-treatment-body {
+    padding: 12px 10px 14px !important;
+  }
+
+  .all-treatment-body h3 {
+    font-size: 15px !important;
+  }
+
+  .all-treatment-body p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .all-treatment-icon {
+    width: 36px !important;
+    height: 36px !important;
+    left: 8px !important;
+    top: 8px !important;
+  }
+
+  .all-treatment-icon .material-symbols-outlined {
+    font-size: 17px !important;
   }
 
   .site-header {
