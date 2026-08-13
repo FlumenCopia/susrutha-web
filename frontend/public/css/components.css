@@ -3888,7 +3888,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   .about-premium-page .about-purpose-copy h2 {
     max-width: 620px !important;
     margin-top: 50px !important;
-    color: #173733 !important;
+    color: #000a04 !important;
     font-size: clamp(52px, 3.6vw, 70px) !important;
     font-weight: 500 !important;
     line-height: 1.12 !important;
@@ -3967,7 +3967,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   .about-premium-page .purpose-card h3 {
     max-width: 440px;
     margin-top: 24px !important;
-    color: #173733 !important;
+    color: #000a04 !important;
     font-size: clamp(34px, 2.24vw, 48px) !important;
     font-weight: 500 !important;
     line-height: 1.13 !important;
@@ -4143,7 +4143,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-premium-page .about-purpose-copy h2 {
   max-width: 570px;
   margin-top: 48px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(48px, 3.65vw, 70px) !important;
   font-weight: 500;
   line-height: 1.13 !important;
@@ -4221,7 +4221,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .purpose-card h3 {
   margin-top: 26px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(32px, 2.3vw, 48px) !important;
   font-weight: 500;
   line-height: 1.12 !important;
@@ -4268,7 +4268,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   width: 136px;
   height: 136px;
   border: 3px solid #d6a45f;
-  background: #173733;
+  background: #000a04;
   color: #d9ad72;
   box-shadow: 0 20px 36px rgba(23, 55, 51, 0.18);
 }
@@ -5982,7 +5982,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .about-premium-hero h1 {
   max-width: 610px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(64px, 4.75vw, 88px);
   font-weight: 500;
   line-height: 1.12;
@@ -6239,7 +6239,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .about-premium-hero h1 {
   max-width: 650px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(58px, 4.55vw, 82px);
   font-weight: 500;
   line-height: 1.12;
@@ -6407,7 +6407,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   width: 58px;
   height: 58px;
   fill: none;
-  stroke: #173733;
+  stroke: #000a04;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -6467,7 +6467,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   width: 58%;
   height: 58%;
   fill: none;
-  stroke: #173733;
+  stroke: #000a04;
   stroke-width: 2.1;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -6475,7 +6475,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-premium-page .about-premium-hero-value h3 {
   margin-top: 20px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(22px, 1.55vw, 28px);
   font-weight: 600;
   line-height: 1.1;
@@ -7032,7 +7032,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .about-founder-role {
   margin: 0 0 13px;
-  color: #315e2c;
+  color: #000a04;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -7052,7 +7052,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 26px;
-  color: #315e2c;
+  color: #000a04;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.14em;
@@ -7094,7 +7094,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   height: 46px;
   color: #ffffff;
   border-radius: 50%;
-  background: #5b7442;
+  background: #000a04;
 }
 
 .about-founders-team-icon svg {

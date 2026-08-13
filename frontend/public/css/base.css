@@ -119,7 +119,7 @@
 
 .home-page .treatments-showcase-head h2 {
   margin-top: 24px;
-  color: #1a2925;
+  color: #000a04;
   font-size: clamp(38px, 4.2vw, 70px);
   font-weight: 500;
   line-height: 1.1;
@@ -2517,7 +2517,7 @@ a.inner-card:hover {
 
 .about-premium-hero h1 {
   max-width: 660px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(60px, 4.9vw, 92px);
   line-height: 1.14;
 }
@@ -2724,7 +2724,7 @@ a.inner-card:hover {
 
 .journey-heading h2 {
   max-width: 650px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(42px, 4vw, 70px);
   line-height: 1.12;
 }
@@ -2753,7 +2753,7 @@ a.inner-card:hover {
   border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
-  color: #173733;
+  color: #000a04;
   box-shadow: 0 18px 34px rgba(78, 54, 30, 0.13);
   cursor: pointer;
 }
@@ -2907,7 +2907,7 @@ a.inner-card:hover {
 
 .journey-card-copy h3 {
   margin-top: 20px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(20px, 1.45vw, 27px);
   line-height: 1.2;
 }
@@ -2942,7 +2942,7 @@ a.inner-card:hover {
   height: 112px;
   margin-bottom: -57px;
   border: 4px solid #d4a35f;
-  background: #173733;
+  background: #000a04;
   color: #dcb070;
   box-shadow: 0 24px 42px rgba(23, 55, 51, 0.22);
 }
@@ -3171,7 +3171,7 @@ a.inner-card:hover {
 
 .about-story-copy h2 {
   margin-top: 30px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(50px, 4.42vw, 74px);
   line-height: 1.14;
 }
@@ -3252,7 +3252,7 @@ a.inner-card:hover {
 }
 
 .about-story-pillars h3 {
-  color: #173733;
+  color: #000a04;
   font-size: clamp(22px, 1.45vw, 27px);
   line-height: 1.2;
 }
@@ -3344,7 +3344,7 @@ a.inner-card:hover {
 .about-purpose-copy h2 {
   max-width: 540px;
   margin-top: 44px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(42px, 3.75vw, 66px);
   line-height: 1.13;
 }
@@ -3451,7 +3451,7 @@ a.inner-card:hover {
 
 .purpose-card h3 {
   margin-top: 24px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(28px, 2.5vw, 44px);
   line-height: 1.14;
 }
@@ -3506,7 +3506,7 @@ a.inner-card:hover {
   place-items: center;
   border: 4px solid #d4a35f;
   border-radius: 999px;
-  background: #173733;
+  background: #000a04;
   color: #dcb070;
   box-shadow: 0 24px 42px rgba(23, 55, 51, 0.18);
 }
@@ -3644,7 +3644,7 @@ a.inner-card:hover {
 .milestone-showcase-copy h2 {
   max-width: 600px;
   margin-top: 20px;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(48px, 4.55vw, 76px);
   line-height: 1;
 }
@@ -3657,7 +3657,7 @@ a.inner-card:hover {
 .milestone-showcase-copy p {
   max-width: 560px;
   margin: 30px 0 0;
-  color: #26332f;
+  color: #000a04;
   font-size: 16px;
   line-height: 1.55;
 }
@@ -3705,11 +3705,11 @@ a.inner-card:hover {
 .milestone-showcase-track-head>div:nth-child(3) {
   display: grid;
   gap: 5px;
-  color: #173733;
+  color: #000a04;
 }
 
 .milestone-showcase-track-head strong {
-  color: #173733;
+  color: #000a04;
   font-size: 19px;
   letter-spacing: 0.04em;
 }
@@ -3790,7 +3790,7 @@ a.inner-card:hover {
   border: 1px solid rgba(168, 117, 52, 0.5);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.7);
-  color: #173733;
+  color: #000a04;
   cursor: pointer;
   transition:
     background 180ms ease,
@@ -3843,7 +3843,7 @@ a.inner-card:hover {
   background:
     radial-gradient(circle at 86% 24%, rgba(168, 117, 52, 0.05), transparent 30%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 243, 0.78));
-  color: #173733;
+  color: #000a04;
   font: inherit;
   text-align: left;
   box-shadow: 0 24px 54px rgba(78, 54, 30, 0.09);
@@ -3884,7 +3884,7 @@ a.inner-card:hover {
   background:
     radial-gradient(circle at 88% 22%, rgba(255, 255, 255, 0.07), transparent 26%),
     linear-gradient(135deg, rgba(14, 56, 47, 0.99), rgba(6, 45, 38, 0.99)),
-    #173733;
+    #000a04;
   color: #ffffff;
   box-shadow: 0 26px 56px rgba(23, 55, 51, 0.22);
 }
@@ -3999,7 +3999,7 @@ a.inner-card:hover {
 
 .milestone-showcase-dots button[aria-pressed="true"] {
   width: 24px;
-  background: #173733;
+  background: #000a04;
 }
 
 .milestone-showcase-dots button:hover {
@@ -4018,7 +4018,7 @@ a.inner-card:hover {
   position: relative;
   max-width: 900px;
   margin: 44px auto 0;
-  color: #173733;
+  color: #000a04;
   font-size: clamp(25px, 1.95vw, 32px);
   line-height: 1.22;
   text-align: center;
@@ -4378,7 +4378,7 @@ a.inner-card:hover {
 }
 
 .footer-consult-card h3 {
-  color: #1a2925;
+  color: #000a04;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.12em;

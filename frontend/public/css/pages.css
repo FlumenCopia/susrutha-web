@@ -3654,9 +3654,9 @@ body:has(.treatment-detail-reference) main {
   padding: clamp(18px, 1.7vw, 24px);
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
-  background: linear-gradient(135deg, #082b20, #0c3a2b);
+  background: linear-gradient(135deg, #000a04, #000a04);
   color: #ffffff;
-  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.22);
+  box-shadow: 0 24px 54px rgba(0, 10, 4, 0.22);
 }
 
 .home-page .home-wellness-badge strong {
@@ -3842,11 +3842,11 @@ body:has(.treatment-detail-reference) main {
   margin-top: clamp(24px, 2.8vw, 38px);
   padding: 0 6px 0 22px;
   border-radius: 999px;
-  background: #082b20;
+  background: #000a04;
   color: #ffffff;
   font-size: clamp(12px, 0.82vw, 14px);
   font-weight: 600;
-  box-shadow: 0 18px 36px rgba(8, 43, 32, 0.22);
+  box-shadow: 0 18px 36px rgba(0, 10, 4, 0.22);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -3865,7 +3865,7 @@ body:has(.treatment-detail-reference) main {
 
 .home-page .home-wellness-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 42px rgba(8, 43, 32, 0.26);
+  box-shadow: 0 22px 42px rgba(0, 10, 4, 0.26);
 }
 
 .home-page .home-wellness-link:hover span {
@@ -7493,7 +7493,7 @@ body .site-header .nav-actions .btn-primary::after {
   border: none !important;
   outline: none !important;
   background: transparent !important;
-  color: #1a2925 !important;
+  color: #000a04 !important;
   font-size: 13px !important;
   font-weight: 500 !important;
 }
@@ -7676,7 +7676,7 @@ body .site-header .nav-actions .btn-primary::after {
 }
 
 .search-item-title {
-  color: #1a2925;
+  color: #000a04;
   font-size: 13.5px;
   font-weight: 700;
   line-height: 1.2;
@@ -7737,7 +7737,7 @@ body .site-header .nav-actions .btn-primary::after {
 }
 
 .no-results-title {
-  color: #1a2925;
+  color: #000a04;
   font-size: 15px;
   font-weight: 700;
 }
@@ -7783,7 +7783,7 @@ body .site-header .nav-actions .btn-primary::after {
   width: 100%;
   border: none;
   outline: none;
-  color: #1a2925;
+  color: #000a04;
   background: transparent;
   font-size: 15px;
   font-weight: 500;
@@ -13094,7 +13094,7 @@ body:has(.branches-premium-page) {
 }
 
 .branches-hero-card span {
-  background: linear-gradient(135deg, #082b20, #0c3a2b);
+  background: linear-gradient(135deg, #000a04, #000a04);
   color: #c6944b;
 }
 
@@ -13142,8 +13142,8 @@ body:has(.branches-premium-page) {
   border-color: rgba(198, 148, 75, 0.28);
   background:
     radial-gradient(circle at 4% 20%, rgba(198, 148, 75, 0.2), transparent 24%),
-    linear-gradient(135deg, #082b20, #0c3a2b);
-  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.2);
+    linear-gradient(135deg, #000a04, #000a04);
+  box-shadow: 0 24px 54px rgba(0, 10, 4, 0.2);
 }
 
 .branches-cta>div>span {
@@ -13160,8 +13160,8 @@ body:has(.ayur-village-page) {
   --village-ink: #17231f;
   --village-muted: #38413d;
   --village-gold: #a87534;
-  --village-deep: #082b20;
-  --village-deep-2: #0c3a2b;
+  --village-deep: #000a04;
+  --village-deep-2: #000a04;
   --village-line: rgba(149, 117, 77, 0.15);
   --village-card: rgba(255, 255, 255, 0.86);
   width: 100%;
@@ -13270,8 +13270,8 @@ body:has(.ayur-village-page) {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(8, 43, 32, 0.98) 0%, rgba(8, 43, 32, 0.82) 38%, rgba(8, 43, 32, 0.18) 72%),
-    linear-gradient(180deg, rgba(8, 43, 32, 0.2) 0%, rgba(8, 43, 32, 0.72) 100%);
+    linear-gradient(90deg, rgba(0, 10, 4, 0.98) 0%, rgba(0, 10, 4, 0.82) 38%, rgba(0, 10, 4, 0.18) 72%),
+    linear-gradient(180deg, rgba(0, 10, 4, 0.2) 0%, rgba(0, 10, 4, 0.72) 100%);
 }
 
 .ayur-village-hero-copy {
@@ -13318,7 +13318,7 @@ body:has(.ayur-village-page) {
   border: 1px solid rgba(168, 117, 52, 0.28);
   border-radius: 8px 28px 8px 28px;
   background: rgba(255, 253, 249, 0.92);
-  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.24);
+  box-shadow: 0 24px 54px rgba(0, 10, 4, 0.24);
   backdrop-filter: blur(14px);
 }
 
@@ -13348,7 +13348,7 @@ body:has(.ayur-village-page) {
   margin-top: clamp(38px, 5vw, 72px);
   border: 1px solid rgba(198, 148, 75, 0.18);
   border-radius: 18px;
-  background: rgba(8, 43, 32, 0.82);
+  background: rgba(0, 10, 4, 0.82);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(12px);
 }
@@ -13408,7 +13408,7 @@ body:has(.ayur-village-page) {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(8, 43, 32, 0.04), rgba(8, 43, 32, 0.58));
+  background: linear-gradient(180deg, rgba(0, 10, 4, 0.04), rgba(0, 10, 4, 0.58));
 }
 
 .ayur-village-video-card img,
@@ -13532,7 +13532,7 @@ body:has(.ayur-village-page) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(8, 43, 32, 0.98), rgba(8, 43, 32, 0.78), rgba(8, 43, 32, 0.5));
+  background: linear-gradient(90deg, rgba(0, 10, 4, 0.98), rgba(0, 10, 4, 0.78), rgba(0, 10, 4, 0.5));
 }
 
 .ayur-village-ideal h2 {
@@ -13559,7 +13559,7 @@ body:has(.ayur-village-page) {
   align-content: start;
   min-height: 120px;
   padding: 18px 22px;
-  background: rgba(8, 43, 32, 0.72);
+  background: rgba(0, 10, 4, 0.72);
 }
 
 .ayur-village-ideal-grid svg {
@@ -13658,7 +13658,7 @@ body:has(.ayur-village-page) {
   background:
     radial-gradient(circle at 82% 20%, rgba(198, 148, 75, 0.16), transparent 25%),
     linear-gradient(135deg, var(--village-deep), var(--village-deep-2));
-  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.2);
+  box-shadow: 0 24px 54px rgba(0, 10, 4, 0.2);
 }
 
 .ayur-village-cta>div {
@@ -13766,8 +13766,8 @@ body:has(.ayur-village-page) {
 
   .ayur-village-hero::before {
     background:
-      linear-gradient(90deg, rgba(8, 43, 32, 0.98), rgba(8, 43, 32, 0.72)),
-      linear-gradient(180deg, rgba(8, 43, 32, 0.18), rgba(8, 43, 32, 0.8));
+      linear-gradient(90deg, rgba(0, 10, 4, 0.98), rgba(0, 10, 4, 0.72)),
+      linear-gradient(180deg, rgba(0, 10, 4, 0.18), rgba(0, 10, 4, 0.8));
   }
 
   .ayur-village-hero h1 {
@@ -14162,7 +14162,7 @@ body:has(.packages-page) {
 .packages-page {
   --packages-ink: #17231f;
   --packages-muted: #38413d;
-  --packages-deep: #082b20;
+  --packages-deep: #000a04;
   --packages-line: rgba(149, 117, 77, 0.15);
   --packages-card: rgba(255, 255, 255, 0.88);
   width: 100%;
@@ -14278,8 +14278,8 @@ body:has(.packages-page) {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(8, 43, 32, 0.98) 0%, rgba(8, 43, 32, 0.82) 42%, rgba(8, 43, 32, 0.2) 76%),
-    linear-gradient(180deg, rgba(8, 43, 32, 0.16), rgba(8, 43, 32, 0.74));
+    linear-gradient(90deg, rgba(0, 10, 4, 0.98) 0%, rgba(0, 10, 4, 0.82) 42%, rgba(0, 10, 4, 0.2) 76%),
+    linear-gradient(180deg, rgba(0, 10, 4, 0.16), rgba(0, 10, 4, 0.74));
 }
 
 .packages-hero-copy {
@@ -14319,7 +14319,7 @@ body:has(.packages-page) {
   padding: 28px;
   border: 1px solid rgba(198, 148, 75, 0.35);
   border-radius: 20px 8px 20px 8px;
-  background: rgba(8, 43, 32, 0.62);
+  background: rgba(0, 10, 4, 0.62);
   color: #d9b66f;
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(16px);
@@ -14351,7 +14351,7 @@ body:has(.packages-page) {
   margin-top: clamp(36px, 5vw, 72px);
   border: 1px solid rgba(198, 148, 75, 0.2);
   border-radius: 18px;
-  background: rgba(8, 43, 32, 0.88);
+  background: rgba(0, 10, 4, 0.88);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(12px);
 }
@@ -14533,7 +14533,7 @@ body:has(.packages-page) {
   border: 1px solid rgba(198, 148, 75, 0.28);
   border-radius: 18px;
   background: var(--packages-deep);
-  box-shadow: 0 24px 54px rgba(23, 29, 24, 0.2);
+  box-shadow: 0 24px 54px rgba(0, 10, 4, 0.2);
 }
 
 .packages-cta>img {
@@ -14548,7 +14548,7 @@ body:has(.packages-page) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(8, 43, 32, 0.94), rgba(8, 43, 32, 0.84));
+  background: linear-gradient(90deg, rgba(0, 10, 4, 0.94), rgba(0, 10, 4, 0.84));
 }
 
 .packages-cta h2 {
@@ -14577,7 +14577,7 @@ body:has(.packages-page) {
   gap: 8px;
   min-width: 0;
   padding: 12px 18px;
-  background: rgba(8, 43, 32, 0.64);
+  background: rgba(0, 10, 4, 0.64);
   text-align: center;
 }
 
@@ -14671,8 +14671,8 @@ body:has(.packages-page) {
 
   .packages-hero::before {
     background:
-      linear-gradient(90deg, rgba(8, 43, 32, 0.98), rgba(8, 43, 32, 0.72)),
-      linear-gradient(180deg, rgba(8, 43, 32, 0.2), rgba(8, 43, 32, 0.84));
+      linear-gradient(90deg, rgba(0, 10, 4, 0.98), rgba(0, 10, 4, 0.72)),
+      linear-gradient(180deg, rgba(0, 10, 4, 0.2), rgba(0, 10, 4, 0.84));
   }
 
   .packages-hero h1 {
@@ -15587,7 +15587,7 @@ body:has(.ecosystem-page) {
   --ecosystem-card: rgba(255, 253, 249, 0.9);
   background:
     radial-gradient(circle at 8% 14%, rgba(168, 117, 52, 0.08), transparent 24%),
-    radial-gradient(circle at 92% 30%, rgba(8, 43, 32, 0.05), transparent 26%),
+    radial-gradient(circle at 92% 30%, rgba(0, 10, 4, 0.05), transparent 26%),
     linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
 }
 
@@ -15607,8 +15607,8 @@ body:has(.ecosystem-page) {
 
 .ecosystem-button,
 .ecosystem-question-card {
-  background: linear-gradient(135deg, #082b20, #0c3a2b);
-  box-shadow: 0 18px 36px rgba(8, 43, 32, 0.22);
+  background: linear-gradient(135deg, #000a04, #000a04);
+  box-shadow: 0 18px 36px rgba(0, 10, 4, 0.22);
 }
 
 .ecosystem-button {
@@ -15654,7 +15654,7 @@ body:has(.ecosystem-page) {
 
 .ecosystem-hero-orbit::before {
   inset: 42px;
-  border: 1px solid rgba(8, 43, 32, 0.08);
+  border: 1px solid rgba(0, 10, 4, 0.08);
 }
 
 .ecosystem-hero-orbit::after {
@@ -15706,7 +15706,7 @@ body:has(.ecosystem-page) {
   border: 1px solid rgba(168, 117, 52, 0.24);
   border-radius: 999px;
   background: rgba(255, 253, 249, 0.86);
-  color: #082b20;
+  color: #000a04;
   font-size: 12px;
   font-weight: 900;
   box-shadow: 0 18px 38px rgba(64, 43, 20, 0.14);
@@ -15766,7 +15766,7 @@ body:has(.ecosystem-page) {
 }
 
 .ecosystem-card a:hover {
-  color: #082b20;
+  color: #000a04;
 }
 
 .ecosystem-cta {
@@ -15861,7 +15861,7 @@ body:has(.ecosystem-page) {
 }
 
 .ecosystem-hero-mini-stats strong {
-  color: #082b20;
+  color: #000a04;
   font-size: clamp(22px, 2.2vw, 31px);
   font-weight: 800;
   line-height: 0.95;
@@ -15899,7 +15899,7 @@ body:has(.ecosystem-page) {
 
 .ecosystem-hero-floating-card p {
   margin: 0;
-  color: #082b20 !important;
+  color: #000a04 !important;
   font-size: 12px;
   font-weight: 850;
   line-height: 1.45;
@@ -15985,7 +15985,7 @@ body:has(.ecosystem-page) {
 
 .ecosystem-card:hover .ecosystem-card-icon {
   background: linear-gradient(135deg, #fff3d7, #f2d59c);
-  color: #082b20;
+  color: #000a04;
   box-shadow: 0 14px 28px rgba(128, 84, 33, 0.16);
 }
 
