@@ -26,23 +26,19 @@ export function HeroBanner({
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    if (videoRef.current && videoSrc && !videoError) {
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setVideoPlaying(true);
-          })
-          .catch((err) => {
-            console.warn(
-              "Autoplay prevented or video playback error, displaying thumbnail fallback:",
-              err
-            );
-            setVideoError(true);
-          });
-      }
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current
+        .play()
+        .then(() => {
+          setVideoPlaying(true);
+        })
+        .catch((err) => {
+          console.warn("Autoplay prevented or video playback error:", err);
+        });
     }
-  }, [videoSrc, videoError]);
+  }, []);
 
   return (
     <section className="hero-banner-root ayora-hero-root">

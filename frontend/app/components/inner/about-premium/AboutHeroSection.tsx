@@ -1,5 +1,8 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import "./about-hero.css";
 
 const aboutValues = [
   ["compassion", "Compassion", "We care with empathy and understanding."],
@@ -60,59 +63,91 @@ function AboutValueIcon({ icon }: { icon: string }) {
 }
 
 export function AboutHeroSection() {
+  const [videoError, setVideoError] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const videoSrc = "/bannervideo.mp4";
+  const imageSrc = "/images/about-susrutha-wellness.webp";
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current
+        .play()
+        .then(() => {
+          setVideoPlaying(true);
+        })
+        .catch((err) => {
+          console.warn("Autoplay prevented or video playback error:", err);
+        });
+    }
+  }, []);
+
   return (
-    <section className="about-premium-hero">
-      <div className="about-premium-hero-main">
-        <div className="about-premium-hero-copy">
-          <span>
-            <i aria-hidden="true" />
-            <AboutValueIcon icon="leaf" />
-            About Us
-            <i aria-hidden="true" />
-          </span>
-          <h1>
-            Ancient Wisdom.
-            <br />
-            Timeless <em>Care</em>
-          </h1>
-          <div className="about-premium-hero-divider" aria-hidden="true">
-            <b />
-            <i />
-            <b />
-          </div>
-          <p>
-            At Susrutha Ayurvedic Hospital, we blend the timeless science of Ayurveda with personalized care to help you
-            live a healthier, balanced life.
-          </p>
-          <Link href="#story" className="about-hero-story-btn">
-            Our Story
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
-        <div className="about-premium-hero-image">
-          <div className="about-premium-hero-botanical" aria-hidden="true" />
-          <div className="about-premium-hero-badge" aria-hidden="true">
-            <AboutValueIcon icon="leaf" />
-          </div>
-          <Image
-            src="/images/home-hero-reference.webp"
-            alt="Ayurvedic herbs with marble mortar and brass vessels"
-            width={1536}
-            height={864}
-            priority
-          />
-        </div>
+    <section className="about-hero-fullbleed">
+      {/* Background Media Container */}
+      <div className="about-hero-media-wrapper">
+        <img
+          src={imageSrc}
+          alt="Susrutha Ayurveda Hospital Wellness Care"
+          className={`about-hero-img ${videoPlaying ? "fade-out" : "active"}`}
+        />
+        {videoSrc && !videoError && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            className="about-hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster={imageSrc}
+            onPlay={() => setVideoPlaying(true)}
+            onLoadedData={() => setVideoPlaying(true)}
+            onError={() => setVideoError(true)}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        )}
       </div>
 
-      <div className="about-premium-hero-values">
+      {/* Dark Translucent Gradient Overlay */}
+      <div className="about-hero-overlay-dark" />
+
+      {/* Left Vertical Side Ribbon Tag */}
+   
+
+      {/* Hero Main Content Container */}
+      <div className="about-hero-content-container">
+
+
+        <h1 className="about-hero-giant-heading">
+          HEALING FOR
+          <br />
+          BODY &amp; SOUL
+        </h1>
+
+        <p className="about-hero-description">
+          Multidisciplinary Ayurvedic &amp; Panchakarma excellence creating bespoke healing, rehabilitative, and wellness care for every individual.
+        </p>
+
+      
+      </div>
+
+      {/* Floating Bottom Glass Values Bar */}
+      <div className="about-hero-values-floating">
         {aboutValues.map(([icon, title, copy]) => (
-          <article className="about-premium-hero-value" key={title}>
-            <span>
+          <article className="about-hero-value-card" key={title}>
+            <span className="about-hero-value-icon">
               <AboutValueIcon icon={icon} />
             </span>
-            <h3>{title}</h3>
-            <i aria-hidden="true" />
-            <p>{copy}</p>
+            <div className="about-hero-value-text">
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </div>
           </article>
         ))}
       </div>
