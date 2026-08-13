@@ -60,7 +60,9 @@ export function SignatureExperienceSection() {
                   <div className="sig-experience-overlay">
                     <span className="sig-experience-discover">
                       DISCOVER RITUAL
-                      <i className="fa-solid fa-arrow-right" style={{ marginLeft: "8px" }} />
+                      <span className="material-symbols-outlined" style={{ fontSize: "16px", marginLeft: "6px", verticalAlign: "middle" }}>
+                        arrow_forward
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -68,13 +70,13 @@ export function SignatureExperienceSection() {
                   <h3>{t.title}</h3>
                   <p>{t.desc}</p>
                   <div className="sig-experience-meta">
-                    <span>
-                      <i className="fa-regular fa-clock" aria-hidden="true" style={{ marginRight: "6px" }} />
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>schedule</span>
                       {t.duration}
                     </span>
                     <span className="dot-sep">•</span>
-                    <span>
-                      <i className="fa-solid fa-tag" aria-hidden="true" style={{ marginRight: "6px" }} />
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>payments</span>
                       {t.price}
                     </span>
                   </div>

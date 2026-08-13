@@ -5,22 +5,22 @@ import React from "react";
 export function SusruthaWaySection() {
   const pillars = [
     {
-      iconClass: "fa-solid fa-notes-medical",
+      icon: "clinical_notes",
       title: "Evidence-Based",
       desc: "Blending ancient protocols with contemporary medical insights for measurable results.",
     },
     {
-      iconClass: "fa-solid fa-seedling",
+      icon: "eco",
       title: "Pure Sourcing",
       desc: "All oils and herbs are ethically harvested from our private botanical gardens.",
     },
     {
-      iconClass: "fa-solid fa-hotel",
+      icon: "king_bed",
       title: "Ultra-Luxury",
       desc: "Immersive retreats that offer world-class hospitality and profound tranquility.",
     },
     {
-      iconClass: "fa-solid fa-award",
+      icon: "verified_user",
       title: "Master Lineage",
       desc: "Over 50 years of accumulated wisdom passed through three generations of healers.",
     },
@@ -44,7 +44,7 @@ export function SusruthaWaySection() {
             {pillars.map((item) => (
               <div className="susrutha-way-bento-card" key={item.title}>
                 <div className="susrutha-way-bento-icon">
-                  <i className={item.iconClass} aria-hidden="true" />
+                  <span className="material-symbols-outlined">{item.icon}</span>
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>

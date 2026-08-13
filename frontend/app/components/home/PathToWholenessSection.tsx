@@ -8,25 +8,25 @@ export function PathToWholenessSection() {
       step: "STEP 01",
       title: "Consultation",
       desc: "A deep diagnostic exploration of your Prakriti (constitution) and current imbalances.",
-      iconClass: "fa-solid fa-spa",
+      icon: "spa",
     },
     {
       step: "STEP 02",
       title: "Diagnosis",
       desc: "Scientific pulse-reading and observation to map out your personalized healing roadmap.",
-      iconClass: "fa-solid fa-brain",
+      icon: "psychology",
     },
     {
       step: "STEP 03",
       title: "Treatment",
       desc: "A series of synchronized therapies including Shirodhara, Abhyanga, and herbal purification.",
-      iconClass: "fa-solid fa-flask-vial",
+      icon: "fluid_med",
     },
     {
       step: "STEP 04",
       title: "Recovery",
       desc: "Sustainable lifestyle and dietary integration for lifelong vitality and harmony.",
-      iconClass: "fa-solid fa-leaf",
+      icon: "self_improvement",
     },
   ];
 
@@ -44,7 +44,7 @@ export function PathToWholenessSection() {
             {steps.map((s) => (
               <div className="path-wholeness-card" key={s.step}>
                 <div className="path-wholeness-icon-box">
-                  <i className={s.iconClass} aria-hidden="true" />
+                  <span className="material-symbols-outlined">{s.icon}</span>
                 </div>
                 <span className="path-wholeness-step-tag">{s.step}</span>
                 <h3>{s.title}</h3>
