@@ -10,7 +10,7 @@ export function HomePage() {
   return (
     <div className="home-page">
       <HeroBanner />
-      <Timeloop />
+      {/* <Timeloop /> */}
 
       <HomeWellnessExpertiseSection />
       <TreatmentsShowcaseSection />
