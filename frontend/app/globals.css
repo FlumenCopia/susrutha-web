@@ -126,6 +126,10 @@ body .site-header .nav-actions .nav-book-btn:hover,
   height: 38px;
 }
 
+.journey-dot {
+  display: none !important;
+}
+
 /* Smooth Swipe & Card Transition Animations for Milestones Timeline */
 .journey-timeline {
   display: flex;

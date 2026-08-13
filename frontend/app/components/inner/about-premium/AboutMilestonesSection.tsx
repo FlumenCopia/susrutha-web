@@ -228,9 +228,9 @@ export function AboutMilestonesSection() {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <svg className="journey-wave" viewBox="0 0 1280 110" preserveAspectRatio="none" aria-hidden="true">
+        {/* <svg className="journey-wave" viewBox="0 0 1280 110" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 57 C155 51 204 66 320 57 C458 47 510 60 640 57 C772 54 792 37 873 17 C974 -8 1014 96 1110 72 C1182 54 1204 59 1280 36" />
-        </svg>
+        </svg> */}
 
         {orderedMilestones.map((item) => (
           <button
@@ -245,7 +245,6 @@ export function AboutMilestonesSection() {
             <div className="journey-icon">
               <JourneyIcon name={item.icon} />
             </div>
-            <span className="journey-dot" aria-hidden="true" />
             <div className="journey-card-copy">
               <strong>{item.year}</strong>
               <h3>{item.title}</h3>
