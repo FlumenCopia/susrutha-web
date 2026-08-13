@@ -942,7 +942,7 @@ textarea {
   right: 12px;
   bottom: 2px;
   height: 2px;
-  background: var(--color-red);
+  background: var(--color-gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 180ms ease;
@@ -950,7 +950,7 @@ textarea {
 
 .nav-item>a:hover,
 .nav-item[data-active="true"]>a {
-  color: var(--color-red);
+  color: var(--color-gold);
 }
 
 .nav-item>a:hover::after,
@@ -5047,13 +5047,13 @@ p {
   right: 0;
   bottom: -2px;
   height: 2px;
-  background: #dc1f28;
+  background: #c89b3c;
   transform: scaleX(0);
 }
 
 .nav-item[data-active="true"]>a,
 .nav-item>a:hover {
-  color: #dc1f28;
+  color: #c89b3c;
 }
 
 .nav-item[data-active="true"]>a::after,

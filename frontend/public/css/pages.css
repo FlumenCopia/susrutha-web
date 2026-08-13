@@ -4975,14 +4975,14 @@ body:has(.conditions-page) {
   bottom: 2px !important;
   width: auto !important;
   height: 2px !important;
-  background: var(--color-red) !important;
+  background: var(--color-gold) !important;
   transform: scaleX(0) !important;
   transform-origin: left !important;
 }
 
 .nav-item>a:hover,
 .nav-item[data-active="true"]>a {
-  color: var(--color-red) !important;
+  color: var(--color-gold) !important;
 }
 
 .nav-item>a:hover::after,
@@ -7437,14 +7437,14 @@ body .site-header .nav-item>a::after {
   bottom: 2px !important;
   width: auto !important;
   height: 2px !important;
-  background: var(--color-red) !important;
+  background: var(--color-gold) !important;
   transform: scaleX(0) !important;
   transform-origin: left !important;
 }
 
 body .site-header .nav-item>a:hover,
 body .site-header .nav-item[data-active="true"]>a {
-  color: var(--color-red) !important;
+  color: var(--color-gold) !important;
 }
 
 body .site-header .nav-item>a:hover::after,

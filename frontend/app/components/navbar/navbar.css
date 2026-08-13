@@ -107,7 +107,7 @@ body .site-header .nav-item > a::after {
   right: 10px;
   width: auto;
   height: 2.5px;
-  background: linear-gradient(90deg, #c81d28, #9a6528);
+  background: linear-gradient(90deg, #c89b3c, #9a6528);
   border-radius: 2px;
   transform: scaleX(0);
   transform-origin: left;
@@ -118,7 +118,7 @@ body .site-header .nav-item > a::after {
 .nav-item[data-active="true"] > a,
 body .site-header .nav-item:hover > a,
 body .site-header .nav-item[data-active="true"] > a {
-  color: #c81d28 !important;
+  color: #c89b3c !important;
 }
 
 .nav-item:hover > a::after,
@@ -401,7 +401,7 @@ body .site-header .nav-actions .nav-book-btn:hover {
 }
 
 .mobile-overlay-main-link.active {
-  color: #c81d28;
+  color: #c89b3c;
 }
 
 .mobile-overlay-sub-links {
@@ -422,7 +422,7 @@ body .site-header .nav-actions .nav-book-btn:hover {
 
 .mobile-overlay-sub-link:hover,
 .mobile-overlay-sub-link.active {
-  color: #c81d28;
+  color: #c89b3c;
 }
 
 .mobile-overlay-footer {
