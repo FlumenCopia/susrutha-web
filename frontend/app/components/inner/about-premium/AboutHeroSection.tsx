@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import "./about-hero.css";
 
@@ -38,9 +35,9 @@ function AboutValueIcon({ icon }: { icon: string }) {
       ) : null}
       {icon === "sustainability" ? (
         <>
-          <path d="M18 42c18 0 28-10 29-28-18 1-28 11-28 29" />
-          <path d="M18 42c8-10 16-17 29-28" />
-          <path d="M23 34c-9-1-15 5-16 14 10 1 17-3 20-12" />
+          <path d="M18 42c18 0 29-11 30-30-19 1-30 12-30 30z" />
+          <path d="M18 42c9-11 17-19 30-30" />
+          <path d="M23 36l-11 11" />
         </>
       ) : null}
       {icon === "holistic" ? (
@@ -63,62 +60,21 @@ function AboutValueIcon({ icon }: { icon: string }) {
 }
 
 export function AboutHeroSection() {
-  const [videoError, setVideoError] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  const videoSrc = "/bannervideo.mp4";
   const imageSrc = "/images/about-susrutha-wellness.webp";
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current
-        .play()
-        .then(() => {
-          setVideoPlaying(true);
-        })
-        .catch((err) => {
-          console.warn("Autoplay prevented or video playback error:", err);
-        });
-    }
-  }, []);
 
   return (
     <section className="about-hero-fullbleed">
-      {/* Background Media Container */}
+      {/* Background Media Container - Image Only */}
       <div className="about-hero-media-wrapper">
         <img
           src={imageSrc}
           alt="Susrutha Ayurveda Hospital Wellness Care"
-          className={`about-hero-img ${videoPlaying ? "fade-out" : "active"}`}
+          className="about-hero-img active"
         />
-        {videoSrc && !videoError && (
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            className="about-hero-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster={imageSrc}
-            onPlay={() => setVideoPlaying(true)}
-            onLoadedData={() => setVideoPlaying(true)}
-            onError={() => setVideoError(true)}
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-        )}
       </div>
 
       {/* Dark Translucent Gradient Overlay */}
       <div className="about-hero-overlay-dark" />
-
-      {/* Left Vertical Side Ribbon Tag */}
-   
 
       {/* Hero Main Content Container */}
       <div className="about-hero-content-container">
@@ -134,7 +90,7 @@ export function AboutHeroSection() {
           Multidisciplinary Ayurvedic &amp; Panchakarma excellence creating bespoke healing, rehabilitative, and wellness care for every individual.
         </p>
 
-      
+
       </div>
 
       {/* Floating Bottom Glass Values Bar */}
