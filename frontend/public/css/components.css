@@ -7726,6 +7726,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .path-wholeness-header h2 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -7803,6 +7804,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .path-wholeness-card h3 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 24px;
   font-weight: 500;
   color: #000a04;
@@ -7848,6 +7850,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .sig-experience-header h2 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -7926,6 +7929,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .sig-experience-card-body h3 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 24px;
   font-weight: 500;
   color: #000a04;
@@ -7985,6 +7989,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .susrutha-way-left h2 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -8033,6 +8038,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .susrutha-way-bento-card h3 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 22px;
   font-weight: 500;
   color: #000a04;
@@ -8066,6 +8072,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .custodians-header h2 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -8107,6 +8114,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .custodians-card h3 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 22px;
   font-weight: 500;
   color: #000a04;

@@ -27,14 +27,21 @@ body {
   min-height: 100vh;
   background-color: var(--color-ivory, #fff7f0);
   color: var(--color-ink, #372718);
+  font-family: var(--font-body, 'Hanken Grotesk'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6,
-h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
-em, address, cite, dfn, var, blockquote {
+.font-display-lg,
+.font-headline-lg,
+.font-headline-md {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   color: var(--color-ink, #372718);
+}
+
+em, i:not([class*="fa-"]):not([class*="material-symbols"]), .italic, blockquote {
+  font-style: italic;
 }
 
 /* Accessible Focus Styles */

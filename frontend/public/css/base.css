@@ -21,6 +21,12 @@
   --color-ivory: #fff7f0;               /* Ayora Signature Ivory Background */
   --color-white: #ffffff;
   --color-line: rgba(55, 39, 24, 0.16); /* Ayora Subtle Border Line */
+
+  /* Mockup HTML Typography System */
+  --font-heading: 'EB Garamond', Georgia, serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-accent: 'Hanken Grotesk', sans-serif;
+  --font-display: 'EB Garamond', Georgia, serif;
 }
 
 /* Home treatments reference section */
