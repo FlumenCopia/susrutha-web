@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 
 type JourneyIconName =
   | "doctor"
@@ -136,12 +136,19 @@ export function AboutMilestonesSection() {
 
   const orderedMilestones = useMemo(
     () =>
-      milestones.map((item, index) => ({
-        ...item,
-        index,
-        order: (index - activeIndex + 2 + milestones.length) % milestones.length,
-        isActive: index === activeIndex,
-      })),
+      milestones.map((item, index) => {
+        let relativePos = index - activeIndex;
+        if (relativePos < -2) relativePos += milestones.length;
+        if (relativePos > 2) relativePos -= milestones.length;
+
+        return {
+          ...item,
+          index,
+          relativePos,
+          order: relativePos + 2,
+          isActive: index === activeIndex,
+        };
+      }),
     [activeIndex],
   );
 
@@ -151,6 +158,27 @@ export function AboutMilestonesSection() {
         ? (current + 1) % milestones.length
         : (current - 1 + milestones.length) % milestones.length,
     );
+  };
+
+  const touchStartX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        moveMilestone("next");
+      } else {
+        moveMilestone("previous");
+      }
+    }
+    touchStartX.current = null;
   };
 
   return (
@@ -194,11 +222,15 @@ export function AboutMilestonesSection() {
         {activeMilestone.year}: {activeMilestone.title}
       </p>
 
-      <div className="journey-timeline" aria-label="Susrutha Ayurveda journey milestones">
+      <div
+        className="journey-timeline"
+        aria-label="Susrutha Ayurveda journey milestones"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <svg className="journey-wave" viewBox="0 0 1280 110" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 57 C155 51 204 66 320 57 C458 47 510 60 640 57 C772 54 792 37 873 17 C974 -8 1014 96 1110 72 C1182 54 1204 59 1280 36" />
         </svg>
-
 
         {orderedMilestones.map((item) => (
           <button
@@ -223,20 +255,6 @@ export function AboutMilestonesSection() {
           </button>
         ))}
       </div>
-
-      {/* <div className="journey-stats" aria-label="Hospital achievements">
-        {stats.map((item) => (
-          <div className="journey-stat" key={item.value}>
-            <JourneyIcon name={item.icon as JourneyIconName} />
-            <strong>{item.value}</strong>
-            <span>
-              {item.label.split("\n").map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </span>
-          </div>
-        ))}
-      </div> */}
     </section>
   );
 }
