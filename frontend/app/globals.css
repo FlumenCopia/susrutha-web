@@ -44,6 +44,45 @@ em, i:not([class*="fa-"]):not([class*="material-symbols"]), .italic, blockquote 
   font-style: italic;
 }
 
+/* Universal Black Button System */
+.btn-primary,
+.nav-book-btn,
+body .site-header .nav-actions .btn-primary,
+body .site-header .nav-actions .nav-book-btn,
+.treatment-hero-cta,
+.journey-banner-button,
+.home-wellness-link,
+.contact-reference-form button,
+.btn-next-step,
+.btn-submit-final,
+.sig-experience-all-btn,
+.doctors-cta-btn,
+.doctor-card-btn,
+.apt-btn-switch-dept {
+  background: #000a04 !important;
+  color: #ffffff !important;
+  border-color: #000a04 !important;
+}
+
+.btn-primary:hover,
+.nav-book-btn:hover,
+body .site-header .nav-actions .btn-primary:hover,
+body .site-header .nav-actions .nav-book-btn:hover,
+.treatment-hero-cta:hover,
+.journey-banner-button:hover,
+.home-wellness-link:hover,
+.contact-reference-form button:hover,
+.btn-next-step:hover,
+.btn-submit-final:hover,
+.sig-experience-all-btn:hover,
+.doctors-cta-btn:hover,
+.doctor-card-btn:hover,
+.apt-btn-switch-dept:hover {
+  background: #1c1d1c !important;
+  color: #ffffff !important;
+  border-color: #1c1d1c !important;
+}
+
 /* Accessible Focus Styles */
 :focus-visible {
   outline: 2px solid var(--color-ayora-terracotta, #df7943);

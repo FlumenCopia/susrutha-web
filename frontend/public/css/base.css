@@ -4410,18 +4410,18 @@ a.inner-card:hover {
   min-height: 48px;
   padding: 0 24px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #b78643, #95652d);
+  background: #000a04 !important;
   color: #ffffff !important;
   font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 8px 20px rgba(149, 101, 45, 0.22);
+  box-shadow: 0 8px 20px rgba(0, 10, 4, 0.22);
   transition: all 0.2s ease;
   text-decoration: none;
 }
 
 .footer-consult-button:hover {
-  background: linear-gradient(135deg, #a37536, #805423);
-  box-shadow: 0 12px 28px rgba(149, 101, 45, 0.32);
+  background: #1c1d1c !important;
+  box-shadow: 0 12px 28px rgba(0, 10, 4, 0.32);
   transform: translateY(-2px);
 }
 

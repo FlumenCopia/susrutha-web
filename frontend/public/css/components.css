@@ -82,14 +82,14 @@ p {
 .btn-primary,
 .nav-actions .btn-primary,
 .footer-consult-button {
-  background: linear-gradient(135deg, #b78643, #95652d) !important;
+  background: #000a04 !important;
   color: #ffffff !important;
-  box-shadow: 0 14px 30px rgba(128, 84, 33, 0.22) !important;
+  box-shadow: 0 14px 30px rgba(0, 10, 4, 0.22) !important;
 }
 
 .btn-primary:hover,
 .footer-consult-button:hover {
-  background: linear-gradient(135deg, #a87534, #805522) !important;
+  background: #1c1d1c !important;
 }
 
 .btn-secondary {
