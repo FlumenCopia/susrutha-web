@@ -195,8 +195,8 @@
 }
 
 .marquee-word {
-  font-family: "Playfair Display", Italiana, Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-size: 1.4rem;
   font-size: 1.4rem;
   font-weight: 400;
   letter-spacing: 2px;

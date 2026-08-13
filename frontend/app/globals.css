@@ -28,12 +28,16 @@ body {
   background-color: var(--color-ivory, #fff7f0);
   color: var(--color-ink, #372718);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+em, address, cite, dfn, var, blockquote {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-style: normal !important;
   color: var(--color-ink, #372718);
 }
 
@@ -232,4 +236,14 @@ img[data-nimg="fill"],
 img[style*="position: absolute"] {
   height: 100% !important;
   max-width: none !important;
+}
+
+/* Universal font-style reset to remove all italic font styles site-wide */
+*,
+*::before,
+*::after,
+h1, h2, h3, h4, h5, h6,
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+em, address, cite, dfn, var, blockquote, span, p, a, div, section, article {
+  font-style: normal !important;
 }

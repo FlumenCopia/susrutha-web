@@ -67,7 +67,7 @@
 
 .doctors-hero-title span.accent {
   color: var(--color-red, #d61f2b);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 
@@ -951,7 +951,7 @@
 }
 
 .doctor-modal-quote {
-  font-style: italic;
+  font-style: normal;
   font-size: 13.5px;
   line-height: 1.5;
   color: #6a6c67;

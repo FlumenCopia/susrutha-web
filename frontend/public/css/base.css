@@ -127,7 +127,7 @@
 
 .home-page .treatments-showcase-head h2 em {
   color: #a87534;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -2538,7 +2538,7 @@ a.inner-card:hover {
 
 .about-premium-hero h1 em {
   color: #a87534;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -3370,7 +3370,7 @@ a.inner-card:hover {
 
 .about-purpose-copy h2 em {
   color: #a87534;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -3478,7 +3478,7 @@ a.inner-card:hover {
 
 .purpose-card h3 em {
   color: #a87534;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -3673,7 +3673,7 @@ a.inner-card:hover {
 
 .milestone-showcase-copy h2 em {
   color: #b47b2d;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -4045,7 +4045,7 @@ a.inner-card:hover {
   color: #173733;
   font-family: var(--font-heading), Georgia, serif;
   font-size: clamp(25px, 1.95vw, 32px);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.22;
   text-align: center;
 }
