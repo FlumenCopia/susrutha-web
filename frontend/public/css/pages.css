@@ -1773,7 +1773,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   z-index: 5;
   align-self: start;
   max-width: 745px;
-  padding: 66px 20px 80px clamp(78px, 6.55vw, 126px);
+  padding: 140px 20px 80px clamp(78px, 6.55vw, 126px);
 }
 
 .treatment-hero-copy::before {
@@ -2402,7 +2402,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
 
 .treatment-hero-copy {
   max-width: 725px;
-  padding: 70px 20px 80px 140px;
+  padding: 140px 20px 80px 140px;
 }
 
 .treatment-hero-copy::before {
@@ -2414,9 +2414,24 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
 }
 
 .treatment-breadcrumb {
-  gap: 17px;
-  margin-bottom: 55px;
-  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  color: #8c622d;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.treatment-breadcrumb a {
+  color: #1b1c19 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.treatment-breadcrumb a:hover {
+  color: #8c622d !important;
 }
 
 .treatment-hero-copy h1 {
