@@ -677,7 +677,6 @@ function AppointmentWizardContent() {
                         </div>
                         <h4
                           style={{
-                            fontFamily: "var(--font-heading, 'Cinzel', 'Playfair Display', Georgia, serif)",
                             fontSize: "18px",
                             fontWeight: 700,
                             color: "#2c251e",
