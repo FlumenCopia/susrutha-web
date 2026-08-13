@@ -4168,32 +4168,8 @@ body:has(.treatment-detail-reference) main {
 
 .conditions-hero::before,
 .conditions-hero::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-.conditions-hero::before {
-  left: -90px;
-  bottom: 74px;
-  width: 310px;
-  height: 310px;
-  border: 1px solid rgba(200, 152, 68, 0.58);
-  border-width: 0 0 1px 1px;
-  border-radius: 0 0 0 110px;
-  opacity: 0.78;
-}
-
-.conditions-hero::after {
-  right: -12px;
-  top: 138px;
-  width: 240px;
-  height: 330px;
-  background:
-    radial-gradient(ellipse at 50% 18%, transparent 39%, rgba(200, 152, 68, 0.28) 40%, transparent 42%),
-    radial-gradient(ellipse at 72% 36%, transparent 39%, rgba(200, 152, 68, 0.24) 40%, transparent 42%),
-    radial-gradient(ellipse at 32% 54%, transparent 39%, rgba(200, 152, 68, 0.22) 40%, transparent 42%);
-  opacity: 0.82;
+  display: none !important;
+  content: none !important;
 }
 
 .conditions-hero-copy {
@@ -5116,28 +5092,10 @@ body:has(.conditions-page) {
     #fbf6ee;
 }
 
-.conditions-page .conditions-hero::before {
-  left: -96px;
-  bottom: 104px;
-  width: 270px;
-  height: 300px;
-  border: 0;
-  background:
-    radial-gradient(ellipse at 46% 14%, transparent 40%, rgba(159, 128, 60, 0.42) 41%, transparent 43%),
-    radial-gradient(ellipse at 62% 38%, transparent 40%, rgba(159, 128, 60, 0.34) 41%, transparent 43%),
-    radial-gradient(ellipse at 38% 63%, transparent 40%, rgba(159, 128, 60, 0.3) 41%, transparent 43%);
-  opacity: 0.55;
-}
-
+.conditions-page .conditions-hero::before,
 .conditions-page .conditions-hero::after {
-  right: 0;
-  top: 62px;
-  width: 240px;
-  height: 320px;
-  background:
-    radial-gradient(ellipse at 52% 16%, transparent 40%, rgba(190, 150, 82, 0.32) 41%, transparent 43%),
-    radial-gradient(ellipse at 72% 42%, transparent 40%, rgba(190, 150, 82, 0.24) 41%, transparent 43%);
-  opacity: 0.44;
+  display: none !important;
+  content: none !important;
 }
 
 .conditions-page .conditions-hero-copy {
@@ -5273,7 +5231,7 @@ body:has(.conditions-page) {
   background:
     linear-gradient(180deg, rgba(255, 252, 246, 0.97), rgba(250, 242, 228, 0.96)),
     #fffaf2;
-  color: #123c27;
+  color: #000a04;
   box-shadow: 0 18px 42px rgba(86, 62, 31, 0.14);
 }
 
@@ -5295,13 +5253,13 @@ body:has(.conditions-page) {
 }
 
 .conditions-page .conditions-rooted-badge span {
-  color: #123c27;
+  color: #000a04;
   font-size: clamp(24px, 1.55vw, 32px);
   font-weight: 500;
 }
 
 .conditions-page .conditions-rooted-badge strong {
-  color: #123c27;
+  color: #000a04;
   font-size: clamp(29px, 1.95vw, 42px);
 }
 
@@ -5344,7 +5302,7 @@ body:has(.conditions-page) {
 .conditions-page .conditions-search svg,
 .conditions-page .conditions-select select,
 .conditions-page .conditions-view-button {
-  color: #123c27;
+  color: #000a04;
 }
 
 .conditions-page .conditions-search input,
@@ -5353,7 +5311,7 @@ body:has(.conditions-page) {
 }
 
 .conditions-page .conditions-view-button.is-active {
-  background: #123c27;
+  background: #000a04;
   color: #ffffff;
 }
 

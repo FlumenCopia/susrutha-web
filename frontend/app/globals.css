@@ -99,7 +99,13 @@ body .site-header .nav-actions .nav-book-btn:hover,
 .home-wellness-mortar,
 .about-purpose-copy::before,
 .doctors-hero::before,
-.doctors-hero::after {
+.doctors-hero::after,
+.conditions-hero::before,
+.conditions-hero::after,
+.conditions-page .conditions-hero::before,
+.conditions-page .conditions-hero::after,
+.conditions-hero-copy::before,
+.conditions-hero-copy::after {
   display: none !important;
   background: none !important;
   border: none !important;
