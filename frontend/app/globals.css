@@ -89,6 +89,8 @@ body .site-header .nav-actions .nav-book-btn:hover,
   outline-offset: 2px;
 }
 
+.about-premium-milestones::before,
+.about-premium-milestones::after,
 .about-story-section::before,
 .about-story-section::after,
 .about-story-image-wrap::before,
@@ -113,6 +115,10 @@ body .site-header .nav-actions .nav-book-btn:hover,
   display: none !important;
   background: none !important;
   border: none !important;
+}
+
+.about-premium-milestones {
+  background: #ffffff !important;
 }
 
 .about-story-pillars article > div svg {

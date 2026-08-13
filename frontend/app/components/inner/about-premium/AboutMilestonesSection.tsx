@@ -199,6 +199,7 @@ export function AboutMilestonesSection() {
           <path d="M0 57 C155 51 204 66 320 57 C458 47 510 60 640 57 C772 54 792 37 873 17 C974 -8 1014 96 1110 72 C1182 54 1204 59 1280 36" />
         </svg>
 
+
         {orderedMilestones.map((item) => (
           <button
             className={item.isActive ? "journey-card is-featured" : "journey-card"}
