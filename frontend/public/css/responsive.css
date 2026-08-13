@@ -7281,7 +7281,6 @@
 @media (max-width: 640px) {
 
   main :is(.inner-card-grid,
-    .conditions-card-grid,
     .about-values-grid,
     .about-founders-grid,
     .purpose-values,
@@ -7303,10 +7302,64 @@
   }
 
   .all-treatments-grid,
-  body:has(.treatment-reference-page) .all-treatments-grid {
+  .conditions-card-grid,
+  .conditions-pathway-list,
+  body:has(.treatment-reference-page) .all-treatments-grid,
+  body:has(.conditions-page) .conditions-card-grid,
+  body:has(.conditions-page) .conditions-pathway-list {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 12px !important;
+  }
+
+  .condition-card {
+    min-height: 170px !important;
+    padding: 14px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  .condition-card h3 {
+    font-size: 15px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .condition-card p {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .condition-card span {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .condition-card b {
+    font-size: 18px !important;
+    right: 12px !important;
+    bottom: 10px !important;
+  }
+
+  .conditions-pathway-list article {
+    grid-template-columns: 34px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    min-height: 72px !important;
+    padding: 12px 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .conditions-pathway-list svg {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 6px !important;
+  }
+
+  .conditions-pathway-list article p {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
   }
 
   .all-treatment-card {
