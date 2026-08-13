@@ -4594,7 +4594,7 @@ body:has(.treatment-detail-reference) main {
   box-shadow: 0 28px 70px rgba(0, 10, 4, 0.22);
 }
 
-.conditions-care-band div > span {
+.conditions-care-band div>span {
   color: #c89b3c !important;
 }
 
@@ -8894,7 +8894,7 @@ label {
   pointer-events: none;
 }
 
-.contact-reference-info > h2 {
+.contact-reference-info>h2 {
   position: relative;
   margin: 0 0 6px;
   color: var(--contact-ink) !important;
@@ -8905,7 +8905,7 @@ label {
   text-align: center;
 }
 
-.contact-reference-info > .contact-reference-small-rule {
+.contact-reference-info>.contact-reference-small-rule {
   display: block;
   width: 48px;
   height: 3px;
@@ -8933,7 +8933,7 @@ label {
   padding: clamp(28px, 3vw, 42px) clamp(24px, 2.8vw, 36px);
   border: 1px solid rgba(200, 155, 60, 0.14);
   border-radius: 20px;
-  background: linear-gradient(145deg, #ffffff 0%, #fffdf8 100%);
+  background: #fff;
   box-shadow:
     0 4px 6px rgba(55, 41, 24, 0.04),
     0 16px 40px rgba(55, 41, 24, 0.08),
