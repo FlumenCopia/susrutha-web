@@ -25,18 +25,18 @@ const storyPillars: StoryPillar[] = [
   },
 ];
 
-function ThinLineIcon({ name }: { name: string }) {
+function ThinLineIcon({ name, size = 38 }: { name: string; size?: number }) {
   const common = {
     fill: "none",
     stroke: "var(--color-gold, #c89b3c)",
-    strokeWidth: 1.3,
+    strokeWidth: 1.5,
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
   };
 
   if (name === "mortar") {
     return (
-      <svg viewBox="0 0 48 48" aria-hidden="true" style={{ width: "26px", height: "26px" }}>
+      <svg viewBox="0 0 48 48" aria-hidden="true" style={{ width: `${size}px`, height: `${size}px` }}>
         <path {...common} d="M12 22h24l-3 17H15l-3-17Z" />
         <path {...common} d="M18 22c-2-5 1-10 6-12 6 2 9 7 6 12" />
         <path {...common} d="M20 30h8M24 26v8M11 39h26" />
@@ -47,7 +47,7 @@ function ThinLineIcon({ name }: { name: string }) {
 
   if (name === "doctor") {
     return (
-      <svg viewBox="0 0 48 48" aria-hidden="true" style={{ width: "26px", height: "26px" }}>
+      <svg viewBox="0 0 48 48" aria-hidden="true" style={{ width: `${size}px`, height: `${size}px` }}>
         <circle cx="24" cy="14" r="6" {...common} />
         <path {...common} d="M11 40v-4c0-6 6-10 13-10s13 4 13 10v4" />
         <path {...common} d="M24 30v7M20 33.5h8" />
@@ -57,7 +57,7 @@ function ThinLineIcon({ name }: { name: string }) {
 
   if (name === "lotus") {
     return (
-      <svg viewBox="0 0 48 48" aria-hidden="true" style={{ width: "26px", height: "26px" }}>
+      <svg viewBox="0 0 48 48" aria-hidden="true" style={{ width: `${size}px`, height: `${size}px` }}>
         <path {...common} d="M24 38c-8-6-8-16 0-28 8 12 8 22 0 28Z" />
         <path {...common} d="M24 36c-9 1-16-5-17-16 9 0 15 5 17 16ZM24 36c9 1 16-5 17-16-9 0-15 5-17 16Z" />
         <path {...common} d="M13 40h22" />
