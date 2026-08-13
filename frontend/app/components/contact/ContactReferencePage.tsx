@@ -129,22 +129,30 @@ const contactCards = [
   {
     icon: "pin" as const,
     title: "Our Address",
-    lines: ["Susrutha Ayurveda Hospital", "Panchakarma & Wellness Center", "Door No. 47/881:1, Kanjikuzhi,", "Kottayam, Kerala - 686004, India"],
+    primary: ["Door No. 47/881:1, Kanjikuzhi,", "Kottayam, Kerala – 686004, India"],
+    secondary: ["Susrutha Ayurveda Hospital", "Panchakarma & Wellness Center"],
+    link: null,
   },
   {
     icon: "phone" as const,
     title: "Call Us",
-    lines: ["+91 481 350 1000", "+91 9387 510 100", "Mon - Sat: 8:00 AM - 7:00 PM", "Sunday: 9:00 AM - 1:00 PM"],
+    primary: ["+91 481 350 1000", "+91 9387 510 100"],
+    secondary: ["Mon – Sat: 8:00 AM – 7:00 PM", "Sunday: 9:00 AM – 1:00 PM"],
+    link: "tel:+914813501000",
   },
   {
     icon: "mail" as const,
     title: "Email Us",
-    lines: ["info@susruthaayurveda.com", "care@susruthaayurveda.com", "We aim to respond within", "24 hours."],
+    primary: ["info@susruthaayurveda.com", "care@susruthaayurveda.com"],
+    secondary: ["We respond within 24 hours"],
+    link: "mailto:info@susruthaayurveda.com",
   },
   {
     icon: "globe" as const,
     title: "Website",
-    lines: ["www.susruthaayurveda.com", "Explore treatments, programs", "and expert insights."],
+    primary: ["www.susruthaayurveda.com"],
+    secondary: ["Explore treatments, programs", "and expert insights online."],
+    link: "https://www.susruthaayurveda.com",
   },
 ];
 
@@ -302,8 +310,18 @@ export function ContactReferencePage() {
                   <ContactIcon type={card.icon} />
                 </span>
                 <h3>{card.title}</h3>
-                {card.lines.map((line) => (
-                  <p key={line}>{line}</p>
+                {card.primary.map((line) =>
+                  card.link ? (
+                    <a key={line} className="info-primary" href={card.link} style={{ display: "block", textDecoration: "none" }}>
+                      {line}
+                    </a>
+                  ) : (
+                    <p key={line} className="info-primary">{line}</p>
+                  )
+                )}
+                <hr className="info-divider" />
+                {card.secondary.map((line) => (
+                  <p key={line} className="info-secondary">{line}</p>
                 ))}
               </article>
             ))}
