@@ -3,7 +3,7 @@
 /* Reference-style doctor detail page */
 .doctor-detail-page {
   background: #fff8ec;
-  color: #20332d;
+  color: #000a04;
 }
 
 .doctor-detail-hero {
@@ -67,7 +67,7 @@
 
 .doctor-detail-copy h1 {
   margin: 18px 0 10px;
-  color: #20332d;
+  color: #000a04;
   font-size: clamp(44px, 4vw, 66px);
   font-weight: 500;
   line-height: 1.05;
@@ -111,7 +111,7 @@
 }
 
 .doctor-detail-stats strong {
-  color: #20332d;
+  color: #000a04;
   font-size: 18px;
   line-height: 1;
 }
@@ -196,7 +196,7 @@
 
 .doctor-detail-glance strong {
   display: block;
-  color: #20332d;
+  color: #000a04;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -240,7 +240,7 @@
 .doctor-faq-panel h2,
 .doctor-detail-title-center h2 {
   margin: 0 0 24px;
-  color: #20332d;
+  color: #000a04;
   font-size: clamp(28px, 2.2vw, 38px);
   font-weight: 500;
   line-height: 1.15;
@@ -318,7 +318,7 @@
 
 .doctor-treatment-grid h3 {
   margin: 0 0 7px;
-  color: #20332d;
+  color: #000a04;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: 0;
@@ -423,7 +423,7 @@
 
 .doctor-article-grid h3 {
   margin: 8px 0;
-  color: #20332d;
+  color: #000a04;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.25;
@@ -497,7 +497,7 @@
 
 .doctor-education-grid h3 {
   margin: 16px 0 7px;
-  color: #20332d;
+  color: #000a04;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0;
@@ -517,7 +517,7 @@
   min-height: 230px;
   margin: 0 auto 70px;
   border-radius: 14px;
-  background: #20332d;
+  background: #000a04;
   box-shadow: 0 24px 54px rgba(70, 45, 22, 0.12);
 }
 
@@ -542,7 +542,7 @@
 
 .doctor-appointment-banner h2 {
   margin: 12px 0 22px;
-  color: #20332d;
+  color: #000a04;
   font-size: clamp(30px, 2.5vw, 42px);
   font-weight: 500;
   line-height: 1.15;
@@ -912,7 +912,7 @@
 }
 
 .doctor-detail-photo-note span {
-  color: #20332d;
+  color: #000a04;
   font-size: 12px;
   font-weight: 900;
   line-height: 1.25;
@@ -974,7 +974,7 @@
 
 .doctor-philosophy-panel h2 {
   margin: 16px 0 0;
-  color: #20332d;
+  color: #000a04;
   font-size: clamp(30px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1.12;
@@ -1158,7 +1158,7 @@
 .doctor-creative-head h2,
 .doctor-experience-copy h2 {
   margin: 14px 0 0;
-  color: #20332d;
+  color: #000a04;
   font-size: clamp(32px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1.08;
@@ -1218,7 +1218,7 @@
   height: 56px;
   place-items: center;
   border-radius: 50%;
-  background: #0f3b29;
+  background: #000a04;
   color: #fff8ec;
   font-size: 24px;
   font-weight: 500;
@@ -1226,7 +1226,7 @@
 
 .doctor-journey-grid h3 {
   margin: 24px 0 12px;
-  color: #20332d;
+  color: #000a04;
   font-size: 28px;
   font-weight: 500;
 }
@@ -1366,7 +1366,7 @@
 
 .doctor-panel-head h2,
 .doctor-faq-panel h2 {
-  color: #20332d;
+  color: #000a04;
   letter-spacing: 0;
 }
 
@@ -1710,7 +1710,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
   padding: 0 14px 0 clamp(26px, 1.8vw, 34px);
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, #0d3d2d 0%, #04180f 100%) !important;
+  background: linear-gradient(135deg, #000a04 0%, #04180f 100%) !important;
   box-shadow: 0 16px 36px rgba(4, 24, 15, 0.2) !important;
   color: #ffffff !important;
   font-size: 17px;
@@ -1825,7 +1825,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .treatment-hero-copy h1 {
   max-width: 720px;
-  color: #0b3024;
+  color: #000a04;
   font-size: clamp(58px, 4.02vw, 77px);
   font-weight: 500;
   line-height: 1.12;
@@ -8389,7 +8389,7 @@ label {
 /* Contact reference page */
 .contact-reference-page {
   --contact-bg: #fbf7ef;
-  --contact-ink: #103b25;
+  --contact-ink: #000a04;
   --contact-text: #202520;
   --contact-gold: #c89b3c;
   --contact-green: #0d4524;
