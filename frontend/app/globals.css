@@ -25,16 +25,21 @@ body {
   overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color-ivory, #f8f2e6);
-  color: var(--color-ink, #3f403d);
-  font-family: var(--font-body), "Manrope", Arial, sans-serif;
+  background-color: var(--color-ivory, #fff7f0);
+  color: var(--color-ink, #372718);
+  font-family: var(--font-body), "Josefin Sans", "Manrope", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  color: var(--color-ink, #372718);
+}
+
 /* Accessible Focus Styles */
 :focus-visible {
-  outline: 2px solid var(--color-red, #d61f2b);
+  outline: 2px solid var(--color-ayora-terracotta, #df7943);
   outline-offset: 2px;
 }
 

@@ -1,18 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --color-red: #d61f2b;
-  --color-deep-red: #9f131b;
-  --color-sun: #f7a51a;
-  --color-gold: #c88922;
-  --color-ink: #3f403d;
-  --color-muted: #000000;
-  --color-cream: #fff8ec;
-  --color-ivory: #f8f2e6;
+  /* Ayora Inspired Luxury Palette Tokens */
+  --color-ayora-primary: #372718;       /* Deep Warm Espresso Dark Ink */
+  --color-ayora-dark: #251e1a;          /* Rich Dark Mocha */
+  --color-ayora-terracotta: #df7943;    /* Ayora Terracotta Accent */
+  --color-ayora-lime: #bbdf43;          /* Ayora Herbal Lime Accent */
+  --color-ayora-cream: #fff7f0;         /* Ayora Soft Signature Cream */
+  --color-ayora-sand: #e3dccd;          /* Ayora Muted Sand Linen */
+  --color-ayora-nude: #f5d7bd;          /* Ayora Warm Peach Nude */
+  --color-ayora-sage: #cfd0b7;          /* Ayora Soft Muted Sage */
+  --color-ayora-gold: #f5eacc;          /* Ayora Golden Butter */
+
+  /* Global Theme Mapping */
+  --color-red: #df7943;                 /* Ayora Accent Terracotta */
+  --color-deep-red: #372718;            /* Ayora Dark Espresso */
+  --color-sun: #bbdf43;                 /* Ayora Herbal Accent */
+  --color-gold: #df7943;
+  --color-ink: #372718;                 /* Ayora Text Font Color */
+  --color-muted: rgba(55, 39, 24, 0.7);  /* Ayora Muted Text Color */
+  --color-cream: #fff7f0;               /* Ayora Signature Cream */
+  --color-ivory: #fff7f0;               /* Ayora Signature Ivory Background */
   --color-white: #ffffff;
-  --color-line: rgba(63, 64, 61, 0.14);
-  --font-heading: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --font-body: "Manrope", Arial, "Segoe UI", sans-serif;
+  --color-line: rgba(55, 39, 24, 0.16); /* Ayora Subtle Border Line */
+
+  /* Ayora Typography System */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Josefin Sans", "Manrope", Arial, "Segoe UI", sans-serif;
+  --font-accent: "Josefin Sans", sans-serif;
 }
 
 /* Home treatments reference section */
