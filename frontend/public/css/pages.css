@@ -2384,7 +2384,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
 }
 
 .treatment-reference-page {
-  padding-top: 0;
+  padding-top: 150px !important;
   background: #fffdf8;
 }
 
@@ -2414,7 +2414,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
 
 .treatment-hero-copy {
   max-width: 725px;
-  padding: 140px 20px 80px 140px;
+  padding: 30px 20px 70px 140px;
 }
 
 .treatment-hero-copy::before {
@@ -2493,26 +2493,109 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary {
 }
 
 .treatment-category-shell {
-  width: min(calc(100vw - 188px), 1748px);
+  position: relative;
+  width: min(calc(100vw - 120px), 1748px);
   min-height: 137px;
   margin: -1px auto 58px;
-  padding: 37px 28px 30px;
-  border-radius: 19px;
+  padding: 33px 54px 30px;
+  background: #ffffff;
+  border: 1px solid rgba(200, 155, 60, 0.16);
+  box-shadow: 0 16px 40px rgba(50, 35, 18, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.treatment-swiper-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 117, 52, 0.2);
+  background: #fffdf8;
+  color: #a46822;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.treatment-swiper-btn:hover {
+  background: #000a04;
+  color: #ffffff;
+  border-color: #000a04;
+}
+
+.treatment-swiper-prev {
+  left: 12px;
+}
+
+.treatment-swiper-next {
+  right: 12px;
 }
 
 .treatment-category-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
   min-height: 70px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.treatment-category-track::-webkit-scrollbar {
+  display: none;
 }
 
 .treatment-category-pill {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 13px;
   min-height: 70px;
-  padding: 0 31px;
-  font-size: 17px;
+  padding: 0 clamp(22px, 1.35vw, 31px);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #111716;
+  font: inherit;
+  font-size: clamp(14px, 0.88vw, 17px);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.treatment-category-pill+.treatment-category-pill::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 30px;
+  background: rgba(104, 78, 45, 0.12);
+  transform: translateY(-50%);
 }
 
 .treatment-category-pill[data-active="true"] {
-  padding-left: 29px;
-  padding-right: 39px;
+  padding-right: clamp(28px, 1.9vw, 40px);
+  background: #000a04 !important;
+  color: #ffffff !important;
+  box-shadow: 0 13px 30px rgba(4, 26, 17, 0.18);
+  border-radius: 999px;
+}
+
+.treatment-category-pill[data-active="true"]::before,
+.treatment-category-pill[data-active="true"]+.treatment-category-pill::before {
+  display: none;
 }
 
 @media (max-width: 1480px) {

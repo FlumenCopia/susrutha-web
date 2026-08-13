@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useState } from "react";
 
 const treatmentCategories = [
-  { label: "All Treatments", icon: "apps", active: true },
+  { label: "All Treatments", icon: "apps" },
   { label: "Panchakarma", icon: "shower" },
   { label: "Detox & Cleansing", icon: "eco" },
   { label: "Women's Health", icon: "female" },
@@ -12,6 +15,16 @@ const treatmentCategories = [
 ];
 
 export function TreatmentsBannerSection() {
+  const [activeCategory, setActiveCategory] = useState("All Treatments");
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: "left" | "right") => {
+    if (trackRef.current) {
+      const scrollAmount = direction === "left" ? -280 : 280;
+      trackRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="treatment-reference-page" aria-labelledby="treatment-reference-title">
       <div className="treatment-reference-hero">
@@ -52,11 +65,21 @@ export function TreatmentsBannerSection() {
       </div>
 
       <div className="treatment-category-shell" id="treatment-categories">
-        <div className="treatment-category-track" role="list" aria-label="Treatment categories">
+        <button
+          className="treatment-swiper-btn treatment-swiper-prev"
+          type="button"
+          onClick={() => handleScroll("left")}
+          aria-label="Scroll categories left"
+        >
+          <span className="material-symbols-outlined">chevron_left</span>
+        </button>
+
+        <div className="treatment-category-track" ref={trackRef} role="list" aria-label="Treatment categories">
           {treatmentCategories.map((category) => (
             <button
               className="treatment-category-pill"
-              data-active={category.active ? "true" : undefined}
+              data-active={activeCategory === category.label ? "true" : undefined}
+              onClick={() => setActiveCategory(category.label)}
               type="button"
               role="listitem"
               key={category.label}
@@ -68,6 +91,15 @@ export function TreatmentsBannerSection() {
             </button>
           ))}
         </div>
+
+        <button
+          className="treatment-swiper-btn treatment-swiper-next"
+          type="button"
+          onClick={() => handleScroll("right")}
+          aria-label="Scroll categories right"
+        >
+          <span className="material-symbols-outlined">chevron_right</span>
+        </button>
       </div>
     </section>
   );
