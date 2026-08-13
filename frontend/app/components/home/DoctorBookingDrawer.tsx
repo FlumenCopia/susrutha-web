@@ -84,14 +84,16 @@ export function DoctorBookingDrawer({
                   className={`doc-branch-pill ${selectedBranch === "Kattakada" ? "active" : ""}`}
                   onClick={() => setSelectedBranch("Kattakada")}
                 >
-                  📍 Kattakada Hospital
+                  <i className="fa-solid fa-location-dot" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  Kattakada Hospital
                 </button>
                 <button
                   type="button"
                   className={`doc-branch-pill ${selectedBranch === "Kowdiar" ? "active" : ""}`}
                   onClick={() => setSelectedBranch("Kowdiar")}
                 >
-                  📍 Kowdiar OP Clinic
+                  <i className="fa-solid fa-location-dot" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  Kowdiar OP Clinic
                 </button>
               </div>
             </div>

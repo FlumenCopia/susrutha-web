@@ -83,15 +83,15 @@ export function Footer() {
           <p>Take the first step towards a healthier, balanced life.</p>
           <Link className="footer-consult-button" href="/appointment">
             <span>Book Appointment</span>
-            <span aria-hidden="true" className="btn-arrow">&rarr;</span>
+            <i className="fa-solid fa-arrow-right btn-arrow" aria-hidden="true" />
           </Link>
           <div className="footer-card-contact-box">
             <a className="footer-contact-row" href="tel:+919447003191">
-              <span className="contact-icon" aria-hidden="true">📞</span>
+              <i className="fa-solid fa-phone contact-icon" aria-hidden="true" />
               +91 94470 03191
             </a>
             <a className="footer-contact-row" href={`mailto:${siteConfig.email}`}>
-              <span className="contact-icon" aria-hidden="true">✉️</span>
+              <i className="fa-solid fa-envelope contact-icon" aria-hidden="true" />
               {siteConfig.email}
             </a>
           </div>

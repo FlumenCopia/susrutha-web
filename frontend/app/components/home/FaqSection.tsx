@@ -114,9 +114,7 @@ export function FaqSection() {
 
         <div className="faq-contact-block faq-contact-expert">
           <span className="faq-contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 28 28" focusable="false">
-              <path d="M9.2 5.5 6.7 8c-.8.8-.9 2-.3 3 2.2 4.2 5.4 7.4 9.6 9.6 1 .5 2.2.4 3-.4l2.5-2.5-4.1-4.1-2 2c-1.9-1.1-3.7-2.8-4.8-4.8l2-2-3.4-3.3Z" />
-            </svg>
+            <i className="fa-solid fa-phone" />
           </span>
           <div>
             <h3>Speak with our experts</h3>

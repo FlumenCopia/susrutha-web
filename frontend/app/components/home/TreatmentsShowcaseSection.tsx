@@ -227,124 +227,25 @@ const CATEGORIES = [
   { id: "specialized", label: "Specialized Care" },
 ] as const;
 
-function TreatmentSvgIcon({ type }: { type: TreatmentMeta["iconType"] }) {
+function TreatmentFaIcon({ type }: { type: TreatmentMeta["iconType"] }) {
   switch (type) {
     case "lotus":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path
-            d="M18 6C14 12 10 19 18 28C26 19 22 12 18 6Z"
-            fill="url(#goldGrad)"
-            stroke="#a87534"
-            strokeWidth="1.2"
-          />
-          <path
-            d="M18 28C11 25 5 17 6 12C10 15 15 20 18 28Z"
-            fill="url(#goldGrad2)"
-            stroke="#a87534"
-            strokeWidth="1"
-          />
-          <path
-            d="M18 28C25 25 31 17 30 12C26 15 21 20 18 28Z"
-            fill="url(#goldGrad2)"
-            stroke="#a87534"
-            strokeWidth="1"
-          />
-          <defs>
-            <linearGradient id="goldGrad" x1="18" y1="6" x2="18" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#e8c792" />
-              <stop offset="1" stopColor="#a87534" />
-            </linearGradient>
-            <linearGradient id="goldGrad2" x1="18" y1="12" x2="18" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#d4a359" />
-              <stop offset="1" stopColor="#825721" />
-            </linearGradient>
-          </defs>
-        </svg>
-      );
+      return <i className="fa-solid fa-spa treatment-fa-icon" aria-hidden="true" />;
     case "shiro":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path d="M11 9H25L23 18H13L11 9Z" stroke="#a87534" strokeWidth="1.8" strokeLinejoin="round" />
-          <path d="M18 18V26" stroke="#a87534" strokeWidth="1.8" strokeDasharray="2 2" />
-          <circle cx="18" cy="28" r="3" fill="#a87534" />
-          <path d="M14 6H22" stroke="#a87534" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-      );
+      return <i className="fa-solid fa-shower treatment-fa-icon" aria-hidden="true" />;
     case "spine":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <circle cx="18" cy="8" r="3" fill="#a87534" />
-          <circle cx="18" cy="15" r="3.5" fill="#a87534" />
-          <circle cx="18" cy="22" r="4" fill="#a87534" />
-          <circle cx="18" cy="29" r="3" fill="#a87534" />
-          <path d="M18 5V31" stroke="#e8c792" strokeWidth="1" strokeDasharray="1 2" />
-        </svg>
-      );
+      return <i className="fa-solid fa-bone treatment-fa-icon" aria-hidden="true" />;
     case "hands":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path
-            d="M8 22C10 16 16 14 20 18C22 20 25 21 28 20"
-            stroke="#a87534"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M18 10C18 7 21 5 24 7C27 9 26 13 22 15"
-            stroke="#a87534"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-          <circle cx="18" cy="24" r="4" fill="#e8c792" stroke="#a87534" />
-        </svg>
-      );
+      return <i className="fa-solid fa-hand-holding-heart treatment-fa-icon" aria-hidden="true" />;
     case "mortar":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path d="M8 15C8 23 12 27 18 27C24 27 28 23 28 15H8Z" fill="#e8c792" stroke="#a87534" strokeWidth="1.8" />
-          <path d="M22 8L15 17" stroke="#825721" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M6 15H30" stroke="#a87534" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-      );
+      return <i className="fa-solid fa-mortar-pestle treatment-fa-icon" aria-hidden="true" />;
     case "balance":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path d="M18 6V29" stroke="#a87534" strokeWidth="1.8" />
-          <path d="M9 12H27" stroke="#a87534" strokeWidth="1.8" />
-          <path d="M9 12L5 20H13L9 12Z" stroke="#a87534" strokeWidth="1.2" fill="#e8c792" />
-          <path d="M27 12L23 20H31L27 12Z" stroke="#a87534" strokeWidth="1.2" fill="#e8c792" />
-        </svg>
-      );
+      return <i className="fa-solid fa-scale-balanced treatment-fa-icon" aria-hidden="true" />;
     case "sprout":
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path d="M18 29V15" stroke="#a87534" strokeWidth="1.8" strokeLinecap="round" />
-          <path
-            d="M18 17C12 17 8 12 8 8C13 8 18 12 18 17Z"
-            fill="#e8c792"
-            stroke="#a87534"
-            strokeWidth="1.4"
-          />
-          <path
-            d="M18 15C24 15 28 10 28 6C23 6 18 10 18 15Z"
-            fill="#e8c792"
-            stroke="#a87534"
-            strokeWidth="1.4"
-          />
-        </svg>
-      );
+      return <i className="fa-solid fa-seedling treatment-fa-icon" aria-hidden="true" />;
+    case "leaf":
     default:
-      return (
-        <svg viewBox="0 0 36 36" fill="none" className="treatment-svg-icon" aria-hidden="true">
-          <path
-            d="M18 6C24 12 28 17 28 23C28 28.5228 23.5228 33 18 33C12.4772 33 8 28.5228 8 23C8 17 12 12 18 6Z"
-            fill="#e8c792"
-            stroke="#a87534"
-            strokeWidth="1.8"
-          />
-        </svg>
-      );
+      return <i className="fa-solid fa-leaf treatment-fa-icon" aria-hidden="true" />;
   }
 }
 
@@ -462,45 +363,22 @@ export function TreatmentsShowcaseSection() {
         {/* Section Header */}
         <div className="treatments-showcase-head">
           <span className="treatments-showcase-eyebrow">
-            <i aria-hidden="true" />
+            <i className="fa-solid fa-leaf" aria-hidden="true" />
             Authentic Clinical Ayurveda
-            <i aria-hidden="true" />
+            <i className="fa-solid fa-leaf" aria-hidden="true" />
           </span>
           <h2 id="treatments-showcase-title">
             Holistic Treatments for Every <em>Body &amp; Mind</em>
           </h2>
           <div className="treatments-showcase-divider" aria-hidden="true">
             <span />
-            <i />
+            <i className="fa-solid fa-seedling" />
             <span />
           </div>
           <p>
             Personalized, physician-guided therapies rooted in classical Ayurvedic literature,
             crafted to restore total health, vitality, and balance.
           </p>
-
-          {/* Trust Highlights Ribbon */}
-          {/* <div className="treatments-trust-ribbon">
-            <div className="treatments-trust-item">
-              <span className="trust-icon">🌿</span>
-              <span>100% Classical Formulations</span>
-            </div>
-            <div className="treatments-trust-divider" />
-            <div className="treatments-trust-item">
-              <span className="trust-icon">👨‍⚕️</span>
-              <span>Physician Monitored Care</span>
-            </div>
-            <div className="treatments-trust-divider" />
-            <div className="treatments-trust-item">
-              <span className="trust-icon">🏥</span>
-              <span>Dedicated Panchakarma Suites</span>
-            </div>
-            <div className="treatments-trust-divider" />
-            <div className="treatments-trust-item">
-              <span className="trust-icon">✨</span>
-              <span>Personalized Dosha Plans</span>
-            </div>
-          </div> */}
         </div>
 
         {/* Filter Category Tabs */}
@@ -539,15 +417,15 @@ export function TreatmentsShowcaseSection() {
 
           <Link className="treatments-showcase-all" href="/treatments">
             Explore All Treatments
-            <span aria-hidden="true">&rarr;</span>
+            <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "8px" }} />
           </Link>
 
           <div className="treatments-slider-controls" aria-label="Treatment slider controls">
             <button type="button" onClick={() => scrollToPage(safeActivePage - 1)} aria-label="Previous treatments">
-              &larr;
+              <i className="fa-solid fa-arrow-left" aria-hidden="true" />
             </button>
             <button type="button" onClick={() => scrollToPage(safeActivePage + 1)} aria-label="Next treatments">
-              &rarr;
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -568,7 +446,10 @@ export function TreatmentsShowcaseSection() {
 
                     <div className="treatments-card-badges">
                       <span className="card-badge-category">{treatment.badge}</span>
-                      <span className="card-badge-duration">⏱ {treatment.duration}</span>
+                      <span className="card-badge-duration">
+                        <i className="fa-regular fa-clock" aria-hidden="true" style={{ marginRight: "4px" }} />
+                        {treatment.duration}
+                      </span>
                     </div>
 
                     <div className="treatments-card-overlay-gradient" />
@@ -576,7 +457,7 @@ export function TreatmentsShowcaseSection() {
 
                   <div className="treatments-card-body">
                     <div className="treatments-card-icon-wrapper">
-                      <TreatmentSvgIcon type={treatment.iconType} />
+                      <TreatmentFaIcon type={treatment.iconType} />
                     </div>
 
                     <h3>{treatment.title}</h3>
@@ -587,9 +468,7 @@ export function TreatmentsShowcaseSection() {
                       <div className="treatments-card-benefits">
                         {treatment.benefits.map((b: string) => (
                           <span key={b} className="benefit-tag">
-                            <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10">
-                              <path d="M13.78 4.22a.75.75 0 010 1.06l-6.25 6.25a.75.75 0 01-1.06 0L3.72 8.78a.75.75 0 011.06-1.06l2.22 2.22 5.72-5.72a.75.75 0 011.06 0z" />
-                            </svg>
+                            <i className="fa-solid fa-check" aria-hidden="true" style={{ fontSize: "11px" }} />
                             {b}
                           </span>
                         ))}
@@ -599,7 +478,7 @@ export function TreatmentsShowcaseSection() {
                     <div className="treatments-card-cta-row">
                       <span className="treatments-card-cta-btn">
                         Explore Therapy
-                        <span className="arrow" aria-hidden="true">&rarr;</span>
+                        <i className="fa-solid fa-arrow-right arrow" aria-hidden="true" />
                       </span>
                     </div>
                   </div>

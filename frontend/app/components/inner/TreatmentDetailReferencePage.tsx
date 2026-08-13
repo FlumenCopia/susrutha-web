@@ -418,7 +418,10 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 <span aria-hidden="true">&rarr;</span>
               </Link>
               <a href="tel:+919447003191" className="btn btn-outline cta-btn-phone">
-                <span>📞 Call +91 94470 03191</span>
+                <span>
+                  <i className="fa-solid fa-phone" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  Call +91 94470 03191
+                </span>
               </a>
             </div>
           </div>

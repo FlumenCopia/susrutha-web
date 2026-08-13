@@ -212,14 +212,18 @@ export function Navbar() {
                 href="/appointment"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                📅 Book Appointment &rarr;
+                <i className="fa-solid fa-calendar-days" aria-hidden="true" style={{ marginRight: "6px" }} />
+                Book Appointment
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
               </Link>
               <div className="mobile-overlay-contacts">
                 <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}>
-                  📞 {siteConfig.phone}
+                  <i className="fa-solid fa-phone" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  {siteConfig.phone}
                 </a>
                 <a href={`mailto:${siteConfig.email}`}>
-                  ✉️ {siteConfig.email}
+                  <i className="fa-solid fa-envelope" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  {siteConfig.email}
                 </a>
               </div>
             </div>
