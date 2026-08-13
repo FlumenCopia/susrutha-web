@@ -5,7 +5,8 @@ import { useState, useRef, useEffect } from "react";
 import "./hero-banner.css";
 
 interface HeroBannerProps {
-  title?: string;
+  giantTitle?: string;
+  subtitle?: string;
   buttonText?: string;
   buttonLink?: string;
   imageSrc?: string;
@@ -13,10 +14,11 @@ interface HeroBannerProps {
 }
 
 export function HeroBanner({
-  title = "Renew Your Body, Refresh Your Soul",
-  buttonText = "BOOK NOW",
+  giantTitle = "SUSRUTHA AYURVEDA",
+  subtitle = "Step into your personal sanctuary—where expert care meets serene ambience, guiding you toward both inner calm and outer radiance.",
+  buttonText = "BOOK AN APPOINTMENT",
   buttonLink = "/appointment",
-  imageSrc = "https://zenora.1onestrong.com/wp-content/uploads/2025/07/Image-01.jpg",
+  imageSrc = "/images/hero-courtyard-ayurveda-v2.webp",
   videoSrc = "/bannervideo.mp4",
 }: HeroBannerProps) {
   const [videoError, setVideoError] = useState(false);
@@ -43,72 +45,55 @@ export function HeroBanner({
   }, [videoSrc, videoError]);
 
   return (
-    <section className="hero-banner-root">
-      {/* Floating Hero Card */}
-      <div className="hero-card-wrapper">
-        <div className="hero-card-inner">
-          {/* Background Media (Video or Thumbnail Image) */}
-          <div className="hero-media-wrapper">
-            {/* Always render Thumbnail Image as base layer */}
-            <img
-              src={imageSrc}
-              alt="Spa Treatment Wellness"
-              className={`hero-media-img ${videoPlaying ? "fade-out" : "active"}`}
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src =
-                  "/images/about-susrutha-wellness.webp";
+    <section className="hero-banner-root ayora-hero-root">
+      <div className="ayora-hero-card">
+        {/* Background Media */}
+        <div className="ayora-hero-media">
+          <img
+            src={imageSrc}
+            alt="Susrutha Ayurveda Hospital"
+            className={`ayora-hero-img ${videoPlaying ? "fade-out" : "active"}`}
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src =
+                "/images/about-susrutha-wellness.webp";
+            }}
+          />
+          {videoSrc && !videoError && (
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              className="ayora-hero-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster={imageSrc}
+              onPlay={() => setVideoPlaying(true)}
+              onLoadedData={() => {
+                setVideoPlaying(true);
+                videoRef.current?.play().catch(() => {});
               }}
-            />
+              onError={() => setVideoError(true)}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          )}
+        </div>
 
-            {/* Background Video Layer */}
-            {videoSrc && !videoError && (
-              <video
-                ref={videoRef}
-                src={videoSrc}
-                className="hero-media-video"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                poster={imageSrc}
-                onPlay={() => setVideoPlaying(true)}
-                onLoadedData={() => {
-                  setVideoPlaying(true);
-                  videoRef.current?.play().catch(() => {});
-                }}
-                onError={() => setVideoError(true)}
-              >
-                <source src={videoSrc} type="video/mp4" />
-              </video>
-            )}
+        {/* Soft Transparent Dark Gradient Overlay */}
+        <div className="ayora-hero-overlay" />
+
+        {/* Hero Main Content */}
+        <div className="ayora-hero-content">
+          {/* Tagline Subtitle Box */}
+          <div className="ayora-hero-subtitle-box">
+            <p className="ayora-hero-subtitle">{subtitle}</p>
           </div>
 
-          {/* Dark Overlay Gradient */}
-          <div className="hero-overlay-gradient" />
-
-          {/* Text Content Overlay */}
-          <div className="hero-content-wrapper">
-            <h1 className="hero-main-title">{title}</h1>
-
-            <Link href={buttonLink} className="hero-cta-button">
-              <span className="hero-cta-text">{buttonText}</span>
-              <span className="hero-cta-icon-circle">
-                <svg
-                  className="hero-cta-arrow-svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M5 12h14M12 5l7 7-7 7"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </Link>
+          {/* Bottom Giant Serif Title */}
+          <div className="ayora-hero-title-box">
+            <h1 className="ayora-hero-giant-title">{giantTitle}</h1>
           </div>
         </div>
       </div>
