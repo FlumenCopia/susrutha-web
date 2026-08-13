@@ -7699,3 +7699,446 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   }
 }
 
+/* ==========================================================================
+   Section 1: The Path to Wholeness
+   ========================================================================== */
+.path-wholeness-section {
+  padding: 100px 24px;
+  background-color: #fbf9f4;
+  color: #1b1c19;
+}
+
+.path-wholeness-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.path-wholeness-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.path-wholeness-header h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  color: #000a04;
+  margin: 0;
+}
+
+.path-wholeness-divider {
+  width: 80px;
+  height: 1px;
+  background: rgba(94, 65, 7, 0.4);
+  margin: 24px auto 0;
+}
+
+.path-wholeness-timeline {
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 24px;
+}
+
+.path-wholeness-line {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(194, 200, 194, 0.3);
+  z-index: 0;
+}
+
+.path-wholeness-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.path-wholeness-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.path-wholeness-icon-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #eae8e3;
+  border: 1px solid rgba(115, 121, 115, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #000a04;
+  margin-bottom: 24px;
+  box-shadow: 0 20px 40px -15px rgba(14, 36, 24, 0.05);
+  transition: all 0.4s ease;
+}
+
+.path-wholeness-card:hover .path-wholeness-icon-box {
+  background: #000a04;
+  color: #ffffff;
+  transform: translateY(-4px);
+}
+
+.path-wholeness-step-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #5e4107;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.path-wholeness-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000a04;
+  margin: 0 0 12px 0;
+}
+
+.path-wholeness-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #645e51;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 2: Signature Healing Rituals (The Experience)
+   ========================================================================== */
+.sig-experience-section {
+  padding: 100px 24px;
+  background-color: #ffffff;
+  color: #1b1c19;
+}
+
+.sig-experience-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sig-experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+
+.sig-experience-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #5e4107;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sig-experience-header h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  color: #000a04;
+  margin: 0;
+}
+
+.sig-experience-all-btn {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #000a04;
+  border: 1px solid rgba(0, 10, 4, 0.2);
+  padding: 14px 28px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.sig-experience-all-btn:hover {
+  background: #000a04;
+  color: #ffffff;
+}
+
+.sig-experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.sig-experience-card {
+  cursor: pointer;
+}
+
+.sig-experience-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sig-experience-image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 36px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 20px 40px -15px rgba(14, 36, 24, 0.08);
+}
+
+.sig-experience-image-wrap img {
+  transition: transform 0.7s ease;
+}
+
+.sig-experience-card:hover .sig-experience-image-wrap img {
+  transform: scale(1.08);
+}
+
+.sig-experience-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 10, 4, 0.7) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+}
+
+.sig-experience-card:hover .sig-experience-overlay {
+  opacity: 1;
+}
+
+.sig-experience-discover {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.sig-experience-card-body h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000a04;
+  margin: 0 0 8px 0;
+}
+
+.sig-experience-card-body p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #645e51;
+  margin: 0 0 16px 0;
+}
+
+.sig-experience-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #5e4107;
+}
+
+.sig-experience-meta .dot-sep {
+  color: #c2c8c2;
+}
+
+/* ==========================================================================
+   Section 3: The Susrutha Way (Crafting an Ecosystem)
+   ========================================================================== */
+.susrutha-way-section {
+  padding: 100px 24px;
+  background-color: #fbf9f4;
+  color: #1b1c19;
+}
+
+.susrutha-way-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.susrutha-way-grid {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.susrutha-way-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #5e4107;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.susrutha-way-left h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  color: #000a04;
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+}
+
+.susrutha-way-left p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #645e51;
+  margin: 0;
+}
+
+.susrutha-way-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.susrutha-way-bento-card {
+  background: #f5f3ee;
+  padding: 36px;
+  border-radius: 28px;
+  border: 1px solid rgba(115, 121, 115, 0.1);
+  transition: all 0.3s ease;
+}
+
+.susrutha-way-bento-card:hover {
+  border-color: rgba(94, 65, 7, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+}
+
+.susrutha-way-bento-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 10, 4, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #000a04;
+  margin-bottom: 24px;
+}
+
+.susrutha-way-bento-card h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000a04;
+  margin: 0 0 12px 0;
+}
+
+.susrutha-way-bento-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #645e51;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 4: The Custodians of Wisdom (Doctors Gallery)
+   ========================================================================== */
+.custodians-section {
+  padding: 100px 24px;
+  background-color: #f0eee9;
+  color: #1b1c19;
+}
+
+.custodians-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.custodians-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.custodians-header h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  color: #000a04;
+  margin: 0 0 12px 0;
+}
+
+.custodians-header p {
+  font-size: 17px;
+  color: #645e51;
+  margin: 0;
+}
+
+.custodians-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.custodians-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.custodians-image-wrap {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 36px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 20px 40px -15px rgba(14, 36, 24, 0.08);
+}
+
+.custodians-image-wrap img {
+  transition: transform 0.7s ease;
+}
+
+.custodians-card:hover .custodians-image-wrap img {
+  transform: scale(1.06);
+}
+
+.custodians-card h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000a04;
+  margin: 0 0 6px 0;
+}
+
+.custodians-role {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #5e4107;
+  text-transform: uppercase;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .susrutha-way-grid {
+    grid-template-columns: 1fr;
+  }
+  .custodians-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sig-experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .path-wholeness-grid,
+  .sig-experience-grid,
+  .susrutha-way-right,
+  .custodians-grid {
+    grid-template-columns: 1fr;
+  }
+  .sig-experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
