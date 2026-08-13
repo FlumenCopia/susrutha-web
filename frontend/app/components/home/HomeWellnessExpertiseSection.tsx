@@ -58,8 +58,8 @@ export function HomeWellnessExpertiseSection() {
         <div className="home-wellness-outline" aria-hidden="true" />
         <div className="home-wellness-photo">
           <Image
-            src="/images/about-susrutha-wellness.webp"
-            alt="Traditional Ayurvedic wellness courtyard at Susrutha"
+            src="/images/heritage-master.webp"
+            alt="Vintage Ayurvedic master sorting dried herbs in traditional courtyard"
             fill
             sizes="(max-width: 980px) 100vw, 48vw"
           />
