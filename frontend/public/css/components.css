@@ -5995,7 +5995,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-premium-page .about-premium-hero p {
   max-width: 520px;
   margin-top: 44px;
-  color: #35413f !important;
+  color: #000a04 !important;
   font-size: 18px !important;
   font-weight: 400 !important;
   line-height: 2.05;
@@ -6295,7 +6295,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .about-premium-page .about-premium-hero p {
   max-width: 560px;
   margin-top: 38px;
-  color: #35413f !important;
+  color: #000a04 !important;
   font-size: 18px !important;
   font-weight: 400 !important;
   line-height: 1.9;

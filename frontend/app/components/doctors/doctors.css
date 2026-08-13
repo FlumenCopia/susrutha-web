@@ -615,7 +615,7 @@
 }
 
 .doctor-card-availability-badge {
-  background: rgba(46, 125, 50, 0.9);
+  background: rgba(0, 10, 4, 0.9);
   backdrop-filter: blur(4px);
   color: #ffffff;
   font-size: 11px;

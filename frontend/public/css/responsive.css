@@ -90,7 +90,7 @@
   border-radius: 9999px;
   background-color: #ffffff;
   font-size: 13.5px;
-  color: #2c3631;
+  color: #000a04;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, width 0.2s ease;
 }
@@ -106,7 +106,7 @@
   gap: 7px;
   height: 40px;
   padding: 0 20px;
-  background-color: #0b3b2c !important;
+  background-color: #000a04 !important;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 14px;
@@ -116,7 +116,7 @@
 }
 
 .nav-book-btn:hover {
-  background-color: #08291f !important;
+  background-color: #000a04 !important;
 }
 
 .nav-calendar-icon {
@@ -126,14 +126,14 @@
 
 /* Page Wrapper */
 .vg-page-wrapper {
-  background-color: #05140f;
+  background-color: #000a04;
   min-height: 100vh;
 }
 
 /* Hero Section */
 .vg-hero {
   position: relative;
-  background: radial-gradient(circle at 75% 25%, #0d382b 0%, #05140f 70%);
+  background: radial-gradient(circle at 75% 25%, #000a04 0%, #000a04 70%);
   color: #ffffff;
   padding: 68px 40px 115px;
   overflow: hidden;
@@ -538,12 +538,12 @@
 }
 
 .vg-filter-pill-deluxe:hover {
-  color: #0b3b2c;
+  color: #000a04;
   background: #f4f0e6;
 }
 
 .vg-filter-pill-deluxe.active {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   font-weight: 600;
   box-shadow: 0 4px 16px rgba(11, 59, 44, 0.25);
@@ -576,7 +576,7 @@
   border: 1px solid #e2ddd4;
   background: #faf7f2;
   font-size: 12.5px;
-  color: #122c22;
+  color: #000a04;
   font-weight: 600;
   outline: none;
   cursor: pointer;
@@ -605,14 +605,14 @@
   border-radius: 9999px;
   background: #faf7f2;
   font-size: 13px;
-  color: #122c22;
+  color: #000a04;
   outline: none;
   transition: all 0.2s ease;
 }
 
 .vg-search-input:focus {
   width: 230px;
-  border-color: #0b3b2c;
+  border-color: #000a04;
   background: #ffffff;
   box-shadow: 0 0 0 3px rgba(11, 59, 44, 0.08);
 }
@@ -674,7 +674,7 @@
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
   border: none;
-  color: #0b3b2c;
+  color: #000a04;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -701,7 +701,7 @@
 }
 
 .vg-featured-card-deluxe:hover .vg-play-btn-deluxe {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -720,7 +720,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   font-size: 9px;
   margin-left: 6px;
@@ -784,7 +784,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   border: none;
-  color: #0b3b2c;
+  color: #000a04;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -817,7 +817,7 @@
 }
 
 .vg-podcast-ep-chip {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   font-size: 10px;
   font-weight: 800;
@@ -835,7 +835,7 @@
 .vg-podcast-title {
   font-size: 16.5px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   line-height: 1.35;
   margin: 0 0 8px;
 }
@@ -877,7 +877,7 @@
 .vg-pod-speakers {
   font-size: 12px;
   font-weight: 600;
-  color: #122c22;
+  color: #000a04;
 }
 
 /* Patient Recovery Video Stories Section */
@@ -965,7 +965,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   border: none;
-  color: #0b3b2c;
+  color: #000a04;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -991,7 +991,7 @@
 .vg-story-patient-name {
   font-size: 16px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 2px;
 }
 
@@ -1016,7 +1016,7 @@
   width: 100%;
   max-width: 1120px;
   max-height: 92vh;
-  background: #061810;
+  background: #000a04;
   border-radius: 26px;
   overflow-y: auto;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -1051,7 +1051,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 24px;
-  background: #092117;
+  background: #000a04;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1207,7 +1207,7 @@
   border-radius: 9999px;
   background-color: #ffffff;
   font-size: 13.5px;
-  color: #2c3631;
+  color: #000a04;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, width 0.2s ease;
 }
@@ -1223,7 +1223,7 @@
   gap: 7px;
   height: 40px;
   padding: 0 20px;
-  background-color: #0b3b2c !important;
+  background-color: #000a04 !important;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 14px;
@@ -1233,7 +1233,7 @@
 }
 
 .nav-book-btn:hover {
-  background-color: #08291f !important;
+  background-color: #000a04 !important;
 }
 
 .nav-calendar-icon {
@@ -1243,14 +1243,14 @@
 
 /* Page Wrapper */
 .vg-page-wrapper {
-  background-color: #061a13;
+  background-color: #000a04;
   min-height: 100vh;
 }
 
 /* Hero Section */
 .vg-hero {
   position: relative;
-  background: radial-gradient(circle at 80% 20%, #0d382b 0%, #061a13 65%);
+  background: radial-gradient(circle at 80% 20%, #000a04 0%, #000a04 65%);
   color: #ffffff;
   padding: 64px 40px 110px;
   overflow: hidden;
@@ -1490,14 +1490,14 @@
   border-radius: 9999px;
   background: #faf7f2;
   font-size: 13px;
-  color: #122c22;
+  color: #000a04;
   outline: none;
   transition: all 0.2s ease;
 }
 
 .vg-search-input:focus {
   width: 250px;
-  border-color: #0b3b2c;
+  border-color: #000a04;
   background: #ffffff;
   box-shadow: 0 0 0 3px rgba(11, 59, 44, 0.08);
 }
@@ -1532,7 +1532,7 @@
 .vg-section-title {
   font-size: 32px;
   font-weight: 600;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 4px;
   display: flex;
   align-items: center;
@@ -1579,7 +1579,7 @@
 
 .vg-toggle-btn.active {
   background: #ffffff;
-  color: #0b3b2c;
+  color: #000a04;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -1594,7 +1594,7 @@
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid #e0ded8;
-  color: #122c22;
+  color: #000a04;
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -1604,9 +1604,9 @@
 }
 
 .vg-nav-arrow-btn:hover {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
-  border-color: #0b3b2c;
+  border-color: #000a04;
 }
 
 /* Featured Video Card - Luxury Upgrade */
@@ -1720,7 +1720,7 @@
 .vg-card-title {
   font-size: 16.5px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   line-height: 1.35;
   margin: 0 0 8px;
   display: -webkit-box;
@@ -1772,7 +1772,7 @@
 .vg-speaker-name {
   font-size: 12.5px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
 }
 
 .vg-speaker-role {
@@ -1830,7 +1830,7 @@
   left: 8px;
   right: 8px;
   height: 100%;
-  background: #0b3b2c;
+  background: #000a04;
   opacity: 0.6;
   border-radius: 14px;
 }
@@ -1897,7 +1897,7 @@
 .vg-playlist-title {
   font-size: 17px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 4px 0 6px;
 }
 
@@ -1919,7 +1919,7 @@
 .vg-playlist-doctor-name {
   font-size: 12.5px;
   font-weight: 600;
-  color: #122c22;
+  color: #000a04;
 }
 
 .vg-playlist-play-link {
@@ -1950,7 +1950,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -2047,7 +2047,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   border: none;
-  color: #0b3b2c;
+  color: #000a04;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2057,7 +2057,7 @@
 }
 
 .vg-cw-card-luxury:hover .vg-cw-play-btn-luxury {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -2125,7 +2125,7 @@
 .vg-cw-title {
   font-size: 15px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 12px;
   line-height: 1.35;
   display: -webkit-box;
@@ -2152,7 +2152,7 @@
 .vg-cw-resume-btn {
   font-size: 12px;
   font-weight: 700;
-  color: #0b3b2c;
+  color: #000a04;
 }
 
 /* Empty State */
@@ -2172,7 +2172,7 @@
 
 .vg-empty-state h3 {
   font-size: 24px;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 6px;
 }
 
@@ -2251,7 +2251,7 @@
 }
 
 .vg-modal-sidebar-col {
-  background: #0d261b;
+  background: #000a04;
   border-left: 1px solid rgba(255, 255, 255, 0.08);
   padding: 24px 20px;
   display: flex;
@@ -2309,7 +2309,7 @@
 
 .vg-modal-book-btn:hover {
   background: #e5b974;
-  color: #061a13;
+  color: #000a04;
 }
 
 .vg-chapters-heading {
@@ -2525,7 +2525,7 @@
   border-radius: 9999px;
   background-color: #ffffff;
   font-size: 13.5px;
-  color: #2c3631;
+  color: #000a04;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, width 0.2s ease;
 }
@@ -2541,7 +2541,7 @@
   gap: 7px;
   height: 40px;
   padding: 0 20px;
-  background-color: #0b3b2c !important;
+  background-color: #000a04 !important;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 14px;
@@ -2551,7 +2551,7 @@
 }
 
 .nav-book-btn:hover {
-  background-color: #08291f !important;
+  background-color: #000a04 !important;
 }
 
 .nav-calendar-icon {
@@ -2561,14 +2561,14 @@
 
 /* Video Gallery Page Container */
 .vg-page-wrapper {
-  background-color: #0c2b20;
+  background-color: #000a04;
   min-height: 100vh;
 }
 
 /* Hero Section */
 .vg-hero {
   position: relative;
-  background: linear-gradient(135deg, #071f17 0%, #0c2b20 50%, #082119 100%);
+  background: linear-gradient(135deg, #071f17 0%, #000a04 50%, #082119 100%);
   color: #ffffff;
   padding: 56px 40px 100px;
   overflow: hidden;
@@ -2717,7 +2717,7 @@
 .vg-section-title {
   font-size: 30px;
   font-weight: 600;
-  color: #122c22;
+  color: #000a04;
   margin: 0;
   display: flex;
   align-items: center;
@@ -2810,7 +2810,7 @@
 .vg-card-title {
   font-size: 16px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   line-height: 1.35;
   margin: 0 0 8px;
   display: -webkit-box;
@@ -2845,7 +2845,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -2934,7 +2934,7 @@
 .vg-cw-title {
   font-size: 14.5px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0;
   line-height: 1.35;
   display: -webkit-box;
@@ -3066,7 +3066,7 @@
   font-size: 50px;
   font-weight: 600;
   line-height: 1.12;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 16px;
   letter-spacing: -0.5px;
 }
@@ -3124,7 +3124,7 @@
   position: relative;
   width: 100%;
   height: 380px;
-  background: #061a13;
+  background: #000a04;
   overflow: hidden;
 }
 
@@ -3204,7 +3204,7 @@
 .home-spotlight-name {
   font-size: 28px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 2px;
 }
 
@@ -3250,7 +3250,7 @@
   gap: 8px;
   width: 100%;
   padding: 11.5px;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 13.5px;
@@ -3260,7 +3260,7 @@
 }
 
 .home-spotlight-profile-btn:hover {
-  background: #08291f;
+  background: #000a04;
 }
 
 .home-spotlight-btn-row {
@@ -3278,7 +3278,7 @@
   background: #faf7f2;
   border: 1px solid #e0dad0;
   border-radius: 9999px;
-  color: #122c22;
+  color: #000a04;
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
@@ -3294,7 +3294,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   font-size: 9px;
   display: flex;
@@ -3337,7 +3337,7 @@
 .home-team-heading {
   font-size: 24px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0;
 }
 
@@ -3347,7 +3347,7 @@
   gap: 6px;
   font-size: 13.5px;
   font-weight: 700;
-  color: #0b3b2c;
+  color: #000a04;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -3382,7 +3382,7 @@
   position: relative;
   width: 100%;
   height: 200px;
-  background: #061a13;
+  background: #000a04;
   overflow: hidden;
   display: block;
 }
@@ -3390,7 +3390,7 @@
 .home-team-profile-link {
   font-size: 12.5px;
   font-weight: 700;
-  color: #0b3b2c;
+  color: #000a04;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -3402,7 +3402,7 @@
 .home-team-book-btn-sm {
   padding: 5px 12px;
   border-radius: 9999px;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   border: none;
   font-size: 11.5px;
@@ -3465,7 +3465,7 @@
 .home-team-name {
   font-size: 19px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 2px;
 }
 
@@ -3484,7 +3484,7 @@
 
 .home-team-tag {
   font-size: 11px;
-  color: #0b3b2c;
+  color: #000a04;
   background: #f0ebe0;
   padding: 3px 8px;
   border-radius: 4px;
@@ -3532,7 +3532,7 @@
   border-radius: 50%;
   background: #f4f0e6;
   border: none;
-  color: #122c22;
+  color: #000a04;
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -3560,7 +3560,7 @@
 .doc-drawer-title {
   font-size: 32px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 8px;
 }
 
@@ -3586,7 +3586,7 @@
 .doc-form-group label {
   font-size: 13px;
   font-weight: 700;
-  color: #122c22;
+  color: #000a04;
 }
 
 .doc-branch-pills {
@@ -3609,9 +3609,9 @@
 }
 
 .doc-branch-pill.active {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
-  border-color: #0b3b2c;
+  border-color: #000a04;
 }
 
 .doc-drawer-input {
@@ -3622,13 +3622,13 @@
   border: 1px solid #ded8cb;
   background: #faf7f2;
   font-size: 14px;
-  color: #122c22;
+  color: #000a04;
   outline: none;
   transition: border-color 0.2s ease;
 }
 
 .doc-drawer-input:focus {
-  border-color: #0b3b2c;
+  border-color: #000a04;
   background: #ffffff;
 }
 
@@ -3653,7 +3653,7 @@
   gap: 8px;
   width: 100%;
   height: 48px;
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   border: none;
   border-radius: 9999px;
@@ -3685,7 +3685,7 @@
   height: 60px;
   border-radius: 50%;
   background: #4ade80;
-  color: #061a13;
+  color: #000a04;
   font-size: 28px;
   font-weight: 800;
   display: flex;
@@ -3696,7 +3696,7 @@
 
 .doc-drawer-success h4 {
   font-size: 26px;
-  color: #122c22;
+  color: #000a04;
   margin: 0 0 10px;
 }
 
@@ -3774,7 +3774,7 @@
 }
 
 .home-doctors-gold-text {
-  background: linear-gradient(135deg, #122c22 0%, #c88922 100%);
+  background: linear-gradient(135deg, #000a04 0%, #c88922 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -3807,12 +3807,12 @@
 }
 
 .home-doctors-filter-pill:hover {
-  color: #0b3b2c;
+  color: #000a04;
   background: #f4f0e6;
 }
 
 .home-doctors-filter-pill.active {
-  background: #0b3b2c;
+  background: #000a04;
   color: #ffffff;
   font-weight: 600;
   box-shadow: 0 4px 14px rgba(11, 59, 44, 0.22);
@@ -3848,7 +3848,7 @@
 .home-doctors-trust-number {
   font-size: 32px;
   font-weight: 700;
-  color: #0b3b2c;
+  color: #000a04;
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -4884,7 +4884,7 @@
 
 .expect-dark-card {
   padding: 44px;
-  background: linear-gradient(145deg, #0b3b2c 0%, #06261c 100%);
+  background: linear-gradient(145deg, #000a04 0%, #06261c 100%);
   border-radius: 24px;
   color: #ffffff;
   box-shadow: 0 16px 40px rgba(7, 36, 27, 0.2);
@@ -4932,7 +4932,7 @@
   width: 22px;
   height: 22px;
   background: var(--color-sun, #f7a51a);
-  color: #0b3b2c;
+  color: #000a04;
   border-radius: 50%;
   font-size: 12px;
   font-weight: bold;
@@ -5407,26 +5407,26 @@
 .apt-pulse-beacon {
   width: 8px;
   height: 8px;
-  background-color: #2e7d32;
+  background-color: #000a04;
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  box-shadow: 0 0 0 0 rgba(0, 10, 4, 0.7);
   animation: beaconPulse 2s infinite;
 }
 
 @keyframes beaconPulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+    box-shadow: 0 0 0 0 rgba(0, 10, 4, 0.7);
   }
 
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 8px rgba(46, 125, 50, 0);
+    box-shadow: 0 0 0 8px rgba(0, 10, 4, 0);
   }
 
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+    box-shadow: 0 0 0 0 rgba(0, 10, 4, 0);
   }
 }
 
@@ -5566,18 +5566,18 @@
   align-items: center;
   gap: 6px;
   padding: 2px 8px;
-  background: rgba(46, 125, 50, 0.12);
+  background: rgba(0, 10, 4, 0.12);
   border-radius: 6px;
   font-size: 10.5px;
   font-weight: 800;
-  color: #2e7d32;
+  color: #000a04;
   margin-bottom: 6px;
 }
 
 .apt-doc-live-badge .live-dot {
   width: 6px;
   height: 6px;
-  background: #2e7d32;
+  background: #000a04;
   border-radius: 50%;
 }
 
@@ -6843,10 +6843,10 @@
   width: 58px !important;
   height: 58px !important;
   margin: 0 0 18px !important;
-  border: 1px solid rgba(31, 117, 76, 0.24);
+  border: 1px solid rgba(0, 10, 4, 0.24);
   background: linear-gradient(135deg, #e9f8ef, #ffffff) !important;
-  color: #167246 !important;
-  box-shadow: 0 18px 34px rgba(22, 114, 70, 0.14);
+  color: #000a04 !important;
+  box-shadow: 0 18px 34px rgba(0, 10, 4, 0.14);
 }
 
 .apt-success-screen-luxury>div:nth-child(2) span {
@@ -6940,11 +6940,11 @@
 .apt-success-screen-luxury>div:last-child a {
   min-height: 58px;
   padding: 0 24px !important;
-  border: 1px solid rgba(22, 114, 70, 0.22);
+  border: 1px solid rgba(0, 10, 4, 0.22);
   border-radius: 999px !important;
   background: #ecf8f0 !important;
   color: #126a40 !important;
-  box-shadow: 0 14px 28px rgba(22, 114, 70, 0.1);
+  box-shadow: 0 14px 28px rgba(0, 10, 4, 0.1);
 }
 
 .apt-sidebar-summary-luxury {
@@ -7039,7 +7039,7 @@
   margin: 0 22px 18px;
   padding: 16px;
   border-radius: 16px;
-  background: rgba(22, 114, 70, 0.08);
+  background: rgba(0, 10, 4, 0.08);
 }
 
 .guarantee-line {

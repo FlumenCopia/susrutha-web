@@ -221,7 +221,7 @@ export function ContactReferencePage() {
             <h2>Send Us a Message</h2>
             <span className="contact-reference-form-rule" aria-hidden="true" />
             {isSubmitted ? (
-              <div style={{ padding: "2rem 0", color: "#1b4332", textAlign: "center" }}>
+              <div style={{ padding: "2rem 0", color: "#000a04", textAlign: "center" }}>
                 <h3>Thank You!</h3>
                 <p>Your message has been received. Our care coordinator will contact you shortly.</p>
               </div>

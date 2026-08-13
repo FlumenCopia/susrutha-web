@@ -3,7 +3,7 @@
   --color-ayora-primary: #372718;       /* Deep Warm Espresso Dark Ink */
   --color-ayora-dark: #251e1a;          /* Rich Dark Mocha */
   --color-ayora-terracotta: #df7943;    /* Ayora Terracotta Accent */
-  --color-ayora-lime: #bbdf43;          /* Ayora Herbal Lime Accent */
+  --color-ayora-lime: #000a04;          /* Ayora Herbal Lime Accent */
   --color-ayora-cream: #fff7f0;         /* Ayora Soft Signature Cream */
   --color-ayora-sand: #e3dccd;          /* Ayora Muted Sand Linen */
   --color-ayora-nude: #f5d7bd;          /* Ayora Warm Peach Nude */
@@ -13,7 +13,7 @@
   /* Global Theme Mapping */
   --color-red: #df7943;                 /* Ayora Accent Terracotta */
   --color-deep-red: #372718;            /* Ayora Dark Espresso */
-  --color-sun: #bbdf43;                 /* Ayora Herbal Accent */
+  --color-sun: #000a04;                 /* Ayora Herbal Accent */
   --color-gold: #df7943;
   --color-ink: #372718;                 /* Ayora Text Font Color */
   --color-muted: rgba(55, 39, 24, 0.7);  /* Ayora Muted Text Color */
@@ -2530,7 +2530,7 @@ a.inner-card:hover {
 .about-premium-hero p {
   max-width: 565px;
   margin: 42px 0 0;
-  color: #35413f;
+  color: #000a04;
   font-size: 18px;
   line-height: 2.08;
 }
@@ -4449,7 +4449,7 @@ a.inner-card:hover {
   align-items: center;
   gap: 12px;
   width: 100%;
-  color: #2c3631;
+  color: #000a04;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
