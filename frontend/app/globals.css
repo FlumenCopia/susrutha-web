@@ -89,36 +89,53 @@ body .site-header .nav-actions .nav-book-btn:hover,
   outline-offset: 2px;
 }
 
-.about-premium-milestones::before,
-.about-premium-milestones::after,
-.about-story-section::before,
-.about-story-section::after,
-.about-story-image-wrap::before,
-.about-story-copy::after,
-.about-story-pillars::before,
-.treatment-reference-hero::after,
-.treatment-hero-copy::before,
-.contact-reference-leaves,
-.contact-reference-hero::before,
-.home-wellness-outline,
-.home-wellness-branch,
-.home-wellness-mortar,
-.about-purpose-copy::before,
-.doctors-hero::before,
-.doctors-hero::after,
-.conditions-hero::before,
-.conditions-hero::after,
-.conditions-page .conditions-hero::before,
-.conditions-page .conditions-hero::after,
-.conditions-hero-copy::before,
-.conditions-hero-copy::after {
-  display: none !important;
-  background: none !important;
-  border: none !important;
+html body .about-purpose-section,
+html body .about-premium-page .about-purpose-section,
+html body .about-purpose-copy {
+  background: #ffffff !important;
+  background-image: none !important;
 }
 
-.about-premium-milestones {
-  background: #ffffff !important;
+html body .about-purpose-section::before,
+html body .about-purpose-section::after,
+html body .about-purpose-copy::before,
+html body .about-purpose-copy::after,
+html body .about-premium-page .about-purpose-section::before,
+html body .about-premium-page .about-purpose-section::after,
+html body .about-premium-page .about-purpose-copy::before,
+html body .about-premium-page .about-purpose-copy::after,
+html body .about-premium-milestones::before,
+html body .about-premium-milestones::after,
+html body .about-story-section::before,
+html body .about-story-section::after,
+html body .about-story-image-wrap::before,
+html body .about-story-copy::after,
+html body .about-story-pillars::before,
+html body .treatment-reference-hero::after,
+html body .treatment-hero-copy::before,
+html body .contact-reference-leaves,
+html body .contact-reference-hero::before,
+html body .home-wellness-outline,
+html body .home-wellness-branch,
+html body .home-wellness-mortar,
+html body .doctors-hero::before,
+html body .doctors-hero::after,
+html body .conditions-hero::before,
+html body .conditions-hero::after,
+html body .conditions-page .conditions-hero::before,
+html body .conditions-page .conditions-hero::after,
+html body .conditions-hero-copy::before,
+html body .conditions-hero-copy::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .about-story-pillars article > div svg {

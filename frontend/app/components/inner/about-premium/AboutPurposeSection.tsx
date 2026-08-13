@@ -101,11 +101,7 @@ export function AboutPurposeSection() {
   return (
     <section className="about-purpose-section">
       <div className="about-purpose-copy">
-        <div className="purpose-eyebrow">
-          <span>Our Purpose</span>
-          <i aria-hidden="true" />
-          <PurposeIcon name="lotus" />
-        </div>
+
         <h2>
           Our Vision.
           <br />
@@ -113,11 +109,7 @@ export function AboutPurposeSection() {
           <br />
           <em>Our Commitment.</em>
         </h2>
-        <div className="purpose-divider" aria-hidden="true">
-          <span />
-          <PurposeIcon name="lotus" />
-          <span />
-        </div>
+ 
         <p>
           Guided by ancient wisdom and driven by compassion, our vision and mission inspire everything we do for your
           well-being and a better tomorrow.
@@ -135,9 +127,9 @@ export function AboutPurposeSection() {
 
       <div className="purpose-card-stack">
         <article className="purpose-card purpose-card-vision">
-          <div className="purpose-badge">
+          {/* <div className="purpose-badge">
             <PurposeIcon name="eye" />
-          </div>
+          </div> */}
           <div className="purpose-card-content">
             <span>Our Vision</span>
             <h3>
@@ -145,11 +137,7 @@ export function AboutPurposeSection() {
               <br />
               <em>Naturally.</em>
             </h3>
-            <div className="purpose-mini-divider" aria-hidden="true">
-              <i />
-              <PurposeIcon name="lotus" />
-              <i />
-            </div>
+         
             <p>To be a global leader in Ayurvedic care, recognized for restoring health, harmony and happiness naturally.</p>
           </div>
           <Image
@@ -163,9 +151,9 @@ export function AboutPurposeSection() {
         </article>
 
         <article className="purpose-card purpose-card-mission">
-          <div className="purpose-badge purpose-badge-gold">
+          {/* <div className="purpose-badge purpose-badge-gold">
             <PurposeIcon name="target" />
-          </div>
+          </div> */}
           <div className="purpose-card-content">
             <span>Our Mission</span>
             <h3>
@@ -173,11 +161,7 @@ export function AboutPurposeSection() {
               <br />
               <em>Conscious Living.</em>
             </h3>
-            <div className="purpose-mini-divider" aria-hidden="true">
-              <i />
-              <PurposeIcon name="lotus" />
-              <i />
-            </div>
+        
             <p>
               To deliver authentic Ayurvedic treatments with compassion, innovation and excellence while empowering
               conscious, balanced living.

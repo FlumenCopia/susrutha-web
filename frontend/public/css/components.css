@@ -4657,14 +4657,8 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .about-premium-page .about-purpose-section::before {
-  left: -150px;
-  top: -30px;
-  width: 520px;
-  height: 760px;
-  border: 0;
-  border-radius: 0 0 999px 0;
-  background: rgba(220, 211, 196, 0.72);
-  transform: none;
+  display: none !important;
+  content: none !important;
 }
 
 .about-premium-page .about-purpose-copy {
