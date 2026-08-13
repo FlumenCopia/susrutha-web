@@ -2000,27 +2000,39 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .treatment-category-icon {
   position: relative;
-  display: grid;
-  width: 46px;
-  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
-  place-items: center;
   border-radius: 50%;
   background: #fbf7ef;
   color: #b47b34;
 }
 
+.treatment-category-icon .material-symbols-outlined {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .treatment-category-pill[data-active="true"] .treatment-category-icon {
-  width: 27px;
-  height: 27px;
+  width: 32px;
+  height: 32px;
   background: transparent;
-  color: #c78d44;
+  color: #ffffff;
+}
+
+.treatment-category-pill[data-active="true"] .treatment-category-icon .material-symbols-outlined {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 300;
 }
 
 .treatment-category-icon::before,
 .treatment-category-icon::after {
-  content: "";
-  position: absolute;
+  display: none !important;
+  content: none !important;
 }
 
 .treatment-category-icon[data-icon="grid"] {
@@ -2841,22 +2853,28 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   left: 14px;
   top: 14px;
   z-index: 2;
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.96);
   color: #bd7b31;
   box-shadow: 0 12px 22px rgba(57, 38, 19, 0.12);
 }
 
+.all-treatment-icon .material-symbols-outlined {
+  font-size: 22px;
+  font-weight: 300;
+}
+
 .all-treatment-icon::before,
 .all-treatment-icon::after,
 .journey-banner-features i::before,
 .journey-banner-features i::after {
-  content: "";
-  position: absolute;
+  display: none !important;
+  content: none !important;
 }
 
 .all-treatment-icon[data-icon="lotus"]::before,
@@ -3100,11 +3118,14 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 
 .journey-banner-features i {
   position: relative;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 37px;
   height: 37px;
   margin-bottom: 12px;
   color: #bd7b31;
+  font-size: 26px;
 }
 
 .journey-banner-features i[data-icon="dots"]::before {

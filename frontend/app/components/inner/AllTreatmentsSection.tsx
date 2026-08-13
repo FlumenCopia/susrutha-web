@@ -12,7 +12,7 @@ const initialTreatments = [
     text: "The ultimate detox therapy to cleanse toxins and restore balance.",
     time: "7 - 21 Days",
     image: "/images/treatment-panchakarma.webp",
-    icon: "lotus",
+    icon: "shower",
   },
   {
     slug: "abhyangam",
@@ -20,7 +20,7 @@ const initialTreatments = [
     text: "Therapeutic full-body oil massage for relaxation and nourishment.",
     time: "60 - 90 Mins",
     image: "/images/treatment-sirodhara.webp",
-    icon: "steam",
+    icon: "spa",
   },
   {
     slug: "shirodhara",
@@ -28,7 +28,7 @@ const initialTreatments = [
     text: "Gentle oil therapy for the mind to relieve stress and anxiety.",
     time: "30 - 45 Mins",
     image: "/images/treatment-sirodhara.webp",
-    icon: "body",
+    icon: "water_drop",
   },
   {
     slug: "swedana",
@@ -36,7 +36,7 @@ const initialTreatments = [
     text: "Herbal steam therapy to detoxify and improve circulation.",
     time: "20 - 30 Mins",
     image: "/images/faq-ayurveda-still-life.webp",
-    icon: "lotus",
+    icon: "mode_fan",
   },
   {
     slug: "nasya",
@@ -44,7 +44,7 @@ const initialTreatments = [
     text: "Nasal therapy to clear sinuses and improve head & neck health.",
     time: "20 - 30 Mins",
     image: "/images/treatment-herbal-medicine.webp",
-    icon: "leaf",
+    icon: "eco",
   },
   {
     slug: "pizhichil",
@@ -52,7 +52,7 @@ const initialTreatments = [
     text: "Warm herbal oil bath therapy to relieve pain and rejuvenate.",
     time: "60 - 90 Mins",
     image: "/images/treatment-sirodhara.webp",
-    icon: "leaf",
+    icon: "sanitizer",
   },
   {
     slug: "udvarthanam",
@@ -60,7 +60,7 @@ const initialTreatments = [
     text: "Herbal powder therapy to reduce fatigue and improve metabolism.",
     time: "45 - 60 Mins",
     image: "/images/treatment-njavarakizhi.webp",
-    icon: "steam",
+    icon: "clean_hands",
   },
   {
     slug: "basti",
@@ -68,7 +68,7 @@ const initialTreatments = [
     text: "Medicated enema therapy to balance Vata and cleanse the colon.",
     time: "30 - 45 Mins",
     image: "/images/faq-ayurveda-still-life.webp",
-    icon: "leaf",
+    icon: "eco",
   },
   {
     slug: "kati-basti",
@@ -76,7 +76,7 @@ const initialTreatments = [
     text: "Warm oil therapy for lower back pain and stiffness relief.",
     time: "30 - 45 Mins",
     image: "/images/treatment-kati-vasti.webp",
-    icon: "woman",
+    icon: "healing",
   },
   {
     slug: "garshanam",
@@ -84,7 +84,7 @@ const initialTreatments = [
     text: "Silk glove massage to improve lymphatic flow and skin health.",
     time: "30 - 45 Mins",
     image: "/images/treatment-kati-vasti.webp",
-    icon: "motion",
+    icon: "self_improvement",
   },
 ];
 
@@ -102,7 +102,7 @@ export function AllTreatmentsSection() {
             text: t.shortDescription || t.text || t.description || 'Ayurvedic therapeutic treatment.',
             time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
             image: getImageDisplayUrl(t.coverImage || t.image),
-            icon: "lotus",
+            icon: "spa",
           }));
           setTreatmentsList(normalized);
         }
@@ -112,6 +112,7 @@ export function AllTreatmentsSection() {
     }
     loadTreatments();
   }, []);
+
   return (
     <section className="all-treatments-section" aria-labelledby="all-treatments-title">
       <div className="all-treatments-head">
@@ -145,14 +146,18 @@ export function AllTreatmentsSection() {
                 fill
                 sizes="(max-width: 640px) 92vw, (max-width: 1100px) 44vw, 20vw"
               />
-              <span className="all-treatment-icon" data-icon={treatment.icon} aria-hidden="true" />
+              <span className="all-treatment-icon" aria-hidden="true">
+                <span className="material-symbols-outlined">{treatment.icon}</span>
+              </span>
             </div>
             <div className="all-treatment-body">
               <h3>{treatment.title}</h3>
               <span className="all-treatment-rule" aria-hidden="true" />
               <p>{treatment.text}</p>
               <div className="all-treatment-time">
-                <span aria-hidden="true" />
+                <span className="material-symbols-outlined" style={{ fontSize: "16px", marginRight: "5px" }} aria-hidden="true">
+                  schedule
+                </span>
                 {treatment.time}
               </div>
             </div>
@@ -175,17 +180,23 @@ export function AllTreatmentsSection() {
         </div>
         <div className="journey-banner-features">
           <div>
-            <i data-icon="lotus" aria-hidden="true" />
+            <span className="material-symbols-outlined" style={{ fontSize: "28px", color: "#bd7b31", display: "block", marginBottom: "8px" }} aria-hidden="true">
+              clinical_notes
+            </span>
             <strong>Expert Guidance</strong>
             <span>from Experienced Doctors</span>
           </div>
           <div>
-            <i data-icon="dots" aria-hidden="true" />
+            <span className="material-symbols-outlined" style={{ fontSize: "28px", color: "#bd7b31", display: "block", marginBottom: "8px" }} aria-hidden="true">
+              edit_note
+            </span>
             <strong>Personalised Plans</strong>
             <span>Tailored to Your Needs</span>
           </div>
           <div>
-            <i data-icon="lotus" aria-hidden="true" />
+            <span className="material-symbols-outlined" style={{ fontSize: "28px", color: "#bd7b31", display: "block", marginBottom: "8px" }} aria-hidden="true">
+              spa
+            </span>
             <strong>Holistic Healing</strong>
             <span>for Body, Mind & Soul</span>
           </div>

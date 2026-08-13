@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const treatmentCategories = [
-  { label: "All Treatments", icon: "grid", active: true },
-  { label: "Panchakarma", icon: "steam" },
-  { label: "Detox & Cleansing", icon: "leaf" },
-  { label: "Women's Health", icon: "woman" },
-  { label: "Pain Management", icon: "body" },
-  { label: "Wellness", icon: "lotus" },
-  { label: "Lifestyle Disorders", icon: "motion" },
+  { label: "All Treatments", icon: "apps", active: true },
+  { label: "Panchakarma", icon: "shower" },
+  { label: "Detox & Cleansing", icon: "eco" },
+  { label: "Women's Health", icon: "female" },
+  { label: "Pain Management", icon: "healing" },
+  { label: "Wellness", icon: "spa" },
+  { label: "Lifestyle Disorders", icon: "vital_signs" },
 ];
 
 export function TreatmentsBannerSection() {
@@ -28,7 +28,6 @@ export function TreatmentsBannerSection() {
               <em>Healing</em> for Today.
             </span>
           </h1>
-
 
           <p>
             Explore our authentic Ayurvedic therapies crafted to detoxify,
@@ -62,7 +61,9 @@ export function TreatmentsBannerSection() {
               role="listitem"
               key={category.label}
             >
-              <span className="treatment-category-icon" data-icon={category.icon} aria-hidden="true" />
+              <span className="treatment-category-icon" aria-hidden="true">
+                <span className="material-symbols-outlined">{category.icon}</span>
+              </span>
               {category.label}
             </button>
           ))}
