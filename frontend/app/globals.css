@@ -89,6 +89,22 @@ body .site-header .nav-actions .nav-book-btn:hover,
   outline-offset: 2px;
 }
 
+/* Remove decorative background line & curve overlays */
+.treatment-reference-hero::after,
+.treatment-hero-copy::before,
+.contact-reference-leaves,
+.contact-reference-hero::before,
+.home-wellness-outline,
+.home-wellness-branch,
+.home-wellness-mortar,
+.about-purpose-copy::before,
+.doctors-hero::before,
+.doctors-hero::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+}
+
 /* Prevent image overflow */
 img,
 svg,

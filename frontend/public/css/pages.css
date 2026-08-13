@@ -1765,17 +1765,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .treatment-reference-hero::after {
-  content: "";
-  position: absolute;
-  left: clamp(650px, 45.2vw, 870px);
-  top: -34px;
-  z-index: 4;
-  width: 26px;
-  height: calc(100% + 70px);
-  border-left: 1px solid rgba(173, 116, 48, 0.36);
-  border-radius: 50%;
-  transform: rotate(6deg);
-  pointer-events: none;
+  display: none !important;
 }
 
 .treatment-hero-copy {
@@ -1787,20 +1777,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .treatment-hero-copy::before {
-  content: "";
-  position: absolute;
-  right: -190px;
-  bottom: -24px;
-  width: 360px;
-  height: 320px;
-  opacity: 0.18;
-  background:
-    radial-gradient(ellipse at 50% 0%, transparent 34%, rgba(168, 117, 52, 0.9) 35%, transparent 36%) 50% 13% / 58px 94px no-repeat,
-    radial-gradient(ellipse at 50% 100%, transparent 40%, rgba(168, 117, 52, 0.95) 41%, transparent 42%) 28% 45% / 98px 64px no-repeat,
-    radial-gradient(ellipse at 50% 100%, transparent 40%, rgba(168, 117, 52, 0.95) 41%, transparent 42%) 62% 52% / 106px 72px no-repeat,
-    linear-gradient(rgba(168, 117, 52, 0.85), rgba(168, 117, 52, 0.85)) 50% 28% / 2px 230px no-repeat;
-  transform: rotate(-17deg);
-  pointer-events: none;
+  display: none !important;
 }
 
 .treatment-breadcrumb {

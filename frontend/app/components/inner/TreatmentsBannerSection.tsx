@@ -29,11 +29,6 @@ export function TreatmentsBannerSection() {
             </span>
           </h1>
 
-          <div className="treatment-hero-divider" aria-hidden="true">
-            <span />
-            <i />
-            <span />
-          </div>
 
           <p>
             Explore our authentic Ayurvedic therapies crafted to detoxify,
