@@ -202,10 +202,7 @@ export function ContactReferencePage() {
               We&rsquo;re Here
               <span>to Help You</span>
             </h1>
-            <div className="contact-reference-title-rule" aria-hidden="true">
-              <span />
-              <LotusIcon />
-            </div>
+ 
             <p>Have questions or need guidance? Our team is here for you. Reach out to us and experience compassionate care, every step of the way.</p>
             <div className="contact-reference-support">
               {supportItems.map((item) => (
