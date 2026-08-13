@@ -295,7 +295,7 @@ export function DoctorsPage() {
         ) : (
           /* Empty Search State */
           <div className="doctors-empty-state">
-            <div className="doctors-empty-icon">🔍</div>
+            <div className="doctors-empty-icon"><i className="fa-solid fa-magnifying-glass" /></div>
             <h3 className="doctors-empty-title">No Doctors Found</h3>
             <p className="doctors-empty-desc">
               We couldn’t find any physicians matching your selected filters or search terms. 

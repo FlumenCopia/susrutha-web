@@ -20,7 +20,7 @@ export function VideoPlaylistsSection({ onPlayVideo }: VideoPlaylistsSectionProp
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">CURATED SERIES</div>
           <h2 id="playlists-heading" className="vg-section-title">
-            Featured Playlists <span className="vg-leaf-accent" aria-hidden="true">📜</span>
+            Featured Playlists <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-scroll" /></span>
           </h2>
           <p className="vg-section-subhead">Structured multi-part video series guided by senior physicians</p>
         </div>

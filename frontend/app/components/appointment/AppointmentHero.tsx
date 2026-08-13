@@ -99,7 +99,7 @@ export function AppointmentHero() {
           {/* Quick Lineage Stats Cards */}
           <div className="apt-hero-metrics-bar">
             <div className="apt-metric-card">
-              <span className="apt-metric-icon">📜</span>
+              <span className="apt-metric-icon"><i className="fa-solid fa-scroll" /></span>
               <div>
                 <span className="apt-metric-value">35+ Years</span>
                 <span className="apt-metric-label">Healing Lineage</span>
@@ -107,7 +107,7 @@ export function AppointmentHero() {
             </div>
             <div className="apt-metric-sep" />
             <div className="apt-metric-card">
-              <span className="apt-metric-icon">🌿</span>
+              <span className="apt-metric-icon"><i className="fa-solid fa-leaf" /></span>
               <div>
                 <span className="apt-metric-value">100% Herbal</span>
                 <span className="apt-metric-label">Classical Medicines</span>
@@ -115,7 +115,7 @@ export function AppointmentHero() {
             </div>
             <div className="apt-metric-sep" />
             <div className="apt-metric-card">
-              <span className="apt-metric-icon">⭐</span>
+              <span className="apt-metric-icon"><i className="fa-solid fa-star" /></span>
               <div>
                 <span className="apt-metric-value">{doctor.rating} / 5.0</span>
                 <span className="apt-metric-label">Patient Rating</span>

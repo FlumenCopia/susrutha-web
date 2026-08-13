@@ -35,7 +35,7 @@ export function PatientStoriesSection({ onPlayVideo }: PatientStoriesSectionProp
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">PATIENT RECOVERY JOURNEYS</div>
           <h2 id="patient-stories-heading" className="vg-section-title">
-            Patient Transformation Stories <span className="vg-leaf-accent" aria-hidden="true">⭐</span>
+            Patient Transformation Stories <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-star" /></span>
           </h2>
           <p className="vg-section-subhead">Hear directly from patients who experienced healing through classical Panchakarma care</p>
         </div>

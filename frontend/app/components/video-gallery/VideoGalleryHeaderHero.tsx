@@ -53,15 +53,15 @@ export function VideoGalleryHeaderHero({ onSpotlightClick, spotlightVideo }: Vid
           {/* Feature Badges */}
           <div className="vg-hero-badges">
             <div className="vg-badge-glass">
-              <span className="vg-badge-icon" aria-hidden="true">🌿</span>
+              <span className="vg-badge-icon" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
               <span>Expert Physician Insights</span>
             </div>
             <div className="vg-badge-glass">
-              <span className="vg-badge-icon" aria-hidden="true">📜</span>
+              <span className="vg-badge-icon" aria-hidden="true"><i className="fa-solid fa-scroll" /></span>
               <span>Classical Protocols</span>
             </div>
             <div className="vg-badge-glass">
-              <span className="vg-badge-icon" aria-hidden="true">✨</span>
+              <span className="vg-badge-icon" aria-hidden="true"><i className="fa-solid fa-star" /></span>
               <span>4K Ultra HD</span>
             </div>
           </div>

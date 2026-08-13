@@ -93,7 +93,7 @@ export function DoctorsFilterBar({
                 onChange={(e) => onModeChange(e.target.value)}
               >
                 <option value="all">All Consultation Modes</option>
-                <option value="in-person">🏥 In-Person Hospital Visit</option>
+                <option value="in-person">In-Person Hospital Visit</option>
               </select>
               <span className="doctors-filter-select-arrow">▼</span>
             </div>
@@ -127,7 +127,7 @@ export function DoctorsFilterBar({
                 title="Grid View"
                 aria-label="Grid View"
               >
-                ⊞ Grid
+                <i className="fa-solid fa-border-all" style={{ marginRight: "4px" }} /> Grid
               </button>
               <button
                 type="button"
@@ -136,7 +136,7 @@ export function DoctorsFilterBar({
                 title="List View"
                 aria-label="List View"
               >
-                ☰ List
+                <i className="fa-solid fa-list" style={{ marginRight: "4px" }} /> List
               </button>
             </div>
           </div>
@@ -156,28 +156,28 @@ export function DoctorsFilterBar({
             className={`doctors-pill-btn ${quickFilter === "today" ? "active" : ""}`}
             onClick={() => onQuickFilterChange(quickFilter === "today" ? "all" : "today")}
           >
-            ⚡ Available Today
+            <i className="fa-solid fa-bolt" style={{ marginRight: "4px" }} /> Available Today
           </button>
           <button
             type="button"
             className={`doctors-pill-btn ${quickFilter === "senior" ? "active" : ""}`}
             onClick={() => onQuickFilterChange(quickFilter === "senior" ? "all" : "senior")}
           >
-            👑 Senior Vaidyas (15+ Yrs)
+            <i className="fa-solid fa-crown" style={{ marginRight: "4px" }} /> Senior Vaidyas (15+ Yrs)
           </button>
           <button
             type="button"
             className={`doctors-pill-btn ${quickFilter === "top-rated" ? "active" : ""}`}
             onClick={() => onQuickFilterChange(quickFilter === "top-rated" ? "all" : "top-rated")}
           >
-            ⭐ Top Rated (4.9★)
+            <i className="fa-solid fa-star" style={{ marginRight: "4px" }} /> Top Rated (4.9)
           </button>
           <button
             type="button"
             className={`doctors-pill-btn ${quickFilter === "founders" ? "active" : ""}`}
             onClick={() => onQuickFilterChange(quickFilter === "founders" ? "all" : "founders")}
           >
-            🏆 Founder Physicians
+            <i className="fa-solid fa-trophy" style={{ marginRight: "4px" }} /> Founder Physicians
           </button>
         </div>
 

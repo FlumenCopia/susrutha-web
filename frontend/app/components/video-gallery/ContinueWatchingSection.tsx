@@ -30,14 +30,12 @@ export function ContinueWatchingSection({ items, onPlayVideo }: ContinueWatching
         <div className="vg-section-header">
           <div className="vg-cw-header-left">
             <div className="vg-cw-icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              <i className="fa-solid fa-play" />
             </div>
             <div>
               <div className="vg-eyebrow-accent">RESTART SESSION</div>
               <h2 id="continue-watching-heading" className="vg-section-title">
-                Continue Watching <span className="vg-leaf-accent" aria-hidden="true">🌿</span>
+                Continue Watching <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
               </h2>
               <p className="vg-section-subhead">Pick up right where you left off</p>
             </div>

@@ -185,7 +185,7 @@ export function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <span>{item.label}</span>
-                      {isActive(item.href) && <span className="mobile-active-dot">🌿</span>}
+                      {isActive(item.href) && <i className="fa-solid fa-leaf mobile-active-dot" style={{ fontSize: "10px" }} />}
                     </Link>
                     {item.children ? (
                       <div className="mobile-overlay-sub-links">

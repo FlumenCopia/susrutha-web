@@ -17,7 +17,9 @@ export function DoctorsCTA() {
         </div>
 
         <Link href="/appointment" className="doctors-cta-btn">
-          📅 Book Consultation Now →
+          <i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} />
+          Book Consultation Now
+          <i className="fa-solid fa-arrow-right" style={{ marginLeft: "6px" }} />
         </Link>
       </div>
     </section>

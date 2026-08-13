@@ -100,14 +100,15 @@ export function DoctorQuickViewModal({ doctor, onClose }: DoctorQuickViewModalPr
                 className="doctor-card-btn-book"
                 onClick={onClose}
               >
-                📅 Book Appointment
+                <i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} />
+                Book Appointment
               </Link>
               <Link
                 href={`/doctors/${doctor.slug}`}
                 className="doctor-card-btn-secondary"
                 onClick={onClose}
               >
-                Full Profile Page →
+                Full Profile Page <i className="fa-solid fa-arrow-right" style={{ marginLeft: "6px" }} />
               </Link>
             </div>
           </div>

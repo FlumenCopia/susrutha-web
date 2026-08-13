@@ -60,14 +60,14 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
         {/* Key Metrics Row */}
         <div className="doctor-card-metrics">
           <div className="doctor-card-metric-item">
-            <span className="doctor-card-metric-icon">⏳</span>
+            <span className="doctor-card-metric-icon"><i className="fa-solid fa-clock-rotate-left" /></span>
             <div>
               <div className="doctor-card-metric-val">{doctor.experienceText}</div>
               <div className="doctor-card-metric-lbl">Experience</div>
             </div>
           </div>
           <div className="doctor-card-metric-item">
-            <span className="doctor-card-metric-icon">🏥</span>
+            <span className="doctor-card-metric-icon"><i className="fa-solid fa-hospital" /></span>
             <div>
               <div className="doctor-card-metric-val">{doctor.location}</div>
               <div className="doctor-card-metric-lbl">Primary Branch</div>
@@ -93,7 +93,7 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
             href={`/appointment?doctor=${doctor.slug}`}
             className="doctor-card-btn-book"
           >
-            📅 Book Consultation
+            <i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} /> Book Consultation
           </Link>
           <button
             type="button"

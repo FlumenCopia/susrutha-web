@@ -163,7 +163,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             {/* Quick Metrics Bar */}
             <div className="treatment-facts-bar">
               <div className="fact-item">
-                <span className="fact-icon">⏱️</span>
+                <span className="fact-icon"><i className="fa-regular fa-clock" /></span>
                 <div>
                   <span className="fact-label">Duration</span>
                   <strong className="fact-value">{duration}</strong>
@@ -171,7 +171,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               </div>
               <div className="fact-divider" />
               <div className="fact-item">
-                <span className="fact-icon">🌿</span>
+                <span className="fact-icon"><i className="fa-solid fa-leaf" /></span>
                 <div>
                   <span className="fact-label">Purity</span>
                   <strong className="fact-value">100% Herbal</strong>
@@ -179,7 +179,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               </div>
               <div className="fact-divider" />
               <div className="fact-item">
-                <span className="fact-icon">👨‍⚕️</span>
+                <span className="fact-icon"><i className="fa-solid fa-user-doctor" /></span>
                 <div>
                   <span className="fact-label">Care</span>
                   <strong className="fact-value">Physician Led</strong>
@@ -191,7 +191,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             <div className="treatment-hero-actions">
               <Link className="btn btn-primary treatment-btn-book" href="/appointment">
                 <span>Book Consultation</span>
-                <span aria-hidden="true">&rarr;</span>
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
               </Link>
               <Link className="btn btn-outline treatment-btn-enquire" href="/contact-us">
                 <span>Enquire Treatment</span>
@@ -213,7 +213,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               <div className="treatment-media-overlay" />
               
               <div className="treatment-floating-badge">
-                <span className="floating-badge-icon">📜</span>
+                <span className="floating-badge-icon"><i className="fa-solid fa-scroll" /></span>
                 <div>
                   <strong>Classical Protocol</strong>
                   <span>Authentic Kerala Lineage</span>

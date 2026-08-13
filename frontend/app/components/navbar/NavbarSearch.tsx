@@ -322,7 +322,7 @@ export function NavbarSearch() {
               {results.doctors.length > 0 && (
                 <div className="search-result-group">
                   <div className="search-group-title">
-                    <span>👨‍⚕️ Doctors ({results.doctors.length})</span>
+                    <span><i className="fa-solid fa-user-doctor" style={{ marginRight: "6px" }} /> Doctors ({results.doctors.length})</span>
                   </div>
                   {results.doctors.map((item) => {
                     const globalIdx = results.all.findIndex((r) => r.id === item.id);
@@ -356,7 +356,7 @@ export function NavbarSearch() {
               {results.treatments.length > 0 && (
                 <div className="search-result-group">
                   <div className="search-group-title">
-                    <span>🌿 Treatments ({results.treatments.length})</span>
+                    <span><i className="fa-solid fa-leaf" style={{ marginRight: "6px" }} /> Treatments ({results.treatments.length})</span>
                   </div>
                   {results.treatments.map((item) => {
                     const globalIdx = results.all.findIndex((r) => r.id === item.id);
@@ -423,7 +423,7 @@ export function NavbarSearch() {
           {/* Case 3: Query entered but no matches */}
           {query.trim() && results.all.length === 0 && (
             <div className="search-no-results">
-              <div className="no-results-icon">🔍</div>
+              <div className="no-results-icon"><i className="fa-solid fa-magnifying-glass" /></div>
               <div className="no-results-title">No matching results for &quot;{query}&quot;</div>
               <p className="no-results-desc">
                 Try searching for Panchakarma, Shirodhara, Back Pain, or Dr. Krishnakumar.
@@ -534,7 +534,7 @@ export function NavbarSearch() {
                     className="search-result-item"
                     onClick={() => handleSelectResult(item.href)}
                   >
-                    <div className="search-item-icon-box">📋</div>
+                    <div className="search-item-icon-box"><i className="fa-solid fa-clipboard-list" /></div>
                     <div className="search-item-info">
                       <div className="search-item-title">{highlightMatch(item.title, query)}</div>
                       <div className="search-item-subtitle">{item.subtitle}</div>
@@ -547,7 +547,7 @@ export function NavbarSearch() {
 
             {query.trim() && results.all.length === 0 && (
               <div className="search-no-results">
-                <div className="no-results-icon">🔍</div>
+                <div className="no-results-icon"><i className="fa-solid fa-magnifying-glass" /></div>
                 <div className="no-results-title">No matching results</div>
                 <p className="no-results-desc">
                   Try searching for Panchakarma, Shirodhara, or Dr. Krishnakumar.

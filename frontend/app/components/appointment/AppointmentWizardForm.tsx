@@ -536,7 +536,7 @@ function AppointmentWizardContent() {
                             <div className="branch-card-content">
                               <h4>{branch.name}</h4>
                               <span className="branch-card-tag">{branch.type}</span>
-                              <p className="branch-card-address">📍 {branch.address}</p>
+                              <p className="branch-card-address"><i className="fa-solid fa-location-dot" style={{ marginRight: "6px" }} />{branch.address}</p>
                             </div>
                             <div className="branch-card-check">{isSelected ? "✓" : "+"}</div>
                           </div>
@@ -548,7 +548,7 @@ function AppointmentWizardContent() {
                   <div className="apt-action-bar">
                     <button type="button" className="btn btn-primary btn-next-step" onClick={handleNextStep}>
                       <span>Continue to Specialty & Doctor</span>
-                      <span aria-hidden="true">&rarr;</span>
+                      <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
                     </button>
                   </div>
                 </div>
@@ -578,7 +578,7 @@ function AppointmentWizardContent() {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#4a3e2e" }}>
-                      <span style={{ fontSize: "16px" }}>📍</span>
+                      <i className="fa-solid fa-location-dot" style={{ fontSize: "16px" }} />
                       <span>
                         Selected Hospital Branch:{" "}
                         <strong style={{ color: "#9a6528", fontWeight: 700 }}>
@@ -673,7 +673,7 @@ function AppointmentWizardContent() {
                             border: "1px solid rgba(196, 146, 42, 0.3)",
                           }}
                         >
-                          <span style={{ fontSize: "24px" }}>📍</span>
+                          <i className="fa-solid fa-location-dot" style={{ fontSize: "24px" }} />
                         </div>
                         <h4
                           style={{
@@ -928,8 +928,8 @@ function AppointmentWizardContent() {
                                   textDecoration: "none",
                                 }}
                               >
-                                <span>📅 Jump to Next Available Working Day</span>
-                                <span aria-hidden="true">&rarr;</span>
+                                <span><i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} /> Jump to Next Available Working Day</span>
+                                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
                               </button>
                             </div>
                           </div>
@@ -1111,7 +1111,7 @@ function AppointmentWizardContent() {
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition-colors flex items-center space-x-1.5"
                 >
-                  <span>💬 Confirm via WhatsApp Desk</span>
+                  <span><i className="fa-brands fa-whatsapp" style={{ marginRight: "6px" }} /> Confirm via WhatsApp Desk</span>
                 </a>
               </div>
             </div>
@@ -1143,7 +1143,7 @@ function AppointmentWizardContent() {
             <div className="summary-details-list">
               <div className="summary-item">
                 <span>Consultation Mode:</span>
-                <strong>🏥 Hospital Visit</strong>
+                <strong><i className="fa-solid fa-hospital" style={{ marginRight: "6px" }} /> Hospital Visit</strong>
               </div>
 
               <div className="summary-item">

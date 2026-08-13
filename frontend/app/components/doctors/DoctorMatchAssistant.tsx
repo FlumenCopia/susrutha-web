@@ -5,17 +5,17 @@ import { doctorsData, DoctorItem } from "./doctorsData";
 
 type OptionItem = {
   id: string;
-  icon: string;
+  iconClass: string;
   title: string;
   deptId: string;
 };
 
 const healthOptions: OptionItem[] = [
-  { id: "panchakarma", icon: "🫗", title: "Panchakarma & Body Detox", deptId: "panchakarma" },
-  { id: "spine", icon: "🦴", title: "Spine, Joint & Back Pain", deptId: "spine-joints" },
-  { id: "womens", icon: "🌸", title: "Women's Health & PCOS", deptId: "womens-health" },
-  { id: "lifestyle", icon: "🌱", title: "Diabetes & Lifestyle Care", deptId: "lifestyle-detox" },
-  { id: "skin", icon: "✨", title: "Skin Psoriasis & Allergies", deptId: "skin-hair" },
+  { id: "panchakarma", iconClass: "fa-solid fa-spa", title: "Panchakarma & Body Detox", deptId: "panchakarma" },
+  { id: "spine", iconClass: "fa-solid fa-bone", title: "Spine, Joint & Back Pain", deptId: "spine-joints" },
+  { id: "womens", iconClass: "fa-solid fa-venus", title: "Women's Health & PCOS", deptId: "womens-health" },
+  { id: "lifestyle", iconClass: "fa-solid fa-leaf", title: "Diabetes & Lifestyle Care", deptId: "lifestyle-detox" },
+  { id: "skin", iconClass: "fa-solid fa-heart-pulse", title: "Skin Psoriasis & Allergies", deptId: "skin-hair" },
 ];
 
 export function DoctorMatchAssistant() {
@@ -43,7 +43,7 @@ export function DoctorMatchAssistant() {
               className={`doctors-assistant-option ${selectedOptId === opt.deptId ? "selected" : ""}`}
               onClick={() => setSelectedOptId(opt.deptId)}
             >
-              <div className="doctors-assistant-opt-icon">{opt.icon}</div>
+              <div className="doctors-assistant-opt-icon"><i className={opt.iconClass} /></div>
               <div className="doctors-assistant-opt-title">{opt.title}</div>
             </div>
           ))}
@@ -79,7 +79,8 @@ export function DoctorMatchAssistant() {
               className="doctors-cta-btn"
               style={{ background: "#ffffff", color: "#d61f2b" }}
             >
-              📅 Book with {matchedDoctor.name.split(" ")[1] || "Vaidya"}
+              <i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} />
+              Book with {matchedDoctor.name.split(" ")[1] || "Vaidya"}
             </Link>
           </div>
         )}

@@ -13,7 +13,7 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
       <div className="doctors-hero-container">
         <div className="doctors-hero-header">
           <div className="doctors-hero-eyebrow">
-            <span className="icon">🌿</span> Susrutha Clinical Faculty
+            <i className="fa-solid fa-leaf icon" aria-hidden="true" style={{ marginRight: "6px" }} /> Susrutha Clinical Faculty
           </div>
           <h1 className="doctors-hero-title">
             Consult Our Senior <span className="accent">Ayurvedic Physicians</span>
@@ -26,28 +26,28 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
           {/* Quick Statistics Banner */}
           <div className="doctors-hero-stats">
             <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon">🩺</div>
+              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-user-doctor" /></div>
               <div>
                 <div className="doctors-hero-stat-val">15+ Senior</div>
                 <div className="doctors-hero-stat-lbl">Specialist Vaidyas</div>
               </div>
             </div>
             <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon">⭐</div>
+              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-star" /></div>
               <div>
                 <div className="doctors-hero-stat-val">4.9 / 5.0</div>
                 <div className="doctors-hero-stat-lbl">Patient Trust Rating</div>
               </div>
             </div>
             <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon">📜</div>
+              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-scroll" /></div>
               <div>
                 <div className="doctors-hero-stat-val">100% Authentic</div>
                 <div className="doctors-hero-stat-lbl">Classical Ayurveda</div>
               </div>
             </div>
             <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon">👥</div>
+              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-users" /></div>
               <div>
                 <div className="doctors-hero-stat-val">50,000+</div>
                 <div className="doctors-hero-stat-lbl">Patients Healed</div>
@@ -58,7 +58,7 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
           {/* Live Search Input Bar */}
           <div className="doctors-hero-search">
             <div className="doctors-hero-search-input-wrap">
-              <span className="doctors-hero-search-icon">🔍</span>
+              <i className="fa-solid fa-magnifying-glass doctors-hero-search-icon" aria-hidden="true" />
               <input
                 type="text"
                 className="doctors-hero-search-input"

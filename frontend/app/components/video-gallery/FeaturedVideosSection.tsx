@@ -31,7 +31,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">PHYSICIAN MASTERCLASSES</div>
           <h2 id="featured-videos-heading" className="vg-section-title">
-            Featured Videos <span className="vg-leaf-accent" aria-hidden="true">🌿</span>
+            Featured Videos <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
           </h2>
           <p className="vg-section-subhead">Curated videos to inspire your wellness journey</p>
         </div>
@@ -45,10 +45,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
               onClick={() => setViewMode("carousel")}
               aria-label="Carousel View"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="2" y="7" width="20" height="10" rx="2" />
-                <path d="M7 12h10" />
-              </svg>
+              <i className="fa-solid fa-sliders" />
             </button>
             <button
               type="button"
@@ -56,12 +53,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
               onClick={() => setViewMode("grid")}
               aria-label="Grid View"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="14" width="7" height="7" rx="1" />
-                <rect x="3" y="14" width="7" height="7" rx="1" />
-              </svg>
+              <i className="fa-solid fa-border-all" />
             </button>
           </div>
 
@@ -73,7 +65,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
                 onClick={scrollLeft}
                 aria-label="Scroll left"
               >
-                ←
+                <i className="fa-solid fa-arrow-left" />
               </button>
               <button
                 type="button"
@@ -81,7 +73,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
                 onClick={scrollRight}
                 aria-label="Scroll right"
               >
-                →
+                <i className="fa-solid fa-arrow-right" />
               </button>
             </div>
           )}
@@ -90,7 +82,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
 
       {videos.length === 0 ? (
         <div className="vg-empty-state">
-          <span className="vg-empty-icon">🔍</span>
+          <span className="vg-empty-icon"><i className="fa-solid fa-magnifying-glass" /></span>
           <h3>No videos match your search</h3>
           <p>Try adjusting your category filter or search keywords.</p>
         </div>
