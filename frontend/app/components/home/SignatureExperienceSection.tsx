@@ -69,7 +69,7 @@ export function SignatureExperienceSection() {
                 <div className="sig-experience-card-body">
                   <h3>{t.title}</h3>
                   <p>{t.desc}</p>
-                  <div className="sig-experience-meta">
+                  {/* <div className="sig-experience-meta">
                     <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
                       <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>schedule</span>
                       {t.duration}
@@ -79,7 +79,7 @@ export function SignatureExperienceSection() {
                       <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>payments</span>
                       {t.price}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </Link>
             </article>

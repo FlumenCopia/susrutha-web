@@ -311,33 +311,7 @@ export function ContactReferencePage() {
         </section>
 
         <section className="contact-reference-visit" aria-label="Visit Susrutha Ayurveda">
-          <div className="contact-reference-still">
-            <Image src="/images/faq-ayurveda-still-life.webp" alt="Ayurvedic herbs, brass vessel, and flowers" fill sizes="(max-width: 900px) 100vw, 50vw" />
-            <div className="contact-reference-quote">
-              <strong>&ldquo;</strong>
-              <p>Rooted in Ayurveda. Dedicated to Your Well-being.</p>
-              <LotusIcon />
-            </div>
-          </div>
-
-          <div className="contact-reference-map">
-            <div className="contact-reference-map-compass" aria-hidden="true">
-              <LotusIcon />
-            </div>
-            <div className="contact-reference-map-lines" aria-hidden="true" />
-            <span className="contact-reference-pin" aria-hidden="true">
-              <LotusIcon />
-            </span>
-            <article className="contact-reference-visit-card">
-              <h2>Visit Us</h2>
-              <span className="contact-reference-small-rule" aria-hidden="true" />
-              <p>We welcome you to experience holistic healing in a serene and nurturing environment.</p>
-              <Link href="/contact-us">
-                Get Directions
-                <ContactIcon type="arrow" />
-              </Link>
-            </article>
-          </div>
+        
         </section>
       </div>
     </div>
