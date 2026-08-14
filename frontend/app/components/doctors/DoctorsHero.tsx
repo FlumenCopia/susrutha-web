@@ -85,16 +85,18 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
           {/* Quick Filter Tags */}
           <div className="doctors-hero-tags">
             <span className="doctors-hero-tags-label">Popular Searches:</span>
-            {quickSearchTags.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className="doctors-hero-tag-btn"
-                onClick={() => onTagClick(tag)}
-              >
-                {tag}
-              </button>
-            ))}
+            <div className="doctors-hero-tags-list">
+              {quickSearchTags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  className="doctors-hero-tag-btn"
+                  onClick={() => onTagClick(tag)}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
