@@ -3,6 +3,8 @@ import { AboutFoundersSection } from "./about-premium/AboutFoundersSection";
 import { AboutMilestonesSection } from "./about-premium/AboutMilestonesSection";
 import { AboutPurposeSection } from "./about-premium/AboutPurposeSection";
 import { AboutStorySection } from "./about-premium/AboutStorySection";
+// import { CustodiansOfWisdomSection } from "../home/CustodiansOfWisdomSection";
+
 
 export function AboutPremiumPage() {
   return (
@@ -13,6 +15,9 @@ export function AboutPremiumPage() {
       {/* <AboutMilestoneShowcaseSection /> */}
       <AboutPurposeSection />
       <AboutFoundersSection />
+{/* <CustodiansOfWisdomSection /> */}
+
     </div>
   );
 }
+// CustodiansOfWisdomSection

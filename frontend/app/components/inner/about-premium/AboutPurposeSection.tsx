@@ -38,8 +38,7 @@ export function AboutPurposeSection() {
                 </a>
               </div>
               <p className="ap-desc">
-                Nisl quisque nunc gravida amet rhoncus arcu arcuet. Hac arcu vel cras ornare mattis. Aliquam nullam
-                pellentesque nec in mattis.
+               To deliver authentic Ayurvedic treatments with compassion, innovation and excellence while empowering conscious, balanced living.
               </p>
             </div>
           </div>
@@ -90,7 +89,7 @@ export function AboutPurposeSection() {
             </div>
 
             {/* Floating Badge 2 (Bottom Right) */}
-            <div className="ap-badge ap-badge-award">
+            {/* <div className="ap-badge ap-badge-award">
               <div className="ap-badge-icon">
                 <svg
                   width="22"
@@ -112,18 +111,16 @@ export function AboutPurposeSection() {
               </div>
               <p className="ap-award-desc">Recognized for excellence in maternity care.</p>
               <span className="ap-award-num">50+</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Our Vision Block */}
           <div className="ap-vision-block">
             <div className="ap-vision-header">
-              <span className="ap-vision-dot" aria-hidden="true" />
               <h2 className="ap-title">Our Vision</h2>
             </div>
             <p className="ap-desc">
-              Nisl quisque nunc gravida amet rhoncus arcu nulla arcu et. Hac arcu vel cras ornare mattis. Cum aliquam
-              nullam pellentesque nec in. Mattis et senectus egestas enim. Amet rhoncus arcu nulla.
+To be a global leader in Ayurvedic care, recognized for restoring health, harmony and happiness naturally.
             </p>
           </div>
         </div>
