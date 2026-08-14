@@ -1618,75 +1618,153 @@ p.doctors-stat-label {
 }
 
 /* ==========================================================================
-   Consultation CTA Card
+   Consultation / Spa Offer CTA Banner (Reference Image Design)
    ========================================================================== */
 .doctors-cta-section {
   max-width: 1280px;
-  margin: 40px auto 20px;
+  margin: 50px auto 30px;
   padding: 0 24px;
 }
 
-.doctors-cta-card {
-  background: linear-gradient(135deg, #fffcf6 0%, #f7efe2 100%);
-  border: 1.5px solid rgba(200, 137, 34, 0.3);
+.doctors-cta-banner {
+  position: relative;
   border-radius: 28px;
-  padding: 44px 36px;
+  overflow: hidden;
+  background-image: url('/images/doctors_spa_offer_banner.jpg');
+  background-size: cover;
+  background-position: center left;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 24px 60px rgba(16, 10, 8, 0.28);
+  border: 1px solid rgba(196, 146, 42, 0.25);
+}
+
+.doctors-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 8, 6, 0.1) 0%,
+    rgba(14, 8, 6, 0.4) 40%,
+    rgba(14, 8, 6, 0.88) 65%,
+    rgba(14, 8, 6, 0.96) 100%
+  );
+  z-index: 1;
+}
+
+.doctors-cta-content-wrap {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  padding: 48px 64px;
   gap: 32px;
-  flex-wrap: wrap;
-  box-shadow: 0 20px 50px rgba(99, 57, 19, 0.08);
 }
 
-.doctors-cta-content {
-  max-width: 640px;
+.doctors-cta-spacer {
+  flex: 1;
+}
+
+.doctors-cta-right-content {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .doctors-cta-eyebrow {
   font-size: 12.5px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ad7430;
+  color: #f7a51a;
   margin-bottom: 8px;
   display: block;
 }
 
-.doctors-cta-title {
-  font-size: clamp(26px, 3.2vw, 38px);
-  font-weight: 700;
-  color: #262725;
-  margin: 0 0 12px;
-  line-height: 1.2;
-}
-
-.doctors-cta-text {
-  font-size: 15.5px;
-  color: #555753;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.doctors-cta-btn {
-  background: linear-gradient(135deg, var(--color-red, #d61f2b) 0%, var(--color-deep-red, #9f131b) 100%);
+.doctors-cta-heading {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(30px, 3.5vw, 42px);
+  font-weight: 500;
   color: #ffffff;
-  padding: 16px 36px;
-  border-radius: 40px;
-  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.doctors-cta-desc {
   font-size: 15px;
-  text-decoration: none;
-  white-space: nowrap;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 0 24px;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.doctors-cta-btn-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.doctors-cta-action-btn {
+  background: linear-gradient(135deg, #c47c0a 0%, #a86204 100%);
+  color: #ffffff !important;
+  border: none;
+  padding: 13px 32px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none !important;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 8px 24px rgba(214, 31, 43, 0.3);
-  transition: all 0.25s ease;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(182, 110, 7, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
-.doctors-cta-btn:hover {
+.doctors-cta-action-btn:hover {
+  background: linear-gradient(135deg, #d8890c 0%, #b86b05 100%);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(214, 31, 43, 0.45);
+  box-shadow: 0 10px 28px rgba(182, 110, 7, 0.55);
+}
+
+@media (max-width: 960px) {
+  .doctors-cta-banner {
+    min-height: 420px;
+    background-position: top center;
+  }
+
+  .doctors-cta-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(14, 8, 6, 0.3) 0%,
+      rgba(14, 8, 6, 0.8) 50%,
+      rgba(14, 8, 6, 0.96) 100%
+    );
+  }
+
+  .doctors-cta-content-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+    justify-content: flex-end;
+  }
+
+  .doctors-cta-spacer {
+    display: none;
+  }
+
+  .doctors-cta-right-content {
+    max-width: 100%;
+    margin-top: 100px;
+  }
 }
 
 /* Animations */
