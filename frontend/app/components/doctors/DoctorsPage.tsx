@@ -17,16 +17,16 @@ import { getPublicDoctors, getPublicDepartments, getPublicBranches, getImageDisp
 
 // Department icon map (fallback for backend departments without icons)
 const DEPT_ICONS: Record<string, string> = {
-  panchakarma: "🫗",
-  "spine-joints": "🦴",
-  "womens-health": "🌸",
-  "lifestyle-detox": "🌱",
-  "skin-hair": "✨",
-  kayachikitsa: "🩺",
-  "preventive-medicine": "💊",
-  rheumatology: "🦵",
-  neurology: "🧠",
-  default: "🏥",
+  panchakarma: "fa-solid fa-spa",
+  "spine-joints": "fa-solid fa-bone",
+  "womens-health": "fa-solid fa-venus",
+  "lifestyle-detox": "fa-solid fa-leaf",
+  "skin-hair": "fa-solid fa-wand-magic-sparkles",
+  kayachikitsa: "fa-solid fa-stethoscope",
+  "preventive-medicine": "fa-solid fa-shield-heart",
+  rheumatology: "fa-solid fa-person-running",
+  neurology: "fa-solid fa-brain",
+  default: "fa-solid fa-hospital-user",
 };
 
 export function DoctorsPage() {
