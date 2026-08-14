@@ -8061,8 +8061,13 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .custodians-header {
-  text-align: center;
-  margin-bottom: 64px;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 64px auto !important;
+  max-width: 800px;
 }
 
 .custodians-header h2 {
@@ -8070,13 +8075,16 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
-  margin: 0 0 12px 0;
+  text-align: center !important;
+  margin: 0 0 12px 0 !important;
 }
 
 .custodians-header p {
   font-size: 17px;
   color: #645e51;
-  margin: 0;
+  text-align: center !important;
+  max-width: 600px;
+  margin: 0 auto !important;
 }
 
 .custodians-grid {
@@ -8085,13 +8093,22 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   gap: 32px;
 }
 
+.custodians-card {
+  text-align: center !important;
+}
+
 .custodians-card a {
   text-decoration: none;
   color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .custodians-image-wrap {
   position: relative;
+  width: 100%;
   aspect-ratio: 2 / 3;
   border-radius: 36px;
   overflow: hidden;
@@ -8112,7 +8129,8 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-size: 22px;
   font-weight: 500;
   color: #000a04;
-  margin: 0 0 6px 0;
+  text-align: center !important;
+  margin: 0 0 6px 0 !important;
 }
 
 .custodians-role {
@@ -8121,6 +8139,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #5e4107;
+  text-align: center !important;
   text-transform: uppercase;
 }
 

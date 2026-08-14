@@ -35,9 +35,9 @@ export function CustodiansOfWisdomSection() {
   return (
     <section className="custodians-section" aria-labelledby="custodians-heading">
       <div className="custodians-container">
-        <div className="custodians-header">
-          <h2 id="custodians-heading">The Custodians of Wisdom</h2>
-          <p>Meet the world-renowned practitioners dedicated to your holistic well-being.</p>
+        <div className="custodians-header" style={{ textAlign: "center", margin: "0 auto 64px auto", maxWidth: "800px" }}>
+          <h2 id="custodians-heading" style={{ textAlign: "center" }}>The Custodians of Wisdom</h2>
+          <p style={{ textAlign: "center", margin: "0 auto" }}>Meet the world-renowned practitioners dedicated to your holistic well-being.</p>
         </div>
 
         <div className="custodians-grid">
