@@ -1,8 +1,8 @@
 export const ayurVillageHeroFeatures = [
-  { image: "/images/legacy-verandah.webp", title: "Traditional Kerala Heritage" },
-  { image: "/images/treatment-panchakarma.webp", title: "Private & Peaceful Treatment Rooms" },
-  { image: "/images/kowdiar_gallery_01.webp", title: "20 KM from International Airport" },
-  { image: "/images/ayurveda-village-path.webp", title: "Nature. Calm. Healing." },
+  { image: "/images/village_feature_heritage.jpg", title: "Traditional Kerala Heritage" },
+  { image: "/images/village_feature_treatment.jpg", title: "Private & Peaceful Treatment Rooms" },
+  { image: "/images/village_feature_airport.jpg", title: "20 KM from International Airport" },
+  { image: "/images/village_feature_nature.jpg", title: "Nature. Calm. Healing." },
 ] as const;
 
 export const ayurVillageExperienceCards = [

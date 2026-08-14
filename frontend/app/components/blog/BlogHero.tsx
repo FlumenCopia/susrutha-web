@@ -1,57 +1,33 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArticleMeta } from "./ArticleMeta";
-import { ArrowIcon, SparkIcon } from "./BlogIcons";
-import { blogArticles } from "./blogData";
 
 export function BlogHero() {
-  const article = blogArticles[0];
-
   return (
-    <section className="blog-premium-hero" aria-labelledby="blog-premium-title">
-      <div className="blog-premium-hero-bg" aria-hidden="true">
-        <Image src="/images/about-hero-ayurveda-still-life.webp" alt="" fill priority sizes="100vw" />
-      </div>
-      <div className="blog-premium-orbit" aria-hidden="true" />
-      <div className="blog-premium-hero-copy">
-        <span className="blog-premium-kicker">
-          <SparkIcon />
-          Susrutha Journal / Vol. 01
-        </span>
-        <h1 id="blog-premium-title">Ideas for a more balanced way to live, heal, and think.</h1>
-        <p>A premium editorial space for Ayurveda, preventive care, clinical insight, hospital journeys, and modern wellness intelligence.</p>
-        <dl className="blog-premium-hero-stats" aria-label="Journal highlights">
-          <div>
-            <dt>12+</dt>
-            <dd>Clinical reads</dd>
-          </div>
-          <div>
-            <dt>5</dt>
-            <dd>Editorial tracks</dd>
-          </div>
-          <div>
-            <dt>1986</dt>
-            <dd>Care lineage</dd>
-          </div>
-        </dl>
-        <div className="blog-premium-hero-actions">
-          <Link href={`/blogs/${article.slug}`}>
-            Read the feature
-            <ArrowIcon />
-          </Link>
-          <a href="#blog-grid">Explore articles</a>
+    <section className="conditions-hero-serene" aria-labelledby="blog-title">
+      <div
+        className="conditions-hero-serene-bg"
+        style={{ backgroundImage: `url('/images/banner_holistic_health.jpg')` }}
+      />
+      <div className="conditions-hero-serene-overlay" />
+
+      <div className="conditions-hero-serene-content">
+        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+          <Link href="/">Home</Link>
+          <span>/</span>
+          <span>Blogs &amp; Articles</span>
+        </nav>
+
+        <div className="conditions-hero-serene-middle">
+          <p className="conditions-hero-serene-quote">
+            Ideas for a more balanced way to live, heal, and think. Clinical insights, hospital journeys, and classical Ayurvedic wisdom.
+          </p>
+        </div>
+
+        <div className="conditions-hero-serene-bottom">
+          <h1 id="blog-title" className="conditions-hero-serene-title">
+            BLOGS &amp; INSIGHTS
+          </h1>
         </div>
       </div>
-
-      <article className="blog-premium-hero-feature">
-        <span>{article.category}</span>
-        <h2>{article.title}</h2>
-        <ArticleMeta article={article} />
-        <Link href={`/blogs/${article.slug}`} aria-label={`Read ${article.title}`}>
-          Open featured article
-          <ArrowIcon />
-        </Link>
-      </article>
     </section>
   );
 }
