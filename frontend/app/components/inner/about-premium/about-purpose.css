@@ -1,0 +1,365 @@
+/* About Purpose Section - Modern Layout matching screenshot template */
+.ap-section {
+  position: relative;
+  background-color: #f6f5f1;
+  padding: 100px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ap-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Left Column */
+.ap-left {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.ap-mission-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ap-mission-img-wrap {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.ap-mission-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.ap-mission-img-wrap:hover .ap-mission-img {
+  transform: scale(1.03);
+}
+
+.ap-mission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ap-mission-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ap-title {
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.ap-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.ap-arrow-btn:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}
+
+.ap-desc {
+  font-size: 15px;
+  line-height: 1.68;
+  color: #5a5a5a;
+  margin: 0;
+  max-width: 480px;
+}
+
+.ap-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ap-btn-dark {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border: 1px solid #1c1c1c;
+}
+
+.ap-btn-dark:hover {
+  background-color: #333333;
+  border-color: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.ap-btn-outline {
+  background-color: transparent;
+  color: #1c1c1c;
+  border: 1px solid #1c1c1c;
+}
+
+.ap-btn-outline:hover {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Column */
+.ap-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ap-main-img-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 32px;
+  margin-bottom: 24px;
+}
+
+.ap-main-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Floating Badges */
+.ap-badge {
+  background: #ffffff;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ap-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.13);
+}
+
+/* Badge 1: Facilities (Bottom Left) */
+.ap-badge-facilities {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  z-index: 2;
+  border-radius: 20px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ap-badge-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #988469;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ap-badge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ap-badge-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.ap-badge-text {
+  font-size: 13px;
+  color: #666666;
+  font-weight: 400;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Badge 2: Award (Bottom Right) */
+.ap-badge-award {
+  position: absolute;
+  bottom: -32px;
+  right: 28px;
+  z-index: 3;
+  border-radius: 24px;
+  padding: 26px 24px 22px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ap-badge-award .ap-badge-icon {
+  margin-bottom: 12px;
+}
+
+.ap-award-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #555555;
+  margin: 0;
+}
+
+.ap-award-num {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 10px;
+  line-height: 1;
+}
+
+/* Vision Block */
+.ap-vision-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.ap-vision-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ap-vision-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  display: inline-block;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .ap-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .ap-main-img {
+    height: 380px;
+  }
+
+  .ap-badge-award {
+    bottom: -20px;
+    right: 16px;
+    padding: 20px 18px;
+    width: 200px;
+  }
+
+  .ap-award-num {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ap-section {
+    padding: 50px 16px;
+  }
+
+  .ap-main-img {
+    height: 280px;
+    border-radius: 24px;
+  }
+
+  .ap-main-img-wrap {
+    margin-bottom: 110px;
+  }
+
+  .ap-badge-facilities {
+    bottom: auto;
+    top: 16px;
+    left: 16px;
+    padding: 12px 16px;
+  }
+
+  .ap-badge-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .ap-badge-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ap-badge-num {
+    font-size: 20px;
+  }
+
+  .ap-badge-text {
+    font-size: 12px;
+  }
+
+  .ap-badge-award {
+    bottom: -90px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 88%;
+  }
+
+  .ap-badge-award:hover {
+    transform: translate(50%, -4px);
+  }
+
+  .ap-actions {
+    width: 100%;
+  }
+
+  .ap-btn {
+    width: 100%;
+  }
+}
