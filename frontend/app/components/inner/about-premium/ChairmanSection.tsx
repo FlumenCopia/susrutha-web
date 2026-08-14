@@ -19,7 +19,7 @@ export function ChairmanSection() {
             Trivandrum, his wisdom continues to guide our hospital.
           </p>
 
-        </div>this content comment
+        </div>
 
         {/* Right Column: Chairman Image Card */}
         <div className="cm-right">

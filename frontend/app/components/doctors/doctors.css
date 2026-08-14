@@ -1288,42 +1288,274 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Responsive Adjustments */
+/* ==========================================================================
+   Mobile & Tablet Responsive Optimization
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* Hero Section */
   .doctors-hero {
-    padding: 40px 16px 36px;
+    padding: 130px 16px 48px;
+    min-height: 280px;
   }
 
-  .doctors-dept-section,
-  .doctors-list-section,
-  .doctors-assistant-section,
-  .doctors-stats-section,
-  .doctors-cta-section {
-    padding-left: 16px;
-    padding-right: 16px;
+  .doctors-hero-header {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .doctors-hero-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .doctors-hero-description {
+    font-size: 14.5px;
+    margin-bottom: 24px;
+  }
+
+  .doctors-hero-search {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .doctors-hero-search-input-wrap {
+    padding: 4px 6px 4px 16px;
+    border-radius: 40px;
+  }
+
+  .doctors-hero-search-input {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .doctors-hero-search-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+    border-radius: 30px;
+    white-space: nowrap;
+  }
+
+  .doctors-hero-tags {
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .doctors-hero-tag-btn {
+    padding: 4px 10px;
+    font-size: 11.5px;
+  }
+
+  /* Department Categories Section */
+  .doctors-dept-section {
+    padding: 32px 16px 16px;
+  }
+
+  .doctors-dept-head {
+    margin-bottom: 20px;
+  }
+
+  .doctors-dept-title {
+    font-size: 22px;
+  }
+
+  .doctors-dept-sub {
+    font-size: 13.5px;
+  }
+
+  .doctors-dept-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .doctors-dept-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .doctors-dept-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .doctors-dept-name {
+    font-size: 13.5px;
+  }
+
+  /* Filter Toolbar */
+  .doctors-filter-section {
+    padding: 12px 16px;
+    top: 64px;
+  }
+
+  .doctors-filter-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .doctors-filter-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  .doctors-filter-select-wrap {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .doctors-filter-select {
+    padding: 8px 28px 8px 12px;
+    font-size: 12.5px;
+    border-radius: 20px;
+  }
+
+  .doctors-filter-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+    padding-top: 4px;
+    border-top: 1px dashed rgba(63, 64, 61, 0.12);
+  }
+
+  /* Doctors List / Grid Cards */
+  .doctors-list-section {
+    padding: 24px 16px;
   }
 
   .doctors-cards-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .doctors-filter-section {
-    padding: 12px 16px;
-    top: 60px;
+  .doctor-card {
+    border-radius: 16px;
   }
 
-  .doctors-filter-select-wrap {
-    min-width: 130px;
+  .doctor-card-header {
+    height: 190px;
+  }
+
+  .doctor-card-body {
+    padding: 16px;
+  }
+
+  .doctor-card-name {
+    font-size: 19px;
+  }
+
+  .doctor-card-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .doctor-card-actions {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .doctor-card-btn-book,
+  .doctor-card-btn-secondary {
+    font-size: 12.5px;
+    padding: 9px 12px;
+  }
+
+  /* Assistant Widget */
+  .doctors-assistant-section {
+    padding: 0 16px;
+    margin: 28px auto;
+  }
+
+  .doctors-assistant-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .doctors-assistant-title {
+    font-size: 22px;
+  }
+
+  .doctors-assistant-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .doctors-assistant-result {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 18px 16px;
+  }
+
+  .doctors-assistant-result-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* Stats Section */
+  .doctors-stats-section {
+    padding: 0 16px;
+    margin: 36px auto 24px;
+  }
+
+  .doctors-stats-card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  .doctors-stat-number {
+    font-size: 32px;
+  }
+
+  .doctors-stat-title {
+    font-size: 14px;
+  }
+
+  /* Consultation CTA Section */
+  .doctors-cta-section {
+    padding: 0 16px;
+    margin: 36px auto 20px;
   }
 
   .doctors-cta-card {
-    padding: 28px 20px;
-    flex-direction: column;
-    text-align: center;
+    padding: 32px 20px;
+    border-radius: 20px;
   }
 
-  .doctors-cta-btn {
+  .doctors-cta-title {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  .doctors-cta-form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .doctors-cta-field-full {
+    grid-column: span 1;
+  }
+
+  .doctors-cta-submit-btn {
     width: 100%;
-    justify-content: center;
+    padding: 14px 24px;
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctors-filter-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .doctors-stats-card {
+    grid-template-columns: 1fr;
   }
 }
