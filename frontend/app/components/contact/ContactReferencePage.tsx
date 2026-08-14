@@ -1,35 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { submitContactEnquiry } from "@/app/services/api";
 
-function LotusIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 72 72" aria-hidden="true" focusable="false">
-      <path d="M36 7c7 10 7 18 0 29-7-11-7-19 0-29Z" />
-      <path d="M36 36C25 30 21 21 23 9c10 6 14 15 13 27Z" />
-      <path d="M36 36C47 30 51 21 49 9c-10 6-14 15-13 27Z" />
-      <path d="M36 39C24 39 16 33 10 22c12 0 20 6 26 17Z" />
-      <path d="M36 39c12 0 20-6 26-17-12 0-20 6-26 17Z" />
-      <path d="M36 42c-11 7-21 7-31 0 11-7 21-7 31 0Z" />
-      <path d="M36 42c11 7 21 7 31 0-11-7-21-7-31 0Z" />
-      <path d="M36 36v27" />
-      <path d="M21 54h30" />
-    </svg>
-  );
-}
-
-function ContactIcon({ type }: { type: "user" | "mail" | "phone" | "pen" | "pin" | "leaf" | "clock" | "shield" | "globe" | "send" | "arrow" }) {
-  if (type === "user") {
+function ContactIcon({ type }: { type: "phone" | "mail" | "pin" | "globe" | "leaf" | "clock" | "shield" }) {
+  if (type === "phone") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="7.5" r="3.5" />
-        <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
+        <path d="M8 4 5.5 6.5c-.8.8-.4 4.8 3.6 8.8s8 4.4 8.8 3.6L20 16l-4-3-2 2c-1.4-.7-3.3-2.5-4-4l2-2-4-5Z" />
       </svg>
     );
   }
-
   if (type === "mail") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -38,24 +20,6 @@ function ContactIcon({ type }: { type: "user" | "mail" | "phone" | "pen" | "pin"
       </svg>
     );
   }
-
-  if (type === "phone") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M8 4 5.5 6.5c-.8.8-.4 4.8 3.6 8.8s8 4.4 8.8 3.6L20 16l-4-3-2 2c-1.4-.7-3.3-2.5-4-4l2-2-4-5Z" />
-      </svg>
-    );
-  }
-
-  if (type === "pen") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m4 17-.5 3.5L7 20l11-11-3-3L4 17Z" />
-        <path d="m13.5 7.5 3 3" />
-      </svg>
-    );
-  }
-
   if (type === "pin") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -64,7 +28,6 @@ function ContactIcon({ type }: { type: "user" | "mail" | "phone" | "pen" | "pin"
       </svg>
     );
   }
-
   if (type === "leaf") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -73,7 +36,6 @@ function ContactIcon({ type }: { type: "user" | "mail" | "phone" | "pen" | "pin"
       </svg>
     );
   }
-
   if (type === "clock") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -82,7 +44,6 @@ function ContactIcon({ type }: { type: "user" | "mail" | "phone" | "pen" | "pin"
       </svg>
     );
   }
-
   if (type === "shield") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -91,38 +52,19 @@ function ContactIcon({ type }: { type: "user" | "mail" | "phone" | "pen" | "pin"
       </svg>
     );
   }
-
-  if (type === "globe") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="8" />
-        <path d="M4 12h16" />
-        <path d="M12 4c2 2.2 3 4.9 3 8s-1 5.8-3 8c-2-2.2-3-4.9-3-8s1-5.8 3-8Z" />
-      </svg>
-    );
-  }
-
-  if (type === "send") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m21 4-8 16-3-7-7-3 18-6Z" />
-        <path d="m10 13 5-4" />
-      </svg>
-    );
-  }
-
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
+      <circle cx="12" cy="12" r="8" />
+      <path d="M4 12h16" />
+      <path d="M12 4c2 2.2 3 4.9 3 8s-1 5.8-3 8c-2-2.2-3-4.9-3-8s1-5.8 3-8Z" />
     </svg>
   );
 }
 
 const supportItems = [
-  { faIcon: "fa-solid fa-leaf", title: "Personalized", text: "Support" },
-  { faIcon: "fa-regular fa-clock", title: "Timely", text: "Response" },
-  { faIcon: "fa-solid fa-shield-halved", title: "Confidential &", text: "Secure" },
+  { icon: "leaf" as const, title: "Personalized", text: "Support" },
+  { icon: "clock" as const, title: "Timely", text: "Response" },
+  { icon: "shield" as const, title: "Confidential &", text: "Secure" },
 ];
 
 const contactCards = [
@@ -156,14 +98,12 @@ const contactCards = [
   },
 ];
 
-import { submitContactEnquiry } from "@/app/services/api";
-
 export function ContactReferencePage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    subject: "",
+    service: "Tranquil Radiance Facial",
+    date: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -171,13 +111,19 @@ export function ContactReferencePage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      alert("Please enter your name and phone number.");
+    if (!formData.name) {
+      alert("Please enter your name.");
       return;
     }
     setIsSubmitting(true);
     try {
-      await submitContactEnquiry(formData);
+      await submitContactEnquiry({
+        name: formData.name,
+        email: formData.email,
+        phone: "N/A",
+        subject: formData.service,
+        message: `Date: ${formData.date} | ${formData.message}`,
+      });
     } catch (err) {
       console.warn("Contact lead API error:", err);
     } finally {
@@ -188,114 +134,135 @@ export function ContactReferencePage() {
 
   return (
     <div className="contact-reference-page">
-      <div className="contact-reference-main">
-        <section className="contact-reference-hero" aria-labelledby="contact-reference-title">
-          <div className="contact-reference-leaves" aria-hidden="true" />
-          <div className="contact-reference-aura" aria-hidden="true" />
-          <div className="contact-reference-copy">
-            <nav className="contact-reference-breadcrumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span aria-hidden="true">&rsaquo;</span>
-              <span>Contact</span>
-            </nav>
-            <h1 id="contact-reference-title">
-              We&rsquo;re Here
-              <span>to Help You</span>
-            </h1>
- 
-            <p>Have questions or need guidance? Our team is here for you. Reach out to us and experience compassionate care, every step of the way.</p>
-            <div className="contact-reference-support">
-              {supportItems.map((item) => (
-                <article key={`${item.title}-${item.text}`}>
-                  <span>
-                    <i className={item.faIcon} />
-                  </span>
-                  <p>
-                    <strong>{item.title}</strong>
-                    {item.text}
-                  </p>
-                </article>
-              ))}
+      <div className="contact-reference-main" style={{ paddingTop: 0 }}>
+        {/* Full-bleed Luxury Booking Banner */}
+        <section className="contact-booking-hero" aria-labelledby="contact-booking-title">
+          <div
+            className="contact-booking-hero-bg"
+            style={{ backgroundImage: `url('/images/banner_contact_appointment.jpg')` }}
+          />
+          <div className="contact-booking-hero-overlay" />
+
+          <div className="contact-booking-hero-content">
+            {/* Left Original Title & Content */}
+            <div className="contact-booking-left-copy">
+              <nav className="contact-booking-breadcrumb" aria-label="Breadcrumb">
+                <Link href="/">Home</Link>
+                <span>/</span>
+                <span>Contact</span>
+              </nav>
+
+              <h1 id="contact-booking-title" className="contact-booking-hero-h1">
+                We&rsquo;re Here
+                <span>to Help You</span>
+              </h1>
+
+              <p className="contact-booking-hero-desc">
+                Have questions or need guidance? Our team is here for you. Reach out to us and experience compassionate care, every step of the way.
+              </p>
+
+              <div className="contact-booking-support-grid">
+                {supportItems.map((item, idx) => (
+                  <div key={idx} className="contact-booking-support-badge">
+                    <span className="contact-booking-support-icon">
+                      <ContactIcon type={item.icon} />
+                    </span>
+                    <div>
+                      <strong>{item.title}</strong> {item.text}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Appointment Form */}
+            <div className="contact-booking-form-wrap">
+              <span className="contact-booking-eyebrow">Contact With Us</span>
+              <h2 className="contact-booking-title">
+                Book Appointment
+              </h2>
+
+              {isSubmitted ? (
+                <div className="contact-booking-success">
+                  <h3>Thank You!</h3>
+                  <p>Your appointment request has been received. Our care coordinator will contact you shortly.</p>
+                </div>
+              ) : (
+                <form className="contact-booking-form" onSubmit={handleSubmit}>
+                  <div className="contact-booking-grid">
+                    <div className="contact-booking-field">
+                      <label htmlFor="booking-name">Your Name</label>
+                      <input
+                        id="booking-name"
+                        type="text"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div className="contact-booking-field">
+                      <label htmlFor="booking-email">Email Address</label>
+                      <input
+                        id="booking-email"
+                        type="email"
+                        placeholder="Email Address"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div className="contact-booking-field">
+                      <label htmlFor="booking-service">Select Services</label>
+                      <select
+                        id="booking-service"
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      >
+                        <option value="Tranquil Radiance Facial">Tranquil Radiance Facial</option>
+                        <option value="Ayurvedic Consultation">Ayurvedic Consultation</option>
+                        <option value="Panchakarma Detox">Panchakarma Detox</option>
+                        <option value="Spine & Joint Care">Spine & Joint Care</option>
+                        <option value="Rejuvenation Therapy">Rejuvenation Therapy</option>
+                      </select>
+                    </div>
+
+                    <div className="contact-booking-field">
+                      <label htmlFor="booking-date">Select Date</label>
+                      <input
+                        id="booking-date"
+                        type="date"
+                        value={formData.date}
+                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      />
+                    </div>
+
+                    <div className="contact-booking-field wide">
+                      <label htmlFor="booking-message">Write A Message</label>
+                      <textarea
+                        id="booking-message"
+                        rows={2}
+                        placeholder="Write A Message"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="contact-booking-btn-wrap">
+                    <button type="submit" className="contact-booking-submit-btn" disabled={isSubmitting}>
+                      {isSubmitting ? "Submitting..." : "Book Now"}
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
-
-          <form className="contact-reference-form" aria-label="Send us a message" onSubmit={handleSubmit}>
-            <div className="contact-reference-form-mark" aria-hidden="true">
-              <LotusIcon />
-            </div>
-            <h2>Send Us a Message</h2>
-            <span className="contact-reference-form-rule" aria-hidden="true" />
-            {isSubmitted ? (
-              <div style={{ padding: "2rem 0", color: "#000a04", textAlign: "center" }}>
-                <h3>Thank You!</h3>
-                <p>Your message has been received. Our care coordinator will contact you shortly.</p>
-              </div>
-            ) : (
-              <>
-                <div className="contact-reference-form-grid">
-                  <label>
-                    <ContactIcon type="user" />
-                    <input
-                      name="name"
-                      placeholder="Full Name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                    />
-                  </label>
-                  <label>
-                    <ContactIcon type="mail" />
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="Email Address"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </label>
-                  <label className="wide">
-                    <ContactIcon type="phone" />
-                    <input
-                      name="phone"
-                      placeholder="Phone Number"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      required
-                    />
-                  </label>
-                  <label className="wide">
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    >
-                      <option value="" disabled>
-                        Subject
-                      </option>
-                      <option>Book a consultation</option>
-                      <option>Treatment enquiry</option>
-                      <option>Patient support</option>
-                    </select>
-                  </label>
-                  <label className="wide message">
-                    <ContactIcon type="pen" />
-                    <textarea
-                      name="message"
-                      placeholder="Your Message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    />
-                  </label>
-                </div>
-                <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <ContactIcon type="send" />
-                </button>
-              </>
-            )}
-          </form>
         </section>
 
+        {/* Contact Info Cards */}
         <section className="contact-reference-info" aria-labelledby="contact-info-title">
           <div className="contact-reference-info-glow" aria-hidden="true" />
           <h2 id="contact-info-title">Get in Touch</h2>
@@ -325,6 +292,7 @@ export function ContactReferencePage() {
           </div>
         </section>
 
+        {/* Location Map */}
         <section className="contact-reference-visit" aria-label="Visit Susrutha Ayurveda">
           <div className="contact-reference-map" style={{ position: "relative", overflow: "hidden", gridColumn: "1 / -1" }}>
             <iframe

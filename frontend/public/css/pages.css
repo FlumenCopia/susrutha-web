@@ -8540,6 +8540,301 @@ label {
   }
 }
 
+/* ==========================================================================
+   Contact / Appointment Booking Hero (Reference Image Style - Full Cover)
+   ========================================================================== */
+.contact-booking-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+
+.contact-booking-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.contact-booking-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 8, 6, 0.2) 0%,
+    rgba(14, 8, 6, 0.5) 35%,
+    rgba(14, 8, 6, 0.85) 60%,
+    rgba(14, 8, 6, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.contact-booking-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 40px clamp(24px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+}
+
+.contact-booking-left-copy {
+  max-width: 520px;
+  color: #ffffff;
+}
+
+.contact-booking-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.contact-booking-breadcrumb a {
+  color: #f7a51a !important;
+  text-decoration: none;
+}
+
+.contact-booking-hero-h1 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(40px, 4.8vw, 64px);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.08;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.contact-booking-hero-h1 span {
+  display: block;
+  color: #ffffff;
+}
+
+.contact-booking-hero-desc {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 0 28px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.contact-booking-support-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contact-booking-support-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.contact-booking-support-icon {
+  width: 16px;
+  height: 16px;
+  color: #f7a51a;
+  display: flex;
+  align-items: center;
+}
+
+.contact-booking-support-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.contact-booking-form-wrap {
+  width: 100%;
+  max-width: 520px;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  padding: 0;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.contact-booking-eyebrow {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.contact-booking-title {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 28px;
+  line-height: 1.15;
+}
+
+.contact-booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-booking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 28px;
+}
+
+.contact-booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-booking-field.wide {
+  grid-column: 1 / -1;
+}
+
+.contact-booking-field label {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.01em;
+}
+
+.contact-booking-field input,
+.contact-booking-field select,
+.contact-booking-field textarea {
+  width: 100%;
+  background: transparent !important;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65) !important;
+  border-radius: 0;
+  padding: 8px 0;
+  font-size: 14.5px;
+  color: #ffffff !important;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.contact-booking-field select option {
+  background: #1c130d;
+  color: #ffffff;
+}
+
+.contact-booking-field input::placeholder,
+.contact-booking-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.contact-booking-field input:focus,
+.contact-booking-field select:focus,
+.contact-booking-field textarea:focus {
+  border-bottom-color: #f7a51a !important;
+}
+
+.contact-booking-btn-wrap {
+  margin-top: 10px;
+}
+
+.contact-booking-submit-btn {
+  background: #604294;
+  background: linear-gradient(135deg, #6c429c 0%, #502b78 100%);
+  color: #ffffff !important;
+  border: none;
+  padding: 13px 44px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(96, 66, 148, 0.45);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-booking-submit-btn:hover {
+  background: linear-gradient(135deg, #7c4cb3 0%, #5d338c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(96, 66, 148, 0.6);
+}
+
+.contact-booking-success {
+  padding: 30px 0;
+  color: #ffffff;
+}
+
+.contact-booking-success h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #f7a51a;
+}
+
+@media (max-width: 960px) {
+  .contact-booking-hero {
+    min-height: auto;
+  }
+
+  .contact-booking-hero-bg {
+    background-position: top center;
+  }
+
+  .contact-booking-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(14, 8, 6, 0.4) 0%,
+      rgba(14, 8, 6, 0.85) 45%,
+      rgba(14, 8, 6, 0.98) 100%
+    );
+  }
+
+  .contact-booking-hero-content {
+    flex-direction: column;
+    padding: 100px 24px 48px;
+  }
+
+  .contact-booking-hero-spacer {
+    display: none;
+  }
+
+  .contact-booking-form-wrap {
+    max-width: 100%;
+    margin-top: 120px;
+  }
+
+  .contact-booking-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
 /* Contact reference page */
 .contact-reference-page {
   --contact-bg: #fbf7ef;
