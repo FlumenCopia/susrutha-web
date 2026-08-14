@@ -15,7 +15,7 @@ export function AyurVillageHero() {
         sizes="100vw"
       />
       <div className="ayur-village-hero-copy">
-        <span className="ayur-village-eyebrow">Ayur Village</span>
+        {/* <span className="ayur-village-eyebrow">Ayur Village</span> */}
         <h1>Susrutha Ayurveda Gramam</h1>
         <p>A traditional Kerala cottage with private treatment rooms - just 20 km from Trivandrum International Airport.</p>
         <Link className="ayur-village-button ayur-village-button-light" href="/appointment">

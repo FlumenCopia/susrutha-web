@@ -13150,26 +13150,34 @@ body:has(.branches-premium-page) {
 
 .branches-cta>div>span {
   display: grid;
-  width: 66px;
-  height: 66px;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
   place-items: center;
-  border: 1px solid rgba(200, 155, 60, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
   border-radius: 999px;
-  color: #fff8ec;
+  color: #ffffff !important;
   font-size: 28px;
 }
 
-.branches-cta h2 {
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(24px, 2.5vw, 38px);
-  line-height: 1.05;
+.branches-cta h2,
+.branches-cta>div>div>h2,
+section.branches-cta h2,
+.branches-page section.branches-cta h2 {
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(24px, 2.5vw, 38px) !important;
+  line-height: 1.05 !important;
 }
 
-.branches-cta p {
-  margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.78) !important;
-  font-size: 14px;
+.branches-cta p,
+.branches-cta>div>div>p,
+section.branches-cta p,
+.branches-page section.branches-cta p {
+  margin: 8px 0 0 !important;
+  color: #ffffff !important;
+  opacity: 0.92 !important;
+  font-size: 14px !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

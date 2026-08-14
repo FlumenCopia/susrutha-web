@@ -9,8 +9,8 @@ export function BranchesCTA() {
           <BranchIcon name="calendar" />
         </span>
         <div>
-          <h2>Begin Your Healing Journey</h2>
-          <p>Book a consultation at the branch nearest to you.</p>
+          <h2 style={{ color: "#ffffff" }}>Begin Your Healing Journey</h2>
+          <p style={{ color: "rgba(255, 255, 255, 0.88)" }}>Book a consultation at the branch nearest to you.</p>
         </div>
       </div>
       <Link className="branches-button branches-button-light" href="/appointment">
