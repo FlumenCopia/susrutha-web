@@ -62,9 +62,9 @@ function ContactIcon({ type }: { type: "phone" | "mail" | "pin" | "globe" | "lea
 }
 
 const supportItems = [
-  { icon: "leaf" as const, title: "Personalized", text: "Support" },
-  { icon: "clock" as const, title: "Timely", text: "Response" },
-  { icon: "shield" as const, title: "Confidential &", text: "Secure" },
+  { faIcon: "fa-solid fa-leaf", title: "Personalized", text: "Support" },
+  { faIcon: "fa-regular fa-clock", title: "Timely", text: "Response" },
+  { faIcon: "fa-solid fa-shield-halved", title: "Confidential &", text: "Secure" },
 ];
 
 const contactCards = [
@@ -163,14 +163,15 @@ export function ContactReferencePage() {
 
               <div className="contact-booking-support-grid">
                 {supportItems.map((item, idx) => (
-                  <div key={idx} className="contact-booking-support-badge">
+                  <article key={idx} className="contact-booking-support-item">
                     <span className="contact-booking-support-icon">
-                      <ContactIcon type={item.icon} />
+                      <i className={item.faIcon} />
                     </span>
-                    <div>
-                      <strong>{item.title}</strong> {item.text}
-                    </div>
-                  </div>
+                    <p>
+                      <strong>{item.title}</strong>
+                      {item.text}
+                    </p>
+                  </article>
                 ))}
               </div>
             </div>
