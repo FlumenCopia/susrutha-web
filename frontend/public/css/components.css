@@ -8171,16 +8171,16 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 /* ==========================================================================
-   Luxury Dark Minimalist Footer (Image Reference Style)
+   Luxury Ivory Cream Footer (Image Reference Style)
    ========================================================================== */
 .luxury-dark-footer {
-  background-color: #0e0806 !important;
-  background: linear-gradient(180deg, #120a08 0%, #0a0504 100%) !important;
-  color: #c4b9b0 !important;
+  background-color: #FAF7F2 !important;
+  background: linear-gradient(135deg, #FAF7F2 0%, #F4EFE6 100%) !important;
+  color: #5c5348 !important;
   padding: 100px 32px 44px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(200, 155, 60, 0.22);
 }
 
 .luxury-footer-container {
@@ -8204,7 +8204,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   gap: 22px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #b8aba1 !important;
+  color: #5c5348 !important;
 }
 
 .luxury-footer-logo-wrap {
@@ -8215,7 +8215,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .luxury-footer-address p {
   margin: 0;
-  color: #b8aba1 !important;
+  color: #5c5348 !important;
 }
 
 .luxury-footer-direct {
@@ -8225,14 +8225,14 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-direct a {
-  color: #b8aba1 !important;
+  color: #2c241d !important;
   text-decoration: none;
   font-size: 14.5px;
   transition: color 0.2s ease;
 }
 
 .luxury-footer-direct a:hover {
-  color: #ffffff !important;
+  color: #a87534 !important;
 }
 
 /* Column 2: Navigation Links Group */
@@ -8253,13 +8253,13 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #f7a51a;
+  color: #a87534;
   margin-bottom: 4px;
   display: block;
 }
 
 .luxury-footer-col-nav a {
-  color: #dcd2c9 !important;
+  color: #2c241d !important;
   text-decoration: none;
   font-size: 14px;
   line-height: 1.35;
@@ -8269,7 +8269,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-col-nav a:hover {
-  color: #ffffff !important;
+  color: #a87534 !important;
   transform: translateX(3px);
 }
 
@@ -8286,7 +8286,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(25px, 2.5vw, 38px);
   font-weight: 500;
-  color: #ffffff !important;
+  color: #14100c !important;
   line-height: 1.15;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -8296,7 +8296,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .luxury-footer-desc {
   font-size: 14px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.65) !important;
+  color: #5c5348 !important;
   margin: 0;
   max-width: 440px;
 }
@@ -8307,7 +8307,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   align-items: center;
   justify-content: space-between;
   padding-top: 36px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(200, 155, 60, 0.2);
 }
 
 .luxury-footer-socials {
@@ -8320,20 +8320,20 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(168, 117, 52, 0.28);
+  background: rgba(255, 255, 255, 0.7);
   display: grid;
   place-items: center;
-  color: #ffffff !important;
+  color: #2c241d !important;
   font-size: 14px;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .luxury-footer-socials a:hover {
-  background: #ffffff;
-  color: #0c0705 !important;
-  border-color: #ffffff;
+  background: #14100c;
+  color: #ffffff !important;
+  border-color: #14100c;
   transform: translateY(-2px);
 }
 
@@ -8345,16 +8345,16 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .luxury-footer-copyright {
   font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: #7a7065 !important;
 }
 
 .luxury-footer-top-btn {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(168, 117, 52, 0.28);
+  color: #2c241d;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -8363,8 +8363,9 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-top-btn:hover {
-  background: #ffffff;
-  color: #0c0705;
+  background: #14100c;
+  color: #ffffff;
+  border-color: #14100c;
   transform: translateY(-3px);
 }
 

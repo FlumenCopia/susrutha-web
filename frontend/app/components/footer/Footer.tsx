@@ -60,7 +60,7 @@ export function Footer() {
                 alt="Susrutha Ayurveda Logo"
                 width={190}
                 height={58}
-                style={{ width: "auto", height: "48px", objectFit: "contain", filter: "brightness(0) invert(1)" }}
+                style={{ width: "auto", height: "48px", objectFit: "contain" }}
               />
             </div>
 
