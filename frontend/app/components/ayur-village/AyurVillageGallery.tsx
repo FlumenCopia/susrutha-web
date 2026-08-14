@@ -20,18 +20,26 @@ export function AyurVillageGallery() {
           </article>
         ))}
       </div>
-
+{/* 
       <div className="ayur-village-stats">
         {ayurVillageStats.map((stat) => (
           <article key={stat.label}>
-            <AyurVillageIcon name={stat.icon} />
+            <div className="ayur-village-thumb-icon">
+              <Image
+                src={stat.image}
+                alt={stat.label}
+                width={48}
+                height={48}
+                style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
+              />
+            </div>
             <div>
               <strong>{stat.value}</strong>
               <p>{stat.label}</p>
             </div>
           </article>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

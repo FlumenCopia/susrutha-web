@@ -23,16 +23,24 @@ export function AyurVillageHero() {
           <AyurVillageIcon name="arrow" />
         </Link>
       </div>
-
+{/* 
       <div className="ayur-village-quote-card">
         <span>Healing Rooted in Tradition</span>
         <i aria-hidden="true">&ldquo;</i>
-      </div>
+      </div> */}
 
       <div className="ayur-village-hero-features">
         {ayurVillageHeroFeatures.map((feature) => (
           <article key={feature.title}>
-            <AyurVillageIcon name={feature.icon} />
+            <div className="ayur-village-thumb-icon">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                width={48}
+                height={48}
+                style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
+              />
+            </div>
             <h2>{feature.title}</h2>
           </article>
         ))}

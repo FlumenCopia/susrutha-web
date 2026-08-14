@@ -1,22 +1,22 @@
 export const ayurVillageHeroFeatures = [
-  { icon: "home", title: "Traditional Kerala Heritage" },
-  { icon: "bed", title: "Private & Peaceful Treatment Rooms" },
-  { icon: "pin", title: "20 KM from International Airport" },
-  { icon: "leaf", title: "Nature. Calm. Healing." },
+  { image: "/images/legacy-verandah.webp", title: "Traditional Kerala Heritage" },
+  { image: "/images/treatment-panchakarma.webp", title: "Private & Peaceful Treatment Rooms" },
+  { image: "/images/kowdiar_gallery_01.webp", title: "20 KM from International Airport" },
+  { image: "/images/ayurveda-village-path.webp", title: "Nature. Calm. Healing." },
 ] as const;
 
 export const ayurVillageExperienceCards = [
-  { icon: "home", title: "Traditional Kerala architecture" },
-  { icon: "bed", title: "Private treatment rooms" },
-  { icon: "flight", title: "Airport proximity" },
-  { icon: "leaf", title: "Calm natural setting" },
+  { image: "/images/legacy-verandah.webp", title: "Traditional Kerala architecture" },
+  { image: "/images/treatment-panchakarma.webp", title: "Private treatment rooms" },
+  { image: "/images/kowdiar_gallery_01.webp", title: "Airport proximity" },
+  { image: "/images/ayurveda-village-path.webp", title: "Calm natural setting" },
 ] as const;
 
 export const ayurVillageIdealFor = [
-  { icon: "lotus", title: "Rejuvenation & Rasayana stays" },
-  { icon: "globe", title: "International patients" },
-  { icon: "people", title: "Couples and private recovery" },
-  { icon: "leaf", title: "Extended therapy programmes" },
+  { image: "/images/treatment-sirodhara.webp", title: "Rejuvenation & Rasayana stays" },
+  { image: "/images/opt_lifestyle_diabetes.jpg", title: "International patients" },
+  { image: "/images/doctors_spa_offer_banner.jpg", title: "Couples and private recovery" },
+  { image: "/images/opt_spine_joint.jpg", title: "Extended therapy programmes" },
 ] as const;
 
 export const ayurVillageGallery = [
@@ -39,8 +39,9 @@ export const ayurVillageGallery = [
 ] as const;
 
 export const ayurVillageStats = [
-  { icon: "home", value: "4", label: "Traditional Cottages" },
-  { icon: "bed", value: "Private", label: "Treatment Rooms" },
-  { icon: "pin", value: "20 km", label: "from Trivandrum International Airport" },
-  { icon: "leaf", value: "Serene", label: "Natural Environment" },
+  { image: "/images/legacy-verandah.webp", value: "4", label: "Traditional Cottages" },
+  { image: "/images/treatment-panchakarma.webp", value: "Private", label: "Treatment Rooms" },
+  { image: "/images/kowdiar_gallery_01.webp", value: "20 km", label: "from Trivandrum International Airport" },
+  { image: "/images/ayurveda-village-path.webp", value: "Serene", label: "Natural Environment" },
 ] as const;
+

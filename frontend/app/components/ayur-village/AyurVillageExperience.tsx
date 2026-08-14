@@ -30,7 +30,15 @@ export function AyurVillageExperience() {
         <div className="ayur-village-feature-grid">
           {ayurVillageExperienceCards.map((card) => (
             <article key={card.title}>
-              <AyurVillageIcon name={card.icon} />
+              <div className="ayur-village-thumb-icon">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={48}
+                  height={48}
+                  style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
+                />
+              </div>
               <h3>{card.title}</h3>
             </article>
           ))}

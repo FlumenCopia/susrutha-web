@@ -20,7 +20,15 @@ export function AyurVillageIdealFor() {
       <div className="ayur-village-ideal-grid">
         {ayurVillageIdealFor.map((item) => (
           <article key={item.title}>
-            <AyurVillageIcon name={item.icon} />
+            <div className="ayur-village-thumb-icon">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={52}
+                height={52}
+                style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
+              />
+            </div>
             <h3>{item.title}</h3>
           </article>
         ))}
