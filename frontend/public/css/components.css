@@ -8171,16 +8171,16 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 /* ==========================================================================
-   Luxury Dark Minimalist Footer (Image Reference Style)
+   Luxury White Minimalist Footer (Image Reference Style)
    ========================================================================== */
 .luxury-dark-footer {
-  background-color: #0c0705 !important;
-  background: linear-gradient(180deg, #100806 0%, #080403 100%) !important;
-  color: #c4b9b0 !important;
-  padding: 110px 32px 48px;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #555047 !important;
+  padding: 100px 32px 44px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .luxury-footer-container {
@@ -8204,7 +8204,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   gap: 22px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #b8aba1 !important;
+  color: #555047 !important;
 }
 
 .luxury-footer-logo-wrap {
@@ -8215,7 +8215,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .luxury-footer-address p {
   margin: 0;
-  color: #b8aba1 !important;
+  color: #555047 !important;
 }
 
 .luxury-footer-direct {
@@ -8225,14 +8225,14 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-direct a {
-  color: #b8aba1 !important;
+  color: #2b2723 !important;
   text-decoration: none;
   font-size: 14.5px;
   transition: color 0.2s ease;
 }
 
 .luxury-footer-direct a:hover {
-  color: #ffffff !important;
+  color: #a87534 !important;
 }
 
 /* Column 2: Navigation Links Group */
@@ -8259,7 +8259,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-col-nav a {
-  color: #dcd2c9 !important;
+  color: #2b2723 !important;
   text-decoration: none;
   font-size: 14px;
   line-height: 1.35;
@@ -8269,7 +8269,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-col-nav a:hover {
-  color: #ffffff !important;
+  color: #a87534 !important;
   transform: translateX(3px);
 }
 
@@ -8286,7 +8286,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(25px, 2.5vw, 38px);
   font-weight: 500;
-  color: #ffffff !important;
+  color: #111613 !important;
   line-height: 1.15;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -8296,7 +8296,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .luxury-footer-desc {
   font-size: 14px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.65) !important;
+  color: #555047 !important;
   margin: 0;
   max-width: 440px;
 }
@@ -8307,7 +8307,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   align-items: center;
   justify-content: space-between;
   padding-top: 36px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .luxury-footer-socials {
@@ -8320,20 +8320,20 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #f7f5f0;
   display: grid;
   place-items: center;
-  color: #ffffff !important;
+  color: #1a1614 !important;
   font-size: 14px;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .luxury-footer-socials a:hover {
-  background: #ffffff;
-  color: #0c0705 !important;
-  border-color: #ffffff;
+  background: #1a1614;
+  color: #ffffff !important;
+  border-color: #1a1614;
   transform: translateY(-2px);
 }
 
@@ -8345,16 +8345,16 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .luxury-footer-copyright {
   font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: #888075 !important;
 }
 
 .luxury-footer-top-btn {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  background: #f7f5f0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #1a1614;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -8363,8 +8363,9 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-top-btn:hover {
-  background: #ffffff;
-  color: #0c0705;
+  background: #1a1614;
+  color: #ffffff;
+  border-color: #1a1614;
   transform: translateY(-3px);
 }
 
