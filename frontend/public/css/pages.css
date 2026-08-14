@@ -4153,6 +4153,123 @@ body:has(.treatment-detail-reference) main {
   color: #102c20;
 }
 
+/* ==========================================================================
+   Conditions Hero Serene Banner (Reference Image Design)
+   ========================================================================== */
+.conditions-hero-serene {
+  position: relative;
+  min-height: 600px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #ffffff;
+  padding: 140px clamp(24px, 5vw, 64px) 44px;
+  box-sizing: border-box;
+}
+
+.conditions-hero-serene-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.conditions-hero-serene-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 8, 6, 0.45) 0%,
+    rgba(14, 8, 6, 0.2) 40%,
+    rgba(14, 8, 6, 0.75) 80%,
+    rgba(14, 8, 6, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+.conditions-hero-serene-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 28px;
+}
+
+.conditions-hero-serene-nav {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.conditions-hero-serene-nav a {
+  color: #f7a51a;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.conditions-hero-serene-nav a:hover {
+  opacity: 0.8;
+}
+
+.conditions-hero-serene-middle {
+  max-width: 480px;
+}
+
+.conditions-hero-serene-quote {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  color: #ffffff !important;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.conditions-hero-serene-bottom {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 16px;
+}
+
+.conditions-hero-serene-title {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(48px, 9.5vw, 150px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .conditions-hero-serene {
+    min-height: 500px;
+    padding: 120px 20px 28px;
+  }
+
+  .conditions-hero-serene-title {
+    font-size: clamp(36px, 10vw, 64px);
+    white-space: normal;
+  }
+}
+
 .conditions-hero {
   position: relative;
   isolation: isolate;
