@@ -201,22 +201,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(200, 155, 60, 0.22);
-  border: 1px solid rgba(200, 155, 60, 0.45);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
-}
-
-.about-hero-value-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: var(--color-gold, #c89b3c);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 .about-hero-value-text h3 {
