@@ -1,16 +1,80 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 
 const metrics = [
-  ["25+", "Years of Experience"],
-  ["50K+", "Happy Patients"],
-  ["20+", "Specialised Treatments"],
-  ["10+", "Expert Doctors"],
+  { target: 25, suffix: "+", label: "Years of Experience" },
+  { target: 50, suffix: "K+", label: "Happy Patients" },
+  { target: 20, suffix: "+", label: "Specialised Treatments" },
+  { target: 10, suffix: "+", label: "Expert Doctors" },
 ];
 
-export function HomeWellnessExpertiseSection() {
+function AnimatedMetricCounter({ target, suffix, isVisible }: { target: number; suffix: string; isVisible: boolean }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    const duration = 2000; // 2 seconds smooth count-up
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out quad
+      const easeProgress = 1 - (1 - progress) * (1 - progress);
+      setCount(Math.floor(easeProgress * target));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+
+    const animId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animId);
+  }, [isVisible, target]);
+
   return (
-    <section className="home-wellness-expertise" id="about-susrutha">
+    <strong>
+      {count}
+      {suffix}
+    </strong>
+  );
+}
+
+export function HomeWellnessExpertiseSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const currentElem = sectionRef.current;
+    if (currentElem) {
+      observer.observe(currentElem);
+    }
+
+    return () => {
+      if (currentElem) {
+        observer.unobserve(currentElem);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <section className="home-wellness-expertise" id="about-susrutha" ref={sectionRef}>
       <div className="home-wellness-visual">
         <div className="home-wellness-outline" aria-hidden="true" />
         <div className="home-wellness-photo">
@@ -58,10 +122,10 @@ export function HomeWellnessExpertiseSection() {
         </p>
 
         <div className="home-wellness-metrics" aria-label="Susrutha highlights">
-          {metrics.map(([value, label]) => (
-            <article key={label}>
-              <strong>{value}</strong>
-              <span>{label}</span>
+          {metrics.map((metric) => (
+            <article key={metric.label}>
+              <AnimatedMetricCounter target={metric.target} suffix={metric.suffix} isVisible={isVisible} />
+              <span>{metric.label}</span>
             </article>
           ))}
         </div>
