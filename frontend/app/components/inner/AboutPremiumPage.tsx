@@ -14,6 +14,7 @@ export function AboutPremiumPage() {
       <AboutMilestonesSection />
       {/* <AboutMilestoneShowcaseSection /> */}
       <AboutPurposeSection />
+      
       <AboutFoundersSection />
 {/* <CustodiansOfWisdomSection /> */}
 

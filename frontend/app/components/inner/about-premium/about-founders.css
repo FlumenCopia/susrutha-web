@@ -1,0 +1,157 @@
+/* About Founders Section - Scoped Modern Cards Layout matching screenshot */
+.af-section {
+  position: relative;
+  background-color: #f8f7f5;
+  padding: 100px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.af-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.af-header {
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: 760px;
+}
+
+.af-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8c7659;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.af-title {
+  font-family: inherit;
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Grid */
+.af-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.af-card {
+  position: relative;
+  height: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.af-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+}
+
+.af-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.af-card:hover .af-card-img {
+  transform: scale(1.06);
+}
+
+.af-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12, 18, 16, 0.96) 0%,
+    rgba(12, 18, 16, 0.82) 45%,
+    rgba(12, 18, 16, 0.35) 75%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 24px 28px;
+  box-sizing: border-box;
+}
+
+.af-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #ffffff;
+}
+
+.af-card-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff !important;
+  margin: 0;
+  line-height: 1.25;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.af-card-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e2cbb0 !important;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.af-card-copy {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92) !important;
+  margin: 4px 0 0 0;
+  font-weight: 400;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1100px) {
+  .af-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .af-card {
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .af-section {
+    padding: 60px 16px;
+  }
+
+  .af-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .af-card {
+    height: 380px;
+  }
+}
