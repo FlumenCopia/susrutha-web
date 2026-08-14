@@ -12,7 +12,7 @@ export function AyurVillageIdealFor() {
         sizes="100vw"
       />
       <div>
-        <span className="ayur-village-eyebrow">Ideal For</span>
+        {/* <span className="ayur-village-eyebrow">Ideal For</span> */}
         <h2>
           Who thrives at the <em>Gramam</em>
         </h2>

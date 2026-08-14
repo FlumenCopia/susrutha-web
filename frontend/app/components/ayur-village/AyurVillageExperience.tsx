@@ -21,7 +21,7 @@ export function AyurVillageExperience() {
       </div>
 
       <div className="ayur-village-experience-copy">
-        <span className="ayur-village-eyebrow">A Place That Heals</span>
+        {/* <span className="ayur-village-eyebrow">A Place That Heals</span> */}
         <h2>An experience of privacy, not performance</h2>
         <p>
           Four traditional Kerala cottages with private treatment rooms - a quiet healing retreat for rejuvenation

@@ -26,12 +26,12 @@ export function PackagesHero() {
           <PackagesIcon name="arrow" />
         </Link>
       </div>
-
+{/* 
       <aside className="packages-hero-note">
         <PackagesIcon name="lotus" />
         <strong>Rooted in tradition. Focused on your healing.</strong>
         <span aria-hidden="true" />
-      </aside>
+      </aside> */}
 
       <div className="packages-hero-features">
         {packageHeroFeatures.map((feature) => (

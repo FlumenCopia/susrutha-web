@@ -8,7 +8,7 @@ export function AyurVillageGallery() {
   return (
     <section className="ayur-village-gallery-section">
       <div className="ayur-village-gallery-head">
-        <span className="ayur-village-eyebrow">The Setting</span>
+        {/* <span className="ayur-village-eyebrow">The Setting</span> */}
         <h2>Rooted in nature, designed for healing</h2>
         <p>Pair Ayur Village privacy with hospital clinical oversight. Package duration and therapy mix are physician-directed.</p>
       </div>
