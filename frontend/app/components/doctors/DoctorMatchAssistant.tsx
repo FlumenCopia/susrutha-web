@@ -59,9 +59,7 @@ export function DoctorMatchAssistant() {
     <section className="doctors-assistant-section">
       <div className="doctors-assistant-card">
         <div className="doctors-assistant-header">
-          <span className="doctors-assistant-tag">
-            <i className="fa-solid fa-sparkles" style={{ marginRight: 6 }} /> Smart Specialist Matcher
-          </span>
+          <span className="doctors-assistant-tag">Smart Assistant</span>
           <h2 className="doctors-assistant-title">Need Help Choosing the Right Vaidya?</h2>
           <p className="doctors-assistant-desc">
             Select your primary health concern below and get instantly matched with Susrutha’s chief clinical specialist.
