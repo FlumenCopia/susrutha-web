@@ -406,14 +406,14 @@
   position: sticky;
   top: 70px;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(63, 64, 61, 0.08);
-  border-bottom: 1px solid rgba(63, 64, 61, 0.08);
+  background: rgba(255, 253, 249, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(196, 146, 42, 0.18);
+  border-bottom: 1px solid rgba(196, 146, 42, 0.18);
   padding: 16px 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
+  box-shadow: 0 12px 36px rgba(55, 39, 24, 0.05), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .doctors-filter-container {
@@ -421,14 +421,14 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .doctors-filter-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -440,50 +440,171 @@
   flex: 1;
 }
 
+/* Luxury Select Wrap with Icon */
 .doctors-filter-select-wrap {
   position: relative;
-  min-width: 160px;
+  flex: 1;
+  min-width: 175px;
+  max-width: 260px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid rgba(196, 146, 42, 0.22);
+  border-radius: 999px;
+  padding: 0 14px;
+  height: 44px;
+  box-shadow: 0 2px 8px rgba(55, 39, 24, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doctors-filter-select-wrap:hover {
+  border-color: rgba(196, 146, 42, 0.6);
+  box-shadow: 0 4px 14px rgba(154, 101, 40, 0.12);
+  transform: translateY(-1px);
+}
+
+.doctors-filter-select-wrap.is-active {
+  background: linear-gradient(135deg, #fffcf7 0%, #fdf6ea 100%);
+  border-color: #9a6528;
+  box-shadow: 0 4px 14px rgba(154, 101, 40, 0.18);
+}
+
+.doctors-filter-icon {
+  font-size: 14px;
+  color: #9a6528;
+  margin-right: 8px;
+  flex-shrink: 0;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.doctors-filter-select-wrap:hover .doctors-filter-icon {
+  transform: scale(1.1);
 }
 
 .doctors-filter-select {
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
-  background: #ffffff;
-  border: 1px solid rgba(63, 64, 61, 0.16);
-  border-radius: 30px;
-  padding: 9px 36px 9px 16px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 24px 0 0;
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--color-ink, #3f403d);
+  color: #372718;
   cursor: pointer;
   outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.doctors-filter-select:focus,
-.doctors-filter-select:hover {
-  border-color: var(--color-red, #d61f2b);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .doctors-filter-select-arrow {
   position: absolute;
   right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
   font-size: 11px;
-  color: #777974;
+  color: #9a6528;
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+
+.doctors-filter-select-wrap:hover .doctors-filter-select-arrow {
+  transform: translateY(2px);
+}
+
+/* Right View Switcher & Result Badge */
+.doctors-filter-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.doctors-result-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: rgba(196, 146, 42, 0.08);
+  border: 1px solid rgba(196, 146, 42, 0.22);
+  border-radius: 999px;
+}
+
+.doctors-result-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9a6528;
+  box-shadow: 0 0 8px rgba(154, 101, 40, 0.6);
+  display: inline-block;
+}
+
+.doctors-result-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5a4b3b;
+  white-space: nowrap;
+}
+
+.doctors-result-count strong {
+  color: #9a6528;
+  font-weight: 800;
+}
+
+.doctors-view-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(55, 39, 24, 0.05);
+  border: 1px solid rgba(196, 146, 42, 0.2);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.doctors-view-btn {
+  border: none;
+  background: transparent;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #776a5b;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doctors-view-btn:hover:not(.active) {
+  color: #9a6528;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.doctors-view-btn.active {
+  background: linear-gradient(135deg, #9a6528 0%, #c4922a 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(154, 101, 40, 0.3);
+  transform: scale(1.02);
 }
 
 /* Quick Filter Pills */
+.doctors-filter-pills-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
 .doctors-filter-pills {
   display: flex;
   align-items: center;
   gap: 8px;
   overflow-x: auto;
-  padding: 2px 0;
+  padding: 4px 2px;
   scrollbar-width: none;
+  flex: 1;
 }
 
 .doctors-filter-pills::-webkit-scrollbar {
@@ -492,117 +613,132 @@
 
 .doctors-pill-btn {
   background: #ffffff;
-  border: 1px solid rgba(63, 64, 61, 0.15);
-  border-radius: 20px;
-  padding: 7px 14px;
+  border: 1.5px solid rgba(196, 146, 42, 0.22);
+  border-radius: 999px;
+  padding: 8px 18px;
   font-size: 13px;
   font-weight: 600;
-  color: #4a4c47;
+  color: #4a3d30;
   white-space: nowrap;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+  gap: 7px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.doctors-pill-btn i {
+  color: #9a6528;
+  font-size: 13.5px;
+  transition: transform 0.2s ease;
 }
 
 .doctors-pill-btn:hover {
-  border-color: var(--color-gold, #c88922);
-  color: var(--color-deep-red, #9f131b);
+  border-color: #9a6528;
+  color: #9a6528;
+  background: rgba(196, 146, 42, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(154, 101, 40, 0.14);
+}
+
+.doctors-pill-btn:hover i {
+  transform: scale(1.15);
 }
 
 .doctors-pill-btn.active {
-  background: var(--color-red, #d61f2b);
-  border-color: var(--color-red, #d61f2b);
-  color: #ffffff;
+  background: linear-gradient(135deg, #1c1d1c 0%, #000a04 100%) !important;
+  border-color: #000a04 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 10, 4, 0.3);
+  transform: translateY(-1px);
 }
 
-/* Right View Switcher & Counter */
-.doctors-filter-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: auto;
+.doctors-pill-btn.active i {
+  color: #f7a51a;
 }
 
-.doctors-result-count {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #555753;
-  white-space: nowrap;
-}
-
-.doctors-view-toggle {
-  display: flex;
-  background: #ffffff;
-  border: 1px solid rgba(63, 64, 61, 0.15);
-  border-radius: 24px;
-  padding: 3px;
-}
-
-.doctors-view-btn {
-  border: none;
-  background: transparent;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  color: #777974;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.doctors-view-btn.active {
-  background: var(--color-cream, #fff8ec);
-  color: var(--color-red, #d61f2b);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-/* Active Filters Row */
+/* Active Filter Badges */
 .doctors-active-filters-row {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  padding-top: 4px;
-  font-size: 13px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(196, 146, 42, 0.2);
+  margin-top: 2px;
+}
+
+.doctors-active-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #9a6528;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 4px;
 }
 
 .doctors-active-filter-tag {
-  background: rgba(214, 31, 43, 0.08);
-  border: 1px solid rgba(214, 31, 43, 0.2);
-  color: var(--color-deep-red, #9f131b);
-  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(196, 146, 42, 0.1) 0%, rgba(196, 146, 42, 0.18) 100%);
+  border: 1px solid rgba(196, 146, 42, 0.3);
+  color: #5a3d16;
+  border-radius: 999px;
   padding: 4px 12px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  box-shadow: 0 2px 6px rgba(154, 101, 40, 0.08);
+}
+
+.doctors-active-filter-tag strong {
+  color: #9a6528;
+  font-weight: 700;
 }
 
 .doctors-active-filter-remove {
-  background: none;
+  background: rgba(154, 101, 40, 0.15);
   border: none;
-  color: var(--color-red, #d61f2b);
+  color: #9a6528;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
-  padding: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  transition: all 0.2s ease;
+}
+
+.doctors-active-filter-remove:hover {
+  background: #d61f2b;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .doctors-clear-all-btn {
-  background: none;
-  border: none;
-  color: var(--color-red, #d61f2b);
-  font-size: 13px;
+  background: transparent;
+  border: 1px solid rgba(214, 31, 43, 0.3);
+  color: #d61f2b;
+  font-size: 12px;
   font-weight: 700;
-  text-decoration: underline;
+  border-radius: 999px;
+  padding: 4px 12px;
   cursor: pointer;
-  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.25s ease;
+}
+
+.doctors-clear-all-btn:hover {
+  background: #d61f2b;
+  color: #ffffff;
+  border-color: #d61f2b;
+  box-shadow: 0 4px 12px rgba(214, 31, 43, 0.25);
 }
 
 /* ==========================================================================

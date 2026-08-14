@@ -47,6 +47,11 @@ export function DoctorsFilterBar({
   departments,
   branches,
 }: DoctorsFilterBarProps) {
+  const isDeptActive = selectedDeptId !== "all";
+  const isBranchActive = selectedBranchId !== "all";
+  const isModeActive = selectedMode !== "all";
+  const isSortActive = sortBy !== "rating";
+
   return (
     <div className="doctors-filter-section">
       <div className="doctors-filter-container">
@@ -54,11 +59,13 @@ export function DoctorsFilterBar({
         <div className="doctors-filter-row">
           <div className="doctors-filter-controls">
             {/* Department Dropdown */}
-            <div className="doctors-filter-select-wrap">
+            <div className={`doctors-filter-select-wrap ${isDeptActive ? "is-active" : ""}`}>
+              <i className="fa-solid fa-stethoscope doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={selectedDeptId}
                 onChange={(e) => onDeptChange(e.target.value)}
+                aria-label="Filter by Department"
               >
                 {departments.map((dept) => (
                   <option key={dept.id} value={dept.id}>
@@ -66,15 +73,17 @@ export function DoctorsFilterBar({
                   </option>
                 ))}
               </select>
-              <span className="doctors-filter-select-arrow">▼</span>
+              <i className="fa-solid fa-chevron-down doctors-filter-select-arrow" />
             </div>
 
             {/* Branch Location Dropdown */}
-            <div className="doctors-filter-select-wrap">
+            <div className={`doctors-filter-select-wrap ${isBranchActive ? "is-active" : ""}`}>
+              <i className="fa-solid fa-location-dot doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={selectedBranchId}
                 onChange={(e) => onBranchChange(e.target.value)}
+                aria-label="Filter by Location"
               >
                 {branches.map((branch) => (
                   <option key={branch.id} value={branch.id}>
@@ -82,42 +91,49 @@ export function DoctorsFilterBar({
                   </option>
                 ))}
               </select>
-              <span className="doctors-filter-select-arrow">▼</span>
+              <i className="fa-solid fa-chevron-down doctors-filter-select-arrow" />
             </div>
 
             {/* Consultation Mode Selector */}
-            <div className="doctors-filter-select-wrap">
+            <div className={`doctors-filter-select-wrap ${isModeActive ? "is-active" : ""}`}>
+              <i className="fa-solid fa-video doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={selectedMode}
                 onChange={(e) => onModeChange(e.target.value)}
+                aria-label="Filter by Consultation Mode"
               >
                 <option value="all">All Consultation Modes</option>
                 <option value="in-person">In-Person Hospital Visit</option>
               </select>
-              <span className="doctors-filter-select-arrow">▼</span>
+              <i className="fa-solid fa-chevron-down doctors-filter-select-arrow" />
             </div>
 
             {/* Sort Dropdown */}
-            <div className="doctors-filter-select-wrap">
+            <div className={`doctors-filter-select-wrap ${isSortActive ? "is-active" : ""}`}>
+              <i className="fa-solid fa-arrow-down-short-wide doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={sortBy}
                 onChange={(e) => onSortChange(e.target.value)}
+                aria-label="Sort Doctors"
               >
                 <option value="rating">Sort: Highest Rated</option>
                 <option value="experience">Sort: Most Experienced</option>
                 <option value="name">Sort: Name (A-Z)</option>
               </select>
-              <span className="doctors-filter-select-arrow">▼</span>
+              <i className="fa-solid fa-chevron-down doctors-filter-select-arrow" />
             </div>
           </div>
 
           {/* Right Side: Result Count & Grid/List View Switcher */}
           <div className="doctors-filter-right">
-            <span className="doctors-result-count">
-              Showing <strong>{resultCount}</strong> of {totalCount} Doctors
-            </span>
+            <div className="doctors-result-count-badge">
+              <span className="doctors-result-dot" />
+              <span className="doctors-result-count">
+                Showing <strong>{resultCount}</strong> of {totalCount} Doctors
+              </span>
+            </div>
 
             <div className="doctors-view-toggle">
               <button
@@ -127,7 +143,7 @@ export function DoctorsFilterBar({
                 title="Grid View"
                 aria-label="Grid View"
               >
-                <i className="fa-solid fa-border-all" style={{ marginRight: "4px" }} /> Grid
+                <i className="fa-solid fa-border-all" /> <span>Grid</span>
               </button>
               <button
                 type="button"
@@ -136,100 +152,108 @@ export function DoctorsFilterBar({
                 title="List View"
                 aria-label="List View"
               >
-                <i className="fa-solid fa-list" style={{ marginRight: "4px" }} /> List
+                <i className="fa-solid fa-list" /> <span>List</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* Quick Filter Pills Row */}
-        <div className="doctors-filter-pills">
-          <button
-            type="button"
-            className={`doctors-pill-btn ${quickFilter === "all" ? "active" : ""}`}
-            onClick={() => onQuickFilterChange("all")}
-          >
-            All Doctors
-          </button>
-          <button
-            type="button"
-            className={`doctors-pill-btn ${quickFilter === "today" ? "active" : ""}`}
-            onClick={() => onQuickFilterChange(quickFilter === "today" ? "all" : "today")}
-          >
-            <i className="fa-solid fa-bolt" style={{ marginRight: "4px" }} /> Available Today
-          </button>
-          <button
-            type="button"
-            className={`doctors-pill-btn ${quickFilter === "senior" ? "active" : ""}`}
-            onClick={() => onQuickFilterChange(quickFilter === "senior" ? "all" : "senior")}
-          >
-            <i className="fa-solid fa-crown" style={{ marginRight: "4px" }} /> Senior Vaidyas (15+ Yrs)
-          </button>
-          <button
-            type="button"
-            className={`doctors-pill-btn ${quickFilter === "top-rated" ? "active" : ""}`}
-            onClick={() => onQuickFilterChange(quickFilter === "top-rated" ? "all" : "top-rated")}
-          >
-            <i className="fa-solid fa-star" style={{ marginRight: "4px" }} /> Top Rated (4.9)
-          </button>
-          <button
-            type="button"
-            className={`doctors-pill-btn ${quickFilter === "founders" ? "active" : ""}`}
-            onClick={() => onQuickFilterChange(quickFilter === "founders" ? "all" : "founders")}
-          >
-            <i className="fa-solid fa-trophy" style={{ marginRight: "4px" }} /> Founder Physicians
-          </button>
+        <div className="doctors-filter-pills-wrap">
+          <div className="doctors-filter-pills">
+            <button
+              type="button"
+              className={`doctors-pill-btn ${quickFilter === "all" ? "active" : ""}`}
+              onClick={() => onQuickFilterChange("all")}
+            >
+              <i className="fa-solid fa-user-doctor" /> All Doctors
+            </button>
+            <button
+              type="button"
+              className={`doctors-pill-btn ${quickFilter === "today" ? "active" : ""}`}
+              onClick={() => onQuickFilterChange(quickFilter === "today" ? "all" : "today")}
+            >
+              <i className="fa-solid fa-bolt" /> Available Today
+            </button>
+            <button
+              type="button"
+              className={`doctors-pill-btn ${quickFilter === "senior" ? "active" : ""}`}
+              onClick={() => onQuickFilterChange(quickFilter === "senior" ? "all" : "senior")}
+            >
+              <i className="fa-solid fa-crown" /> Senior Vaidyas (15+ Yrs)
+            </button>
+            <button
+              type="button"
+              className={`doctors-pill-btn ${quickFilter === "top-rated" ? "active" : ""}`}
+              onClick={() => onQuickFilterChange(quickFilter === "top-rated" ? "all" : "top-rated")}
+            >
+              <i className="fa-solid fa-star" /> Top Rated (4.9)
+            </button>
+            <button
+              type="button"
+              className={`doctors-pill-btn ${quickFilter === "founders" ? "active" : ""}`}
+              onClick={() => onQuickFilterChange(quickFilter === "founders" ? "all" : "founders")}
+            >
+              <i className="fa-solid fa-trophy" /> Founder Physicians
+            </button>
+          </div>
         </div>
 
         {/* Active Filter Badges */}
         {activeFilterCount > 0 && (
           <div className="doctors-active-filters-row">
-            <span style={{ fontWeight: 600, color: "#6a6c67" }}>Active Filters:</span>
+            <span className="doctors-active-label">
+              <i className="fa-solid fa-filter" /> Active Filters ({activeFilterCount}):
+            </span>
             {selectedDeptId !== "all" && (
               <span className="doctors-active-filter-tag">
-                Dept: {departments.find((d) => d.id === selectedDeptId)?.name}
+                Dept: <strong>{departments.find((d) => d.id === selectedDeptId)?.name}</strong>
                 <button
                   type="button"
                   className="doctors-active-filter-remove"
                   onClick={() => onDeptChange("all")}
+                  aria-label="Remove Department Filter"
                 >
-                  ✕
+                  <i className="fa-solid fa-xmark" />
                 </button>
               </span>
             )}
             {selectedBranchId !== "all" && (
               <span className="doctors-active-filter-tag">
-                Location: {branches.find((b) => b.id === selectedBranchId)?.name}
+                Location: <strong>{branches.find((b) => b.id === selectedBranchId)?.name}</strong>
                 <button
                   type="button"
                   className="doctors-active-filter-remove"
                   onClick={() => onBranchChange("all")}
+                  aria-label="Remove Location Filter"
                 >
-                  ✕
+                  <i className="fa-solid fa-xmark" />
                 </button>
               </span>
             )}
             {selectedMode !== "all" && (
               <span className="doctors-active-filter-tag">
-                Mode: {selectedMode === "in-person" ? "In-Person" : "Video"}
+                Mode: <strong>{selectedMode === "in-person" ? "In-Person" : "Video"}</strong>
                 <button
                   type="button"
                   className="doctors-active-filter-remove"
                   onClick={() => onModeChange("all")}
+                  aria-label="Remove Mode Filter"
                 >
-                  ✕
+                  <i className="fa-solid fa-xmark" />
                 </button>
               </span>
             )}
             {quickFilter !== "all" && (
               <span className="doctors-active-filter-tag">
-                Tag: {quickFilter}
+                Filter: <strong>{quickFilter}</strong>
                 <button
                   type="button"
                   className="doctors-active-filter-remove"
                   onClick={() => onQuickFilterChange("all")}
+                  aria-label="Remove Quick Filter"
                 >
-                  ✕
+                  <i className="fa-solid fa-xmark" />
                 </button>
               </span>
             )}
@@ -238,7 +262,7 @@ export function DoctorsFilterBar({
               className="doctors-clear-all-btn"
               onClick={onClearAllFilters}
             >
-              Clear All
+              <i className="fa-solid fa-rotate-left" /> Reset All
             </button>
           </div>
         )}
