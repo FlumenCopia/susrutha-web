@@ -12,42 +12,73 @@
    ========================================================================== */
 .doctors-hero {
   position: relative;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(214, 31, 43, 0.04), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(200, 137, 34, 0.08), transparent 45%),
-    linear-gradient(180deg, #f5efe4 0%, #f8f2e6 100%);
-  padding: 64px 24px 56px;
-  border-bottom: 1px solid rgba(63, 64, 61, 0.08);
+  background-image: linear-gradient(
+      180deg,
+      rgba(14, 7, 5, 0.76) 0%,
+      rgba(22, 10, 8, 0.85) 50%,
+      rgba(18, 9, 7, 0.94) 100%
+    ),
+    url('/images/doctors-ayurveda-mortar-hero.webp');
+  background-size: cover;
+  background-position: center center;
+  padding: 190px 24px 110px;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(200, 137, 34, 0.25);
   overflow: hidden;
+  color: #ffffff;
+}
+
+.doctors-hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(247, 165, 26, 0.15), transparent 70%);
+  pointer-events: none;
 }
 
 .doctors-hero-container {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .doctors-hero-header {
   text-align: center;
-  max-width: 860px;
-  margin: 0 auto 40px;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .doctors-hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(214, 31, 43, 0.08);
-  color: var(--color-deep-red, #9f131b);
-  border: 1px solid rgba(214, 31, 43, 0.2);
-  padding: 6px 16px;
+  background: rgba(247, 165, 26, 0.12);
+  color: var(--color-sun, #f7a51a);
+  border: 1px solid rgba(247, 165, 26, 0.35);
+  padding: 6px 18px;
   border-radius: 30px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
 }
 
 .doctors-hero-eyebrow span.icon {
@@ -55,60 +86,67 @@
 }
 
 .doctors-hero-title {
-  font-size: clamp(32px, 4.5vw, 56px);
+  font-size: clamp(34px, 4.8vw, 58px);
   font-weight: 700;
   line-height: 1.15;
-  color: #262725;
-  margin: 0 0 16px;
+  color: #ffffff;
+  margin: 0 0 18px;
   letter-spacing: -0.01em;
 }
 
 .doctors-hero-title span.accent {
-  color: var(--color-red, #d61f2b);
-  font-weight: 600;
+  color: var(--color-sun, #f7a51a);
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(247, 165, 26, 0.3);
 }
 
 .doctors-hero-description {
-  font-size: clamp(15px, 1.8vw, 18px);
+  font-size: clamp(15.5px, 1.8vw, 18.5px);
   line-height: 1.6;
-  color: #555753;
-  margin: 0 0 32px;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 36px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Hero Quick Stats */
+/* Hero Quick Stats (Glassmorphism Cards) */
 .doctors-hero-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
-  max-width: 960px;
-  margin: 0 auto 36px;
+  max-width: 980px;
+  margin: 0 auto 40px;
 }
 
 .doctors-hero-stat-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 137, 34, 0.2);
-  border-radius: 16px;
-  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  padding: 18px 20px;
   display: flex;
   align-items: center;
   gap: 14px;
-  box-shadow: 0 10px 30px rgba(63, 64, 61, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .doctors-hero-stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(99, 57, 19, 0.08);
+  transform: translateY(-3px);
+  border-color: rgba(247, 165, 26, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .doctors-hero-stat-icon {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #fff3df 0%, #ffe6be 100%);
-  color: #ad7430;
+  background: linear-gradient(135deg, rgba(247, 165, 26, 0.2) 0%, rgba(200, 137, 34, 0.3) 100%);
+  border: 1px solid rgba(247, 165, 26, 0.4);
+  color: var(--color-sun, #f7a51a);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,22 +155,22 @@
 }
 
 .doctors-hero-stat-val {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  color: #262725;
+  color: #ffffff;
   line-height: 1.2;
 }
 
 .doctors-hero-stat-lbl {
   font-size: 12px;
-  color: #6a6c67;
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 500;
 }
 
 /* Quick Search Box in Hero */
 .doctors-hero-search {
-  max-width: 680px;
-  margin: 0 auto 20px;
+  max-width: 720px;
+  margin: 0 auto 24px;
   position: relative;
 }
 
@@ -140,21 +178,21 @@
   display: flex;
   align-items: center;
   background: #ffffff;
-  border: 2px solid rgba(214, 31, 43, 0.25);
+  border: 2px solid rgba(247, 165, 26, 0.4);
   border-radius: 50px;
   padding: 6px 8px 6px 22px;
-  box-shadow: 0 16px 40px rgba(99, 57, 19, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .doctors-hero-search-input-wrap:focus-within {
-  border-color: var(--color-red, #d61f2b);
-  box-shadow: 0 20px 50px rgba(214, 31, 43, 0.16);
+  border-color: var(--color-sun, #f7a51a);
+  box-shadow: 0 24px 60px rgba(247, 165, 26, 0.25);
 }
 
 .doctors-hero-search-icon {
   font-size: 18px;
-  color: #888a85;
+  color: #6a6c67;
   margin-right: 12px;
 }
 
@@ -164,19 +202,19 @@
   background: transparent;
   outline: none;
   font-size: 16px;
-  color: var(--color-ink, #3f403d);
+  color: #262725;
   padding: 8px 0;
 }
 
 .doctors-hero-search-input::placeholder {
-  color: #9a9c96;
+  color: #777974;
 }
 
 .doctors-hero-search-btn {
   background: linear-gradient(135deg, var(--color-red, #d61f2b) 0%, var(--color-deep-red, #9f131b) 100%);
   color: #ffffff;
   border: none;
-  padding: 12px 26px;
+  padding: 12px 28px;
   border-radius: 40px;
   font-weight: 700;
   font-size: 14px;
@@ -184,6 +222,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 6px 20px rgba(214, 31, 43, 0.35);
   transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
@@ -200,30 +239,33 @@
   flex-wrap: wrap;
   gap: 8px;
   font-size: 13px;
-  color: #6a6c67;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .doctors-hero-tags-label {
   font-weight: 600;
   margin-right: 4px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .doctors-hero-tag-btn {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(63, 64, 61, 0.12);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 12px;
+  padding: 5px 14px;
+  font-size: 12.5px;
   font-weight: 600;
-  color: #4a4c47;
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .doctors-hero-tag-btn:hover {
-  background: var(--color-cream, #fff8ec);
-  border-color: var(--color-gold, #c88922);
-  color: var(--color-deep-red, #9f131b);
+  background: var(--color-red, #d61f2b);
+  border-color: var(--color-sun, #f7a51a);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(214, 31, 43, 0.4);
 }
 
 /* ==========================================================================

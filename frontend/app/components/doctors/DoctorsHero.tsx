@@ -12,19 +12,19 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
     <section className="doctors-hero">
       <div className="doctors-hero-container">
         <div className="doctors-hero-header">
-          <div className="doctors-hero-eyebrow">
+          {/* <div className="doctors-hero-eyebrow">
             <i className="fa-solid fa-leaf icon" aria-hidden="true" style={{ marginRight: "6px" }} /> Susrutha Clinical Faculty
-          </div>
-          <h1 className="doctors-hero-title">
+          </div> */}
+          {/* <h1 className="doctors-hero-title">
             Consult Our Senior <span className="accent">Ayurvedic Physicians</span>
-          </h1>
-          <p className="doctors-hero-description">
+          </h1> */}
+          {/* <p className="doctors-hero-description">
             Experience classical Panchakarma diagnosis, root-cause healing protocols, and personalized 
             wellness guidance from Kerala’s leading Vaidyas across Kattakada, Kowdiar, and Online Video Consultations.
-          </p>
+          </p> */}
 
           {/* Quick Statistics Banner */}
-          <div className="doctors-hero-stats">
+          {/* <div className="doctors-hero-stats">
             <div className="doctors-hero-stat-card">
               <div className="doctors-hero-stat-icon"><i className="fa-solid fa-user-doctor" /></div>
               <div>
@@ -53,7 +53,7 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
                 <div className="doctors-hero-stat-lbl">Patients Healed</div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Live Search Input Bar */}
           <div className="doctors-hero-search">
@@ -101,3 +101,4 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
     </section>
   );
 }
+
