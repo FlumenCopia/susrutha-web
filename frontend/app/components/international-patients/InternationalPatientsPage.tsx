@@ -184,13 +184,13 @@ export function InternationalPatientsPage() {
           </div>
         </article>
 
-        <aside className="international-travel-card">
+        {/* <aside className="international-travel-card">
           <h2>Travel Enquiry</h2>
           <p>Share your details and our international care team will assist you.</p>
           <div aria-hidden="true">
             <InternationalPatientsIcon name="kerala" />
           </div>
-        </aside>
+        </aside> */}
       </section>
 
       <section className="international-enquiry" id="international-enquiry">
