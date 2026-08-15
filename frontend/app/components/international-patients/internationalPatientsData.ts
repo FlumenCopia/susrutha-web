@@ -92,10 +92,25 @@ export const internationalReasons = [
   { icon: "flower", title: "Holistic healing experience" },
 ] as const;
 
-export const internationalFaqs = [
-  "How can I book a consultation or treatment?",
-  "Do you provide visa assistance or invitation letter?",
-  "Is airport pickup and drop available?",
-  "What language do doctors and staff speak?",
-  "What is the best time to visit Kerala for treatment?",
+export const internationalFaqsList = [
+  {
+    q: "Where are you based?",
+    a: "Susrutha Ayurveda Gramam is located in Trivandrum, Kerala, India — just 20 minutes from Trivandrum International Airport (TRV), set in a peaceful traditional village atmosphere.",
+  },
+  {
+    q: "How do you handle differences in time zones?",
+    a: "Our dedicated international patient coordination team operates 24/7. We schedule online consultations and respond to inquiries at times convenient for your local time zone.",
+  },
+  {
+    q: "Do you provide visa assistance or invitation letters?",
+    a: "Yes, we issue official medical visa invitation letters and comprehensive treatment documents required for Indian Medical Visa applications as soon as your consultation is complete.",
+  },
+  {
+    q: "What is your experience and what do you specialize in?",
+    a: "With over 90 years of Ayurvedic legacy, we specialize in authentic Kerala Panchakarma, joint & spine care, chronic disease management, and customized wellness & rejuvenation programs.",
+  },
+  {
+    q: "Is airport pickup and stay assistance included?",
+    a: "Yes, we provide complimentary air-conditioned airport transfers from Trivandrum Airport and arrange comfortable AC / Non-AC patient rooms or private cottages with dedicated care.",
+  },
 ] as const;

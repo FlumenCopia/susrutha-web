@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   internationalFacilities,
-  internationalFaqs,
+  internationalFaqsList,
+  internationalHeroFeatures,
   internationalPrograms,
   internationalStats,
   internationalSupportItems,
@@ -150,26 +151,27 @@ export function InternationalPatientsPage() {
         </div>
       </section>
 
-      <section className="international-info-grid">
-        <article className="international-faq-card">
-          <span className="international-eyebrow">Frequently Asked Questions</span>
-          <div className="international-faq-list">
-            {internationalFaqs.map((question) => (
-              <details key={question}>
-                <summary>
-                  {question}
-                  <span aria-hidden="true">+</span>
+      <section className="international-faq-section" aria-labelledby="faq-section-title">
+        <div className="international-faq-container">
+          <h2 id="faq-section-title" className="international-faq-main-title">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="international-faq-accordion-list">
+            {internationalFaqsList.map((item) => (
+              <details className="international-faq-item" key={item.q}>
+                <summary className="international-faq-summary">
+                  <span className="international-faq-question">{item.q}</span>
+                  <span className="international-faq-toggle-icon" aria-hidden="true" />
                 </summary>
-                <p>Our international care team will guide you with clear details based on your treatment plan.</p>
+                <p className="international-faq-answer">{item.a}</p>
               </details>
             ))}
           </div>
-          <Link href="/faq">
-            View All FAQs
-            <InternationalPatientsIcon name="arrow" />
-          </Link>
-        </article>
+        </div>
+      </section>
 
+      <section className="international-info-grid">
         <article className="international-world-card">
           <span className="international-eyebrow">Trusted By Patients Worldwide</span>
           <h2>We welcome you</h2>
@@ -183,14 +185,6 @@ export function InternationalPatientsPage() {
             ))}
           </div>
         </article>
-
-        {/* <aside className="international-travel-card">
-          <h2>Travel Enquiry</h2>
-          <p>Share your details and our international care team will assist you.</p>
-          <div aria-hidden="true">
-            <InternationalPatientsIcon name="kerala" />
-          </div>
-        </aside> */}
       </section>
 
       <section className="international-enquiry" id="international-enquiry">
