@@ -41,7 +41,7 @@ export function EcosystemVerticals() {
   return (
     <section className="ecosystem-verticals" id="ecosystem-verticals">
       <div className="ecosystem-section-head">
-        <span className="ecosystem-eyebrow">Our Verticals</span>
+        {/* <span className="ecosystem-eyebrow">OUR VERTICALS</span> */}
         <h2>
           Explore <em>each vertical</em>
         </h2>

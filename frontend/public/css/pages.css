@@ -15755,27 +15755,35 @@ body:has(.ecosystem-page) {
 }
 
 .ecosystem-section-head {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 780px;
-  margin: 0 auto clamp(30px, 4vw, 50px);
+  margin: 0 auto clamp(32px, 4vw, 52px);
   text-align: center;
 }
 
 .ecosystem-section-head h2 {
-  margin: 18px 0 0;
-  font-size: clamp(32px, 3.2vw, 54px);
-  line-height: 1.06;
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif !important;
+  margin: 14px 0 0;
+  font-size: clamp(32px, 3.8vw, 52px) !important;
+  font-weight: 500 !important;
+  color: #061d13 !important;
+  line-height: 1.08;
 }
 
 .ecosystem-section-head h2 em {
-  color: #0d6f35;
+  font-style: italic !important;
+  color: #003f24 !important;
 }
 
 .ecosystem-section-head p {
-  margin: 16px 0 0;
-  font-size: 14px;
-  line-height: 1.64;
+  margin: 14px 0 0;
+  font-size: 16px !important;
+  color: #4a5e54 !important;
+  line-height: 1.65 !important;
+  max-width: 620px;
 }
 
 .ecosystem-grid {
