@@ -13,7 +13,7 @@ export function MediaPage() {
     <div className="media-page">
       <MediaHero />
       <MediaCategories />
-      <MediaBanner />
+      {/* <MediaBanner /> */}
       <FeaturedMedia />
       <MediaGallery />
       <VideoShowcase />

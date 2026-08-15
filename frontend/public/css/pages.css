@@ -12348,7 +12348,7 @@ body:has(.media-page) {
 .media-card::after,
 .media-video article::after {
   z-index: 1;
-  background: linear-gradient(180deg, rgba(18, 63, 36, 0.02) 0%, rgba(18, 63, 36, 0.82) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.88) 100%);
 }
 
 .media-featured h2 {
@@ -12691,13 +12691,8 @@ body:has(.media-page) {
 
 .media-card::before,
 .media-video article::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
-  pointer-events: none;
+  display: none !important;
+  border: none !important;
 }
 
 @media (max-width: 960px) {
@@ -21220,4 +21215,64 @@ body:has(.international-page) .international-help-card a {
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
   }
+}
+
+/* Remove all green bottom overlay gradients across media cards */
+.media-card::before,
+.media-card::after,
+.media-featured article::before,
+.media-featured article::after,
+.media-video article::before,
+.media-video article::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.88) 100%) !important;
+}
+
+/* Remove all card borders and inner outlines */
+.media-card,
+.media-card:hover,
+.media-featured article,
+.media-video article {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Completely disable all hover animations & transformations on media cards */
+.media-card:hover,
+.media-featured article:hover,
+.media-video article:hover,
+.media-social article:hover {
+  transform: none !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important;
+  border-color: transparent !important;
+}
+
+.media-card:hover img,
+.media-featured article:hover img,
+.media-video article:hover img,
+.media-social article:hover img {
+  transform: none !important;
+  filter: none !important;
+}
+
+.media-card:hover > div {
+  transform: none !important;
+}
+
+.media-card:hover > div > span {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: none !important;
+}
+
+.media-card:hover h3 {
+  color: #ffffff !important;
+}
+
+.media-card:hover button {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: none !important;
 }
