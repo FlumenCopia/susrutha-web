@@ -173,18 +173,20 @@ export function InternationalPatientsPage() {
         </div>
       </section>
       <section className="international-welcome-banner" aria-labelledby="international-welcome-title">
-        <Image
-          src="/images/about-susrutha-wellness.webp"
-          alt="Susrutha Gramam lotus courtyard background"
-          fill
-          priority
-          sizes="100vw"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/about-susrutha-wellness.webp"
           className="international-welcome-bg"
-        />
+        >
+          <source src="/bannervideo.mp4" type="video/mp4" />
+        </video>
         <div className="international-welcome-overlay" />
 
         <div className="international-welcome-content">
-          <span className="international-welcome-eyebrow">Trusted By Patients Worldwide</span>
+          {/* <span className="international-welcome-eyebrow">Trusted By Patients Worldwide</span> */}
           <h2 id="international-welcome-title" className="international-welcome-title">
             We welcome you
           </h2>
