@@ -18,7 +18,7 @@ export function MediaBanner() {
         <Image className="media-story-banner-main" src="/images/ayurveda-hospital-garden.webp" alt="" width={720} height={520} />
         <Image className="media-story-banner-small media-story-banner-small-one" src="/images/treatment-sirodhara.webp" alt="" width={280} height={220} />
         <Image className="media-story-banner-small media-story-banner-small-two" src="/images/about-purpose-still-life.webp" alt="" width={260} height={220} />
-        <span><ArrowIcon /></span>
+        {/* <span><ArrowIcon /></span> */}
       </div>
     </section>
   );
