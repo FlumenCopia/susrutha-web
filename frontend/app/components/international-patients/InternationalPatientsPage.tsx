@@ -27,11 +27,25 @@ export function InternationalPatientsPage() {
             <span>INTERNATIONAL PATIENTS</span>
           </nav>
 
-          <div className="conditions-hero-serene-middle">
-            <p className="conditions-hero-serene-quote">
-              At Susrutha Ayurveda Gramam, we welcome patients from around the world to experience authentic Kerala
-              Ayurveda with personalized care, modern facilities, and a tranquil healing environment.
-            </p>
+          <div className="conditions-hero-serene-middle-wrapper">
+            <div className="conditions-hero-serene-middle">
+              <p className="conditions-hero-serene-quote">
+                At Susrutha Ayurveda Gramam, we welcome patients from around the world to experience authentic Kerala
+                Ayurveda with personalized care, modern facilities, and a tranquil healing environment.
+              </p>
+            </div>
+
+            <div className="conditions-hero-serene-right-stats" aria-label="International patient statistics">
+              {internationalStats.map((item) => (
+                <div className="conditions-hero-stat-card" key={item.label}>
+                  <InternationalPatientsIcon name={item.icon} />
+                  <div className="conditions-hero-stat-info">
+                    <strong>{item.value}</strong>
+                    <span>{item.label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="conditions-hero-serene-bottom">
