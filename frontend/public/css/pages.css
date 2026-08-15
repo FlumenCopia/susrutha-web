@@ -17966,13 +17966,8 @@ body:has(.facilities-page) {
 
 .facilities-eyebrow::before,
 .facilities-eyebrow::after {
-  content: "";
-  width: 13px;
-  height: 9px;
-  border: 1.6px solid currentColor;
-  border-width: 1.6px 1.6px 0 0;
-  border-radius: 100% 0;
-  transform: rotate(-38deg);
+  content: none !important;
+  display: none !important;
 }
 
 .facilities-button,
@@ -21786,5 +21781,65 @@ body:has(.international-page) .international-help-card a {
   .facilities-program-grid-deluxe {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+}
+
+/* Facilities Stat Count Color & Running Animation */
+.facilities-stats-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin-top: 28px !important;
+}
+
+.facilities-stat-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding: 18px 20px !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(8, 47, 35, 0.1) !important;
+  box-shadow: 0 8px 24px rgba(6, 29, 19, 0.04) !important;
+  transition: all 0.3s ease !important;
+}
+
+.facilities-stat-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(198, 137, 34, 0.4) !important;
+  box-shadow: 0 14px 32px rgba(6, 29, 19, 0.1) !important;
+}
+
+.facilities-stat-item svg {
+  width: 22px !important;
+  height: 22px !important;
+  color: #c68922 !important;
+  stroke: #c68922 !important;
+}
+
+.facilities-stat-number {
+  font-size: clamp(26px, 2.2vw, 36px) !important;
+  font-weight: 900 !important;
+  color: #003f24 !important;
+  background: linear-gradient(135deg, #003f24 0%, #064e3b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block !important;
+  line-height: 1.1 !important;
+  margin: 6px 0 2px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.facilities-stat-label {
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  color: #52665a !important;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 600px) {
+  .facilities-stats-container {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
 }
