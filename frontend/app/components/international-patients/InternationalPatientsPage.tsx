@@ -14,29 +14,8 @@ import { InternationalStatCard } from "./InternationalStatCard";
 export function InternationalPatientsPage() {
   return (
     <div className="international-page">
-      <div className="international-topbar" aria-label="Susrutha international patient highlights">
-        <span>
-          <InternationalPatientsIcon name="flower" />
-          A family Ayurveda legacy since 1936
-        </span>
-        <span>
-          <InternationalPatientsIcon name="globe" />
-          Trusted by millions for 3 generations
-        </span>
-        <span>
-          <InternationalPatientsIcon name="phone" />
-          +91 98460 56736
-        </span>
-        <span>
-          <InternationalPatientsIcon name="calendar" />
-          9:00 AM - 7:00 PM
-        </span>
-        <span>
-          <InternationalPatientsIcon name="home" />
-          Hospital 24x7
-        </span>
-      </div>
 
+      
       <section className="international-hero">
         <div className="international-leaf-trace" aria-hidden="true" />
         <div className="international-flight-line" aria-hidden="true">
@@ -89,6 +68,34 @@ export function InternationalPatientsPage() {
           </div>
         </div>
       </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <section className="international-facilities" aria-labelledby="international-facilities-title">
         <div className="international-strip-head">
