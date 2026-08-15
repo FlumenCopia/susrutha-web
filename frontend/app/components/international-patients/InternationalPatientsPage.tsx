@@ -86,17 +86,7 @@ export function InternationalPatientsPage() {
 
       <section className="international-facilities" aria-labelledby="international-facilities-title">
         <div className="international-strip-head">
-          <button type="button" aria-label="Previous facility">
-            <InternationalPatientsIcon name="arrow" />
-          </button>
-          <div>
-            <span />
-            <h2 id="international-facilities-title">Facilities that support classical care</h2>
-            <span />
-          </div>
-          <button type="button" aria-label="Next facility">
-            <InternationalPatientsIcon name="arrow" />
-          </button>
+          <h2 id="international-facilities-title">Facilities that support classical care</h2>
         </div>
 
         <div className="international-facility-grid">
