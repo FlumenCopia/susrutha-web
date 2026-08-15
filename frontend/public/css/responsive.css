@@ -591,10 +591,13 @@
 .vg-search-icon {
   position: absolute;
   left: 14px;
-  width: 15px;
-  height: 15px;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 16px !important;
+  height: 16px !important;
   color: #8c8f8b;
   pointer-events: none;
+  z-index: 2;
 }
 
 .vg-search-input {
