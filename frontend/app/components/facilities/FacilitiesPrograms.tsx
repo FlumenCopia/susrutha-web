@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { facilityPrograms } from "./facilitiesData";
@@ -5,23 +7,35 @@ import { FacilitiesIcon } from "./FacilitiesIcon";
 
 export function FacilitiesPrograms() {
   return (
-    <section className="facilities-programs">
-      <div className="facilities-program-copy">
-        <span className="facilities-eyebrow">Facilities Content Structure</span>
+    <section className="facilities-programs-luxury">
+      <div className="facilities-program-copy-deluxe">
+        {/* <span className="facilities-eyebrow-deluxe">OUR CARE & FACILITIES</span> */}
         <h2>Everything patients need before they arrive</h2>
-        <p>Each facility can include photos, patient guidance, available services, branch information, and enquiry actions.</p>
-        <Link href="/packages">
-          View care options
+        <p>
+          Explore our classical treatment rooms, inpatient residential suites, mobility rehabilitation care, and daily wellness practice environments.
+        </p>
+        <Link href="/packages" className="facilities-copy-cta">
+          <span>View Care Options</span>
           <FacilitiesIcon name="arrow" />
         </Link>
       </div>
-      <div className="facilities-program-grid">
+
+      <div className="facilities-program-grid-deluxe">
         {facilityPrograms.map((program) => (
-          <article key={program.title}>
-            <FacilitiesIcon name={program.icon} />
-            <h3>{program.title}</h3>
-            <p>{program.text}</p>
-            <Image src={program.image} alt="" fill sizes="(max-width: 760px) 100vw, 18vw" />
+          <article className="facilities-card-deluxe" key={program.title}>
+            <div className="facilities-card-img-wrapper">
+              <Image
+                src={program.image}
+                alt={program.title}
+                fill
+                sizes="(max-width: 760px) 100vw, 25vw"
+                className="facilities-card-img"
+              />
+            </div>
+            <div className="facilities-card-content">
+              <h3>{program.title}</h3>
+              <p>{program.text}</p>
+            </div>
           </article>
         ))}
       </div>

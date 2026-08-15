@@ -17921,7 +17921,7 @@ body:has(.facilities-page) {
 .facilities-page {
   --facilities-ink: #14221e;
   --facilities-muted: #3b4641;
-  --facilities-deep: #063f2b;
+  --facilities-deep: #000;
   --facilities-deep-2: #082f23;
   --facilities-gold: #a87534;
   --facilities-line: rgba(149, 117, 77, 0.16);
@@ -21603,5 +21603,188 @@ body:has(.international-page) .international-help-card a {
     max-height: 380px !important;
     padding: 0 16px !important;
     margin-top: 32px;
+  }
+}
+
+/* Facilities Programs Deluxe Section System */
+.facilities-programs-luxury {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 2fr);
+  gap: 28px;
+  align-items: stretch;
+  padding: 60px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.facilities-program-copy-deluxe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.facilities-eyebrow-deluxe {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(0, 63, 36, 0.08);
+  border: 1px solid rgba(0, 63, 36, 0.15);
+  color: #003f24;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.facilities-program-copy-deluxe h2 {
+  font-family: var(--font-garamond, "EB Garamond", serif);
+  font-size: clamp(30px, 2.8vw, 44px);
+  color: #061d13;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.facilities-program-copy-deluxe p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #52665a;
+  margin-bottom: 24px;
+}
+
+.facilities-copy-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #003f24;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.facilities-copy-cta:hover {
+  color: #c68922;
+  transform: translateX(4px);
+}
+
+.facilities-program-grid-deluxe {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.facilities-card-deluxe {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(8, 47, 35, 0.1);
+  box-shadow: 0 12px 36px rgba(6, 29, 19, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.facilities-card-deluxe:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(6, 29, 19, 0.12);
+  border-color: rgba(200, 155, 60, 0.4);
+}
+
+.facilities-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+  background: #f4f0e6;
+  border-radius: 20px 20px 0 0;
+}
+
+.facilities-card-img {
+  object-fit: cover !important;
+  opacity: 1 !important;
+  transition: transform 0.5s ease;
+}
+
+.facilities-card-deluxe:hover .facilities-card-img {
+  transform: scale(1.08);
+}
+
+.facilities-card-icon-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 18px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(6, 29, 19, 0.14) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(8, 47, 35, 0.12) !important;
+  padding: 0 !important;
+}
+
+.facilities-card-icon-badge svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #003f24 !important;
+  color: #003f24 !important;
+  display: block !important;
+  margin: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.facilities-card-content {
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.facilities-card-content h3 {
+  font-family: var(--font-garamond, "EB Garamond", serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #061d13;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.facilities-card-content p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #52665a;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .facilities-programs-luxury {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+
+  .facilities-program-grid-deluxe {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .facilities-programs-luxury {
+    padding: 36px 16px;
+  }
+
+  .facilities-program-grid-deluxe {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
