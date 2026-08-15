@@ -105,9 +105,6 @@ export function InternationalPatientsPage() {
 
             return (
               <article className="international-facility-card" data-popular={isPopular ? "true" : undefined} key={facility.title}>
-                <span className="international-card-icon">
-                  <InternationalPatientsIcon name={facility.icon} />
-                </span>
                 <h3>{facility.title}</h3>
                 {isPopular ? <b>Popular</b> : null}
                 <p>{facility.text}</p>
@@ -137,9 +134,6 @@ export function InternationalPatientsPage() {
         <div className="international-program-grid">
           {internationalPrograms.map((program) => (
             <article className="international-program-card" key={program.title}>
-              <span className="international-card-icon">
-                <InternationalPatientsIcon name={program.icon} />
-              </span>
               <h3>{program.title}</h3>
               <p>{program.text}</p>
               <Image src={program.image} alt="" width={220} height={120} />
