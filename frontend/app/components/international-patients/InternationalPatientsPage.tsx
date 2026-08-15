@@ -1,15 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
   internationalFacilities,
   internationalFaqsList,
-  internationalHeroFeatures,
   internationalPrograms,
   internationalStats,
   internationalSupportItems,
 } from "./internationalPatientsData";
 import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
-import { InternationalStatCard } from "./InternationalStatCard";
 
 export function InternationalPatientsPage() {
   return (
@@ -171,94 +171,95 @@ export function InternationalPatientsPage() {
         </div>
       </section>
 
-      <section className="international-info-grid">
-        <article className="international-world-card">
-          <span className="international-eyebrow">Trusted By Patients Worldwide</span>
-          <h2>We welcome you</h2>
-          <p>Patients from around the world trust Susrutha Gramam for safe, effective and compassionate care.</p>
-          <div className="international-map" aria-hidden="true">
-            <InternationalPatientsIcon name="plane" />
+      <section className="international-enquiry-section" id="international-enquiry">
+        <div className="international-enquiry-grid">
+          <div className="international-support-box">
+            <div>
+              <h2 className="international-support-title">We are with you at every step</h2>
+            </div>
+
+            <div className="international-support-items-grid">
+              {internationalSupportItems.map((item) => (
+                <div className="international-support-card-item" key={item.title}>
+                  <InternationalPatientsIcon name={item.icon} />
+                  <h3>{item.title}</h3>
+                </div>
+              ))}
+            </div>
+
+            <div className="international-direct-help-card">
+              <h3>Need assistance planning your journey?</h3>
+              <p>Our dedicated international care coordinator will assist you with medical advice, stay details, and visa documents.</p>
+
+              <div className="international-direct-contact-list">
+                <div className="international-contact-row">
+                  <InternationalPatientsIcon name="phone" />
+                  <span>+91 98460 56736</span>
+                </div>
+                <div className="international-contact-row">
+                  <InternationalPatientsIcon name="mail" />
+                  <span>international@susruthaayurveda.com</span>
+                </div>
+                <div className="international-contact-row">
+                  <InternationalPatientsIcon name="chat" />
+                  <span>WhatsApp Support Available 24/7</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="international-world-stats">
-            {internationalStats.map((item) => (
-              <InternationalStatCard icon={item.icon} value={item.value} label={item.label} key={item.label} />
-            ))}
+
+          <div className="international-enquiry-form-card">
+            <h2>Plan Your Treatment Journey</h2>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <div className="international-form-grid">
+                <label className="international-form-field">
+                  <span>Full Name</span>
+                  <input type="text" name="name" placeholder="Enter your full name" required />
+                </label>
+
+                <label className="international-form-field">
+                  <span>Email Address</span>
+                  <input type="email" name="email" placeholder="Enter your email" required />
+                </label>
+
+                <label className="international-form-field">
+                  <span>Country</span>
+                  <select name="country" defaultValue="">
+                    <option value="" disabled>Select your country</option>
+                    <option>India</option>
+                    <option>United Arab Emirates</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Singapore</option>
+                    <option>Germany</option>
+                    <option>Australia</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+
+                <label className="international-form-field">
+                  <span>Phone / WhatsApp</span>
+                  <input type="tel" name="phone" placeholder="+91 Phone / WhatsApp" required />
+                </label>
+
+                <label className="international-form-field international-form-full">
+                  <span>Preferred Arrival Date</span>
+                  <input type="date" name="arrival" />
+                </label>
+
+                <label className="international-form-field international-form-full">
+                  <span>Medical Condition / Requirements</span>
+                  <textarea name="requirements" rows={4} placeholder="Briefly describe your health condition or treatment preferences" />
+                </label>
+              </div>
+
+              <button type="submit" className="international-form-submit-btn">
+                Submit Enquiry
+                <InternationalPatientsIcon name="plane" />
+              </button>
+            </form>
           </div>
-        </article>
-      </section>
-
-      <section className="international-enquiry" id="international-enquiry">
-        <aside className="international-support-list">
-          {internationalSupportItems.map((item) => (
-            <article key={item.title}>
-              <InternationalPatientsIcon name={item.icon} />
-              <h3>{item.title}</h3>
-            </article>
-          ))}
-        </aside>
-
-        <form className="international-enquiry-form">
-          <label>
-            <span>Full Name</span>
-            <input type="text" name="name" placeholder="Full Name" />
-          </label>
-          <label>
-            <span>Email Address</span>
-            <input type="email" name="email" placeholder="Email Address" />
-          </label>
-          <label>
-            <span>Country</span>
-            <select name="country" defaultValue="">
-              <option value="" disabled>
-                Country
-              </option>
-              <option>India</option>
-              <option>United Arab Emirates</option>
-              <option>United States</option>
-              <option>United Kingdom</option>
-              <option>Singapore</option>
-            </select>
-          </label>
-          <label>
-            <span>Phone / WhatsApp</span>
-            <input type="tel" name="phone" placeholder="+91    Phone / WhatsApp" />
-          </label>
-          <label>
-            <span>Preferred Date Of Arrival</span>
-            <input type="text" name="arrival" placeholder="Preferred Date Of Arrival" />
-          </label>
-          <label className="international-form-wide">
-            <span>Your Requirements</span>
-            <textarea name="requirements" placeholder="Your Requirements" />
-          </label>
-          <button type="button">
-            Submit Enquiry
-            <InternationalPatientsIcon name="plane" />
-          </button>
-        </form>
-
-        <aside className="international-help-card">
-          <h2>Need help planning your journey?</h2>
-          <p>Our team is here to guide you at every step of the way.</p>
-          <ul>
-            <li>
-              <InternationalPatientsIcon name="phone" />
-              +91 98460 56736
-            </li>
-            <li>
-              <InternationalPatientsIcon name="mail" />
-              international@susruthaayurveda.com
-            </li>
-            <li>
-              <InternationalPatientsIcon name="chat" />
-              WhatsApp Support Available
-            </li>
-          </ul>
-          <Link href="tel:+919846056736">
-            Call Us Now
-            <InternationalPatientsIcon name="phone" />
-          </Link>
-        </aside>
+        </div>
       </section>
     </div>
   );

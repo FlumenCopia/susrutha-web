@@ -19264,7 +19264,7 @@ body:has(.international-page) .international-page h2 {
   letter-spacing: 0;
 }
 
-body:has(.international-page) .international-page p:not(.conditions-hero-serene-quote):not(.international-program-card p) {
+body:has(.international-page) .international-page p:not(.conditions-hero-serene-quote):not(.international-program-card p):not(.international-direct-help-card p) {
   color: var(--international-muted) !important;
   font-size: 15px !important;
   line-height: 1.75 !important;
@@ -19941,6 +19941,210 @@ body:has(.international-page) .international-faq-answer {
   margin-top: -2px;
   margin-bottom: 22px;
   max-width: 860px;
+}
+
+/* Clean International Enquiry & Assistance Section */
+body:has(.international-page) .international-enquiry-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto 80px;
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+
+body:has(.international-page) .international-enquiry-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+body:has(.international-page) .international-support-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body:has(.international-page) .international-support-title {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(28px, 3.2vw, 38px) !important;
+  font-weight: 700;
+  color: #061d13 !important;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+body:has(.international-page) .international-support-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+body:has(.international-page) .international-support-card-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #ffffff;
+  border: 1px solid rgba(8, 47, 35, 0.10);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(6, 31, 22, 0.04);
+}
+
+body:has(.international-page) .international-support-card-item svg {
+  width: 24px;
+  height: 24px;
+  color: #003f24;
+}
+
+body:has(.international-page) .international-support-card-item h3 {
+  margin: 0;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #061d13 !important;
+  line-height: 1.35 !important;
+}
+
+body:has(.international-page) .international-direct-help-card {
+  padding: 28px 30px;
+  background: #ffffff;
+  border: 1px solid rgba(8, 47, 35, 0.10);
+  border-radius: 20px;
+  box-shadow: 0 14px 36px rgba(6, 31, 22, 0.07);
+}
+
+body:has(.international-page) .international-direct-help-card h3 {
+  margin-top: 0;
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: 24px !important;
+  font-weight: 700;
+  color: #061d13 !important;
+}
+
+body:has(.international-page) .international-direct-help-card p {
+  color: #3b4e45 !important;
+  font-size: 14px !important;
+  margin-bottom: 20px;
+}
+
+body:has(.international-page) .international-direct-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+body:has(.international-page) .international-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #061d13 !important;
+}
+
+body:has(.international-page) .international-contact-row svg {
+  width: 20px;
+  height: 20px;
+  color: #003f24;
+}
+
+body:has(.international-page) .international-enquiry-form-card {
+  padding: 36px 32px;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(8, 47, 35, 0.10);
+  box-shadow: 0 16px 44px rgba(6, 31, 22, 0.07);
+}
+
+body:has(.international-page) .international-enquiry-form-card h2 {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: 32px !important;
+  font-weight: 700;
+  color: #061d13 !important;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+body:has(.international-page) .international-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+body:has(.international-page) .international-form-full {
+  grid-column: span 2;
+}
+
+body:has(.international-page) .international-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+body:has(.international-page) .international-form-field span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #061d13;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+body:has(.international-page) .international-form-field input,
+body:has(.international-page) .international-form-field select,
+body:has(.international-page) .international-form-field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(8, 47, 35, 0.18);
+  background: #fffdf8;
+  font-size: 14px;
+  color: #061d13;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body:has(.international-page) .international-form-field input:focus,
+body:has(.international-page) .international-form-field select:focus,
+body:has(.international-page) .international-form-field textarea:focus {
+  border-color: #003f24;
+  box-shadow: 0 0 0 3px rgba(0, 63, 36, 0.12);
+}
+
+body:has(.international-page) .international-form-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #c69b4c, #a37a34);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(198, 155, 76, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+body:has(.international-page) .international-form-submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #d4a758, #b5893d);
+  box-shadow: 0 16px 36px rgba(198, 155, 76, 0.45);
+}
+
+@media (max-width: 900px) {
+  body:has(.international-page) .international-enquiry-grid {
+    grid-template-columns: 1fr;
+  }
+  body:has(.international-page) .international-form-grid {
+    grid-template-columns: 1fr;
+  }
+  body:has(.international-page) .international-form-full {
+    grid-column: span 1;
+  }
 }
 
 body:has(.international-page) .international-info-grid {
