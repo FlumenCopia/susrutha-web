@@ -20656,61 +20656,201 @@ body:has(.international-page) .international-help-card a {
   }
 }
 
-@media (max-width: 760px) {
-  body:has(.international-page) .international-hero-container {
-    padding: 84px 16px 36px !important;
+/* Mobile Responsive Overrides for International Patients Page */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .conditions-hero-serene {
+    min-height: auto !important;
+    padding: 105px 16px 28px !important;
   }
 
-  body:has(.international-page) .international-hero-left h1 {
-    font-size: clamp(34px, 9.5vw, 48px) !important;
+  .conditions-hero-serene-nav {
+    font-size: 11px !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 12px !important;
   }
 
-  body:has(.international-page) .international-hero-feature-cards {
-    grid-template-columns: 1fr !important;
+  .conditions-hero-serene-middle-wrapper {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
   }
 
-  body:has(.international-page) .international-hero-stats-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-    padding: 14px 18px;
+  .conditions-hero-serene-quote,
+  body:has(.international-page) .conditions-hero-serene-quote {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
   }
 
-  body:has(.international-page) .international-facility-grid,
-  body:has(.international-page) .international-program-grid,
-  body:has(.international-page) .international-world-stats,
-  body:has(.international-page) .international-enquiry-form {
-    grid-template-columns: 1fr !important;
-  }
-
-  body:has(.international-page) .international-facilities,
-  body:has(.international-page) .international-programs,
-  body:has(.international-page) .international-info-grid,
-  body:has(.international-page) .international-enquiry {
+  .conditions-hero-serene-right-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
     width: 100% !important;
-    padding-left: 14px;
-    padding-right: 14px;
+  }
+
+  .conditions-hero-stat-card {
+    padding: 10px 8px !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 6px !important;
+    border-radius: 12px !important;
+  }
+
+  .conditions-hero-stat-info strong {
+    font-size: 16px !important;
+  }
+
+  .conditions-hero-stat-info span {
+    font-size: 10px !important;
+  }
+
+  .conditions-hero-serene-title,
+  body:has(.international-page) .conditions-hero-serene-title {
+    font-size: clamp(24px, 6.5vw, 36px) !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+
+  /* Facilities Section */
+  body:has(.international-page) .international-facilities {
+    padding: 24px 16px 32px !important;
   }
 
   body:has(.international-page) .international-strip-head {
-    grid-template-columns: 1fr;
+    margin-bottom: 20px !important;
   }
 
-  body:has(.international-page) .international-strip-head button {
-    display: none;
+  body:has(.international-page) .international-strip-head h2 {
+    font-size: clamp(20px, 5.5vw, 28px) !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 
-  body:has(.international-page) .international-button,
-  body:has(.international-page) .international-enquiry-form button {
-    width: 100% !important;
+  body:has(.international-page) .international-facility-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 
-  body:has(.international-page) .international-form-wide {
-    grid-column: auto;
+  body:has(.international-page) .international-facility-card h3 {
+    font-size: 18px !important;
+    padding-right: 65px !important;
   }
 
-  body:has(.international-page) .international-map {
-    display: none;
+  /* Programs Banner */
+  body:has(.international-page) .international-programs-banner {
+    padding: 36px 16px !important;
+    margin: 32px 0 !important;
   }
 
+  body:has(.international-page) .international-programs-intro {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  body:has(.international-page) .international-programs-intro h2 {
+    font-size: clamp(22px, 5.5vw, 30px) !important;
+  }
+
+  body:has(.international-page) .international-program-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Welcome Banner */
+  body:has(.international-page) .international-welcome-banner {
+    padding: 44px 16px !important;
+    margin: 36px 0 !important;
+  }
+
+  body:has(.international-page) .international-welcome-title {
+    font-size: clamp(28px, 7vw, 42px) !important;
+    margin-top: 12px !important;
+  }
+
+  body:has(.international-page) .international-welcome-desc {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 28px !important;
+  }
+
+  body:has(.international-page) .international-welcome-stats-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  body:has(.international-page) .international-welcome-stat-card {
+    padding: 14px 18px !important;
+    justify-content: flex-start !important;
+  }
+
+  /* FAQ Section */
+  body:has(.international-page) .international-faq-section {
+    padding: 0 16px !important;
+    margin: 36px auto !important;
+  }
+
+  body:has(.international-page) .international-faq-container {
+    padding: 24px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  body:has(.international-page) .international-faq-main-title {
+    font-size: clamp(24px, 6vw, 32px) !important;
+    margin-bottom: 20px !important;
+  }
+
+  body:has(.international-page) .international-faq-summary {
+    padding: 16px 0 !important;
+  }
+
+  body:has(.international-page) .international-faq-question {
+    font-size: 15px !important;
+  }
+
+  /* Enquiry Section */
+  body:has(.international-page) .international-enquiry-section {
+    padding: 0 16px !important;
+    margin: 36px auto 60px !important;
+  }
+
+  body:has(.international-page) .international-enquiry-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  body:has(.international-page) .international-support-items-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  body:has(.international-page) .international-direct-help-card {
+    padding: 22px 20px !important;
+    border-radius: 16px !important;
+  }
+
+  body:has(.international-page) .international-enquiry-form-card {
+    padding: 24px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  body:has(.international-page) .international-enquiry-form-card h2 {
+    font-size: 24px !important;
+    margin-bottom: 18px !important;
+  }
+
+  body:has(.international-page) .international-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  body:has(.international-page) .international-form-full {
+    grid-column: span 1 !important;
+  }
 }
