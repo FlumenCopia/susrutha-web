@@ -21165,3 +21165,59 @@ body:has(.international-page) .international-help-card a {
     padding-left: 38px !important;
   }
 }
+
+/* Media Page Category Filters Mobile Touch Swiper */
+.media-categories {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-x pan-y !important;
+  overscroll-behavior-x: contain !important;
+  white-space: nowrap !important;
+  scrollbar-width: none !important;
+  cursor: grab !important;
+  user-select: none !important;
+  padding: 8px 12px !important;
+}
+
+.media-categories:active {
+  cursor: grabbing !important;
+}
+
+.media-categories::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.media-categories a {
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  padding: 9px 18px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  touch-action: pan-x pan-y !important;
+  user-select: none !important;
+  transition: all 0.25s ease !important;
+}
+
+@media (max-width: 768px) {
+  .media-categories {
+    position: relative !important;
+    top: auto !important;
+    width: calc(100% - 24px) !important;
+    margin: 16px auto 24px !important;
+    padding: 8px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+}
