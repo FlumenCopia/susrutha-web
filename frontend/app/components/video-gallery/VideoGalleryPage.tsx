@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import {
   continueWatchingData,
+  featuredVideosData,
   VideoCategory,
   VideoItem,
 } from "./videoGalleryData";
@@ -17,7 +18,7 @@ import { VideoModal } from "./VideoModal";
 import { getPublicVideos, getImageDisplayUrl } from "@/app/services/api";
 
 export function VideoGalleryPage() {
-  const [videoList, setVideoList] = useState<VideoItem[]>([]);
+  const [videoList, setVideoList] = useState<VideoItem[]>(featuredVideosData);
   const [loading, setLoading] = useState<boolean>(true);
   const [activeCategory, setActiveCategory] = useState<VideoCategory>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -59,11 +60,11 @@ export function VideoGalleryPage() {
           });
           setVideoList(normalized);
         } else {
-          setVideoList([]);
+          setVideoList(featuredVideosData);
         }
       } catch (err) {
         console.error("Failed to load live videos:", err);
-        setVideoList([]);
+        setVideoList(featuredVideosData);
       } finally {
         setLoading(false);
       }
@@ -91,15 +92,6 @@ export function VideoGalleryPage() {
 
     return list;
   }, [activeCategory, searchQuery, sortBy, videoList]);
-
-  if (!loading && videoList.length === 0) {
-    return (
-      <div className="vg-page-wrapper" style={{ padding: "80px 20px", textAlign: "center" }}>
-        <h2>Video Gallery</h2>
-        <p style={{ opacity: 0.7, marginTop: "12px" }}>No videos available in the gallery at this time.</p>
-      </div>
-    );
-  }
 
   const spotlightVideo = videoList[0] || null;
 
