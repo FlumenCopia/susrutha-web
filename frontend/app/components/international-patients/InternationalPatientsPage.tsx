@@ -111,27 +111,42 @@ export function InternationalPatientsPage() {
         </div>
       </section>
 
-      <section className="international-programs">
-        <div className="international-programs-intro">
-          <span className="international-eyebrow">Programs Designed For You</span>
-          <h2>Programs often chosen by travellers</h2>
-          <Link href="/packages">
-            View all programs
-            <InternationalPatientsIcon name="arrow" />
-          </Link>
-        </div>
+      <section className="international-programs-banner">
+        <Image
+          src="/images/banner_calm_retreat.jpg"
+          alt="Peaceful Kerala Ayurveda retreat environment"
+          fill
+          priority
+          sizes="100vw"
+          className="international-programs-bg"
+        />
+        <div className="international-programs-overlay" />
 
-        <div className="international-program-grid">
-          {internationalPrograms.map((program) => (
-            <article className="international-program-card" key={program.title}>
-              <h3>{program.title}</h3>
-              <p>{program.text}</p>
-              <Image src={program.image} alt="" width={220} height={120} />
-              <Link href="/packages" aria-label={`Explore ${program.title}`}>
-                <InternationalPatientsIcon name="arrow" />
-              </Link>
-            </article>
-          ))}
+        <div className="international-programs-content">
+          <div className="international-programs-intro">
+            {/* <span className="international-eyebrow">Programs Designed For You</span> */}
+            <h2>Programs often chosen by travellers</h2>
+            <Link href="/packages">
+              View all programs
+              <InternationalPatientsIcon name="arrow" />
+            </Link>
+          </div>
+
+          <div className="international-program-grid">
+            {internationalPrograms.map((program) => (
+              <article className="international-program-card" key={program.title}>
+                <div className="international-program-image">
+                  <Image src={program.image} alt={program.title} fill sizes="(max-width: 760px) 100vw, 25vw" />
+                </div>
+                <h3>{program.title}</h3>
+                <p>{program.text}</p>
+                <Link href="/packages" aria-label={`Explore ${program.title}`}>
+                  <span>Explore Program</span>
+                  <InternationalPatientsIcon name="arrow" />
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
