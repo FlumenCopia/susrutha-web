@@ -21078,18 +21078,24 @@ body:has(.international-page) .international-help-card a {
   .vg-filter-pills-track {
     display: flex !important;
     align-items: center !important;
-    overflow-x: scroll !important;
+    overflow-x: auto !important;
     overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    touch-action: pan-x !important;
+    scroll-behavior: smooth !important;
+    touch-action: pan-x pan-y !important;
     overscroll-behavior-x: contain !important;
     white-space: nowrap !important;
     width: 100% !important;
     min-width: 0 !important;
-    padding: 6px 6px 12px 6px !important;
+    padding: 6px 8px 12px 8px !important;
     gap: 8px !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
+    cursor: grab !important;
+    user-select: none !important;
+  }
+
+  .vg-filter-pills-track:active {
+    cursor: grabbing !important;
   }
 
   .vg-filter-pills-track::-webkit-scrollbar {
@@ -21100,13 +21106,12 @@ body:has(.international-page) .international-help-card a {
 
   .vg-filter-pill-deluxe {
     flex-shrink: 0 !important;
-    scroll-snap-align: start !important;
     padding: 8px 16px !important;
     font-size: 13px !important;
     height: 38px !important;
     border-radius: 9999px !important;
     user-select: none !important;
-    touch-action: manipulation !important;
+    touch-action: pan-x pan-y !important;
   }
 
   .vg-filter-controls-right {

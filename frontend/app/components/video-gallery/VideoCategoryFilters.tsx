@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { videoCategories, VideoCategory, featuredVideosData } from "./videoGalleryData";
 
 type VideoCategoryFiltersProps = {
@@ -19,16 +20,49 @@ export function VideoCategoryFilters({
   sortBy,
   onSortChange,
 }: VideoCategoryFiltersProps) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+
   const getCategoryCount = (category: VideoCategory) => {
     if (category === "All") return featuredVideosData.length;
     return featuredVideosData.filter((v) => v.category === category).length;
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!trackRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - trackRef.current.offsetLeft;
+    scrollLeftRef.current = trackRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current || !trackRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    trackRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isDraggingRef.current = false;
   };
 
   return (
     <div className="vg-filter-bar-wrapper">
       <div className="vg-filter-bar-deluxe">
         {/* Category Pills Track */}
-        <div className="vg-filter-pills-track" role="tablist" aria-label="Video Categories">
+        <div
+          ref={trackRef}
+          className="vg-filter-pills-track"
+          role="tablist"
+          aria-label="Video Categories"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          onMouseLeave={handleMouseUpOrLeave}
+        >
           {videoCategories.map((cat) => {
             const isActive = activeCategory === cat;
             const count = getCategoryCount(cat);
