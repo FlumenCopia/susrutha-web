@@ -21276,3 +21276,210 @@ body:has(.international-page) .international-help-card a {
   border-color: rgba(255, 255, 255, 0.4) !important;
   box-shadow: none !important;
 }
+
+/* Media Events Luxury Section System */
+.media-events-luxury {
+  padding: 80px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.media-events-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px;
+}
+
+.media-events-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(200, 155, 60, 0.12);
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  color: #c68922;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.media-events-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c68922;
+  box-shadow: 0 0 10px #c68922;
+}
+
+.media-events-title {
+  font-family: var(--font-garamond, "EB Garamond", serif);
+  font-size: clamp(28px, 3vw, 42px);
+  color: #061d13;
+  font-weight: 600;
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+
+.media-events-subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #52665a;
+}
+
+.media-events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.media-event-card-deluxe {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(8, 47, 35, 0.1);
+  box-shadow: 0 14px 40px rgba(6, 29, 19, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-event-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.media-event-img {
+  object-fit: cover !important;
+}
+
+.media-event-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.media-event-date-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 58px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.media-event-day {
+  font-size: 18px;
+  font-weight: 900;
+  color: #061d13;
+  line-height: 1;
+}
+
+.media-event-month {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #c68922;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.media-event-location-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(6, 29, 19, 0.75);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.media-event-location-tag svg {
+  width: 13px;
+  height: 13px;
+  stroke: #c68922;
+}
+
+.media-event-card-body {
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.media-event-card-title {
+  font-family: var(--font-garamond, "EB Garamond", serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: #061d13;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.media-event-card-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #52665a;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.media-event-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(8, 47, 35, 0.08);
+}
+
+.media-event-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #003f24;
+  text-decoration: none;
+}
+
+.media-event-cta-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 900px) {
+  .media-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .media-events-luxury {
+    padding: 48px 16px;
+  }
+
+  .media-events-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
