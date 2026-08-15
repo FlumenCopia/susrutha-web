@@ -19696,15 +19696,17 @@ body:has(.international-page) .international-programs-bg {
   object-fit: cover !important;
   object-position: center !important;
   z-index: 0;
+  filter: blur(5px);
+  transform: scale(1.04);
 }
 
 body:has(.international-page) .international-programs-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 body:has(.international-page) .international-programs-content {
