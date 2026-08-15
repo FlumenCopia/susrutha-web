@@ -1,71 +1,59 @@
-import Image from "next/image";
 import Link from "next/link";
 import { EcosystemIcon } from "./EcosystemIcon";
-import { ecosystemHighlights } from "./ecosystemData";
 
 export function EcosystemHero() {
   return (
-    <section className="ecosystem-hero">
-      <div className="ecosystem-hero-orbit" aria-hidden="true" />
-      <div className="ecosystem-hero-copy">
-        <span className="ecosystem-eyebrow">Ecosystem</span>
-        <h1>
-          Verticals beyond <em>a single hospital door</em>
-        </h1>
-        <p>
-          Pharma, diagnostics, nursing education, charitable work, corporate structure and remote consultation - each
-          with its own page.
-        </p>
-        <Link className="ecosystem-button" href="#ecosystem-verticals">
-          Explore our ecosystem
-          <EcosystemIcon name="arrow" />
-        </Link>
-        <div className="ecosystem-hero-mini-stats" aria-label="Ecosystem quick facts">
-          <span>
-            <strong>6</strong>
-            Verticals
-          </span>
-          <span>
-            <strong>30 km</strong>
-            Home reach
-          </span>
-          <span>
-            <strong>24x7</strong>
-            Care mindset
-          </span>
-        </div>
-      </div>
+    <section className="conditions-hero-serene" aria-labelledby="ecosystem-title">
+      <div
+        className="conditions-hero-serene-bg"
+        style={{ backgroundImage: `url('/images/hero-courtyard-ayurveda-v2.webp')` }}
+      />
+      <div className="conditions-hero-serene-overlay" />
 
-      <div className="ecosystem-hero-visual">
-        <Image
-          src="/images/about-purpose-still-life.webp"
-          alt="Ayurvedic mortar, herbs, oil, and therapy bundle"
-          fill
-          priority
-          sizes="(max-width: 900px) 100vw, 50vw"
-        />
-        <span className="ecosystem-hero-seal">
-          <EcosystemIcon name="integrated" />
-          Integrated Care
-        </span>
-        <div className="ecosystem-hero-floating-card">
-          <EcosystemIcon name="shield" />
-          <p>Clinical verticals working together with one care philosophy.</p>
-        </div>
-      </div>
+      <div className="conditions-hero-serene-content">
+        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+          <Link href="/">HOME</Link>
+          <span>/</span>
+          <span>ECOSYSTEM</span>
+        </nav>
 
-      <div className="ecosystem-hero-highlights">
-        {ecosystemHighlights.map((item) => (
-          <article key={item.title}>
-            <span>
-              <EcosystemIcon name={item.icon} />
-            </span>
-            <div>
-              <h2>{item.title}</h2>
-              <p>{item.text}</p>
+        <div className="conditions-hero-serene-middle-wrapper">
+          <div className="conditions-hero-serene-middle">
+            <p className="conditions-hero-serene-quote">
+              Pharma, diagnostics, nursing education, charitable work, corporate structure and remote consultation — clinical verticals working together with one care philosophy.
+            </p>
+          </div>
+
+          <div className="conditions-hero-serene-right-stats" aria-label="Ecosystem quick facts">
+            <div className="conditions-hero-stat-card">
+              <EcosystemIcon name="integrated" />
+              <div className="conditions-hero-stat-info">
+                <strong>6</strong>
+                <span>Verticals</span>
+              </div>
             </div>
-          </article>
-        ))}
+            <div className="conditions-hero-stat-card">
+              <EcosystemIcon name="home" />
+              <div className="conditions-hero-stat-info">
+                <strong>30 km</strong>
+                <span>Home reach</span>
+              </div>
+            </div>
+            <div className="conditions-hero-stat-card">
+              <EcosystemIcon name="spark" />
+              <div className="conditions-hero-stat-info">
+                <strong>24x7</strong>
+                <span>Care mindset</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="conditions-hero-serene-bottom">
+          <h1 id="ecosystem-title" className="conditions-hero-serene-title">
+            ECOSYSTEM
+          </h1>
+        </div>
       </div>
     </section>
   );
