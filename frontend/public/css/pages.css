@@ -4290,7 +4290,8 @@ body:has(.treatment-detail-reference) main {
   white-space: nowrap;
 }
 
-.conditions-hero-serene-quote {
+.conditions-hero-serene-quote,
+body:has(.international-page) .conditions-hero-serene-quote {
   font-size: clamp(15px, 1.4vw, 17px);
   line-height: 1.6;
   color: #ffffff !important;
@@ -4305,13 +4306,14 @@ body:has(.treatment-detail-reference) main {
   padding-top: 16px;
 }
 
-.conditions-hero-serene-title {
+.conditions-hero-serene-title,
+body:has(.international-page) .conditions-hero-serene-title {
   font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 5.4vw, 78px);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: 0.02em;
-  color: #ffffff;
+  color: #ffffff !important;
   margin: 0;
   text-transform: uppercase;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -19249,20 +19251,20 @@ body:has(.international-page) .international-page {
   color: var(--international-ink);
 }
 
-body:has(.international-page) .international-page h1,
+body:has(.international-page) .international-page h1:not(.conditions-hero-serene-title),
 body:has(.international-page) .international-page h2,
 body:has(.international-page) .international-page h3,
-body:has(.international-page) .international-page p {
+body:has(.international-page) .international-page p:not(.conditions-hero-serene-quote) {
   margin: 0;
 }
 
-body:has(.international-page) .international-page h1,
+body:has(.international-page) .international-page h1:not(.conditions-hero-serene-title),
 body:has(.international-page) .international-page h2 {
   font-weight: 500;
   letter-spacing: 0;
 }
 
-body:has(.international-page) .international-page p {
+body:has(.international-page) .international-page p:not(.conditions-hero-serene-quote) {
   color: var(--international-muted) !important;
   font-size: 15px !important;
   line-height: 1.75 !important;
