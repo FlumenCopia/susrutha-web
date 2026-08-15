@@ -19595,8 +19595,8 @@ body:has(.international-page) .international-strip-head button:first-child svg {
 
 body:has(.international-page) .international-facility-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 28px;
 }
 
 body:has(.international-page) .international-facility-card,
@@ -19607,97 +19607,106 @@ body:has(.international-page) .international-enquiry-form,
 body:has(.international-page) .international-help-card,
 body:has(.international-page) .international-support-list {
   border: 1px solid var(--international-line);
-  border-radius: 12px !important;
-  background: var(--international-card);
-  box-shadow: 0 16px 36px rgba(6, 31, 22, 0.08);
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  box-shadow: 0 14px 36px rgba(6, 31, 22, 0.07);
 }
 
 body:has(.international-page) .international-facility-card {
   position: relative;
-  display: grid;
-  align-content: start;
-  min-height: 405px;
-  padding: 22px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  padding: 28px 24px 22px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+body:has(.international-page) .international-facility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(6, 31, 22, 0.12);
 }
 
 body:has(.international-page) .international-card-icon {
-  width: 42px;
-  height: 42px;
+  display: none !important;
 }
 
-body:has(.international-page) .international-card-icon svg {
-  width: 22px;
-  height: 22px;
-}
-
-body:has(.international-page) .international-facility-card h3,
-body:has(.international-page) .international-program-card h3 {
-  margin-top: 18px;
+body:has(.international-page) .international-facility-card h3 {
+  margin-top: 0;
   color: var(--international-ink);
-  font-size: 13px !important;
-  font-weight: 900;
-  line-height: 1.35 !important;
+  font-size: 20px !important;
+  font-weight: 800;
+  line-height: 1.3 !important;
+  padding-right: 70px;
 }
 
 body:has(.international-page) .international-facility-card b {
   position: absolute;
-  left: 58px;
-  top: 29px;
-  padding: 5px 10px;
+  right: 20px;
+  top: 24px;
+  left: auto;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: var(--international-green);
+  background: #c69b4c;
   color: #ffffff;
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-body:has(.international-page) .international-facility-card p,
-body:has(.international-page) .international-program-card p {
-  margin-top: 18px;
-  color: var(--international-ink) !important;
-  font-size: 12px !important;
-  line-height: 1.75 !important;
+body:has(.international-page) .international-facility-card p {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  color: #3b4e45 !important;
+  font-size: 14px !important;
+  line-height: 1.65 !important;
 }
 
 body:has(.international-page) .international-facility-image {
   position: relative;
-  min-height: 145px;
+  width: 100%;
+  height: 190px;
+  min-height: 190px;
   margin-top: auto;
-  border-radius: 9px;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 body:has(.international-page) .international-facility-image img {
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+body:has(.international-page) .international-facility-card:hover .international-facility-image img {
+  transform: scale(1.05);
 }
 
 body:has(.international-page) .international-facility-card>a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 14px;
+  margin-top: 18px;
   color: var(--international-green);
-  font-size: 12px;
-  font-weight: 900;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
 }
 
-body:has(.international-page) .international-facility-card>a svg,
-body:has(.international-page) .international-program-card>a svg {
-  width: 28px;
-  height: 28px;
+body:has(.international-page) .international-facility-card>a svg {
+  width: 32px;
+  height: 32px;
   padding: 8px;
   border-radius: 999px;
   background: #eef4e7;
+  transition: transform 0.3s ease;
 }
 
-body:has(.international-page) .international-facility-card[data-popular="true"] {
-  background: #000a04;
+body:has(.international-page) .international-facility-card>a:hover svg {
+  transform: translateX(4px);
 }
 
-body:has(.international-page) .international-facility-card[data-popular="true"] h3,
-body:has(.international-page) .international-facility-card[data-popular="true"] p,
-body:has(.international-page) .international-facility-card[data-popular="true"] a {
-  color: #ffffff !important;
-}
+
 
 body:has(.international-page) .international-programs {
   display: grid;
@@ -20123,7 +20132,7 @@ body:has(.international-page) .international-help-card a {
   }
 
   body:has(.international-page) .international-facility-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   body:has(.international-page) .international-program-grid {
