@@ -11,17 +11,6 @@ type VideoCategoryFiltersProps = {
   onSortChange: (sort: string) => void;
 };
 
-const categoryIcons: Record<VideoCategory, string> = {
-  All: "🌿",
-  Panchakarma: "🌱",
-  Abhyanga: "💆",
-  Shirodhara: "💧",
-  "Yoga & Wellness": "🧘",
-  "Herbal Therapies": "🍵",
-  "Diet & Nutrition": "🥗",
-  Lifestyle: "✨",
-};
-
 export function VideoCategoryFilters({
   activeCategory,
   onSelectCategory,
@@ -43,7 +32,6 @@ export function VideoCategoryFilters({
           {videoCategories.map((cat) => {
             const isActive = activeCategory === cat;
             const count = getCategoryCount(cat);
-            const icon = categoryIcons[cat];
             return (
               <button
                 key={cat}
@@ -53,7 +41,6 @@ export function VideoCategoryFilters({
                 className={`vg-filter-pill-deluxe ${isActive ? "active" : ""}`}
                 onClick={() => onSelectCategory(cat)}
               >
-                <span className="vg-cat-icon" aria-hidden="true">{icon}</span>
                 <span>{cat}</span>
                 <span className="vg-pill-count">{count}</span>
               </button>
