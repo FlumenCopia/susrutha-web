@@ -19169,7 +19169,7 @@ body:has(.international-page) .international-page {
   --international-card: rgba(255, 255, 255, 0.93);
   position: relative;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 0;
   background:
     radial-gradient(circle at 14% 28%, rgba(198, 155, 76, 0.08), transparent 19%),
     linear-gradient(180deg, #fffdf8 0%, #fbf8ef 100%);
@@ -19240,186 +19240,220 @@ body:has(.international-page) .international-button span {
   place-items: center;
 }
 
-body:has(.international-page) .international-hero {
+/* International Hero Banner with Transparent Glass Overlay */
+body:has(.international-page) .international-hero-banner {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(420px, 0.85fr) minmax(560px, 1.15fr) !important;
-  align-items: center;
-  gap: clamp(24px, 3vw, 54px);
   width: 100%;
-  min-height: 450px !important;
-  padding: 58px clamp(40px, 6vw, 86px) 34px !important;
-  border-bottom: 1px solid rgba(8, 47, 35, 0.11);
-  background:
-    radial-gradient(circle at 6% 13%, rgba(0, 63, 36, 0.05), transparent 17%),
-    #fffdf8;
+  min-height: clamp(560px, 70vh, 720px) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(8, 47, 35, 0.15);
+  background: #061d13;
+  color: #ffffff;
 }
 
-body:has(.international-page) .international-leaf-trace {
+body:has(.international-page) .international-hero-bg {
+  object-fit: cover !important;
+  object-position: center !important;
+  z-index: 0;
+}
+
+body:has(.international-page) .international-hero-overlay {
   position: absolute;
-  left: -42px;
-  top: 96px;
-  width: 110px;
-  height: 90px;
-  opacity: 0.28;
-  background: url("/images/about-purpose-vision-plant.webp") center / contain no-repeat;
-  pointer-events: none;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(3, 24, 15, 0.86) 0%,
+    rgba(6, 35, 23, 0.74) 50%,
+    rgba(3, 24, 15, 0.90) 100%
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-body:has(.international-page) .international-flight-line {
-  position: absolute;
-  left: 42%;
-  top: 100px;
-  z-index: 2;
-  color: var(--international-green);
-}
-
-body:has(.international-page) .international-flight-line::before {
-  content: "";
-  position: absolute;
-  right: 18px;
-  top: 18px;
-  width: 190px;
-  height: 74px;
-  border-bottom: 1px dashed rgba(0, 63, 36, 0.35);
-  border-radius: 0 0 100% 100%;
-  transform: rotate(8deg);
-}
-
-body:has(.international-page) .international-flight-line svg {
+body:has(.international-page) .international-hero-container {
   position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(90px, 11vw, 130px) clamp(24px, 5vw, 60px) clamp(48px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(32px, 4vw, 64px);
+}
+
+/* Left Side Content */
+body:has(.international-page) .international-hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+body:has(.international-page) .international-hero-left .international-eyebrow {
+  color: #e5be75;
+  background: rgba(229, 190, 117, 0.12);
+  border: 1px solid rgba(229, 190, 117, 0.35);
+  padding: 8px 22px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+body:has(.international-page) .international-hero-left .international-eyebrow::before {
+  border-color: #e5be75;
+}
+
+body:has(.international-page) .international-hero-left h1 {
+  margin-top: 22px;
+  color: #ffffff !important;
+  font-size: clamp(42px, 4.4vw, 70px) !important;
+  line-height: 1.05 !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+body:has(.international-page) .international-hero-left h1 em {
+  color: #f1c778;
+  font-style: italic;
+  font-weight: 400;
+}
+
+body:has(.international-page) .international-hero-left p {
+  max-width: 600px;
+  margin: 20px 0 0 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: clamp(15px, 1.3vw, 18px) !important;
+  line-height: 1.7 !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.international-page) .international-hero-actions {
+  margin-top: 32px;
+}
+
+body:has(.international-page) .international-hero-banner .international-button {
+  background: linear-gradient(135deg, #d8ab57, #ba8c38);
+  color: #061d13;
+  font-weight: 850;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body:has(.international-page) .international-hero-banner .international-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(216, 171, 87, 0.4);
+}
+
+/* Left Stats Row */
+body:has(.international-page) .international-hero-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+  margin-top: 40px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+body:has(.international-page) .international-hero-stats-row .international-stat-card {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 2px 6px;
+  min-height: auto;
+}
+
+body:has(.international-page) .international-hero-stats-row .international-stat-card svg {
+  color: #f1c778;
+  background: rgba(241, 199, 120, 0.15);
+  border: 1px solid rgba(241, 199, 120, 0.3);
   width: 40px;
   height: 40px;
-  transform: rotate(-18deg);
-}
-
-body:has(.international-page) .international-hero-copy {
-  position: relative;
-  z-index: 3;
-  max-width: 610px;
-}
-
-body:has(.international-page) .international-hero h1 {
-  margin-top: 24px;
-  color: #0b100c;
-  font-size: clamp(52px, 4.6vw, 78px) !important;
-  line-height: 0.98 !important;
-}
-
-body:has(.international-page) .international-hero h1 em {
-  color: var(--international-green);
-}
-
-body:has(.international-page) .international-hero p {
-  max-width: 560px;
-  margin-top: 24px;
-}
-
-body:has(.international-page) .international-hero-features {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 18px;
-  margin-top: 38px;
-}
-
-body:has(.international-page) .international-hero-features article {
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
-  align-items: center;
-  gap: 10px;
-}
-
-body:has(.international-page) .international-hero-features span,
-body:has(.international-page) .international-card-icon {
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(0, 63, 36, 0.14);
+  padding: 9px;
   border-radius: 999px;
-  background: #f7f8ed;
-  color: var(--international-green);
 }
 
-body:has(.international-page) .international-hero-features span {
-  width: 44px;
-  height: 44px;
-}
-
-body:has(.international-page) .international-hero-features svg {
-  width: 24px;
-  height: 24px;
-}
-
-body:has(.international-page) .international-hero-features h2 {
-  color: var(--international-ink);
-  font-size: 11px !important;
-  font-weight: 800;
-  line-height: 1.35 !important;
-}
-
-body:has(.international-page) .international-hero .international-button {
-  margin-top: 34px;
-}
-
-body:has(.international-page) .international-hero-visual {
-  position: relative;
-  z-index: 1;
-  min-height: 430px !important;
-  border-left: 12px solid var(--international-green);
-  border-radius: 52% 0 0 52%;
-  box-shadow: -20px 22px 60px rgba(6, 31, 22, 0.18);
-}
-
-body:has(.international-page) .international-hero-visual img {
-  object-fit: cover;
-  object-position: center;
-}
-
-body:has(.international-page) .international-stat-stack {
-  position: absolute;
-  right: 22px;
-  top: 50%;
-  z-index: 3;
-  display: grid;
-  gap: 22px;
-  width: 210px;
-  transform: translateY(-50%);
-}
-
-body:has(.international-page) .international-stat-card,
-body:has(.international-page) .international-stat-stack article {
-  display: grid !important;
-  grid-template-columns: 54px minmax(0, 1fr) !important;
-  align-items: center;
-  gap: 14px;
-  min-height: 80px;
-  padding: 14px 18px;
-  border: 1px solid rgba(8, 47, 35, 0.12);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 18px 36px rgba(6, 31, 22, 0.15);
-}
-
-body:has(.international-page) .international-stat-card svg {
-  grid-row: span 2;
-  width: 48px;
-  height: 48px;
-  padding: 12px;
-  border-radius: 999px;
-  background: #f5f6e9;
-  color: var(--international-green);
-}
-
-body:has(.international-page) .international-stat-card strong {
-  color: var(--international-ink);
-  font-size: 27px;
+body:has(.international-page) .international-hero-stats-row .international-stat-card strong {
+  color: #ffffff;
+  font-size: 24px;
   font-weight: 800;
   line-height: 1;
 }
 
-body:has(.international-page) .international-stat-card span {
-  color: #23362e;
+body:has(.international-page) .international-hero-stats-row .international-stat-card span {
+  color: rgba(255, 255, 255, 0.85);
   font-size: 12px;
-  font-weight: 650;
+  font-weight: 600;
+}
+
+/* Right Side Feature Icons Grid */
+body:has(.international-page) .international-hero-right {
+  width: 100%;
+}
+
+body:has(.international-page) .international-hero-feature-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body:has(.international-page) .international-glass-feature-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.20);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+body:has(.international-page) .international-glass-feature-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(241, 199, 120, 0.45);
+}
+
+body:has(.international-page) .international-feature-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(241, 199, 120, 0.25), rgba(186, 140, 56, 0.20));
+  border: 1px solid rgba(241, 199, 120, 0.4);
+  color: #f1c778;
+}
+
+body:has(.international-page) .international-feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+body:has(.international-page) .international-feature-text h3 {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+  line-height: 1.35 !important;
 }
 
 body:has(.international-page) .international-facilities,
@@ -19999,22 +20033,18 @@ body:has(.international-page) .international-help-card a {
   font-weight: 900;
 }
 
-@media (max-width: 1180px) {
-  body:has(.international-page) .international-page {
-    padding-top: 96px;
+@media (max-width: 1024px) {
+  body:has(.international-page) .international-hero-container {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    padding-top: 100px;
   }
 
-  body:has(.international-page) .international-hero,
+  body:has(.international-page) .international-facilities,
   body:has(.international-page) .international-programs,
   body:has(.international-page) .international-info-grid,
   body:has(.international-page) .international-enquiry {
     grid-template-columns: 1fr !important;
-  }
-
-  body:has(.international-page) .international-hero-visual {
-    min-height: 360px !important;
-    border: 1px solid var(--international-line);
-    border-radius: 22px !important;
   }
 
   body:has(.international-page) .international-facility-grid {
@@ -20027,37 +20057,33 @@ body:has(.international-page) .international-help-card a {
     grid-column: auto;
     gap: 18px;
   }
-
 }
 
 @media (max-width: 760px) {
-  body:has(.international-page) .international-page {
-    padding-top: 86px;
+  body:has(.international-page) .international-hero-container {
+    padding: 84px 16px 36px !important;
   }
 
-  body:has(.international-page) .international-hero {
-    padding: 42px 16px 26px !important;
+  body:has(.international-page) .international-hero-left h1 {
+    font-size: clamp(34px, 9.5vw, 48px) !important;
   }
 
-  body:has(.international-page) .international-hero h1 {
-    font-size: clamp(38px, 12vw, 54px) !important;
+  body:has(.international-page) .international-hero-feature-cards {
+    grid-template-columns: 1fr !important;
   }
 
-  body:has(.international-page) .international-hero-features,
+  body:has(.international-page) .international-hero-stats-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 14px 18px;
+  }
+
   body:has(.international-page) .international-facility-grid,
   body:has(.international-page) .international-program-grid,
   body:has(.international-page) .international-world-stats,
   body:has(.international-page) .international-enquiry-form {
     grid-template-columns: 1fr !important;
-  }
-
-  body:has(.international-page) .international-stat-stack {
-    position: relative;
-    right: auto;
-    top: auto;
-    width: auto;
-    margin: 18px;
-    transform: none;
   }
 
   body:has(.international-page) .international-facilities,

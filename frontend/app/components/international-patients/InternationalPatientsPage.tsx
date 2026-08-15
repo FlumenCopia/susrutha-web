@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   internationalFacilities,
   internationalFaqs,
-  internationalHeroFeatures,
   internationalPrograms,
   internationalStats,
   internationalSupportItems,
@@ -14,57 +13,31 @@ import { InternationalStatCard } from "./InternationalStatCard";
 export function InternationalPatientsPage() {
   return (
     <div className="international-page">
+      <section className="conditions-hero-serene" aria-labelledby="international-patients-title">
+        <div
+          className="conditions-hero-serene-bg"
+          style={{ backgroundImage: `url('/images/ayurveda-village-path.webp')` }}
+        />
+        <div className="conditions-hero-serene-overlay" />
 
-      
-      <section className="international-hero">
-        <div className="international-leaf-trace" aria-hidden="true" />
-        <div className="international-flight-line" aria-hidden="true">
-          <InternationalPatientsIcon name="plane" />
-        </div>
+        <div className="conditions-hero-serene-content">
+          <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+            <Link href="/">HOME</Link>
+            <span>/</span>
+            <span>INTERNATIONAL PATIENTS</span>
+          </nav>
 
-        <div className="international-hero-copy">
-          <span className="international-eyebrow">International Patients</span>
-          <h1>
-            Rooted in <em>Ayurveda.</em>
-            <br />
-            Trusted by <em>the world.</em>
-          </h1>
-          <p>
-            At Susrutha Ayurveda Gramam, we welcome patients from around the world to experience authentic Kerala
-            Ayurveda with personalized care, modern facilities and a healing environment.
-          </p>
-
-          <div className="international-hero-features">
-            {internationalHeroFeatures.map((item) => (
-              <article key={item.title}>
-                <span>
-                  <InternationalPatientsIcon name={item.icon} />
-                </span>
-                <h2>{item.title}</h2>
-              </article>
-            ))}
+          <div className="conditions-hero-serene-middle">
+            <p className="conditions-hero-serene-quote">
+              At Susrutha Ayurveda Gramam, we welcome patients from around the world to experience authentic Kerala
+              Ayurveda with personalized care, modern facilities, and a tranquil healing environment.
+            </p>
           </div>
 
-          <Link className="international-button" href="#international-enquiry">
-            Enquire for your journey
-            <span>
-              <InternationalPatientsIcon name="plane" />
-            </span>
-          </Link>
-        </div>
-
-        <div className="international-hero-visual">
-          <Image
-            src="/images/ayurveda-village-path.webp"
-            alt="Traditional Kerala Ayurveda Gramam cottages in a peaceful garden"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 58vw"
-          />
-          <div className="international-stat-stack" aria-label="International patient statistics">
-            {internationalStats.map((item) => (
-              <InternationalStatCard icon={item.icon} value={item.value} label={item.label} key={item.label} />
-            ))}
+          <div className="conditions-hero-serene-bottom">
+            <h1 id="international-patients-title" className="conditions-hero-serene-title">
+              INTERNATIONAL PATIENTS
+            </h1>
           </div>
         </div>
       </section>
