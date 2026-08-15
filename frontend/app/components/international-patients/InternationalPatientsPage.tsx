@@ -151,6 +151,8 @@ export function InternationalPatientsPage() {
         </div>
       </section>
 
+
+
       <section className="international-faq-section" aria-labelledby="faq-section-title">
         <div className="international-faq-container">
           <h2 id="faq-section-title" className="international-faq-main-title">
@@ -170,7 +172,41 @@ export function InternationalPatientsPage() {
           </div>
         </div>
       </section>
+      <section className="international-welcome-banner" aria-labelledby="international-welcome-title">
+        <Image
+          src="/images/about-susrutha-wellness.webp"
+          alt="Susrutha Gramam lotus courtyard background"
+          fill
+          priority
+          sizes="100vw"
+          className="international-welcome-bg"
+        />
+        <div className="international-welcome-overlay" />
 
+        <div className="international-welcome-content">
+          <span className="international-welcome-eyebrow">Trusted By Patients Worldwide</span>
+          <h2 id="international-welcome-title" className="international-welcome-title">
+            We welcome you
+          </h2>
+          <p className="international-welcome-desc">
+            Patients from around the world trust Susrutha Gramam for safe, effective and compassionate care.
+          </p>
+
+          <div className="international-welcome-stats-row">
+            {internationalStats.map((item) => (
+              <div className="international-welcome-stat-card" key={item.label}>
+                <span className="international-welcome-stat-icon">
+                  <InternationalPatientsIcon name={item.icon} />
+                </span>
+                <div className="international-welcome-stat-info">
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="international-enquiry-section" id="international-enquiry">
         <div className="international-enquiry-grid">
           <div className="international-support-box">

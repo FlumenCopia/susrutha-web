@@ -20135,6 +20135,150 @@ body:has(.international-page) .international-form-submit-btn:hover {
   box-shadow: 0 16px 36px rgba(198, 155, 76, 0.45);
 }
 
+/* Full-bleed Welcome Banner with Lotus Background & Stats Overlay */
+body:has(.international-page) .international-welcome-banner {
+  position: relative;
+  width: 100%;
+  padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 64px);
+  margin: 60px 0;
+  overflow: hidden;
+  color: #ffffff !important;
+  text-align: center;
+}
+
+body:has(.international-page) .international-welcome-bg {
+  object-fit: cover !important;
+  object-position: center !important;
+  z-index: 0;
+}
+
+body:has(.international-page) .international-welcome-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 26, 17, 0.78) 0%,
+    rgba(0, 15, 8, 0.70) 50%,
+    rgba(5, 26, 17, 0.82) 100%
+  );
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+body:has(.international-page) .international-welcome-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+body:has(.international-page) .international-welcome-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #e5be75;
+  background: rgba(229, 190, 117, 0.14);
+  border: 1px solid rgba(229, 190, 117, 0.38);
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+body:has(.international-page) .international-welcome-title {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(36px, 4.8vw, 60px) !important;
+  font-weight: 400;
+  color: #ffffff !important;
+  margin-top: 18px;
+  margin-bottom: 14px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body:has(.international-page) .international-welcome-desc {
+  max-width: 620px;
+  font-size: clamp(15px, 1.2vw, 18px) !important;
+  line-height: 1.65 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  margin-top: 0;
+  margin-bottom: 44px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body:has(.international-page) .international-welcome-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 960px;
+}
+
+body:has(.international-page) .international-welcome-stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+body:has(.international-page) .international-welcome-stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(247, 165, 26, 0.5);
+}
+
+body:has(.international-page) .international-welcome-stat-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 14px;
+  background: rgba(247, 165, 26, 0.22);
+  border: 1px solid rgba(247, 165, 26, 0.4);
+  color: #f7a51a;
+}
+
+body:has(.international-page) .international-welcome-stat-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+body:has(.international-page) .international-welcome-stat-info strong {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 800;
+  line-height: 1;
+  text-align: left;
+}
+
+body:has(.international-page) .international-welcome-stat-info span {
+  display: block;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+  white-space: nowrap;
+  text-align: left;
+}
+
 @media (max-width: 900px) {
   body:has(.international-page) .international-enquiry-grid {
     grid-template-columns: 1fr;
