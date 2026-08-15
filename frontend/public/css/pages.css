@@ -19264,7 +19264,7 @@ body:has(.international-page) .international-page h2 {
   letter-spacing: 0;
 }
 
-body:has(.international-page) .international-page p:not(.conditions-hero-serene-quote) {
+body:has(.international-page) .international-page p:not(.conditions-hero-serene-quote):not(.international-program-card p) {
   color: var(--international-muted) !important;
   font-size: 15px !important;
   line-height: 1.75 !important;
@@ -19760,20 +19760,21 @@ body:has(.international-page) .international-program-card {
   flex-direction: column;
   justify-content: space-between;
   min-height: 380px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.10) !important;
-  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  padding: 22px 20px 20px;
+  background: rgba(255, 255, 255, 0.16) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
   border-radius: 20px !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
 
 body:has(.international-page) .international-program-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: rgba(247, 165, 26, 0.45) !important;
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(247, 165, 26, 0.6) !important;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
 }
 
 body:has(.international-page) .international-program-image {
@@ -19783,6 +19784,7 @@ body:has(.international-page) .international-program-image {
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 body:has(.international-page) .international-program-image img {
@@ -19797,17 +19799,20 @@ body:has(.international-page) .international-program-card:hover .international-p
 body:has(.international-page) .international-program-card h3 {
   margin-top: 0;
   color: #ffffff !important;
-  font-size: 19px !important;
+  font-size: 20px !important;
   font-weight: 800;
   line-height: 1.3 !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 body:has(.international-page) .international-program-card p {
   margin-top: 10px;
   margin-bottom: 16px;
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: #ffffff !important;
   font-size: 13.5px !important;
+  font-weight: 400 !important;
   line-height: 1.6 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 body:has(.international-page) .international-program-card>a {
