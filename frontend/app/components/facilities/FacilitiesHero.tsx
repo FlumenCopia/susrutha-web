@@ -1,48 +1,47 @@
-import Image from "next/image";
 import Link from "next/link";
 import { facilityHeroStats } from "./facilitiesData";
 import { FacilitiesIcon } from "./FacilitiesIcon";
 
 export function FacilitiesHero() {
   return (
-    <section className="facilities-hero">
-      <div className="facilities-hero-copy">
-        <span className="facilities-eyebrow">Facilities</span>
-        <h1>
-          Hospital facilities.
-          <em>Care made comfortable.</em>
-        </h1>
-        <p>Treatment rooms, inpatient spaces, yoga, physiotherapy, pharmacy, and patient amenities.</p>
-        <div className="facilities-hero-badges">
-          {["Panchakarma Rooms", "Inpatient Rooms", "Physiotherapy Unit", "Yoga Hall"].map((item) => (
-            <span key={item}>
-              <FacilitiesIcon name="shield" />
-              {item}
-            </span>
-          ))}
-        </div>
-        <Link className="facilities-button" href="/contact-us">
-          Ask about facilities
-          <FacilitiesIcon name="arrow" />
-        </Link>
-      </div>
+    <section className="conditions-hero-serene" aria-labelledby="facilities-title">
+      <div
+        className="conditions-hero-serene-bg"
+        style={{ backgroundImage: `url('/images/ayurveda-hospital-garden.webp')` }}
+      />
+      <div className="conditions-hero-serene-overlay" />
 
-      <div className="facilities-hero-visual">
-        <Image
-          src="/images/ayurveda-hospital-garden.webp"
-          alt="Susrutha Ayurveda hospital garden and care environment"
-          fill
-          priority
-          sizes="(max-width: 900px) 100vw, 58vw"
-        />
-        <div className="facilities-stat-stack">
-          {facilityHeroStats.map((stat) => (
-            <article key={stat.label}>
-              <FacilitiesIcon name={stat.icon} />
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </article>
-          ))}
+      <div className="conditions-hero-serene-content">
+        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+          <Link href="/">HOME</Link>
+          <span>/</span>
+          <span>FACILITIES</span>
+        </nav>
+
+        <div className="conditions-hero-serene-middle-wrapper">
+          <div className="conditions-hero-serene-middle">
+            <p className="conditions-hero-serene-quote">
+              Treatment rooms, inpatient spaces, yoga, physiotherapy, pharmacy, and patient amenities designed for classical Kerala healing and absolute comfort.
+            </p>
+          </div>
+
+          <div className="conditions-hero-serene-right-stats" aria-label="Facilities quick facts">
+            {facilityHeroStats.map((stat) => (
+              <div key={stat.label} className="conditions-hero-stat-card">
+                <FacilitiesIcon name={stat.icon} />
+                <div className="conditions-hero-stat-info">
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="conditions-hero-serene-bottom">
+          <h1 id="facilities-title" className="conditions-hero-serene-title">
+            FACILITIES
+          </h1>
         </div>
       </div>
     </section>

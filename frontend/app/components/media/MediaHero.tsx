@@ -1,23 +1,56 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowIcon, PlayIcon } from "./MediaIcons";
 
 export function MediaHero() {
   return (
-    <section className="media-hero" aria-labelledby="media-title">
-      <Image src="/images/about-hero-ayurveda-still-life.webp" alt="" fill priority sizes="100vw" />
-      <div className="media-hero-glow" aria-hidden="true" />
-      <div className="media-hero-copy">
-        <span>Susrutha Media</span>
-        <h1 id="media-title">Stories from our Ayurveda hospital, care spaces, and healing traditions.</h1>
-        <p>Explore videos, photos, press notes, and events from Susrutha Ayurveda in a calm visual archive.</p>
-        <div>
-          <Link href="#media-gallery">Explore media <ArrowIcon /></Link>
-          <Link href="#video-showcase"><PlayIcon /> Watch films</Link>
+    <section className="conditions-hero-serene" aria-labelledby="media-title">
+      <div
+        className="conditions-hero-serene-bg"
+        style={{ backgroundImage: `url('/images/about-hero-ayurveda-still-life.webp')` }}
+      />
+      <div className="conditions-hero-serene-overlay" />
+
+      <div className="conditions-hero-serene-content">
+        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+          <Link href="/">HOME</Link>
+          <span>/</span>
+          <span>MEDIA & GALLERY</span>
+        </nav>
+
+        <div className="conditions-hero-serene-middle-wrapper">
+          <div className="conditions-hero-serene-middle">
+            <p className="conditions-hero-serene-quote">
+              Stories from our Ayurveda hospital, care spaces, and healing traditions — explore videos, photos, press notes, and events in a calm visual archive.
+            </p>
+          </div>
+
+          <div className="conditions-hero-serene-right-stats" aria-label="Media quick facts">
+            <div className="conditions-hero-stat-card">
+              <div className="conditions-hero-stat-info">
+                <strong>1986</strong>
+                <span>Legacy</span>
+              </div>
+            </div>
+            <div className="conditions-hero-stat-card">
+              <div className="conditions-hero-stat-info">
+                <strong>100+</strong>
+                <span>Media Stories</span>
+              </div>
+            </div>
+            <div className="conditions-hero-stat-card">
+              <div className="conditions-hero-stat-info">
+                <strong>Kerala</strong>
+                <span>Tradition</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="conditions-hero-serene-bottom">
+          <h1 id="media-title" className="conditions-hero-serene-title">
+            MEDIA & GALLERY
+          </h1>
         </div>
       </div>
-      <div className="media-hero-float media-hero-float-one">Videos / Photos / Press</div>
-      <div className="media-hero-float media-hero-float-two">Since 1986</div>
     </section>
   );
 }

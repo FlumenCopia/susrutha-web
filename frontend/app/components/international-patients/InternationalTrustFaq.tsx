@@ -1,4 +1,4 @@
-import { internationalFaqs, internationalStats } from "./internationalPatientsData";
+import { internationalFaqsList, internationalStats } from "./internationalPatientsData";
 import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
 import { InternationalStatCard } from "./InternationalStatCard";
 
@@ -8,13 +8,13 @@ export function InternationalTrustFaq() {
       <article className="international-faq-card">
         <span className="international-eyebrow">FAQs For International Guests</span>
         <div className="international-faq-list">
-          {internationalFaqs.map((question) => (
-            <details key={question}>
+          {internationalFaqsList.map((faq) => (
+            <details key={faq.q}>
               <summary>
-                {question}
+                {faq.q}
                 <span aria-hidden="true">+</span>
               </summary>
-              <p>Our care team will guide you with clear details based on your treatment plan and travel needs.</p>
+              <p>{faq.a}</p>
             </details>
           ))}
         </div>

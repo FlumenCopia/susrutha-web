@@ -4297,13 +4297,18 @@ body:has(.treatment-detail-reference) main {
 .conditions-hero-serene-quote,
 body:has(.international-page) .conditions-hero-serene-quote,
 body:has(.ecosystem-page) .conditions-hero-serene-quote,
-.ecosystem-page .conditions-hero-serene-quote {
+body:has(.facilities-page) .conditions-hero-serene-quote,
+body:has(.media-page) .conditions-hero-serene-quote,
+body:has(.vg-page-wrapper) .conditions-hero-serene-quote,
+.ecosystem-page .conditions-hero-serene-quote,
+.facilities-page .conditions-hero-serene-quote,
+.media-page .conditions-hero-serene-quote {
   font-size: clamp(15px, 1.4vw, 17px);
   line-height: 1.6;
   color: #ffffff !important;
   margin: 0;
   font-weight: 400;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
 }
 
 .conditions-hero-serene-bottom {
@@ -4313,16 +4318,20 @@ body:has(.ecosystem-page) .conditions-hero-serene-quote,
 }
 
 .conditions-hero-serene-title,
-body:has(.international-page) .conditions-hero-serene-title {
+body:has(.international-page) .conditions-hero-serene-title,
+body:has(.ecosystem-page) .conditions-hero-serene-title,
+body:has(.facilities-page) .conditions-hero-serene-title,
+body:has(.media-page) .conditions-hero-serene-title,
+body:has(.vg-page-wrapper) .conditions-hero-serene-title {
   font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 5.4vw, 78px);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: 0.02em;
   color: #ffffff !important;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8) !important;
   margin: 0;
   text-transform: uppercase;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 900px) {

@@ -40,7 +40,7 @@ export function EcosystemHero() {
               </div>
             </div>
             <div className="conditions-hero-stat-card">
-              <EcosystemIcon name="spark" />
+              <EcosystemIcon name="leaf" />
               <div className="conditions-hero-stat-info">
                 <strong>24x7</strong>
                 <span>Care mindset</span>
