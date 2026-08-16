@@ -1885,7 +1885,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   margin-top: 43px;
   padding: 0 11px 0 33px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #000a04 0%, #000a04 100%);
+  background: #c88922;
   color: #ffffff;
   font-size: clamp(15px, 0.94vw, 18px);
   font-weight: 600;
@@ -3227,7 +3227,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   min-height: 54px;
   padding: 0 9px 0 25px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #000a04 0%, #000a04 100%);
+  background: #c88922;
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
@@ -8991,7 +8991,7 @@ label {
   min-height: 58px;
   border: 0;
   border-radius: 7px;
-  background: linear-gradient(135deg, #000a04, #000a04);
+  background: #c88922 !important;
   color: #ffffff !important;
   box-shadow: 0 12px 30px rgba(0, 10, 4, 0.2);
   cursor: pointer;
@@ -15627,7 +15627,7 @@ body:has(.ecosystem-page) {
   padding: 0 24px;
   border: 1px solid rgba(0, 10, 4, 0.2);
   border-radius: 999px;
-  background: linear-gradient(135deg, #000a04, #000a04);
+  background: #c88922 !important;
   color: #ffffff !important;
   font-size: clamp(12px, 0.82vw, 14px);
   font-weight: 900;

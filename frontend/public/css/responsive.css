@@ -7656,16 +7656,24 @@ body:has(.treatment-detail-reference) .treatment-facts-bar .fact-icon {
 }
 
 /* ==========================================================================
-   GLOBAL BUTTON COLOR FIX - IMAGE BRAND GOLD (#C88922)
+   GLOBAL BUTTON COLOR FIX - PRIMARY & ACTION BUTTONS -> BRAND GOLD (#C88922)
    ========================================================================== */
 
-/* Primary & Action Buttons across all pages */
+/* Target primary action buttons, submit buttons, contact buttons, and CTAs */
+input[type="submit"],
 .btn-primary,
 .nav-actions .btn-primary,
 .nav-book-btn,
 .mobile-overlay-book-btn,
 .footer-consult-button,
+.contact-reference-form button,
+.contact-booking-form button,
+.contact-submit-btn,
+.journey-banner-button,
+.ecosystem-button,
 .doctors-cta-action-btn,
+.doctors-hero-search-btn,
+.doctors-cta-btn,
 .media-cta-btn,
 .vg-modal-book-btn,
 .doctor-card-btn-book,
@@ -7673,21 +7681,30 @@ body:has(.treatment-detail-reference) .treatment-facts-bar .fact-icon {
 .btn-submit-final,
 .treatment-btn-book,
 .btn-next-step,
-.doctors-hero-search-btn,
-.doctors-cta-btn {
+.sig-experience-all-btn,
+.international-form-submit-btn,
+.branches-button-primary {
   background: #c88922 !important;
   color: #ffffff !important;
   border-color: #c88922 !important;
   box-shadow: 0 10px 24px rgba(200, 137, 34, 0.28) !important;
 }
 
+input[type="submit"]:hover,
 .btn-primary:hover,
 .btn-primary:focus-visible,
 .nav-actions .btn-primary:hover,
 .nav-book-btn:hover,
 .mobile-overlay-book-btn:hover,
 .footer-consult-button:hover,
+.contact-reference-form button:hover,
+.contact-booking-form button:hover,
+.contact-submit-btn:hover,
+.journey-banner-button:hover,
+.ecosystem-button:hover,
 .doctors-cta-action-btn:hover,
+.doctors-hero-search-btn:hover,
+.doctors-cta-btn:hover,
 .media-cta-btn:hover,
 .vg-modal-book-btn:hover,
 .doctor-card-btn-book:hover,
@@ -7695,15 +7712,24 @@ body:has(.treatment-detail-reference) .treatment-facts-bar .fact-icon {
 .btn-submit-final:hover,
 .treatment-btn-book:hover,
 .btn-next-step:hover,
-.doctors-hero-search-btn:hover,
-.doctors-cta-btn:hover {
+.sig-experience-all-btn:hover,
+.international-form-submit-btn:hover,
+.branches-button-primary:hover {
   background: #b0771a !important;
   color: #ffffff !important;
   border-color: #b0771a !important;
   box-shadow: 0 14px 30px rgba(176, 119, 26, 0.35) !important;
 }
 
-/* Active Category & Filter Pill Buttons (matching the attached image button) */
+/* Restores Inactive Category Tabs to Neutral White (Only .is-active tab gets brand gold) */
+.treatments-category-tab:not(.is-active) {
+  background: #ffffff !important;
+  color: #20312d !important;
+  border-color: rgba(168, 117, 52, 0.32) !important;
+  box-shadow: none !important;
+}
+
+/* Active Category & Filter Pill Buttons (matching reference image) */
 .treatment-category-pill[data-active="true"],
 .media-categories a.is-active,
 .media-categories a:hover,
@@ -7726,4 +7752,19 @@ body:has(.treatment-detail-reference) .treatment-facts-bar .fact-icon {
 .treatment-category-pill[data-active="true"] .treatment-category-icon,
 .treatment-category-pill[data-active="true"] .treatment-category-icon .material-symbols-outlined {
   color: #ffffff !important;
+}
+
+/* RESTORE MILESTONE SHOWCASE SECTION (Prevent card background changes) */
+.milestone-showcase-card {
+  background: radial-gradient(circle at 86% 24%, rgba(168, 117, 52, 0.05), transparent 30%), linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 243, 0.78)) !important;
+  color: #000a04 !important;
+  border-color: rgba(226, 217, 204, 0.72) !important;
+  box-shadow: 0 24px 54px rgba(78, 54, 30, 0.09) !important;
+}
+
+.milestone-showcase-card.is-active {
+  background: radial-gradient(circle at 88% 22%, rgba(255, 255, 255, 0.07), transparent 26%), linear-gradient(135deg, rgba(14, 56, 47, 0.99), rgba(6, 45, 38, 0.99)), #000a04 !important;
+  color: #ffffff !important;
+  border-color: rgba(23, 55, 51, 0.38) !important;
+  box-shadow: 0 26px 56px rgba(23, 55, 51, 0.22) !important;
 }
