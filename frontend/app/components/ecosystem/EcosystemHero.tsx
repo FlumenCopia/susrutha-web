@@ -3,7 +3,7 @@ import { EcosystemIcon } from "./EcosystemIcon";
 
 export function EcosystemHero() {
   return (
-    <section className="conditions-hero-serene" aria-labelledby="ecosystem-title">
+    <section className="conditions-hero-serene ecosystem-hero-serene" aria-labelledby="ecosystem-title">
       <div
         className="conditions-hero-serene-bg"
         style={{ backgroundImage: `url('/images/hero-courtyard-ayurveda-v2.webp')` }}
@@ -11,11 +11,11 @@ export function EcosystemHero() {
       <div className="conditions-hero-serene-overlay" />
 
       <div className="conditions-hero-serene-content">
-        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+        {/* <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
           <Link href="/">HOME</Link>
           <span>/</span>
           <span>ECOSYSTEM</span>
-        </nav>
+        </nav> */}
 
         <div className="conditions-hero-serene-middle-wrapper">
           <div className="conditions-hero-serene-middle">

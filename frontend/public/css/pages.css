@@ -4158,18 +4158,39 @@ body:has(.treatment-detail-reference) main {
    ========================================================================== */
 .conditions-hero-serene {
   position: relative;
-  min-height: 600px;
+  min-height: 750px !important;
   width: 100vw !important;
   max-width: 100vw !important;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   margin-top: calc(clamp(92px, 7vw, 118px) * -1) !important;
-  padding: calc(clamp(92px, 7vw, 118px) + 60px) clamp(24px, 5vw, 64px) 44px !important;
+  padding: calc(clamp(92px, 7vw, 118px) + 120px) clamp(24px, 5vw, 64px) 64px !important;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   color: #ffffff;
   box-sizing: border-box;
+}
+
+body:has(.international-page) .conditions-hero-serene,
+.international-page .conditions-hero-serene {
+  min-height: 760px !important;
+  padding-top: calc(clamp(92px, 7vw, 118px) + 130px) !important;
+  padding-bottom: 72px !important;
+}
+
+body:has(.ecosystem-page) .conditions-hero-serene,
+.ecosystem-page .conditions-hero-serene,
+.ecosystem-hero-serene {
+  min-height: 740px !important;
+  padding-top: calc(clamp(92px, 7vw, 118px) + 120px) !important;
+  padding-bottom: 64px !important;
+  width: calc(100vw - 32px) !important;
+  max-width: 1880px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 28px !important;
+  box-shadow: 0 20px 50px rgba(0, 10, 4, 0.15);
 }
 
 .conditions-hero-serene-bg {
@@ -19714,9 +19735,10 @@ body:has(.international-page) .international-facility-card>a:hover svg {
 body:has(.international-page) .international-programs-banner {
   position: relative;
   width: 100%;
-  padding: 42px clamp(24px, 5vw, 64px);
-  margin-top: 24px;
-  margin-bottom: 32px;
+  padding: clamp(64px, 7vw, 96px) clamp(24px, 5vw, 64px);
+  min-height: 540px;
+  margin-top: 36px;
+  margin-bottom: 48px;
   overflow: hidden;
   color: #ffffff !important;
 }
@@ -20168,8 +20190,9 @@ body:has(.international-page) .international-form-submit-btn:hover {
 body:has(.international-page) .international-welcome-banner {
   position: relative;
   width: 100%;
-  padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 64px);
-  margin: 60px 0;
+  padding: clamp(84px, 10vw, 128px) clamp(24px, 5vw, 64px);
+  min-height: 520px;
+  margin: 72px 0;
   overflow: hidden;
   color: #ffffff !important;
   text-align: center;
