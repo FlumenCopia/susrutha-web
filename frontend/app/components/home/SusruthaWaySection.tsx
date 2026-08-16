@@ -1,56 +1,110 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+interface TextCard {
+  type: "text";
+  title: string;
+  desc: string;
+  linkText: string;
+  href: string;
+}
+
+interface ImageCard {
+  type: "image";
+  src: string;
+  alt: string;
+}
+
+type GridCard = TextCard | ImageCard;
 
 export function SusruthaWaySection() {
-  const pillars = [
+  const cards: GridCard[] = [
+    // Row 1
     {
-      icon: "clinical_notes",
-      title: "Evidence-Based",
-      desc: "Blending ancient protocols with contemporary medical insights for measurable results.",
+      type: "text",
+      title: "MASSAGE OPTIONS",
+      desc: "Relax in comfort with our skilled team for your total wellness needs.",
+      linkText: "LEARN MORE",
+      href: "/treatments",
     },
     {
-      icon: "eco",
-      title: "Pure Sourcing",
-      desc: "All oils and herbs are ethically harvested from our private botanical gardens.",
+      type: "image",
+      src: "/images/opt_womens_health.jpg",
+      alt: "Relaxing wellness massage treatment",
     },
     {
-      icon: "king_bed",
-      title: "Ultra-Luxury",
-      desc: "Immersive retreats that offer world-class hospitality and profound tranquility.",
+      type: "text",
+      title: "WELLNESS ESSENTIALS",
+      desc: "Calming treatments inspired by nature, designed to relax the body.",
+      linkText: "LEARN MORE",
+      href: "/services",
     },
     {
-      icon: "verified_user",
-      title: "Master Lineage",
-      desc: "Over 50 years of accumulated wisdom passed through three generations of healers.",
+      type: "image",
+      src: "/images/about-purpose-still-life.webp",
+      alt: "Natural spa essentials, bamboo and towels",
+    },
+    // Row 2
+    {
+      type: "image",
+      src: "/images/opt_skin_allergies.jpg",
+      alt: "Expert holistic facial and skin treatment",
+    },
+    {
+      type: "text",
+      title: "EXPERT HOLISTIC FACIALS",
+      desc: "Glow with a custom facial using natural care and gentle touch.",
+      linkText: "LEARN MORE",
+      href: "/treatments",
+    },
+    {
+      type: "image",
+      src: "/images/treatment-njavarakizhi.webp",
+      alt: "Traditional Ayurvedic herbal pouch massage",
+    },
+    {
+      type: "text",
+      title: "WELLNESS PROGRAM PLANS",
+      desc: "Enjoy tailored wellness plans for your body and spirit goals.",
+      linkText: "LEARN MORE",
+      href: "/packages",
     },
   ];
 
   return (
-    <section className="susrutha-way-section" aria-labelledby="susrutha-way-heading">
+    <section className="susrutha-way-section" aria-label="Wellness Treatments Showcase">
       <div className="susrutha-way-container">
-        <div className="susrutha-way-grid">
-          {/* Left Column: Heading & Introduction */}
-          <div className="susrutha-way-left">
-            <span className="susrutha-way-eyebrow">The Susrutha Way</span>
-            <h2 id="susrutha-way-heading">Crafting an Ecosystem of Total Wellness</h2>
-            <p>
-              We prioritize vast whitespace to provide breathing room for your mind, reflecting the mental clarity associated with Ayurvedic healing.
-            </p>
-          </div>
-
-          {/* Right Column: 2x2 Bento Grid Cards */}
-          <div className="susrutha-way-right">
-            {pillars.map((item) => (
-              <div className="susrutha-way-bento-card" key={item.title}>
-                <div className="susrutha-way-bento-icon">
-                  <span className="material-symbols-outlined">{item.icon}</span>
+        <div className="susrutha-way-checkerboard-grid">
+          {cards.map((card, index) => {
+            if (card.type === "text") {
+              return (
+                <div className="susrutha-way-card susrutha-way-card-text" key={card.title}>
+                  <div className="susrutha-way-card-content">
+                    <h3 className="susrutha-way-card-title">{card.title}</h3>
+                    <p className="susrutha-way-card-desc">{card.desc}</p>
+                    <Link href={card.href} className="susrutha-way-card-link">
+                      {card.linkText}
+                    </Link>
+                  </div>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
+              );
+            }
+
+            return (
+              <div className="susrutha-way-card susrutha-way-card-image" key={`img-${index}`}>
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="susrutha-way-img"
+                />
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

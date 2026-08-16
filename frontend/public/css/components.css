@@ -7955,95 +7955,94 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
    Section 3: The Susrutha Way (Crafting an Ecosystem)
    ========================================================================== */
 .susrutha-way-section {
-  padding: 100px 24px;
-  background-color: #fbf9f4;
+  padding: 80px 24px;
+  background-color: #f7f4ed;
   color: #1b1c19;
 }
 
 .susrutha-way-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-.susrutha-way-grid {
+.susrutha-way-checkerboard-grid {
   display: grid;
-  grid-template-columns: 4fr 8fr;
-  gap: 48px;
-  align-items: center;
-}
-
-.susrutha-way-eyebrow {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: #5e4107;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.susrutha-way-left h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
-  font-size: clamp(32px, 3.5vw, 48px);
-  font-weight: 500;
-  color: #000a04;
-  line-height: 1.2;
-  margin: 0 0 24px 0;
-}
-
-.susrutha-way-left p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #645e51;
-  margin: 0;
-}
-
-.susrutha-way-right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-.susrutha-way-bento-card {
-  background: #f5f3ee;
-  padding: 36px;
-  border-radius: 28px;
-  border: 1px solid rgba(115, 121, 115, 0.1);
-  transition: all 0.3s ease;
+.susrutha-way-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.susrutha-way-bento-card:hover {
-  border-color: rgba(94, 65, 7, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
-}
-
-.susrutha-way-bento-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(0, 10, 4, 0.05);
+.susrutha-way-card-text {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #000a04;
-  margin-bottom: 24px;
+  flex-direction: column;
 }
 
-.susrutha-way-bento-card h3 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
-  font-size: 22px;
+.susrutha-way-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(24px, 2.5vw, 40px);
+  justify-content: space-between;
+}
+
+.susrutha-way-card-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: clamp(16px, 1.35vw, 22px);
   font-weight: 500;
-  color: #000a04;
-  margin: 0 0 12px 0;
+  color: #2b1d12;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin: 0;
 }
 
-.susrutha-way-bento-card p {
-  font-size: 14px;
+.susrutha-way-card-desc {
+  font-size: clamp(13px, 0.95vw, 15px);
   line-height: 1.6;
-  color: #645e51;
-  margin: 0;
+  color: #6a6156;
+  margin: 20px 0;
+  font-weight: 400;
+}
+
+.susrutha-way-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #a46822;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.susrutha-way-card-link:hover {
+  color: #c88922;
+  transform: translateX(3px);
+}
+
+.susrutha-way-card-image {
+  background: #e2ded4;
+}
+
+.susrutha-way-img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.susrutha-way-card-image:hover .susrutha-way-img {
+  transform: scale(1.05);
 }
 
 /* ==========================================================================
@@ -8144,22 +8143,23 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 /* Responsive Overrides */
-@media (max-width: 1024px) {
-  .susrutha-way-grid {
-    grid-template-columns: 1fr;
-  }
-  .custodians-grid {
+@media (max-width: 1100px) {
+  .susrutha-way-checkerboard-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .sig-experience-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
+  .susrutha-way-checkerboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .susrutha-way-card {
+    aspect-ratio: 4 / 3;
+  }
   .path-wholeness-grid,
   .sig-experience-grid,
-  .susrutha-way-right,
   .custodians-grid {
     grid-template-columns: 1fr;
   }
