@@ -121,14 +121,14 @@ export function HomeWellnessExpertiseSection() {
           dedicated clinical team.
         </p>
 
-        <div className="home-wellness-metrics" aria-label="Susrutha highlights">
+        {/* <div className="home-wellness-metrics" aria-label="Susrutha highlights">
           {metrics.map((metric) => (
             <article key={metric.label}>
               <AnimatedMetricCounter target={metric.target} suffix={metric.suffix} isVisible={isVisible} />
               <span>{metric.label}</span>
             </article>
           ))}
-        </div>
+        </div> */}
 
         <Link className="home-wellness-link" href="/about-us">
           Know More About Us
