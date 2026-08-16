@@ -118,17 +118,24 @@ export default function Timeloop() {
       aria-labelledby="timeloop-title"
     >
       <div className="timeloop-sticky">
-        <div className="timeloop-frame-wrap" aria-hidden="true">
-          <Image
-            className="timeloop-frame"
-            src={frameSource(frameIndex)}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            unoptimized
-          />
-          <div className="timeloop-frame-shade" />
+        <div className="timeloop-left-col">
+          <div className="timeloop-frame-card">
+            <div className="timeloop-frame-wrap" aria-hidden="true">
+              <Image
+                className="timeloop-frame"
+                src={frameSource(frameIndex)}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 980px) 100vw, 50vw"
+                unoptimized
+              />
+              <div className="timeloop-frame-badge">
+                <span className="timeloop-frame-dot" />
+                <span>Historical Visuals</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="timeloop-content">
