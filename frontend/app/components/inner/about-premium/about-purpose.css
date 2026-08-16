@@ -120,16 +120,17 @@
 }
 
 .ap-btn-dark {
-  background-color: #1c1c1c;
+  background-color: #c88922;
   color: #ffffff;
-  border: 1px solid #1c1c1c;
+  border: 1px solid #c88922;
+  box-shadow: 0 10px 24px rgba(200, 137, 34, 0.28);
 }
 
 .ap-btn-dark:hover {
-  background-color: #333333;
-  border-color: #333333;
+  background-color: #b0771a;
+  border-color: #b0771a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 28px rgba(176, 119, 26, 0.35);
 }
 
 .ap-btn-outline {

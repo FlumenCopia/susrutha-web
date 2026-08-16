@@ -106,7 +106,7 @@
   gap: 7px;
   height: 40px;
   padding: 0 20px;
-  background-color: #000a04 !important;
+  background-color: #c88922 !important;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 14px;
@@ -116,7 +116,7 @@
 }
 
 .nav-book-btn:hover {
-  background-color: #000a04 !important;
+  background-color: #b0771a !important;
 }
 
 .nav-calendar-icon {
@@ -1226,7 +1226,7 @@
   gap: 7px;
   height: 40px;
   padding: 0 20px;
-  background-color: #000a04 !important;
+  background-color: #c88922 !important;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 14px;
@@ -1236,7 +1236,7 @@
 }
 
 .nav-book-btn:hover {
-  background-color: #000a04 !important;
+  background-color: #b0771a !important;
 }
 
 .nav-calendar-icon {
@@ -2544,7 +2544,7 @@
   gap: 7px;
   height: 40px;
   padding: 0 20px;
-  background-color: #000a04 !important;
+  background-color: #c88922 !important;
   color: #ffffff !important;
   border-radius: 9999px;
   font-size: 14px;
@@ -2554,7 +2554,7 @@
 }
 
 .nav-book-btn:hover {
-  background-color: #000a04 !important;
+  background-color: #b0771a !important;
 }
 
 .nav-calendar-icon {
@@ -7683,8 +7683,10 @@ input[type="submit"],
 .btn-next-step,
 .sig-experience-all-btn,
 .international-form-submit-btn,
-.branches-button-primary {
+.branches-button-primary,
+.ap-btn-dark {
   background: #c88922 !important;
+  background-color: #c88922 !important;
   color: #ffffff !important;
   border-color: #c88922 !important;
   box-shadow: 0 10px 24px rgba(200, 137, 34, 0.28) !important;
@@ -7714,8 +7716,10 @@ input[type="submit"]:hover,
 .btn-next-step:hover,
 .sig-experience-all-btn:hover,
 .international-form-submit-btn:hover,
-.branches-button-primary:hover {
+.branches-button-primary:hover,
+.ap-btn-dark:hover {
   background: #b0771a !important;
+  background-color: #b0771a !important;
   color: #ffffff !important;
   border-color: #b0771a !important;
   box-shadow: 0 14px 30px rgba(176, 119, 26, 0.35) !important;

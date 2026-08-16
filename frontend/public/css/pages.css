@@ -3730,7 +3730,7 @@ body:has(.treatment-detail-reference) main {
   padding: clamp(18px, 1.7vw, 24px);
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
-  background: linear-gradient(135deg, #000a04, #000a04);
+  background: #c88922 !important;
   color: #ffffff;
   box-shadow: 0 24px 54px rgba(0, 10, 4, 0.22);
 }
@@ -3918,7 +3918,7 @@ body:has(.treatment-detail-reference) main {
   margin-top: clamp(24px, 2.8vw, 38px);
   padding: 0 6px 0 22px;
   border-radius: 999px;
-  background: #000a04;
+  background: #c88922 !important;
   color: #ffffff;
   font-size: clamp(12px, 0.82vw, 14px);
   font-weight: 600;
@@ -9493,22 +9493,22 @@ label {
   height: 64px;
   margin-bottom: 24px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #000a04 0%, #1a3d28 100%);
+  background: #c88922 !important;
   border: none;
-  box-shadow: 0 8px 24px rgba(0, 10, 4, 0.22);
+  box-shadow: 0 8px 24px rgba(200, 137, 34, 0.28);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .contact-reference-info-grid article:hover .contact-reference-info-icon {
   transform: scale(1.07);
-  box-shadow: 0 12px 32px rgba(0, 10, 4, 0.28);
+  box-shadow: 0 12px 32px rgba(176, 119, 26, 0.35);
 }
 
 .contact-reference-info-icon svg {
   width: 26px;
   height: 26px;
   fill: none;
-  stroke: var(--contact-gold);
+  stroke: #ffffff !important;
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
