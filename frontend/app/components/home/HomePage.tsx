@@ -15,13 +15,15 @@ export function HomePage() {
   return (
     <div className="home-page">
       <HeroBanner />
-      {/* <Timeloop /> */}
+ 
 
 
 
 
 
       <HomeWellnessExpertiseSection />
+
+           <Timeloop />
       {/* <TreatmentsShowcaseSection /> */}
       {/* <DoctorsShowcaseSection /> */}
    

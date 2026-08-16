@@ -133,8 +133,13 @@ export default function Timeloop() {
 
         <div className="timeloop-content">
           <div className="timeloop-heading">
-            <span>Our Journey</span>
-            <h2 id="timeloop-title">A legacy moving through time</h2>
+            <div className="timeloop-eyebrow-row">
+              <span className="timeloop-eyebrow">Our Journey</span>
+              <span className="timeloop-counter-badge">
+                {String(activeIndex + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
+              </span>
+            </div>
+            <h2 id="timeloop-title">A Legacy Moving Through Time</h2>
           </div>
 
           <div
@@ -148,7 +153,10 @@ export default function Timeloop() {
                   className={`timeloop-item ${index === activeIndex ? "is-active" : ""}`}
                   key={`${feature.year}-${feature.text}`}
                 >
-                  <time>{feature.year}</time>
+                  <div className="timeloop-item-header">
+                    <time>{feature.year}</time>
+                    <span className="timeloop-item-num">{String(index + 1).padStart(2, "0")}</span>
+                  </div>
                   <p>{feature.text}</p>
                 </article>
               ))}
