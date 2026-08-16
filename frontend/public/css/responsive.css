@@ -4150,15 +4150,15 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-red, #d61f2b) 0%, var(--color-deep-red, #9f131b) 100%);
+  background: #c88922 !important;
   color: #ffffff !important;
-  box-shadow: 0 8px 20px rgba(159, 19, 27, 0.25);
+  box-shadow: 0 8px 20px rgba(200, 137, 34, 0.28);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: linear-gradient(135deg, #e52834 0%, #b81720 100%);
-  box-shadow: 0 12px 28px rgba(159, 19, 27, 0.38);
+  background: #b0771a !important;
+  box-shadow: 0 12px 28px rgba(176, 119, 26, 0.38);
   transform: translateY(-1px);
 }
 
@@ -7653,4 +7653,77 @@ body:has(.treatment-detail-reference) .treatment-facts-bar .fact-item {
 
 body:has(.treatment-detail-reference) .treatment-facts-bar .fact-icon {
   display: none;
+}
+
+/* ==========================================================================
+   GLOBAL BUTTON COLOR FIX - IMAGE BRAND GOLD (#C88922)
+   ========================================================================== */
+
+/* Primary & Action Buttons across all pages */
+.btn-primary,
+.nav-actions .btn-primary,
+.nav-book-btn,
+.mobile-overlay-book-btn,
+.footer-consult-button,
+.doctors-cta-action-btn,
+.media-cta-btn,
+.vg-modal-book-btn,
+.doctor-card-btn-book,
+.apt-submit-btn,
+.btn-submit-final,
+.treatment-btn-book,
+.btn-next-step,
+.doctors-hero-search-btn,
+.doctors-cta-btn {
+  background: #c88922 !important;
+  color: #ffffff !important;
+  border-color: #c88922 !important;
+  box-shadow: 0 10px 24px rgba(200, 137, 34, 0.28) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.nav-actions .btn-primary:hover,
+.nav-book-btn:hover,
+.mobile-overlay-book-btn:hover,
+.footer-consult-button:hover,
+.doctors-cta-action-btn:hover,
+.media-cta-btn:hover,
+.vg-modal-book-btn:hover,
+.doctor-card-btn-book:hover,
+.apt-submit-btn:hover,
+.btn-submit-final:hover,
+.treatment-btn-book:hover,
+.btn-next-step:hover,
+.doctors-hero-search-btn:hover,
+.doctors-cta-btn:hover {
+  background: #b0771a !important;
+  color: #ffffff !important;
+  border-color: #b0771a !important;
+  box-shadow: 0 14px 30px rgba(176, 119, 26, 0.35) !important;
+}
+
+/* Active Category & Filter Pill Buttons (matching the attached image button) */
+.treatment-category-pill[data-active="true"],
+.media-categories a.is-active,
+.media-categories a:hover,
+.blog-categories a.is-active,
+.blog-premium-categories a.is-active,
+.treatments-category-tab.is-active,
+.facilities-filter-btn.is-active,
+.doctors-pill-btn.active,
+.doctors-view-btn.active,
+.video-category-btn.active,
+.vg-toggle-btn.active,
+.vg-modal-tab-btn.active,
+.conditions-view-button.is-active {
+  background: #c88922 !important;
+  color: #ffffff !important;
+  border-color: #c88922 !important;
+  box-shadow: 0 8px 20px rgba(200, 137, 34, 0.25) !important;
+}
+
+.treatment-category-pill[data-active="true"] .treatment-category-icon,
+.treatment-category-pill[data-active="true"] .treatment-category-icon .material-symbols-outlined {
+  color: #ffffff !important;
 }

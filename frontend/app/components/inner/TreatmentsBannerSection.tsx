@@ -29,11 +29,11 @@ export function TreatmentsBannerSection() {
     <section className="treatment-reference-page" aria-labelledby="treatment-reference-title">
       <div className="treatment-reference-hero">
         <div className="treatment-hero-copy">
-          <nav className="treatment-breadcrumb" aria-label="Breadcrumb">
+          {/* <nav className="treatment-breadcrumb" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span aria-hidden="true">&rsaquo;</span>
             <span>Treatments</span>
-          </nav>
+          </nav> */}
 
           <h1 id="treatment-reference-title">
             <span className="treatment-title-line">Ancient Wisdom.</span>

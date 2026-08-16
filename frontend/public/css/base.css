@@ -11,10 +11,10 @@
   --color-ayora-gold: #f5eacc;          /* Ayora Golden Butter */
 
   /* Global Theme Mapping */
-  --color-red: #df7943;                 /* Ayora Accent Terracotta */
-  --color-deep-red: #372718;            /* Ayora Dark Espresso */
-  --color-sun: #000a04;                 /* Ayora Herbal Accent */
-  --color-gold: #df7943;
+  --color-red: #c88922;                 /* Brand Gold Button Accent */
+  --color-deep-red: #b0771a;            /* Brand Darker Gold Hover */
+  --color-sun: #c88922;                 /* Brand Gold Accent */
+  --color-gold: #c88922;                /* Brand Gold Accent */
   --color-ink: #372718;                 /* Ayora Text Font Color */
   --color-muted: rgba(55, 39, 24, 0.7);  /* Ayora Muted Text Color */
   --color-cream: #fff7f0;               /* Ayora Signature Cream */
@@ -1044,13 +1044,13 @@ textarea {
 }
 
 .btn-primary {
-  background: var(--color-red);
-  color: var(--color-white);
-  box-shadow: 0 12px 28px rgba(214, 31, 43, 0.22);
+  background: #c88922 !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 28px rgba(200, 137, 34, 0.25);
 }
 
 .btn-primary:hover {
-  background: var(--color-deep-red);
+  background: #b0771a !important;
   transform: translateY(-1px);
 }
 

@@ -10,11 +10,11 @@ export function BlogHero() {
       <div className="conditions-hero-serene-overlay" />
 
       <div className="conditions-hero-serene-content">
-        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+        {/* <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span>/</span>
           <span>Blogs &amp; Articles</span>
-        </nav>
+        </nav> */}
 
         <div className="conditions-hero-serene-middle">
           <p className="conditions-hero-serene-quote">

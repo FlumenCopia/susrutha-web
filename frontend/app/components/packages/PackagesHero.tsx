@@ -15,7 +15,7 @@ export function PackagesHero() {
         sizes="100vw"
       />
       <div className="packages-hero-copy">
-        <span className="packages-eyebrow">Packages</span>
+        {/* <span className="packages-eyebrow">Packages</span> */}
         <h1>Twelve structured care programmes</h1>
         <p>
           From occupational Tekky care to 16-day hospital programmes and specialty ano-rectal pathways. Prices on
