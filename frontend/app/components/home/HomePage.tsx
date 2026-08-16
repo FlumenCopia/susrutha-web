@@ -18,7 +18,7 @@ export function HomePage() {
       <PathToWholenessSection />
       <SignatureExperienceSection />
       <SusruthaWaySection />
-      <CustodiansOfWisdomSection />
+      {/* <CustodiansOfWisdomSection /> */}
       <HomeFooterBanner />
     </div>
   );

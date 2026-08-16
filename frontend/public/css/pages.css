@@ -22067,21 +22067,21 @@ a.home-footer-calm-btn,
   justify-content: center;
   padding: 16px 44px;
   border-radius: 999px;
-  background: #ff8370 !important;
+  background: #c88922 !important;
   color: #ffffff !important;
   font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 8px 24px rgba(255, 131, 112, 0.45);
+  box-shadow: 0 8px 24px rgba(200, 137, 34, 0.45);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 a.home-footer-calm-btn:hover,
 .home-footer-calm-btn:hover {
-  background: #f0725f !important;
+  background: #b0761a !important;
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px rgba(255, 131, 112, 0.6);
+  box-shadow: 0 14px 36px rgba(200, 137, 34, 0.6);
   color: #ffffff !important;
 }

@@ -17,7 +17,7 @@ export function HomeFooterBanner() {
           A MOMENT OF CALM BEGINS HERE
         </h2>
         <Link href="/appointment" className="home-footer-calm-btn">
-          RESERVE NOW
+          BOOK APPOINTMENT
         </Link>
       </div>
     </section>
