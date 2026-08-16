@@ -59,9 +59,9 @@ body .site-header .nav-actions .nav-book-btn,
 .doctors-cta-btn,
 .doctor-card-btn,
 .apt-btn-switch-dept {
-  background: #000a04 !important;
+  background: #c88922 !important;
   color: #ffffff !important;
-  border-color: #000a04 !important;
+  border-color: #c88922 !important;
 }
 
 .btn-primary:hover,
@@ -78,9 +78,9 @@ body .site-header .nav-actions .nav-book-btn:hover,
 .doctors-cta-btn:hover,
 .doctor-card-btn:hover,
 .apt-btn-switch-dept:hover {
-  background: #1c1d1c !important;
+  background: #c88922 !important;
   color: #ffffff !important;
-  border-color: #1c1d1c !important;
+  border-color: #c88922 !important;
 }
 
 /* Accessible Focus Styles */

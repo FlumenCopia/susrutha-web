@@ -1,48 +1,26 @@
 import { HeroBanner } from "../hero-banner/HeroBanner";
-import { AyurvedaVillageSection } from "./AyurvedaVillageSection";
-import { CounterSection } from "./CounterSection";
 import { CustodiansOfWisdomSection } from "./CustodiansOfWisdomSection";
 import { PathToWholenessSection } from "./PathToWholenessSection";
 import { SignatureExperienceSection } from "./SignatureExperienceSection";
 import { SusruthaWaySection } from "./SusruthaWaySection";
-import { DoctorsShowcaseSection } from "./DoctorsShowcaseSection";
 import { HomeWellnessExpertiseSection } from "./HomeWellnessExpertiseSection";
-import { TreatmentsShowcaseSection } from "./TreatmentsShowcaseSection";
 import { Counbanner } from "./Counbanner";
-
 import Timeloop from "./Timeloop";
-
+import { HomeFooterBanner } from "./HomeFooterBanner";
 
 export function HomePage() {
   return (
     <div className="home-page">
       <HeroBanner />
- 
-
-
-
-
-
       <HomeWellnessExpertiseSection />
-<Counbanner />
-           <Timeloop />
-      {/* <TreatmentsShowcaseSection /> */}
-      {/* <DoctorsShowcaseSection /> */}
-   
-
-
-
-
-
-
-
-
+      <Counbanner />
+      <Timeloop />
       <PathToWholenessSection />
       <SignatureExperienceSection />
       <SusruthaWaySection />
       <CustodiansOfWisdomSection />
-      {/* <AyurvedaVillageSection /> */}
-      {/* <CounterSection /> */}
+      <HomeFooterBanner />
     </div>
   );
 }
+ 
