@@ -8,6 +8,8 @@ import { SusruthaWaySection } from "./SusruthaWaySection";
 import { DoctorsShowcaseSection } from "./DoctorsShowcaseSection";
 import { HomeWellnessExpertiseSection } from "./HomeWellnessExpertiseSection";
 import { TreatmentsShowcaseSection } from "./TreatmentsShowcaseSection";
+import { Counbanner } from "./Counbanner";
+
 import Timeloop from "./Timeloop";
 
 
@@ -22,7 +24,7 @@ export function HomePage() {
 
 
       <HomeWellnessExpertiseSection />
-
+<Counbanner />
            <Timeloop />
       {/* <TreatmentsShowcaseSection /> */}
       {/* <DoctorsShowcaseSection /> */}
