@@ -4177,14 +4177,16 @@
 
 .btn-outline {
   background: transparent;
-  color: var(--color-deep-red, #9f131b) !important;
-  border-color: rgba(159, 19, 27, 0.35);
+  color: #372718 !important;
+  border-color: rgba(200, 137, 34, 0.5);
 }
 
 .btn-outline:hover,
 .btn-outline:focus-visible {
-  background: rgba(159, 19, 27, 0.06);
-  border-color: var(--color-deep-red, #9f131b);
+  background: #c88922 !important;
+  color: #ffffff !important;
+  border-color: #c88922 !important;
+  box-shadow: 0 10px 24px rgba(200, 137, 34, 0.28) !important;
 }
 
 /* 3. MOBILE FILTER TRACK HORIZONTAL SCROLL FIX */
@@ -5272,49 +5274,69 @@
 .treatment-reference-hero {
   width: 100% !important;
   max-width: 100% !important;
-  min-height: auto !important;
+  min-height: 580px !important;
 }
 
 @media (max-width: 900px) {
   .treatment-reference-page .treatment-reference-hero {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    background: #fffdf8 !important;
-    overflow: visible !important;
-  }
-
-  .treatment-reference-page .treatment-hero-visual {
-    --treatment-mobile-image-height: clamp(320px, 56vw, 430px);
-    order: 1 !important;
-    min-height: var(--treatment-mobile-image-height) !important;
-    padding-top: 0 !important;
-    border-radius: 0 0 22px 22px !important;
-    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 560px !important;
+    background: #0d1a14 !important;
     overflow: hidden !important;
-  }
-
-  .treatment-reference-page .treatment-hero-visual img {
-    height: 100% !important;
-    object-position: 58% center !important;
-    transform: none !important;
+    position: relative !important;
   }
 
   .treatment-reference-page .treatment-hero-copy {
-    order: 2 !important;
-    padding: clamp(34px, 6vw, 54px) clamp(20px, 5vw, 42px) clamp(64px, 9vw, 88px) !important;
-    background: #fffdf8 !important;
+    order: 1 !important;
+    padding: 120px 20px 60px !important;
+    background: transparent !important;
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+  }
+
+  .treatment-reference-page #treatment-reference-title {
+    font-size: clamp(28px, 7.5vw, 42px) !important;
+    color: #ffffff !important;
+    line-height: 1.15 !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .treatment-reference-page #treatment-reference-title em {
+    color: #e5b974 !important;
+  }
+
+  .treatment-reference-page .treatment-hero-copy p {
+    color: #ffffff !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    margin-top: 16px !important;
+    opacity: 1 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .treatment-reference-page .treatment-hero-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    max-width: max-content !important;
+    min-width: auto !important;
+    gap: 10px !important;
+    margin-top: 22px !important;
+    padding: 8px 10px 8px 22px !important;
+    min-height: 44px !important;
+    border-radius: 9999px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    background: #c88922 !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 22px rgba(200, 137, 34, 0.32) !important;
   }
 
   .treatment-reference-page .treatment-title-line {
     white-space: normal !important;
-  }
-
-}
-
-@media (max-width: 640px) {
-  .treatment-reference-page .treatment-hero-visual {
-    --treatment-mobile-image-height: clamp(270px, 72vw, 340px);
-    border-radius: 0 0 18px 18px !important;
   }
 }
 
@@ -7211,7 +7233,6 @@
   .about-premium-page :is(.about-premium-hero, .about-story-section, .about-purpose-section, .about-founders-section),
   .appointment-page-wrapper :is(.apt-hero-luxury, .apt-booking-luxury, .apt-trust-section, .apt-branches-luxury, .apt-faq-luxury),
   .contact-reference-page :is(.contact-reference-main, .contact-reference-hero, .contact-reference-info, .contact-reference-visit),
-  .treatment-reference-page,
   .conditions-page :is(.conditions-hero, .conditions-content, .conditions-care-band),
   .condition-detail-page,
   .blog-premium-page,
@@ -7225,6 +7246,15 @@
     margin-right: 0 !important;
     padding-left: clamp(18px, 4vw, 48px) !important;
     padding-right: clamp(18px, 4vw, 48px) !important;
+  }
+
+  .treatment-reference-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
   }
 
   .site-header {
@@ -7486,10 +7516,11 @@
   }
 
   body:has(.treatment-reference-page) .treatment-category-pill[data-active="true"] {
-    background: #000a04 !important;
+    background: #c88922 !important;
     color: #ffffff !important;
     padding: 0 20px !important;
     border-radius: 999px !important;
+    box-shadow: 0 6px 16px rgba(200, 137, 34, 0.3) !important;
   }
 
   body:has(.treatment-reference-page) .treatment-category-icon {

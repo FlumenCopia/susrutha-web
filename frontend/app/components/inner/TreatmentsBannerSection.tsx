@@ -28,13 +28,19 @@ export function TreatmentsBannerSection() {
   return (
     <section className="treatment-reference-page" aria-labelledby="treatment-reference-title">
       <div className="treatment-reference-hero">
-        <div className="treatment-hero-copy">
-          {/* <nav className="treatment-breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">&rsaquo;</span>
-            <span>Treatments</span>
-          </nav> */}
+        <div className="treatment-hero-bg-wrap" aria-hidden="true">
+          <Image
+            src="/images/treatment-sirodhara.webp"
+            alt="Authentic Ayurvedic Shirodhara treatment"
+            fill
+            priority
+            sizes="100vw"
+            className="treatment-hero-bg-img"
+          />
+          <div className="treatment-hero-overlay" />
+        </div>
 
+        <div className="treatment-hero-copy">
           <h1 id="treatment-reference-title">
             <span className="treatment-title-line">Ancient Wisdom.</span>
             <span className="treatment-title-line">
@@ -51,16 +57,6 @@ export function TreatmentsBannerSection() {
             Explore Treatments
             <span aria-hidden="true">&rarr;</span>
           </Link>
-        </div>
-
-        <div className="treatment-hero-visual" aria-hidden="true">
-          <Image
-            src="/images/treatment-sirodhara.webp"
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 58vw"
-          />
         </div>
       </div>
 
