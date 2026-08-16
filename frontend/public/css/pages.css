@@ -10599,7 +10599,7 @@ label {
   position: relative;
   width: calc(100% - clamp(32px, 5vw, 80px));
   max-width: 1400px;
-  margin: clamp(40px, 5vw, 80px) auto;
+  margin: 0 auto;
   height: 300px;
   min-height: 300px;
   border-radius: 32px;
