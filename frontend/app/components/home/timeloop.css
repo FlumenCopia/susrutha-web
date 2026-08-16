@@ -155,19 +155,9 @@
   max-width: 500px;
   max-height: min(58vh, 580px);
   overflow: hidden;
-  padding: 6px 0 6px 28px;
+  padding: 6px 0;
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
   mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
-}
-
-.timeloop-list::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  bottom: 16px;
-  left: 6px;
-  width: 2px;
-  background: linear-gradient(180deg, transparent, rgba(164, 104, 34, 0.35) 20%, rgba(164, 104, 34, 0.35) 80%, transparent);
 }
 
 .timeloop-track {
@@ -181,12 +171,12 @@
   position: relative;
   min-height: 90px;
   padding: 16px 20px 18px;
-  border: 1px solid rgba(0, 40, 23, 0.08);
+  border: 1px solid rgba(0, 40, 23, 0.1);
   border-radius: 14px;
   background: #ffffff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
   opacity: 0.55;
-  transform: translateX(14px) scale(0.97);
+  transform: scale(0.98);
   transition:
     opacity 300ms ease,
     transform 300ms ease,
@@ -195,36 +185,15 @@
     box-shadow 300ms ease;
 }
 
-.timeloop-item::before {
-  content: "";
-  position: absolute;
-  top: 26px;
-  left: -29px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #d9d4c9;
-  border: 2px solid #fbf9f4;
-  box-shadow: 0 0 0 2px rgba(164, 104, 34, 0.1);
-  transition: all 300ms ease;
-}
-
 .timeloop-item.is-active {
   opacity: 1 !important;
-  transform: translateX(0) scale(1.02) !important;
-  background: #002817 !important;
+  transform: scale(1.02) !important;
+  background: #ffffff !important;
   border: 1px solid #002817 !important;
-  border-left: 5px solid #d49e54 !important;
+  border-left: 5px solid #002817 !important;
   box-shadow:
-    0 16px 40px rgba(0, 40, 23, 0.22),
-    0 4px 12px rgba(164, 104, 34, 0.15) !important;
-}
-
-.timeloop-item.is-active::before {
-  background: #a46822 !important;
-  box-shadow:
-    0 0 0 4px rgba(164, 104, 34, 0.2),
-    0 0 12px rgba(164, 104, 34, 0.5) !important;
+    0 12px 32px rgba(0, 40, 23, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
 .timeloop-item-header {
@@ -237,7 +206,7 @@
 
 .timeloop-item time {
   display: inline-block;
-  color: #a46822;
+  color: #002817;
   font-size: clamp(1.05rem, 1.5vw, 1.28rem);
   font-weight: 700;
   line-height: 1.2;
@@ -245,18 +214,21 @@
 }
 
 .timeloop-item.is-active time {
-  color: #f5d49b !important;
+  color: #002817 !important;
+  font-weight: 700 !important;
 }
 
 .timeloop-item-num {
   font-size: 0.76rem;
   font-weight: 700;
-  color: rgba(164, 104, 34, 0.5);
+  color: #002817;
+  opacity: 0.4;
   letter-spacing: 0.06em;
 }
 
 .timeloop-item.is-active .timeloop-item-num {
-  color: rgba(245, 212, 155, 0.95) !important;
+  color: #002817 !important;
+  opacity: 0.85 !important;
 }
 
 .timeloop-item p {
@@ -268,7 +240,7 @@
 }
 
 .timeloop-item.is-active p {
-  color: #ffffff !important;
+  color: #1b1c19 !important;
   font-weight: 400 !important;
 }
 
