@@ -7803,3 +7803,44 @@ input[type="submit"]:hover,
   border-color: rgba(23, 55, 51, 0.38) !important;
   box-shadow: 0 26px 56px rgba(23, 55, 51, 0.22) !important;
 }
+
+/* Treatments Hero Paragraph Text White Fix */
+.treatment-reference-page .treatment-hero-copy p,
+.treatment-hero-copy p {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* NAVBAR BOOK BUTTON GOLD COLOR FIX (#C88922) */
+.site-header .nav-actions .nav-book-btn,
+.site-header .nav-actions .btn-primary,
+.site-header .nav-actions a.btn-primary,
+.nav-book-btn,
+.nav-actions .nav-book-btn,
+body .site-header .nav-actions .btn-primary,
+body:has(.treatment-reference-page) .site-header .nav-actions .btn-primary,
+body:has(.treatment-reference-page) .nav-actions .btn-primary,
+body:has(.treatment-reference-page) .nav-book-btn {
+  background: #c88922 !important;
+  background-color: #c88922 !important;
+  color: #ffffff !important;
+  border-color: #c88922 !important;
+  box-shadow: 0 4px 16px rgba(200, 137, 34, 0.32) !important;
+}
+
+.site-header .nav-actions .nav-book-btn:hover,
+.site-header .nav-actions .btn-primary:hover,
+.site-header .nav-actions a.btn-primary:hover,
+.nav-book-btn:hover,
+.nav-actions .nav-book-btn:hover,
+body .site-header .nav-actions .btn-primary:hover,
+body:has(.treatment-reference-page) .site-header .nav-actions .btn-primary:hover,
+body:has(.treatment-reference-page) .nav-actions .btn-primary:hover,
+body:has(.treatment-reference-page) .nav-book-btn:hover {
+  background: #b0771a !important;
+  background-color: #b0771a !important;
+  color: #ffffff !important;
+  border-color: #b0771a !important;
+  box-shadow: 0 6px 20px rgba(176, 119, 26, 0.4) !important;
+}
