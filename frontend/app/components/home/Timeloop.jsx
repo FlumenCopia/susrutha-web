@@ -15,54 +15,72 @@ const frameSource = (index) =>
   `/timeloop/ezgif-frame-${String(index + 1).padStart(3, "0")}.webp`;
 
 const FEATURES = [
+
+
   {
-    year: "2022 June",
-    text: "Started First satellite OPD and treatment center at Kowdiar, Trivandrum.",
+    year: "1986",
+    text: "Susrutha clinic and pharmacy at Kattakada.",
   },
+
+ {
+    year: "2002",
+    text: "Registered 30 bedded panchakarma Hospital and institute.",
+  },
+
   {
-    year: "2022 April",
-    text: "Susrutha Life care Private Limited.",
+    year: "2008",
+    text: "Registered GMP certified Susrutha Ayurvedic Pharma.",
   },
+
   {
-    year: "2020",
-    text: "Susrutha Proctology unit Susrutha Postnatal care Susrutha Post stroke Palliative care.",
+    year: "2010",
+    text: "Started Susrutha Ayurveda village.",
   },
-  {
-    year: "2019",
-    text: "Susrutha can a cancer care awareness movement.",
+
+ {
+    year: "2012",
+    text: "Registered as Partnership firm.",
   },
-  {
-    year: "2016",
-    text: "Registered Susrutha Charitable medical trust.",
-  },
-  {
-    year: "2015",
-    text: "Started Susrutha Medi Tech Lab.",
-  },
+
   {
     year: "2013",
     text: "Susrutha Advanced Ayurveda Nursing School.",
   },
   {
-    year: "2012",
-    text: "Registered as Partnership firm.",
+    year: "2015",
+    text: "Started Susrutha Medi Tech Lab.",
+  },
+
+  {
+    year: "2016",
+    text: "Registered Susrutha Charitable medical trust.",
+  },
+
+  {
+    year: "2019",
+    text: "Susrutha can a cancer care awareness movement.",
+  },
+
+  {
+    year: "2020",
+    text: "Susrutha Proctology unit Susrutha Postnatal care Susrutha Post stroke Palliative care.",
   },
   {
-    year: "2010",
-    text: "Started Susrutha Ayurveda village.",
+    year: "2022 April",
+    text: "Susrutha Life care Private Limited.",
   },
+
+
   {
-    year: "2008",
-    text: "Registered GMP certified Susrutha Ayurvedic Pharma.",
+    year: "2022 June",
+    text: "Started First satellite OPD and treatment center at Kowdiar, Trivandrum.",
   },
-  {
-    year: "2002",
-    text: "Registered 30 bedded panchakarma Hospital and institute.",
-  },
-  {
-    year: "1986",
-    text: "Susrutha clinic and pharmacy at Kattakada.",
-  },
+
+
+ 
+
+ 
+
 ];
 
 export default function Timeloop() {
@@ -130,23 +148,14 @@ export default function Timeloop() {
                 sizes="(max-width: 980px) 100vw, 50vw"
                 unoptimized
               />
-              <div className="timeloop-frame-badge">
-                <span className="timeloop-frame-dot" />
-                <span>Historical Visuals</span>
-              </div>
+
             </div>
           </div>
         </div>
 
         <div className="timeloop-content">
           <div className="timeloop-heading">
-            <div className="timeloop-eyebrow-row">
-              <span className="timeloop-eyebrow">Our Journey</span>
-              <span className="timeloop-counter-badge">
-                {String(activeIndex + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
-              </span>
-            </div>
-            <h2 id="timeloop-title">A Legacy Moving Through Time</h2>
+            <h2 id="timeloop-title">Our Journey</h2>
           </div>
 
           <div
