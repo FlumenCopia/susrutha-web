@@ -40,19 +40,9 @@ export function FacilitiesGrid() {
 
   return (
     <section className="facilities-grid-section">
-      <div className="facilities-section-head facilities-section-head-row">
-        <div>
-          <span className="facilities-eyebrow">Facilities That Support Classical Care</span>
-          <h2>Care spaces planned around the patient journey</h2>
-        </div>
-        <div className="facilities-controls" aria-hidden="true">
-          <button type="button" disabled>
-            <FacilitiesIcon name="arrow" />
-          </button>
-          <button type="button" disabled>
-            <FacilitiesIcon name="arrow" />
-          </button>
-        </div>
+      <div className="facilities-section-head">
+        <span className="facilities-eyebrow">Facilities That Support Classical Care</span>
+        <h2>Care spaces planned around the patient journey</h2>
       </div>
       {!loading && facilitiesList.length === 0 ? (
         <div style={{ padding: "40px 0", textAlign: "center", opacity: 0.7 }}>

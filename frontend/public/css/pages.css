@@ -18176,18 +18176,23 @@ body:has(.facilities-page) {
 }
 
 .facilities-section-head {
-  display: grid;
-  justify-items: center;
-  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 820px;
   margin: 0 auto clamp(24px, 3vw, 38px);
   text-align: center;
 }
 
 .facilities-section-head-row {
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  max-width: none;
-  text-align: left;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 820px !important;
+  margin: 0 auto clamp(24px, 3vw, 38px) !important;
+  text-align: center !important;
 }
 
 .facilities-section-head h2 {
