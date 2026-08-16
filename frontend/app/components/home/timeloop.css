@@ -141,7 +141,7 @@
 
 .timeloop-heading h2 {
   margin: 0;
-  color: #002817;
+  color: #c88922;
   font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(2.2rem, 3.8vw, 3.6rem);
   font-weight: 500;
@@ -189,10 +189,10 @@
   opacity: 1 !important;
   transform: scale(1.02) !important;
   background: #ffffff !important;
-  border: 1px solid #002817 !important;
-  border-left: 5px solid #002817 !important;
+  border: 1px solid #c88922 !important;
+  border-left: 5px solid #c88922 !important;
   box-shadow:
-    0 12px 32px rgba(0, 40, 23, 0.12),
+    0 12px 32px rgba(200, 137, 34, 0.14),
     0 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
@@ -206,7 +206,7 @@
 
 .timeloop-item time {
   display: inline-block;
-  color: #002817;
+  color: #c88922;
   font-size: clamp(1.05rem, 1.5vw, 1.28rem);
   font-weight: 700;
   line-height: 1.2;
@@ -214,21 +214,21 @@
 }
 
 .timeloop-item.is-active time {
-  color: #002817 !important;
+  color: #c88922 !important;
   font-weight: 700 !important;
 }
 
 .timeloop-item-num {
   font-size: 0.76rem;
   font-weight: 700;
-  color: #002817;
-  opacity: 0.4;
+  color: #c88922;
+  opacity: 0.5;
   letter-spacing: 0.06em;
 }
 
 .timeloop-item.is-active .timeloop-item-num {
-  color: #002817 !important;
-  opacity: 0.85 !important;
+  color: #c88922 !important;
+  opacity: 0.9 !important;
 }
 
 .timeloop-item p {

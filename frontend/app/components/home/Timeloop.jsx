@@ -171,7 +171,6 @@ export default function Timeloop() {
                 >
                   <div className="timeloop-item-header">
                     <time>{feature.year}</time>
-                    <span className="timeloop-item-num">{String(index + 1).padStart(2, "0")}</span>
                   </div>
                   <p>{feature.text}</p>
                 </article>
