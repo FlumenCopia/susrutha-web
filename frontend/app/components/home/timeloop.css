@@ -275,65 +275,67 @@
 
 @media (max-width: 980px) {
   .timeloop-section {
-    min-height: 700vh;
+    min-height: 650vh;
   }
 
   .timeloop-sticky {
     grid-template-columns: 1fr;
-    align-items: end;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 16px 16px 12px;
+    gap: 12px;
+    background: #fbf9f4;
   }
 
   .timeloop-left-col {
-    grid-column: 1;
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    height: 100%;
+    position: relative;
+    grid-column: auto;
+    width: 100%;
+    height: clamp(180px, 28vh, 260px);
     padding: 0;
+    z-index: 2;
+    flex-shrink: 0;
   }
 
   .timeloop-frame-card {
     height: 100%;
-    border-radius: 0;
-    border: none;
+    border-radius: 16px;
+    border: 1px solid rgba(164, 104, 34, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 
-  .timeloop-frame {
-    object-position: center top;
+  .timeloop-frame-badge {
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    font-size: 0.68rem;
   }
 
   .timeloop-content {
-    grid-column: 1;
-    z-index: 2;
-    justify-content: flex-end;
-    padding: 92px 24px 32px;
-    background: linear-gradient(180deg, transparent, rgba(251, 249, 244, 0.94) 40%, rgba(251, 249, 244, 0.98));
+    position: relative;
+    grid-column: auto;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    padding: 4px 4px 0;
+    background: transparent;
     border-left: none;
-    border-top: 1px solid rgba(164, 104, 34, 0.15);
+    box-shadow: none;
+    justify-content: flex-start;
+    gap: 12px;
   }
 
   .timeloop-heading {
-    max-width: 680px;
-  }
-
-  .timeloop-list {
     max-width: none;
-    max-height: 48vh;
-  }
-}
-
-@media (max-width: 640px) {
-  .timeloop-section {
-    min-height: 620vh;
   }
 
-  .timeloop-content {
-    gap: 20px;
-    padding: 80px 16px 24px;
+  .timeloop-eyebrow-row {
+    margin-bottom: 6px;
   }
 
   .timeloop-eyebrow {
-    font-size: 0.74rem;
+    font-size: 0.76rem;
   }
 
   .timeloop-counter-badge {
@@ -342,13 +344,15 @@
   }
 
   .timeloop-heading h2 {
-    font-size: clamp(1.85rem, 8vw, 2.6rem);
+    font-size: clamp(1.4rem, 5.5vw, 2.1rem);
+    line-height: 1.15;
   }
 
   .timeloop-list {
-    --timeloop-step: 92px;
-    max-height: 52vh;
-    padding-left: 22px;
+    --timeloop-step: 88px;
+    max-width: none;
+    max-height: calc(100vh - clamp(180px, 28vh, 260px) - 140px);
+    padding-left: 20px;
   }
 
   .timeloop-list::before {
@@ -356,12 +360,63 @@
   }
 
   .timeloop-item {
-    padding: 13px 14px 14px;
-    transform: translateX(8px) scale(0.98);
+    padding: 12px 14px;
+    min-height: 76px;
   }
 
   .timeloop-item::before {
-    left: -24px;
+    left: -22px;
+    top: 22px;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .timeloop-section {
+    min-height: 600vh;
+  }
+
+  .timeloop-sticky {
+    padding: 12px 12px 10px;
+    gap: 10px;
+  }
+
+  .timeloop-left-col {
+    height: clamp(160px, 26vh, 220px);
+  }
+
+  .timeloop-content {
+    gap: 8px;
+  }
+
+  .timeloop-heading h2 {
+    font-size: clamp(1.3rem, 6vw, 1.75rem);
+  }
+
+  .timeloop-list {
+    --timeloop-step: 84px;
+    max-height: calc(100vh - clamp(160px, 26vh, 220px) - 120px);
+    padding-left: 18px;
+  }
+
+  .timeloop-item {
+    padding: 10px 12px;
+    min-height: 72px;
+    border-radius: 10px;
+  }
+
+  .timeloop-item time {
+    font-size: 0.98rem;
+  }
+
+  .timeloop-item p {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .timeloop-item::before {
+    left: -20px;
   }
 }
 
