@@ -4158,13 +4158,13 @@ body:has(.treatment-detail-reference) main {
    ========================================================================== */
 .conditions-hero-serene {
   position: relative;
-  min-height: 750px !important;
+  min-height: 700px !important;
   width: 100vw !important;
   max-width: 100vw !important;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   margin-top: calc(clamp(92px, 7vw, 118px) * -1) !important;
-  padding: calc(clamp(92px, 7vw, 118px) + 120px) clamp(24px, 5vw, 64px) 64px !important;
+  padding: calc(clamp(92px, 6vw, 118px) + 120px) clamp(24px, 5vw, 64px) 64px !important;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -4205,13 +4205,11 @@ body:has(.ecosystem-page) .conditions-hero-serene,
 .conditions-hero-serene-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 8, 6, 0.45) 0%,
-    rgba(14, 8, 6, 0.2) 40%,
-    rgba(14, 8, 6, 0.75) 80%,
-    rgba(14, 8, 6, 0.92) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(14, 8, 6, 0.45) 0%,
+      rgba(14, 8, 6, 0.2) 40%,
+      rgba(14, 8, 6, 0.75) 80%,
+      rgba(14, 8, 6, 0.92) 100%);
   z-index: 1;
 }
 
@@ -8678,13 +8676,11 @@ label {
 .contact-booking-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(14, 8, 6, 0.2) 0%,
-    rgba(14, 8, 6, 0.5) 35%,
-    rgba(14, 8, 6, 0.85) 60%,
-    rgba(14, 8, 6, 0.95) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(14, 8, 6, 0.2) 0%,
+      rgba(14, 8, 6, 0.5) 35%,
+      rgba(14, 8, 6, 0.85) 60%,
+      rgba(14, 8, 6, 0.95) 100%);
   z-index: 1;
 }
 
@@ -8942,12 +8938,10 @@ label {
   }
 
   .contact-booking-hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(14, 8, 6, 0.4) 0%,
-      rgba(14, 8, 6, 0.85) 45%,
-      rgba(14, 8, 6, 0.98) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(14, 8, 6, 0.4) 0%,
+        rgba(14, 8, 6, 0.85) 45%,
+        rgba(14, 8, 6, 0.98) 100%);
   }
 
   .contact-booking-hero-content {
@@ -15933,7 +15927,7 @@ body:has(.ecosystem-page) {
   overflow: hidden;
 }
 
-.ecosystem-cta > img {
+.ecosystem-cta>img {
   z-index: -2;
   object-fit: cover;
   object-position: center;
@@ -19389,12 +19383,10 @@ body:has(.international-page) .international-hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(3, 24, 15, 0.86) 0%,
-    rgba(6, 35, 23, 0.74) 50%,
-    rgba(3, 24, 15, 0.90) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(3, 24, 15, 0.86) 0%,
+      rgba(6, 35, 23, 0.74) 50%,
+      rgba(3, 24, 15, 0.90) 100%);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -20212,12 +20204,10 @@ body:has(.international-page) .international-welcome-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(5, 26, 17, 0.75) 0%,
-    rgba(0, 15, 8, 0.65) 50%,
-    rgba(5, 26, 17, 0.78) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(5, 26, 17, 0.75) 0%,
+      rgba(0, 15, 8, 0.65) 50%,
+      rgba(5, 26, 17, 0.78) 100%);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
@@ -20340,9 +20330,11 @@ body:has(.international-page) .international-welcome-stat-info span {
   body:has(.international-page) .international-enquiry-grid {
     grid-template-columns: 1fr;
   }
+
   body:has(.international-page) .international-form-grid {
     grid-template-columns: 1fr;
   }
+
   body:has(.international-page) .international-form-full {
     grid-column: span 1;
   }
@@ -20710,6 +20702,7 @@ body:has(.international-page) .international-help-card a {
 
 /* Mobile Responsive Overrides for International Patients Page */
 @media (max-width: 768px) {
+
   /* Hero Section */
   .conditions-hero-serene {
     min-height: auto !important;
@@ -20903,7 +20896,7 @@ body:has(.international-page) .international-help-card a {
     order: 0 !important;
   }
 
-  body:has(.international-page) .international-facility-card > a {
+  body:has(.international-page) .international-facility-card>a {
     margin-top: 0 !important;
     font-size: 13px !important;
     font-weight: 800 !important;
@@ -20972,7 +20965,7 @@ body:has(.international-page) .international-help-card a {
     margin-bottom: 10px !important;
   }
 
-  body:has(.international-page) .international-program-card > a {
+  body:has(.international-page) .international-program-card>a {
     margin-top: auto !important;
     padding-top: 6px !important;
     font-size: 11px !important;
@@ -21280,11 +21273,11 @@ body:has(.international-page) .international-help-card a {
   filter: none !important;
 }
 
-.media-card:hover > div {
+.media-card:hover>div {
   transform: none !important;
 }
 
-.media-card:hover > div > span {
+.media-card:hover>div>span {
   background: rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.3) !important;

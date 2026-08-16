@@ -18,11 +18,11 @@ export function VideoGalleryHeaderHero({ onSpotlightClick, spotlightVideo }: Vid
       <div className="conditions-hero-serene-overlay" />
 
       <div className="conditions-hero-serene-content">
-        <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
+        {/* <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
           <Link href="/">HOME</Link>
           <span>/</span>
           <span>VIDEO GALLERY</span>
-        </nav>
+        </nav> */}
 
         <div className="conditions-hero-serene-middle-wrapper">
           <div className="conditions-hero-serene-middle">
