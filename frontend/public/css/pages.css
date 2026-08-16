@@ -3769,10 +3769,7 @@ body:has(.treatment-detail-reference) main {
   width: 100vw;
   margin: 0 calc(50% - 50vw);
   padding: clamp(44px, 4.8vw, 76px) clamp(24px, 4.2vw, 76px);
-  background:
-    radial-gradient(circle at 94% 6%, rgba(168, 117, 52, 0.08), transparent 18%),
-    radial-gradient(circle at 96% 86%, rgba(168, 117, 52, 0.08), transparent 17%),
-    #fffdf9;
+  background: #ffffff;
   color: #0b2b21;
 }
 
