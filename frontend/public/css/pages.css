@@ -1810,7 +1810,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .treatment-reference-page #treatment-reference-title em {
-  color: #e5b974 !important;
+  color: #ffffff !important;
   font-style: italic !important;
 }
 

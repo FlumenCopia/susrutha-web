@@ -48,7 +48,7 @@ export function TreatmentsBannerSection() {
             </span>
           </h1>
 
-          <p>
+          <p style={{color:'#fff'}}>
             Explore our authentic Ayurvedic therapies crafted to detoxify,
             rejuvenate and restore balance to your body, mind and soul.
           </p>
