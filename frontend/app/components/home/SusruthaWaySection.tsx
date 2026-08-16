@@ -75,8 +75,14 @@ export function SusruthaWaySection() {
   ];
 
   return (
-    <section className="susrutha-way-section" aria-label="Wellness Treatments Showcase">
+    <section className="susrutha-way-section" aria-labelledby="susrutha-way-heading">
       <div className="susrutha-way-container">
+        {/* Section Title Header */}
+        <div className="susrutha-way-header">
+          <span className="susrutha-way-eyebrow">The Susrutha Way</span>
+          <h2 id="susrutha-way-heading">Crafting an Ecosystem of Total Wellness</h2>
+        </div>
+
         <div className="susrutha-way-checkerboard-grid">
           {cards.map((card, index) => {
             if (card.type === "text") {
