@@ -61,7 +61,6 @@ export function DoctorsFilterBar({
           <div className="doctors-filter-controls">
             {/* Department Dropdown */}
             <div className={`doctors-filter-select-wrap ${isDeptActive ? "is-active" : ""}`}>
-              <i className="fa-solid fa-stethoscope doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={selectedDeptId}
@@ -79,7 +78,6 @@ export function DoctorsFilterBar({
 
             {/* Branch Location Dropdown */}
             <div className={`doctors-filter-select-wrap ${isBranchActive ? "is-active" : ""}`}>
-              <i className="fa-solid fa-location-dot doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={selectedBranchId}
@@ -97,7 +95,6 @@ export function DoctorsFilterBar({
 
             {/* Consultation Mode Selector */}
             <div className={`doctors-filter-select-wrap ${isModeActive ? "is-active" : ""}`}>
-              <i className="fa-solid fa-video doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={selectedMode}
@@ -112,7 +109,6 @@ export function DoctorsFilterBar({
 
             {/* Sort Dropdown */}
             <div className={`doctors-filter-select-wrap ${isSortActive ? "is-active" : ""}`}>
-              <i className="fa-solid fa-arrow-down-short-wide doctors-filter-icon" />
               <select
                 className="doctors-filter-select"
                 value={sortBy}
@@ -130,7 +126,6 @@ export function DoctorsFilterBar({
           {/* Right Side: Result Count & Grid/List View Switcher */}
           <div className="doctors-filter-right">
             <div className="doctors-result-count-badge">
-              <span className="doctors-result-dot" />
               <span className="doctors-result-count">
                 Showing <strong>{resultCount}</strong> of {totalCount} Doctors
               </span>
@@ -167,35 +162,35 @@ export function DoctorsFilterBar({
               className={`doctors-pill-btn ${quickFilter === "all" ? "active" : ""}`}
               onClick={() => onQuickFilterChange("all")}
             >
-              <i className="fa-solid fa-user-doctor" /> All Doctors
+              All Doctors
             </button>
             <button
               type="button"
               className={`doctors-pill-btn ${quickFilter === "today" ? "active" : ""}`}
               onClick={() => onQuickFilterChange(quickFilter === "today" ? "all" : "today")}
             >
-              <i className="fa-solid fa-bolt" /> Available Today
+              Available Today
             </button>
             <button
               type="button"
               className={`doctors-pill-btn ${quickFilter === "senior" ? "active" : ""}`}
               onClick={() => onQuickFilterChange(quickFilter === "senior" ? "all" : "senior")}
             >
-              <i className="fa-solid fa-crown" /> Senior Vaidyas (15+ Yrs)
+              Senior Vaidyas (15+ Yrs)
             </button>
             <button
               type="button"
               className={`doctors-pill-btn ${quickFilter === "top-rated" ? "active" : ""}`}
               onClick={() => onQuickFilterChange(quickFilter === "top-rated" ? "all" : "top-rated")}
             >
-              <i className="fa-solid fa-star" /> Top Rated (4.9)
+              Top Rated (4.9)
             </button>
             <button
               type="button"
               className={`doctors-pill-btn ${quickFilter === "founders" ? "active" : ""}`}
               onClick={() => onQuickFilterChange(quickFilter === "founders" ? "all" : "founders")}
             >
-              <i className="fa-solid fa-trophy" /> Founder Physicians
+              Founder Physicians
             </button>
           </div>
         </div>
@@ -204,7 +199,7 @@ export function DoctorsFilterBar({
         {activeFilterCount > 0 && (
           <div className="doctors-active-filters-row">
             <span className="doctors-active-label">
-              <i className="fa-solid fa-filter" /> Active Filters ({activeFilterCount}):
+              Active Filters ({activeFilterCount}):
             </span>
             {selectedDeptId !== "all" && (
               <span className="doctors-active-filter-tag">
@@ -263,7 +258,7 @@ export function DoctorsFilterBar({
               className="doctors-clear-all-btn"
               onClick={onClearAllFilters}
             >
-              <i className="fa-solid fa-rotate-left" /> Reset All
+              Reset All
             </button>
           </div>
         )}
