@@ -4,6 +4,7 @@ import { AboutMilestonesSection } from "./about-premium/AboutMilestonesSection";
 import { AboutPurposeSection } from "./about-premium/AboutPurposeSection";
 import { AboutStorySection } from "./about-premium/AboutStorySection";
 import { ChairmanSection } from "./about-premium/ChairmanSection";
+import Timeloop from "../home/Timeloop";
 
 export function AboutPremiumPage() {
   return (
@@ -11,7 +12,9 @@ export function AboutPremiumPage() {
       <AboutHeroSection />
       <AboutStorySection />
       <ChairmanSection />
-      <AboutMilestonesSection />
+      {/* <AboutMilestonesSection /> */}
+
+      <Timeloop />
       <AboutPurposeSection />
       <AboutFoundersSection />
     </div>
