@@ -472,45 +472,65 @@
 }
 
 .doctor-education-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   max-width: 980px;
   margin: 0 auto;
 }
 
 .doctor-education-grid article {
-  padding: 8px 26px;
-  text-align: center;
+  flex: 0 1 420px;
+  background: #ffffff;
+  border: 1px solid rgba(181, 122, 37, 0.22);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(70, 45, 22, 0.04);
+  transition: all 0.25s ease;
+}
+
+.doctor-education-grid article:hover {
+  border-color: rgba(181, 122, 37, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(181, 122, 37, 0.1);
 }
 
 .doctor-education-grid article+article {
-  border-left: 1px solid rgba(198, 137, 34, 0.2);
+  border-left: 1px solid rgba(181, 122, 37, 0.22);
 }
 
 .doctor-education-grid svg {
-  width: 52px;
-  height: 52px;
-  padding: 11px;
-  color: var(--color-gold);
-  border: 1px solid rgba(198, 137, 34, 0.2);
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 10px;
+  color: #b57a25;
+  background: rgba(181, 122, 37, 0.09);
+  border: 1px solid rgba(181, 122, 37, 0.25);
   border-radius: 50%;
+  box-sizing: border-box;
 }
 
 .doctor-education-grid h3 {
-  margin: 16px 0 7px;
-  color: #000a04;
-  font-size: 20px;
-  font-weight: 500;
+  margin: 0;
+  color: #1a221f;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0;
+  line-height: 1.4;
   text-transform: none;
 }
 
 .doctor-education-grid p {
-  margin: 0;
+  margin: 2px 0 0;
   color: #66615a;
   font-size: 12px;
-  line-height: 1.55;
+  line-height: 1.4;
 }
 
 .doctor-appointment-banner {
@@ -749,9 +769,7 @@
   height: clamp(160px, 12vw, 210px);
 }
 
-.doctor-education-grid article {
-  padding: 22px 30px;
-}
+
 
 .doctor-appointment-banner {
   width: min(calc(100% - 48px), 1360px);
