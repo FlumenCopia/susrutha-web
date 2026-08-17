@@ -1,7 +1,37 @@
 "use client";
 
 import Image from "next/image";
-import { VideoItem } from "./videoGalleryData";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
+
+export type VideoChapter = {
+  timestamp: string;
+  title: string;
+};
+
+export type DoctorSpeaker = {
+  name: string;
+  role: string;
+  avatar: string;
+  verified?: boolean;
+};
+
+export type VideoItem = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  duration: string;
+  thumbnail: string;
+  youtubeId: string;
+  views: string;
+  rating: string;
+  level: "Beginner" | "Intermediate" | "Clinical Guide" | "Masterclass";
+  speaker: DoctorSpeaker;
+  chapters?: VideoChapter[];
+  transcript?: string;
+  featured?: boolean;
+  isBackendData?: boolean;
+};
 
 type FeaturedVideoCardProps = {
   video: VideoItem;

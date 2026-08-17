@@ -1,4 +1,13 @@
-import type { Article } from "./blogData";
+export type Article = {
+  author: string;
+  date: string;
+  readTime: string;
+  title?: string;
+  category?: string;
+  excerpt?: string;
+  image?: string;
+  slug?: string;
+};
 
 type ArticleMetaProps = {
   article: Article;

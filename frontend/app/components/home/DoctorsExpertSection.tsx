@@ -1,29 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const doctorCards = [
-  {
-    name: "Dr. Arjun Dev",
-    degree: "B.A.M.S, MD (Ayurveda)",
-    focus: "Expert in Herbal Medicine & Immunity",
-    imagePosition: "center 28%",
-    icons: ["leaf", "shield", "bowl"],
-  },
-  {
-    name: "Dr. Meera Das",
-    degree: "B.A.M.S, MD (Ayurveda)",
-    focus: "Specialist in Women's Health",
-    imagePosition: "center 22%",
-    icons: ["doctor", "lotus", "bowl"],
-  },
-  {
-    name: "Dr. Rahul Kumar",
-    degree: "B.A.M.S, MD (Ayurveda)",
-    focus: "Expert in Pain Management & Physiotherapy",
-    imagePosition: "center 25%",
-    icons: ["walk", "lotus", "spine"],
-  },
-];
+import { getPublicDoctors, getImageDisplayUrl } from "@/app/services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 const values = [
   ["lotus", "Ancient Wisdom", "Rooted in tradition, guided by science."],
@@ -31,6 +12,47 @@ const values = [
 ];
 
 export function DoctorsExpertSection() {
+  const [featuredDoctor, setFeaturedDoctor] = useState<any>(null);
+  const [doctorList, setDoctorList] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function loadBackendDoctors() {
+      try {
+        const raw = await getPublicDoctors();
+        if (Array.isArray(raw) && raw.length > 0) {
+          const chief = raw.find((d: any) => d.isDirector || d.isFounder) || raw[0];
+          setFeaturedDoctor({
+            name: chief.name,
+            designation: chief.designation || chief.title || "Chief Medical Officer",
+            qualification: chief.qualifications || chief.qualification || "BAMS, MD (Ayurveda)",
+            experienceYears: chief.experienceYears || 15,
+            specialty: chief.specialties?.[0] || "Panchakarma & Bio-Purification",
+            bio: chief.bio || chief.quote || "Dedicated to authentic Kerala Ayurvedic healing.",
+            image: getImageDisplayUrl(chief.photo || chief.photoUrl || chief.image),
+            slug: chief.slug,
+          });
+
+          const others = raw
+            .filter((d: any) => d._id !== chief._id && d.slug !== chief.slug)
+            .slice(0, 3)
+            .map((d: any) => ({
+              name: d.name,
+              degree: d.qualifications || d.qualification || "BAMS",
+              focus: d.designation || (d.specialties ? `Specialist in ${d.specialties[0]}` : "Ayurvedic Specialist"),
+              image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
+              slug: d.slug,
+              icons: ["leaf", "shield", "bowl"],
+            }));
+
+          setDoctorList(others);
+        }
+      } catch (err) {
+        console.error("Failed to load homepage expert doctors:", err);
+      }
+    }
+    loadBackendDoctors();
+  }, []);
+
   return (
     <section className="doctors-expert-section" aria-labelledby="doctors-expert-title">
       <div className="doctors-expert-inner">
@@ -61,50 +83,50 @@ export function DoctorsExpertSection() {
           </div>
         </div>
 
-        <div className="doctors-expert-feature">
-          <div className="doctors-expert-portrait">
-            <Image
-              src="/images/doctor-portrait.webp"
-              alt="Dr. Anjali Nair"
-              fill
-              sizes="(max-width: 900px) 70vw, 390px"
-              priority={false}
-            />
-          </div>
-          <div className="doctors-expert-badge">
-            <strong>15+</strong>
-            <span>Years of Experience</span>
-            <i aria-hidden="true" />
-          </div>
-          <div className="doctors-expert-profile">
-            <span>Chief Ayurvedic Physician</span>
-            <h3>Dr. Anjali Nair</h3>
-            <p>B.A.M.S, MD (Ayurveda)</p>
-            <div className="doctors-expert-pill">
+        {featuredDoctor && (
+          <div className="doctors-expert-feature">
+            <div className="doctors-expert-portrait">
+              <Image
+                src={featuredDoctor.image}
+                alt={featuredDoctor.name}
+                fill
+                sizes="(max-width: 900px) 70vw, 390px"
+                priority={false}
+              />
+            </div>
+            <div className="doctors-expert-badge">
+              <strong>{featuredDoctor.experienceYears}+</strong>
+              <span>Years of Experience</span>
               <i aria-hidden="true" />
-              Specialist in Panchakarma &amp; Women&apos;s Wellness
             </div>
-            <p>
-              Expert in holistic healing through personalized treatments that restore balance and
-              promote long-term wellness.
-            </p>
-            <div className="doctors-expert-actions">
-              <Link href="/doctors">View Profile</Link>
-              <Link href="/appointment">Book Consultation</Link>
+            <div className="doctors-expert-profile">
+              <span>{featuredDoctor.designation}</span>
+              <h3>{featuredDoctor.name}</h3>
+              <p>{featuredDoctor.qualification}</p>
+              <div className="doctors-expert-pill">
+                <i aria-hidden="true" />
+                Specialist in {featuredDoctor.specialty}
+              </div>
+              <p>{featuredDoctor.bio}</p>
+              <div className="doctors-expert-actions">
+                <Link href={`/doctors/${featuredDoctor.slug}`}>View Profile</Link>
+                <Link href="/appointment">Book Consultation</Link>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="doctors-expert-list">
-          {doctorCards.map((doctor) => (
-            <article className="doctors-expert-card" key={doctor.name}>
+          {doctorList.map((doctor) => (
+            <article className="doctors-expert-card" key={doctor.name} style={{ position: "relative" }}>
+              <DataLayerRibbon type="backend" />
               <div className="doctors-expert-card-photo">
                 <Image
-                  src="/images/doctor-portrait.webp"
+                  src={doctor.image}
                   alt={doctor.name}
                   fill
                   sizes="(max-width: 900px) 120px, 155px"
-                  style={{ objectPosition: doctor.imagePosition }}
+                  style={{ objectFit: "cover" }}
                 />
               </div>
               <div className="doctors-expert-card-copy">
@@ -113,12 +135,12 @@ export function DoctorsExpertSection() {
                 <i aria-hidden="true" />
                 <p>{doctor.focus}</p>
                 <div className="doctors-expert-card-icons">
-                  {doctor.icons.map((icon) => (
+                  {doctor.icons.map((icon: string) => (
                     <b data-icon={icon} key={icon} aria-hidden="true" />
                   ))}
                 </div>
               </div>
-              <Link href="/doctors" aria-label={`View profile for ${doctor.name}`}>
+              <Link href={`/doctors/${doctor.slug}`} aria-label={`View profile for ${doctor.name}`}>
                 &rarr;
               </Link>
             </article>
@@ -128,22 +150,6 @@ export function DoctorsExpertSection() {
         <div className="doctors-expert-still doctors-expert-still-left" aria-hidden="true">
           <Image src="/images/home-hero-reference.webp" alt="" fill sizes="330px" />
         </div>
-
-        {/* <div className="doctors-expert-stats" aria-label="Doctor care highlights">
-          {stats.map(([icon, value, label]) => (
-            <div className="doctors-expert-stat" data-icon={icon} key={label}>
-              <span aria-hidden="true" />
-              <strong>{value}</strong>
-              <p>{label}</p>
-            </div>
-          ))}
-        </div> */}
-
-        {/* <blockquote className="doctors-expert-quote">
-          <span aria-hidden="true">&ldquo;</span>
-          <p>Healing is not just our profession, it is our purpose rooted in ancient wisdom.</p>
-          <i aria-hidden="true" />
-        </blockquote> */}
 
         <div className="doctors-expert-still doctors-expert-still-right" aria-hidden="true">
           <Image src="/images/testimonial-lamp-flowers.webp" alt="" fill sizes="260px" />

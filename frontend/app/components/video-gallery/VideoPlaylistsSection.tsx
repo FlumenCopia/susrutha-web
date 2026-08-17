@@ -1,17 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { playlistsData, VideoPlaylist, VideoItem, featuredVideosData } from "./videoGalleryData";
+import { VideoItem } from "./FeaturedVideoCard";
+
+export type VideoPlaylist = {
+  id: string;
+  title: string;
+  category: string;
+  videoCount: number;
+  totalDuration: string;
+  thumbnail: string;
+  description: string;
+  speaker?: { name: string; avatar: string; role?: string };
+};
 
 type VideoPlaylistsSectionProps = {
+  playlists?: VideoPlaylist[];
+  videos?: VideoItem[];
   onPlayVideo: (video: VideoItem) => void;
 };
 
-export function VideoPlaylistsSection({ onPlayVideo }: VideoPlaylistsSectionProps) {
+export function VideoPlaylistsSection({ playlists = [], videos = [], onPlayVideo }: VideoPlaylistsSectionProps) {
+  if (playlists.length === 0) return null;
+
   const handlePlaylistClick = (playlist: VideoPlaylist) => {
-    // Find matching video or launch first video in category
-    const match = featuredVideosData.find((v) => v.category === playlist.category) || featuredVideosData[0];
-    onPlayVideo(match);
+    const match = videos.find((v) => v.category === playlist.category) || videos[0];
+    if (match) onPlayVideo(match);
   };
 
   return (
@@ -27,7 +41,7 @@ export function VideoPlaylistsSection({ onPlayVideo }: VideoPlaylistsSectionProp
       </div>
 
       <div className="vg-playlists-grid">
-        {playlistsData.map((pl) => (
+        {playlists.map((pl) => (
           <article
             key={pl.id}
             className="vg-playlist-card"
@@ -60,16 +74,18 @@ export function VideoPlaylistsSection({ onPlayVideo }: VideoPlaylistsSectionProp
               <h3 className="vg-playlist-title">{pl.title}</h3>
               <p className="vg-playlist-desc">{pl.description}</p>
               <div className="vg-playlist-footer">
-                <div className="vg-speaker-avatar-wrapper">
-                  <Image
-                    src={pl.speaker.avatar}
-                    alt={pl.speaker.name}
-                    width={28}
-                    height={28}
-                    className="vg-speaker-avatar"
-                  />
-                </div>
-                <span className="vg-playlist-doctor-name">{pl.speaker.name}</span>
+                {pl.speaker ? (
+                  <div className="vg-speaker-avatar-wrapper">
+                    <Image
+                      src={pl.speaker.avatar}
+                      alt={pl.speaker.name}
+                      width={28}
+                      height={28}
+                      className="vg-speaker-avatar"
+                    />
+                  </div>
+                ) : null}
+                {pl.speaker ? <span className="vg-playlist-doctor-name">{pl.speaker.name}</span> : null}
                 <span className="vg-playlist-play-link">Start Series →</span>
               </div>
             </div>

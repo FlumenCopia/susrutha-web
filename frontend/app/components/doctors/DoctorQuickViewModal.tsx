@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { DoctorItem } from "./doctorsData";
+import { DoctorItem } from "./DoctorCard";
 
 type DoctorQuickViewModalProps = {
   doctor: DoctorItem | null;

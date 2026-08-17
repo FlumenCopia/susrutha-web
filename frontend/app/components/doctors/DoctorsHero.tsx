@@ -1,5 +1,12 @@
 import React from "react";
-import { quickSearchTags } from "./doctorsData";
+
+const quickSearchTags = [
+  "Panchakarma",
+  "Spine & Joints",
+  "Women's Health",
+  "Skin & Hair",
+  "Detox & Wellness",
+];
 
 type DoctorsHeroProps = {
   searchQuery: string;

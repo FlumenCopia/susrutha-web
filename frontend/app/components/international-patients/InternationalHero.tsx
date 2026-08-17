@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { internationalHeroFeatures, internationalStats } from "./internationalPatientsData";
-import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
+import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
 import { InternationalStatCard } from "./InternationalStatCard";
+
+const internationalHeroFeatures: Array<{ icon: InternationalPatientsIconName; title: string; text: string }> = [
+  { icon: "globe", title: "Visa & Travel Assistance", text: "Medical visa invitation letters and travel coordination." },
+  { icon: "plane", title: "Airport Pick-up & Transfer", text: "Direct transfer from Trivandrum International Airport (TRV)." },
+];
+
+const internationalStats: Array<{ value: string; label: string; icon: InternationalPatientsIconName }> = [
+  { value: "40+", label: "Countries Served", icon: "globe" },
+  { value: "20 km", label: "From Trivandrum Airport", icon: "plane" },
+  { value: "100%", label: "Physician Supervised", icon: "shield" },
+];
 
 export function InternationalHero() {
   return (

@@ -1,9 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BranchIcon } from "./BranchIcons";
-import { branches } from "./branchesData";
+import { BranchIcon, type BranchIconName } from "./BranchIcons";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
-type Branch = (typeof branches)[number];
+export type Branch = {
+  id: string;
+  title: string;
+  label: string;
+  description: string;
+  location: string;
+  hours: string;
+  phone: string;
+  image: string;
+  icon: BranchIconName;
+  details: string[];
+  doctors: string[];
+  mapsHref: string;
+  isBackendData?: boolean;
+};
 
 type BranchLocationCardProps = {
   branch: Branch;
@@ -11,7 +25,10 @@ type BranchLocationCardProps = {
 
 export function BranchLocationCard({ branch }: BranchLocationCardProps) {
   return (
-    <article className="branch-location-card" id={branch.id}>
+    <article
+      className="branch-location-card"
+      id={branch.id}
+    >
       <div className="branch-location-image">
         <Image src={branch.image} alt={`${branch.title} care environment`} fill sizes="(max-width: 900px) 100vw, 50vw" />
         <span>{branch.label}</span>

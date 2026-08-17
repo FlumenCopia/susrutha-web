@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { mediaCategories } from "./mediaData";
+
+const mediaCategories = ["All", "Press Releases", "News Coverage", "Video Feature", "Events"];
 
 type MediaCategoriesProps = {
   activeCategory?: string;

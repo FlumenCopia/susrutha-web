@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { VideoItem } from "./videoGalleryData";
+import { VideoItem } from "./FeaturedVideoCard";
 
 type VideoGalleryHeaderHeroProps = {
   onSpotlightClick?: (video: VideoItem) => void;

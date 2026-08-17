@@ -1,48 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { DoctorDirectoryItem } from "../../data/architecture";
+import { getImageDisplayUrl } from "../../services/api";
 
 type DoctorProfilePageProps = {
   doctor: DoctorDirectoryItem;
 };
 
 type DoctorIconName = "award" | "calendar" | "doctor" | "leaf" | "medicine" | "shield" | "spine" | "target";
-
-const signatureTreatments = [
-  { title: "Panchakarma", meta: "Core Hospital Therapy", image: "/images/treatment-panchakarma.webp", icon: "medicine" },
-  { title: "Abhyanga", meta: "External Therapy", image: "/images/treatment-herbal-medicine.webp", icon: "leaf" },
-  { title: "Kizhi (Herbal Bolus Fomentation)", meta: "External Therapy", image: "/images/treatment-njavarakizhi.webp", icon: "award" },
-  { title: "Vasti (Medicated Enema Therapy)", meta: "Panchakarma Procedure", image: "/images/treatment-kati-vasti.webp", icon: "medicine" },
-] satisfies { title: string; meta: string; image: string; icon: DoctorIconName }[];
-
-const articleCards = [
-  {
-    title: "Understanding Panchakarma as Hospital Care",
-    category: "Panchakarma",
-    meta: "May 12, 2024 - 6 min read",
-    image: "/images/about-purpose-still-life.webp",
-  },
-  {
-    title: "Ayurvedic Approach to Chronic Back Pain",
-    category: "Spine Care",
-    meta: "Apr 28, 2024 - 5 min read",
-    image: "/images/treatment-kati-vasti.webp",
-  },
-  {
-    title: "Dinacharya: Daily Routine for Better Health",
-    category: "Lifestyle",
-    meta: "Apr 10, 2024 - 4 min read",
-    image: "/images/treatment-herbal-medicine.webp",
-  },
-];
-
-const defaultConditions = ["Spine & Joints", "Neuro Rehab", "Rheumatology", "Preventive Care", "General Medicine"];
-const journeyStages = [
-  { title: "Listen", text: "Symptoms, lifestyle, food habits, sleep, digestion, and medical history are reviewed with care." },
-  { title: "Diagnose", text: "The clinical picture is mapped with Ayurvedic assessment and practical treatment priorities." },
-  { title: "Treat", text: "Therapies, medicines, diet, and daily routines are planned around the patient condition." },
-  { title: "Restore", text: "Progress reviews help refine the plan and support long-term balance after treatment." },
-];
 
 function DoctorIcon({ name }: { name: DoctorIconName }) {
   const common = {
@@ -110,31 +75,44 @@ function DoctorIcon({ name }: { name: DoctorIconName }) {
 }
 
 export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
-  const image = typeof doctor.image === 'string' ? doctor.image : (doctor as any).photoUrl || "/images/doctor-portrait.webp";
-  const focusAreas = Array.isArray(doctor.focusAreas)
+  const docName = doctor.title || (doctor as any).name || "Ayurvedic Physician";
+  const image = typeof doctor.image === "string" && doctor.image.trim() !== ""
+    ? getImageDisplayUrl(doctor.image)
+    : (doctor as any).photoUrl ? getImageDisplayUrl((doctor as any).photoUrl) : (doctor as any).photo ? getImageDisplayUrl((doctor as any).photo) : "/images/doctor-portrait.webp";
+
+  const focusAreas = Array.isArray(doctor.focusAreas) && doctor.focusAreas.length > 0
     ? doctor.focusAreas.map(f => typeof f === 'string' ? f : (f as any).title || String(f))
-    : ["Panchakarma hospital protocols", "Chronic musculoskeletal conditions", "Integrative inpatient Ayurveda", "Research-oriented clinical practice"];
-  const pillars = Array.isArray(doctor.approach)
-    ? doctor.approach.map(a => typeof a === 'string' ? a : String(a)).slice(0, 3)
-    : ["Research-driven Ayurveda", "Panchakarma authority", "Classical Ayurveda + modern hospital practice"];
-  const languages = Array.isArray(doctor.languages)
+    : Array.isArray((doctor as any).specialties) && (doctor as any).specialties.length > 0
+    ? (doctor as any).specialties
+    : [];
+
+  const languages = Array.isArray(doctor.languages) && doctor.languages.length > 0
     ? doctor.languages.join(", ")
+    : Array.isArray((doctor as any).languagesSpoken) && (doctor as any).languagesSpoken.length > 0
+    ? (doctor as any).languagesSpoken.join(", ")
     : typeof doctor.languages === 'string'
     ? doctor.languages
-    : "Malayalam, English, Hindi";
-  const conditions = Array.isArray(doctor.focusAreas)
-    ? [...focusAreas, ...defaultConditions].slice(0, 5)
-    : defaultConditions;
-  const education = Array.isArray(doctor.credentials)
-    ? doctor.credentials.map(c => typeof c === 'string' ? c : String(c))
-    : ["BAMS", "MD (Ayurveda)", "Reg. No. 12345/2006", "Certified Panchakarma Practitioner"];
+    : "";
 
+  const education = Array.isArray((doctor as any).credentials) && (doctor as any).credentials.length > 0
+    ? (doctor as any).credentials
+    : Array.isArray(doctor.credentials) && doctor.credentials.length > 0
+    ? doctor.credentials.map(c => typeof c === 'string' ? c : String(c))
+    : (doctor as any).qualifications
+    ? [(doctor as any).qualifications, (doctor as any).registrationNumber ? `Reg No: ${(doctor as any).registrationNumber}` : ''].filter(Boolean)
+    : [];
+
+  const experienceDisplay = (doctor as any).experienceText || ((doctor as any).experienceYears ? `${(doctor as any).experienceYears}+ Years` : doctor.experience ?? "");
   const rawAvailability = (doctor as any).availability;
   const availabilityText = typeof rawAvailability === 'string'
     ? rawAvailability
-    : Array.isArray(rawAvailability)
-    ? rawAvailability.map((a: any) => typeof a === 'string' ? a : `${a.days || ''} (${a.timeSlots || ''})`).join(', ')
-    : "Kattakada & Kowdiar (On Appointment)";
+    : Array.isArray(rawAvailability) && rawAvailability.length > 0
+    ? rawAvailability.map((a: any) => typeof a === 'string' ? a : `${a.days?.join?.(', ') || ''}`).join(', ')
+    : "On Appointment";
+
+  const associatedTreatments = Array.isArray((doctor as any).associatedTreatmentIds)
+    ? (doctor as any).associatedTreatmentIds
+    : [];
 
   return (
     <main className="doctor-detail-page">
@@ -145,27 +123,24 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
             <span>/</span>
             <Link href="/doctors">Doctors</Link>
             <span>/</span>
-            <Link href={`/doctors/${doctor.slug}`}>{doctor.title || (doctor as any).name}</Link>
+            <Link href={`/doctors/${doctor.slug}`}>{docName}</Link>
           </div>
 
-          <div className="doctor-detail-hero-grid">
-          <div className="doctor-detail-copy">
-            <span>Ayurvedic Physician</span>
-            <h1>{doctor.title || (doctor as any).name}</h1>
-            <p className="doctor-detail-meta">{doctor.meta || (doctor as any).qualification}</p>
-            <p>{doctor.text || (doctor as any).bio}</p>
+          <div className="doctor-detail-hero-grid" style={{ position: "relative" }}>
+            <div className="doctor-detail-copy">
+              <span>{doctor.meta || (doctor as any).designation || "Ayurvedic Physician"}</span>
+              <h1>{docName}</h1>
+              {(doctor as any).qualifications && <p className="doctor-detail-meta">{(doctor as any).qualifications}</p>}
+              <p>{doctor.text || (doctor as any).bio || (doctor as any).shortBio}</p>
 
               <div className="doctor-detail-stats" aria-label="Doctor highlights">
-                <article>
-                  <DoctorIcon name="calendar" />
-                  <strong>{doctor.experience ?? "18+ Years"}</strong>
-                  <span>Years Experience</span>
-                </article>
-                <article>
-                  <DoctorIcon name="doctor" />
-                  <strong>{doctor.patients ?? "5000+"}</strong>
-                  <span>Patients Treated</span>
-                </article>
+                {experienceDisplay && (
+                  <article>
+                    <DoctorIcon name="calendar" />
+                    <strong>{experienceDisplay}</strong>
+                    <span>Experience</span>
+                  </article>
+                )}
                 <article>
                   <DoctorIcon name="leaf" />
                   <strong>100%</strong>
@@ -174,47 +149,41 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
               </div>
 
               <div className="doctor-detail-actions">
-                <Link href={`/appointment?doctor=${encodeURIComponent((doctor as any).slug || (doctor as any)._id || doctor.title)}`}>
+                <Link href={`/appointment?doctor=${encodeURIComponent((doctor as any).slug || (doctor as any)._id || docName)}`}>
                   Book Consultation Slot
                 </Link>
-                <Link href={`/appointment?doctor=${encodeURIComponent((doctor as any).slug || (doctor as any)._id || doctor.title)}&mode=video`}>
-                  Consult Online (Video)
-                </Link>
               </div>
-          </div>
+            </div>
 
-          <div className="doctor-detail-photo-wrap">
-            <div className="doctor-detail-photo">
-              <Image src={image} alt={doctor.title || (doctor as any).name || 'Doctor'} fill priority sizes="(max-width: 900px) 92vw, 430px" />
+            <div className="doctor-detail-photo-wrap">
+              <div className="doctor-detail-photo">
+                <Image src={image} alt={docName} fill priority sizes="(max-width: 900px) 92vw, 430px" />
+              </div>
+              <div className="doctor-detail-photo-note">
+                <DoctorIcon name="leaf" />
+                <span>Personalized Ayurveda Care</span>
+              </div>
             </div>
-            <div className="doctor-detail-photo-note">
-              <DoctorIcon name="leaf" />
-              <span>Personalized Ayurveda Care</span>
-            </div>
-          </div>
 
             <aside className="doctor-detail-glance" aria-label="At a glance">
-              <article>
-                <DoctorIcon name="award" />
-                <div>
-                  <span>Specialization</span>
-                  <strong>{focusAreas.slice(0, 2).join(" & ")}</strong>
-                </div>
-              </article>
-              <article>
-                <DoctorIcon name="medicine" />
-                <div>
-                  <span>Department</span>
-                  <strong>Ayurveda Medicine</strong>
-                </div>
-              </article>
-              <article>
-                <DoctorIcon name="doctor" />
-                <div>
-                  <span>Languages</span>
-                  <strong>{languages}</strong>
-                </div>
-              </article>
+              {focusAreas.length > 0 && (
+                <article>
+                  <DoctorIcon name="award" />
+                  <div>
+                    <span>Specialization</span>
+                    <strong>{focusAreas.slice(0, 2).join(" & ")}</strong>
+                  </div>
+                </article>
+              )}
+              {languages && (
+                <article>
+                  <DoctorIcon name="doctor" />
+                  <div>
+                    <span>Languages</span>
+                    <strong>{languages}</strong>
+                  </div>
+                </article>
+              )}
               <article>
                 <DoctorIcon name="calendar" />
                 <div>
@@ -228,186 +197,75 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
       </section>
 
       <section className="doctor-detail-main">
-        <div className="doctor-detail-top-row">
-          <aside className="doctor-detail-side">
-            {["Content pending verification: publications/research", "Content pending verification: awards", "Content pending verification: signature video"].map((item) => (
-              <div key={item}>{item}</div>
-            ))}
-          </aside>
-
+        {focusAreas.length > 0 && (
           <section className="doctor-detail-block">
-            <h2>Focus Areas & Protocols</h2>
+            <h2>Focus Areas & Specialties</h2>
             <div className="doctor-chip-list">
-              {focusAreas.map((item) => (
+              {focusAreas.map((item: string) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
-            <h3>Pillars</h3>
-            <ul>
-              {pillars.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </section>
-        </div>
+        )}
 
-        <section className="doctor-philosophy-panel">
-          <div>
-            <span>Philosophy</span>
-            <h2>{doctor.quote ?? "Classical Ayurveda becomes powerful when it is personal, clear, and carefully guided."}</h2>
-          </div>
-          <p>
-            Clinical decisions begin with a detailed understanding of constitution, disease stage, lifestyle, digestion,
-            and recovery goals. Each plan is shaped to feel practical, supervised, and easy for the patient to follow.
-          </p>
-        </section>
+        {doctor.quote && (
+          <section className="doctor-philosophy-panel">
+            <div>
+              <span>Philosophy</span>
+              <h2>&ldquo;{doctor.quote}&rdquo;</h2>
+            </div>
+          </section>
+        )}
 
+        {associatedTreatments.length > 0 && (
           <section className="doctor-detail-block">
             <div className="doctor-detail-title-center">
               <span />
-            <h2>Signature treatments</h2>
-            <span />
-          </div>
-          <div className="doctor-treatment-grid">
-            {signatureTreatments.map((item) => (
-              <article key={item.title}>
-                <Image src={item.image} alt="" width={78} height={78} aria-hidden="true" />
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.meta}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="doctor-detail-block">
-          <div className="doctor-detail-title-center">
-            <span />
-            <h2>Conditions & pathways led</h2>
-            <span />
-          </div>
-          <div className="doctor-condition-grid">
-            {conditions.map((item, index) => (
-              <article key={item}>
-                <DoctorIcon name={index === 0 ? "spine" : index === 1 ? "target" : "shield"} />
-                <span>{item}</span>
-              </article>
-            ))}
+              <h2>Associated Treatments</h2>
+              <span />
             </div>
-          </section>
-
-        <section className="doctor-journey-section">
-          <div className="doctor-creative-head">
-            <span>Healing Journey</span>
-            <h2>A Guided Path from Consultation to Recovery</h2>
-            <p>
-              The care journey is designed to feel clear, personal, and supervised from the first consultation through
-              follow-up.
-            </p>
-          </div>
-          <div className="doctor-journey-grid">
-            {journeyStages.map((item, index) => (
-              <article key={item.title}>
-                <strong>{String(index + 1).padStart(2, "0")}</strong>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="doctor-experience-section">
-          <div className="doctor-experience-copy">
-            <span>Care Experience</span>
-            <h2>What Patients Can Expect</h2>
-            <p>
-              Consultations are structured for clarity, comfort, and continuity. Each recommendation is explained in
-              practical language so patients understand the purpose behind every therapy and lifestyle step.
-            </p>
-          </div>
-          <div className="doctor-experience-grid">
-            {[
-              ["Personalized Plan", "Treatment is adapted to constitution, concern, age, strength, and recovery goals."],
-              ["Therapy Supervision", "Classical therapies are coordinated with review points and clinical guidance."],
-              ["Diet & Routine", "Simple food, sleep, activity, and daily rhythm suggestions support lasting results."],
-              ["Follow-up Support", "Progress checks help adjust the plan after treatment and during recovery."],
-            ].map(([title, text], index) => (
-              <article key={title}>
-                <DoctorIcon name={index === 0 ? "target" : index === 1 ? "medicine" : index === 2 ? "leaf" : "calendar"} />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="doctor-articles-faq">
-          <article className="doctor-article-panel">
-            <div className="doctor-panel-head">
-              <h2>Articles by {doctor.title}</h2>
-              <Link href="/blogs">View all articles -&gt;</Link>
-            </div>
-            <div className="doctor-article-grid">
-              {articleCards.map((item) => (
-                <Link href="/blogs" key={item.title}>
-                  <Image src={item.image} alt="" width={220} height={160} aria-hidden="true" />
-                  <span>{item.category}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.meta}</p>
-                </Link>
+            <div className="doctor-treatment-grid">
+              {associatedTreatments.map((tr: any) => (
+                <article key={tr.title || tr.name}>
+                  <div>
+                    <h3>{tr.title || tr.name}</h3>
+                    {tr.shortDescription && <p>{tr.shortDescription}</p>}
+                  </div>
+                </article>
               ))}
             </div>
-          </article>
+          </section>
+        )}
 
-          <article className="doctor-faq-panel">
-            <h2>FAQ</h2>
-            {[
-              ["How is availability confirmed?", "On appointment. Online requests are confirmed by the hospital team against the live roster before you travel."],
-              ["Can I request this doctor for a package stay?", "Yes. Add the doctor preference in the appointment form and the care team will guide availability."],
-              ["Do you provide video consultation?", "The team can confirm remote consultation options based on the concern and doctor schedule."],
-            ].map(([question, answer]) => (
-              <details key={question}>
-                <summary>{question}</summary>
-                <p>{answer}</p>
-              </details>
-            ))}
-          </article>
-        </section>
-
-        <section className="doctor-detail-block doctor-education-block">
-          <div className="doctor-detail-title-center">
-            <span />
-            <h2>Education & Credentials</h2>
-            <span />
-          </div>
-          <div className="doctor-education-grid">
-            {education.slice(0, 4).map((item, index) => (
-              <article key={item}>
-                <DoctorIcon name={index === 0 ? "award" : index === 1 ? "medicine" : index === 2 ? "shield" : "calendar"} />
-                <h3>{item}</h3>
-                <p>{index === 0 ? "Clinical qualification" : index === 1 ? "Ayurvedic medical training" : index === 2 ? "Registered clinical practice" : "Advanced care credential"}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        {education.length > 0 && (
+          <section className="doctor-detail-block doctor-education-block">
+            <div className="doctor-detail-title-center">
+              <span />
+              <h2>Education & Credentials</h2>
+              <span />
+            </div>
+            <div className="doctor-education-grid">
+              {education.map((item: string, index: number) => (
+                <article key={item}>
+                  <DoctorIcon name="award" />
+                  <h3>{item}</h3>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
       </section>
 
       <section className="doctor-appointment-banner">
         <Image src="/images/testimonial-lamp-flowers.webp" alt="" fill aria-hidden="true" sizes="100vw" />
         <div>
           <span>Ready to begin your healing journey?</span>
-          <h2>Book an Appointment with {doctor.title}</h2>
+          <h2>Book an Appointment with {docName}</h2>
           <p>Choose a consultation slot and let our care team guide the right next step for your wellness journey.</p>
           <div className="doctor-banner-actions">
-            <Link href="/appointment">Book Appointment Now</Link>
+            <Link href={`/appointment?doctor=${encodeURIComponent((doctor as any).slug || (doctor as any)._id || docName)}`}>Book Appointment Now</Link>
             <Link href="/contact-us">Talk to Care Team</Link>
           </div>
-          <ul aria-label="Appointment highlights">
-            <li>Personalized guidance</li>
-            <li>Doctor-led care</li>
-            <li>Hospital support</li>
-          </ul>
         </div>
       </section>
     </main>

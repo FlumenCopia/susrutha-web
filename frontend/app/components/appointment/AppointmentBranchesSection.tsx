@@ -1,6 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
-import { branchLocations } from "./appointmentData";
+
+const branchLocations = [
+  {
+    id: "kattakada",
+    name: "Susrutha Kattakada Centre",
+    type: "Flagship Specialty Hospital",
+    address: "Kattakada Town, Thiruvananthapuram, Kerala 695572",
+    timing: "OPD: Mon - Sat (8:00 AM - 7:00 PM)",
+    phone: "+91 9645 555 888",
+    image: "/images/kattakada-hero-landscape.webp",
+    features: ["Inpatient Beds", "Panchakarma Suites", "Pharmacy"],
+  },
+  {
+    id: "kowdiar",
+    name: "Susrutha Kowdiar Clinic",
+    type: "Premium Outpatient Clinic",
+    address: "Kowdiar Main Avenue, Thiruvananthapuram, Kerala 695003",
+    timing: "OPD: Mon - Sun (9:00 AM - 8:00 PM)",
+    phone: "+91 9645 555 888",
+    image: "/images/kowdiar-streetview.webp",
+    features: ["Specialist OPD", "Nadi Pariksha", "Wellness Care"],
+  },
+];
 
 export function AppointmentBranchesSection() {
   return (

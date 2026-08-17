@@ -1,6 +1,11 @@
 import Link from "next/link";
-import { facilityEnquirySupport } from "./facilitiesData";
-import { FacilitiesIcon } from "./FacilitiesIcon";
+import { FacilitiesIcon, type FacilitiesIconName } from "./FacilitiesIcon";
+
+const facilityEnquirySupport: Array<{ icon: FacilitiesIconName; title: string }> = [
+  { icon: "building", title: "Dedicated Admissions Desk" },
+  { icon: "leaf", title: "Custom Treatment Support" },
+  { icon: "room", title: "Attendant Accommodation" },
+];
 
 export function FacilitiesEnquiry() {
   return (

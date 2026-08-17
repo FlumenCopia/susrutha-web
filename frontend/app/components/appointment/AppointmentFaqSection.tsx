@@ -1,7 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { bookingFaqs } from "./appointmentData";
+
+const bookingFaqs = [
+  {
+    question: "What should I bring to my first Ayurvedic consultation?",
+    answer: "Please bring any previous medical reports, blood test results, current prescription list, and a list of specific health concerns you would like to address.",
+  },
+  {
+    question: "Can I choose between In-Person and Online Video Consultation?",
+    answer: "Yes, we offer both in-person consultations at our flagship Kovalam and Kattakada centres as well as tele-consultations for international and outstation patients.",
+  },
+  {
+    question: "How long does an initial consultation take?",
+    answer: "A comprehensive initial consultation takes 30 to 45 minutes, covering Nadi Pariksha (pulse diagnosis), body constitution analysis (Prakriti), and lifestyle history.",
+  },
+];
 
 export function AppointmentFaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);

@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { podcastEpisodesData, VideoItem, featuredVideosData } from "./videoGalleryData";
+import { VideoItem } from "./FeaturedVideoCard";
 
 type VideoPodcastSectionProps = {
+  episodes?: any[];
+  videos?: VideoItem[];
   onPlayVideo: (video: VideoItem) => void;
 };
 
-export function VideoPodcastSection({ onPlayVideo }: VideoPodcastSectionProps) {
+export function VideoPodcastSection({ episodes = [], videos = [], onPlayVideo }: VideoPodcastSectionProps) {
+  if (episodes.length === 0) return null;
+
   const handlePodcastClick = (podId: string) => {
-    const matchingVideo = featuredVideosData.find((v) => v.id === podId) || featuredVideosData[0];
-    onPlayVideo(matchingVideo);
+    const matchingVideo = videos.find((v) => v.id === podId) || videos[0];
+    if (matchingVideo) onPlayVideo(matchingVideo);
   };
 
   return (
@@ -26,7 +30,7 @@ export function VideoPodcastSection({ onPlayVideo }: VideoPodcastSectionProps) {
       </div>
 
       <div className="vg-podcast-banner-grid">
-        {podcastEpisodesData.map((pod) => (
+        {episodes.map((pod) => (
           <article
             key={pod.id}
             className="vg-podcast-banner-card"

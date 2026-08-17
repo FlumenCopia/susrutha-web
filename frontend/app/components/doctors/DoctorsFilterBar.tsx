@@ -4,6 +4,7 @@ import { DynamicDepartment } from "./DoctorsDepartmentGrid";
 export type DynamicBranch = {
   id: string;
   name: string;
+  shortName?: string;
 };
 
 type DoctorsFilterBarProps = {

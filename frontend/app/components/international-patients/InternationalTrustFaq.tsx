@@ -1,6 +1,22 @@
-import { internationalFaqsList, internationalStats } from "./internationalPatientsData";
-import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
+import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
 import { InternationalStatCard } from "./InternationalStatCard";
+
+const internationalFaqsList = [
+  {
+    q: "How do I get a Medical Visa for treatment at Susrutha?",
+    a: "Our international patient coordinator will issue an official Medical Visa invitation letter upon reviewing your initial medical history and consultation.",
+  },
+  {
+    q: "Are translators available for non-English speaking patients?",
+    a: "Yes, we provide translation assistance for major international languages and full support in English, Malayalam, Hindi, and Tamil.",
+  },
+];
+
+const internationalStats: Array<{ value: string; label: string; icon: InternationalPatientsIconName }> = [
+  { value: "40+", label: "Countries Served", icon: "globe" },
+  { value: "20 km", label: "From Trivandrum Airport", icon: "plane" },
+  { value: "100%", label: "Physician Supervised", icon: "shield" },
+];
 
 export function InternationalTrustFaq() {
   return (

@@ -4,56 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getPublicConditions } from "@/app/services/api";
 
-const initialConditions = [
-  {
-    title: "Spine & Joints",
-    text: "Back pain, neck stiffness, arthritis, posture strain, and mobility concerns supported through Ayurveda and rehab.",
-    href: "/conditions/spine-joints",
-    category: "Musculoskeletal",
-  },
-  {
-    title: "Neuro Rehab",
-    text: "Structured care pathways for stroke recovery, nerve weakness, balance issues, and long-term neurological support.",
-    href: "/conditions/neuro-rehab",
-    category: "Rehabilitation",
-  },
-  {
-    title: "Rheumatology",
-    text: "Physician-led support for chronic inflammation, joint swelling, stiffness, and autoimmune patterns.",
-    href: "/conditions/rheumatology",
-    category: "Chronic Care",
-  },
-  {
-    title: "Women's Health",
-    text: "Care for menstrual health, fertility preparation, antenatal wellness, and postnatal restoration.",
-    href: "/conditions/womens-health",
-    category: "Speciality Care",
-  },
-  {
-    title: "Paediatrics",
-    text: "Gentle Ayurveda support for immunity, digestion, growth, allergies, and recurring childhood concerns.",
-    href: "/conditions/paediatrics",
-    category: "Family Care",
-  },
-  {
-    title: "Preventive Care",
-    text: "Lifestyle, diet, seasonal routines, rejuvenation, and early intervention for long-term wellbeing.",
-    href: "/conditions/preventive-care",
-    category: "Wellness",
-  },
-  {
-    title: "General Medicine",
-    text: "Holistic evaluation for digestion, respiratory comfort, sleep, fatigue, stress, and metabolic concerns.",
-    href: "/conditions/general-medicine",
-    category: "Primary Care",
-  },
-  {
-    title: "Proctology",
-    text: "Classical Ayurveda pathways for anorectal discomfort, bowel health, and physician-guided recovery.",
-    href: "/conditions/proctology",
-    category: "Speciality Care",
-  },
-];
+const PAGE_SIZE = 8;
 
 const pathways = [
   "Detailed physician consultation",
@@ -75,27 +26,53 @@ function LeafMark() {
 }
 
 export function ConditionsContentSection() {
-  const [conditionsList, setConditionsList] = useState(initialConditions);
+  const [conditionsList, setConditionsList] = useState<any[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [hasMore, setHasMore] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [loadingMore, setLoadingMore] = useState<boolean>(false);
+
+  const fetchConditionsBatch = async (targetPage: number, append: boolean = false) => {
+    try {
+      if (targetPage === 1) setLoading(true);
+      else setLoadingMore(true);
+
+      const res = await getPublicConditions({ page: targetPage, limit: PAGE_SIZE });
+      const rawData = Array.isArray(res) ? res : res.items || [];
+      const pagination = (res as any).pagination || {};
+
+      const normalized = rawData.map((c: any) => ({
+        title: c.name || c.title,
+        text: c.shortDescription || c.description || c.summary || c.text || "Physician-guided Ayurvedic care and recovery.",
+        href: `/conditions/${c.slug || c._id || c.id}`,
+        category: c.category || "Speciality Care",
+      }));
+
+      if (append) {
+        setConditionsList((prev) => [...prev, ...normalized]);
+      } else {
+        setConditionsList(normalized);
+      }
+
+      setHasMore(pagination.hasMore ?? (normalized.length === PAGE_SIZE));
+    } catch (err) {
+      console.error("Failed to load backend conditions:", err);
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  };
 
   useEffect(() => {
-    async function loadConditions() {
-      try {
-        const data = await getPublicConditions();
-        if (Array.isArray(data) && data.length > 0) {
-          const normalized = data.map((c: any) => ({
-            title: c.name || c.title,
-            text: c.description || c.summary || c.text || "Physician-guided Ayurvedic care and recovery.",
-            href: `/conditions/${c.slug || c._id || c.id}`,
-            category: c.category || "Speciality Care",
-          }));
-          setConditionsList(normalized);
-        }
-      } catch (err) {
-        console.error("Failed to load backend conditions:", err);
-      }
-    }
-    loadConditions();
+    fetchConditionsBatch(1, false);
   }, []);
+
+  const handleLoadMore = () => {
+    if (loadingMore || !hasMore) return;
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchConditionsBatch(nextPage, true);
+  };
 
   return (
     <>
@@ -109,17 +86,57 @@ export function ConditionsContentSection() {
           </p>
         </div>
 
-        <div className="conditions-card-grid">
-          {conditionsList.map((condition, index) => (
-            <Link className="condition-card" href={condition.href} key={condition.title}>
-              <span>{condition.category}</span>
-              <h3>{condition.title}</h3>
-              <p>{condition.text}</p>
-              <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
-              <i aria-hidden="true">&rarr;</i>
-            </Link>
-          ))}
-        </div>
+        {loading ? (
+          <div className="conditions-card-grid">
+            {Array.from({ length: PAGE_SIZE }).map((_, idx) => (
+              <div className="condition-card shimmer-card" key={idx} style={{ height: "220px", background: "linear-gradient(90deg, #f0ede6 25%, #f8f6f0 50%, #f0ede6 75%)", borderRadius: "16px" }} />
+            ))}
+          </div>
+        ) : (
+          <>
+            <div className="conditions-card-grid">
+              {conditionsList.map((condition: any, index: number) => {
+                return (
+                  <Link
+                    className="condition-card"
+                    href={condition.href}
+                    key={`${condition.title}-${index}`}
+                  >
+                    <span>{condition.category}</span>
+                    <h3>{condition.title}</h3>
+                    <p>{condition.text}</p>
+                    <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
+                    <i aria-hidden="true">&rarr;</i>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {hasMore && (
+              <div style={{ marginTop: "40px", textAlign: "center" }}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handleLoadMore}
+                  disabled={loadingMore}
+                  style={{
+                    padding: "14px 36px",
+                    borderRadius: "9999px",
+                    background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
+                    color: "#ffffff",
+                    fontWeight: 700,
+                    fontSize: "14px",
+                    border: "none",
+                    cursor: "pointer",
+                    boxShadow: "0 6px 20px rgba(154, 101, 40, 0.25)",
+                  }}
+                >
+                  {loadingMore ? "Loading More Conditions…" : "Load More Condition Pathways ↓"}
+                </button>
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       <section className="conditions-care-band" aria-labelledby="conditions-care-title">

@@ -3,10 +3,23 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
-import {
-  timeSlots as defaultTimeSlots,
-} from "./appointmentData";
 import { getPublicDoctors, getPublicDoctorsByDepartment, getPublicBranches, getPublicDepartments, getImageDisplayUrl } from "../../services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
+
+const defaultTimeSlots = [
+  { id: "slot-1", label: "09:00 AM", period: "Morning" },
+  { id: "slot-2", label: "09:30 AM", period: "Morning" },
+  { id: "slot-3", label: "10:00 AM", period: "Morning" },
+  { id: "slot-4", label: "10:30 AM", period: "Morning" },
+  { id: "slot-5", label: "11:00 AM", period: "Morning" },
+  { id: "slot-6", label: "11:30 AM", period: "Morning" },
+  { id: "slot-7", label: "02:00 PM", period: "Afternoon" },
+  { id: "slot-8", label: "02:30 PM", period: "Afternoon" },
+  { id: "slot-9", label: "03:00 PM", period: "Afternoon" },
+  { id: "slot-10", label: "03:30 PM", period: "Afternoon" },
+  { id: "slot-11", label: "04:00 PM", period: "Evening" },
+  { id: "slot-12", label: "04:30 PM", period: "Evening" },
+];
 
 const SHORT_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const FULL_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

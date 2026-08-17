@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { VideoItem, featuredVideosData } from "./videoGalleryData";
+import { VideoItem } from "./FeaturedVideoCard";
 
 type VideoModalProps = {
   video: VideoItem | null;
+  allVideos?: VideoItem[];
   onClose: () => void;
   onSelectRelated?: (video: VideoItem) => void;
 };
 
-export function VideoModal({ video, onClose, onSelectRelated }: VideoModalProps) {
+export function VideoModal({ video, allVideos = [], onClose, onSelectRelated }: VideoModalProps) {
   const [activeTab, setActiveTab] = useState<"chapters" | "transcript">("chapters");
   const [activeChapter, setActiveChapter] = useState<string>("00:00");
   const [playbackSpeed, setPlaybackSpeed] = useState<string>("1.0x");
@@ -34,8 +35,8 @@ export function VideoModal({ video, onClose, onSelectRelated }: VideoModalProps)
 
   if (!video) return null;
 
-  const relatedVideos = featuredVideosData
-    .filter((v) => v.id !== video.id && (v.category === video.category || v.speaker.name === video.speaker.name))
+  const relatedVideos = allVideos
+    .filter((v) => v.id !== video.id && (v.category === video.category || (v.speaker && video.speaker && v.speaker.name === video.speaker.name)))
     .slice(0, 3);
 
   return (

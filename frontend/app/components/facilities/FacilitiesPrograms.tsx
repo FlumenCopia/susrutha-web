@@ -2,8 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { facilityPrograms } from "./facilitiesData";
 import { FacilitiesIcon } from "./FacilitiesIcon";
+
+const facilityPrograms = [
+  {
+    title: "Panchakarma Treatment Suites",
+    text: "Private, hygienic treatment rooms equipped with traditional droni tables and steam units.",
+    image: "/images/ayurveda-village-room.webp",
+  },
+  {
+    title: "Inpatient Residential Care",
+    text: "Serene, well-ventilated rooms with round-the-clock nursing care and Sattvic meals.",
+    image: "/images/kattakada-hero-landscape.webp",
+  },
+];
 
 export function FacilitiesPrograms() {
   return (

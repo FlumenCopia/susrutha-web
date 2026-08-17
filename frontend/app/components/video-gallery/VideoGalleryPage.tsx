@@ -1,12 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import {
-  continueWatchingData,
-  featuredVideosData,
-  VideoCategory,
-  VideoItem,
-} from "./videoGalleryData";
+import { FeaturedVideoCard, VideoItem } from "./FeaturedVideoCard";
 import { VideoGalleryHeaderHero } from "./VideoGalleryHeaderHero";
 import { VideoCategoryFilters } from "./VideoCategoryFilters";
 import { FeaturedVideosSection } from "./FeaturedVideosSection";
@@ -17,8 +12,10 @@ import { ContinueWatchingSection } from "./ContinueWatchingSection";
 import { VideoModal } from "./VideoModal";
 import { getPublicVideos, getImageDisplayUrl } from "@/app/services/api";
 
+export type VideoCategory = "All" | "Panchakarma" | "Clinical" | "Patient Stories" | "Wellness" | "Podcasts";
+
 export function VideoGalleryPage() {
-  const [videoList, setVideoList] = useState<VideoItem[]>(featuredVideosData);
+  const [videoList, setVideoList] = useState<VideoItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [activeCategory, setActiveCategory] = useState<VideoCategory>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -40,7 +37,7 @@ export function VideoGalleryPage() {
             return {
               id: v._id || v.id || `v-${idx}`,
               title: v.title || "Ayurvedic Video",
-              category: (v.category as VideoCategory) || "All",
+              category: v.category || "All",
               duration: v.duration || "10 mins",
               rating: `${v.rating || 4.9} ★`,
               views: `${v.viewsCount || 1000} Views`,
@@ -56,15 +53,16 @@ export function VideoGalleryPage() {
               },
               transcript: v.transcript || "",
               featured: v.isFeatured || false,
+              isBackendData: true,
             };
           });
           setVideoList(normalized);
         } else {
-          setVideoList(featuredVideosData);
+          setVideoList([]);
         }
       } catch (err) {
         console.error("Failed to load live videos:", err);
-        setVideoList(featuredVideosData);
+        setVideoList([]);
       } finally {
         setLoading(false);
       }
@@ -139,7 +137,6 @@ export function VideoGalleryPage() {
 
           {/* Continue Watching Panel */}
           <ContinueWatchingSection
-            items={continueWatchingData}
             onPlayVideo={(video) => setActiveModalVideo(video)}
           />
         </div>

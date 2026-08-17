@@ -1,6 +1,18 @@
 import Image from "next/image";
 import { BranchIcon } from "./BranchIcons";
-import { branchStats, trustPoints } from "./branchesData";
+
+const trustPoints = [
+  "Physician-supervised classical Panchakarma therapies",
+  "NABH accredited hospital standards & hygiene",
+  "Customized Sattvic diet and authentic medicine formulations",
+  "Dedicated international & outstation patient desk",
+];
+
+const branchStats = [
+  { value: "2", label: "Specialty Centres" },
+  { value: "25+", label: "Expert Vaidyas" },
+  { value: "50,000+", label: "Patients Healed" },
+];
 
 export function BranchesTrustPanel() {
   return (

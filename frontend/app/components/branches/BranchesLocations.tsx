@@ -2,9 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { BranchLocationCard } from "./BranchLocationCard";
-import { BranchIcon } from "./BranchIcons";
-import { branchRouteSteps } from "./branchesData";
+import { BranchIcon, type BranchIconName } from "./BranchIcons";
 import { getPublicBranches, getImageDisplayUrl } from "@/app/services/api";
+
+const branchRouteSteps: Array<{ icon: BranchIconName; label: string }> = [
+  { icon: "calendar", label: "Book Consultation" },
+  { icon: "building", label: "Visit Nearest Branch" },
+  { icon: "shield", label: "Vaidya Assessment" },
+  { icon: "leaf", label: "Personalized Healing" },
+];
 
 export function BranchesLocations() {
   const [branchList, setBranchList] = useState<any[]>([]);
@@ -26,10 +32,11 @@ export function BranchesLocations() {
               hours: b.opdTimings || "8:00 AM - 7:00 PM",
               phone: (b.contact && b.contact.phone && b.contact.phone[0]) ? b.contact.phone[0] : "+91 9645 555 888",
               image: getImageDisplayUrl(b.coverImage || b.image),
-              icon: "hospital",
+              icon: "building" as BranchIconName,
               details: b.features && b.features.length > 0 ? b.features.slice(0, 4) : ["Consultations", "Panchakarma"],
               doctors: ["Specialist Vaidyas"],
               mapsHref: "https://maps.google.com",
+              isBackendData: true,
             };
           });
           setBranchList(normalized);

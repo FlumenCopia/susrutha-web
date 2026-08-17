@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BranchIcon } from "./BranchIcons";
-import { branchHighlights } from "./branchesData";
+import { BranchIcon, type BranchIconName } from "./BranchIcons";
+
+const branchHighlights: Array<{ icon: BranchIconName; title: string; subtitle: string; text: string }> = [
+  { icon: "building", title: "Kattakada Flagship", subtitle: "Specialty Hospital & Inpatient Suites", text: "Flagship hospital with 24/7 care and full Panchakarma suites." },
+  { icon: "leaf", title: "Kowdiar Clinic", subtitle: "City Outpatient & Consultation Centre", text: "Urban consultation clinic for outpatient wellness & diagnosis." },
+];
 
 export function BranchesHero() {
   return (

@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export type DynamicDepartment = {
   id: string;
   name: string;
   icon: string;
   doctorCount: number;
+  description?: string;
 };
 
 type DoctorsDepartmentGridProps = {
@@ -16,6 +18,15 @@ type DoctorsDepartmentGridProps = {
 
 const FALLBACK_ICON_MAP: Record<string, string> = {
   all: "fa-solid fa-user-doctor",
+  "panchakarma-bio-purification": "fa-solid fa-spa",
+  "kayachikitsa-internal-medicine": "fa-solid fa-stethoscope",
+  "neck-back-joint-problems": "fa-solid fa-bone",
+  "stroke-neurological-rehabilitation": "fa-solid fa-brain",
+  "preventive-medicine-rejuvenation": "fa-solid fa-shield-heart",
+  "prasooti-tantra-stree-roga": "fa-solid fa-venus",
+  "rheumatology-autoimmune-care": "fa-solid fa-person-running",
+  "susrutha-proctology-unit": "fa-solid fa-briefcase-medical",
+  "skin-hair-care": "fa-solid fa-wand-magic-sparkles",
   panchakarma: "fa-solid fa-spa",
   "spine-joints": "fa-solid fa-bone",
   "womens-health": "fa-solid fa-venus",

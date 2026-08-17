@@ -1,13 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { patientStoriesData, PatientStory, VideoItem } from "./videoGalleryData";
+import { VideoItem } from "./FeaturedVideoCard";
+
+export type PatientStory = {
+  id: string;
+  patientName: string;
+  ageLocation: string;
+  age?: string;
+  condition: string;
+  treatmentDuration: string;
+  quote: string;
+  thumbnail: string;
+  youtubeId: string;
+  rating: string;
+};
 
 type PatientStoriesSectionProps = {
+  stories?: PatientStory[];
   onPlayVideo: (video: VideoItem) => void;
 };
 
-export function PatientStoriesSection({ onPlayVideo }: PatientStoriesSectionProps) {
+export function PatientStoriesSection({ stories = [], onPlayVideo }: PatientStoriesSectionProps) {
+  if (stories.length === 0) return null;
   const handleStoryClick = (story: PatientStory) => {
     onPlayVideo({
       id: story.id,
@@ -42,7 +57,7 @@ export function PatientStoriesSection({ onPlayVideo }: PatientStoriesSectionProp
       </div>
 
       <div className="vg-stories-grid">
-        {patientStoriesData.map((ps) => (
+        {stories.map((ps) => (
           <article
             key={ps.id}
             className="vg-story-card"
@@ -80,7 +95,7 @@ export function PatientStoriesSection({ onPlayVideo }: PatientStoriesSectionProp
               <div className="vg-story-patient-header">
                 <div>
                   <h4 className="vg-story-patient-name">{ps.patientName}</h4>
-                  <span className="vg-story-condition">{ps.condition} • {ps.age}</span>
+                  <span className="vg-story-condition">{ps.condition} • {ps.age || ps.ageLocation}</span>
                 </div>
               </div>
               <blockquote className="vg-story-quote">

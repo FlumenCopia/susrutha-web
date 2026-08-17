@@ -1,6 +1,15 @@
 import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
-import { ayurVillageGallery, ayurVillageStats } from "./ayurVillageData";
+
+const ayurVillageGallery = [
+  { image: "/images/ayurveda-village-path.webp", alt: "Ayurveda Gramam garden pathway" },
+  { image: "/images/ayurveda-village-room.webp", alt: "Traditional cottage inpatient suite" },
+];
+
+const ayurVillageStats = [
+  { value: "20 km", label: "From Trivandrum Airport" },
+  { value: "100%", label: "Physician Supervised" },
+];
 
 const galleryImageSizes = "(max-width: 900px) 50vw, 24vw";
 

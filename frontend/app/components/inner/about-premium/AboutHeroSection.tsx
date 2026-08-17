@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./about-hero.css";
+import { DataLayerRibbon } from "../../common/DataLayerRibbon";
 
 const aboutValues = [
   {

@@ -375,3 +375,80 @@ img[style*="position: absolute"] {
   height: 100% !important;
   max-width: none !important;
 }
+
+/* Backend Live Data Visual Indicator Badge */
+/* Dual-Color Visual Layer Testing System */
+
+/* Live Backend Data (Green Layer) - Disabled for Production */
+.data-layer-backend,
+.backend-data-card-highlight {
+  position: relative;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.data-layer-backend-ribbon,
+.backend-data-ribbon,
+.data-layer-dot-green,
+.backend-data-badge-dot {
+  display: none !important;
+}
+
+/* Susrutha Theme Luxury Custom Sort Dropdown */
+.theme-sort-container {
+  position: relative !important;
+  z-index: 100 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+  border: 1.5px solid rgba(200, 137, 34, 0.4);
+  border-radius: 30px;
+  padding: 8px 20px;
+  box-shadow: 0 4px 16px rgba(184, 134, 11, 0.1);
+  transition: all 0.3s ease;
+}
+
+.theme-sort-container:hover {
+  border-color: #c88922;
+  box-shadow: 0 6px 22px rgba(184, 134, 11, 0.22);
+  transform: translateY(-1px);
+}
+
+.theme-sort-label-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8c6218;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.theme-sort-select {
+  background: transparent;
+  border: none;
+  color: #1b3d27;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  position: relative;
+  z-index: 101;
+}
+
+.theme-sort-select option {
+  background-color: #ffffff;
+  color: #1b3d27;
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+.all-treatments-toolbar {
+  margin-bottom: 36px !important;
+  position: relative !important;
+  z-index: 50 !important;
+}
+

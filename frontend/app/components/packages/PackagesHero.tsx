@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PackagesIcon } from "./PackagesIcon";
-import { packageHeroFeatures } from "./packagesData";
+
+const packageHeroFeatures = [
+  { icon: "lotus", title: "Authentic Vaidya Care", text: "Physician-supervised Panchakarma therapies." },
+  { icon: "leaf", title: "Pure Herbal Formulations", text: "Prepared from organic herbs sourced directly." },
+  { icon: "sprout", title: "Specialty Hospital Stay", text: "Comfortable inpatient suites with Sattvic diet." },
+];
 
 export function PackagesHero() {
   return (

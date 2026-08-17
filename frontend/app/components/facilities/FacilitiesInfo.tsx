@@ -2,8 +2,24 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { facilityFaqs, facilityHeroStats } from "./facilitiesData";
-import { FacilitiesIcon } from "./FacilitiesIcon";
+import { FacilitiesIcon, type FacilitiesIconName } from "./FacilitiesIcon";
+
+const facilityHeroStats: Array<{ value: string; label: string; icon: FacilitiesIconName }> = [
+  { value: "2", label: "Specialty Hospitals", icon: "building" },
+  { value: "100%", label: "Physician Supervised", icon: "shield" },
+  { value: "24/7", label: "Nursing & Emergency Care", icon: "clock" },
+];
+
+const facilityFaqs = [
+  {
+    question: "What types of rooms are available for inpatient care?",
+    answer: "We offer private air-conditioned suites, non-AC executive rooms, and standard therapy rooms equipped with attached washrooms, Wi-Fi, and attendant beds.",
+  },
+  {
+    question: "Are meals provided according to doctor prescription?",
+    answer: "Yes, all meals are freshly prepared in our Sattvic kitchen following dietary instructions prescribed by your attending Vaidya.",
+  },
+];
 
 function RunningStatNumber({ targetValue }: { targetValue: string }) {
   const [displayValue, setDisplayValue] = useState("0");
@@ -71,13 +87,13 @@ export function FacilitiesInfo() {
       <article className="facilities-faq-card">
         <span className="facilities-eyebrow">Frequently Asked Questions</span>
         <div>
-          {facilityFaqs.map((question) => (
-            <details key={question}>
+          {facilityFaqs.map((faq) => (
+            <details key={faq.question}>
               <summary>
-                {question}
+                {faq.question}
                 <span aria-hidden="true">+</span>
               </summary>
-              <p>The team can guide you based on room availability, treatment duration, and branch options.</p>
+              <p>{faq.answer}</p>
             </details>
           ))}
         </div>

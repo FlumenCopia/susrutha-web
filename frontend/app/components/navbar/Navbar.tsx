@@ -25,40 +25,48 @@ export function Navbar() {
           getPublicDoctors(),
         ]);
 
+        const MAX_DROPDOWN_ITEMS = 6;
+
         const updated = desktopNavigation.map((item) => {
           if (item.label === "Treatments" && Array.isArray(apiTreatments) && apiTreatments.length > 0) {
+            const limitedTreatments = apiTreatments.slice(0, MAX_DROPDOWN_ITEMS).map((t: any) => ({
+              label: t.title || t.name,
+              href: `/treatments/${t.slug || t._id || t.id}`,
+            }));
             return {
               ...item,
               children: [
-                { label: "All Treatments", href: "/treatments" },
-                ...apiTreatments.map((t: any) => ({
-                  label: t.title || t.name,
-                  href: `/treatments/${t.slug || t._id || t.id}`,
-                })),
+                ...limitedTreatments,
+                { label: "View All Treatments →", href: "/treatments" },
               ],
             };
           }
           if (item.label === "Conditions" && Array.isArray(apiConditions) && apiConditions.length > 0) {
+            const limitedConditions = apiConditions.slice(0, MAX_DROPDOWN_ITEMS).map((c: any) => ({
+              label: c.title || c.name,
+              href: `/conditions/${c.slug || c._id || c.id}`,
+            }));
             return {
               ...item,
               children: [
-                { label: "All Conditions", href: "/conditions" },
-                ...apiConditions.map((c: any) => ({
-                  label: c.title || c.name,
-                  href: `/conditions/${c.slug || c._id || c.id}`,
-                })),
+                ...limitedConditions,
+                { label: "View All Conditions →", href: "/conditions" },
               ],
             };
           }
           if (item.label === "Doctors" && Array.isArray(apiDoctors) && apiDoctors.length > 0) {
+            // Filter distinct doctors, prioritizing main doctors
+            const mainDoctors = apiDoctors.filter((d: any) => !d.name?.includes('Test') && !d.name?.match(/\d{5,}/));
+            const doctorSource = mainDoctors.length > 0 ? mainDoctors : apiDoctors;
+            const limitedDoctors = doctorSource.slice(0, MAX_DROPDOWN_ITEMS).map((d: any) => ({
+              label: d.name,
+              href: `/doctors/${d.slug || d._id || d.id}`,
+            }));
             return {
               ...item,
               children: [
-                { label: "All Doctors", href: "/doctors" },
-                ...apiDoctors.map((d: any) => ({
-                  label: d.name,
-                  href: `/doctors/${d.slug || d._id || d.id}`,
-                })),
+                ...limitedDoctors,
+                { label: "View All Doctors →", href: "/doctors" },
               ],
             };
           }

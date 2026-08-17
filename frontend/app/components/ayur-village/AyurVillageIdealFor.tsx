@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
-import { ayurVillageIdealFor } from "./ayurVillageData";
+
+const ayurVillageIdealFor = [
+  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: "/images/ayurveda-village-room.webp" },
+  { icon: "leaf", title: "Post-illness Convalescence & Rejuvenation", image: "/images/ayurveda-village-path.webp" },
+  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: "/images/treatment-panchakarma.webp" },
+];
 
 export function AyurVillageIdealFor() {
   return (

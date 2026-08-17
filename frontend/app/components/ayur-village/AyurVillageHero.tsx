@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AyurVillageIcon } from "./AyurVillageIcon";
-import { ayurVillageHeroFeatures } from "./ayurVillageData";
+
+const ayurVillageHeroFeatures = [
+  { icon: "lotus", title: "Authentic Gramam Setting", text: "Serene village environment dedicated to classical healing.", image: "/images/ayurveda-village-path.webp" },
+  { icon: "leaf", title: "Sattvic Nutrition", text: "Fresh organic meals prepared strictly according to Vaidya recommendations.", image: "/images/ayurveda-village-room.webp" },
+];
 
 export function AyurVillageHero() {
   return (

@@ -1,6 +1,11 @@
 import Image from "next/image";
-import { internationalReasons } from "./internationalPatientsData";
-import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
+import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
+
+const internationalReasons: Array<{ icon: InternationalPatientsIconName; title: string }> = [
+  { icon: "lotus", title: "Authentic Vaidya Supervision" },
+  { icon: "globe", title: "Dedicated International Desk" },
+  { icon: "plane", title: "Airport Transfers & Accommodation" },
+];
 
 export function InternationalCarePromise() {
   return (

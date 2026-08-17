@@ -1,4 +1,4 @@
-import { blogCategories } from "./blogData";
+const blogCategories = ["All", "Panchakarma", "Clinical Studies", "Nutrition", "Lifestyle Care", "Research"];
 
 export function BlogCategories() {
   return (

@@ -1,6 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ConditionDetail } from "../../data/conditions";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
+
+export type ConditionDetail = {
+  slug: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  overview: string;
+  shortDescription?: string;
+  fullDescription?: string;
+  summary?: string;
+  reviewer?: string;
+  image: string;
+  keyStats?: Array<{ value: string; label: string }>;
+  symptoms?: string[];
+  ayurvedicView?: string;
+  ayurvedicRootCause?: string;
+  recommendedTreatments?: Array<{ title: string; duration: string; description: string }>;
+  dietLifestyle?: string[];
+};
 
 type ConditionDetailBannerProps = {
   condition: ConditionDetail;

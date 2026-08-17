@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import "./doctors.css";
-import { type DoctorItem } from "./doctorsData";
+import { DoctorCard, type DoctorItem } from "./DoctorCard";
 import { DoctorsHero } from "./DoctorsHero";
 import { DoctorsDepartmentGrid } from "./DoctorsDepartmentGrid";
 import { DynamicDepartment } from "./DoctorsDepartmentGrid";
 import { DoctorsFilterBar } from "./DoctorsFilterBar";
 import { DynamicBranch } from "./DoctorsFilterBar";
-import { DoctorCard } from "./DoctorCard";
 import { DoctorQuickViewModal } from "./DoctorQuickViewModal";
 import { DoctorMatchAssistant } from "./DoctorMatchAssistant";
 import { DoctorsStatsBanner } from "./DoctorsStatsBanner";
@@ -17,6 +16,15 @@ import { getPublicDoctors, getPublicDepartments, getPublicBranches, getImageDisp
 
 // Department icon map (fallback for backend departments without icons)
 const DEPT_ICONS: Record<string, string> = {
+  "panchakarma-bio-purification": "fa-solid fa-spa",
+  "kayachikitsa-internal-medicine": "fa-solid fa-stethoscope",
+  "neck-back-joint-problems": "fa-solid fa-bone",
+  "stroke-neurological-rehabilitation": "fa-solid fa-brain",
+  "preventive-medicine-rejuvenation": "fa-solid fa-shield-heart",
+  "prasooti-tantra-stree-roga": "fa-solid fa-venus",
+  "rheumatology-autoimmune-care": "fa-solid fa-person-running",
+  "susrutha-proctology-unit": "fa-solid fa-briefcase-medical",
+  "skin-hair-care": "fa-solid fa-wand-magic-sparkles",
   panchakarma: "fa-solid fa-spa",
   "spine-joints": "fa-solid fa-bone",
   "womens-health": "fa-solid fa-venus",
@@ -31,67 +39,40 @@ const DEPT_ICONS: Record<string, string> = {
 
 export function DoctorsPage() {
   const [doctorsList, setDoctorsList] = useState<DoctorItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  // Dynamic departments and branches from backend
-  const [departments, setDepartments] = useState<DynamicDepartment[]>([
-    { id: "all", name: "All Departments", icon: "🩺", doctorCount: 0 },
-  ]);
-  const [branches, setBranches] = useState<DynamicBranch[]>([
-    { id: "all", name: "All Locations" },
-  ]);
+  const [departments, setDepartments] = useState<DynamicDepartment[]>([]);
+  const [branches, setBranches] = useState<DynamicBranch[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Load departments from API
-    async function loadDepartments() {
+    async function loadAllData() {
+      setLoading(true);
       try {
-        const data = await getPublicDepartments();
-        if (Array.isArray(data) && data.length > 0) {
-          const mapped: DynamicDepartment[] = [
-            { id: "all", name: "All Departments", icon: "🩺", doctorCount: 0 },
-            ...data.map((d: any) => ({
-              id: d.slug || d._id,
-              name: d.name,
-              icon: DEPT_ICONS[d.slug] || DEPT_ICONS.default,
-              doctorCount: d.doctorCount || 0,
-            })),
-          ];
-          setDepartments(mapped);
-        }
-      } catch {}
-    }
+        const [rawDocs, rawDepts, rawBranches] = await Promise.all([
+          getPublicDoctors(),
+          getPublicDepartments(),
+          getPublicBranches(),
+        ]);
 
-    // Load branches from API
-    async function loadBranches() {
-      try {
-        const data = await getPublicBranches();
-        if (Array.isArray(data) && data.length > 0) {
-          const mapped: DynamicBranch[] = [
-            { id: "all", name: "All Locations" },
-            ...data.map((b: any) => ({
-              id: (b.code || b._id || "").toLowerCase(),
-              name: b.name,
-            })),
-          ];
-          setBranches(mapped);
-        }
-      } catch {}
-    }
+        // 1. Normalize Doctors from backend (filter out test records)
+        const cleanDocs = Array.isArray(rawDocs)
+          ? rawDocs.filter((d: any) => !d.name?.includes('Test') && !d.name?.match(/\d{5,}/))
+          : [];
+        const sourceDocs = cleanDocs.length > 0 ? cleanDocs : (Array.isArray(rawDocs) ? rawDocs : []);
 
-    // Load doctors from API
-    async function loadDoctors() {
-      try {
-        setLoading(true);
-        const data = await getPublicDoctors();
-        if (Array.isArray(data) && data.length > 0) {
-          const normalized: DoctorItem[] = data.map((d: any, idx: number) => ({
-            id: d._id || d.id || `doc-${idx}`,
-            slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
-            name: d.name || "Doctor",
+        const normalizedDocs: DoctorItem[] = sourceDocs.map((d: any) => {
+          const deptObj = typeof d.departmentId === "object" ? d.departmentId : null;
+          const deptId = deptObj?.slug || deptObj?.code?.toLowerCase() || deptObj?._id || (typeof d.departmentId === "string" ? d.departmentId : "panchakarma-bio-purification");
+          const deptName = deptObj?.title || deptObj?.name || d.departmentName || d.specialty || "Panchakarma & Bio-Purification";
+
+          return {
+            id: d._id || d.id || d.slug,
+            slug: d.slug,
+            name: d.name,
             title: d.title || d.designation || "Ayurveda Specialist",
             designation: d.designation || "Senior Consultant",
             qualification: d.qualifications || d.qualification || "BAMS",
-            departmentId: d.departmentId?.slug || d.departmentId || "panchakarma",
-            departmentName: d.departmentId?.name || d.departmentName || "Panchakarma & Detox",
+            departmentId: deptId,
+            departmentName: deptName,
             experienceYears: d.experienceYears || 15,
             experienceText: d.experienceText || `${d.experienceYears || 15}+ Years`,
             patientsCount: d.patientsCount || "10K+",
@@ -105,34 +86,79 @@ export function DoctorsPage() {
             availableDays: d.availability ? d.availability.flatMap((a: any) => a.days || []) : ["Mon", "Wed", "Fri"],
             languages: d.languagesSpoken || ["English", "Malayalam"],
             consultationModes: ["in-person"] as ("in-person" | "video")[],
-            focusAreas: d.specialties || d.focusAreas || ["Panchakarma", "Chronic Wellness"],
+            focusAreas: d.specialties || d.focusAreas || [deptName],
             credentials: [d.qualifications || "BAMS"],
             quote: d.quote || "Healing with authentic Kerala Ayurveda.",
             bio: d.bio || d.text || "Senior Ayurvedic Physician.",
             isFounder: d.isDirector || d.isFounder || false,
             isPopular: d.isFeatured || d.isPopular || true,
             isAvailableToday: true,
+            isBackendData: true,
+          };
+        });
+
+        setDoctorsList(normalizedDocs);
+
+        // 2. Normalize Departments from backend & calculate assigned doctor count
+        if (Array.isArray(rawDepts) && rawDepts.length > 0) {
+          const deptsWithCounts: DynamicDepartment[] = rawDepts
+            .map((d: any) => {
+              const id = d.slug || d.code?.toLowerCase() || d._id;
+              const name = d.title || d.name || "Specialty Department";
+              const rawId = d._id?.toString?.() || "";
+
+              // Count doctors assigned to this department
+              const doctorCount = normalizedDocs.filter(
+                (doc) =>
+                  doc.departmentId === id ||
+                  doc.departmentId === d.slug ||
+                  doc.departmentId === rawId ||
+                  doc.departmentName.toLowerCase().trim() === name.toLowerCase().trim()
+              ).length;
+
+              return {
+                id,
+                name,
+                icon: d.icon || DEPT_ICONS[d.slug] || DEPT_ICONS.default,
+                description: d.tagline || d.overview || d.description || "Specialized Ayurvedic Treatment",
+                doctorCount,
+              };
+            })
+            // Only keep departments that have assigned doctors
+            .filter((dept) => dept.doctorCount > 0);
+
+          setDepartments([
+            {
+              id: "all",
+              name: "All Departments",
+              icon: "fa-solid fa-border-all",
+              description: "View all specialized medical departments",
+              doctorCount: normalizedDocs.length,
+            },
+            ...deptsWithCounts,
+          ]);
+        }
+
+        // 3. Normalize Branches from backend
+        if (Array.isArray(rawBranches) && rawBranches.length > 0) {
+          const bList: DynamicBranch[] = rawBranches.map((b: any) => ({
+            id: (b.code || b.slug || b._id || "").toLowerCase(),
+            name: b.name,
+            shortName: b.city || b.name,
           }));
-          setDoctorsList(normalized);
-          setDepartments((prev) =>
-            prev.map((dept) =>
-              dept.id === "all" ? { ...dept, doctorCount: normalized.length } : dept
-            )
-          );
-        } else {
-          setDoctorsList([]);
+          setBranches([
+            { id: "all", name: "All Branches", shortName: "All Locations" },
+            ...bList,
+          ]);
         }
       } catch (err) {
-        console.error("Failed to load live doctors:", err);
-        setDoctorsList([]);
+        console.error("Failed to load doctor page data:", err);
       } finally {
         setLoading(false);
       }
     }
 
-    loadDepartments();
-    loadBranches();
-    loadDoctors();
+    loadAllData();
   }, []);
 
   // Filter and view states
@@ -197,8 +223,14 @@ export function DoctorsPage() {
         }
 
         // Department Filter
-        if (selectedDeptId !== "all" && doc.departmentId !== selectedDeptId) {
-          return false;
+        if (selectedDeptId !== "all") {
+          const deptObj = departments.find((d) => d.id === selectedDeptId);
+          const deptName = deptObj?.name?.toLowerCase().trim();
+          const matchesId = doc.departmentId === selectedDeptId;
+          const matchesName = deptName && doc.departmentName.toLowerCase().trim() === deptName;
+          if (!matchesId && !matchesName) {
+            return false;
+          }
         }
 
         // Branch Location Filter
@@ -239,7 +271,7 @@ export function DoctorsPage() {
         }
         return 0;
       });
-  }, [searchQuery, selectedDeptId, selectedBranchId, selectedMode, quickFilter, sortBy]);
+  }, [doctorsList, departments, searchQuery, selectedDeptId, selectedBranchId, selectedMode, quickFilter, sortBy]);
 
   return (
     <div className="doctors-page-root">
@@ -281,7 +313,13 @@ export function DoctorsPage() {
 
       {/* 4. Doctors Listing (Grid or List View) */}
       <main className="doctors-list-section">
-        {filteredDoctors.length > 0 ? (
+        {loading ? (
+          <div className="doctors-empty-state" style={{ padding: "60px 20px" }}>
+            <span className="apt-doctor-loading-spinner" style={{ width: "36px", height: "36px", margin: "0 auto 16px auto" }} />
+            <h3 className="doctors-empty-title">Loading Vaidyas & Specialists…</h3>
+            <p className="doctors-empty-desc">Fetching real-time clinical doctors from backend database.</p>
+          </div>
+        ) : filteredDoctors.length > 0 ? (
           <div className={viewMode === "grid" ? "doctors-cards-grid" : "doctors-cards-list"}>
             {filteredDoctors.map((doctor) => (
               <DoctorCard

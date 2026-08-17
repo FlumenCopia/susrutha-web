@@ -7,6 +7,7 @@ import { ArticleMeta } from "./ArticleMeta";
 import { ArrowIcon } from "./BlogIcons";
 import { BlogSectionHeader } from "./BlogSectionHeader";
 import { getPublicBlogs, getImageDisplayUrl } from "@/app/services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export function FeaturedBlog() {
   const [blogs, setBlogs] = useState<any[]>([]);

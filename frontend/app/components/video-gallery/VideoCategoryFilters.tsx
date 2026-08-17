@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { videoCategories, VideoCategory, featuredVideosData } from "./videoGalleryData";
+import type { VideoCategory } from "./VideoGalleryPage";
+
+const videoCategories: VideoCategory[] = ["All", "Panchakarma", "Clinical", "Patient Stories", "Wellness", "Podcasts"];
 
 type VideoCategoryFiltersProps = {
   activeCategory: VideoCategory;
@@ -26,8 +28,7 @@ export function VideoCategoryFilters({
   const scrollLeftRef = useRef(0);
 
   const getCategoryCount = (category: VideoCategory) => {
-    if (category === "All") return featuredVideosData.length;
-    return featuredVideosData.filter((v) => v.category === category).length;
+    return 0;
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -76,7 +77,7 @@ export function VideoCategoryFilters({
                 onClick={() => onSelectCategory(cat)}
               >
                 <span>{cat}</span>
-                <span className="vg-pill-count">{count}</span>
+                {count > 0 ? <span className="vg-pill-count">{count}</span> : null}
               </button>
             );
           })}

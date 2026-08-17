@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getPublicFAQs } from "@/app/services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 type FAQItem = {
   question: string;
@@ -21,8 +22,23 @@ function LotusIcon() {
   );
 }
 
+const initialFaqs: (FAQItem & { isBackendData?: boolean })[] = [
+  {
+    question: "Do I need a doctor consultation before starting Panchakarma?",
+    answer: "Yes, all treatments and Panchakarma therapies at Susrutha are prescribed by certified BAMS Ayurvedic physicians following a thorough diagnostic assessment.",
+  },
+  {
+    question: "What is the difference between Kattakada Hospital and Kowdiar Clinic?",
+    answer: "Kattakada is our 40-bed full inpatient hospital campus offering inpatient stays and multi-day Panchakarma care. Kowdiar is our executive city outpatient clinic for consultations and daycare Kizhi/Abhyanga therapies.",
+  },
+  {
+    question: "How do I book an appointment?",
+    answer: "You can book directly via our online booking wizard, call our patient desk at +91 96566 56736, or visit either branch.",
+  },
+];
+
 export function FaqSection() {
-  const [faqList, setFaqList] = useState<FAQItem[]>([]);
+  const [faqList, setFaqList] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -31,17 +47,18 @@ export function FaqSection() {
         setLoading(true);
         const data = await getPublicFAQs();
         if (Array.isArray(data) && data.length > 0) {
-          const normalized: FAQItem[] = data.map((f: any) => ({
+          const normalized = data.map((f: any) => ({
             question: f.question,
             answer: f.answer,
+            isBackendData: true,
           }));
           setFaqList(normalized);
         } else {
-          setFaqList([]);
+          setFaqList(initialFaqs);
         }
       } catch (err) {
         console.error("Failed to load live FAQs:", err);
-        setFaqList([]);
+        setFaqList(initialFaqs);
       } finally {
         setLoading(false);
       }
@@ -58,10 +75,8 @@ export function FaqSection() {
       <div className="faq-layout">
         <div className="faq-intro">
           <div className="faq-eyebrow">
-            <span>FAQ</span>
-            <i />
-            <LotusIcon />
-            <i />
+            <i aria-hidden="true" />
+            Clear Answers
           </div>
           <h2 id="home-faq-title">
             Answers to Your Wellness <span>Questions</span>

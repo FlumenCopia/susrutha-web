@@ -2,14 +2,33 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  internationalFacilities,
-  internationalFaqsList,
-  internationalPrograms,
-  internationalStats,
-  internationalSupportItems,
-} from "./internationalPatientsData";
-import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
+import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
+
+const internationalFacilities = [
+  { title: "Inpatient Suites", subtitle: "Private air-conditioned rooms", text: "Comfortable private suites with attendant beds and attached washrooms.", image: "/images/ayurveda-village-room.webp" },
+  { title: "Panchakarma Units", subtitle: "Traditional wooden therapy tables", text: "Dedicated Panchakarma therapy suites with traditional wooden droni.", image: "/images/treatment-panchakarma.webp" },
+];
+
+const internationalFaqsList = [
+  { q: "How do I apply for a Medical Visa?", a: "We provide official medical invitation letters upon initial consultation." },
+  { q: "Are airport transfers included?", a: "Direct pick-up from Trivandrum International Airport (TRV) is arranged." },
+];
+
+const internationalPrograms: Array<{ title: string; text: string; image: string; icon?: InternationalPatientsIconName }> = [
+  { title: "14-Day Panchakarma Rejuvenation", text: "Comprehensive body detox and rejuvenation.", image: "/images/treatment-panchakarma.webp" },
+  { title: "Spine & Joint Rehabilitation", text: "Targeted Kati Vasthi and pain care.", image: "/images/ayurveda-village-room.webp" },
+];
+
+const internationalStats: Array<{ value: string; label: string; icon: InternationalPatientsIconName }> = [
+  { value: "40+", label: "Countries Served", icon: "globe" },
+  { value: "20 km", label: "From Airport", icon: "plane" },
+  { value: "100%", label: "Physician Supervised", icon: "shield" },
+];
+
+const internationalSupportItems: Array<{ title: string; icon: InternationalPatientsIconName }> = [
+  { title: "Visa Assistance", icon: "globe" },
+  { title: "Airport Transfers", icon: "plane" },
+];
 
 export function InternationalPatientsPage() {
   return (

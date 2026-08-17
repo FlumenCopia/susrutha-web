@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { facilityCards } from "./facilitiesData";
-import { FacilitiesIcon } from "./FacilitiesIcon";
+import { FacilitiesIcon, type FacilitiesIconName } from "./FacilitiesIcon";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
-type FacilityCardItem = (typeof facilityCards)[number];
+export type FacilityCardItem = {
+  title: string;
+  text: string;
+  image: string;
+  icon: FacilitiesIconName;
+  featured?: boolean;
+  isBackendData?: boolean;
+};
 
 type FacilityCardProps = {
   facility: FacilityCardItem;
@@ -11,7 +18,10 @@ type FacilityCardProps = {
 
 export function FacilityCard({ facility }: FacilityCardProps) {
   return (
-    <article className="facility-card" data-featured={facility.featured ? "true" : undefined}>
+    <article
+      className="facility-card"
+      data-featured={facility.featured ? "true" : undefined}
+    >
       <span className="facility-card-icon">
         <FacilitiesIcon name={facility.icon} />
       </span>

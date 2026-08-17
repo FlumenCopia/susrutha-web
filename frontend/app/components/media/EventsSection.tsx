@@ -1,16 +1,38 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { events } from "./mediaData";
+import { getPublicMedia, getImageDisplayUrl } from "@/app/services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export function EventsSection() {
+  const [eventList, setEventList] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function loadBackendEvents() {
+      try {
+        const raw = await getPublicMedia();
+        if (Array.isArray(raw) && raw.length > 0) {
+          const mapped = raw.map((item: any) => ({
+            title: item.title || item.name || "Ayurveda Event",
+            date: item.publishedAt ? new Date(item.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "Upcoming",
+            location: item.location || "Susrutha Research Center",
+            description: item.summary || item.excerpt || item.description || "Interactive session on Ayurvedic wellness.",
+            image: getImageDisplayUrl(item.coverImage || item.image),
+            isBackendData: true,
+          }));
+          setEventList(mapped);
+        }
+      } catch (err) {
+        console.error("Failed to load backend events:", err);
+      }
+    }
+    loadBackendEvents();
+  }, []);
+
   return (
     <section className="media-events-luxury" id="media-events" aria-labelledby="events-title">
       <div className="media-events-header">
-        {/* <div className="media-events-eyebrow">
-          <span className="media-events-pulse" />
-          <span>EVENTS & EXPERIENCES</span>
-        </div> */}
         <h2 id="events-title" className="media-events-title">
           Moments designed for learning, presence and connection.
         </h2>
@@ -20,7 +42,7 @@ export function EventsSection() {
       </div>
 
       <div className="media-events-grid">
-        {events.map((event, idx) => (
+        {eventList.map((event, idx) => (
           <article className="media-event-card-deluxe" key={`${event.title}-${idx}`}>
             <div className="media-event-image-wrapper">
               <Image

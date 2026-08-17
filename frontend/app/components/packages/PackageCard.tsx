@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { PackagesIcon } from "./PackagesIcon";
-import { packages } from "./packagesData";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export type PackageItem = {
+  slug?: string;
   icon: string;
   meta: string;
   title: string;
   text: string;
+  isBackendData?: boolean;
 };
 
 type PackageCardProps = {
@@ -14,6 +16,8 @@ type PackageCardProps = {
 };
 
 export function PackageCard({ item }: PackageCardProps) {
+  const slug = item.slug || item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
   return (
     <article className="package-card">
       <span className="package-card-icon">
@@ -23,8 +27,8 @@ export function PackageCard({ item }: PackageCardProps) {
         <span className="package-card-meta">{item.meta}</span>
         <h3>{item.title}</h3>
         <p>{item.text}</p>
-        <Link href="/appointment">
-          Explore
+        <Link href={`/packages/${slug}`}>
+          Explore Package
           <PackagesIcon name="arrow" />
         </Link>
       </div>

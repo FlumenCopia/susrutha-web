@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { EcosystemIcon } from "./EcosystemIcon";
-import { ecosystemVerticals } from "./ecosystemData";
+import { EcosystemIcon, type EcosystemIconName } from "./EcosystemIcon";
 
-type EcosystemVertical = (typeof ecosystemVerticals)[number];
+export type EcosystemVertical = {
+  title: string;
+  text: string;
+  image: string;
+  icon: EcosystemIconName;
+  href: string;
+  since?: string;
+  externalText?: string;
+};
 
 type EcosystemVerticalCardProps = {
   item: EcosystemVertical;

@@ -1,6 +1,13 @@
 import Image from "next/image";
 import { BlogSectionHeader } from "./BlogSectionHeader";
-import { blogAuthors } from "./blogData";
+
+const blogAuthors = [
+  {
+    name: "Dr. Susrutha Clinical Team",
+    role: "Chief Ayurvedic Physicians & Researchers",
+    image: "/images/kattakada-hero-landscape.webp",
+  },
+];
 
 export function AuthorSection() {
   return (

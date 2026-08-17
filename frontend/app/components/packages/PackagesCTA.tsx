@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PackagesIcon } from "./PackagesIcon";
-import { packageCtaBenefits } from "./packagesData";
+
+const packageCtaBenefits = [
+  { icon: "lotus", title: "Personalized Assessment" },
+  { icon: "leaf", title: "Holistic Recovery Plan" },
+  { icon: "sprout", title: "Inpatient & Outpatient Options" },
+];
 
 export function PackagesCTA() {
   return (

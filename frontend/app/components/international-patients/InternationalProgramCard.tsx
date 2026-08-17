@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { internationalPrograms } from "./internationalPatientsData";
-import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
+import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
 
-type InternationalProgram = (typeof internationalPrograms)[number];
+export type InternationalProgram = {
+  title: string;
+  text: string;
+  image: string;
+  icon: InternationalPatientsIconName;
+};
 
 type InternationalProgramCardProps = {
   program: InternationalProgram;

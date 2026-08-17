@@ -1,15 +1,16 @@
 "use client";
 
 import { useRef } from "react";
-import { ContinueWatchingItem, VideoItem } from "./videoGalleryData";
-import { ContinueWatchingCard } from "./ContinueWatchingCard";
+import { ContinueWatchingCard, ContinueWatchingItem } from "./ContinueWatchingCard";
+import { VideoItem } from "./FeaturedVideoCard";
 
 type ContinueWatchingSectionProps = {
-  items: ContinueWatchingItem[];
+  items?: ContinueWatchingItem[];
   onPlayVideo: (video: VideoItem) => void;
 };
 
-export function ContinueWatchingSection({ items, onPlayVideo }: ContinueWatchingSectionProps) {
+export function ContinueWatchingSection({ items = [], onPlayVideo }: ContinueWatchingSectionProps) {
+  if (items.length === 0) return null;
   const trackRef = useRef<HTMLDivElement>(null);
 
   const scrollRight = () => {

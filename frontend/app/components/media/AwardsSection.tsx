@@ -1,4 +1,8 @@
-import { awards } from "./mediaData";
+const awards = [
+  "Best Ayurvedic Specialty Hospital Kerala",
+  "Excellence in Panchakarma Therapy & Research",
+  "NABH Accredited Ayurvedic Care Institution",
+];
 
 export function AwardsSection() {
   return (

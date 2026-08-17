@@ -1,22 +1,41 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const wellnessPrograms = [
-  "Stress Management",
-  "Detox & Rejuvenation",
-  "Weight Management",
-  "Women's Wellness",
-  "Lifestyle & Longevity",
-];
+import { getPublicPackages } from "@/app/services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export function AyurvedaVillageSection() {
+  const [programs, setPrograms] = useState<string[]>([
+    "Stress Management",
+    "Detox & Rejuvenation",
+    "Weight Management",
+    "Women's Wellness",
+    "Lifestyle & Longevity",
+  ]);
+  const [isBackendData, setIsBackendData] = useState<boolean>(false);
+
+  useEffect(() => {
+    async function loadBackendPrograms() {
+      try {
+        const pkgs = await getPublicPackages();
+        if (Array.isArray(pkgs) && pkgs.length > 0) {
+          const names = pkgs.slice(0, 5).map((p: any) => p.title || p.name);
+          setPrograms(names);
+          setIsBackendData(true);
+        }
+      } catch (err) {
+        console.error("Failed to load village programs:", err);
+      }
+    }
+    loadBackendPrograms();
+  }, []);
+
   return (
-    <section className="ayurveda-village-section" aria-labelledby="ayurveda-village-title">
+    <section className="ayurveda-village-section" aria-labelledby="ayurveda-village-title" style={{ position: "relative" }}>
       <div className="village-copy-panel">
         <span className="village-eyebrow">Ayurveda Village Experience</span>
-        {/* <h2 id="ayurveda-village-title">
-          A serene environment designed for healing, reflection and renewal.
-        </h2> */}
         <p>Our most exclusive offer for our guest, is the Susrutha Ayurveda Gramam. Located 20 kilometers away from Trivandrum International Airport, Susrutha Ayurveda Gramam is a specially designed ayurvedic villege, catering to the need of the guests, who are looking for an escape from busy routines. Four Ergonomically Designed Cottage, built in tune with Traditional Kerala Architechture, are furnished luxuriously with all amenities, including private treatment room for individual cottage, where one can enjoy the ayurvedic treatments in total privacy.</p>
         <Link className="village-link" href="/ayurveda-village">
           Explore Ayurveda Village
@@ -37,7 +56,7 @@ export function AyurvedaVillageSection() {
         <span className="village-program-eyebrow">Wellness Programs</span>
         <h3>Curated programs for every stage of life.</h3>
         <ul>
-          {wellnessPrograms.map((program) => (
+          {programs.map((program) => (
             <li key={program}>{program}</li>
           ))}
         </ul>

@@ -1,7 +1,54 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { DoctorItem } from "./doctorsData";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
+
+export type ConsultationMode = "in-person" | "video";
+
+export type DoctorDepartment = {
+  id: string;
+  name: string;
+  shortName: string;
+  icon: string;
+  description: string;
+  doctorCount: number;
+};
+
+export type DoctorBranch = {
+  id: string;
+  name: string;
+  shortName: string;
+};
+
+export type DoctorItem = {
+  id: string;
+  slug: string;
+  name: string;
+  title: string;
+  designation: string;
+  qualification: string;
+  departmentId: string;
+  departmentName: string;
+  experienceYears: number;
+  experienceText: string;
+  patientsCount: string;
+  rating: number;
+  reviewsCount: number;
+  image: string;
+  location: string;
+  branchIds: string[];
+  availableDays: string[];
+  languages: string[];
+  consultationModes: ConsultationMode[];
+  focusAreas: string[];
+  credentials: string[];
+  quote: string;
+  bio?: string;
+  isFounder?: boolean;
+  isPopular?: boolean;
+  isAvailableToday?: boolean;
+  isBackendData?: boolean;
+};
 
 type DoctorCardProps = {
   doctor: DoctorItem;

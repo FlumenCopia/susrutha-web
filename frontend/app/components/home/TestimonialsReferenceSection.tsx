@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { getPublicTestimonials, getImageDisplayUrl } from "@/app/services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 type TestimonialItem = {
   name: string;
@@ -18,8 +19,23 @@ const stats = [
   ["shield", "10+", "Specialized Therapies", "Holistic care for every individual"],
 ];
 
+const initialTestimonials: (TestimonialItem & { isBackendData?: boolean })[] = [
+  {
+    name: "Sunil Kumar",
+    place: "Trivandrum",
+    image: "/images/doctor-portrait.webp",
+    copy: "The Panchakarma care at Susrutha Kattakada was deeply therapeutic. The doctors and therapists provided attentive, personalized treatment.",
+  },
+  {
+    name: "Anitha R.",
+    place: "Kowdiar",
+    image: "/images/doctor-portrait.webp",
+    copy: "Outstanding outpatient consultation at Kowdiar OP clinic. Professional, warm, and highly effective Ayurvedic guidance.",
+  },
+];
+
 export function TestimonialsReferenceSection() {
-  const [testimonialList, setTestimonialList] = useState<TestimonialItem[]>([]);
+  const [testimonialList, setTestimonialList] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -29,19 +45,20 @@ export function TestimonialsReferenceSection() {
         setLoading(true);
         const data = await getPublicTestimonials();
         if (Array.isArray(data) && data.length > 0) {
-          const normalized: TestimonialItem[] = data.map((t: any) => ({
+          const normalized = data.map((t: any) => ({
             name: t.patientName || t.name,
             place: t.patientLocation || t.place || 'Kerala',
             image: getImageDisplayUrl(t.patientPhoto || t.image),
             copy: t.reviewText || t.copy || t.message || '',
+            isBackendData: true,
           }));
           setTestimonialList(normalized);
         } else {
-          setTestimonialList([]);
+          setTestimonialList(initialTestimonials);
         }
       } catch (err) {
         console.error("Failed to load live testimonials:", err);
-        setTestimonialList([]);
+        setTestimonialList(initialTestimonials);
       } finally {
         setLoading(false);
       }
@@ -105,12 +122,13 @@ export function TestimonialsReferenceSection() {
           </button>
 
           <div className="testimonials-reference-cards">
-            {visibleTestimonials.map((testimonial) => (
-              <article
-                className="testimonials-reference-card"
-                data-position={testimonial.position}
-                key={`${testimonial.name}-${testimonial.position}`}
-              >
+            {visibleTestimonials.map((testimonial) => {
+              return (
+                <article
+                  className="testimonials-reference-card"
+                  data-position={testimonial.position}
+                  key={`${testimonial.name}-${testimonial.position}`}
+                >
                 <span className="testimonials-reference-quote" aria-hidden="true">
                   &ldquo;
                 </span>
@@ -131,7 +149,8 @@ export function TestimonialsReferenceSection() {
                 <small>{testimonial.place}</small>
                 <b aria-hidden="true" />
               </article>
-            ))}
+              );
+            })}
           </div>
 
           <button

@@ -1,6 +1,11 @@
 import Link from "next/link";
-import { facilityHeroStats } from "./facilitiesData";
-import { FacilitiesIcon } from "./FacilitiesIcon";
+import { FacilitiesIcon, type FacilitiesIconName } from "./FacilitiesIcon";
+
+const facilityHeroStats: Array<{ value: string; label: string; icon: FacilitiesIconName }> = [
+  { value: "2", label: "Specialty Hospitals", icon: "building" },
+  { value: "100%", label: "Physician Supervised", icon: "shield" },
+  { value: "24/7", label: "Nursing & Emergency Care", icon: "clock" },
+];
 
 export function FacilitiesHero() {
   return (

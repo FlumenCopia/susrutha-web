@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getImageDisplayUrl, getPublicTreatments } from "../../services/api";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 type TreatmentMeta = {
   category: "panchakarma" | "spine-joint" | "nerve-stress" | "specialized";
@@ -278,6 +279,7 @@ export function TreatmentsShowcaseSection() {
               badge: meta.badge,
               benefits: t.benefits || meta.benefits,
               iconType: meta.iconType,
+              isBackendData: true,
             };
           });
           setTreatmentsList(normalized);
@@ -310,73 +312,42 @@ export function TreatmentsShowcaseSection() {
     return () => window.removeEventListener("resize", syncItemsPerPage);
   }, []);
 
-  // Reset active page on category change
-  useEffect(() => {
-    setActivePage(0);
-    if (trackRef.current) {
-      trackRef.current.scrollLeft = 0;
-    }
-  }, [activeCategory]);
-
   const pageCount = Math.max(1, Math.ceil(filteredTreatments.length / itemsPerPage));
-  const pages = useMemo(() => Array.from({ length: pageCount }, (_, index) => index), [pageCount]);
-  const safeActivePage = Math.min(activePage, pageCount - 1);
 
-  const scrollToPage = (page: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const safePage = (page + pageCount) % pageCount;
-    const targetCard = track.children[safePage * itemsPerPage] as HTMLElement | undefined;
+  const handleScroll = () => {
+    if (!trackRef.current) return;
+    const { scrollLeft, clientWidth } = trackRef.current;
+    const page = Math.round(scrollLeft / clientWidth);
+    setActivePage(page);
+  };
 
-    if (targetCard) {
-      track.scrollTo({
-        left: targetCard.offsetLeft,
+  const scrollToPage = (pageIndex: number) => {
+    const targetPage = Math.max(0, Math.min(pageIndex, pageCount - 1));
+    setActivePage(targetPage);
+    if (trackRef.current) {
+      trackRef.current.scrollTo({
+        left: targetPage * trackRef.current.clientWidth,
         behavior: "smooth",
       });
     }
-    setActivePage(safePage);
   };
 
-  const handleScroll = () => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const pageOffsets = pages.map((page) => {
-      const card = track.children[page * itemsPerPage] as HTMLElement | undefined;
-      return card?.offsetLeft ?? 0;
-    });
-    const nearestPage = pageOffsets.reduce((nearest, offset, page) => {
-      const currentDistance = Math.abs(track.scrollLeft - pageOffsets[nearest]);
-      const nextDistance = Math.abs(track.scrollLeft - offset);
-      return nextDistance < currentDistance ? page : nearest;
-    }, 0);
-
-    setActivePage(nearestPage);
-  };
+  const safeActivePage = Math.min(activePage, pageCount - 1);
 
   return (
     <section className="treatments-showcase-section" aria-labelledby="treatments-showcase-title">
-      <div className="treatments-showcase-panel">
-        <div className="treatments-botanical treatments-botanical-left" aria-hidden="true" />
-        <div className="treatments-botanical treatments-botanical-right" aria-hidden="true" />
-
+      <div className="treatments-showcase-container">
         {/* Section Header */}
-        <div className="treatments-showcase-head">
+        <div className="treatments-showcase-header">
           <span className="treatments-showcase-eyebrow">
-            <i className="fa-solid fa-leaf" aria-hidden="true" />
-            Authentic Clinical Ayurveda
-            <i className="fa-solid fa-leaf" aria-hidden="true" />
+            <i aria-hidden="true" />
+            Kerala Heritage Therapies
           </span>
           <h2 id="treatments-showcase-title">
-            Holistic Treatments for Every <em>Body &amp; Mind</em>
+            Authentic Clinical <span>Panchakarma & Dhara</span>
           </h2>
-          <div className="treatments-showcase-divider" aria-hidden="true">
-            <span />
-            <i className="fa-solid fa-seedling" />
-            <span />
-          </div>
-          <p>
-            Personalized, physician-guided therapies rooted in classical Ayurvedic literature,
+          <p className="treatments-showcase-subtitle">
+            Authentic physician-supervised therapies, tailored to individual prakriti and diagnostics,
             crafted to restore total health, vitality, and balance.
           </p>
         </div>
@@ -433,8 +404,9 @@ export function TreatmentsShowcaseSection() {
         {/* Cards Carousel Slider */}
         <div className="treatments-showcase-slider">
           <div className="treatments-showcase-grid" ref={trackRef} onScroll={handleScroll}>
-            {filteredTreatments.map((treatment) => (
-              <article className="treatments-showcase-card" key={treatment.slug}>
+            {filteredTreatments.map((treatment: any) => {
+              return (
+                <article className="treatments-showcase-card" key={treatment.slug}>
                 <Link href={treatment.href} aria-label={`View ${treatment.title} treatment`}>
                   <div className="treatments-card-image">
                     <Image
@@ -484,13 +456,14 @@ export function TreatmentsShowcaseSection() {
                   </div>
                 </Link>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* Pagination Dots */}
         <div className="treatments-showcase-dots" aria-label="Treatment slider pagination">
-          {pages.map((page) => (
+          {Array.from({ length: pageCount }, (_, page) => (
             <button
               type="button"
               key={page}

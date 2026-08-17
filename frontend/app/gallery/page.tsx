@@ -1,16 +1,16 @@
 import { SiteShell } from "../components/common/SiteShell";
-import { VideoGalleryPage } from "../components/video-gallery/VideoGalleryPage";
+import { UnifiedGalleryPage } from "../components/gallery/UnifiedGalleryPage";
 
 export const metadata = {
-  title: "Video Gallery | Susrutha Ayurveda Hospital",
+  title: "Media & Video Gallery Hub | Susrutha Ayurveda Hospital",
   description:
-    "Explore videos on Panchakarma, Abhyanga, Shirodhara, Ayurvedic therapies, yoga, diet, and wellness care.",
+    "Explore authentic Kerala Ayurveda videos, patient stories, hospital campus photo archive, podcasts, and press news.",
 };
 
-export default function GalleryPage() {
+export default function GalleryRoute() {
   return (
     <SiteShell>
-      <VideoGalleryPage />
+      <UnifiedGalleryPage />
     </SiteShell>
   );
 }

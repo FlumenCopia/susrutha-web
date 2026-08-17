@@ -1,0 +1,109 @@
+/* Unified Gallery & Media Hub CSS */
+.unified-gallery-wrapper {
+  width: 100%;
+  background: #f8f7f5;
+  min-height: 80vh;
+}
+
+.ug-hero {
+  background: linear-gradient(180deg, #1c2723 0%, #121916 100%);
+  color: #ffffff;
+  padding: 80px 24px 48px;
+  text-align: center;
+  position: relative;
+}
+
+.ug-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ug-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c4922a;
+  margin-bottom: 12px;
+}
+
+.ug-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.ug-subtext {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 680px;
+  line-height: 1.6;
+  margin: 0 0 36px 0;
+}
+
+/* Tabs */
+.ug-tabs {
+  display: inline-flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ug-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ug-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ug-tab.active {
+  background: linear-gradient(135deg, #9a6528 0%, #c4922a 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(196, 146, 42, 0.35);
+}
+
+.ug-content-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.ug-tab-panel {
+  animation: ugFadeIn 0.35s ease-in-out;
+}
+
+@keyframes ugFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

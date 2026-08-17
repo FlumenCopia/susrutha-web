@@ -1,7 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { ContinueWatchingItem, VideoItem } from "./videoGalleryData";
+import { DoctorSpeaker, VideoItem } from "./FeaturedVideoCard";
+
+export type ContinueWatchingItem = {
+  id: string;
+  title: string;
+  category: string;
+  thumbnail: string;
+  youtubeId: string;
+  currentTimestamp: string;
+  totalDuration: string;
+  progressPercent: number;
+  timeLeft: string;
+  speaker: DoctorSpeaker;
+};
 
 type ContinueWatchingCardProps = {
   item: ContinueWatchingItem;

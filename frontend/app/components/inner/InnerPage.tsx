@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { PageContent } from "../../data/architecture";
+import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 type InnerPageProps = {
   content: PageContent;

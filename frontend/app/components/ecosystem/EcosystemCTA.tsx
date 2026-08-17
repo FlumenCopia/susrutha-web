@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { EcosystemIcon } from "./EcosystemIcon";
-import { ecosystemValues } from "./ecosystemData";
+import { EcosystemIcon, type EcosystemIconName } from "./EcosystemIcon";
+
+const ecosystemValues: Array<{ icon: EcosystemIconName; title: string }> = [
+  { icon: "building", title: "Clinical Excellence" },
+  { icon: "leaf", title: "Organic Botanical Formulations" },
+  { icon: "school", title: "Research & Vaidya Education" },
+];
 
 export function EcosystemCTA() {
   return (

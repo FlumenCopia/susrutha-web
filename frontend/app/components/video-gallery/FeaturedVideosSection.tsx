@@ -1,8 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { VideoItem } from "./videoGalleryData";
-import { FeaturedVideoCard } from "./FeaturedVideoCard";
+import { FeaturedVideoCard, VideoItem } from "./FeaturedVideoCard";
 
 type FeaturedVideosSectionProps = {
   videos: VideoItem[];

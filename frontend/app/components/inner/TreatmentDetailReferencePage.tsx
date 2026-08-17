@@ -17,97 +17,15 @@ type TreatmentDetailReferencePageProps = {
     shortDescription?: string;
     fullDescription?: string;
     durationMinutes?: number;
+    benefits?: any[];
+    indications?: any[];
+    procedureSteps?: any[];
+    expectations?: string[];
+    aftercare?: string[];
+    inclusions?: string[];
+    preparation?: string[];
   };
 };
-
-const benefitCards = [
-  {
-    title: "Cellular Detoxification",
-    text: "Deeply eliminates accumulated ama (metabolic toxins) from tissues and channels.",
-    image: "/images/treatment-herbal-medicine.webp",
-    icon: "🌿",
-  },
-  {
-    title: "Dosha Harmony",
-    text: "Restores optimal physiological balance across Vata, Pitta, and Kapha bio-energies.",
-    image: "/images/treatment-sirodhara.webp",
-    icon: "☯️",
-  },
-  {
-    title: "Immune System Boost",
-    text: "Rejuvenates Ojas (vital vigor), fortifying your body's natural defense mechanisms.",
-    image: "/images/faq-ayurveda-still-life.webp",
-    icon: "🛡️",
-  },
-  {
-    title: "Enhanced Longevity",
-    text: "Revitalizes organ function and cellular regeneration for sustained vitality.",
-    image: "/images/treatment-panchakarma.webp",
-    icon: "✨",
-  },
-];
-
-const idealForItems = [
-  { title: "Chronic Fatigue & Burnout", subtitle: "Low energy, mental brain fog, and systemic exhaustion", icon: "🔋" },
-  { title: "Stress & Anxiety Imbalance", subtitle: "High cortisol levels, insomnia, and nervous system tension", icon: "🧘" },
-  { title: "Digestive & Metabolic Disorders", subtitle: "Bloating, sluggish metabolism, hyperacidity, and IBS symptoms", icon: "🌱" },
-  { title: "Skin & Allergic Manifestations", subtitle: "Eczema, psoriasis, acne, and systemic inflammation", icon: "🌸" },
-  { title: "Joint & Musculoskeletal Stiffness", subtitle: "Arthritic pain, spinal stiffness, and neuromuscular aches", icon: "🦴" },
-];
-
-const journeySteps = [
-  {
-    step: "01",
-    phase: "Purva Karma",
-    title: "Preparation Phase",
-    text: "Oleation (Snehana) and sweating (Swedana) to loosen deep-seated toxins and soften channels.",
-    icon: "🫗",
-  },
-  {
-    step: "02",
-    phase: "Pradhana Karma",
-    title: "Core Detoxification",
-    text: "Physician-guided therapeutic cleansing techniques customized strictly to your body constitution.",
-    icon: "🏺",
-  },
-  {
-    step: "03",
-    phase: "Paschat Karma",
-    title: "Post-Detox Care",
-    text: "Gradual restoration of digestive fire (Agni) through tailored nourishment and herbal formulations.",
-    icon: "🍵",
-  },
-  {
-    step: "04",
-    phase: "Rasayana",
-    title: "Cellular Rejuvenation",
-    text: "Potent anti-aging therapies that rebuild tissues, enhance immunity, and restore vitality.",
-    icon: "✨",
-  },
-  {
-    step: "05",
-    phase: "Pathya Apathya",
-    title: "Lifestyle Protocol",
-    text: "Personalized dietary directives, daily routines (Dinacharya), and preventative care guidelines.",
-    icon: "📜",
-  },
-];
-
-const expectItems = [
-  "Comprehensive initial diagnostic consultation with senior Vaidyas",
-  "Tailored herbal oils, decoctions, and classical Ayurvedic medicines",
-  "Therapeutic treatments in private, tranquil treatment suites",
-  "Daily physician monitoring and progress assessments",
-  "Customized Sattvic diet planned by Ayurvedic nutritionists",
-];
-
-const includeItems = [
-  "All daily Panchakarma / specialty therapy sessions",
-  "Handcrafted herbal oils & therapeutic decoctions",
-  "Organic Sattvic meals tailored to your dosha",
-  "Daily guided Yoga & Pranayama sessions",
-  "Post-treatment discharge consultation & prescription",
-];
 
 function slugLabel(slug: string) {
   return slug
@@ -119,17 +37,78 @@ function slugLabel(slug: string) {
 export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailReferencePageProps) {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.shortDescription || treatment.meta || "Authentic Ayurvedic Therapy";
-  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.durationMinutes ? `${treatment.durationMinutes} Mins` : "5 - 14 Days";
+  const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.shortDescription || treatment.meta || "";
+  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.durationMinutes ? `${treatment.durationMinutes} Mins` : "";
   const rawImage = treatment.coverImage || treatment.image || "/images/treatment-panchakarma.webp";
   const bannerImage = getImageDisplayUrl(rawImage);
 
+  // Pure dynamic mapping from CMS data (No static dummy fallbacks)
+  const benefitCards = Array.isArray(treatment.benefits) && treatment.benefits.length > 0
+    ? treatment.benefits.map((b: any, idx: number) => {
+        if (typeof b === 'string') {
+          return {
+            title: b,
+            text: '',
+            image: '/images/treatment-herbal-medicine.webp',
+            icon: '🌿',
+          };
+        }
+        return {
+          title: b.title || `Benefit ${idx + 1}`,
+          text: b.text || b.description || '',
+          image: b.image ? getImageDisplayUrl(b.image) : '/images/treatment-herbal-medicine.webp',
+          icon: b.icon || '🌿',
+        };
+      })
+    : [];
+
+  const idealForItems = Array.isArray(treatment.indications) && treatment.indications.length > 0
+    ? treatment.indications.map((item: any) => {
+        if (typeof item === 'string') {
+          return { title: item, subtitle: 'Target indication for treatment', icon: '🌿' };
+        }
+        return {
+          title: item.title || String(item),
+          subtitle: item.subtitle || 'Target indication for treatment',
+          icon: item.icon || '🌿',
+        };
+      })
+    : [];
+
+  const journeySteps = Array.isArray(treatment.procedureSteps) && treatment.procedureSteps.length > 0
+    ? treatment.procedureSteps.map((stepItem: any, idx: number) => {
+        const stepNum = String(idx + 1).padStart(2, '0');
+        if (typeof stepItem === 'string') {
+          return { step: stepNum, phase: `Phase ${idx + 1}`, title: `Step ${idx + 1}`, text: stepItem, icon: '🏺' };
+        }
+        return {
+          step: stepItem.step || stepNum,
+          phase: stepItem.phase || `Phase ${idx + 1}`,
+          title: stepItem.title || stepItem.step || `Step ${idx + 1}`,
+          text: stepItem.text || stepItem.detail || '',
+          icon: stepItem.icon || '🏺',
+        };
+      })
+    : [];
+
+  const expectItems = Array.isArray(treatment.expectations) && treatment.expectations.length > 0
+    ? treatment.expectations
+    : Array.isArray(treatment.aftercare) && treatment.aftercare.length > 0
+    ? treatment.aftercare
+    : [];
+
+  const includeItems = Array.isArray(treatment.inclusions) && treatment.inclusions.length > 0
+    ? treatment.inclusions
+    : Array.isArray(treatment.preparation) && treatment.preparation.length > 0
+    ? treatment.preparation
+    : [];
+
   const navTabs = [
     { id: "overview", label: "Overview" },
-    { id: "benefits", label: "Benefits" },
-    { id: "who-is-it-for", label: "Who Is It For?" },
-    { id: "treatment-process", label: "Treatment Process" },
-    { id: "what-to-expect", label: "What to Expect" },
+    ...(benefitCards.length > 0 ? [{ id: "benefits", label: "Benefits" }] : []),
+    ...(idealForItems.length > 0 ? [{ id: "who-is-it-for", label: "Indications" }] : []),
+    ...(journeySteps.length > 0 ? [{ id: "treatment-process", label: "Treatment Process" }] : []),
+    ...(expectItems.length > 0 || includeItems.length > 0 ? [{ id: "what-to-expect", label: "Inclusions" }] : []),
   ];
 
   return (
@@ -150,26 +129,27 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
 
             <div className="treatment-eyebrow-badge">
               <span className="badge-dot" />
-              <span>HERITAGE KERALA AYURVEDIC THERAPY</span>
+              <span>AYURVEDIC THERAPY</span>
             </div>
 
             <h1 id="treatment-detail-title" className="treatment-hero-heading">
               {treatment.title}
             </h1>
 
-            <p className="treatment-hero-subheading">{subtitle}</p>
-            <p className="treatment-hero-description">{treatment.text}</p>
+            {subtitle && <p className="treatment-hero-subheading">{subtitle}</p>}
+            <p className="treatment-hero-description">{treatment.fullDescription || treatment.text || treatment.shortDescription}</p>
 
             {/* Quick Metrics Bar */}
             <div className="treatment-facts-bar">
-              <div className="fact-item">
-                <span className="fact-icon"><i className="fa-regular fa-clock" /></span>
-                <div>
-                  <span className="fact-label">Duration</span>
-                  <strong className="fact-value">{duration}</strong>
+              {duration && (
+                <div className="fact-item">
+                  <span className="fact-icon"><i className="fa-regular fa-clock" /></span>
+                  <div>
+                    <span className="fact-label">Duration</span>
+                    <strong className="fact-value">{duration}</strong>
+                  </div>
                 </div>
-              </div>
-              <div className="fact-divider" />
+              )}
               <div className="fact-item">
                 <span className="fact-icon"><i className="fa-solid fa-leaf" /></span>
                 <div>
@@ -177,7 +157,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                   <strong className="fact-value">100% Herbal</strong>
                 </div>
               </div>
-              <div className="fact-divider" />
               <div className="fact-item">
                 <span className="fact-icon"><i className="fa-solid fa-user-doctor" /></span>
                 <div>
@@ -211,197 +190,154 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 className="treatment-hero-img"
               />
               <div className="treatment-media-overlay" />
-              
-              <div className="treatment-floating-badge">
-                <span className="floating-badge-icon"><i className="fa-solid fa-scroll" /></span>
-                <div>
-                  <strong>Classical Protocol</strong>
-                  <span>Authentic Kerala Lineage</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Sticky Quick Nav Bar */}
-      <nav className="treatment-sticky-tabs" aria-label="Treatment detail navigation">
-        <div className="treatment-tabs-container">
-          {navTabs.map((tab) => (
-            <a
-              key={tab.id}
-              href={`#${tab.id}`}
-              className={`treatment-tab-link ${activeTab === tab.id ? "active" : ""}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </a>
-          ))}
-        </div>
-      </nav>
+      {navTabs.length > 1 && (
+        <nav className="treatment-sticky-tabs" aria-label="Treatment detail navigation">
+          <div className="treatment-tabs-container">
+            {navTabs.map((tab) => (
+              <a
+                key={tab.id}
+                href={`#${tab.id}`}
+                className={`treatment-tab-link ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
 
       {/* Main Content Body */}
       <div className="treatment-detail-body">
         {/* Section 1: Overview */}
         <section className="treatment-section-block" id="overview">
           <div className="treatment-overview-grid">
-            <div className="overview-text-col">
+            <div className="overview-text-col" style={{ maxWidth: "100%" }}>
               <div className="section-eyebrow">OVERVIEW</div>
               <h2 className="section-title-luxury">
-                Deep Cellular Detoxification & Total Restoration
+                {treatment.title} Clinical Protocol
               </h2>
-              <p className="overview-paragraph">
-                {treatment.title} is a cornerstone of classical Ayurveda, designed to purify the body at a fundamental cellular level. By gently eliminating accumulated Ama (metabolic toxins) and clearing blocked channels (Srotas), this therapeutic regimen reinstates constitutional equilibrium and invigorates overall vital energy.
+              <p className="overview-paragraph" style={{ whiteSpace: "pre-line" }}>
+                {treatment.fullDescription || treatment.shortDescription}
               </p>
-              
-              <blockquote className="ayurveda-wisdom-quote">
-                <p>&ldquo;When toxins are thoroughly eliminated from deep tissues, digestion is restored, mind becomes serene, and true biological rejuvenation unfolds.&rdquo;</p>
-                <cite>— Classical Samhita Wisdom</cite>
-              </blockquote>
-            </div>
-
-            <div className="overview-highlight-card">
-              <div className="highlight-card-head">
-                <span className="highlight-icon">🌱</span>
-                <h3>Why Choose Susrutha Care?</h3>
-              </div>
-              <ul className="highlight-list">
-                <li>
-                  <strong>Senior Vaidya Oversight:</strong> Every treatment plan is personally calibrated by experienced Ayurvedic doctors.
-                </li>
-                <li>
-                  <strong>Authentic Formulations:</strong> We utilize organic, freshly prepared herbal oils, kashayams, and lehyams.
-                </li>
-                <li>
-                  <strong>Serene Healing Ambiance:</strong> Designed to provide deep mental rest and physical tranquility during therapy.
-                </li>
-              </ul>
             </div>
           </div>
         </section>
 
-        {/* Section 2: Benefits */}
-        <section className="treatment-section-block" id="benefits">
-          <div className="section-center-heading">
-            <span className="section-eyebrow">THERAPEUTIC ADVANTAGES</span>
-            <h2 className="section-title-luxury">Key Health & Wellness Benefits</h2>
-            <p className="section-subtitle">Experience targeted physiological and mental rejuvenation through classical therapies</p>
-          </div>
-
-          <div className="benefits-card-grid">
-            {benefitCards.map((card) => (
-              <article className="benefit-card-luxury" key={card.title}>
-                <div className="benefit-img-wrapper">
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                    className="benefit-img"
-                  />
-                  <div className="benefit-img-overlay" />
-                </div>
-                <div className="benefit-card-body">
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 3: Who Is It For */}
-        <section className="treatment-section-block" id="who-is-it-for">
-          <div className="ideal-candidates-panel">
-            <div className="ideal-media-side">
-              <Image
-                src="/images/ayurveda-hero.webp"
-                alt="Ayurvedic Wellness Candidate"
-                fill
-                sizes="(max-width: 900px) 100vw, 40vw"
-                className="ideal-img"
-              />
-              <div className="ideal-media-overlay" />
-              <div className="ideal-badge-float">
-                <span>Personalized Consultation & Assessment</span>
-              </div>
+        {/* Section 2: Benefits (Only rendered if CMS data exists) */}
+        {benefitCards.length > 0 && (
+          <section className="treatment-section-block" id="benefits">
+            <div className="section-center-heading">
+              <span className="section-eyebrow">THERAPEUTIC ADVANTAGES</span>
+              <h2 className="section-title-luxury">Key Health & Wellness Benefits</h2>
             </div>
 
-            <div className="ideal-content-side">
-              <span className="section-eyebrow">TARGET INDICATIONS</span>
-              <h2 className="section-title-luxury">Who Can Benefit Most?</h2>
-              <p className="ideal-lead">This therapeutic regimen is specifically recommended for individuals experiencing:</p>
-
-              <div className="ideal-list-grid">
-                {idealForItems.map((item) => (
-                  <div className="ideal-item-card" key={item.title}>
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p>{item.subtitle}</p>
-                    </div>
+            <div className="benefits-card-grid">
+              {benefitCards.map((card: any) => (
+                <article className="benefit-card-luxury" key={card.title}>
+                  <div className="benefit-card-body">
+                    <h3>{card.title}</h3>
+                    {card.text && <p>{card.text}</p>}
                   </div>
-                ))}
-              </div>
+                </article>
+              ))}
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* Section 4: Treatment Process */}
-        <section className="treatment-section-block" id="treatment-process">
-          <div className="section-center-heading">
-            <span className="section-eyebrow">THERAPEUTIC ROADMAP</span>
-            <h2 className="section-title-luxury">A Structured 5-Step Healing Journey</h2>
-            <p className="section-subtitle">A systematic, multi-phase protocol ensuring safety, efficacy, and lasting health benefits</p>
-          </div>
+        {/* Section 3: Indications (Only rendered if CMS data exists) */}
+        {idealForItems.length > 0 && (
+          <section className="treatment-section-block" id="who-is-it-for">
+            <div className="ideal-candidates-panel" style={{ gridTemplateColumns: "1fr" }}>
+              <div className="ideal-content-side">
+                <span className="section-eyebrow">TARGET INDICATIONS</span>
+                <h2 className="section-title-luxury">Who Can Benefit Most?</h2>
+                <p className="ideal-lead">This therapeutic regimen is specifically recommended for:</p>
 
-          <div className="process-timeline-track">
-            {journeySteps.map((stepItem) => (
-              <article className="process-step-card" key={stepItem.step}>
-                <div className="process-step-header">
-                  <span className="step-num">{stepItem.step}</span>
+                <div className="ideal-list-grid">
+                  {idealForItems.map((item: any) => (
+                    <div className="ideal-item-card" key={item.title}>
+                      <div>
+                        <h4>{item.title}</h4>
+                        {item.subtitle && item.subtitle !== 'Target indication for treatment' && <p>{item.subtitle}</p>}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <span className="step-phase">{stepItem.phase}</span>
-                <h3 className="step-title">{stepItem.title}</h3>
-                <p className="step-text">{stepItem.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 5: What to Expect & Includes */}
-        <section className="treatment-section-block" id="what-to-expect">
-          <div className="expect-inclusions-grid">
-            <div className="expect-dark-card">
-              <div className="expect-card-head">
-                <span className="card-tag">EXPECTATION</span>
-                <h2>What To Expect During Stay</h2>
               </div>
-              <ul className="expect-check-list">
-                {expectItems.map((item) => (
-                  <li key={item}>
-                    <span className="check-icon">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            </div>
+          </section>
+        )}
+
+        {/* Section 4: Treatment Process (Only rendered if CMS data exists) */}
+        {journeySteps.length > 0 && (
+          <section className="treatment-section-block" id="treatment-process">
+            <div className="section-center-heading">
+              <span className="section-eyebrow">THERAPEUTIC ROADMAP</span>
+              <h2 className="section-title-luxury">Structured Procedure Steps</h2>
             </div>
 
-            <div className="include-light-card">
-              <div className="expect-card-head">
-                <span className="card-tag gold">INCLUSIONS</span>
-                <h2>What Your Program Includes</h2>
-              </div>
-              <ul className="expect-check-list">
-                {includeItems.map((item) => (
-                  <li key={item}>
-                    <span className="check-icon gold">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="process-timeline-track">
+              {journeySteps.map((stepItem: any) => (
+                <article className="process-step-card" key={stepItem.step}>
+                  <div className="process-step-header">
+                    <span className="step-num">{stepItem.step}</span>
+                  </div>
+                  <span className="step-phase">{stepItem.phase}</span>
+                  <h3 className="step-title">{stepItem.title}</h3>
+                  {stepItem.text && <p className="step-text">{stepItem.text}</p>}
+                </article>
+              ))}
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Section 5: What to Expect & Inclusions (Only rendered if CMS data exists) */}
+        {(expectItems.length > 0 || includeItems.length > 0) && (
+          <section className="treatment-section-block" id="what-to-expect">
+            <div className="expect-inclusions-grid">
+              {expectItems.length > 0 && (
+                <div className="expect-dark-card">
+                  <div className="expect-card-head">
+                    <span className="card-tag">EXPECTATION & AFTERCARE</span>
+                    <h2>Post-Care Guidelines</h2>
+                  </div>
+                  <ul className="expect-check-list">
+                    {expectItems.map((item: string) => (
+                      <li key={item}>
+                        <span className="check-icon">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {includeItems.length > 0 && (
+                <div className="include-light-card">
+                  <div className="expect-card-head">
+                    <span className="card-tag gold">INCLUSIONS & PREPARATION</span>
+                    <h2>Preparation & Inclusions</h2>
+                  </div>
+                  <ul className="expect-check-list">
+                    {includeItems.map((item: string) => (
+                      <li key={item}>
+                        <span className="check-icon gold">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
         {/* Section 6: Consultation CTA Banner */}
         <section className="treatment-cta-luxury">
@@ -410,7 +346,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             <span className="cta-eyebrow">TAKE THE FIRST STEP</span>
             <h2 className="cta-heading">Ready to Begin Your Personalized Healing Journey?</h2>
             <p className="cta-text">
-              Consult with our renowned Ayurvedic physicians to receive a customized treatment plan tailored to your specific health needs and body constitution.
+              Consult with our renowned Ayurvedic physicians to receive a customized treatment plan tailored to your specific health needs.
             </p>
             <div className="cta-action-group">
               <Link className="btn btn-primary cta-btn-gold" href="/appointment">

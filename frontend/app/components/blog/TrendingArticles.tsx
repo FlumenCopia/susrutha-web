@@ -1,7 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BlogSectionHeader } from "./BlogSectionHeader";
-import { trendingArticles } from "./blogData";
+
+const trendingArticles = [
+  {
+    slug: "classical-panchakarma-detox",
+    title: "Understanding Classical Panchakarma: The Five Purificatory Therapies",
+    category: "Panchakarma",
+    readTime: "7 min read",
+    image: "/images/treatment-panchakarma.webp",
+  },
+  {
+    slug: "ayurvedic-dietetics",
+    title: "Ahara Vihara: Ayurvedic Principles of Daily Nutrition & Digestion",
+    category: "Nutrition",
+    readTime: "5 min read",
+    image: "/images/ayurveda-village-room.webp",
+  },
+];
 
 export function TrendingArticles() {
   return (

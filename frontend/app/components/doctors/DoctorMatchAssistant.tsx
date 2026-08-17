@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { doctorsData, DoctorItem } from "./doctorsData";
+import { DoctorItem } from "./DoctorCard";
+
+type DoctorMatchAssistantProps = {
+  doctors?: DoctorItem[];
+};
 
 type OptionItem = {
   id: string;
@@ -20,24 +24,24 @@ const healthOptions: OptionItem[] = [
     deptId: "panchakarma",
   },
   {
-    id: "spine",
-    image: "/images/opt_spine_joint.jpg",
-    title: "Spine, Joint & Back Pain",
-    subtitle: "Kati Vasti & Musculoskeletal",
+    id: "spine-joints",
+    image: "/images/opt_spine.jpg",
+    title: "Spine, Joints & Bone Care",
+    subtitle: "Kati Vasthi & Pain Care",
     deptId: "spine-joints",
   },
   {
-    id: "womens",
-    image: "/images/opt_womens_health.jpg",
-    title: "Women's Health & PCOS",
-    subtitle: "Hormonal & Holistic Care",
+    id: "womens-health",
+    image: "/images/opt_women.jpg",
+    title: "Women's Health & Wellness",
+    subtitle: "Hormonal & Gynaec Care",
     deptId: "womens-health",
   },
   {
-    id: "lifestyle",
-    image: "/images/opt_lifestyle_diabetes.jpg",
-    title: "Diabetes & Lifestyle Care",
-    subtitle: "Metabolic Wellness & Herbs",
+    id: "lifestyle-detox",
+    image: "/images/opt_lifestyle.jpg",
+    title: "Metabolic & Lifestyle Care",
+    subtitle: "Diabetes & Metabolism",
     deptId: "lifestyle-detox",
   },
   {
@@ -49,11 +53,11 @@ const healthOptions: OptionItem[] = [
   },
 ];
 
-export function DoctorMatchAssistant() {
+export function DoctorMatchAssistant({ doctors = [] }: DoctorMatchAssistantProps) {
   const [selectedOptId, setSelectedOptId] = useState<string>("panchakarma");
 
-  const matchedDoctor: DoctorItem =
-    doctorsData.find((d) => d.departmentId === selectedOptId) || doctorsData[0];
+  const matchedDoctor: DoctorItem | undefined =
+    doctors.find((d) => d.departmentId === selectedOptId) || doctors[0];
 
   return (
     <section className="doctors-assistant-section">
