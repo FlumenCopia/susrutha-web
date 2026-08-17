@@ -137,13 +137,13 @@ export function AllTreatmentsSection() {
             style={{
               padding: "14px 36px",
               borderRadius: "9999px",
-              background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
+              background: "#d49e54",
               color: "#ffffff",
               fontWeight: 700,
               fontSize: "14px",
               border: "none",
               cursor: "pointer",
-              boxShadow: "0 6px 20px rgba(154, 101, 40, 0.25)",
+              boxShadow: "0 6px 20px rgba(212, 158, 84, 0.35)",
             }}
           >
             {loadingMore ? "Loading More Therapies…" : "Load More Therapies ↓"}
