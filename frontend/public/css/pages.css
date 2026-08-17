@@ -4393,7 +4393,7 @@ body:has(.ecosystem-page) .conditions-hero-serene,
 .conditions-hero-stat-info span {
   display: block;
   color: rgba(255, 255, 255, 0.96) !important;
-  font-size: 18x;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin-top: 5px;
