@@ -82,9 +82,7 @@ export function ConditionApproachSection() {
     <section className="condition-approach-section" aria-labelledby="condition-approach-title">
       <div className="condition-approach-panel">
         <div className="condition-approach-title-wrap">
-          <span aria-hidden="true" />
           <h2 id="condition-approach-title">How Susrutha Approaches It</h2>
-          <span aria-hidden="true" />
         </div>
 
         <div className="condition-approach-flow">
@@ -97,7 +95,6 @@ export function ConditionApproachSection() {
               <strong>{step.number}</strong>
               <h3>{step.title}</h3>
               {step.detail ? <p>{step.detail}</p> : null}
-              <b aria-hidden="true" />
             </article>
           ))}
         </div>
