@@ -81,10 +81,10 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
         />
 
         {/* Rating Pill */}
-        <div className="doctor-card-rating">
+        {/* <div className="doctor-card-rating">
           <span>{doctor.rating.toFixed(1)}</span>
           <span className="doctor-card-rating-reviews">({doctor.reviewsCount})</span>
-        </div>
+        </div> */}
       </div>
 
       {/* Main Content Body */}
