@@ -4416,6 +4416,7 @@
 /* Media Card */
 .treatment-hero-media {
   position: relative;
+  width: 100%;
 }
 
 .treatment-media-frame {
@@ -4424,9 +4425,12 @@
   height: 420px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(15, 23, 20, 0.18);
-  border: 3px solid rgba(255, 255, 255, 0.9);
-  background: #141c18;
+  box-shadow: 0 20px 50px rgba(15, 23, 20, 0.15);
+  border: 4px solid #ffffff;
+  background-color: #f7f2ea;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .treatment-hero-img {
@@ -4434,17 +4438,17 @@
   object-position: center !important;
   width: 100% !important;
   height: 100% !important;
-  transition: transform 600ms ease;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .treatment-media-frame:hover .treatment-hero-img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .treatment-media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(15, 23, 20, 0.6) 100%);
+  background: linear-gradient(180deg, transparent 75%, rgba(0, 0, 0, 0.25) 100%);
   pointer-events: none;
   border-radius: inherit;
 }
