@@ -255,7 +255,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         {/* Section 3: Indications (Only rendered if CMS data exists) */}
         {idealForItems.length > 0 && (
           <section className="treatment-section-block" id="who-is-it-for">
-            <div className="ideal-candidates-panel" style={{ gridTemplateColumns: "1fr" }}>
+            <div className="ideal-candidates-panel">
               <div className="ideal-content-side">
                 <span className="section-eyebrow">TARGET INDICATIONS</span>
                 <h2 className="section-title-luxury">Who Can Benefit Most?</h2>
@@ -264,7 +264,10 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 <div className="ideal-list-grid">
                   {idealForItems.map((item: any) => (
                     <div className="ideal-item-card" key={item.title}>
-                      <div>
+                      <span className="ideal-item-icon">
+                        <i className="fa-solid fa-circle-check" />
+                      </span>
+                      <div className="ideal-item-text">
                         <h4>{item.title}</h4>
                         {item.subtitle && item.subtitle !== 'Target indication for treatment' && <p>{item.subtitle}</p>}
                       </div>

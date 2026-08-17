@@ -4721,12 +4721,12 @@
 /* Ideal Candidates Section */
 .ideal-candidates-panel {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 48px;
+  grid-template-columns: 1fr;
   background: #ffffff;
   border: 1px solid rgba(232, 220, 203, 0.9);
   border-radius: 28px;
   box-shadow: 0 16px 45px rgba(99, 57, 19, 0.08);
+  overflow: hidden;
 }
 
 .ideal-media-side {
@@ -4760,47 +4760,69 @@
 }
 
 .ideal-content-side {
-  padding: 48px 48px 48px 0;
+  padding: clamp(36px, 4.5vw, 56px);
 }
 
 .ideal-lead {
   font-size: 16px;
   color: #555;
   margin-bottom: 28px;
+  line-height: 1.6;
 }
 
 .ideal-list-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
 .ideal-item-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 18px 22px;
   background: var(--color-cream, #fff8ec);
   border: 1px solid rgba(200, 137, 34, 0.2);
   border-radius: 16px;
-  transition: border-color 200ms ease;
+  transition: all 250ms ease;
 }
 
 .ideal-item-card:hover {
   border-color: var(--color-gold, #c88922);
+  background: #fff5e3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 137, 34, 0.12);
+}
+
+.ideal-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(159, 19, 27, 0.08);
+  color: var(--color-deep-red, #9f131b);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.ideal-item-text {
+  flex: 1;
 }
 
 .ideal-item-card h4 {
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 15.5px;
+  font-weight: 700;
   color: #1a221f;
-  margin: 0 0 2px;
+  margin: 0;
+  line-height: 1.35;
 }
 
 .ideal-item-card p {
   font-size: 13px !important;
   color: #666 !important;
-  margin: 0;
+  margin: 4px 0 0;
   line-height: 1.5 !important;
 }
 
