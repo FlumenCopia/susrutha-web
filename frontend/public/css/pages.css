@@ -1543,15 +1543,37 @@
 .doctor-banner-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 14px;
   padding: 0 !important;
 }
 
+.doctor-banner-actions a:first-child {
+  background: linear-gradient(135deg, #b57a25 0%, #9a651e 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 10px 24px rgba(181, 122, 37, 0.28) !important;
+}
+
+.doctor-banner-actions a:first-child:hover {
+  background: linear-gradient(135deg, #c6892e 0%, #aa7224 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(181, 122, 37, 0.4) !important;
+}
+
 .doctor-banner-actions a+a {
-  border: 1px solid rgba(198, 137, 34, 0.36);
-  background: rgba(255, 255, 255, 0.78);
-  color: #0f3b29;
-  box-shadow: none;
+  border: 1.5px solid rgba(181, 122, 37, 0.45) !important;
+  background: #ffffff !important;
+  color: #724d17 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(70, 45, 22, 0.05) !important;
+}
+
+.doctor-banner-actions a+a:hover {
+  border-color: #b57a25 !important;
+  background: #fff8ec !important;
+  color: #b57a25 !important;
+  transform: translateY(-2px);
 }
 
 .doctor-appointment-banner ul {

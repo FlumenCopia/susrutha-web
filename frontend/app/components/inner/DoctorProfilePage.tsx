@@ -259,7 +259,6 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
       <section className="doctor-appointment-banner">
         <Image src="/images/testimonial-lamp-flowers.webp" alt="" fill aria-hidden="true" sizes="100vw" />
         <div>
-          <span>Ready to begin your healing journey?</span>
           <h2>Book an Appointment with {docName}</h2>
           <p>Choose a consultation slot and let our care team guide the right next step for your wellness journey.</p>
           <div className="doctor-banner-actions">
