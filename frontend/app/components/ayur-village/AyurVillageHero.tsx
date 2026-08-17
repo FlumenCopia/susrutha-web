@@ -16,6 +16,7 @@ export function AyurVillageHero() {
         alt="Traditional Kerala Ayurveda Gramam cottages surrounded by greenery"
         fill
         priority
+        unoptimized
         sizes="100vw"
       />
       <div className="ayur-village-hero-copy">
