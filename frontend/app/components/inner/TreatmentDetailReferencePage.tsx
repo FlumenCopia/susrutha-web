@@ -119,16 +119,16 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         
         <div className="treatment-hero-container">
           <div className="treatment-hero-content">
-            <nav className="treatment-breadcrumb-nav" aria-label="Breadcrumb">
+            {/* <nav className="treatment-breadcrumb-nav" aria-label="Breadcrumb">
               <Link href="/">Home</Link>
               <span className="bc-sep">/</span>
               <Link href="/treatments">Treatments</Link>
               <span className="bc-sep">/</span>
               <span className="bc-current">{treatment.title || slugLabel(treatment.slug)}</span>
-            </nav>
+            </nav> */}
 
             <div className="treatment-eyebrow-badge">
-              <span className="badge-dot" />
+              {/* <span className="badge-dot" /> */}
               <span>AYURVEDIC THERAPY</span>
             </div>
 
@@ -188,6 +188,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 priority
                 sizes="(max-width: 900px) 100vw, 48vw"
                 className="treatment-hero-img"
+                style={{ objectFit: "cover", objectPosition: "center" }}
               />
               <div className="treatment-media-overlay" />
             </div>

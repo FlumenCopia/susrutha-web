@@ -52,16 +52,16 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
         <div className="treatment-hero-ambient-glow" aria-hidden="true" />
         <div className="treatment-hero-container">
           <div className="treatment-hero-content">
-            <nav className="treatment-breadcrumb-nav" aria-label="Breadcrumb">
+            {/* <nav className="treatment-breadcrumb-nav" aria-label="Breadcrumb">
               <Link href="/">Home</Link>
               <span className="bc-sep">/</span>
               <Link href="/packages">Care Packages</Link>
               <span className="bc-sep">/</span>
               <span className="bc-current">{pkg.title}</span>
-            </nav>
+            </nav> */}
 
             <div className="treatment-eyebrow-badge">
-              <span className="badge-dot" />
+              {/* <span className="badge-dot" /> */}
               <span>{pkg.badge || "Care Package"}</span>
             </div>
 
@@ -110,7 +110,15 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
           {/* Visual Card */}
           <div className="treatment-hero-media">
             <div className="treatment-media-frame">
-              <Image src={bannerImage} alt={pkg.title} fill priority sizes="(max-width: 900px) 100vw, 48vw" className="treatment-hero-img" />
+              <Image
+                src={bannerImage}
+                alt={pkg.title}
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 48vw"
+                className="treatment-hero-img"
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
               <div className="treatment-media-overlay" />
               <div className="treatment-floating-badge">
                 <span className="floating-badge-icon"><i className="fa-solid fa-certificate" /></span>
