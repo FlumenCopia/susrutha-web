@@ -131,7 +131,6 @@ export function ConditionDetailCareSection({ condition }: ConditionDetailCareSec
 
         <article className="condition-care-consult-card">
           <span>Need help getting started?</span>
-          <i aria-hidden="true" />
           <p>Our care team is here to understand and guide you on the right path.</p>
           <Link href="/appointment">Request Consultation &rarr;</Link>
         </article>

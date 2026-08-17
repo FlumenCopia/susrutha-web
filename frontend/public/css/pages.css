@@ -6617,10 +6617,13 @@ body:has(.conditions-page) {
 
 .condition-care-mini-card p,
 .condition-care-list li,
-.condition-package-list li {
-  color: #151915;
+.condition-package-list li,
+.condition-care-consult-card p,
+.condition-care-block p,
+.condition-care-block li {
+  color: #000000 !important;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.75;
 }
 
@@ -6630,11 +6633,7 @@ body:has(.conditions-page) {
 
 .condition-care-glance-card i,
 .condition-care-consult-card i {
-  display: block;
-  width: 48px;
-  height: 1px;
-  margin: 26px 0 18px;
-  background: #c49145;
+  display: none;
 }
 
 .condition-care-glance-card em {
@@ -6683,9 +6682,10 @@ body:has(.conditions-page) {
   grid-template-columns: 58px minmax(0, 1fr);
   gap: 16px;
   align-items: center;
-  padding: 0 0 24px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid rgba(213, 202, 184, 0.82);
+  padding: 0 0 16px;
+  margin-bottom: 16px;
+  border-bottom: none;
+  text-decoration: none;
 }
 
 .condition-care-doctor:last-child {
@@ -6703,7 +6703,7 @@ body:has(.conditions-page) {
 
 .condition-care-doctor strong {
   display: block;
-  color: #151915;
+  color: #000000;
   font-size: 16px;
   font-weight: 800;
   line-height: 1.35;
@@ -6719,44 +6719,52 @@ body:has(.conditions-page) {
 
 .condition-care-consult-card {
   position: relative;
-  padding: 54px 28px 28px;
-  background:
-    radial-gradient(circle at 105% 85%, rgba(199, 165, 84, 0.13), transparent 34%),
-    linear-gradient(135deg, #eef1df 0%, #f5f0e4 100%);
+  padding: 40px 28px 28px;
+  background: #f5f0e4;
 }
 
 .condition-care-consult-card::after {
-  right: -18px;
-  bottom: -28px;
-  width: 185px;
-  height: 220px;
-  border-color: rgba(199, 165, 84, 0.36);
-  opacity: 0.75;
+  display: none;
 }
 
 .condition-care-consult-card span {
-  max-width: 180px;
+  max-width: 220px;
   color: #b57a25;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.12;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.15;
 }
 
 .condition-care-consult-card p {
   max-width: 228px;
-  margin: 22px 0 34px;
-  color: #151915;
-  font-size: 16px;
+  margin: 16px 0 24px;
+  color: #000000 !important;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .condition-care-consult-card a {
-  min-height: 68px;
-  min-width: 196px;
-  padding: 0 30px;
-  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 180px;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 700;
   border-radius: 999px;
+  background: linear-gradient(135deg, #b57a25 0%, #9a651e 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  box-shadow: 0 10px 20px rgba(181, 122, 37, 0.25);
+  transition: all 250ms ease;
+}
+
+.condition-care-consult-card a:hover {
+  background: linear-gradient(135deg, #c6892e 0%, #aa7224 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(181, 122, 37, 0.38);
 }
 
 .condition-care-main-grid {
