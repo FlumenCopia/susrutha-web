@@ -54,14 +54,6 @@ export function ConditionDetailBanner({ condition }: ConditionDetailBannerProps)
     <section className="condition-detail-banner" aria-labelledby="condition-detail-title">
       <div className="condition-detail-container">
         <div className="condition-detail-copy">
-          <nav className="condition-detail-breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">&gt;</span>
-            <Link href="/conditions">Conditions</Link>
-            <span aria-hidden="true">&gt;</span>
-            <span>{condition.title}</span>
-          </nav>
-
           <div className="condition-detail-eyebrow">
             <LeafMark />
             <span>AYURVEDIC CARE</span>
