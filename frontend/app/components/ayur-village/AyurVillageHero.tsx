@@ -4,7 +4,7 @@ import { AyurVillageIcon } from "./AyurVillageIcon";
 
 const ayurVillageHeroFeatures = [
   { icon: "lotus", title: "Authentic Gramam Setting", text: "Serene village environment dedicated to classical healing.", image: "/images/ayurveda-village-path.webp" },
-  { icon: "leaf", title: "Sattvic Nutrition", text: "Fresh organic meals prepared strictly according to Vaidya recommendations.", image: "/images/ayurveda-village-room.webp" },
+  { icon: "leaf", title: "Sattvic Nutrition", text: "Fresh organic meals prepared strictly according to Vaidya recommendations.", image: "/images/about-purpose-still-life.webp" },
 ];
 
 export function AyurVillageHero() {

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
 
 const ayurVillageExperienceCards = [
-  { icon: "lotus", title: "Private Treatment Suites", text: "Traditional wooden droni and herbal steam facilities.", image: "/images/ayurveda-village-room.webp" },
+  { icon: "lotus", title: "Private Treatment Suites", text: "Traditional wooden droni and herbal steam facilities.", image: "/images/village_feature_treatment.jpg" },
   { icon: "leaf", title: "Organic Sattvic Meals", text: "Freshly prepared meals matched to your body constitution.", image: "/images/ayurveda-village-path.webp" },
 ];
 

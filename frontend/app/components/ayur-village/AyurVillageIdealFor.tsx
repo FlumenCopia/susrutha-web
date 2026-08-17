@@ -2,9 +2,9 @@ import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
 
 const ayurVillageIdealFor = [
-  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: "/images/ayurveda-village-room.webp" },
+  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: "/images/treatment-panchakarma.webp" },
   { icon: "leaf", title: "Post-illness Convalescence & Rejuvenation", image: "/images/ayurveda-village-path.webp" },
-  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: "/images/treatment-panchakarma.webp" },
+  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: "/images/hero-courtyard-ayurveda-v2.webp" },
 ];
 
 export function AyurVillageIdealFor() {
@@ -17,7 +17,6 @@ export function AyurVillageIdealFor() {
         sizes="100vw"
       />
       <div>
-        {/* <span className="ayur-village-eyebrow">Ideal For</span> */}
         <h2>
           Who thrives at the <em>Gramam</em>
         </h2>
