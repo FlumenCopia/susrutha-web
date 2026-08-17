@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { FacilitiesIcon, type FacilitiesIconName } from "./FacilitiesIcon";
 
-const facilityHeroStats: Array<{ value: string; label: string; icon: FacilitiesIconName }> = [
-  { value: "2", label: "Specialty Hospitals", icon: "building" },
-  { value: "100%", label: "Physician Supervised", icon: "shield" },
-  { value: "24/7", label: "Nursing & Emergency Care", icon: "clock" },
+const facilityHeroStats: Array<{ value: string; label: string }> = [
+  { value: "2", label: "Specialty Hospitals" },
+  { value: "100%", label: "Physician Supervised" },
+  { value: "24/7", label: "Nursing & Emergency Care" },
 ];
 
 export function FacilitiesHero() {
@@ -33,7 +32,6 @@ export function FacilitiesHero() {
           <div className="conditions-hero-serene-right-stats" aria-label="Facilities quick facts">
             {facilityHeroStats.map((stat) => (
               <div key={stat.label} className="conditions-hero-stat-card">
-                <FacilitiesIcon name={stat.icon} />
                 <div className="conditions-hero-stat-info">
                   <strong>{stat.value}</strong>
                   <span>{stat.label}</span>

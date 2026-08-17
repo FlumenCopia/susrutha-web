@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { BranchIcon } from "./BranchIcons";
 
 function RunningNumber({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -54,16 +53,14 @@ export function BranchesHero() {
 
           <div className="conditions-hero-serene-right-stats" aria-label="Branches overview statistics">
             <div className="conditions-hero-stat-card">
-              <BranchIcon name="building" />
               <div className="conditions-hero-stat-info">
-                <strong style={{fontSize:'13px'}}>
+                <strong>
                   <RunningNumber target={2} />
                 </strong>
                 <span>Premier Locations</span>
               </div>
             </div>
             <div className="conditions-hero-stat-card">
-              <BranchIcon name="calendar" />
               <div className="conditions-hero-stat-info">
                 <strong>
                   <RunningNumber target={24} suffix="/7" />
@@ -72,7 +69,6 @@ export function BranchesHero() {
               </div>
             </div>
             <div className="conditions-hero-stat-card">
-              <BranchIcon name="leaf" />
               <div className="conditions-hero-stat-info">
                 <strong>
                   <RunningNumber target={100} suffix="%" />
