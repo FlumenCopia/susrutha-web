@@ -102,17 +102,13 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
 
         {/* Key Metrics Row */}
         <div className="doctor-card-metrics">
-          <div className="doctor-card-metric-item">
-            <div>
-              <div className="doctor-card-metric-val">{doctor.experienceText}</div>
-              <div className="doctor-card-metric-lbl">Experience</div>
-            </div>
+          <div className="doctor-card-metric-item doctor-card-metric-exp">
+            <div className="doctor-card-metric-val">{doctor.experienceText}</div>
+            <div className="doctor-card-metric-lbl">Experience</div>
           </div>
-          <div className="doctor-card-metric-item">
-            <div>
-              <div className="doctor-card-metric-val">{doctor.location}</div>
-              <div className="doctor-card-metric-lbl">Primary Branch</div>
-            </div>
+          <div className="doctor-card-metric-item doctor-card-metric-branch">
+            <div className="doctor-card-metric-val" title={doctor.location}>{doctor.location}</div>
+            <div className="doctor-card-metric-lbl">Primary Branch</div>
           </div>
         </div>
 

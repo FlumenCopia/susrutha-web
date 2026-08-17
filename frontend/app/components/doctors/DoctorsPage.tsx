@@ -79,7 +79,30 @@ export function DoctorsPage() {
             rating: d.rating || 4.9,
             reviewsCount: d.reviewsCount || 120,
             image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
-            location: d.assignedBranchIds ? d.assignedBranchIds.map((b: any) => b.name || b).join(" & ") : "Kattakada & Kowdiar",
+            location: (() => {
+              if (!d.assignedBranchIds || !Array.isArray(d.assignedBranchIds) || d.assignedBranchIds.length === 0) {
+                return "Kattakada & Kowdiar";
+              }
+              const names = d.assignedBranchIds.map((b: any) => {
+                if (!b) return "";
+                if (typeof b === "string") return b;
+                if (b.shortName) return b.shortName;
+                if (b.address?.city) return b.address.city;
+                if (b.city) return b.city;
+                if (b.code) return b.code;
+                if (b.name) {
+                  let clean = b.name
+                    .replace(/Susrutha Institute of Ayurvedic Sciences \(Research\) and Panchakarma Hospital/i, "Kattakada Hospital")
+                    .replace(/Susrutha Panchakarma Hospital OP Outlet/i, "Kowdiar Clinic")
+                    .replace(/Susrutha\s+/gi, "")
+                    .replace(/\(.*?\)/g, "")
+                    .trim();
+                  return clean.length > 20 ? clean.slice(0, 20) : clean;
+                }
+                return "Main Branch";
+              }).filter(Boolean);
+              return names.slice(0, 2).join(" & ") || "Kattakada & Kowdiar";
+            })(),
             branchIds: d.assignedBranchIds
               ? d.assignedBranchIds.map((b: any) => (b.code || b._id || "").toLowerCase())
               : ["kattakada"],
