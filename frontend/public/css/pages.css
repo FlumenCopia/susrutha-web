@@ -4864,13 +4864,7 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
 }
 
 .condition-card b {
-  position: absolute;
-  right: 24px;
-  top: 22px;
-  color: rgba(16, 44, 32, 0.08);
-  font-size: 68px;
-  font-weight: 700;
-  line-height: 1;
+  display: none;
 }
 
 .condition-card i {

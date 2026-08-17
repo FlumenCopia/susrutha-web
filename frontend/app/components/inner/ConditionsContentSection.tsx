@@ -105,7 +105,6 @@ export function ConditionsContentSection() {
                     <span>{condition.category}</span>
                     <h3>{condition.title}</h3>
                     <p>{condition.text}</p>
-                    <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
                     <i aria-hidden="true">&rarr;</i>
                   </Link>
                 );
