@@ -13521,8 +13521,8 @@ body:has(.ayur-village-page) {
 .ayur-village-ideal>img {
   z-index: -2;
   object-fit: cover;
-  object-position: right center;
-  opacity: 0.42;
+  object-position: center;
+  opacity: 0.88;
 }
 
 .ayur-village-ideal::before {
@@ -13530,7 +13530,7 @@ body:has(.ayur-village-page) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(0, 10, 4, 0.98), rgba(0, 10, 4, 0.78), rgba(0, 10, 4, 0.5));
+  background: linear-gradient(90deg, rgba(0, 10, 4, 0.85) 0%, rgba(0, 10, 4, 0.52) 45%, rgba(0, 10, 4, 0.3) 100%);
 }
 
 .ayur-village-ideal h2 {

@@ -11,9 +11,10 @@ export function AyurVillageIdealFor() {
   return (
     <section className="ayur-village-ideal">
       <Image
-        src="/images/about-purpose-still-life.webp"
-        alt="Ayurvedic therapy vessels and herbs"
+        src="/images/banner_calm_retreat.jpg"
+        alt="Ayurvedic therapy vessels and serene retreat"
         fill
+        unoptimized
         sizes="100vw"
       />
       <div>
@@ -30,6 +31,7 @@ export function AyurVillageIdealFor() {
                 alt={item.title}
                 width={52}
                 height={52}
+                unoptimized
                 style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
               />
             </div>
