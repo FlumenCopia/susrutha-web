@@ -82,7 +82,6 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
 
         {/* Rating Pill */}
         <div className="doctor-card-rating">
-          <span className="doctor-card-rating-star">★</span>
           <span>{doctor.rating.toFixed(1)}</span>
           <span className="doctor-card-rating-reviews">({doctor.reviewsCount})</span>
         </div>
@@ -95,9 +94,6 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
             <Link href={`/doctors/${doctor.slug}`} style={{ color: "inherit", textDecoration: "none" }}>
               {doctor.name}
             </Link>
-            <span className="doctor-card-verified-icon" title="Verified Susrutha Vaidya">
-              ✓
-            </span>
           </h3>
           <div className="doctor-card-qualification">{doctor.qualification}</div>
         </div>
@@ -107,14 +103,12 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
         {/* Key Metrics Row */}
         <div className="doctor-card-metrics">
           <div className="doctor-card-metric-item">
-            <span className="doctor-card-metric-icon"><i className="fa-solid fa-clock-rotate-left" /></span>
             <div>
               <div className="doctor-card-metric-val">{doctor.experienceText}</div>
               <div className="doctor-card-metric-lbl">Experience</div>
             </div>
           </div>
           <div className="doctor-card-metric-item">
-            <span className="doctor-card-metric-icon"><i className="fa-solid fa-hospital" /></span>
             <div>
               <div className="doctor-card-metric-val">{doctor.location}</div>
               <div className="doctor-card-metric-lbl">Primary Branch</div>
@@ -140,7 +134,7 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
             href={`/appointment?doctor=${doctor.slug}`}
             className="doctor-card-btn-book"
           >
-            <i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} /> Book Consultation
+            Book Consultation
           </Link>
           <button
             type="button"

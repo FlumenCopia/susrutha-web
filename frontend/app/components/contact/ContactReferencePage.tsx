@@ -178,10 +178,9 @@ export function ContactReferencePage() {
 
             {/* Right Appointment Form */}
             <div className="contact-booking-form-wrap">
-              <span className="contact-booking-eyebrow">Contact With Us</span>
+              {/* <span className="contact-booking-eyebrow">Contact With Us</span> */}
               <h2 className="contact-booking-title">
-                Book Appointment
-              </h2>
+Contact With Us              </h2>
 
               {isSubmitted ? (
                 <div className="contact-booking-success">
