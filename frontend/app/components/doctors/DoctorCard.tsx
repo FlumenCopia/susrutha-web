@@ -115,12 +115,14 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
         {/* Focus Area Tags */}
         <div className="doctor-card-focus-areas">
           {doctor.focusAreas.slice(0, 3).map((area) => (
-            <span key={area} className="doctor-card-focus-pill">
+            <span key={area} className="doctor-card-focus-pill" title={area}>
               {area}
             </span>
           ))}
           {doctor.focusAreas.length > 3 && (
-            <span className="doctor-card-focus-pill">+{doctor.focusAreas.length - 3} more</span>
+            <span className="doctor-card-focus-pill doctor-card-focus-pill-more">
+              +{doctor.focusAreas.length - 3} more
+            </span>
           )}
         </div>
 
