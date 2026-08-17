@@ -1,67 +1,53 @@
-import Image from "next/image";
 import Link from "next/link";
-import { BranchIcon, type BranchIconName } from "./BranchIcons";
-
-const branchHighlights: Array<{ icon: BranchIconName; title: string; subtitle: string; text: string }> = [
-  { icon: "building", title: "Kattakada Flagship", subtitle: "Specialty Hospital & Inpatient Suites", text: "Flagship hospital with 24/7 care and full Panchakarma suites." },
-  { icon: "leaf", title: "Kowdiar Clinic", subtitle: "City Outpatient & Consultation Centre", text: "Urban consultation clinic for outpatient wellness & diagnosis." },
-];
+import { BranchIcon } from "./BranchIcons";
 
 export function BranchesHero() {
   return (
-    <section className="branches-hero">
-      <div className="branches-hero-copy">
-        <nav className="branches-breadcrumb" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          <span aria-hidden="true">/</span>
-          <span>Branches</span>
-        </nav>
+    <section className="conditions-hero-serene" aria-labelledby="branches-title">
+      <div
+        className="conditions-hero-serene-bg"
+        style={{ backgroundImage: `url('/images/ayurveda-hospital-garden.webp')` }}
+      />
+      <div className="conditions-hero-serene-overlay" />
 
-        <span className="branches-kicker">Our Locations</span>
-        <h1>Our Branches</h1>
-        <p>
-          Two access points in Thiruvananthapuram - full inpatient infrastructure at Kattakada, city outpatient
-          convenience at Kowdiar since June 2022.
-        </p>
+      <div className="conditions-hero-serene-content">
+        <div className="conditions-hero-serene-middle-wrapper">
+          <div className="conditions-hero-serene-middle">
+            <p className="conditions-hero-serene-quote">
+              Two premier Ayurvedic healing destinations across Thiruvananthapuram — full inpatient hospital infrastructure at Kattakada and city outpatient wellness convenience at Kowdiar.
+            </p>
+          </div>
 
-        <div className="branches-hero-actions">
-          <Link className="branches-button branches-button-primary" href="/appointment">
-            Book Appointment
-            <BranchIcon name="calendar" />
-          </Link>
-          <Link className="branches-button branches-button-secondary" href="#branch-locations">
-            View Locations
-            <BranchIcon name="arrow" />
-          </Link>
-        </div>
-      </div>
-
-      <div className="branches-hero-visual">
-        <Image
-          src="/images/ayurveda-hospital-garden.webp"
-          alt="Susrutha Ayurveda branch building and garden"
-          fill
-          priority
-          sizes="(max-width: 900px) 100vw, 50vw"
-        />
-        <div className="branches-hero-card">
-          <span>2</span>
-          <p>Care destinations across Thiruvananthapuram</p>
-        </div>
-      </div>
-
-      <div className="branches-hero-highlights" aria-label="Branch highlights">
-        {branchHighlights.map((item) => (
-          <article key={item.title}>
-            <span>
-              <BranchIcon name={item.icon} />
-            </span>
-            <div>
-              <h2>{item.title}</h2>
-              <p>{item.text}</p>
+          <div className="conditions-hero-serene-right-stats" aria-label="Branches overview statistics">
+            <div className="conditions-hero-stat-card">
+              <BranchIcon name="building" />
+              <div className="conditions-hero-stat-info">
+                <strong>2</strong>
+                <span>Premier Locations</span>
+              </div>
             </div>
-          </article>
-        ))}
+            <div className="conditions-hero-stat-card">
+              <BranchIcon name="calendar" />
+              <div className="conditions-hero-stat-info">
+                <strong>24/7</strong>
+                <span>Inpatient Care</span>
+              </div>
+            </div>
+            <div className="conditions-hero-stat-card">
+              <BranchIcon name="leaf" />
+              <div className="conditions-hero-stat-info">
+                <strong>100%</strong>
+                <span>Authentic Ayurveda</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="conditions-hero-serene-bottom">
+          <h1 id="branches-title" className="conditions-hero-serene-title">
+            OUR BRANCHES &amp; CLINICS
+          </h1>
+        </div>
       </div>
     </section>
   );
