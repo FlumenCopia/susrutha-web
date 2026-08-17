@@ -4882,10 +4882,18 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
   height: 46px;
   place-items: center;
   border-radius: 50%;
-  background: #000a04;
+  background: #b57a25;
   color: #ffffff;
   font-size: 26px;
   line-height: 1;
+  transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 4px 14px rgba(181, 122, 37, 0.35);
+}
+
+.condition-card:hover i {
+  background: #9d651b;
+  transform: translateX(3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(181, 122, 37, 0.45);
 }
 
 .conditions-care-band {
