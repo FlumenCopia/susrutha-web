@@ -44,7 +44,7 @@ em, i:not([class*="fa-"]):not([class*="material-symbols"]), .italic, blockquote 
   font-style: italic;
 }
 
-/* Universal Black Button System */
+/* Universal Susrutha Brand Button System */
 .btn-primary,
 .nav-book-btn,
 body .site-header .nav-actions .btn-primary,
@@ -59,9 +59,10 @@ body .site-header .nav-actions .nav-book-btn,
 .doctors-cta-btn,
 .doctor-card-btn,
 .apt-btn-switch-dept {
-  background: #c88922 !important;
+  background: #993f08 !important;
   color: #ffffff !important;
-  border-color: #c88922 !important;
+  border-color: #993f08 !important;
+  transition: all 0.25s ease-in-out !important;
 }
 
 .btn-primary:hover,
@@ -78,9 +79,10 @@ body .site-header .nav-actions .nav-book-btn:hover,
 .doctors-cta-btn:hover,
 .doctor-card-btn:hover,
 .apt-btn-switch-dept:hover {
-  background: #c88922 !important;
+  background: #7a3104 !important;
   color: #ffffff !important;
-  border-color: #c88922 !important;
+  border-color: #7a3104 !important;
+  transform: translateY(-1px);
 }
 
 /* Accessible Focus Styles */
