@@ -6744,27 +6744,36 @@ body:has(.conditions-page) {
   line-height: 1.6;
 }
 
-.condition-care-consult-card a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  min-width: 180px;
-  padding: 0 24px;
-  font-size: 14px;
-  font-weight: 700;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #b57a25 0%, #9a651e 100%);
+.condition-care-consult-card a,
+.condition-care-consult-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-height: 48px !important;
+  height: auto !important;
+  padding: 12px 24px !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #b57a25 0%, #9a651e 100%) !important;
   color: #ffffff !important;
   text-decoration: none !important;
-  box-shadow: 0 10px 20px rgba(181, 122, 37, 0.25);
-  transition: all 250ms ease;
+  box-shadow: 0 10px 20px rgba(181, 122, 37, 0.25) !important;
+  transition: all 250ms ease !important;
 }
 
-.condition-care-consult-card a:hover {
-  background: linear-gradient(135deg, #c6892e 0%, #aa7224 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(181, 122, 37, 0.38);
+.condition-care-consult-card a:hover,
+.condition-care-consult-btn:hover {
+  background: linear-gradient(135deg, #c6892e 0%, #aa7224 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 26px rgba(181, 122, 37, 0.38) !important;
+}
+
+.condition-care-consult-btn svg {
+  flex-shrink: 0;
+  stroke: #ffffff;
 }
 
 .condition-care-main-grid {
@@ -7113,11 +7122,7 @@ body:has(.conditions-page) {
   line-height: 1.72;
 }
 
-.condition-care-consult-card a {
-  min-width: 196px;
-  min-height: 68px;
-  font-size: 15px;
-}
+
 
 .condition-care-main-grid {
   grid-template-columns: minmax(0, 0.82fr) minmax(520px, 0.98fr);
