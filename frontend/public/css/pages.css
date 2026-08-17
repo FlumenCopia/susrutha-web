@@ -14271,9 +14271,7 @@ body:has(.packages-page) {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(0, 10, 4, 0.98) 0%, rgba(0, 10, 4, 0.82) 42%, rgba(0, 10, 4, 0.2) 76%),
-    linear-gradient(180deg, rgba(0, 10, 4, 0.16), rgba(0, 10, 4, 0.74));
+  background: linear-gradient(90deg, rgba(0, 10, 4, 0.72) 0%, rgba(0, 10, 4, 0.35) 45%, rgba(0, 10, 4, 0.05) 100%);
 }
 
 .packages-hero-copy {

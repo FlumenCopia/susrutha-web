@@ -17,6 +17,7 @@ export function PackagesHero() {
         alt="Ayurvedic herbs, brass vessels, and therapy ingredients"
         fill
         priority
+        unoptimized
         sizes="100vw"
       />
       <div className="packages-hero-copy">
