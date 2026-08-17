@@ -118,14 +118,6 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
     <main className="doctor-detail-page">
       <section className="doctor-detail-hero">
         <div className="doctor-detail-shell">
-          <div className="doctor-detail-breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/doctors">Doctors</Link>
-            <span>/</span>
-            <Link href={`/doctors/${doctor.slug}`}>{docName}</Link>
-          </div>
-
           <div className="doctor-detail-hero-grid" style={{ position: "relative" }}>
             <div className="doctor-detail-copy">
               <span>{doctor.meta || (doctor as any).designation || "Ayurvedic Physician"}</span>
@@ -157,7 +149,15 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
 
             <div className="doctor-detail-photo-wrap">
               <div className="doctor-detail-photo">
-                <Image src={image} alt={docName} fill priority sizes="(max-width: 900px) 92vw, 430px" />
+                <Image
+                  src={image}
+                  alt={docName}
+                  fill
+                  priority
+                  unoptimized
+                  sizes="(max-width: 900px) 92vw, 430px"
+                  style={{ objectFit: "cover", objectPosition: "center 20%" }}
+                />
               </div>
               <div className="doctor-detail-photo-note">
                 <DoctorIcon name="leaf" />

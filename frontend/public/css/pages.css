@@ -9,7 +9,9 @@
 .doctor-detail-hero {
   position: relative;
   padding: 118px clamp(18px, 5vw, 76px) 46px;
-  background: #fffaf2;
+  background:
+    linear-gradient(to right, rgba(255, 253, 248, 0.96) 0%, rgba(255, 250, 242, 0.84) 42%, rgba(255, 248, 236, 0.65) 100%),
+    url("/images/banner_calm_retreat.jpg") center right / cover no-repeat;
 }
 
 .doctor-detail-hero::after {
@@ -632,7 +634,9 @@
 /* Doctor detail full-width premium upgrade */
 .doctor-detail-hero {
   padding-inline: clamp(24px, 4vw, 96px);
-  background: #fffaf2;
+  background:
+    linear-gradient(to right, rgba(255, 253, 248, 0.96) 0%, rgba(255, 250, 242, 0.84) 42%, rgba(255, 248, 236, 0.65) 100%),
+    url("/images/banner_calm_retreat.jpg") center right / cover no-repeat;
 }
 
 .doctor-detail-shell {
@@ -817,7 +821,9 @@
   min-height: clamp(680px, 54vw, 820px);
   display: grid;
   align-items: center;
-  background: #fffaf2;
+  background:
+    linear-gradient(to right, rgba(255, 253, 248, 0.96) 0%, rgba(255, 250, 242, 0.84) 42%, rgba(255, 248, 236, 0.65) 100%),
+    url("/images/banner_calm_retreat.jpg") center right / cover no-repeat;
 }
 
 .doctor-detail-hero::before {
