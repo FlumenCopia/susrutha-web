@@ -4373,11 +4373,16 @@ body:has(.ecosystem-page) .conditions-hero-serene,
   border-color: rgba(247, 165, 26, 0.7);
 }
 
-.conditions-hero-stat-card svg {
+.conditions-hero-stat-card svg,
+.conditions-hero-stat-card i {
   color: #f7a51a;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
+  font-size: 40px;
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -17454,6 +17459,10 @@ body:has(.facilities-page) {
   height: 42px;
   padding: 9px;
   border-radius: 12px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .facility-card h3 {
@@ -19941,9 +19950,11 @@ body:has(.international-page) .international-help-card a {
     border: 1px solid rgba(255, 255, 255, 0.25) !important;
   }
 
-  .conditions-hero-stat-card svg {
-    width: 18px !important;
-    height: 18px !important;
+  .conditions-hero-stat-card svg,
+  .conditions-hero-stat-card i {
+    font-size: 20px !important;
+    width: 26px !important;
+    height: 26px !important;
   }
 
   .conditions-hero-stat-info strong {

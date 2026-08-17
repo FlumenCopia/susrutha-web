@@ -56,7 +56,7 @@ export function BranchesHero() {
             <div className="conditions-hero-stat-card">
               <BranchIcon name="building" />
               <div className="conditions-hero-stat-info">
-                <strong>
+                <strong style={{fontSize:'13px'}}>
                   <RunningNumber target={2} />
                 </strong>
                 <span>Premier Locations</span>
