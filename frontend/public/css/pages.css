@@ -4848,19 +4848,24 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
 }
 
 .condition-card h3 {
-  max-width: 250px;
-  margin: 24px 0 0;
+  max-width: 100%;
+  margin: 16px 0 0;
   color: #000a04;
-  font-size: clamp(28px, 1.8vw, 36px);
+  font-size: clamp(20px, 1.4vw, 24px);
   font-weight: 700;
-  line-height: 1.04;
+  line-height: 1.25;
+  min-height: 2.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .condition-card p {
-  margin: 18px 0 46px;
+  margin: 12px 0 46px;
   color: #4b554f;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14.5px;
+  line-height: 1.6;
 }
 
 .condition-card b {
