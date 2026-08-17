@@ -6240,378 +6240,54 @@ body:has(.conditions-page) {
 
 /* Condition detail care component */
 .condition-care-section {
-  padding: clamp(28px, 3.2vw, 46px) clamp(18px, 5vw, 72px) clamp(46px, 5vw, 72px);
+  padding: 48px clamp(20px, 3.6vw, 52px) 64px;
   background: #fffaf2;
 }
 
 .condition-care-top-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
-  max-width: 1360px;
-  margin: 0 auto 30px;
-}
-
-.condition-care-mini-card,
-.condition-care-consult-card {
-  min-width: 0;
-  border: 1px solid rgba(222, 212, 195, 0.86);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 14px 32px rgba(55, 39, 21, 0.06);
-}
-
-.condition-care-mini-card {
-  min-height: 136px;
-  padding: 14px 14px;
-}
-
-.condition-care-mini-card svg,
-.condition-care-heading svg {
-  width: 16px;
-  height: 16px;
-  color: #bd8438;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.55;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.condition-care-mini-card h2 {
-  margin: 10px 0 6px;
-  color: #123c27;
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.condition-care-mini-card p {
-  margin: 0;
-  color: #555d58;
-  font-size: 9.5px;
-  font-weight: 500;
-  line-height: 1.48;
-}
-
-.condition-care-consult-card {
-  position: relative;
-  min-height: 136px;
-  padding: 14px 16px;
-  background:
-    radial-gradient(circle at 88% 82%, rgba(189, 132, 56, 0.16), transparent 28%),
-    #f4efe4;
-}
-
-.condition-care-consult-card::after {
-  content: "";
-  position: absolute;
-  right: -18px;
-  bottom: -20px;
-  width: 118px;
-  height: 118px;
-  border: 1px solid rgba(189, 132, 56, 0.32);
-  border-radius: 44% 56% 40% 60%;
-  transform: rotate(-18deg);
-}
-
-.condition-care-consult-card span {
-  display: block;
-  max-width: 116px;
-  color: #123c27;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.12;
-}
-
-.condition-care-consult-card p {
-  max-width: 136px;
-  margin: 6px 0 12px;
-  color: #5c635f;
-  font-size: 9.5px;
-  line-height: 1.45;
-}
-
-.condition-care-consult-card a {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: #123c27;
-  color: #ffffff;
-  font-size: 8.5px;
-  font-weight: 800;
-}
-
-.condition-care-main-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
-  gap: clamp(24px, 3.2vw, 52px);
-  align-items: start;
-  max-width: 1360px;
-  margin: 0 auto;
-}
-
-.condition-care-copy {
-  display: grid;
-  gap: 22px;
-}
-
-.condition-care-block {
-  max-width: 780px;
-}
-
-.condition-care-heading {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 9px;
-}
-
-.condition-care-heading h2 {
-  margin: 0;
-  color: #b57a25;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.condition-care-block p,
-.condition-care-block li {
-  color: #434b47;
-  font-size: 12.5px;
-  font-weight: 500;
-  line-height: 1.68;
-}
-
-.condition-care-block p {
-  margin: 0;
-}
-
-.condition-care-block ul {
-  display: grid;
-  gap: 6px;
-  margin: 0;
-  padding-left: 18px;
-}
-
-.condition-symptom-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.condition-symptom-list span {
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  padding: 0 12px;
-  border: 1px solid rgba(222, 212, 195, 0.82);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: #525955;
-  font-size: 10.5px;
-  font-weight: 700;
-}
-
-.condition-care-image-card {
-  position: sticky;
-  top: 110px;
-  display: block;
-  min-height: 410px;
-  border-radius: 24px;
-  background: #123c27;
-  box-shadow: 0 22px 54px rgba(28, 45, 33, 0.16);
-}
-
-.condition-care-image-card img {
-  object-fit: cover;
-  object-position: center;
-  filter: saturate(1.05) contrast(1.02) brightness(0.88);
-}
-
-.condition-care-image-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 48%, rgba(7, 47, 29, 0.94) 100%);
-}
-
-.condition-care-image-overlay {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 1;
-  padding: 0 20px 18px;
-  color: #fffaf2;
-  text-align: center;
-}
-
-.condition-care-image-overlay h2 {
-  max-width: 260px;
-  margin: 0 auto 14px;
-  color: #fffaf2;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.18;
-}
-
-.condition-care-image-overlay div {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.condition-care-image-overlay span {
-  display: grid;
-  min-height: 30px;
-  place-items: center;
-  border-top: 1px solid rgba(255, 250, 242, 0.22);
-  color: rgba(255, 250, 242, 0.88);
-  font-size: 8.5px;
-  font-weight: 700;
-}
-
-@media (max-width: 1100px) {
-  .condition-care-top-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .condition-care-consult-card {
-    grid-column: span 2;
-  }
-
-  .condition-care-main-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .condition-care-image-card {
-    position: relative;
-    top: auto;
-    min-height: 430px;
-  }
-}
-
-@media (max-width: 640px) {
-  .condition-care-section {
-    padding: 28px 16px 56px;
-  }
-
-  .condition-care-top-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .condition-care-consult-card {
-    grid-column: auto;
-  }
-
-  .condition-care-mini-card,
-  .condition-care-consult-card {
-    min-height: auto;
-    padding: 16px;
-  }
-
-  .condition-care-main-grid {
-    gap: 28px;
-  }
-
-  .condition-care-copy {
-    gap: 24px;
-  }
-
-  .condition-care-block p,
-  .condition-care-block li {
-    font-size: 13px;
-  }
-
-  .condition-symptom-list {
-    gap: 8px;
-  }
-
-  .condition-symptom-list span {
-    min-height: 32px;
-    font-size: 11px;
-  }
-
-  .condition-care-image-card {
-    min-height: 360px;
-    border-radius: 22px;
-  }
-
-  .condition-care-image-overlay {
-    padding: 0 18px 18px;
-  }
-
-  .condition-care-image-overlay h2 {
-    font-size: 19px;
-  }
-
-  .condition-care-image-overlay div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Condition detail care exact reference layout */
-.condition-care-section {
-  padding: 44px clamp(20px, 3.6vw, 52px) 52px;
-  background: #fffaf2;
-}
-
-.condition-care-top-grid,
-.condition-care-main-grid {
-  max-width: 1490px;
-}
-
-.condition-care-top-grid {
-  grid-template-columns: 1.05fr 1.1fr 1.08fr 1.04fr 1.14fr;
-  gap: 18px;
-  margin-bottom: 42px;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto 48px;
 }
 
 .condition-care-mini-card,
 .condition-care-consult-card {
-  min-height: 360px;
-  border-color: rgba(225, 215, 198, 0.76);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 20px 46px rgba(71, 50, 26, 0.08);
+  min-height: 340px;
+  border: 1px solid rgba(225, 215, 198, 0.85);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 36px rgba(71, 50, 26, 0.06);
 }
 
 .condition-care-mini-card {
-  padding: 28px 26px;
+  padding: 28px 24px;
 }
 
-.condition-care-mini-card>svg,
-.condition-care-heading>svg {
+.condition-care-mini-card > svg,
+.condition-care-heading > svg {
   display: grid;
-  width: 64px;
-  height: 64px;
-  padding: 15px;
+  width: 54px;
+  height: 54px;
+  padding: 12px;
   border-radius: 50%;
-  background: #f2ecdf;
-  color: #b98532;
+  background: #f7f2ea;
+  color: #b57a25;
+  stroke: #b57a25;
 }
 
 .condition-care-mini-card h2,
 .condition-care-heading h2 {
   color: #b57a25;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.1;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
 }
 
 .condition-care-mini-card h2 {
-  margin: 26px 0 26px;
+  margin: 20px 0 16px;
   text-transform: uppercase;
 }
 
@@ -6622,30 +6298,19 @@ body:has(.conditions-page) {
 .condition-care-block p,
 .condition-care-block li {
   color: #000000 !important;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .condition-care-mini-card p {
   margin: 0;
 }
 
-.condition-care-glance-card i,
-.condition-care-consult-card i {
-  display: none;
-}
-
-.condition-care-glance-card em {
-  display: block;
-  margin-top: 10px;
-  color: #b57a25;
-}
-
 .condition-care-list,
 .condition-package-list {
   display: grid;
-  gap: 19px;
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -6654,7 +6319,7 @@ body:has(.conditions-page) {
 .condition-care-list li,
 .condition-package-list li {
   position: relative;
-  padding-left: 30px;
+  padding-left: 24px;
 }
 
 .condition-care-list li::before,
@@ -6662,40 +6327,36 @@ body:has(.conditions-page) {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.65em;
-  width: 11px;
-  height: 11px;
+  top: 0.6em;
+  width: 9px;
+  height: 9px;
   background: #b57a25;
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 }
 
-.condition-package-list li::before {
-  background: #b98532;
-}
-
 .condition-care-doctor-card {
-  padding-bottom: 18px;
+  padding-bottom: 20px;
 }
 
 .condition-care-doctor {
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
   align-items: center;
-  padding: 0 0 16px;
-  margin-bottom: 16px;
+  padding: 0 0 14px;
+  margin-bottom: 14px;
   border-bottom: none;
   text-decoration: none;
 }
 
 .condition-care-doctor:last-child {
   margin-bottom: 0;
-  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .condition-care-doctor img {
-  width: 58px;
-  height: 58px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
   background: #f1eadf;
@@ -6704,71 +6365,72 @@ body:has(.conditions-page) {
 .condition-care-doctor strong {
   display: block;
   color: #000000;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .condition-care-doctor span {
   display: block;
-  margin-top: 4px;
-  color: #3f4944;
-  font-size: 13px;
+  margin-top: 3px;
+  color: #555d58;
+  font-size: 12.5px;
   font-weight: 600;
 }
 
+/* Consult Card */
 .condition-care-consult-card {
   position: relative;
-  padding: 40px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 24px 28px;
   background: #f5f0e4;
 }
 
-.condition-care-consult-card::after {
-  display: none;
-}
-
-.condition-care-consult-card span {
-  max-width: 220px;
+.condition-care-consult-card span:first-child {
+  display: block;
   color: #b57a25;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .condition-care-consult-card p {
-  max-width: 228px;
-  margin: 16px 0 24px;
+  margin: 12px 0 24px;
   color: #000000 !important;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
   line-height: 1.6;
 }
 
-.condition-care-consult-card a,
-.condition-care-consult-btn {
+.condition-care-consult-btn,
+.condition-care-consult-card a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
   min-height: 48px !important;
   height: auto !important;
-  padding: 12px 24px !important;
-  font-size: 14.5px !important;
+  padding: 12px 18px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
   white-space: nowrap !important;
   border-radius: 999px !important;
   background: linear-gradient(135deg, #b57a25 0%, #9a651e 100%) !important;
   color: #ffffff !important;
   text-decoration: none !important;
-  box-shadow: 0 10px 20px rgba(181, 122, 37, 0.25) !important;
+  box-shadow: 0 8px 20px rgba(181, 122, 37, 0.28) !important;
   transition: all 250ms ease !important;
 }
 
-.condition-care-consult-card a:hover,
-.condition-care-consult-btn:hover {
-  background: linear-gradient(135deg, #c6892e 0%, #aa7224 100%) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 12px 26px rgba(181, 122, 37, 0.38) !important;
+.condition-care-consult-btn span {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
 }
 
 .condition-care-consult-btn svg {
@@ -6776,445 +6438,94 @@ body:has(.conditions-page) {
   stroke: #ffffff;
 }
 
+.condition-care-consult-btn:hover,
+.condition-care-consult-card a:hover {
+  background: linear-gradient(135deg, #c6892e 0%, #aa7224 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(181, 122, 37, 0.4) !important;
+}
+
+/* Main Grid below */
 .condition-care-main-grid {
-  grid-template-columns: minmax(0, 0.83fr) minmax(420px, 0.97fr);
-  gap: 68px;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .condition-care-copy {
-  gap: 0;
+  display: grid;
+  gap: 32px;
 }
 
 .condition-care-block {
-  position: relative;
-  display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  column-gap: 26px;
-  max-width: none;
-  padding-bottom: 34px;
-  margin-bottom: 32px;
+  padding-bottom: 28px;
   border-bottom: 1px dashed rgba(205, 190, 162, 0.88);
 }
 
 .condition-care-block:last-child {
   padding-bottom: 0;
-  margin-bottom: 0;
   border-bottom: 0;
 }
 
 .condition-care-heading {
-  display: contents;
-}
-
-.condition-care-heading>svg {
-  grid-row: span 2;
-}
-
-.condition-care-heading h2 {
-  margin: 15px 0 16px;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-.condition-care-block p,
-.condition-care-block li {
-  grid-column: 2;
-  color: #3f4743;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.68;
-}
-
-.condition-symptom-list {
-  grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px 18px;
-}
-
-.condition-symptom-list span {
-  justify-content: flex-start;
-  min-height: 48px;
-  padding: 0 16px 0 10px;
-  border-color: rgba(214, 202, 184, 0.9);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.72);
-  color: #3f4743;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.condition-symptom-list svg {
-  flex: 0 0 auto;
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
-  padding: 7px;
-  border-radius: 50%;
-  background: #f2ecdf;
-  color: #9e7835;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.45;
-}
-
-.condition-care-image-card {
-  position: relative;
-  top: auto;
-  min-height: 618px;
-  border: 1px solid rgba(11, 61, 34, 0.28);
-  border-radius: 28px;
-}
-
-.condition-care-image-card img {
-  object-position: center top;
-  filter: saturate(1.08) contrast(1.04) brightness(0.9);
-}
-
-.condition-care-image-card::after {
-  background:
-    radial-gradient(circle at 110% 88%, rgba(199, 165, 84, 0.12), transparent 36%),
-    linear-gradient(180deg, transparent 42%, rgba(7, 61, 34, 0.94) 72%);
-}
-
-.condition-care-image-overlay {
-  padding: 0 48px 38px;
-  text-align: left;
-}
-
-.condition-care-image-overlay b {
-  display: block;
-  height: 38px;
-  color: #d6aa51;
-  font-size: 78px;
-  line-height: 0.9;
-}
-
-.condition-care-image-overlay h2 {
-  max-width: 440px;
-  margin: 10px 0 36px 48px;
-  color: #fffaf2;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.24;
-}
-
-.condition-care-image-overlay div {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 26px;
-}
-
-.condition-care-image-overlay span {
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 12px;
+  display: flex;
   align-items: center;
-  min-height: 54px;
-  border-top: 0;
-  color: #fffaf2;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.condition-care-image-overlay span svg {
-  width: 46px;
-  height: 46px;
-  padding: 11px;
-  border: 1px solid #d6aa51;
-  border-radius: 50%;
-  color: #d6aa51;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.35;
-}
-
-@media (max-width: 1280px) {
-  .condition-care-top-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .condition-care-consult-card {
-    grid-column: span 2;
-    min-height: 250px;
-  }
-
-  .condition-care-main-grid {
-    grid-template-columns: 1fr;
-    gap: 38px;
-  }
-
-  .condition-care-image-card {
-    min-height: 520px;
-  }
-}
-
-@media (max-width: 720px) {
-  .condition-care-section {
-    padding: 30px 16px 54px;
-  }
-
-  .condition-care-top-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-bottom: 34px;
-  }
-
-  .condition-care-mini-card,
-  .condition-care-consult-card {
-    min-height: auto;
-    padding: 22px;
-  }
-
-  .condition-care-consult-card {
-    grid-column: auto;
-  }
-
-  .condition-care-mini-card>svg,
-  .condition-care-heading>svg {
-    width: 52px;
-    height: 52px;
-  }
-
-  .condition-care-mini-card h2 {
-    margin: 18px 0 16px;
-    font-size: 16px;
-  }
-
-  .condition-care-mini-card p,
-  .condition-care-list li,
-  .condition-package-list li,
-  .condition-care-block p,
-  .condition-care-block li {
-    font-size: 14px;
-  }
-
-  .condition-care-consult-card span {
-    font-size: 26px;
-  }
-
-  .condition-care-consult-card a {
-    min-height: 56px;
-  }
-
-  .condition-care-block {
-    grid-template-columns: 52px minmax(0, 1fr);
-    gap: 0 16px;
-  }
-
-  .condition-care-heading h2 {
-    margin-top: 10px;
-    font-size: 17px;
-  }
-
-  .condition-symptom-list {
-    grid-template-columns: 1fr;
-  }
-
-  .condition-care-image-card {
-    min-height: 430px;
-    border-radius: 22px;
-  }
-
-  .condition-care-image-overlay {
-    padding: 0 22px 24px;
-  }
-
-  .condition-care-image-overlay h2 {
-    margin-left: 0;
-    font-size: 22px;
-  }
-
-  .condition-care-image-overlay div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-
-  .condition-care-image-overlay span {
-    grid-template-columns: 36px minmax(0, 1fr);
-    font-size: 12px;
-  }
-
-  .condition-care-image-overlay span svg {
-    width: 36px;
-    height: 36px;
-    padding: 8px;
-  }
-}
-
-/* Condition care typography and spacing final match */
-.condition-care-section {
-  padding: 38px clamp(22px, 2.55vw, 40px) 48px;
-}
-
-.condition-care-top-grid,
-.condition-care-main-grid {
-  max-width: 1458px;
-}
-
-.condition-care-top-grid {
-  grid-template-columns: 1.02fr 1.07fr 1.07fr 1.02fr 1.13fr;
-  margin-bottom: 40px;
-}
-
-.condition-care-mini-card,
-.condition-care-consult-card {
-  min-height: 446px;
-}
-
-.condition-care-mini-card {
-  padding: 30px 24px;
-}
-
-.condition-care-mini-card>svg,
-.condition-care-heading>svg {
-  width: 62px;
-  height: 62px;
-  padding: 14px;
-}
-
-.condition-care-mini-card h2,
-.condition-care-heading h2 {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.condition-care-mini-card h2 {
-  margin: 24px 0 26px;
-}
-
-.condition-care-mini-card p,
-.condition-care-list li,
-.condition-package-list li {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.78;
-}
-
-.condition-care-list,
-.condition-package-list {
-  gap: 21px;
-}
-
-.condition-care-doctor {
-  padding-bottom: 28px;
-  margin-bottom: 28px;
-}
-
-.condition-care-consult-card {
-  padding: 56px 30px 30px;
-}
-
-.condition-care-consult-card span {
-  max-width: 185px;
-  font-size: 31px;
-  line-height: 1.12;
-}
-
-.condition-care-consult-card i {
-  margin: 28px 0 20px;
-}
-
-.condition-care-consult-card p {
-  max-width: 228px;
-  margin: 0 0 34px;
-  font-size: 16px;
-  line-height: 1.72;
-}
-
-
-
-.condition-care-main-grid {
-  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 0.98fr);
-  gap: 68px;
-}
-
-.condition-care-block {
-  grid-template-columns: 64px minmax(0, 1fr);
-  column-gap: 22px;
-  padding-bottom: 32px;
-  margin-bottom: 30px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .condition-care-heading h2 {
-  margin: 12px 0 15px;
-  font-size: 20px;
-}
-
-.condition-care-block p,
-.condition-care-block li {
-  font-size: 15.5px;
-  line-height: 1.66;
+  margin: 0;
+  font-size: 18px;
 }
 
 .condition-symptom-list {
-  gap: 13px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .condition-symptom-list span {
-  min-height: 46px;
-  font-size: 12.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 16px;
+  border: 1px solid rgba(222, 212, 195, 0.82);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #111814;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.condition-care-image-card {
-  min-height: 604px;
-  border-radius: 27px;
+.condition-symptom-list span svg {
+  width: 14px;
+  height: 14px;
+  color: #b57a25;
 }
 
-.condition-care-image-overlay {
-  padding: 0 46px 36px;
-}
-
-.condition-care-image-overlay h2 {
-  max-width: 430px;
-  margin: 8px 0 34px 48px;
-  font-size: 27px;
-}
-
-.condition-care-image-overlay div {
-  gap: 24px;
-}
-
-.condition-care-image-overlay span {
-  grid-template-columns: 45px minmax(0, 1fr);
-  font-size: 13.5px;
-}
-
-.condition-care-image-overlay span svg {
-  width: 45px;
-  height: 45px;
-}
-
-@media (max-width: 1280px) {
-
-  .condition-care-mini-card,
-  .condition-care-consult-card {
-    min-height: auto;
+@media (max-width: 1100px) {
+  .condition-care-top-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 640px) {
   .condition-care-section {
-    padding: 28px 16px 52px;
+    padding: 32px 16px 48px;
+  }
+
+  .condition-care-top-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .condition-care-mini-card,
   .condition-care-consult-card {
     min-height: auto;
-    padding: 22px;
-  }
-
-  .condition-care-mini-card h2,
-  .condition-care-heading h2 {
-    font-size: 16px;
-  }
-
-  .condition-care-mini-card p,
-  .condition-care-list li,
-  .condition-package-list li,
-  .condition-care-block p,
-  .condition-care-block li {
-    font-size: 14px;
+    padding: 20px;
   }
 }
 
