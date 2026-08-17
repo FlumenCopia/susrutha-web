@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BranchIcon } from "./BranchIcons";
 
@@ -9,10 +12,74 @@ const trustPoints = [
 ];
 
 const branchStats = [
-  { value: "2", label: "Specialty Centres" },
-  { value: "25+", label: "Expert Vaidyas" },
-  { value: "50,000+", label: "Patients Healed" },
+  { target: 2, suffix: "", label: "Specialty Centres" },
+  { target: 25, suffix: "+", label: "Expert Vaidyas" },
+  { target: 50000, suffix: "+", formatComma: true, label: "Patients Healed" },
 ];
+
+function RunningStatCounter({
+  target,
+  suffix = "",
+  formatComma = false,
+}: {
+  target: number;
+  suffix?: string;
+  formatComma?: boolean;
+}) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    const duration = 1600;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeProgress * target));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+
+    const animId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animId);
+  }, [isVisible, target]);
+
+  const formattedCount = formatComma ? count.toLocaleString() : count;
+
+  return (
+    <div ref={elementRef} className="branches-trust-count-val">
+      {formattedCount}
+      {suffix}
+    </div>
+  );
+}
 
 export function BranchesTrustPanel() {
   return (
@@ -42,7 +109,13 @@ export function BranchesTrustPanel() {
       <div className="branches-trust-stats">
         {branchStats.map((stat) => (
           <article key={stat.label}>
-            <strong>{stat.value}</strong>
+            <strong>
+              <RunningStatCounter
+                target={stat.target}
+                suffix={stat.suffix}
+                formatComma={stat.formatComma}
+              />
+            </strong>
             <p>{stat.label}</p>
           </article>
         ))}

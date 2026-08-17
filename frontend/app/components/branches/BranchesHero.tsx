@@ -1,5 +1,39 @@
-import Link from "next/link";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { BranchIcon } from "./BranchIcons";
+
+function RunningNumber({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTime: number | null = null;
+    const duration = 1500;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeProgress * target));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+
+    const animId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animId);
+  }, [target]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 export function BranchesHero() {
   return (
@@ -22,21 +56,27 @@ export function BranchesHero() {
             <div className="conditions-hero-stat-card">
               <BranchIcon name="building" />
               <div className="conditions-hero-stat-info">
-                <strong>2</strong>
+                <strong>
+                  <RunningNumber target={2} />
+                </strong>
                 <span>Premier Locations</span>
               </div>
             </div>
             <div className="conditions-hero-stat-card">
               <BranchIcon name="calendar" />
               <div className="conditions-hero-stat-info">
-                <strong>24/7</strong>
+                <strong>
+                  <RunningNumber target={24} suffix="/7" />
+                </strong>
                 <span>Inpatient Care</span>
               </div>
             </div>
             <div className="conditions-hero-stat-card">
               <BranchIcon name="leaf" />
               <div className="conditions-hero-stat-info">
-                <strong>100%</strong>
+                <strong>
+                  <RunningNumber target={100} suffix="%" />
+                </strong>
                 <span>Authentic Ayurveda</span>
               </div>
             </div>
