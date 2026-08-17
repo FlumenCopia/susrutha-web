@@ -7274,31 +7274,32 @@ body:has(.conditions-page) {
 }
 
 .condition-approach-icon {
-  display: grid;
-  width: clamp(88px, 6vw, 110px);
+  position: relative;
+  display: block;
+  width: clamp(94px, 6.6vw, 118px);
   aspect-ratio: 1;
-  place-items: center;
-  border: 1.5px solid rgba(181, 122, 37, 0.35);
+  border: 3px solid #ffffff;
+  outline: 1.5px solid rgba(181, 122, 37, 0.45);
   border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 10px 24px rgba(181, 122, 37, 0.08);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(65, 46, 23, 0.12);
+  background: #f1eadf;
 }
 
-.condition-approach-icon svg {
-  width: 48px;
-  height: 48px;
-  fill: none;
-  stroke: #b57a25;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.condition-approach-icon img {
+  border-radius: 50%;
+  transition: transform 300ms ease;
+}
+
+.condition-approach-step:hover .condition-approach-icon img {
+  transform: scale(1.08);
 }
 
 .condition-approach-step>i {
   position: absolute;
-  top: calc(clamp(88px, 6vw, 110px) / 2);
-  left: calc(50% + clamp(52px, 3.5vw, 68px));
-  width: calc(100% - clamp(50px, 3.6vw, 70px));
+  top: calc(clamp(94px, 6.6vw, 118px) / 2);
+  left: calc(50% + clamp(54px, 3.6vw, 70px));
+  width: calc(100% - clamp(52px, 3.7vw, 72px));
   height: 1px;
   background: radial-gradient(circle, #b57a25 1.5px, transparent 1.8px) left center / 10px 3px repeat-x;
 }
@@ -7403,11 +7404,6 @@ body:has(.conditions-page) {
 
   .condition-approach-icon {
     width: 94px;
-  }
-
-  .condition-approach-icon svg {
-    width: 48px;
-    height: 48px;
   }
 
   .condition-approach-step strong {
