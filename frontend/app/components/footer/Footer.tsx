@@ -104,9 +104,11 @@ export function Footer() {
             </p>
             <div className="luxury-footer-brochure-wrap">
               <a
-                href="/brochure"
+                href="/images/e-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="luxury-footer-brochure-btn"
-                aria-label="Download Hospital Brochure"
+                aria-label="Open Susrutha Hospital E-Brochure PDF"
               >
                 <FileText size={16} strokeWidth={2} />
                 <span>Hospital Brochure</span>
