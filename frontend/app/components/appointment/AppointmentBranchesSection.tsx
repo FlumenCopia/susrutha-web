@@ -47,18 +47,18 @@ export function AppointmentBranchesSection() {
               <div className="branch-card-body-deluxe">
                 <h3>{branch.name}</h3>
                 <p className="branch-addr-text">
-                  <MapPin size={15} className="inline-icon" style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px", color: "var(--gold, #d97706)" }} />
+                  <MapPin size={15} strokeWidth={1.5} className="inline-icon" style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px", color: "var(--gold, #d97706)" }} />
                   {branch.address}
                 </p>
                 <p className="branch-timing-text">
-                  <Clock size={15} className="inline-icon" style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px", color: "var(--gold, #d97706)" }} />
+                  <Clock size={15} strokeWidth={1.5} className="inline-icon" style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px", color: "var(--gold, #d97706)" }} />
                   {branch.timing}
                 </p>
 
                 <div className="branch-features-wrap">
                   {branch.features.map((feat) => (
                     <span key={feat} className="branch-feat-chip">
-                      <Check size={13} style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "4px" }} />
+                      <Check size={12} strokeWidth={1.75} style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "4px" }} />
                       {feat}
                     </span>
                   ))}
@@ -66,11 +66,11 @@ export function AppointmentBranchesSection() {
 
                 <div className="branch-card-actions-row">
                   <a href={`tel:${branch.phone.replaceAll(" ", "")}`} className="branch-call-btn">
-                    <Phone size={15} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />
+                    <Phone size={14} strokeWidth={1.5} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />
                     {branch.phone}
                   </a>
                   <Link href="/branches" className="branch-explore-link">
-                    Explore Facility <ArrowRight size={14} style={{ display: "inline-block", verticalAlign: "-1px", marginLeft: "4px" }} />
+                    Explore Facility <ArrowRight size={13} strokeWidth={1.5} style={{ display: "inline-block", verticalAlign: "-1px", marginLeft: "4px" }} />
                   </Link>
                 </div>
               </div>

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ChevronRight, Scroll, Leaf, Star } from "lucide-react";
 import { getPublicDoctors, getImageDisplayUrl } from "../../services/api";
 
 interface ChiefDoctor {
@@ -77,7 +76,7 @@ export function AppointmentHero() {
         <div className="apt-hero-left">
           <nav className="apt-breadcrumb-luxury" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
-            <ChevronRight size={13} className="bc-divider" style={{ display: "inline-block", verticalAlign: "middle", opacity: 0.6 }} />
+            <span className="bc-divider">/</span>
             <span className="bc-active">Book Consultation</span>
           </nav>
 
@@ -100,7 +99,6 @@ export function AppointmentHero() {
           {/* Quick Lineage Stats Cards */}
           <div className="apt-hero-metrics-bar">
             <div className="apt-metric-card">
-              <span className="apt-metric-icon"><Scroll size={18} /></span>
               <div>
                 <span className="apt-metric-value">35+ Years</span>
                 <span className="apt-metric-label">Healing Lineage</span>
@@ -108,7 +106,6 @@ export function AppointmentHero() {
             </div>
             <div className="apt-metric-sep" />
             <div className="apt-metric-card">
-              <span className="apt-metric-icon"><Leaf size={18} /></span>
               <div>
                 <span className="apt-metric-value">100% Herbal</span>
                 <span className="apt-metric-label">Classical Medicines</span>
@@ -116,7 +113,6 @@ export function AppointmentHero() {
             </div>
             <div className="apt-metric-sep" />
             <div className="apt-metric-card">
-              <span className="apt-metric-icon"><Star size={18} /></span>
               <div>
                 <span className="apt-metric-value">{doctor.rating} / 5.0</span>
                 <span className="apt-metric-label">Patient Rating</span>

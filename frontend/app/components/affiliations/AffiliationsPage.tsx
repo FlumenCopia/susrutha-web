@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { Globe2, Microscope, Sprout, ArrowRight } from "lucide-react";
 import "./affiliations.css";
 
 export function AffiliationsPage() {
@@ -16,8 +17,6 @@ export function AffiliationsPage() {
         <div className="conditions-hero-serene-overlay" />
 
         <div className="conditions-hero-serene-content">
-
-
           <div className="conditions-hero-serene-middle-wrapper">
             <div className="conditions-hero-serene-middle">
               <p className="conditions-hero-serene-quote">
@@ -36,7 +35,7 @@ export function AffiliationsPage() {
 
             <div className="conditions-hero-serene-right-stats" aria-label="Affiliation statistics">
               <div className="conditions-hero-stat-card">
-                <i className="fa-solid fa-earth-americas" />
+                <Globe2 size={26} strokeWidth={1.75} />
                 <div className="conditions-hero-stat-info">
                   <strong>USA &bull; IND</strong>
                   <span>Global Presence</span>
@@ -44,7 +43,7 @@ export function AffiliationsPage() {
               </div>
 
               <div className="conditions-hero-stat-card">
-                <i className="fa-solid fa-microscope" />
+                <Microscope size={26} strokeWidth={1.75} />
                 <div className="conditions-hero-stat-info">
                   <strong>30+ Yrs</strong>
                   <span>Medical Sciences</span>
@@ -52,7 +51,7 @@ export function AffiliationsPage() {
               </div>
 
               <div className="conditions-hero-stat-card">
-                <i className="fa-solid fa-seedling" />
+                <Sprout size={26} strokeWidth={1.75} />
                 <div className="conditions-hero-stat-info">
                   <strong>55+ Yrs</strong>
                   <span>Ayurvedic Heritage</span>
@@ -135,9 +134,10 @@ export function AffiliationsPage() {
                   rel="noopener noreferrer"
                   className="asotra-pill-btn"
                   title="View Dr. Asotra Profile Document (PDF)"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
                 >
                   <span>Read More</span>
-                  <i className="fa-solid fa-arrow-right" />
+                  <ArrowRight size={14} strokeWidth={1.75} />
                 </a>
 
                 <a
@@ -146,9 +146,10 @@ export function AffiliationsPage() {
                   rel="noopener noreferrer"
                   className="asotra-pill-btn"
                   title="Visit www.drasotra.com"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
                 >
                   <span>Visit Website</span>
-                  <i className="fa-solid fa-arrow-right" />
+                  <ArrowRight size={14} strokeWidth={1.75} />
                 </a>
               </div>
             </div>
