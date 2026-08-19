@@ -6291,16 +6291,27 @@ body:has(.conditions-page) {
   padding: 28px 24px;
 }
 
-.condition-care-mini-card>svg,
-.condition-care-heading>svg {
-  display: grid;
-  width: 54px;
-  height: 54px;
+.condition-care-mini-card > svg,
+.condition-care-heading > svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   padding: 12px;
   border-radius: 50%;
-  background: #f7f2ea;
-  color: #b57a25;
-  stroke: #b57a25;
+  background: #fff8ec;
+  border: 1.5px solid rgba(181, 122, 37, 0.3);
+  color: #b57a25 !important;
+  stroke: #b57a25 !important;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(181, 122, 37, 0.08);
+}
+
+.condition-care-mini-card svg path,
+.condition-care-heading svg path {
+  stroke: #b57a25 !important;
 }
 
 .condition-care-mini-card h2,
@@ -6527,9 +6538,10 @@ body:has(.conditions-page) {
 }
 
 .condition-symptom-list span svg {
-  width: 14px;
-  height: 14px;
-  color: #b57a25;
+  width: 15px;
+  height: 15px;
+  color: #9a5a12 !important;
+  stroke: #9a5a12 !important;
 }
 
 @media (max-width: 1100px) {
@@ -12325,10 +12337,11 @@ body:has(.branches-premium-page) {
 .branch-location-card {
   position: relative;
   border: 1px solid rgba(221, 212, 199, 0.94);
-  border-radius: 30px;
+  border-radius: 28px;
   background: rgba(255, 255, 255, 0.86);
   box-shadow: 0 26px 76px rgba(35, 35, 35, 0.1);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  overflow: hidden;
 }
 
 .branch-location-card:hover {
@@ -12341,9 +12354,12 @@ body:has(.branches-premium-page) {
   position: relative;
   min-height: clamp(240px, 24vw, 330px);
   background: #ddd4c7;
+  overflow: hidden;
+  border-radius: 28px 28px 0 0;
 }
 
 .branch-location-image img {
+  border-radius: 28px 28px 0 0;
   transition: transform 720ms ease, filter 720ms ease;
 }
 
@@ -12357,19 +12373,23 @@ body:has(.branches-premium-page) {
   left: 22px;
   top: 20px;
   z-index: 2;
-  padding: 8px 13px;
+  padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--branches-green);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  color: var(--branches-green, #102d24);
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .branch-location-body {
   position: relative;
   padding: clamp(28px, 2.8vw, 40px);
+  border-radius: 0 0 28px 28px;
 }
 
 .branch-location-icon {

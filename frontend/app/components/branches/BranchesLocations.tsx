@@ -31,7 +31,7 @@ export function BranchesLocations() {
               location: typeof b.address === 'object' ? `${b.address.street || ''}, ${b.address.city || ''}` : (b.address || ""),
               hours: b.opdTimings || "8:00 AM - 7:00 PM",
               phone: (b.contact && b.contact.phone && b.contact.phone[0]) ? b.contact.phone[0] : "+91 9645 555 888",
-              image: getImageDisplayUrl(b.coverImage || b.image),
+              image: (b.coverImage || b.image) ? getImageDisplayUrl(b.coverImage || b.image) : (idx === 0 ? "/images/kowdiar_gallery_01.webp" : "/images/kowdiar_gallery_02.webp"),
               icon: "building" as BranchIconName,
               details: b.features && b.features.length > 0 ? b.features.slice(0, 4) : ["Consultations", "Panchakarma"],
               doctors: ["Specialist Vaidyas"],

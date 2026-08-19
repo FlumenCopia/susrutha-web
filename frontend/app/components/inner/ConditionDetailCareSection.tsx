@@ -10,42 +10,22 @@ type ConditionDetailCareSectionProps = {
   condition: ConditionDetail;
 };
 
-function CareIcon({ name }: { name: string }) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      {name === "person" ? (
-        <>
-          <path d="M12 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
-          <path d="M5 20a7 7 0 0 1 14 0" />
-        </>
-      ) : name === "stethoscope" ? (
-        <>
-          <path d="M6 3v6a6 6 0 0 0 12 0V3" />
-          <path d="M12 15v3a3 3 0 0 0 3 3h2" />
-          <circle cx="18" cy="21" r="1" />
-        </>
-      ) : name === "home" ? (
-        <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5Z" />
-      ) : name === "shield" ? (
-        <>
-          <path d="M12 3 19 6v5c0 4.5-2.8 8-7 10-4.2-2-7-5.5-7-10V6l7-3Z" />
-          <path d="m9 12 2 2 4-5" />
-        </>
-      ) : name === "lotus" ? (
-        <>
-          <path d="M12 19c-4-3.5-4.5-8.2 0-14 4.5 5.8 4 10.5 0 14Z" />
-          <path d="M12 19c-5 .2-8.5-2.3-10-7 5.5-.8 9 1.5 10 7Z" />
-          <path d="M12 19c5 .2 8.5-2.3 10-7-5.5-.8-9 1.5-10 7Z" />
-        </>
-      ) : (
-        <>
-          <path d="M12 21C7 17 6 11 12 3c6 8 5 14 0 18Z" />
-          <path d="M12 21c-5 0-8-3-10-8 6-1 10 2 10 8Z" />
-          <path d="M12 21c5 0 8-3 10-8-6-1-10 2-10 8Z" />
-        </>
-      )}
-    </svg>
-  );
+import { Leaf, Stethoscope, Home, ShieldCheck, UserCheck } from "lucide-react";
+
+function CareIcon({ name, size = 22 }: { name: string; size?: number }) {
+  if (name === "stethoscope") {
+    return <Stethoscope size={size} strokeWidth={2.2} />;
+  }
+  if (name === "home") {
+    return <Home size={size} strokeWidth={2.2} />;
+  }
+  if (name === "shield") {
+    return <ShieldCheck size={size} strokeWidth={2.2} />;
+  }
+  if (name === "person") {
+    return <UserCheck size={size} strokeWidth={2.2} />;
+  }
+  return <Leaf size={size} strokeWidth={2.2} />;
 }
 
 export function ConditionDetailCareSection({ condition }: ConditionDetailCareSectionProps) {
@@ -175,7 +155,7 @@ export function ConditionDetailCareSection({ condition }: ConditionDetailCareSec
               <div className="condition-symptom-list">
                 {symptomsList.map((symptom: string) => (
                   <span key={symptom}>
-                    <CareIcon name="leaf" />
+                    <CareIcon name="leaf" size={14} />
                     {symptom}
                   </span>
                 ))}
