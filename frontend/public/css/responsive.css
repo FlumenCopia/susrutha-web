@@ -7066,7 +7066,7 @@
 
 .apt-success-screen-luxury>div:nth-child(3) strong {
   max-width: 100%;
-  color: #183d31 !important;
+  color: #000000 !important;
   font-size: 15px !important;
   line-height: 1.4;
   overflow-wrap: anywhere;
@@ -7120,7 +7120,7 @@
   margin: 0;
   padding: 24px 26px 18px;
   border-bottom: 1px solid rgba(180, 123, 52, 0.14);
-  color: #17372d;
+  color: #000000;
   font-size: 29px;
   font-weight: 600;
 }
@@ -7146,7 +7146,7 @@
 
 .summary-doc-name {
   margin: 0 0 5px;
-  color: #17372d;
+  color: #000000;
   font-size: 18px;
   line-height: 1.25;
 }
@@ -7183,7 +7183,7 @@
 }
 
 .summary-item strong {
-  color: #183d31;
+  color: #000000;
   font-size: 15px;
   line-height: 1.35;
 }
@@ -7780,7 +7780,7 @@ body:has(.treatment-detail-reference) .treatment-facts-bar .fact-label {
 
 body:has(.treatment-detail-reference) .treatment-facts-bar .fact-value {
   margin-top: 2px;
-  color: #17372d;
+  color: #000000;
   font-size: 15px;
   line-height: 1.25;
   white-space: nowrap;
