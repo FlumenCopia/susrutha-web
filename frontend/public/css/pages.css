@@ -13015,18 +13015,18 @@ body:has(.branches-premium-page) {
   color: rgba(168, 117, 52, 0.08);
 }
 
-.branches-premium-page h1:not(.conditions-hero-serene-title),
-.branches-premium-page h2:not(.conditions-hero-serene-title),
-.branches-premium-page h3,
+.branches-premium-page h1:not(.conditions-hero-serene-title):not(.branches-cta h1),
+.branches-premium-page h2:not(.conditions-hero-serene-title):not(.branches-cta h2),
+.branches-premium-page h3:not(.branches-cta h3),
 .branch-location-doctors,
 .branches-route-strip span {
   color: #17231f !important;
 }
 
-.branches-hero-copy>p,
-.branches-section-heading p,
-.branch-location-description,
-.branches-trust-copy li {
+.branches-premium-page .branches-hero-copy>p,
+.branches-premium-page .branches-section-heading p,
+.branches-premium-page .branch-location-description,
+.branches-premium-page .branches-trust-copy li {
   color: #38413d !important;
 }
 
@@ -13133,8 +13133,23 @@ body:has(.branches-premium-page) {
 }
 
 .branches-cta>div>span {
-  border-color: rgba(198, 148, 75, 0.5);
-  color: #c6944b;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+
+.branches-cta>div>span svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.branches-cta h2,
+.branches-premium-page .branches-cta h2 {
+  color: #ffffff !important;
+}
+
+.branches-cta p,
+.branches-premium-page .branches-cta p {
+  color: rgba(255, 255, 255, 0.92) !important;
 }
 
 /* Ayur Village premium page */
@@ -13678,23 +13693,30 @@ body:has(.ayur-village-page) {
   width: 68px;
   height: 68px;
   place-items: center;
-  border: 1px solid rgba(198, 148, 75, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
   border-radius: 999px;
-  color: #c6944b;
+  color: #ffffff !important;
   font-size: 30px;
 }
 
-.ayur-village-cta h2 {
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(28px, 2.8vw, 44px);
-  line-height: 1.05;
+.ayur-village-cta>div>span svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
-.ayur-village-cta p {
-  margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.78) !important;
-  font-size: 14px;
+.ayur-village-cta h2,
+.ayur-village-page .ayur-village-cta h2 {
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(28px, 2.8vw, 44px) !important;
+  line-height: 1.08 !important;
+}
+
+.ayur-village-cta p,
+.ayur-village-page .ayur-village-cta p {
+  margin: 8px 0 0 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 14px !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

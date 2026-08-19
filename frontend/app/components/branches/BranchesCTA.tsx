@@ -3,14 +3,14 @@ import { BranchIcon } from "./BranchIcons";
 
 export function BranchesCTA() {
   return (
-    <section className="branches-cta">
+    <section className="branches-cta" style={{ color: "#ffffff" }}>
       <div>
-        <span>
+        <span style={{ color: "#ffffff", borderColor: "rgba(255, 255, 255, 0.4)" }}>
           <BranchIcon name="calendar" />
         </span>
         <div>
           <h2 style={{ color: "#ffffff" }}>Begin Your Healing Journey</h2>
-          <p style={{ color: "rgba(255, 255, 255, 0.88)" }}>Book a consultation at the branch nearest to you.</p>
+          <p style={{ color: "rgba(255, 255, 255, 0.9)" }}>Book a consultation at the branch nearest to you.</p>
         </div>
       </div>
       <Link className="branches-button branches-button-light" href="/appointment">
