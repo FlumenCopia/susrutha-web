@@ -63,6 +63,8 @@ export function BlogDetailPageView({ post, slug }: BlogDetailPageViewProps) {
               <div className="blog-detail-author-avatar">
                 <User size={18} />
               </div>
+
+
               <div>
                 <span className="blog-detail-author-name">{author}</span>
                 <span className="blog-detail-author-role">{authorRole}</span>
