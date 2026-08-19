@@ -41,24 +41,24 @@ type FeaturedVideoCardProps = {
 };
 
 export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
-  const [thumbSrc, setThumbSrc] = useState(
-    video.thumbnail && video.thumbnail.trim() !== "" ? video.thumbnail : "/images/treatment-sirodhara.webp"
-  );
-  const [avatarSrc, setAvatarSrc] = useState(
-    video.speaker.avatar && video.speaker.avatar.trim() !== "" ? video.speaker.avatar : "/images/doctor_sreeja.jpg"
-  );
+  const [imgError, setImgError] = useState(false);
+  const [avatarError, setAvatarError] = useState(false);
 
   return (
     <article className="vg-featured-card-deluxe" onClick={() => onPlay(video)}>
       <div className="vg-card-thumb-wrapper">
-        <Image
-          src={thumbSrc}
-          alt={video.title}
-          width={440}
-          height={248}
-          className="vg-card-thumb-img"
-          onError={() => setThumbSrc("/images/treatment-sirodhara.webp")}
-        />
+        {video.thumbnail && !imgError ? (
+          <Image
+            src={video.thumbnail}
+            alt={video.title}
+            width={440}
+            height={248}
+            className="vg-card-thumb-img"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="vg-card-thumb-placeholder" style={{ width: "100%", height: "100%", background: "#102d24" }} />
+        )}
         <div className="vg-card-thumb-overlay" />
         <div className="vg-card-shimmer-sweep" />
 
@@ -109,15 +109,15 @@ export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
         {/* Doctor Speaker Avatar & Verified Checkmark */}
         {video.speaker?.name ? (
           <div className="vg-card-speaker-footer">
-            {avatarSrc ? (
+            {video.speaker.avatar && !avatarError ? (
               <div className="vg-speaker-avatar-wrapper">
                 <Image
-                  src={avatarSrc}
+                  src={video.speaker.avatar}
                   alt={video.speaker.name}
                   width={36}
                   height={36}
                   className="vg-speaker-avatar"
-                  onError={() => setAvatarSrc("")}
+                  onError={() => setAvatarError(true)}
                 />
               </div>
             ) : null}
