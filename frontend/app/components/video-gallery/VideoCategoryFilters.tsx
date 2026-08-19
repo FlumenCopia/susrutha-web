@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { X } from "lucide-react";
 import type { VideoCategory } from "./VideoGalleryPage";
 
-const videoCategories: VideoCategory[] = ["All", "Gallery", "Videos", "Podcasts"];
+const videoCategories: VideoCategory[] = ["All", "Images", "Videos", "Podcasts"];
 
 type VideoCategoryFiltersProps = {
   activeCategory: VideoCategory;

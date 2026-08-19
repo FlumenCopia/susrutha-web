@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
@@ -40,24 +41,34 @@ type FeaturedVideoCardProps = {
 };
 
 export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
+  const [thumbSrc, setThumbSrc] = useState(
+    video.thumbnail && video.thumbnail.trim() !== "" ? video.thumbnail : "/images/treatment-sirodhara.webp"
+  );
+  const [avatarSrc, setAvatarSrc] = useState(
+    video.speaker.avatar && video.speaker.avatar.trim() !== "" ? video.speaker.avatar : "/images/doctor_sreeja.jpg"
+  );
+
   return (
     <article className="vg-featured-card-deluxe" onClick={() => onPlay(video)}>
       <div className="vg-card-thumb-wrapper">
         <Image
-          src={video.thumbnail}
+          src={thumbSrc}
           alt={video.title}
           width={440}
           height={248}
           className="vg-card-thumb-img"
+          onError={() => setThumbSrc("/images/treatment-sirodhara.webp")}
         />
         <div className="vg-card-thumb-overlay" />
         <div className="vg-card-shimmer-sweep" />
 
         {/* Top Badges Overlay */}
-        <div className="vg-card-top-badges">
-          <span className="vg-card-level-badge">{video.level}</span>
-          <span className="vg-card-rating-badge">{video.rating}</span>
-        </div>
+        {(video.level || video.rating) ? (
+          <div className="vg-card-top-badges">
+            {video.level ? <span className="vg-card-level-badge">{video.level}</span> : null}
+            {video.rating ? <span className="vg-card-rating-badge">{video.rating}</span> : null}
+          </div>
+        ) : null}
 
         {/* Pulse Glowing Play Button with Ripple */}
         <button
@@ -77,43 +88,52 @@ export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
         </button>
 
         {/* Bottom Duration & Views Badge */}
-        <div className="vg-card-bottom-info">
-          <span className="vg-views-badge">{video.views}</span>
-          <span className="vg-duration-badge">{video.duration}</span>
-        </div>
+        {(video.views || video.duration) ? (
+          <div className="vg-card-bottom-info">
+            {video.views ? <span className="vg-views-badge">{video.views}</span> : null}
+            {video.duration ? <span className="vg-duration-badge">{video.duration}</span> : null}
+          </div>
+        ) : null}
       </div>
 
       <div className="vg-card-body-deluxe">
-        <div className="vg-card-meta-row">
-          <span className="vg-card-category">{video.category.toUpperCase()}</span>
-        </div>
+        {video.category ? (
+          <div className="vg-card-meta-row">
+            <span className="vg-card-category">{video.category.toUpperCase()}</span>
+          </div>
+        ) : null}
 
         <h3 className="vg-card-title">{video.title}</h3>
-        <p className="vg-card-desc">{video.description}</p>
+        {video.description ? <p className="vg-card-desc">{video.description}</p> : null}
 
         {/* Doctor Speaker Avatar & Verified Checkmark */}
-        <div className="vg-card-speaker-footer">
-          <div className="vg-speaker-avatar-wrapper">
-            <Image
-              src={video.speaker.avatar}
-              alt={video.speaker.name}
-              width={36}
-              height={36}
-              className="vg-speaker-avatar"
-            />
+        {video.speaker?.name ? (
+          <div className="vg-card-speaker-footer">
+            {avatarSrc ? (
+              <div className="vg-speaker-avatar-wrapper">
+                <Image
+                  src={avatarSrc}
+                  alt={video.speaker.name}
+                  width={36}
+                  height={36}
+                  className="vg-speaker-avatar"
+                  onError={() => setAvatarSrc("")}
+                />
+              </div>
+            ) : null}
+            <div className="vg-speaker-info">
+              <span className="vg-speaker-name" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                {video.speaker.name}
+                {video.speaker.verified && (
+                  <span className="vg-verified-check" title="Verified Physician" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                    <Check size={10} />
+                  </span>
+                )}
+              </span>
+              {video.speaker.role ? <span className="vg-speaker-role">{video.speaker.role}</span> : null}
+            </div>
           </div>
-          <div className="vg-speaker-info">
-            <span className="vg-speaker-name" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-              {video.speaker.name}
-              {video.speaker.verified && (
-                <span className="vg-verified-check" title="Verified Physician" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-                  <Check size={10} />
-                </span>
-              )}
-            </span>
-            <span className="vg-speaker-role">{video.speaker.role}</span>
-          </div>
-        </div>
+        ) : null}
       </div>
     </article>
   );
