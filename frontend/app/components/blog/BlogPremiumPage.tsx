@@ -5,7 +5,7 @@ import { FeaturedBlog } from "./FeaturedBlog";
 
 export function BlogPremiumPage() {
   return (
-    <div className="blog-premium-page">
+    <div className="blog-premium-page" style={{ background: "#ffffff" }}>
       <BlogHero />
       <FeaturedBlog />
       <BlogGrid />
