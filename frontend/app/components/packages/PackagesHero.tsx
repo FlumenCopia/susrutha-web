@@ -1,11 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PackagesIcon } from "./PackagesIcon";
+import { UserCheck, Leaf, Hospital, ArrowRight } from "lucide-react";
 
 const packageHeroFeatures = [
-  { icon: "lotus", title: "Authentic Vaidya Care", text: "Physician-supervised Panchakarma therapies." },
-  { icon: "leaf", title: "Pure Herbal Formulations", text: "Prepared from organic herbs sourced directly." },
-  { icon: "sprout", title: "Specialty Hospital Stay", text: "Comfortable inpatient suites with Sattvic diet." },
+  {
+    icon: <UserCheck size={22} strokeWidth={1.75} />,
+    title: "Authentic Vaidya Care",
+    text: "Physician-supervised Panchakarma therapies.",
+  },
+  {
+    icon: <Leaf size={22} strokeWidth={1.75} />,
+    title: "Pure Herbal Formulations",
+    text: "Prepared from organic herbs sourced directly.",
+  },
+  {
+    icon: <Hospital size={22} strokeWidth={1.75} />,
+    title: "Specialty Hospital Stay",
+    text: "Comfortable inpatient suites with Sattvic diet.",
+  },
 ];
 
 export function PackagesHero() {
@@ -21,29 +33,22 @@ export function PackagesHero() {
         sizes="100vw"
       />
       <div className="packages-hero-copy">
-        {/* <span className="packages-eyebrow">Packages</span> */}
-        <h1>Twelve structured care programmes</h1>
+        <h1>Twelve Structured Care Programmes</h1>
         <p>
           From occupational Tekky care to 16-day hospital programmes and specialty ano-rectal pathways. Prices on
           enquiry - plans remain clinical.
         </p>
         <Link className="packages-button packages-button-light" href="/appointment">
-          Enquire about a package
-          <PackagesIcon name="arrow" />
+          Enquire About a Package
+          <ArrowRight size={16} strokeWidth={1.75} />
         </Link>
       </div>
-{/* 
-      <aside className="packages-hero-note">
-        <PackagesIcon name="lotus" />
-        <strong>Rooted in tradition. Focused on your healing.</strong>
-        <span aria-hidden="true" />
-      </aside> */}
 
       <div className="packages-hero-features">
         {packageHeroFeatures.map((feature) => (
           <article key={feature.title}>
             <span>
-              <PackagesIcon name={feature.icon} />
+              {feature.icon}
             </span>
             <div>
               <h2>{feature.title}</h2>
