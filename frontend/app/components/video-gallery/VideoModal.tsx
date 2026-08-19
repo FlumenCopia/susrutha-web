@@ -68,7 +68,7 @@ export function VideoModal({ video, allVideos = [], onClose, onSelectRelated }: 
                   position: "relative",
                   width: "100%",
                   height: "460px",
-                  background: "#081813",
+                  background: "#000000",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -159,70 +159,70 @@ export function VideoModal({ video, allVideos = [], onClose, onSelectRelated }: 
             </div>
           </div>
 
-          {/* Sidebar Column: Tabs (Chapters vs. Transcript), Doctor Profile, Related */}
-          <div className="vg-modal-sidebar-col">
-            {/* Sidebar Tab Navigation only for videos with chapters/transcript */}
-            {!isImage && (video.chapters?.length || video.transcript) ? (
-              <div className="vg-modal-tab-bar">
-                <button
-                  type="button"
-                  className={`vg-modal-tab-btn ${activeTab === "chapters" ? "active" : ""}`}
-                  onClick={() => setActiveTab("chapters")}
-                >
-                  Chapters
-                </button>
-                <button
-                  type="button"
-                  className={`vg-modal-tab-btn ${activeTab === "transcript" ? "active" : ""}`}
-                  onClick={() => setActiveTab("transcript")}
-                >
-                  Transcript
-                </button>
-              </div>
-            ) : null}
-
-            {/* Doctor Bio Card */}
-            {video.speaker?.name ? (
-              <div className="vg-modal-speaker-card">
-                <div className="vg-speaker-card-header">
-                  {video.speaker.avatar ? (
-                    <Image
-                      src={video.speaker.avatar}
-                      alt={video.speaker.name}
-                      width={52}
-                      height={52}
-                      className="vg-modal-speaker-avatar"
-                    />
-                  ) : null}
-                  <div>
-                    <h4 className="vg-modal-speaker-name" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                      {video.speaker.name}
-                      {video.speaker.verified && (
-                        <span className="vg-verified-check" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-                          <Check size={10} />
-                        </span>
-                      )}
-                    </h4>
-                    {video.speaker.role ? <p className="vg-modal-speaker-role">{video.speaker.role}</p> : null}
-                  </div>
+          {/* Sidebar Column: Only rendered for videos */}
+          {!isImage ? (
+            <div className="vg-modal-sidebar-col">
+              {/* Sidebar Tab Navigation only for videos with chapters/transcript */}
+              {(video.chapters?.length || video.transcript) ? (
+                <div className="vg-modal-tab-bar">
+                  <button
+                    type="button"
+                    className={`vg-modal-tab-btn ${activeTab === "chapters" ? "active" : ""}`}
+                    onClick={() => setActiveTab("chapters")}
+                  >
+                    Chapters
+                  </button>
+                  <button
+                    type="button"
+                    className={`vg-modal-tab-btn ${activeTab === "transcript" ? "active" : ""}`}
+                    onClick={() => setActiveTab("transcript")}
+                  >
+                    Transcript
+                  </button>
                 </div>
-                <Link href="/appointment" className="vg-modal-book-btn" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
-                  <span>Book Consultation with Doctor</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            ) : null}
+              ) : null}
 
-            {/* Chapters Tab Content */}
-            {activeTab === "chapters" && (
-              <div className="vg-modal-chapters-block">
-                <h4 className="vg-chapters-heading">
-                  <span>Video Chapters</span>
-                  <span className="vg-chapters-count">{video.chapters?.length || 0}</span>
-                </h4>
-                <div className="vg-chapters-list">
-                  {video.chapters && video.chapters.length > 0 ? (
-                    video.chapters.map((ch) => (
+              {/* Doctor Bio Card */}
+              {video.speaker?.name ? (
+                <div className="vg-modal-speaker-card">
+                  <div className="vg-speaker-card-header">
+                    {video.speaker.avatar ? (
+                      <Image
+                        src={video.speaker.avatar}
+                        alt={video.speaker.name}
+                        width={52}
+                        height={52}
+                        className="vg-modal-speaker-avatar"
+                      />
+                    ) : null}
+                    <div>
+                      <h4 className="vg-modal-speaker-name" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                        {video.speaker.name}
+                        {video.speaker.verified && (
+                          <span className="vg-verified-check" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                            <Check size={10} />
+                          </span>
+                        )}
+                      </h4>
+                      {video.speaker.role ? <p className="vg-modal-speaker-role">{video.speaker.role}</p> : null}
+                    </div>
+                  </div>
+                  <Link href="/appointment" className="vg-modal-book-btn" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
+                    <span>Book Consultation with Doctor</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              ) : null}
+
+              {/* Chapters Tab Content */}
+              {activeTab === "chapters" && video.chapters && video.chapters.length > 0 && (
+                <div className="vg-modal-chapters-block">
+                  <h4 className="vg-chapters-heading">
+                    <span>Video Chapters</span>
+                    <span className="vg-chapters-count">{video.chapters.length}</span>
+                  </h4>
+                  <div className="vg-chapters-list">
+                    {video.chapters.map((ch) => (
                       <button
                         key={ch.timestamp}
                         type="button"
@@ -232,54 +232,52 @@ export function VideoModal({ video, allVideos = [], onClose, onSelectRelated }: 
                         <span className="vg-chapter-time">{ch.timestamp}</span>
                         <span className="vg-chapter-title">{ch.title}</span>
                       </button>
-                    ))
-                  ) : (
-                    <p className="vg-no-transcript">Full video presentation without chapters.</p>
-                  )}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Transcript Tab Content */}
-            {activeTab === "transcript" && (
-              <div className="vg-modal-transcript-block">
-                <h4 className="vg-chapters-heading">Video Subtitles & Transcript</h4>
-                <div className="vg-transcript-box">
-                  <p>{video.transcript || "Full physician transcript available upon request."}</p>
+              {/* Transcript Tab Content */}
+              {activeTab === "transcript" && video.transcript && (
+                <div className="vg-modal-transcript-block">
+                  <h4 className="vg-chapters-heading">Video Subtitles & Transcript</h4>
+                  <div className="vg-transcript-box">
+                    <p>{video.transcript}</p>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Related Recommendations Strip */}
-            {relatedVideos.length > 0 && (
-              <div className="vg-modal-related-block">
-                <h4 className="vg-chapters-heading">Related Films</h4>
-                <div className="vg-modal-related-list">
-                  {relatedVideos.map((rel) => (
-                    <div
-                      key={rel.id}
-                      className="vg-related-mini-card"
-                      onClick={() => {
-                        if (onSelectRelated) onSelectRelated(rel);
-                      }}
-                    >
-                      <Image
-                        src={rel.thumbnail}
-                        alt={rel.title}
-                        width={90}
-                        height={56}
-                        className="vg-related-thumb"
-                      />
-                      <div className="vg-related-info">
-                        <h5 className="vg-related-title">{rel.title}</h5>
-                        <span className="vg-related-meta">{rel.duration} • {rel.speaker.name}</span>
+              {/* Related Recommendations Strip */}
+              {relatedVideos.length > 0 && (
+                <div className="vg-modal-related-block">
+                  <h4 className="vg-chapters-heading">Related Films</h4>
+                  <div className="vg-modal-related-list">
+                    {relatedVideos.map((rel) => (
+                      <div
+                        key={rel.id}
+                        className="vg-related-mini-card"
+                        onClick={() => {
+                          if (onSelectRelated) onSelectRelated(rel);
+                        }}
+                      >
+                        <Image
+                          src={rel.thumbnail}
+                          alt={rel.title}
+                          width={90}
+                          height={56}
+                          className="vg-related-thumb"
+                        />
+                        <div className="vg-related-info">
+                          <h5 className="vg-related-title">{rel.title}</h5>
+                          <span className="vg-related-meta">{rel.duration} • {rel.speaker.name}</span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
