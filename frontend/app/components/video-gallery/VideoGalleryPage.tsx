@@ -6,7 +6,7 @@ import { VideoGalleryHeaderHero } from "./VideoGalleryHeaderHero";
 import { VideoCategoryFilters } from "./VideoCategoryFilters";
 import { FeaturedVideosSection } from "./FeaturedVideosSection";
 import { VideoModal } from "./VideoModal";
-import { getPublicVideos, getImageDisplayUrl } from "@/app/services/api";
+import { getPublicVideos, getPublicGalleryAlbums, getImageDisplayUrl } from "@/app/services/api";
 
 export type VideoCategory = "All" | "Images" | "Videos" | "Podcasts";
 
@@ -22,9 +22,16 @@ export function VideoGalleryPage() {
     async function loadVideos() {
       try {
         setLoading(true);
-        const data = await getPublicVideos();
-        if (Array.isArray(data) && data.length > 0) {
-          const normalized: VideoItem[] = data.map((v: any, idx: number) => {
+        const [videosRes, galleryRes] = await Promise.allSettled([
+          getPublicVideos(),
+          getPublicGalleryAlbums(),
+        ]);
+
+        const combinedItems: VideoItem[] = [];
+
+        // 1. Process Live Backend Videos
+        if (videosRes.status === "fulfilled" && Array.isArray(videosRes.value)) {
+          videosRes.value.forEach((v: any, idx: number) => {
             let ytId = "";
             if (v.youtubeUrl) {
               const match = v.youtubeUrl.match(/(?:v=|\/embed\/|\/watch\?v=|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -41,7 +48,7 @@ export function VideoGalleryPage() {
               categoryName = "Videos";
             }
 
-            return {
+            combinedItems.push({
               id: v._id || v.id || `v-${idx}`,
               title: v.title || v.name || "",
               category: categoryName,
@@ -61,14 +68,39 @@ export function VideoGalleryPage() {
               transcript: v.transcript || "",
               featured: Boolean(v.isFeatured),
               isBackendData: true,
-            };
+            });
           });
-          setVideoList(normalized);
-        } else {
-          setVideoList([]);
         }
+
+        // 2. Process Live Backend Gallery / Photo Albums
+        if (galleryRes.status === "fulfilled" && Array.isArray(galleryRes.value)) {
+          galleryRes.value.forEach((g: any, idx: number) => {
+            combinedItems.push({
+              id: g._id || g.id || `gal-${idx}`,
+              title: g.title || g.name || "Gallery Album",
+              category: "Images",
+              duration: g.photos?.length ? `${g.photos.length} Photos` : "Photo Tour",
+              rating: g.rating ? `${g.rating}★` : "",
+              views: g.views ? `${g.views}` : "",
+              description: g.description || g.summary || "",
+              thumbnail: getImageDisplayUrl(g.coverImage || g.thumbnail || g.image || (g.photos && g.photos[0])),
+              youtubeId: "",
+              level: "Images",
+              speaker: {
+                name: typeof g.author === 'object' ? (g.author?.name || "") : (g.author || ""),
+                role: "Photo Gallery",
+                avatar: "",
+                verified: false,
+              },
+              featured: Boolean(g.isFeatured),
+              isBackendData: true,
+            });
+          });
+        }
+
+        setVideoList(combinedItems);
       } catch (err) {
-        console.error("Failed to load live videos:", err);
+        console.error("Failed to load live backend video/gallery data:", err);
         setVideoList([]);
       } finally {
         setLoading(false);

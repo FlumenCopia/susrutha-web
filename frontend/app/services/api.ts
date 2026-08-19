@@ -1,7 +1,7 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1/public";
 
 export function getImageDisplayUrl(url?: string | null): string {
-  if (!url || typeof url !== 'string' || url.trim() === '') return '/uploads/slider_1.webp';
+  if (!url || typeof url !== 'string' || url.trim() === '') return '';
   if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
   if (url.startsWith('/images/')) return url;
   const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1/public';
