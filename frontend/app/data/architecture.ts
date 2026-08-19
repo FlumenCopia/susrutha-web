@@ -1,6 +1,8 @@
 export type LinkItem = {
   label: string;
   href: string;
+  badge?: string;
+  badgeColor?: string;
   children?: LinkItem[];
 };
 
@@ -81,6 +83,7 @@ export const completeSitemap: LinkItem[] = [
   { label: "Departments", href: "/departments" },
   { label: "Facilities", href: "/facilities" },
   { label: "International Patients", href: "/international-patients" },
+  { label: "International Affiliations (USA)", href: "/affiliations" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Gallery", href: "/gallery" },
   {
@@ -141,6 +144,7 @@ export const desktopNavigation: LinkItem[] = [
     href: "/about-us",
     children: [
       { label: "About & Legacy", href: "/about-us" },
+      { label: "International Collab (USA)", href: "/affiliations", badge: "Global" },
       { label: "Hospital Branches", href: "/branches" },
       { label: "Ayur Village", href: "/ayurveda-village" },
       { label: "Care Packages", href: "/packages" },
@@ -851,5 +855,24 @@ export const basePages: Record<string, PageContent> = {
     sections: [
       { title: "Terms sections", text: "Final legal copy should be approved before production launch.", items: ["Use of site", "Appointments", "Payments", "Medical disclaimer", "Contact"] },
     ],
+  },
+  affiliations: {
+    eyebrow: "Global Collaboration",
+    title: "International Affiliations & Partnership",
+    description: "Susrutha Ayurveda's international clinical and academic collaboration with Dr. Satish Asotra (USA) bridging authentic Kerala Ayurveda with Western scientific research.",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "International Affiliations", href: "/affiliations" },
+    ],
+    intro: "Susrutha Ayurveda Gramam and Hospital bridges centuries of traditional Kerala Ayurvedic heritage with modern global medical science through its esteemed international collaboration with Dr. Satish Asotra (Ph.D., MBA, AHC, CAS) based in the United States.",
+    highlights: [
+      { title: "Dr. Satish Asotra (USA)", text: "Physiologist, Biochemist, and Clinical Ayurvedic Specialist based in California, USA.", href: "https://www.drasotra.com/affiliations" },
+      { title: "Global Patient Care", text: "Seamless consultation, evaluation, and inpatient admission pathway for international and US patients." },
+      { title: "Academic & Clinical Synergy", text: "Bridging classical Kerala formulations with contemporary physiological research and academic mentorship." },
+    ],
+    sections: [
+      { title: "Key Alliance Focus Areas", text: "Integrative research, international Panchakarma admissions, physician mentorship, and global educational outreach.", items: ["Global Consultations", "Integrative Science", "Academic Exchange", "Panchakarma Referrals"] },
+    ],
+    cta: { title: "Connect With Our Global Team", text: "Seeking international consultation, medical visa assistance, or collaborative research?", href: "/contact-us", label: "Contact Global Desk" },
   },
 };

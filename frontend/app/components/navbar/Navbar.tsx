@@ -121,8 +121,9 @@ export function Navbar() {
               {item.children ? (
                 <div className="dropdown">
                   {item.children.map((child) => (
-                    <Link href={child.href} key={child.label}>
-                      {child.label}
+                    <Link href={child.href} key={child.label} className="dropdown-link-item">
+                      <span>{child.label}</span>
+                      {child.badge && <span className="nav-collab-badge">{child.badge}</span>}
                     </Link>
                   ))}
                 </div>
@@ -204,7 +205,8 @@ export function Navbar() {
                             className={`mobile-overlay-sub-link ${isActive(child.href) ? "active" : ""}`}
                             onClick={() => setMobileMenuOpen(false)}
                           >
-                            {child.label}
+                            <span>{child.label}</span>
+                            {child.badge && <span className="mobile-collab-badge">{child.badge}</span>}
                           </Link>
                         ))}
                       </div>

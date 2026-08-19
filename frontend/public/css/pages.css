@@ -4258,7 +4258,9 @@ body:has(.treatment-detail-reference) main {
 }
 
 body:has(.international-page) .conditions-hero-serene,
-.international-page .conditions-hero-serene {
+.international-page .conditions-hero-serene,
+body:has(.affiliations-page) .conditions-hero-serene,
+.affiliations-page .conditions-hero-serene {
   min-height: 760px !important;
   padding-top: calc(clamp(92px, 7vw, 118px) + 130px) !important;
   padding-bottom: 72px !important;
@@ -4410,6 +4412,8 @@ body:has(.ecosystem-page) .conditions-hero-serene,
 body:has(.branches-premium-page) .conditions-hero-serene-quote,
 .branches-premium-page .conditions-hero-serene-quote,
 body:has(.international-page) .conditions-hero-serene-quote,
+body:has(.affiliations-page) .conditions-hero-serene-quote,
+.affiliations-page .conditions-hero-serene-quote,
 body:has(.ecosystem-page) .conditions-hero-serene-quote,
 body:has(.facilities-page) .conditions-hero-serene-quote,
 body:has(.media-page) .conditions-hero-serene-quote,
@@ -4435,6 +4439,8 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-quote,
 body:has(.branches-premium-page) .conditions-hero-serene-title,
 .branches-premium-page .conditions-hero-serene-title,
 body:has(.international-page) .conditions-hero-serene-title,
+body:has(.affiliations-page) .conditions-hero-serene-title,
+.affiliations-page .conditions-hero-serene-title,
 body:has(.ecosystem-page) .conditions-hero-serene-title,
 body:has(.facilities-page) .conditions-hero-serene-title,
 body:has(.media-page) .conditions-hero-serene-title,
