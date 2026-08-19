@@ -128,93 +128,173 @@ export function AffiliationsPage() {
       {/* 2. Synergy Spotlight Section */}
       <section className="affiliations-section">
         <div className="affiliations-spotlight-card">
-          {/* Visual Bridge */}
+          {/* Top Banner Tag */}
+          <div className="spotlight-top-tag-wrap">
+            <span className="spotlight-top-tag">
+              <span className="live-pulse-dot" />
+              Official Cross-Continental Healthcare Alliance
+            </span>
+          </div>
+
+          {/* Dual-Node Interactive Visual Bridge */}
           <div className="affiliations-spotlight-bridge">
-            <div className="bridge-node">
-              <div className="bridge-icon-wrap">
-                <i className="fa-solid fa-hospital" />
+            {/* Left Node: Susrutha Ayurveda */}
+            <div className="bridge-node-premium left">
+              <div className="bridge-node-top">
+                <div className="bridge-icon-wrap-gold">
+                  <i className="fa-solid fa-hospital" />
+                </div>
+                <span className="node-badge-gold">55+ Yrs Heritage</span>
               </div>
-              <div>
-                <strong>Susrutha Ayurveda Hospital &amp; Gramam</strong>
-                <span>Kerala, India &bull; 55+ Yrs Lineage</span>
+              <div className="bridge-node-info">
+                <h4>Susrutha Ayurveda</h4>
+                <p className="node-location">
+                  <i className="fa-solid fa-location-dot" /> Kattakada &bull; Kowdiar, Kerala, India
+                </p>
+                <div className="node-tags-wrap">
+                  <span className="node-tag">Vaidya Lineage</span>
+                  <span className="node-tag">Ayurveda Gramam</span>
+                  <span className="node-tag">Classical Panchakarma</span>
+                </div>
               </div>
             </div>
 
-            <div className="bridge-connector">
-              <i className="fa-solid fa-arrows-left-right" />
-              <span>International Alliance</span>
+            {/* Central Animated Synergy Hub */}
+            <div className="bridge-center-synergy">
+              <div className="synergy-pulse-ring">
+                <div className="synergy-orb">
+                  <i className="fa-solid fa-right-left" />
+                </div>
+              </div>
+              <span className="synergy-label">Global Alliance</span>
+              <span className="synergy-sublabel">USA &bull; India</span>
             </div>
 
-            <div className="bridge-node">
-              <div className="bridge-icon-wrap">
-                <i className="fa-solid fa-user-doctor" />
+            {/* Right Node: Dr. Satish Asotra */}
+            <div className="bridge-node-premium right">
+              <div className="bridge-node-top">
+                <div className="bridge-icon-wrap-gold">
+                  <i className="fa-solid fa-user-doctor" />
+                </div>
+                <span className="node-badge-gold">Ph.D. &bull; CAS Led</span>
               </div>
-              <div>
-                <strong>Dr. Satish Asotra Holistic Health</strong>
-                <span>California, USA &bull; DrAsotra.com</span>
+              <div className="bridge-node-info">
+                <h4>Dr. Satish Asotra</h4>
+                <p className="node-location">
+                  <i className="fa-solid fa-location-dot" /> California, United States
+                </p>
+                <div className="node-tags-wrap">
+                  <span className="node-tag">Biochemist &bull; Physiologist</span>
+                  <span className="node-tag">Global Tele-Care</span>
+                  <span className="node-tag">DrAsotra.com</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Spotlight Details */}
+          {/* Spotlight Details Grid */}
           <div className="affiliations-spotlight-body">
-            <div>
-              <span className="spotlight-eyebrow">Where Tradition Meets Innovation</span>
+            {/* Left Content Column */}
+            <div className="spotlight-left-column">
+              <div className="spotlight-prestige-badge">
+                <i className="fa-solid fa-award" />
+                <span>Where Tradition Meets Scientific Innovation</span>
+              </div>
+
               <h2 className="spotlight-heading">
                 Bridging Ancient Vedic Wisdom With Modern Physiological Science
               </h2>
-              <p className="spotlight-desc">
-                Rooted in the authentic teachings of venerable masters Sri. P. Krishna Pillai, Sri. P.K. Pillai, and the late 
-                Prof. Dr. Krishnankutty Nair, Susrutha Ayurveda has stood as a beacon of clinical excellence in South India.
-              </p>
-              <p className="spotlight-desc">
-                Through our collaboration with <strong>Dr. Satish Asotra (Ph.D., MBA, AHC, CAS)</strong>, we bring this sacred healing 
-                tradition to North America and the international community — harmonizing ancient diagnosis with biochemical insight 
-                for global patients.
+
+              <p className="spotlight-lead">
+                Rooted in the authentic teachings of venerated masters <strong>Sri. P. Krishna Pillai</strong>, <strong>Sri. P.K. Pillai</strong>, and the late <strong>Prof. Dr. Krishnankutty Nair</strong>, Susrutha Ayurveda represents over five decades of clinical dedication.
               </p>
 
-              <ul className="spotlight-highlights-list">
-                <li>
-                  <i className="fa-solid fa-circle-check" />
-                  <span><strong>Direct US-India Healthcare Gateway:</strong> Pre-treatment consultations and seamless hospital admissions in Kerala.</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-circle-check" />
-                  <span><strong>Evidence &amp; Clinical Quality:</strong> Protocol reviews blending clinical observation with physiological principles.</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-circle-check" />
-                  <span><strong>International Educational Outreach:</strong> Mentorship, webinars, and collaborative workshops for global learners.</span>
-                </li>
-              </ul>
+              <p className="spotlight-desc">
+                In strategic international collaboration with <strong>Dr. Satish Asotra (Ph.D., MBA, AHC, CAS)</strong>, we bridge this sacred healing heritage with North American medical science, physiology, and global holistic care.
+              </p>
+
+              {/* 3 Luxury Feature Cards */}
+              <div className="spotlight-feature-cards">
+                <div className="spotlight-feat-card">
+                  <div className="feat-card-num">01</div>
+                  <div className="feat-card-content">
+                    <h5>Cross-Continental Healthcare Gateway</h5>
+                    <p>
+                      Direct telemedicine evaluations for US and global patients, followed by coordinated inpatient admission to Susrutha Ayurveda Gramam in Kerala.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="spotlight-feat-card">
+                  <div className="feat-card-num">02</div>
+                  <div className="feat-card-content">
+                    <h5>Integrative Biomedical Understanding</h5>
+                    <p>
+                      Harmonizing classical Kerala Rasayanas and treatments with modern cellular physiology and biochemical pathways for evidence-informed wellness.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="spotlight-feat-card">
+                  <div className="feat-card-num">03</div>
+                  <div className="feat-card-content">
+                    <h5>Academic &amp; Educational Discourse</h5>
+                    <p>
+                      Collaborative knowledge dissemination and workshops connected with networks including Hindu University of America &amp; California College of Ayurveda.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Dr. Asotra Profile Card */}
+            {/* Right Column: Executive Profile Card */}
             <div className="affiliations-practitioner-card">
+              <div className="practitioner-verified-ribbon">
+                <i className="fa-solid fa-shield-check" />
+                <span>Verified Global Collaborator</span>
+              </div>
+
               <div className="practitioner-header">
                 <div className="practitioner-avatar-badge">
                   SA
                 </div>
-                <div>
+                <div className="practitioner-header-text">
                   <h3 className="practitioner-name">Dr. Satish Asotra</h3>
                   <div className="practitioner-title-role">
-                    Ayurvedic Health Practitioner &bull; Scientist
+                    Physiologist &bull; Biochemist &bull; Ayurvedic Specialist
+                  </div>
+                  <div className="practitioner-geo">
+                    <i className="fa-solid fa-location-pin" /> California, USA
                   </div>
                 </div>
               </div>
 
               <div className="practitioner-creds-tags">
                 <span className="cred-tag">Ph.D. Biochemistry</span>
-                <span className="cred-tag">Physiologist</span>
+                <span className="cred-tag">Medical Physiologist</span>
                 <span className="cred-tag">MBA</span>
                 <span className="cred-tag">CAS (Clinical Specialist)</span>
                 <span className="cred-tag">AHC</span>
               </div>
 
-              <p className="practitioner-bio">
-                With over 30 years in healthcare, medical research, pharmaceutical leadership, and clinical Ayurveda, Dr. Asotra 
-                champions self-healthcare and root-cause balance, connecting global seekers to Susrutha’s classical healing legacy.
-              </p>
+              <div className="practitioner-metrics-row">
+                <div className="practitioner-metric">
+                  <strong>30+ Yrs</strong>
+                  <span>Medical Sciences</span>
+                </div>
+                <div className="practitioner-metric">
+                  <strong>Published</strong>
+                  <span>Scientific Research</span>
+                </div>
+                <div className="practitioner-metric">
+                  <strong>Global</strong>
+                  <span>Clinical Reach</span>
+                </div>
+              </div>
+
+              <blockquote className="practitioner-quote">
+                &ldquo;Integrating Eastern Ayurvedic traditions with Western medical science to empower individuals with personalized, root-cause healing.&rdquo;
+              </blockquote>
 
               <a
                 href="https://www.drasotra.com/affiliations"
@@ -222,7 +302,7 @@ export function AffiliationsPage() {
                 rel="noopener noreferrer"
                 className="practitioner-link-btn"
               >
-                <span>View Official Affiliation at DrAsotra.com</span>
+                <span>Explore Dr. Asotra&apos;s Official Portal</span>
                 <i className="fa-solid fa-arrow-up-right-from-square" />
               </a>
             </div>

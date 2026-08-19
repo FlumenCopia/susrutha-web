@@ -205,146 +205,337 @@
   color: #c4d4cc;
 }
 
-/* ---------------- Synergy Spotlight Section ---------------- */
+/* ---------------- Synergy Spotlight Section (Upgraded Luxury UI) ---------------- */
 .affiliations-section {
-  padding: 88px 24px;
-  max-width: 1200px;
+  padding: 40px 24px 80px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .affiliations-spotlight-card {
   background: #ffffff;
-  border: 1px solid rgba(27, 61, 51, 0.08);
-  border-radius: 28px;
-  box-shadow: 0 16px 48px rgba(17, 38, 31, 0.06);
-  padding: 48px 40px;
+  border: 1.5px solid rgba(200, 155, 60, 0.25);
+  border-radius: 32px;
+  box-shadow: 0 24px 64px rgba(17, 38, 31, 0.07), 0 4px 16px rgba(200, 155, 60, 0.06);
+  padding: 44px 44px;
   margin-top: -50px;
   position: relative;
   z-index: 10;
 }
 
-.affiliations-spotlight-bridge {
+/* Top Banner Badge */
+.spotlight-top-tag-wrap {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 32px;
-  margin-bottom: 36px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
-.bridge-node {
+.spotlight-top-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(27, 61, 51, 0.06) 0%, rgba(200, 155, 60, 0.12) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.35);
+  color: #17382d;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Dual-Node Interactive Visual Bridge */
+.affiliations-spotlight-bridge {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 44px;
+  padding-bottom: 36px;
+  border-bottom: 1px dashed rgba(27, 61, 51, 0.12);
+}
+
+.bridge-node-premium {
+  background: linear-gradient(145deg, #fbfcfb 0%, #f4f7f5 100%);
+  border: 1.5px solid rgba(27, 61, 51, 0.1);
+  border-radius: 22px;
+  padding: 24px 26px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+}
+
+.bridge-node-premium:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 155, 60, 0.5);
+  box-shadow: 0 16px 36px rgba(27, 61, 51, 0.08);
+  background: #ffffff;
+}
+
+.bridge-node-top {
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: #f6f8f7;
-  border: 1px solid rgba(27, 61, 51, 0.08);
-  padding: 14px 22px;
-  border-radius: 18px;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
 
-.bridge-icon-wrap {
-  width: 48px;
-  height: 48px;
+.bridge-icon-wrap-gold {
+  width: 46px;
+  height: 46px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #1b3d33 0%, #10261f 100%);
+  background: linear-gradient(135deg, #1b3d33 0%, #0e2720 100%);
   color: #f7dfa5;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(14, 39, 32, 0.2);
 }
 
-.bridge-node strong {
-  display: block;
-  font-size: 1.05rem;
-  color: #17382d;
+.node-badge-gold {
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94691e;
+  background: rgba(200, 155, 60, 0.14);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 155, 60, 0.3);
 }
 
-.bridge-node span {
-  font-size: 0.85rem;
-  color: #65756f;
+.bridge-node-info h4 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #17382d;
+  margin: 0 0 4px;
 }
 
-.bridge-connector {
+.node-location {
+  font-size: 0.84rem;
+  color: #5c6e67;
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #c89b3c;
-  font-weight: 700;
-  font-size: 0.88rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 8px 18px;
-  background: rgba(200, 155, 60, 0.09);
-  border-radius: 999px;
-  border: 1px dashed rgba(200, 155, 60, 0.35);
+  gap: 6px;
+  margin: 0 0 12px;
 }
 
-.affiliations-spotlight-body {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
+.node-location i {
+  color: #c89b3c;
+}
+
+.node-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.node-tag {
+  background: #ffffff;
+  border: 1px solid rgba(27, 61, 51, 0.08);
+  color: #2f3e38;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+/* Central Synergy Hub */
+.bridge-center-synergy {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  padding: 0 8px;
 }
 
-.spotlight-eyebrow {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #c89b3c;
+.synergy-pulse-ring {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 8px;
 }
 
-.spotlight-heading {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
+.synergy-orb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c89b3c 0%, #9a6528 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 18px rgba(200, 155, 60, 0.45);
+  border: 3px solid #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.synergy-pulse-ring:hover .synergy-orb {
+  transform: rotate(180deg) scale(1.08);
+}
+
+.synergy-label {
+  font-size: 0.82rem;
+  font-weight: 800;
   color: #17382d;
-  line-height: 1.25;
-  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.synergy-sublabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #8c6418;
+}
+
+/* Spotlight Details Grid */
+.affiliations-spotlight-body {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.spotlight-left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-prestige-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94691e;
+  margin-bottom: 12px;
+  background: rgba(200, 155, 60, 0.1);
+  padding: 4px 14px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.spotlight-prestige-badge i {
+  color: #c89b3c;
+}
+
+.spotlight-heading {
+  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 600;
+  color: #17382d;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+.spotlight-lead {
+  font-size: 1.04rem;
+  line-height: 1.7;
+  color: #2b3b35;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
 .spotlight-desc {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.96rem;
+  line-height: 1.68;
   color: #4b5853;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
-.spotlight-highlights-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* 3 Luxury Feature Cards */
+.spotlight-feature-cards {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.spotlight-highlights-list li {
+.spotlight-feat-card {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 0.95rem;
-  color: #2f3e38;
+  gap: 16px;
+  background: #fbfbfa;
+  border: 1px solid rgba(27, 61, 51, 0.07);
+  border-radius: 16px;
+  padding: 16px 20px;
+  transition: all 0.25s ease;
 }
 
-.spotlight-highlights-list li i {
+.spotlight-feat-card:hover {
+  background: #ffffff;
+  border-color: rgba(200, 155, 60, 0.4);
+  box-shadow: 0 10px 24px rgba(27, 61, 51, 0.06);
+  transform: translateX(4px);
+}
+
+.feat-card-num {
+  font-size: 0.88rem;
+  font-weight: 800;
   color: #c89b3c;
-  margin-top: 4px;
-  font-size: 0.9rem;
+  background: rgba(200, 155, 60, 0.12);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: monospace;
 }
 
-/* ---------------- Practitioner Profile Card ---------------- */
+.feat-card-content h5 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #17382d;
+  margin: 0 0 4px;
+}
+
+.feat-card-content p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #556660;
+  margin: 0;
+}
+
+/* Right Column: Executive Profile Card */
 .affiliations-practitioner-card {
-  background: linear-gradient(145deg, #183e33 0%, #0e2720 100%);
-  border-radius: 24px;
-  padding: 36px;
+  background: linear-gradient(155deg, #183e33 0%, #0d251e 100%);
+  border: 1.5px solid rgba(200, 155, 60, 0.35);
+  border-radius: 26px;
+  padding: 34px 30px;
   color: #ffffff;
-  box-shadow: 0 16px 40px rgba(14, 39, 32, 0.25);
+  box-shadow: 0 20px 48px rgba(13, 37, 30, 0.28);
   position: relative;
   overflow: hidden;
 }
@@ -352,75 +543,137 @@
 .affiliations-practitioner-card::after {
   content: "";
   position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 180px;
-  height: 180px;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200, 155, 60, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200, 155, 60, 0.25) 0%, transparent 70%);
   pointer-events: none;
+}
+
+.practitioner-verified-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200, 155, 60, 0.2);
+  border: 1px solid rgba(200, 155, 60, 0.4);
+  color: #f7dfa5;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
 }
 
 .practitioner-header {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 22px;
+  gap: 16px;
+  margin-bottom: 18px;
 }
 
 .practitioner-avatar-badge {
-  width: 64px;
-  height: 64px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c89b3c 0%, #94691e 100%);
+  background: linear-gradient(135deg, #c89b3c 0%, #8c5f16 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.practitioner-header-text {
+  flex: 1;
 }
 
 .practitioner-name {
   font-size: 1.35rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin: 0 0 2px;
 }
 
 .practitioner-title-role {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: #f7dfa5;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.practitioner-geo {
+  font-size: 0.78rem;
+  color: #b7c7c0;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.practitioner-geo i {
+  color: #c89b3c;
 }
 
 .practitioner-creds-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 20px;
 }
 
 .cred-tag {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 0.76rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 0.74rem;
   font-weight: 600;
   color: #e4eee9;
-  letter-spacing: 0.03em;
 }
 
-.practitioner-bio {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: #ccd9d3;
-  margin-bottom: 24px;
+.practitioner-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.practitioner-metric strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f7dfa5;
+}
+
+.practitioner-metric span {
+  font-size: 0.68rem;
+  color: #b7c7c0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.practitioner-quote {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #ccdcd5;
+  font-style: italic;
+  margin: 0 0 24px;
+  padding-left: 14px;
+  border-left: 3px solid #c89b3c;
 }
 
 .practitioner-link-btn {
@@ -437,12 +690,13 @@
   border-radius: 12px;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 16px rgba(200, 155, 60, 0.3);
+  box-shadow: 0 4px 16px rgba(200, 155, 60, 0.35);
 }
 
 .practitioner-link-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 155, 60, 0.45);
+  box-shadow: 0 8px 24px rgba(200, 155, 60, 0.5);
+  color: #ffffff;
 }
 
 /* ---------------- 4 Core Pillars Grid ---------------- */
@@ -833,9 +1087,22 @@
     gap: 36px;
   }
 
+  .affiliations-spotlight-bridge {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bridge-center-synergy {
+    padding: 8px 0;
+  }
+
+  .synergy-pulse-ring {
+    transform: rotate(90deg);
+  }
+
   .affiliations-spotlight-body {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
   }
 
   .heritage-inner {
@@ -866,18 +1133,27 @@
   }
 
   .affiliations-spotlight-card {
-    padding: 30px 20px;
-    border-radius: 20px;
+    padding: 28px 18px;
+    border-radius: 24px;
+    margin-top: -30px;
   }
 
-  .affiliations-spotlight-bridge {
+  .bridge-node-premium {
+    padding: 18px 16px;
+  }
+
+  .spotlight-feat-card {
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
   }
 
-  .bridge-node {
-    width: 100%;
-    justify-content: flex-start;
+  .affiliations-practitioner-card {
+    padding: 26px 18px;
+  }
+
+  .practitioner-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .affiliations-cta-box {
