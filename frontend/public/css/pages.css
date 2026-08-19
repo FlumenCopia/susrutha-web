@@ -12039,7 +12039,7 @@ body:has(.branches-premium-page) {
 .branches-locations,
 .branches-trust-panel,
 .branches-cta {
-  width: min(calc(100% - 44px), 1480px);
+  width: min(calc(100% - 48px), 1280px);
   margin-inline: auto;
 }
 
@@ -12331,81 +12331,76 @@ body:has(.branches-premium-page) {
 .branches-location-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(22px, 2.4vw, 34px);
+  gap: clamp(20px, 2vw, 28px);
 }
 
 .branch-location-card {
   position: relative;
   border: 1px solid rgba(221, 212, 199, 0.94);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 26px 76px rgba(35, 35, 35, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 48px rgba(35, 35, 35, 0.07);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   overflow: hidden;
 }
 
 .branch-location-card:hover {
   border-color: rgba(200, 155, 60, 0.34);
-  box-shadow: 0 34px 94px rgba(35, 35, 35, 0.14);
-  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(35, 35, 35, 0.11);
+  transform: translateY(-4px);
 }
 
 .branch-location-image {
   position: relative;
-  min-height: clamp(240px, 24vw, 330px);
+  height: clamp(190px, 16vw, 230px);
+  min-height: 190px;
   background: #ddd4c7;
   overflow: hidden;
-  border-radius: 28px 28px 0 0;
+  border-radius: 24px 24px 0 0;
 }
 
 .branch-location-image img {
-  border-radius: 28px 28px 0 0;
+  border-radius: 24px 24px 0 0;
   transition: transform 720ms ease, filter 720ms ease;
 }
 
 .branch-location-card:hover .branch-location-image img {
   filter: saturate(1.06);
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .branch-location-image>span {
   position: absolute;
-  left: 22px;
-  top: 20px;
+  left: 18px;
+  top: 16px;
   z-index: 2;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   color: var(--branches-green, #102d24);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .branch-location-body {
   position: relative;
-  padding: clamp(28px, 2.8vw, 40px);
-  border-radius: 0 0 28px 28px;
-}
-
-.branch-location-icon {
-  position: absolute;
-  right: clamp(28px, 3vw, 44px);
-  top: -40px;
-  width: 66px;
-  height: 66px;
-  font-size: 28px;
+  padding: 24px 26px 26px;
+  border-radius: 0 0 24px 24px;
 }
 
 .branch-location-body h3 {
-  max-width: calc(100% - 78px);
+  width: 100%;
+  max-width: 100%;
   margin: 0;
-  font-size: clamp(28px, 2.4vw, 40px);
-  line-height: 1.06;
+  font-size: clamp(19px, 1.45vw, 23px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #102d24;
 }
 
 .branch-location-address,
@@ -12418,11 +12413,11 @@ body:has(.branches-premium-page) {
 }
 
 .branch-location-address {
-  margin: 14px 0 0;
-  color: #334139 !important;
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.5;
+  margin: 10px 0 0;
+  color: #4a5851 !important;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .branch-location-address svg,
@@ -12431,9 +12426,10 @@ body:has(.branches-premium-page) {
 }
 
 .branch-location-description {
-  margin: 22px 0 0;
-  font-size: 14px;
-  line-height: 1.68;
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #55625b;
 }
 
 .branch-location-meta {

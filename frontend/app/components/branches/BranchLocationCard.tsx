@@ -35,9 +35,6 @@ export function BranchLocationCard({ branch }: BranchLocationCardProps) {
       </div>
 
       <div className="branch-location-body">
-        <span className="branch-location-icon">
-          <BranchIcon name={branch.icon} />
-        </span>
         <h3>{branch.title}</h3>
 
         <p className="branch-location-address">

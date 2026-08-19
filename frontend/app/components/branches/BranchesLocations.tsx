@@ -27,7 +27,7 @@ export function BranchesLocations() {
               id: b.code ? b.code.toLowerCase() : `b-${idx}`,
               title: b.name || "Susrutha Branch",
               label: b.tagline || "Ayurvedic Centre",
-              description: b.features ? b.features.join(' • ') : (b.overview || ""),
+              description: b.overview || b.tagline || "Comprehensive Ayurvedic healthcare facility with specialized care.",
               location: typeof b.address === 'object' ? `${b.address.street || ''}, ${b.address.city || ''}` : (b.address || ""),
               hours: b.opdTimings || "8:00 AM - 7:00 PM",
               phone: (b.contact && b.contact.phone && b.contact.phone[0]) ? b.contact.phone[0] : "+91 9645 555 888",
