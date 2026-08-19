@@ -144,7 +144,7 @@ export const desktopNavigation: LinkItem[] = [
     href: "/about-us",
     children: [
       { label: "About & Legacy", href: "/about-us" },
-      { label: "International Collab (USA)", href: "/affiliations", badge: "Global" },
+      { label: "Affiliations", href: "/affiliations", badge: "Global" },
       { label: "Hospital Branches", href: "/branches" },
       { label: "Ayur Village", href: "/ayurveda-village" },
       { label: "Care Packages", href: "/packages" },

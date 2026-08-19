@@ -12,7 +12,7 @@ const navSections = [
       { label: "Home", href: "/" },
       { label: "About Us", href: "/about-us" },
       { label: "Our Doctors", href: "/doctors" },
-      { label: "International Collab", href: "/affiliations" },
+      { label: "Affiliations", href: "/affiliations" },
       { label: "Ayurveda Village", href: "/ayurveda-village" },
       { label: "Facilities", href: "/facilities" },
       { label: "Blogs & Articles", href: "/blogs" },
