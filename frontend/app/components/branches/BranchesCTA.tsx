@@ -7,12 +7,12 @@ export function BranchesCTA() {
     <section className="branches-cta">
       <div className="branches-cta-bg-wrap" aria-hidden="true">
         <Image
-          src="/images/testimonial-lamp-flowers.webp"
-          alt=""
+          src="/images/banner_calm_retreat.jpg"
+          alt="Ayurvedic Healing Environment"
           fill
           priority
           sizes="(max-width: 1200px) 100vw, 1280px"
-          style={{ objectFit: "cover", objectPosition: "right center" }}
+          style={{ objectFit: "cover", objectPosition: "center 40%" }}
         />
         <div className="branches-cta-overlay" />
       </div>
