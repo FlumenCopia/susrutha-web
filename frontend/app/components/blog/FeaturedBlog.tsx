@@ -55,11 +55,6 @@ export function FeaturedBlog() {
   return (
     <section className="blog-premium-featured" aria-labelledby="featured-articles-title">
       <BlogSectionHeader eyebrow="Featured Articles" title="Magazine-style stories with clinical depth." titleId="featured-articles-title" />
-      <div className="blog-premium-studio-note" aria-hidden="true">
-        <span>Curated by physicians</span>
-        <span>Seasonal care</span>
-        <span>Research-backed</span>
-      </div>
       <div className="blog-premium-featured-layout">
         <article className="blog-premium-featured-card blog-premium-featured-card-large">
           <Image src={primary.image} alt="" fill sizes="(max-width: 900px) 100vw, 58vw" />
