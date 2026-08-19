@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
+import { Check, Clock, Leaf, UserCheck, CheckCircle2, Phone, ArrowRight } from "lucide-react";
 import { getImageDisplayUrl } from "../../services/api";
 
 type TreatmentDetailReferencePageProps = {
@@ -50,14 +50,14 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             title: b,
             text: '',
             image: '/images/treatment-herbal-medicine.webp',
-            icon: '🌿',
+            icon: 'leaf',
           };
         }
         return {
           title: b.title || `Benefit ${idx + 1}`,
           text: b.text || b.description || '',
           image: b.image ? getImageDisplayUrl(b.image) : '/images/treatment-herbal-medicine.webp',
-          icon: b.icon || '🌿',
+          icon: b.icon || 'leaf',
         };
       })
     : [];
@@ -65,12 +65,12 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
   const idealForItems = Array.isArray(treatment.indications) && treatment.indications.length > 0
     ? treatment.indications.map((item: any) => {
         if (typeof item === 'string') {
-          return { title: item, subtitle: 'Target indication for treatment', icon: '🌿' };
+          return { title: item, subtitle: 'Target indication for treatment', icon: 'leaf' };
         }
         return {
           title: item.title || String(item),
           subtitle: item.subtitle || 'Target indication for treatment',
-          icon: item.icon || '🌿',
+          icon: item.icon || 'leaf',
         };
       })
     : [];
@@ -79,14 +79,14 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
     ? treatment.procedureSteps.map((stepItem: any, idx: number) => {
         const stepNum = String(idx + 1).padStart(2, '0');
         if (typeof stepItem === 'string') {
-          return { step: stepNum, phase: `Phase ${idx + 1}`, title: `Step ${idx + 1}`, text: stepItem, icon: '🏺' };
+          return { step: stepNum, phase: `Phase ${idx + 1}`, title: `Step ${idx + 1}`, text: stepItem, icon: 'sparkles' };
         }
         return {
           step: stepItem.step || stepNum,
           phase: stepItem.phase || `Phase ${idx + 1}`,
           title: stepItem.title || stepItem.step || `Step ${idx + 1}`,
           text: stepItem.text || stepItem.detail || '',
-          icon: stepItem.icon || '🏺',
+          icon: stepItem.icon || 'sparkles',
         };
       })
     : [];
@@ -119,16 +119,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         
         <div className="treatment-hero-container">
           <div className="treatment-hero-content">
-            {/* <nav className="treatment-breadcrumb-nav" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span className="bc-sep">/</span>
-              <Link href="/treatments">Treatments</Link>
-              <span className="bc-sep">/</span>
-              <span className="bc-current">{treatment.title || slugLabel(treatment.slug)}</span>
-            </nav> */}
-
             <div className="treatment-eyebrow-badge">
-              {/* <span className="badge-dot" /> */}
               <span>AYURVEDIC THERAPY</span>
             </div>
 
@@ -143,7 +134,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             <div className="treatment-facts-bar">
               {duration && (
                 <div className="fact-item">
-                  <span className="fact-icon"><i className="fa-regular fa-clock" /></span>
+                  <span className="fact-icon"><Clock size={16} /></span>
                   <div>
                     <span className="fact-label">Duration</span>
                     <strong className="fact-value">{duration}</strong>
@@ -151,14 +142,14 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 </div>
               )}
               <div className="fact-item">
-                <span className="fact-icon"><i className="fa-solid fa-leaf" /></span>
+                <span className="fact-icon"><Leaf size={16} /></span>
                 <div>
                   <span className="fact-label">Purity</span>
                   <strong className="fact-value">100% Herbal</strong>
                 </div>
               </div>
               <div className="fact-item">
-                <span className="fact-icon"><i className="fa-solid fa-user-doctor" /></span>
+                <span className="fact-icon"><UserCheck size={16} /></span>
                 <div>
                   <span className="fact-label">Care</span>
                   <strong className="fact-value">Physician Led</strong>
@@ -168,9 +159,9 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
 
             {/* Action Buttons */}
             <div className="treatment-hero-actions">
-              <Link className="btn btn-primary treatment-btn-book" href="/appointment">
+              <Link className="btn btn-primary treatment-btn-book" href="/appointment" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <span>Book Consultation</span>
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
+                <ArrowRight size={14} />
               </Link>
               <Link className="btn btn-outline treatment-btn-enquire" href="/contact-us">
                 <span>Enquire Treatment</span>
@@ -265,7 +256,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                   {idealForItems.map((item: any) => (
                     <div className="ideal-item-card" key={item.title}>
                       <span className="ideal-item-icon">
-                        <i className="fa-solid fa-circle-check" />
+                        <CheckCircle2 size={16} color="#c88922" />
                       </span>
                       <div className="ideal-item-text">
                         <h4>{item.title}</h4>
@@ -315,7 +306,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                   <ul className="expect-check-list">
                     {expectItems.map((item: string) => (
                       <li key={item}>
-                        <span className="check-icon">✓</span>
+                        <span className="check-icon"><Check size={14} /></span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -332,7 +323,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                   <ul className="expect-check-list">
                     {includeItems.map((item: string) => (
                       <li key={item}>
-                        <span className="check-icon gold">✓</span>
+                        <span className="check-icon gold"><Check size={14} /></span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -353,15 +344,13 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               Consult with our renowned Ayurvedic physicians to receive a customized treatment plan tailored to your specific health needs.
             </p>
             <div className="cta-action-group">
-              <Link className="btn btn-primary cta-btn-gold" href="/appointment">
+              <Link className="btn btn-primary cta-btn-gold" href="/appointment" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <span>Book Doctor Consultation</span>
-                <span aria-hidden="true">&rarr;</span>
+                <ArrowRight size={14} />
               </Link>
-              <a href="tel:+919447003191" className="btn btn-outline cta-btn-phone">
-                <span>
-                  <i className="fa-solid fa-phone" aria-hidden="true" style={{ marginRight: "6px" }} />
-                  Call +91 94470 03191
-                </span>
+              <a href="tel:+919447003191" className="btn btn-outline cta-btn-phone" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                <Phone size={14} />
+                <span>Call +91 94470 03191</span>
               </a>
             </div>
           </div>

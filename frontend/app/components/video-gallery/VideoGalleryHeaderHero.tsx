@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Star } from "lucide-react";
 import { VideoItem } from "./FeaturedVideoCard";
 
 type VideoGalleryHeaderHeroProps = {
@@ -46,7 +47,10 @@ export function VideoGalleryHeaderHero({ onSpotlightClick, spotlightVideo }: Vid
             </div>
             <div className="conditions-hero-stat-card">
               <div className="conditions-hero-stat-info">
-                <strong>4.9 ★</strong>
+                <strong style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
+                  <span>4.9</span>
+                  <Star size={13} fill="#d97706" color="#d97706" />
+                </strong>
                 <span>Patient Rating</span>
               </div>
             </div>

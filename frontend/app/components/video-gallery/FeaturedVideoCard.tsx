@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Check } from "lucide-react";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export type VideoChapter = {
@@ -102,9 +103,13 @@ export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
             />
           </div>
           <div className="vg-speaker-info">
-            <span className="vg-speaker-name">
+            <span className="vg-speaker-name" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
               {video.speaker.name}
-              {video.speaker.verified && <span className="vg-verified-check" title="Verified Physician">✔</span>}
+              {video.speaker.verified && (
+                <span className="vg-verified-check" title="Verified Physician" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                  <Check size={10} />
+                </span>
+              )}
             </span>
             <span className="vg-speaker-role">{video.speaker.role}</span>
           </div>

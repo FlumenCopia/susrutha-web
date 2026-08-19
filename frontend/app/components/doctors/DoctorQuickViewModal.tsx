@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { X, Calendar, Languages, CalendarDays, ArrowRight } from "lucide-react";
 import { DoctorItem } from "./DoctorCard";
 
 type DoctorQuickViewModalProps = {
@@ -35,7 +36,7 @@ export function DoctorQuickViewModal({ doctor, onClose }: DoctorQuickViewModalPr
           onClick={onClose}
           aria-label="Close modal"
         >
-          ✕
+          <X size={18} />
         </button>
 
         <div className="doctor-modal-grid">
@@ -85,13 +86,15 @@ export function DoctorQuickViewModal({ doctor, onClose }: DoctorQuickViewModalPr
             </div>
 
             <div className="doctor-modal-section-title">Available Consultation Days</div>
-            <p style={{ fontSize: 14, color: "#262725", fontWeight: 600, margin: "0 0 20px" }}>
-              🗓️ {doctor.availableDays.join(", ")}
+            <p style={{ fontSize: 14, color: "#262725", fontWeight: 600, margin: "0 0 20px", display: "flex", alignItems: "center", gap: "6px" }}>
+              <Calendar size={15} style={{ color: "#c88922" }} />
+              <span>{doctor.availableDays.join(", ")}</span>
             </p>
 
             <div className="doctor-modal-section-title">Languages Spoken</div>
-            <p style={{ fontSize: 13.5, color: "#6a6c67", margin: "0 0 24px" }}>
-              🗣️ {doctor.languages.join(", ")}
+            <p style={{ fontSize: 13.5, color: "#6a6c67", margin: "0 0 24px", display: "flex", alignItems: "center", gap: "6px" }}>
+              <Languages size={15} style={{ color: "#c88922" }} />
+              <span>{doctor.languages.join(", ")}</span>
             </p>
 
             <div className="doctor-card-actions">
@@ -100,7 +103,7 @@ export function DoctorQuickViewModal({ doctor, onClose }: DoctorQuickViewModalPr
                 className="doctor-card-btn-book"
                 onClick={onClose}
               >
-                <i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} />
+                <CalendarDays size={15} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />
                 Book Appointment
               </Link>
               <Link
@@ -108,7 +111,7 @@ export function DoctorQuickViewModal({ doctor, onClose }: DoctorQuickViewModalPr
                 className="doctor-card-btn-secondary"
                 onClick={onClose}
               >
-                Full Profile Page <i className="fa-solid fa-arrow-right" style={{ marginLeft: "6px" }} />
+                Full Profile Page <ArrowRight size={14} style={{ display: "inline-block", verticalAlign: "-1px", marginLeft: "4px" }} />
               </Link>
             </div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { ChevronLeft, ChevronRight, Play, Leaf } from "lucide-react";
 import { ContinueWatchingCard, ContinueWatchingItem } from "./ContinueWatchingCard";
 import { VideoItem } from "./FeaturedVideoCard";
 
@@ -30,13 +31,13 @@ export function ContinueWatchingSection({ items = [], onPlayVideo }: ContinueWat
       <div className="vg-cw-panel-luxury">
         <div className="vg-section-header">
           <div className="vg-cw-header-left">
-            <div className="vg-cw-icon-badge" aria-hidden="true">
-              <i className="fa-solid fa-play" />
+            <div className="vg-cw-icon-badge" aria-hidden="true" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Play size={14} />
             </div>
             <div>
               <div className="vg-eyebrow-accent">RESTART SESSION</div>
               <h2 id="continue-watching-heading" className="vg-section-title">
-                Continue Watching <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
+                Continue Watching <span className="vg-leaf-accent" aria-hidden="true"><Leaf size={16} style={{ display: "inline-block", verticalAlign: "-2px" }} /></span>
               </h2>
               <p className="vg-section-subhead">Pick up right where you left off</p>
             </div>
@@ -48,16 +49,18 @@ export function ContinueWatchingSection({ items = [], onPlayVideo }: ContinueWat
               className="vg-nav-arrow-btn"
               onClick={scrollLeft}
               aria-label="Scroll left"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
             >
-              ←
+              <ChevronLeft size={16} />
             </button>
             <button
               type="button"
               className="vg-nav-arrow-btn"
               onClick={scrollRight}
               aria-label="Scroll right"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
             >
-              →
+              <ChevronRight size={16} />
             </button>
           </div>
         </div>

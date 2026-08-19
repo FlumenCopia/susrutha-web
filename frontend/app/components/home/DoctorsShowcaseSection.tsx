@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Star, Play, Pause, ArrowRight } from "lucide-react";
 import { getImageDisplayUrl, getPublicDoctors } from "../../services/api";
 
 // Map department slugs to display categories
@@ -76,7 +77,7 @@ export function DoctorsShowcaseSection() {
             category: mapDeptToCategory(d.departmentId?.slug || ""),
             qualification: `${d.qualifications || "BAMS"}${d.experienceYears ? " • " + d.experienceYears + "+ Yrs Exp" : ""}`,
             experience: d.experienceText || `${d.experienceYears || 15}+ Years`,
-            rating: `${d.rating || 4.9} ★`,
+            rating: `${d.rating || 4.9}`,
             summary: d.bio || d.text || "Senior Ayurvedic Physician at Susrutha Ayurveda.",
             image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
             availability: d.availability?.length
@@ -162,7 +163,7 @@ export function DoctorsShowcaseSection() {
           {/* Left Column: Chief Physician Spotlight Showcase */}
           <div className="home-doctor-spotlight-card">
             <div className="home-spotlight-badge">
-              <span className="home-spotlight-star">★</span>
+              <span className="home-spotlight-star" style={{ display: "inline-flex", alignItems: "center" }}><Star size={13} fill="#d97706" color="#d97706" /></span>
               <span>CHIEF PHYSICIAN SPOTLIGHT</span>
             </div>
 
@@ -182,7 +183,10 @@ export function DoctorsShowcaseSection() {
                 <span className="home-spotlight-metric-lbl">Positive Outcomes</span>
               </div>
 
-              <div className="home-spotlight-rating-chip">{spotlightDoctor.rating}</div>
+              <div className="home-spotlight-rating-chip" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
+                <span>{spotlightDoctor.rating}</span>
+                <Star size={11} fill="#d97706" color="#d97706" />
+              </div>
             </Link>
 
             <div className="home-spotlight-body">
@@ -203,9 +207,9 @@ export function DoctorsShowcaseSection() {
               )}
 
               <div className="home-spotlight-actions">
-                <Link href={`/doctors/${spotlightDoctor.slug}`} className="home-spotlight-profile-btn">
+                <Link href={`/doctors/${spotlightDoctor.slug}`} className="home-spotlight-profile-btn" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
                   <span>View Doctor Profile & Credentials</span>
-                  <span aria-hidden="true">&rarr;</span>
+                  <ArrowRight size={14} />
                 </Link>
 
                 <div className="home-spotlight-btn-row">
@@ -213,9 +217,10 @@ export function DoctorsShowcaseSection() {
                     type="button"
                     className="home-spotlight-audio-btn"
                     onClick={() => setIsPlayingAudioQuote(!isPlayingAudioQuote)}
+                    style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
                   >
                     <span className="home-spotlight-audio-icon">
-                      {isPlayingAudioQuote ? "⏸" : "▶"}
+                      {isPlayingAudioQuote ? <Pause size={13} /> : <Play size={13} />}
                     </span>
                     <span>{isPlayingAudioQuote ? "Pause" : "Welcome Note"}</span>
                   </button>
@@ -235,9 +240,9 @@ export function DoctorsShowcaseSection() {
           <div className="home-doctors-team-col">
             <div className="home-doctors-team-header">
               <h3 className="home-team-heading">Specialist Medical Team</h3>
-              <Link href="/doctors" className="home-team-view-all">
+              <Link href="/doctors" className="home-team-view-all" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
                 <span>View All {doctorsList.length} Doctors</span>
-                <span aria-hidden="true">&rarr;</span>
+                <ArrowRight size={14} />
               </Link>
             </div>
 
@@ -254,7 +259,10 @@ export function DoctorsShowcaseSection() {
                       className="home-team-thumb-img"
                     />
                     <div className="home-team-thumb-overlay" />
-                    <span className="home-team-rating">{doctor.rating}</span>
+                    <span className="home-team-rating" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
+                      <span>{doctor.rating}</span>
+                      <Star size={10} fill="#d97706" color="#d97706" />
+                    </span>
                   </Link>
 
                   <div className="home-team-card-content">
@@ -278,8 +286,9 @@ export function DoctorsShowcaseSection() {
 
                     <div className="home-team-card-foot">
                       {/* Subpage Link */}
-                      <Link href={`/doctors/${doctor.slug}`} className="home-team-profile-link">
-                        Profile &rarr;
+                      <Link href={`/doctors/${doctor.slug}`} className="home-team-profile-link" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                        <span>Profile</span>
+                        <ArrowRight size={12} />
                       </Link>
 
                       {/* Quick Booking Button */}

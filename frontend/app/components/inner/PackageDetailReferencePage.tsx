@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Sparkles, Check, X, Home, ArrowRight } from "lucide-react";
 import { getImageDisplayUrl } from "../../services/api";
 
 type PackageDetailReferencePageProps = {
@@ -52,16 +53,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
         <div className="treatment-hero-ambient-glow" aria-hidden="true" />
         <div className="treatment-hero-container">
           <div className="treatment-hero-content">
-            {/* <nav className="treatment-breadcrumb-nav" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
-              <span className="bc-sep">/</span>
-              <Link href="/packages">Care Packages</Link>
-              <span className="bc-sep">/</span>
-              <span className="bc-current">{pkg.title}</span>
-            </nav> */}
-
             <div className="treatment-eyebrow-badge">
-              {/* <span className="badge-dot" /> */}
               <span>{pkg.badge || "Care Package"}</span>
             </div>
 
@@ -99,7 +91,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
             <div className="treatment-hero-actions" style={{ marginTop: "24px" }}>
               <Link className="btn btn-primary treatment-btn-book" href={`/appointment?package=${encodeURIComponent(pkg.slug)}`}>
                 <span>Book Package Enquiry</span>
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
+                <ArrowRight size={14} style={{ marginLeft: "6px" }} />
               </Link>
               <Link className="btn btn-outline treatment-btn-enquire" href="/contact-us">
                 <span>Talk to Admissions Advisor</span>
@@ -145,7 +137,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
               {highlights.map((h, i) => (
                 <div key={i} className="overview-highlight-card" style={{ height: "100%" }}>
                   <div className="highlight-card-head">
-                    <span className="highlight-icon">✨</span>
+                    <span className="highlight-icon"><Sparkles size={16} /></span>
                     <h3>Pillar {i + 1}</h3>
                   </div>
                   <p style={{ fontSize: "14px", lineHeight: "1.6", color: "#4a5568" }}>{h}</p>
@@ -189,7 +181,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
                   <ul className="expect-check-list">
                     {inclusions.map((item, idx) => (
                       <li key={idx}>
-                        <span className="check-icon gold">✓</span>
+                        <span className="check-icon gold"><Check size={14} /></span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -206,7 +198,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
                   <ul className="expect-check-list">
                     {exclusions.map((item, idx) => (
                       <li key={idx}>
-                        <span className="check-icon" style={{ color: "#ef4444" }}>✕</span>
+                        <span className="check-icon" style={{ color: "#ef4444" }}><X size={14} /></span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -227,7 +219,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
             <ul className="expect-check-list" style={{ maxWidth: "700px", margin: "0 auto" }}>
               {accommodationTypes.map((room, idx) => (
                 <li key={idx} style={{ padding: "16px", backgroundColor: "#fff", borderRadius: "12px", border: "1px solid #e2e8f0", marginBottom: "8px" }}>
-                  <span className="check-icon gold">🏡</span>
+                  <span className="check-icon gold"><Home size={15} style={{ color: "#d97706" }} /></span>
                   <strong style={{ color: "#1a202c" }}>{room}</strong>
                 </li>
               ))}
@@ -245,7 +237,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
             <div className="cta-action-group">
               <Link className="btn btn-primary cta-btn-gold" href={`/appointment?package=${encodeURIComponent(pkg.slug)}`}>
                 <span>Book Package Enquiry</span>
-                <span aria-hidden="true">&rarr;</span>
+                <ArrowRight size={14} style={{ marginLeft: "6px" }} />
               </Link>
               <a href="tel:+919447003191" className="btn btn-outline cta-btn-phone">
                 <span>Call Admissions: +91 94470 03191</span>

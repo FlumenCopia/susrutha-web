@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Mic } from "lucide-react";
 import { VideoItem } from "./FeaturedVideoCard";
 
 type VideoPodcastSectionProps = {
@@ -23,7 +24,7 @@ export function VideoPodcastSection({ episodes = [], videos = [], onPlayVideo }:
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">PHYSICIAN ROUNDTABLE</div>
           <h2 id="podcast-heading" className="vg-section-title">
-            Susrutha Video Podcasts <span className="vg-leaf-accent" aria-hidden="true">🎙️</span>
+            Susrutha Video Podcasts <span className="vg-leaf-accent" aria-hidden="true"><Mic size={20} style={{ display: "inline-block", verticalAlign: "-2px", color: "#c88922" }} /></span>
           </h2>
           <p className="vg-section-subhead">In-depth conversations on classical Ayurveda, detox science, and integrative care</p>
         </div>

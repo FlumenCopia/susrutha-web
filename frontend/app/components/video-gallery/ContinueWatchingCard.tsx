@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { DoctorSpeaker, VideoItem } from "./FeaturedVideoCard";
 
 export type ContinueWatchingItem = {
@@ -32,7 +33,7 @@ export function ContinueWatchingCard({ item, onPlay }: ContinueWatchingCardProps
       thumbnail: item.thumbnail,
       youtubeId: item.youtubeId,
       views: "Recent Play",
-      rating: "5.0 ★",
+      rating: "5.0",
       level: "Intermediate",
       speaker: item.speaker,
     });
@@ -80,7 +81,10 @@ export function ContinueWatchingCard({ item, onPlay }: ContinueWatchingCardProps
 
         <div className="vg-cw-footer">
           <span className="vg-cw-speaker-name">{item.speaker.name}</span>
-          <span className="vg-cw-resume-btn">Resume →</span>
+          <span className="vg-cw-resume-btn" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+            <span>Resume</span>
+            <ArrowRight size={12} />
+          </span>
         </div>
       </div>
     </article>

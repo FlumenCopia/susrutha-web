@@ -3,6 +3,27 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
+import {
+  Check,
+  Plus,
+  Sparkles,
+  Building2,
+  Calendar,
+  Star,
+  AlertTriangle,
+  ArrowRight,
+  ArrowLeft,
+  Zap,
+  ShieldCheck,
+  MapPin,
+  Hospital,
+  Phone,
+  RefreshCw,
+  UserCheck,
+  Stethoscope,
+  Leaf,
+  Clock
+} from "lucide-react";
 import { getPublicDoctors, getPublicDoctorsByDepartment, getPublicBranches, getPublicDepartments, getImageDisplayUrl } from "../../services/api";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
@@ -207,7 +228,7 @@ function AppointmentWizardContent() {
             {
               id: "all",
               title: "All Specialties",
-              icon: "🩺",
+              icon: "Stethoscope",
               description: "View all Ayurvedic specialists at this branch",
             },
             ...apiDepts.map((dept: any) => ({
@@ -215,7 +236,7 @@ function AppointmentWizardContent() {
               _id: dept._id,
               slug: dept.slug,
               title: dept.title || dept.name,
-              icon: dept.icon || "🌿",
+              icon: dept.icon || "Leaf",
               description: dept.tagline || dept.overview?.slice(0, 80) || "",
             })),
           ];
@@ -301,7 +322,7 @@ function AppointmentWizardContent() {
 
       if (targetDoc) {
         setSelectedDoctorId(targetDoc.id);
-        setAutoSelectedMsg(`⚡ Auto-selected ${targetDoc.name} (${targetDoc.specialty}). Choose your date & slot below.`);
+        setAutoSelectedMsg(`Auto-selected ${targetDoc.name} (${targetDoc.specialty}). Choose your date & slot below.`);
         setCurrentStep(3); // Jump directly to Step 3 for fast user booking!
       }
     }
@@ -468,7 +489,7 @@ function AppointmentWizardContent() {
                 className={`apt-step-indicator ${currentStep === 1 ? "active" : ""} ${currentStep > 1 ? "completed" : ""}`}
                 onClick={() => setCurrentStep(1)}
               >
-                <span className="step-badge">{currentStep > 1 ? "✓" : "1"}</span>
+                <span className="step-badge">{currentStep > 1 ? <Check size={13} /> : "1"}</span>
                 <span className="step-title-text">Branch</span>
               </button>
 
@@ -479,7 +500,7 @@ function AppointmentWizardContent() {
                 className={`apt-step-indicator ${currentStep === 2 ? "active" : ""} ${currentStep > 2 ? "completed" : ""}`}
                 onClick={() => setCurrentStep(2)}
               >
-                <span className="step-badge">{currentStep > 2 ? "✓" : "2"}</span>
+                <span className="step-badge">{currentStep > 2 ? <Check size={13} /> : "2"}</span>
                 <span className="step-title-text">Specialty & Doctor</span>
               </button>
 
@@ -506,13 +527,18 @@ function AppointmentWizardContent() {
           {/* Auto-Selected Doctor Notice Banner */}
           {autoSelectedMsg && !isSubmitted && (
             <div className="my-4 p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold flex items-center justify-between">
-              <span>{autoSelectedMsg}</span>
+              <span className="flex items-center gap-1.5">
+                <Zap size={14} className="text-amber-600 shrink-0" />
+                {autoSelectedMsg}
+              </span>
               <button
                 type="button"
                 onClick={() => setCurrentStep(2)}
                 className="apt-change-doctor-btn"
+                style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
               >
-                ✦ Change Doctor
+                <UserCheck size={12} />
+                <span>Change Doctor</span>
               </button>
             </div>
           )}
@@ -549,9 +575,9 @@ function AppointmentWizardContent() {
                             <div className="branch-card-content">
                               <h4>{branch.name}</h4>
                               <span className="branch-card-tag">{branch.type}</span>
-                              <p className="branch-card-address"><i className="fa-solid fa-location-dot" style={{ marginRight: "6px" }} />{branch.address}</p>
+                              <p className="branch-card-address"><MapPin size={13} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />{branch.address}</p>
                             </div>
-                            <div className="branch-card-check">{isSelected ? "✓" : "+"}</div>
+                            <div className="branch-card-check">{isSelected ? <Check size={14} /> : <Plus size={14} />}</div>
                           </div>
                         );
                       })}
@@ -561,7 +587,7 @@ function AppointmentWizardContent() {
                   <div className="apt-action-bar">
                     <button type="button" className="btn btn-primary btn-next-step" onClick={handleNextStep}>
                       <span>Continue to Specialty & Doctor</span>
-                      <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
+                      <ArrowRight size={14} style={{ marginLeft: "6px" }} />
                     </button>
                   </div>
                 </div>
@@ -591,7 +617,7 @@ function AppointmentWizardContent() {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#4a3e2e" }}>
-                      <i className="fa-solid fa-location-dot" style={{ fontSize: "16px" }} />
+                      <MapPin size={16} />
                       <span>
                         Selected Hospital Branch:{" "}
                         <strong style={{ color: "#9a6528", fontWeight: 700 }}>
@@ -607,6 +633,7 @@ function AppointmentWizardContent() {
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        gap: "6px",
                         padding: "6px 16px",
                         background: "#ffffff",
                         color: "#9a6528",
@@ -620,7 +647,8 @@ function AppointmentWizardContent() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      ✦ Change Branch
+                      <Building2 size={13} />
+                      <span>Change Branch</span>
                     </button>
                   </div>
 
@@ -634,7 +662,9 @@ function AppointmentWizardContent() {
                           className={`apt-specialty-pill-card ${selectedSpecialtyId === spec.id ? "selected" : ""}`}
                           onClick={() => setSelectedSpecialtyId(spec.id)}
                         >
-                          <span className="spec-pill-icon">{spec.icon}</span>
+                          <span className="spec-pill-icon">
+                            {spec.id === "all" ? <Stethoscope size={18} /> : <Leaf size={18} />}
+                          </span>
                           <div>
                             <strong>{spec.title}</strong>
                             <span>{spec.description}</span>
@@ -734,6 +764,7 @@ function AppointmentWizardContent() {
                               display: "inline-flex",
                               alignItems: "center",
                               justifyContent: "center",
+                              gap: "6px",
                               padding: "10px 22px",
                               background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
                               color: "#ffffff",
@@ -746,7 +777,8 @@ function AppointmentWizardContent() {
                               boxShadow: "0 4px 14px rgba(154, 101, 40, 0.28)",
                             }}
                           >
-                            <span>✦ Switch Branch Location</span>
+                            <Building2 size={14} />
+                            <span>Switch Branch Location</span>
                           </button>
                           <button
                             type="button"
@@ -789,19 +821,21 @@ function AppointmentWizardContent() {
                           >
                             <div className="doc-portrait-wrapper">
                               <Image src={doc.avatar} alt={doc.name} fill sizes="80px" />
-                              <span className="doc-rating-chip">{doc.rating} ★</span>
+                              <span className="doc-rating-chip" style={{ display: "inline-flex", alignItems: "center", gap: "2px" }}>
+                                {doc.rating} <Star size={11} fill="#d97706" color="#d97706" />
+                              </span>
                             </div>
 
                             <div className="doc-card-info">
                               <h4>{doc.name}</h4>
                               <span className="doc-card-qual">{doc.qualification}</span>
                               <span className="doc-card-spec">{doc.specialty}</span>
-                              <span className="doc-card-days">
-                                📅 Days: {getDoctorWorkingDays(doc, selectedBranch?._id || selectedBranch?.id).join(", ")}
+                              <span className="doc-card-days" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                                <Calendar size={12} /> Days: {getDoctorWorkingDays(doc, selectedBranch?._id || selectedBranch?.id).join(", ")}
                               </span>
                             </div>
 
-                            <div className="doc-card-select-icon">{isSelected ? "✓" : "+"}</div>
+                            <div className="doc-card-select-icon">{isSelected ? <Check size={14} /> : <Plus size={14} />}</div>
                           </div>
                         );
                       })}
@@ -810,12 +844,12 @@ function AppointmentWizardContent() {
                   </div>
 
                   <div className="apt-action-bar space-between">
-                    <button type="button" className="btn btn-outline btn-prev-step" onClick={handlePrevStep}>
-                      &larr; Back
+                    <button type="button" className="btn btn-outline btn-prev-step" onClick={handlePrevStep} style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      <ArrowLeft size={14} /> Back
                     </button>
-                    <button type="button" className="btn btn-primary btn-next-step" onClick={handleNextStep}>
+                    <button type="button" className="btn btn-primary btn-next-step" onClick={handleNextStep} style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
                       <span>Continue to Date & Details</span>
-                      <span aria-hidden="true">&rarr;</span>
+                      <ArrowRight size={14} />
                     </button>
                   </div>
                 </div>
@@ -851,8 +885,10 @@ function AppointmentWizardContent() {
                       type="button"
                       onClick={() => setCurrentStep(2)}
                       className="apt-change-doctor-btn"
+                      style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
                     >
-                      ✦ Change Doctor
+                      <UserCheck size={13} />
+                      <span>Change Doctor</span>
                     </button>
                   </div>
 
@@ -889,7 +925,7 @@ function AppointmentWizardContent() {
                               fontSize: "13px",
                             }}
                           >
-                            <span style={{ fontSize: "15px" }}>✓</span>
+                            <Check size={16} color="#047857" style={{ flexShrink: 0 }} />
                             <span>
                               {selectedDoctor?.name} is <strong style={{ color: "#047857" }}>AVAILABLE</strong> on {selectedDateDayName}s at {selectedBranch?.name}.
                             </span>
@@ -908,7 +944,7 @@ function AppointmentWizardContent() {
                             }}
                           >
                             <div style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 700, fontSize: "13px", color: "#84531e" }}>
-                              <span style={{ fontSize: "16px" }}>⚠️</span>
+                              <AlertTriangle size={16} color="#d97706" style={{ flexShrink: 0 }} />
                               <span>
                                 {selectedDoctor?.name} does NOT conduct consultations on {selectedDateDayName}s.
                               </span>
@@ -1062,15 +1098,17 @@ function AppointmentWizardContent() {
                   </div>
 
                   <div className="apt-action-bar space-between">
-                    <button type="button" className="btn btn-outline btn-prev-step" onClick={handlePrevStep}>
-                      &larr; Back
+                    <button type="button" className="btn btn-outline btn-prev-step" onClick={handlePrevStep} style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      <ArrowLeft size={14} /> Back
                     </button>
                     <button
                       type="submit"
                       disabled={isSubmitting || !isDoctorAvailable}
                       className={`btn btn-primary btn-submit-final ${!isDoctorAvailable ? "opacity-50 cursor-not-allowed" : ""}`}
+                      style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
                     >
-                      {isSubmitting ? "Confirming Appointment..." : "Confirm & Request Booking ✓"}
+                      <span>{isSubmitting ? "Confirming Appointment..." : "Confirm & Request Booking"}</span>
+                      {!isSubmitting && <Check size={16} />}
                     </button>
                   </div>
                 </div>
@@ -1079,8 +1117,8 @@ function AppointmentWizardContent() {
           ) : (
             /* SUCCESS CONFIRMATION STATE */
             <div className="apt-success-screen-luxury text-center py-8 space-y-6">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-3xl font-bold">
-                ✓
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <Check size={32} />
               </div>
               <div>
                 <span className="text-xs uppercase tracking-widest font-bold text-susrutha-brand">Booking Confirmed</span>
@@ -1123,7 +1161,8 @@ function AppointmentWizardContent() {
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition-colors flex items-center space-x-1.5"
                 >
-                  <span><i className="fa-brands fa-whatsapp" style={{ marginRight: "6px" }} /> Confirm via WhatsApp Desk</span>
+                  <Phone size={14} style={{ marginRight: "6px" }} />
+                  <span>Confirm via WhatsApp Desk</span>
                 </a>
               </div>
             </div>
@@ -1148,14 +1187,16 @@ function AppointmentWizardContent() {
               <div>
                 <h4 className="summary-doc-name">{selectedDoctor?.name}</h4>
                 <span className="summary-doc-spec">{selectedDoctor?.specialty}</span>
-                <span className="summary-doc-rating">★ {selectedDoctor?.rating} • {selectedDoctor?.experience}</span>
+                <span className="summary-doc-rating" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
+                  <Star size={11} fill="#d97706" color="#d97706" /> {selectedDoctor?.rating} • {selectedDoctor?.experience}
+                </span>
               </div>
             </div>
 
             <div className="summary-details-list">
               <div className="summary-item">
                 <span>Consultation Mode:</span>
-                <strong><i className="fa-solid fa-hospital" style={{ marginRight: "6px" }} /> Hospital Visit</strong>
+                <strong><Hospital size={14} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} /> Hospital Visit</strong>
               </div>
 
               <div className="summary-item">
@@ -1180,23 +1221,15 @@ function AppointmentWizardContent() {
             </div>
 
             <div className="summary-guarantees">
-              <div className="guarantee-line">✓ Zero pre-booking charges</div>
-              <div className="guarantee-line">✓ Free cancellation up to 4 hours prior</div>
-              <div className="guarantee-line">✓ Instant SMS & WhatsApp confirmation</div>
+              <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Zero pre-booking charges</div>
+              <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Free cancellation up to 4 hours prior</div>
+              <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Instant SMS & WhatsApp confirmation</div>
             </div>
 
             <div className="summary-support-box">
               <span>Need Direct Booking Assistance?</span>
               <a href="tel:+919447003191" className="support-phone-link">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="#c88922"
-                  style={{ display: "inline-block", verticalAlign: "-3px", marginRight: "6px" }}
-                >
-                  <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
+                <Phone size={15} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px", color: "#c88922" }} />
                 Call Helpline: +91 94470 03191
               </a>
             </div>

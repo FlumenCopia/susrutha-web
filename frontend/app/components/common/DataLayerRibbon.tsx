@@ -1,4 +1,5 @@
 import React from "react";
+import { Activity, Database } from "lucide-react";
 
 type DataLayerRibbonProps = {
   type?: "backend" | "static";
@@ -18,7 +19,7 @@ export function DataLayerRibbon({
   if (!showRibbons) return null;
 
   const isBackend = type === "backend";
-  const displayLabel = label || (isBackend ? "🟢 LIVE BACKEND DATA" : "🟡 STATIC UI CONTENT");
+  const displayLabel = label || (isBackend ? "LIVE BACKEND DATA" : "STATIC UI CONTENT");
 
   const baseStyle: React.CSSProperties = {
     fontSize: "10px",
@@ -62,7 +63,8 @@ export function DataLayerRibbon({
       className={`data-layer-ribbon data-layer-ribbon-${type} ${className}`}
       style={{ ...baseStyle, ...themeStyle, ...positionStyle }}
     >
-      {displayLabel}
+      {isBackend ? <Activity size={10} style={{ display: "inline-block" }} /> : <Database size={10} style={{ display: "inline-block" }} />}
+      <span>{displayLabel}</span>
     </span>
   );
 }

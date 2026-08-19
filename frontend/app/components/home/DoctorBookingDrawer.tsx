@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { X, Check, Lock, MapPin, ArrowRight } from "lucide-react";
 
 type DoctorBookingDrawerProps = {
   isOpen: boolean;
@@ -55,7 +56,7 @@ export function DoctorBookingDrawer({
           onClick={onClose}
           aria-label="Close consultation drawer"
         >
-          ✕
+          <X size={18} />
         </button>
 
         <div className="doc-drawer-header">
@@ -68,7 +69,7 @@ export function DoctorBookingDrawer({
 
         {isSubmitted ? (
           <div className="doc-drawer-success">
-            <div className="doc-success-icon">✓</div>
+            <div className="doc-success-icon"><Check size={28} /></div>
             <h4>Appointment Requested!</h4>
             <p>
               Thank you, <strong>{patientName}</strong>. Our hospital patient-care team will call you shortly to confirm your consultation slot at the {selectedBranch} branch.
@@ -84,7 +85,7 @@ export function DoctorBookingDrawer({
                   className={`doc-branch-pill ${selectedBranch === "Kattakada" ? "active" : ""}`}
                   onClick={() => setSelectedBranch("Kattakada")}
                 >
-                  <i className="fa-solid fa-location-dot" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  <MapPin size={14} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />
                   Kattakada Hospital
                 </button>
                 <button
@@ -92,7 +93,7 @@ export function DoctorBookingDrawer({
                   className={`doc-branch-pill ${selectedBranch === "Kowdiar" ? "active" : ""}`}
                   onClick={() => setSelectedBranch("Kowdiar")}
                 >
-                  <i className="fa-solid fa-location-dot" aria-hidden="true" style={{ marginRight: "6px" }} />
+                  <MapPin size={14} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />
                   Kowdiar OP Clinic
                 </button>
               </div>
@@ -138,18 +139,22 @@ export function DoctorBookingDrawer({
             </div>
 
             <div className="doc-drawer-footer flex flex-col space-y-2">
-              <button type="submit" className="doc-drawer-submit-btn">
+              <button type="submit" className="doc-drawer-submit-btn" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
                 <span>Confirm Quick Consultation Request</span>
-                <span aria-hidden="true">&rarr;</span>
+                <ArrowRight size={15} />
               </button>
               <a
                 href={`/appointment?doctor=${encodeURIComponent(doctorName.toLowerCase().replace(/dr-?/, '').trim())}`}
-                className="text-center text-xs font-semibold text-susrutha-brand hover:underline py-1"
+                className="text-center text-xs font-semibold text-susrutha-brand hover:underline py-1 inline-flex items-center justify-center gap-1"
                 onClick={onClose}
               >
-                Or launch full 3-step slot picker wizard &rarr;
+                <span>Or launch full 3-step slot picker wizard</span>
+                <ArrowRight size={12} />
               </a>
-              <span className="doc-drawer-guarantee">🔒 Confidential & Instant Confirmation</span>
+              <span className="doc-drawer-guarantee" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
+                <Lock size={12} style={{ color: "#c88922" }} />
+                <span>Confidential & Instant Confirmation</span>
+              </span>
             </div>
           </form>
         )}

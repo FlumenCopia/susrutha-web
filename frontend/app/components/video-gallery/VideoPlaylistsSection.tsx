@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { VideoItem } from "./FeaturedVideoCard";
 
 export type VideoPlaylist = {
@@ -86,7 +87,10 @@ export function VideoPlaylistsSection({ playlists = [], videos = [], onPlayVideo
                   </div>
                 ) : null}
                 {pl.speaker ? <span className="vg-playlist-doctor-name">{pl.speaker.name}</span> : null}
-                <span className="vg-playlist-play-link">Start Series →</span>
+                <span className="vg-playlist-play-link" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                  <span>Start Series</span>
+                  <ArrowRight size={12} />
+                </span>
               </div>
             </div>
           </article>

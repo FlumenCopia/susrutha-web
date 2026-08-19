@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { X } from "lucide-react";
 import type { VideoCategory } from "./VideoGalleryPage";
 
 const videoCategories: VideoCategory[] = ["All", "Panchakarma", "Clinical", "Patient Stories", "Wellness", "Podcasts"];
@@ -119,7 +120,7 @@ export function VideoCategoryFilters({
                 onClick={() => onSearchChange("")}
                 aria-label="Clear search query"
               >
-                ✕
+                <X size={13} />
               </button>
             )}
           </div>

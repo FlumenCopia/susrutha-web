@@ -1,4 +1,5 @@
 import React from "react";
+import { X, Search } from "lucide-react";
 
 const quickSearchTags = [
   "Panchakarma",
@@ -19,49 +20,6 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
     <section className="doctors-hero">
       <div className="doctors-hero-container">
         <div className="doctors-hero-header">
-          {/* <div className="doctors-hero-eyebrow">
-            <i className="fa-solid fa-leaf icon" aria-hidden="true" style={{ marginRight: "6px" }} /> Susrutha Clinical Faculty
-          </div> */}
-          {/* <h1 className="doctors-hero-title">
-            Consult Our Senior <span className="accent">Ayurvedic Physicians</span>
-          </h1> */}
-          {/* <p className="doctors-hero-description">
-            Experience classical Panchakarma diagnosis, root-cause healing protocols, and personalized 
-            wellness guidance from Kerala’s leading Vaidyas across Kattakada, Kowdiar, and Online Video Consultations.
-          </p> */}
-
-          {/* Quick Statistics Banner */}
-          {/* <div className="doctors-hero-stats">
-            <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-user-doctor" /></div>
-              <div>
-                <div className="doctors-hero-stat-val">15+ Senior</div>
-                <div className="doctors-hero-stat-lbl">Specialist Vaidyas</div>
-              </div>
-            </div>
-            <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-star" /></div>
-              <div>
-                <div className="doctors-hero-stat-val">4.9 / 5.0</div>
-                <div className="doctors-hero-stat-lbl">Patient Trust Rating</div>
-              </div>
-            </div>
-            <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-scroll" /></div>
-              <div>
-                <div className="doctors-hero-stat-val">100% Authentic</div>
-                <div className="doctors-hero-stat-lbl">Classical Ayurveda</div>
-              </div>
-            </div>
-            <div className="doctors-hero-stat-card">
-              <div className="doctors-hero-stat-icon"><i className="fa-solid fa-users" /></div>
-              <div>
-                <div className="doctors-hero-stat-val">50,000+</div>
-                <div className="doctors-hero-stat-lbl">Patients Healed</div>
-              </div>
-            </div>
-          </div> */}
-
           {/* Live Search Input Bar */}
           <div className="doctors-hero-search">
             <div className="doctors-hero-search-input-wrap">
@@ -78,9 +36,10 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
                   type="button"
                   className="doctors-hero-tag-btn"
                   onClick={() => onSearchChange("")}
-                  style={{ marginRight: 8 }}
+                  style={{ marginRight: 8, display: "inline-flex", alignItems: "center", gap: "4px" }}
                 >
-                  ✕ Clear
+                  <X size={13} />
+                  <span>Clear</span>
                 </button>
               ) : null}
               <button type="button" className="doctors-hero-search-btn">

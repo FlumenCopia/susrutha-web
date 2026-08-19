@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { TrendingUp, Activity, X, ArrowRight } from "lucide-react";
 import { desktopNavigation } from "../../data/architecture";
 import { getPublicDoctors, getPublicTreatments, getPublicConditions, getImageDisplayUrl } from "../../services/api";
 
@@ -270,7 +271,7 @@ export function NavbarSearch() {
             onClick={clearQuery}
             aria-label="Clear search query"
           >
-            ✕
+            <X size={14} />
           </button>
         ) : null}
 
@@ -296,8 +297,9 @@ export function NavbarSearch() {
           {/* Case 1: Empty query - Popular Searches */}
           {!query.trim() && (
             <div className="search-popular-section">
-              <div className="search-group-title">
-                <span>🔥 Popular Searches</span>
+              <div className="search-group-title" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <TrendingUp size={15} style={{ color: "#d97706" }} />
+                <span>Popular Searches</span>
               </div>
               <div className="search-popular-tags">
                 {POPULAR_SEARCHES.map((item) => (
@@ -389,8 +391,9 @@ export function NavbarSearch() {
               {/* Conditions Match Group */}
               {results.conditions.length > 0 && (
                 <div className="search-result-group">
-                  <div className="search-group-title">
-                    <span>📋 Conditions & Care ({results.conditions.length})</span>
+                  <div className="search-group-title" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <Activity size={15} style={{ color: "#d97706" }} />
+                    <span>Conditions & Care ({results.conditions.length})</span>
                   </div>
                   {results.conditions.map((item) => {
                     const globalIdx = results.all.findIndex((r) => r.id === item.id);
@@ -404,7 +407,9 @@ export function NavbarSearch() {
                         className={`search-result-item ${isSelected ? "is-selected" : ""}`}
                         onClick={() => handleSelectResult(item.href)}
                       >
-                        <div className="search-item-icon-box">📋</div>
+                        <div className="search-item-icon-box" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <Activity size={15} />
+                        </div>
                         <div className="search-item-info">
                           <div className="search-item-title">
                             {highlightMatch(item.title, query)}
@@ -456,7 +461,7 @@ export function NavbarSearch() {
               />
               {query ? (
                 <button type="button" className="nav-search-clear-btn" onClick={clearQuery}>
-                  ✕
+                  <X size={14} />
                 </button>
               ) : null}
             </div>

@@ -1,19 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { VideoItem } from "./FeaturedVideoCard";
+import { Check } from "lucide-react";
+import { DoctorSpeaker, VideoItem } from "./FeaturedVideoCard";
 
 export type PatientStory = {
   id: string;
   patientName: string;
-  ageLocation: string;
-  age?: string;
   condition: string;
+  age?: string;
+  ageLocation?: string;
   treatmentDuration: string;
   quote: string;
   thumbnail: string;
   youtubeId: string;
   rating: string;
+  physician: DoctorSpeaker;
 };
 
 type PatientStoriesSectionProps = {
@@ -23,18 +25,19 @@ type PatientStoriesSectionProps = {
 
 export function PatientStoriesSection({ stories = [], onPlayVideo }: PatientStoriesSectionProps) {
   if (stories.length === 0) return null;
+
   const handleStoryClick = (story: PatientStory) => {
     onPlayVideo({
       id: story.id,
-      title: `${story.patientName}'s Recovery Story`,
-      description: `Patient journey for ${story.condition} following ${story.treatmentDuration}. "${story.quote}"`,
-      category: "Panchakarma",
-      duration: "04:30",
+      title: `${story.patientName}'s Recovery: ${story.condition}`,
+      description: story.quote,
+      category: "Patient Recovery",
+      duration: story.treatmentDuration,
       thumbnail: story.thumbnail,
       youtubeId: story.youtubeId,
-      views: "Verified Journey",
+      views: "Verified Case",
       rating: story.rating,
-      level: "Beginner",
+      level: "Clinical Guide",
       speaker: {
         name: story.patientName,
         role: `Patient • ${story.condition}`,
@@ -48,11 +51,11 @@ export function PatientStoriesSection({ stories = [], onPlayVideo }: PatientStor
     <section className="vg-patient-stories-section" aria-labelledby="patient-stories-heading">
       <div className="vg-section-header">
         <div className="vg-section-title-group">
-          <div className="vg-eyebrow-accent">PATIENT RECOVERY JOURNEYS</div>
+          <div className="vg-eyebrow-accent">CLINICAL EVIDENCE & RECOVERIES</div>
           <h2 id="patient-stories-heading" className="vg-section-title">
-            Patient Transformation Stories <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-star" /></span>
+            Patient Transformation Stories <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
           </h2>
-          <p className="vg-section-subhead">Hear directly from patients who experienced healing through classical Panchakarma care</p>
+          <p className="vg-section-subhead">Hear directly from patients treated for chronic spine, joint, skin, and autoimmune conditions</p>
         </div>
       </div>
 
@@ -74,7 +77,10 @@ export function PatientStoriesSection({ stories = [], onPlayVideo }: PatientStor
               <div className="vg-story-overlay" />
 
               <div className="vg-story-badge-top">
-                <span className="vg-story-verified-chip">✔ Verified Patient</span>
+                <span className="vg-story-verified-chip" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                  <Check size={11} />
+                  <span>Verified Patient</span>
+                </span>
                 <span className="vg-story-rating-chip">{ps.rating}</span>
               </div>
 

@@ -39,7 +39,7 @@ export function VideoGalleryPage() {
               title: v.title || "Ayurvedic Video",
               category: v.category || "All",
               duration: v.duration || "10 mins",
-              rating: `${v.rating || 4.9} ★`,
+              rating: `${v.rating || 4.9}`,
               views: `${v.viewsCount || 1000} Views`,
               description: v.description || "",
               thumbnail: getImageDisplayUrl(v.thumbnailUrl || v.thumbnail),

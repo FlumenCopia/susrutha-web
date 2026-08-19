@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { X, Check, ArrowRight } from "lucide-react";
 import { VideoItem } from "./FeaturedVideoCard";
 
 type VideoModalProps = {
@@ -47,8 +48,9 @@ export function VideoModal({ video, allVideos = [], onClose, onSelectRelated }: 
           className="vg-modal-close-btn-deluxe"
           onClick={onClose}
           aria-label="Close video cinema player"
+          style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
         >
-          ✕
+          <X size={18} />
         </button>
 
         <div className="vg-modal-cinema-body">
@@ -126,16 +128,20 @@ export function VideoModal({ video, allVideos = [], onClose, onSelectRelated }: 
                   className="vg-modal-speaker-avatar"
                 />
                 <div>
-                  <h4 className="vg-modal-speaker-name">
+                  <h4 className="vg-modal-speaker-name" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
                     {video.speaker.name}
-                    {video.speaker.verified && <span className="vg-verified-check">✔</span>}
+                    {video.speaker.verified && (
+                      <span className="vg-verified-check" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                        <Check size={10} />
+                      </span>
+                    )}
                   </h4>
                   <p className="vg-modal-speaker-role">{video.speaker.role}</p>
                 </div>
               </div>
-              <Link href="/appointment" className="vg-modal-book-btn">
+              <Link href="/appointment" className="vg-modal-book-btn" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
                 <span>Book Consultation with Doctor</span>
-                <span aria-hidden="true">→</span>
+                <ArrowRight size={14} />
               </Link>
             </div>
 
