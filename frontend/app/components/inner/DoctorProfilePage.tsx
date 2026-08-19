@@ -159,10 +159,6 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
                   style={{ objectFit: "cover", objectPosition: "center 20%" }}
                 />
               </div>
-              <div className="doctor-detail-photo-note">
-                <DoctorIcon name="leaf" />
-                <span>Personalized Ayurveda Care</span>
-              </div>
             </div>
 
             <aside className="doctor-detail-glance" aria-label="At a glance">

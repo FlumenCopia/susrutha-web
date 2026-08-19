@@ -19,6 +19,15 @@ const categoryIconMap: Record<string, FacilitiesIconName> = {
   "yoga-meditation": "yoga",
 };
 
+const defaultFacilityPhotos = [
+  "/images/kowdiar_gallery_01.webp",
+  "/images/treatment-panchakarma.webp",
+  "/images/kowdiar_gallery_03.webp",
+  "/images/ayurveda-hospital-garden.webp",
+  "/images/about-purpose-still-life.webp",
+  "/images/treatment-kati-vasti.webp",
+];
+
 export function FacilitiesGrid() {
   const [facilitiesList, setFacilitiesList] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -33,10 +42,14 @@ export function FacilitiesGrid() {
             const catKey = (f.category || "").toString();
             const mappedIcon = categoryIconMap[catKey] || categoryIconMap[catKey.toUpperCase()] || "building";
 
+            const fallbackImg = defaultFacilityPhotos[idx % defaultFacilityPhotos.length];
+            const rawImg = f.image || f.coverImage;
+            const finalImage = rawImg ? getImageDisplayUrl(rawImg) : fallbackImg;
+
             return {
               title: f.title || f.name || "Facility",
               text: f.description || f.overview || f.summary || "",
-              image: getImageDisplayUrl(f.image || f.coverImage || "/images/ayurveda-village-room.webp"),
+              image: finalImage,
               icon: mappedIcon as FacilitiesIconName,
               featured: idx === 0,
               isBackendData: true,

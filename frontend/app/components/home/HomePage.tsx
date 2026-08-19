@@ -5,7 +5,7 @@ import { SignatureExperienceSection } from "./SignatureExperienceSection";
 import { SusruthaWaySection } from "./SusruthaWaySection";
 import { HomeWellnessExpertiseSection } from "./HomeWellnessExpertiseSection";
 import { Counbanner } from "./Counbanner";
-import Timeloop from "./Timeloop";
+// import Timeloop from "./Timeloop";
 import { HomeFooterBanner } from "./HomeFooterBanner";
 
 export function HomePage() {
@@ -14,7 +14,7 @@ export function HomePage() {
       <HeroBanner />
       <HomeWellnessExpertiseSection />
       <Counbanner />
-      <Timeloop />
+      {/* <Timeloop /> */}
       <PathToWholenessSection />
       <SignatureExperienceSection />
       <SusruthaWaySection />

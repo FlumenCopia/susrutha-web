@@ -33,10 +33,9 @@ export function PackagesHero() {
         sizes="100vw"
       />
       <div className="packages-hero-copy">
-        <h1>Twelve Structured Care Programmes</h1>
+        <h1>Structured Care Programmes</h1>
         <p>
-          From occupational Tekky care to 16-day hospital programmes and specialty ano-rectal pathways. Prices on
-          enquiry - plans remain clinical.
+          From intensive inpatient hospital programmes to restorative wellness and specialty rejuvenation pathways.
         </p>
         <Link className="packages-button packages-button-light" href="/appointment">
           Enquire About a Package

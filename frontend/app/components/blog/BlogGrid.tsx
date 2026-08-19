@@ -72,7 +72,12 @@ export function BlogGrid() {
 
   return (
     <section className="blog-premium-grid-section" id="blog-grid" aria-labelledby="blog-grid-title">
-      <BlogSectionHeader eyebrow="Latest Thinking" title="Asymmetric reads, built for discovery." titleId="blog-grid-title" />
+      <BlogSectionHeader
+        eyebrow="OUR BLOG"
+        title="Blogs & Insights"
+        description="Explore our complete collection of clinical insights, treatment protocols, and wellness guides."
+        titleId="blog-grid-title"
+      />
 
       {loading ? (
         <div className="blog-premium-grid">

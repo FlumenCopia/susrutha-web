@@ -10,16 +10,6 @@ type TreatmentDetailPageProps = {
 
 export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  try {
-    const list = await getPublicTreatments();
-    if (Array.isArray(list)) {
-      return list.map((item: any) => ({ slug: item.slug || item._id }));
-    }
-  } catch (err) {}
-  return [];
-}
-
 export default async function TreatmentDetailPage({ params }: TreatmentDetailPageProps) {
   const { slug } = await params;
   const treatment = await getPublicTreatmentBySlug(slug);

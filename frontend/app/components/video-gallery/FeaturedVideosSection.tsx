@@ -7,11 +7,48 @@ import { FeaturedVideoCard, VideoItem } from "./FeaturedVideoCard";
 type FeaturedVideosSectionProps = {
   videos: VideoItem[];
   onPlayVideo: (video: VideoItem) => void;
+  activeCategory?: string;
 };
 
-export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSectionProps) {
+export function FeaturedVideosSection({
+  videos,
+  onPlayVideo,
+  activeCategory = "All",
+}: FeaturedVideosSectionProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<"carousel" | "grid">("carousel");
+
+  const getHeaderContent = () => {
+    const cat = (activeCategory || "All").toLowerCase();
+    if (cat === "images" || cat === "gallery") {
+      return {
+        eyebrow: "CAMPUS & CARE SPACES",
+        title: "Photo Gallery",
+        subhead: "Explore visual walkthroughs of our hospital campus, inpatient suites, and healing spaces",
+      };
+    }
+    if (cat === "podcasts") {
+      return {
+        eyebrow: "PHYSICIAN DIALOGUES",
+        title: "Ayurveda Podcasts",
+        subhead: "In-depth clinical discussions and roundtables with our medical experts",
+      };
+    }
+    if (cat === "videos") {
+      return {
+        eyebrow: "PHYSICIAN MASTERCLASSES",
+        title: "Featured Videos",
+        subhead: "Curated videos to inspire your wellness journey",
+      };
+    }
+    return {
+      eyebrow: "CURATED MEDIA GALLERY",
+      title: "All Media & Videos",
+      subhead: "Explore physician masterclasses, photo walkthroughs, and healing wisdom",
+    };
+  };
+
+  const header = getHeaderContent();
 
   const scrollRight = () => {
     if (trackRef.current) {
@@ -29,11 +66,11 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
     <section className="vg-featured-section" aria-labelledby="featured-videos-heading">
       <div className="vg-section-header">
         <div className="vg-section-title-group">
-          <div className="vg-eyebrow-accent">PHYSICIAN MASTERCLASSES</div>
+          <div className="vg-eyebrow-accent">{header.eyebrow}</div>
           <h2 id="featured-videos-heading" className="vg-section-title">
-            Featured Videos <span className="vg-leaf-accent" aria-hidden="true"><Leaf size={16} strokeWidth={1.75} /></span>
+            {header.title} <span className="vg-leaf-accent" aria-hidden="true"><Leaf size={16} strokeWidth={1.75} /></span>
           </h2>
-          <p className="vg-section-subhead">Curated videos to inspire your wellness journey</p>
+          <p className="vg-section-subhead">{header.subhead}</p>
         </div>
 
         {/* View Mode Switcher & Navigation Controls */}
