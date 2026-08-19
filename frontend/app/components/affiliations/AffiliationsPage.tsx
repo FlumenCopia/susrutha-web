@@ -77,7 +77,7 @@ export function AffiliationsPage() {
             <h2 id="asotra-affiliation-heading" className="asotra-main-title">
               Affiliations with Susrutha
             </h2>
-            <div className="asotra-title-underline" />
+            {/* <div className="asotra-title-underline" /> */}
           </div>
 
           {/* Main Affiliation Card */}
