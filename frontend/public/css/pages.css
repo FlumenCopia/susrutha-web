@@ -4127,20 +4127,29 @@ body:has(.treatment-detail-reference) main {
 @media (max-width: 900px) {
   .home-page .home-wellness-expertise {
     grid-template-columns: 1fr;
-    padding: 44px clamp(18px, 5vw, 38px) 56px;
-  }
-
-  .home-page .home-wellness-visual {
-    min-height: min(66vw, 440px);
-    width: min(100%, 560px);
-    margin: 0 auto;
+    padding: 40px 20px 48px;
+    width: 100% !important;
+    margin: 0 !important;
+    gap: 32px;
   }
 
   .home-page .home-wellness-content {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 100%;
+    text-align: left;
   }
+
+  .home-page .home-wellness-visual {
+    min-height: min(66vw, 380px);
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .home-page .home-wellness-link {
+    margin-top: 24px;
+    display: inline-flex;
+  }
+}
 
   .home-page .home-wellness-eyebrow,
   .home-page .home-wellness-divider {
@@ -9972,6 +9981,41 @@ a.blog-premium-footer-cta-btn:hover,
   color: #ffffff !important;
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 14px 32px rgba(184, 109, 6, 0.55), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 900px) {
+  .blog-premium-footer-cta-fluid,
+  .blog-premium-footer-cta-wrapper {
+    height: auto !important;
+    min-height: 260px !important;
+    padding: 32px 18px !important;
+    width: min(calc(100% - 24px), 1400px) !important;
+    border-radius: 24px !important;
+  }
+
+  .counbanner-metrics {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 22px 12px !important;
+    margin-top: 10px !important;
+    width: 100% !important;
+  }
+
+  .counbanner-metric-item {
+    min-width: 0 !important;
+    padding: 4px 6px !important;
+  }
+
+  .counbanner-metric-item strong {
+    font-size: clamp(2.2rem, 8vw, 3rem) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .counbanner-metric-item span {
+    font-size: 11.5px !important;
+    max-width: 140px !important;
+    line-height: 1.3 !important;
+  }
 }
 
 /* Fallback legacy .blog-premium-footer-cta */
