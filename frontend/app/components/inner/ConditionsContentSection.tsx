@@ -15,7 +15,7 @@ const pathways = [
 
 function LeafMark() {
   return (
-    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" style={{ color: "#ffffff", stroke: "#ffffff" }}>
       <path d="M32 52C20 42 18 28 32 9c14 19 12 33 0 43Z" />
       <path d="M31 52C17 49 9 39 8 24c15 2 24 12 23 28Z" />
       <path d="M33 52c14-3 22-13 23-28-15 2-24 12-23 28Z" />
