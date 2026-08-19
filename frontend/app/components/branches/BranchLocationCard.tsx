@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BranchIcon, type BranchIconName } from "./BranchIcons";
-import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export type Branch = {
   id: string;

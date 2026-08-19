@@ -2,13 +2,10 @@
 
 import { useRef } from "react";
 import { X } from "lucide-react";
-import type { VideoCategory } from "./VideoGalleryPage";
-
-const videoCategories: VideoCategory[] = ["All", "Images", "Videos", "Podcasts"];
-
 type VideoCategoryFiltersProps = {
-  activeCategory: VideoCategory;
-  onSelectCategory: (category: VideoCategory) => void;
+  activeCategory: string;
+  onSelectCategory: (category: string) => void;
+  categories?: string[];
   searchQuery: string;
   onSearchChange: (query: string) => void;
   sortBy: string;
@@ -19,6 +16,7 @@ type VideoCategoryFiltersProps = {
 export function VideoCategoryFilters({
   activeCategory,
   onSelectCategory,
+  categories = ["All"],
   searchQuery,
   onSearchChange,
   sortBy,
@@ -30,7 +28,9 @@ export function VideoCategoryFilters({
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
 
-  const getCategoryCount = (category: VideoCategory) => {
+  const filterTabs = categories.length > 0 ? categories : ["All"];
+
+  const getCategoryCount = (category: string) => {
     return categoryCounts[category] ?? 0;
   };
 
@@ -67,7 +67,7 @@ export function VideoCategoryFilters({
           onMouseUp={handleMouseUpOrLeave}
           onMouseLeave={handleMouseUpOrLeave}
         >
-          {videoCategories.map((cat) => {
+          {filterTabs.map((cat) => {
             const isActive = activeCategory === cat;
             const count = getCategoryCount(cat);
             return (

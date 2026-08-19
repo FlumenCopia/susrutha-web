@@ -13,7 +13,7 @@ export type VideoCategory = "All" | "Images" | "Videos" | "Podcasts";
 export function VideoGalleryPage() {
   const [videoList, setVideoList] = useState<VideoItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [activeCategory, setActiveCategory] = useState<VideoCategory>("All");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("popular");
   const [activeModalVideo, setActiveModalVideo] = useState<VideoItem | null>(null);
@@ -109,22 +109,26 @@ export function VideoGalleryPage() {
     loadVideos();
   }, []);
 
+  const dynamicCategories = useMemo(() => {
+    const uniqueCats = new Set<string>();
+    videoList.forEach((v) => {
+      if (v.category && v.category.trim() !== "") {
+        uniqueCats.add(v.category);
+      }
+    });
+
+    const list = Array.from(uniqueCats);
+    return list.length > 0 ? ["All", ...list] : ["All"];
+  }, [videoList]);
+
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {
       All: videoList.length,
-      Images: 0,
-      Videos: 0,
-      Podcasts: 0,
     };
 
     videoList.forEach((v) => {
-      if (v.category === "Images") {
-        counts["Images"]++;
-      } else if (v.category === "Podcasts") {
-        counts["Podcasts"]++;
-      } else {
-        counts["Videos"]++;
-      }
+      const cat = v.category || "General";
+      counts[cat] = (counts[cat] || 0) + 1;
     });
 
     return counts;
@@ -132,7 +136,9 @@ export function VideoGalleryPage() {
 
   const filteredVideos = useMemo(() => {
     let list = videoList.filter((v) => {
-      const matchesCategory = activeCategory === "All" || v.category === activeCategory;
+      const matchesCategory =
+        activeCategory === "All" ||
+        (v.category && v.category.toLowerCase().trim() === activeCategory.toLowerCase().trim());
 
       const matchesSearch =
         searchQuery.trim() === "" ||
@@ -166,10 +172,11 @@ export function VideoGalleryPage() {
       {/* Main Overlapping Ivory Container */}
       <div className="vg-main-panel">
         <div className="vg-main-container">
-          {/* Glassmorphism Category Filters, Live Search & Sort Bar */}
+          {/* Glassmorphism Dynamic Category Filters, Live Search & Sort Bar */}
           <VideoCategoryFilters
             activeCategory={activeCategory}
             onSelectCategory={setActiveCategory}
+            categories={dynamicCategories}
             searchQuery={searchQuery}
             onSearchChange={setSearchQuery}
             sortBy={sortBy}
