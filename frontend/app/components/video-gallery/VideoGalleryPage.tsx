@@ -40,10 +40,10 @@ export function VideoGalleryPage() {
 
             const rawCat = (v.category || "").toString().toLowerCase();
             let categoryName = "Videos";
-            if (rawCat.includes("image") || rawCat.includes("gallery") || rawCat.includes("tour") || rawCat.includes("photo") || v.type === "gallery" || v.type === "image") {
-              categoryName = "Images";
-            } else if (rawCat.includes("podcast") || rawCat.includes("roundtable") || rawCat.includes("talk") || v.type === "podcast") {
+            if (rawCat.includes("podcast") || rawCat.includes("roundtable") || rawCat.includes("talk") || v.type === "podcast") {
               categoryName = "Podcasts";
+            } else if (v.type === "gallery" || v.type === "image" || (!v.youtubeUrl && (rawCat === "image" || rawCat === "images" || rawCat === "gallery"))) {
+              categoryName = "Images";
             } else {
               categoryName = "Videos";
             }
@@ -79,13 +79,13 @@ export function VideoGalleryPage() {
               id: g._id || g.id || `gal-${idx}`,
               title: g.title || g.name || "Gallery Album",
               category: "Images",
-              duration: g.photos?.length ? `${g.photos.length} Photos` : "Photo Tour",
+              duration: g.photos?.length ? `${g.photos.length} Photos` : "",
               rating: g.rating ? `${g.rating}★` : "",
               views: g.views ? `${g.views}` : "",
               description: g.description || g.summary || "",
               thumbnail: getImageDisplayUrl(g.coverImage || g.thumbnail || g.image || (g.photos && g.photos[0])),
               youtubeId: "",
-              level: "Images",
+              level: "",
               speaker: {
                 name: typeof g.author === 'object' ? (g.author?.name || "") : (g.author || ""),
                 role: "Photo Gallery",
@@ -118,10 +118,9 @@ export function VideoGalleryPage() {
     };
 
     videoList.forEach((v) => {
-      const cat = (v.category || "").toLowerCase();
-      if (cat.includes("image") || cat.includes("gallery") || cat.includes("tour") || cat.includes("campus") || cat.includes("facility")) {
+      if (v.category === "Images") {
         counts["Images"]++;
-      } else if (cat.includes("podcast") || cat.includes("roundtable") || cat.includes("talk")) {
+      } else if (v.category === "Podcasts") {
         counts["Podcasts"]++;
       } else {
         counts["Videos"]++;
@@ -133,15 +132,7 @@ export function VideoGalleryPage() {
 
   const filteredVideos = useMemo(() => {
     let list = videoList.filter((v) => {
-      const vCat = (v.category || "").toLowerCase().trim();
-      const aCat = activeCategory.toLowerCase().trim();
-
-      const matchesCategory =
-        activeCategory === "All" ||
-        vCat === aCat ||
-        (activeCategory === "Images" && (vCat.includes("image") || vCat.includes("gallery") || vCat.includes("tour") || vCat.includes("campus") || vCat.includes("facility"))) ||
-        (activeCategory === "Podcasts" && (vCat.includes("podcast") || vCat.includes("roundtable") || vCat.includes("talk"))) ||
-        (activeCategory === "Videos" && (!vCat.includes("image") && !vCat.includes("gallery") && !vCat.includes("podcast") && !vCat.includes("roundtable") && !vCat.includes("talk")));
+      const matchesCategory = activeCategory === "All" || v.category === activeCategory;
 
       const matchesSearch =
         searchQuery.trim() === "" ||
