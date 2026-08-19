@@ -2932,26 +2932,28 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .all-treatments-head {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.95fr) minmax(360px, 1fr) auto;
-  align-items: start;
-  gap: clamp(36px, 5vw, 104px);
-  margin-bottom: clamp(42px, 3.3vw, 58px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: clamp(32px, 2.8vw, 48px);
+  text-align: left;
 }
 
 .all-treatments-head h2 {
   color: #102d24;
-  font-size: clamp(43px, 3.05vw, 62px);
+  font-size: clamp(38px, 3.05vw, 54px);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.15;
+  margin: 0;
 }
 
 .all-treatments-head p {
-  max-width: 610px;
-  margin: 6px 0 0;
-  color: #39413f !important;
+  max-width: 680px;
+  margin: 0;
+  color: #4a5552 !important;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .all-treatments-sort {
@@ -3402,13 +3404,13 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   }
 
   .all-treatments-head {
-    grid-template-columns: 1fr auto;
-    gap: 20px 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .all-treatments-head p {
-    grid-column: 1 / -1;
-    order: 3;
+    margin: 0;
   }
 
   .all-treatments-grid {
@@ -3444,12 +3446,13 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   }
 
   .all-treatments-head {
-    grid-template-columns: 1fr;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
   }
 
   .all-treatments-head h2 {
-    font-size: clamp(36px, 11vw, 46px);
+    font-size: clamp(32px, 8.5vw, 42px);
   }
 
   .all-treatments-sort {
