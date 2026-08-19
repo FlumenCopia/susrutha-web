@@ -187,10 +187,6 @@ export function Navbar() {
           </div>
 
           <div className="mobile-overlay-body">
-            <div className="mobile-overlay-search">
-              <NavbarSearch />
-            </div>
-
             <nav className="mobile-overlay-links">
               {navigation.map((item) => (
                 <div className="mobile-overlay-group" key={item.label}>
@@ -239,16 +235,6 @@ export function Navbar() {
           </div>
 
           <div className="mobile-overlay-footer">
-            <Link
-              className="btn btn-primary mobile-overlay-book-btn"
-              href="/appointment"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
-            >
-              <CalendarDays size={16} strokeWidth={1.75} aria-hidden="true" />
-              Book Appointment
-              <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
-            </Link>
             <div className="mobile-overlay-contacts">
               <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <Phone size={14} strokeWidth={1.75} aria-hidden="true" />

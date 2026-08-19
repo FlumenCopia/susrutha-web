@@ -319,6 +319,11 @@ body .site-header .nav-actions .nav-book-btn:hover {
     display: none !important;
   }
 
+  .nav-actions,
+  body .site-header .nav-actions {
+    display: none !important;
+  }
+
   .mobile-menu-wrapper,
   body .site-header .mobile-menu-wrapper {
     display: flex !important;
@@ -342,17 +347,6 @@ body .site-header .nav-actions .nav-book-btn:hover {
   body .site-header .brand img {
     height: 40px !important;
     max-height: 42px !important;
-  }
-
-  .nav-actions {
-    gap: 8px !important;
-  }
-
-  .nav-book-btn,
-  body .site-header .nav-actions .nav-book-btn {
-    padding: 7px 14px !important;
-    font-size: 0.78rem !important;
-    height: 36px !important;
   }
 }
 
