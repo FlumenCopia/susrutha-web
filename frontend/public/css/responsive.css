@@ -534,21 +534,24 @@
 }
 
 .vg-filter-pill-deluxe:hover {
-  color: #000a04;
-  background: #f4f0e6;
+  color: #102d24;
+  background: #fff8ec;
+  border-color: rgba(181, 122, 37, 0.3);
 }
 
 .vg-filter-pill-deluxe.active {
-  background: #000a04;
+  background: #102d24;
   color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 4px 16px rgba(11, 59, 44, 0.25);
+  border-color: rgba(181, 122, 37, 0.4);
+  box-shadow: 0 4px 14px rgba(16, 45, 36, 0.2);
 }
 
 .vg-pill-count {
   font-size: 11px;
-  opacity: 0.75;
-  background: rgba(0, 0, 0, 0.08);
+  opacity: 0.85;
+  background: rgba(181, 122, 37, 0.12);
+  color: #b57a25;
   padding: 2px 7px;
   border-radius: 9999px;
 }
