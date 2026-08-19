@@ -4488,9 +4488,9 @@
 /* 2. STICKY TABS */
 .treatment-sticky-tabs {
   position: sticky;
-  top: 0;
+  top: 76px;
   z-index: 99;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(200, 137, 34, 0.2);
@@ -4523,6 +4523,7 @@
   white-space: nowrap;
   border-bottom: 3px solid transparent;
   transition: all 180ms ease;
+  cursor: pointer;
 }
 
 .treatment-tab-link:hover,
@@ -4541,7 +4542,7 @@
 
 .treatment-section-block {
   margin-bottom: 80px;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 150px;
 }
 
 .section-eyebrow {
@@ -4566,11 +4567,13 @@
   font-size: 16px;
   color: #666;
   max-width: 600px;
-  margin: 0 auto 36px;
+  margin: 0 0 36px;
 }
 
+.section-start-heading,
 .section-center-heading {
-  text-align: center;
+  text-align: left;
+  margin-bottom: 28px;
 }
 
 /* Overview Section */

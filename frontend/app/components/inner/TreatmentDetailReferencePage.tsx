@@ -34,6 +34,13 @@ function slugLabel(slug: string) {
     .join(" ");
 }
 
+function cleanTitle(str: any): string {
+  if (!str) return "";
+  return String(str)
+    .replace(/^['"‘“`\s]+|['"’”`\s]+$/g, "")
+    .trim();
+}
+
 export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailReferencePageProps) {
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -47,14 +54,14 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
     ? treatment.benefits.map((b: any, idx: number) => {
         if (typeof b === 'string') {
           return {
-            title: b,
+            title: cleanTitle(b),
             text: '',
             image: '/images/treatment-herbal-medicine.webp',
             icon: 'leaf',
           };
         }
         return {
-          title: b.title || `Benefit ${idx + 1}`,
+          title: cleanTitle(b.title || `Benefit ${idx + 1}`),
           text: b.text || b.description || '',
           image: b.image ? getImageDisplayUrl(b.image) : '/images/treatment-herbal-medicine.webp',
           icon: b.icon || 'leaf',
@@ -65,10 +72,10 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
   const idealForItems = Array.isArray(treatment.indications) && treatment.indications.length > 0
     ? treatment.indications.map((item: any) => {
         if (typeof item === 'string') {
-          return { title: item, subtitle: 'Target indication for treatment', icon: 'leaf' };
+          return { title: cleanTitle(item), subtitle: 'Target indication for treatment', icon: 'leaf' };
         }
         return {
-          title: item.title || String(item),
+          title: cleanTitle(item.title || String(item)),
           subtitle: item.subtitle || 'Target indication for treatment',
           icon: item.icon || 'leaf',
         };
@@ -79,12 +86,12 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
     ? treatment.procedureSteps.map((stepItem: any, idx: number) => {
         const stepNum = String(idx + 1).padStart(2, '0');
         if (typeof stepItem === 'string') {
-          return { step: stepNum, phase: `Phase ${idx + 1}`, title: `Step ${idx + 1}`, text: stepItem, icon: 'sparkles' };
+          return { step: stepNum, phase: `Phase ${idx + 1}`, title: cleanTitle(stepItem), text: '', icon: 'sparkles' };
         }
         return {
           step: stepItem.step || stepNum,
           phase: stepItem.phase || `Phase ${idx + 1}`,
-          title: stepItem.title || stepItem.step || `Step ${idx + 1}`,
+          title: cleanTitle(stepItem.title || stepItem.step || `Step ${idx + 1}`),
           text: stepItem.text || stepItem.detail || '',
           icon: stepItem.icon || 'sparkles',
         };
@@ -92,15 +99,15 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
     : [];
 
   const expectItems = Array.isArray(treatment.expectations) && treatment.expectations.length > 0
-    ? treatment.expectations
+    ? treatment.expectations.map((item) => cleanTitle(item))
     : Array.isArray(treatment.aftercare) && treatment.aftercare.length > 0
-    ? treatment.aftercare
+    ? treatment.aftercare.map((item) => cleanTitle(item))
     : [];
 
   const includeItems = Array.isArray(treatment.inclusions) && treatment.inclusions.length > 0
-    ? treatment.inclusions
+    ? treatment.inclusions.map((item) => cleanTitle(item))
     : Array.isArray(treatment.preparation) && treatment.preparation.length > 0
-    ? treatment.preparation
+    ? treatment.preparation.map((item) => cleanTitle(item))
     : [];
 
   const navTabs = [
@@ -110,6 +117,17 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
     ...(journeySteps.length > 0 ? [{ id: "treatment-process", label: "Treatment Process" }] : []),
     ...(expectItems.length > 0 || includeItems.length > 0 ? [{ id: "what-to-expect", label: "Inclusions" }] : []),
   ];
+
+  const handleTabClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setActiveTab(targetId);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const yOffset = -140; // Space for fixed header (76px) + sticky tabs + padding
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="treatment-detail-luxury-wrapper">
@@ -196,7 +214,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 key={tab.id}
                 href={`#${tab.id}`}
                 className={`treatment-tab-link ${activeTab === tab.id ? "active" : ""}`}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={(e) => handleTabClick(e, tab.id)}
               >
                 {tab.label}
               </a>
@@ -225,7 +243,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         {/* Section 2: Benefits (Only rendered if CMS data exists) */}
         {benefitCards.length > 0 && (
           <section className="treatment-section-block" id="benefits">
-            <div className="section-center-heading">
+            <div className="section-start-heading">
               <span className="section-eyebrow">THERAPEUTIC ADVANTAGES</span>
               <h2 className="section-title-luxury">Key Health & Wellness Benefits</h2>
             </div>
@@ -273,7 +291,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         {/* Section 4: Treatment Process (Only rendered if CMS data exists) */}
         {journeySteps.length > 0 && (
           <section className="treatment-section-block" id="treatment-process">
-            <div className="section-center-heading">
+            <div className="section-start-heading">
               <span className="section-eyebrow">THERAPEUTIC ROADMAP</span>
               <h2 className="section-title-luxury">Structured Procedure Steps</h2>
             </div>
