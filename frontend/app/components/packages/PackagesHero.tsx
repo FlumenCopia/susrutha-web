@@ -33,9 +33,6 @@ export function PackagesHero() {
         sizes="100vw"
       />
       <div className="packages-hero-copy">
-        <span style={{ display: "inline-block", marginBottom: "10px", color: "#d4a359", fontWeight: 800, fontSize: "12px", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-          CURATED AYURVEDIC CARE
-        </span>
         <h1>Structured Care Programmes</h1>
         <p>
           From intensive inpatient hospital programmes to restorative wellness and specialty rejuvenation pathways.
