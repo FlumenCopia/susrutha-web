@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, Maximize2, Eye } from "lucide-react";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export type VideoChapter = {
@@ -27,7 +27,7 @@ export type VideoItem = {
   youtubeId: string;
   views: string;
   rating: string;
-  level: "Beginner" | "Intermediate" | "Clinical Guide" | "Masterclass";
+  level: string;
   speaker: DoctorSpeaker;
   chapters?: VideoChapter[];
   transcript?: string;
@@ -43,6 +43,11 @@ type FeaturedVideoCardProps = {
 export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
   const [imgError, setImgError] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
+
+  const isImage =
+    video.category?.toLowerCase() === "images" ||
+    video.category?.toLowerCase() === "gallery" ||
+    (!video.youtubeId && Boolean(video.thumbnail));
 
   return (
     <article className="vg-featured-card-deluxe" onClick={() => onPlay(video)}>
@@ -70,22 +75,37 @@ export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
           </div>
         ) : null}
 
-        {/* Pulse Glowing Play Button with Ripple */}
-        <button
-          type="button"
-          className="vg-play-btn-deluxe"
-          aria-label={`Play ${video.title}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            onPlay(video);
-          }}
-        >
-          <div className="vg-play-btn-ripple-1" />
-          <div className="vg-play-btn-ripple-2" />
-          <svg className="vg-play-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button>
+        {/* Action Button: Photo Lightbox Expand Icon for Images vs Video Play Button for Videos */}
+        {isImage ? (
+          <button
+            type="button"
+            className="vg-play-btn-deluxe"
+            style={{ width: "48px", height: "48px" }}
+            aria-label={`View photo ${video.title}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              onPlay(video);
+            }}
+          >
+            <Maximize2 size={20} color="#ffffff" />
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="vg-play-btn-deluxe"
+            aria-label={`Play ${video.title}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              onPlay(video);
+            }}
+          >
+            <div className="vg-play-btn-ripple-1" />
+            <div className="vg-play-btn-ripple-2" />
+            <svg className="vg-play-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        )}
 
         {/* Bottom Duration & Views Badge */}
         {(video.views || video.duration) ? (
