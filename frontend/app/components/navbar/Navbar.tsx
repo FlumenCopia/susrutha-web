@@ -8,13 +8,14 @@ import { desktopNavigation, LinkItem } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
 import { getPublicTreatments, getPublicConditions, getPublicDoctors } from "../../services/api";
 
-import { Leaf, CalendarDays, ArrowRight, Phone, Mail } from "lucide-react";
+import { Leaf, CalendarDays, ArrowRight, Phone, Mail, ChevronDown } from "lucide-react";
 import { NavbarSearch } from "./NavbarSearch";
 import "./navbar.css";
 
 export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [navigation, setNavigation] = useState<LinkItem[]>(desktopNavigation);
 
   useEffect(() => {
@@ -56,7 +57,6 @@ export function Navbar() {
             };
           }
           if (item.label === "Doctors" && Array.isArray(apiDoctors) && apiDoctors.length > 0) {
-            // Filter distinct doctors, prioritizing main doctors
             const mainDoctors = apiDoctors.filter((d: any) => !d.name?.includes('Test') && !d.name?.match(/\d{5,}/));
             const doctorSource = mainDoctors.length > 0 ? mainDoctors : apiDoctors;
             const limitedDoctors = doctorSource.slice(0, MAX_DROPDOWN_ITEMS).map((d: any) => ({
@@ -99,11 +99,15 @@ export function Navbar() {
     setMobileMenuOpen((prev) => !prev);
   };
 
+  const toggleMobileDropdown = (label: string) => {
+    setOpenMobileDropdown((prev) => (prev === label ? null : label));
+  };
+
   return (
     <header className="site-header">
       <nav className="navbar" aria-label="Main navigation">
         <Link className="brand" href="/" aria-label="Susrutha Ayurveda home">
-          <img src="/images/logo.webp" alt="Susrutha Ayurveda logo"  />
+          <img src="/images/logo.webp" alt="Susrutha Ayurveda logo" />
         </Link>
 
         <div className="nav-links">
@@ -160,88 +164,104 @@ export function Navbar() {
             <span className="hamburger-bar" />
           </button>
         </div>
+      </nav>
 
-        {/* Full-Screen Mobile Navigation Overlay */}
-        {mobileMenuOpen && (
-          <div className="mobile-fullscreen-overlay" role="dialog" aria-modal="true" aria-label="Navigation Menu">
-            <div className="mobile-overlay-header">
-              <Link className="mobile-overlay-brand" href="/" onClick={() => setMobileMenuOpen(false)}>
-                <Image src="/images/logo.webp" alt="Susrutha Ayurveda logo" width={220} height={68} priority />
-              </Link>
-              <button
-                type="button"
-                className="mobile-overlay-close-btn"
-                onClick={() => setMobileMenuOpen(false)}
-                aria-label="Close navigation"
-              >
-                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
+      {/* Full-Screen Mobile Navigation Overlay (Solid opaque background) */}
+      {mobileMenuOpen && (
+        <div className="mobile-fullscreen-overlay" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+          <div className="mobile-overlay-header">
+            <Link className="mobile-overlay-brand" href="/" onClick={() => setMobileMenuOpen(false)}>
+              <Image src="/images/logo.webp" alt="Susrutha Ayurveda logo" width={180} height={56} priority style={{ width: "auto", height: "42px", objectFit: "contain" }} />
+            </Link>
+            <button
+              type="button"
+              className="mobile-overlay-close-btn"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close navigation"
+            >
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="mobile-overlay-body">
+            <div className="mobile-overlay-search">
+              <NavbarSearch />
             </div>
 
-            <div className="mobile-overlay-body">
-              <div className="mobile-overlay-search">
-                <NavbarSearch />
-              </div>
-
-              <nav className="mobile-overlay-links">
-                {navigation.map((item) => (
-                  <div className="mobile-overlay-group" key={item.label}>
+            <nav className="mobile-overlay-links">
+              {navigation.map((item) => (
+                <div className="mobile-overlay-group" key={item.label}>
+                  {item.children ? (
+                    <>
+                      <button
+                        type="button"
+                        className={`mobile-overlay-main-link has-dropdown ${openMobileDropdown === item.label ? "expanded" : ""} ${isActive(item.href) ? "active" : ""}`}
+                        onClick={() => toggleMobileDropdown(item.label)}
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          size={18}
+                          className={`mobile-chevron ${openMobileDropdown === item.label ? "rotated" : ""}`}
+                        />
+                      </button>
+                      {openMobileDropdown === item.label && (
+                        <div className="mobile-overlay-sub-links">
+                          {item.children.map((child) => (
+                            <Link
+                              href={child.href}
+                              key={child.label}
+                              className={`mobile-overlay-sub-link ${isActive(child.href) ? "active" : ""}`}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <span>{child.label}</span>
+                              {child.badge && <span className="mobile-collab-badge">{child.badge}</span>}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
                     <Link
                       href={item.href}
                       className={`mobile-overlay-main-link ${isActive(item.href) ? "active" : ""}`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <span>{item.label}</span>
-                      {isActive(item.href) && <Leaf size={10} strokeWidth={2} className="mobile-active-dot" style={{ display: "inline-block", marginLeft: "6px" }} />}
+                      {isActive(item.href) && <Leaf size={12} strokeWidth={2} className="mobile-active-dot" style={{ display: "inline-block", marginLeft: "6px" }} />}
                     </Link>
-                    {item.children ? (
-                      <div className="mobile-overlay-sub-links">
-                        {item.children.map((child) => (
-                          <Link
-                            href={child.href}
-                            key={child.label}
-                            className={`mobile-overlay-sub-link ${isActive(child.href) ? "active" : ""}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            <span>{child.label}</span>
-                            {child.badge && <span className="mobile-collab-badge">{child.badge}</span>}
-                          </Link>
-                        ))}
-                      </div>
-                    ) : null}
-                  </div>
-                ))}
-              </nav>
-            </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
 
-            <div className="mobile-overlay-footer">
-              <Link
-                className="btn btn-primary mobile-overlay-book-btn"
-                href="/appointment"
-                onClick={() => setMobileMenuOpen(false)}
-                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
-              >
-                <CalendarDays size={16} strokeWidth={1.75} aria-hidden="true" />
-                Book Appointment
-                <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
-              </Link>
-              <div className="mobile-overlay-contacts">
-                <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                  <Phone size={14} strokeWidth={1.75} aria-hidden="true" />
-                  {siteConfig.phone}
-                </a>
-                <a href={`mailto:${siteConfig.email}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                  <Mail size={14} strokeWidth={1.75} aria-hidden="true" />
-                  {siteConfig.email}
-                </a>
-              </div>
+          <div className="mobile-overlay-footer">
+            <Link
+              className="btn btn-primary mobile-overlay-book-btn"
+              href="/appointment"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
+            >
+              <CalendarDays size={16} strokeWidth={1.75} aria-hidden="true" />
+              Book Appointment
+              <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
+            </Link>
+            <div className="mobile-overlay-contacts">
+              <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                <Phone size={14} strokeWidth={1.75} aria-hidden="true" />
+                {siteConfig.phone}
+              </a>
+              <a href={`mailto:${siteConfig.email}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                <Mail size={14} strokeWidth={1.75} aria-hidden="true" />
+                {siteConfig.email}
+              </a>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </header>
   );
 }

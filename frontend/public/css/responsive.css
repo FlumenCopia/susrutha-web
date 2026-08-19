@@ -5923,9 +5923,9 @@
 .apt-wizard-card-luxury {
   background: #ffffff;
   border: 1px solid rgba(232, 220, 203, 0.95);
-  border-radius: 28px;
-  padding: 44px;
-  box-shadow: 0 20px 50px rgba(99, 57, 19, 0.08);
+  border-radius: 24px;
+  padding: clamp(28px, 3.5vw, 44px);
+  box-shadow: 0 16px 45px rgba(99, 57, 19, 0.07);
 }
 
 /* Progress Track */
@@ -6973,7 +6973,7 @@
 
 /* Appointment confirmation polish */
 .appointment-page-wrapper .apt-booking-luxury {
-  padding-top: clamp(145px, 12vw, 180px);
+  padding-top: clamp(120px, 10vw, 150px) !important;
 }
 
 .appointment-page-wrapper .apt-booking-grid-wrapper {
@@ -6984,6 +6984,7 @@
 
 .appointment-page-wrapper .apt-wizard-card-luxury {
   min-width: 0;
+  border-radius: 24px;
   overflow: hidden;
 }
 
@@ -7110,7 +7111,7 @@
 .apt-summary-card-inner {
   overflow: hidden;
   border: 1px solid rgba(180, 123, 52, 0.18);
-  border-radius: 26px;
+  border-radius: 24px;
   background: rgba(255, 255, 255, 0.86);
   box-shadow: 0 24px 58px rgba(79, 53, 27, 0.12);
   backdrop-filter: blur(10px);
