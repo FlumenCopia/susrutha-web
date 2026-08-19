@@ -8,6 +8,7 @@ import { desktopNavigation, LinkItem } from "../../data/architecture";
 import { siteConfig } from "../../data/site";
 import { getPublicTreatments, getPublicConditions, getPublicDoctors } from "../../services/api";
 
+import { Leaf, CalendarDays, ArrowRight, Phone, Mail } from "lucide-react";
 import { NavbarSearch } from "./NavbarSearch";
 import "./navbar.css";
 
@@ -194,7 +195,7 @@ export function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <span>{item.label}</span>
-                      {isActive(item.href) && <i className="fa-solid fa-leaf mobile-active-dot" style={{ fontSize: "10px" }} />}
+                      {isActive(item.href) && <Leaf size={10} strokeWidth={2} className="mobile-active-dot" style={{ display: "inline-block", marginLeft: "6px" }} />}
                     </Link>
                     {item.children ? (
                       <div className="mobile-overlay-sub-links">
@@ -221,18 +222,19 @@ export function Navbar() {
                 className="btn btn-primary mobile-overlay-book-btn"
                 href="/appointment"
                 onClick={() => setMobileMenuOpen(false)}
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
               >
-                <i className="fa-solid fa-calendar-days" aria-hidden="true" style={{ marginRight: "6px" }} />
+                <CalendarDays size={16} strokeWidth={1.75} aria-hidden="true" />
                 Book Appointment
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
+                <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
               </Link>
               <div className="mobile-overlay-contacts">
-                <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`}>
-                  <i className="fa-solid fa-phone" aria-hidden="true" style={{ marginRight: "6px" }} />
+                <a href={`tel:${siteConfig.phone.replaceAll(" ", "")}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  <Phone size={14} strokeWidth={1.75} aria-hidden="true" />
                   {siteConfig.phone}
                 </a>
-                <a href={`mailto:${siteConfig.email}`}>
-                  <i className="fa-solid fa-envelope" aria-hidden="true" style={{ marginRight: "6px" }} />
+                <a href={`mailto:${siteConfig.email}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  <Mail size={14} strokeWidth={1.75} aria-hidden="true" />
                   {siteConfig.email}
                 </a>
               </div>

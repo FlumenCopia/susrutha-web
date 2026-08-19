@@ -3,6 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  Flower2,
+  Droplets,
+  Activity,
+  Heart,
+  FlaskConical,
+  Scale,
+  Sprout,
+  Leaf,
+  ArrowRight,
+  ArrowLeft,
+  Clock,
+  Check,
+} from "lucide-react";
 import { getImageDisplayUrl, getPublicTreatments } from "../../services/api";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
@@ -231,22 +245,22 @@ const CATEGORIES = [
 function TreatmentFaIcon({ type }: { type: TreatmentMeta["iconType"] }) {
   switch (type) {
     case "lotus":
-      return <i className="fa-solid fa-spa treatment-fa-icon" aria-hidden="true" />;
+      return <Flower2 className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "shiro":
-      return <i className="fa-solid fa-shower treatment-fa-icon" aria-hidden="true" />;
+      return <Droplets className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "spine":
-      return <i className="fa-solid fa-bone treatment-fa-icon" aria-hidden="true" />;
+      return <Activity className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "hands":
-      return <i className="fa-solid fa-hand-holding-heart treatment-fa-icon" aria-hidden="true" />;
+      return <Heart className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "mortar":
-      return <i className="fa-solid fa-mortar-pestle treatment-fa-icon" aria-hidden="true" />;
+      return <FlaskConical className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "balance":
-      return <i className="fa-solid fa-scale-balanced treatment-fa-icon" aria-hidden="true" />;
+      return <Scale className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "sprout":
-      return <i className="fa-solid fa-seedling treatment-fa-icon" aria-hidden="true" />;
+      return <Sprout className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
     case "leaf":
     default:
-      return <i className="fa-solid fa-leaf treatment-fa-icon" aria-hidden="true" />;
+      return <Leaf className="treatment-fa-icon" size={20} strokeWidth={1.75} aria-hidden="true" />;
   }
 }
 
@@ -386,17 +400,17 @@ export function TreatmentsShowcaseSection() {
             </span>
           </div>
 
-          <Link className="treatments-showcase-all" href="/treatments">
+          <Link className="treatments-showcase-all" href="/treatments" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
             Explore All Treatments
-            <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "8px" }} />
+            <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
           </Link>
 
           <div className="treatments-slider-controls" aria-label="Treatment slider controls">
             <button type="button" onClick={() => scrollToPage(safeActivePage - 1)} aria-label="Previous treatments">
-              <i className="fa-solid fa-arrow-left" aria-hidden="true" />
+              <ArrowLeft size={16} strokeWidth={1.75} aria-hidden="true" />
             </button>
             <button type="button" onClick={() => scrollToPage(safeActivePage + 1)} aria-label="Next treatments">
-              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              <ArrowRight size={16} strokeWidth={1.75} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -418,8 +432,8 @@ export function TreatmentsShowcaseSection() {
 
                     <div className="treatments-card-badges">
                       <span className="card-badge-category">{treatment.badge}</span>
-                      <span className="card-badge-duration">
-                        <i className="fa-regular fa-clock" aria-hidden="true" style={{ marginRight: "4px" }} />
+                      <span className="card-badge-duration" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                        <Clock size={13} strokeWidth={1.75} aria-hidden="true" />
                         {treatment.duration}
                       </span>
                     </div>
@@ -439,8 +453,8 @@ export function TreatmentsShowcaseSection() {
                     {treatment.benefits && treatment.benefits.length > 0 && (
                       <div className="treatments-card-benefits">
                         {treatment.benefits.map((b: string) => (
-                          <span key={b} className="benefit-tag">
-                            <i className="fa-solid fa-check" aria-hidden="true" style={{ fontSize: "11px" }} />
+                          <span key={b} className="benefit-tag" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                            <Check size={11} strokeWidth={2} aria-hidden="true" />
                             {b}
                           </span>
                         ))}
@@ -448,9 +462,9 @@ export function TreatmentsShowcaseSection() {
                     )}
 
                     <div className="treatments-card-cta-row">
-                      <span className="treatments-card-cta-btn">
+                      <span className="treatments-card-cta-btn" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
                         Explore Therapy
-                        <i className="fa-solid fa-arrow-right arrow" aria-hidden="true" />
+                        <ArrowRight size={14} strokeWidth={1.75} className="arrow" aria-hidden="true" />
                       </span>
                     </div>
                   </div>

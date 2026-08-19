@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
+import { Search } from "lucide-react";
 import "./doctors.css";
 import { DoctorCard, type DoctorItem } from "./DoctorCard";
 import { DoctorsHero } from "./DoctorsHero";
@@ -13,29 +14,6 @@ import { DoctorMatchAssistant } from "./DoctorMatchAssistant";
 import { DoctorsStatsBanner } from "./DoctorsStatsBanner";
 import { DoctorsCTA } from "./DoctorsCTA";
 import { getPublicDoctors, getPublicDepartments, getPublicBranches, getImageDisplayUrl } from "@/app/services/api";
-
-// Department icon map (fallback for backend departments without icons)
-const DEPT_ICONS: Record<string, string> = {
-  "panchakarma-bio-purification": "fa-solid fa-spa",
-  "kayachikitsa-internal-medicine": "fa-solid fa-stethoscope",
-  "neck-back-joint-problems": "fa-solid fa-bone",
-  "stroke-neurological-rehabilitation": "fa-solid fa-brain",
-  "preventive-medicine-rejuvenation": "fa-solid fa-shield-heart",
-  "prasooti-tantra-stree-roga": "fa-solid fa-venus",
-  "rheumatology-autoimmune-care": "fa-solid fa-person-running",
-  "susrutha-proctology-unit": "fa-solid fa-briefcase-medical",
-  "skin-hair-care": "fa-solid fa-wand-magic-sparkles",
-  panchakarma: "fa-solid fa-spa",
-  "spine-joints": "fa-solid fa-bone",
-  "womens-health": "fa-solid fa-venus",
-  "lifestyle-detox": "fa-solid fa-leaf",
-  "skin-hair": "fa-solid fa-wand-magic-sparkles",
-  kayachikitsa: "fa-solid fa-stethoscope",
-  "preventive-medicine": "fa-solid fa-shield-heart",
-  rheumatology: "fa-solid fa-person-running",
-  neurology: "fa-solid fa-brain",
-  default: "fa-solid fa-hospital-user",
-};
 
 export function DoctorsPage() {
   const [doctorsList, setDoctorsList] = useState<DoctorItem[]>([]);
@@ -142,7 +120,7 @@ export function DoctorsPage() {
               return {
                 id,
                 name,
-                icon: d.icon || DEPT_ICONS[d.slug] || DEPT_ICONS.default,
+                icon: d.icon || d.slug || id,
                 description: d.tagline || d.overview || d.description || "Specialized Ayurvedic Treatment",
                 doctorCount,
               };
@@ -154,7 +132,7 @@ export function DoctorsPage() {
             {
               id: "all",
               name: "All Departments",
-              icon: "fa-solid fa-border-all",
+              icon: "all",
               description: "View all specialized medical departments",
               doctorCount: normalizedDocs.length,
             },
@@ -356,7 +334,7 @@ export function DoctorsPage() {
         ) : (
           /* Empty Search State */
           <div className="doctors-empty-state">
-            <div className="doctors-empty-icon"><i className="fa-solid fa-magnifying-glass" /></div>
+            <div className="doctors-empty-icon"><Search size={32} strokeWidth={1.5} /></div>
             <h3 className="doctors-empty-title">No Doctors Found</h3>
             <p className="doctors-empty-desc">
               We couldn’t find any physicians matching your selected filters or search terms. 

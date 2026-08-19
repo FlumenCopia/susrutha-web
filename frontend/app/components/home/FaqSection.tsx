@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Phone, ArrowRight, CalendarDays } from "lucide-react";
 import { getPublicFAQs } from "@/app/services/api";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
@@ -66,47 +67,40 @@ export function FaqSection() {
     loadFaqs();
   }, []);
 
-  if (!loading && faqList.length === 0) {
-    return null;
-  }
-
   return (
-    <section className="faq-section" aria-labelledby="home-faq-title">
-      <div className="faq-layout">
-        <div className="faq-intro">
-          <div className="faq-eyebrow">
-            <i aria-hidden="true" />
-            Clear Answers
-          </div>
-          <h2 id="home-faq-title">
-            Answers to Your Wellness <span>Questions</span>
-          </h2>
-          <div className="faq-title-ornament" aria-hidden="true">
-            <span />
-            <i />
-            <span />
-          </div>
-          <p>
-            We believe in clarity, transparency, and empowering you to make informed decisions
-            about your health.
-          </p>
+    <section className="faq-section" aria-labelledby="faq-title">
+      <div className="faq-heading-block">
+        <span className="faq-tag">FAQs</span>
+        <div className="flex items-center justify-center gap-2 mt-1">
+          <h2 id="faq-title">Frequently Asked Questions</h2>
+          <DataLayerRibbon
+            type={faqList.some((f) => f.isBackendData) ? "backend" : "static"}
+            label="FAQ API (CMS Sync)"
+          />
         </div>
+        <p>
+          Everything you need to know about our consultations, inpatient facilities, and treatment methodology.
+        </p>
+      </div>
 
+      <div className="faq-layout">
         <div className="faq-list">
-          {faqList.map((faq, index) => (
-            <details className="faq-item" key={faq.question} open={index === 0}>
-              <summary>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{faq.question}</strong>
-                <i aria-hidden="true" />
+          {faqList.map((item, i) => (
+            <details
+              key={`${item.question}-${i}`}
+              className="faq-item"
+              name="faq-accordion"
+              open={i === 0}
+            >
+              <summary className="faq-summary">
+                <span className="faq-number">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="faq-question-text">{item.question}</span>
+                <span className="faq-indicator" aria-hidden="true" />
               </summary>
-              <div className="faq-answer">
-                <div className="faq-answer-ornament" aria-hidden="true">
-                  <span />
-                  <LotusIcon />
-                  <span />
-                </div>
-                <p>{faq.answer}</p>
+              <div className="faq-body">
+                <p>{item.answer}</p>
               </div>
             </details>
           ))}
@@ -121,15 +115,15 @@ export function FaqSection() {
           <div>
             <h3>Still have questions?</h3>
             <p>Our wellness experts are here to help you.</p>
-            <Link href="/contact-us">
-              Contact Us <span aria-hidden="true">&rarr;</span>
+            <Link href="/contact-us" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+              Contact Us <ArrowRight size={14} strokeWidth={1.75} aria-hidden="true" />
             </Link>
           </div>
         </div>
 
         <div className="faq-contact-block faq-contact-expert">
           <span className="faq-contact-icon" aria-hidden="true">
-            <i className="fa-solid fa-phone" />
+            <Phone size={22} strokeWidth={1.75} />
           </span>
           <div>
             <h3>Speak with our experts</h3>
@@ -143,16 +137,13 @@ export function FaqSection() {
 
         <Link className="faq-consult-card" href="/appointment">
           <span aria-hidden="true">
-            <svg viewBox="0 0 28 28" focusable="false">
-              <path d="M8 5v4M20 5v4M6 10h16M7 7h14v15H7z" />
-              <path d="M10 14h2M16 14h2M10 18h2M16 18h2" />
-            </svg>
+            <CalendarDays size={26} strokeWidth={1.75} />
           </span>
           <div>
             <h3>Book a Consultation</h3>
             <p>Take the first step towards a healthier, balanced life.</p>
           </div>
-          <i aria-hidden="true">&rarr;</i>
+          <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
         </Link>
       </div>
 

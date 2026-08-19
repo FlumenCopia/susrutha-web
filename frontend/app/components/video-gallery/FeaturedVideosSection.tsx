@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Leaf, SlidersHorizontal, LayoutGrid, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { FeaturedVideoCard, VideoItem } from "./FeaturedVideoCard";
 
 type FeaturedVideosSectionProps = {
@@ -30,7 +31,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">PHYSICIAN MASTERCLASSES</div>
           <h2 id="featured-videos-heading" className="vg-section-title">
-            Featured Videos <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
+            Featured Videos <span className="vg-leaf-accent" aria-hidden="true"><Leaf size={16} strokeWidth={1.75} /></span>
           </h2>
           <p className="vg-section-subhead">Curated videos to inspire your wellness journey</p>
         </div>
@@ -44,7 +45,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
               onClick={() => setViewMode("carousel")}
               aria-label="Carousel View"
             >
-              <i className="fa-solid fa-sliders" />
+              <SlidersHorizontal size={15} strokeWidth={1.75} />
             </button>
             <button
               type="button"
@@ -52,7 +53,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
               onClick={() => setViewMode("grid")}
               aria-label="Grid View"
             >
-              <i className="fa-solid fa-border-all" />
+              <LayoutGrid size={15} strokeWidth={1.75} />
             </button>
           </div>
 
@@ -64,7 +65,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
                 onClick={scrollLeft}
                 aria-label="Scroll left"
               >
-                <i className="fa-solid fa-arrow-left" />
+                <ArrowLeft size={16} strokeWidth={1.75} />
               </button>
               <button
                 type="button"
@@ -72,7 +73,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
                 onClick={scrollRight}
                 aria-label="Scroll right"
               >
-                <i className="fa-solid fa-arrow-right" />
+                <ArrowRight size={16} strokeWidth={1.75} />
               </button>
             </div>
           )}
@@ -81,7 +82,7 @@ export function FeaturedVideosSection({ videos, onPlayVideo }: FeaturedVideosSec
 
       {videos.length === 0 ? (
         <div className="vg-empty-state">
-          <span className="vg-empty-icon"><i className="fa-solid fa-magnifying-glass" /></span>
+          <span className="vg-empty-icon"><Search size={24} strokeWidth={1.5} /></span>
           <h3>No videos match your search</h3>
           <p>Try adjusting your category filter or search keywords.</p>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Check, Award, CalendarCheck } from "lucide-react";
 import { DoctorItem } from "./DoctorCard";
 
 type DoctorMatchAssistantProps = {
@@ -90,7 +91,7 @@ export function DoctorMatchAssistant({ doctors = [] }: DoctorMatchAssistantProps
                 />
                 {selectedOptId === opt.deptId && (
                   <span className="doctors-assistant-check-badge">
-                    <i className="fa-solid fa-check" />
+                    <Check size={14} strokeWidth={2.5} />
                   </span>
                 )}
               </div>
@@ -118,8 +119,8 @@ export function DoctorMatchAssistant({ doctors = [] }: DoctorMatchAssistantProps
                 <span className="doctors-assistant-status-dot" />
               </div>
               <div className="doctors-assistant-doc-details">
-                <div className="doctors-assistant-rec-eyebrow">
-                  <i className="fa-solid fa-award" style={{ marginRight: 5 }} /> Recommended Specialist
+                <div className="doctors-assistant-rec-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                  <Award size={14} strokeWidth={1.75} /> Recommended Specialist
                 </div>
                 <h4 className="doctors-assistant-doc-name">{matchedDoctor.name}</h4>
                 <p className="doctors-assistant-doc-sub">
@@ -131,8 +132,9 @@ export function DoctorMatchAssistant({ doctors = [] }: DoctorMatchAssistantProps
             <Link
               href={`/appointment?doctor=${matchedDoctor.slug}`}
               className="doctors-assistant-book-btn"
+              style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
             >
-              <i className="fa-solid fa-calendar-check" />
+              <CalendarCheck size={16} strokeWidth={1.75} />
               Book with {matchedDoctor.name.split(" ")[1] || "Vaidya"}
             </Link>
           </div>

@@ -1,22 +1,24 @@
+import { UserCheck, Zap, ShieldCheck, Headphones } from "lucide-react";
+
 export function AppointmentTrustSection() {
   const trustItems = [
     {
-      iconClass: "fa-solid fa-user-doctor",
+      icon: <UserCheck size={26} strokeWidth={1.75} />,
       title: "Senior Vaidya Consultation",
       text: "Diagnosed by experienced Ayurvedic post-graduates and senior specialists.",
     },
     {
-      iconClass: "fa-solid fa-bolt",
+      icon: <Zap size={26} strokeWidth={1.75} />,
       title: "Zero Waiting Time",
       text: "Prioritized appointment slots ensure prompt consultation without queue delays.",
     },
     {
-      iconClass: "fa-solid fa-shield-halved",
+      icon: <ShieldCheck size={26} strokeWidth={1.75} />,
       title: "100% Confidential Care",
       text: "Private consultation suites & secure digital health records.",
     },
     {
-      iconClass: "fa-solid fa-phone",
+      icon: <Headphones size={26} strokeWidth={1.75} />,
       title: "Dedicated Care Officer",
       text: "Personal support for therapy preparation, lab reports & follow-up diet.",
     },
@@ -29,7 +31,7 @@ export function AppointmentTrustSection() {
           {trustItems.map((item) => (
             <article key={item.title} className="apt-trust-card">
               <span className="apt-trust-icon">
-                <i className={item.iconClass} aria-hidden="true" />
+                {item.icon}
               </span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>

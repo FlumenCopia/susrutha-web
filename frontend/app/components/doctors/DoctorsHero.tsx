@@ -23,7 +23,7 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
           {/* Live Search Input Bar */}
           <div className="doctors-hero-search">
             <div className="doctors-hero-search-input-wrap">
-              <i className="fa-solid fa-magnifying-glass doctors-hero-search-icon" aria-hidden="true" />
+              <Search size={18} strokeWidth={1.75} className="doctors-hero-search-icon" aria-hidden="true" />
               <input
                 type="text"
                 className="doctors-hero-search-input"

@@ -1,4 +1,22 @@
 import React from "react";
+import {
+  ArrowRight,
+  Hospital,
+  Calendar,
+  Car,
+  Clock,
+  Leaf,
+  Flower2,
+  Mail,
+  Activity,
+  Phone,
+  UserCheck,
+  Bed,
+  ShieldCheck,
+  Sparkles,
+  Circle,
+  LucideIcon,
+} from "lucide-react";
 
 export type FacilitiesIconName =
   | "arrow"
@@ -20,26 +38,42 @@ type FacilitiesIconProps = {
   name: FacilitiesIconName;
   className?: string;
   style?: React.CSSProperties;
+  size?: number;
+  strokeWidth?: number;
 };
 
-const iconMap: Record<FacilitiesIconName, string> = {
-  arrow: "fa-solid fa-arrow-right",
-  building: "fa-solid fa-hospital",
-  calendar: "fa-solid fa-calendar-days",
-  car: "fa-solid fa-car",
-  clock: "fa-solid fa-clock",
-  leaf: "fa-solid fa-leaf",
-  lotus: "fa-solid fa-spa",
-  mail: "fa-solid fa-envelope",
-  operation: "fa-solid fa-notes-medical",
-  phone: "fa-solid fa-phone",
-  physio: "fa-solid fa-user-doctor",
-  room: "fa-solid fa-bed",
-  shield: "fa-solid fa-shield-halved",
-  yoga: "fa-solid fa-spa",
+const iconComponentMap: Record<FacilitiesIconName, LucideIcon> = {
+  arrow: ArrowRight,
+  building: Hospital,
+  calendar: Calendar,
+  car: Car,
+  clock: Clock,
+  leaf: Leaf,
+  lotus: Flower2,
+  mail: Mail,
+  operation: Activity,
+  phone: Phone,
+  physio: UserCheck,
+  room: Bed,
+  shield: ShieldCheck,
+  yoga: Sparkles,
 };
 
-export function FacilitiesIcon({ name, className = "", style }: FacilitiesIconProps) {
-  const iconClass = iconMap[name] || "fa-solid fa-circle";
-  return <i className={`${iconClass} ${className}`.trim()} style={style} aria-hidden="true" />;
+export function FacilitiesIcon({
+  name,
+  className = "",
+  style,
+  size = 20,
+  strokeWidth = 1.75,
+}: FacilitiesIconProps) {
+  const IconComponent = iconComponentMap[name] || Circle;
+  return (
+    <IconComponent
+      className={className}
+      style={style}
+      size={size}
+      strokeWidth={strokeWidth}
+      aria-hidden="true"
+    />
+  );
 }

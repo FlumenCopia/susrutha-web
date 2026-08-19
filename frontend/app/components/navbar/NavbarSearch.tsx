@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { TrendingUp, Activity, X, ArrowRight } from "lucide-react";
+import { TrendingUp, Activity, X, ArrowRight, UserCheck, Leaf, ClipboardList, Search } from "lucide-react";
 import { desktopNavigation } from "../../data/architecture";
 import { getPublicDoctors, getPublicTreatments, getPublicConditions, getImageDisplayUrl } from "../../services/api";
 
@@ -324,7 +324,7 @@ export function NavbarSearch() {
               {results.doctors.length > 0 && (
                 <div className="search-result-group">
                   <div className="search-group-title">
-                    <span><i className="fa-solid fa-user-doctor" style={{ marginRight: "6px" }} /> Doctors ({results.doctors.length})</span>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><UserCheck size={14} strokeWidth={1.75} /> Doctors ({results.doctors.length})</span>
                   </div>
                   {results.doctors.map((item) => {
                     const globalIdx = results.all.findIndex((r) => r.id === item.id);
@@ -358,7 +358,7 @@ export function NavbarSearch() {
               {results.treatments.length > 0 && (
                 <div className="search-result-group">
                   <div className="search-group-title">
-                    <span><i className="fa-solid fa-leaf" style={{ marginRight: "6px" }} /> Treatments ({results.treatments.length})</span>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Leaf size={14} strokeWidth={1.75} /> Treatments ({results.treatments.length})</span>
                   </div>
                   {results.treatments.map((item) => {
                     const globalIdx = results.all.findIndex((r) => r.id === item.id);
@@ -428,7 +428,7 @@ export function NavbarSearch() {
           {/* Case 3: Query entered but no matches */}
           {query.trim() && results.all.length === 0 && (
             <div className="search-no-results">
-              <div className="no-results-icon"><i className="fa-solid fa-magnifying-glass" /></div>
+              <div className="no-results-icon"><Search size={28} strokeWidth={1.5} /></div>
               <div className="no-results-title">No matching results for &quot;{query}&quot;</div>
               <p className="no-results-desc">
                 Try searching for Panchakarma, Shirodhara, Back Pain, or Dr. Krishnakumar.
@@ -539,7 +539,7 @@ export function NavbarSearch() {
                     className="search-result-item"
                     onClick={() => handleSelectResult(item.href)}
                   >
-                    <div className="search-item-icon-box"><i className="fa-solid fa-clipboard-list" /></div>
+                    <div className="search-item-icon-box"><ClipboardList size={16} strokeWidth={1.75} /></div>
                     <div className="search-item-info">
                       <div className="search-item-title">{highlightMatch(item.title, query)}</div>
                       <div className="search-item-subtitle">{item.subtitle}</div>
@@ -552,7 +552,7 @@ export function NavbarSearch() {
 
             {query.trim() && results.all.length === 0 && (
               <div className="search-no-results">
-                <div className="no-results-icon"><i className="fa-solid fa-magnifying-glass" /></div>
+                <div className="no-results-icon"><Search size={28} strokeWidth={1.5} /></div>
                 <div className="no-results-title">No matching results</div>
                 <p className="no-results-desc">
                   Try searching for Panchakarma, Shirodhara, or Dr. Krishnakumar.

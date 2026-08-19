@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ScrollText } from "lucide-react";
 import { VideoItem } from "./FeaturedVideoCard";
 
 export type VideoPlaylist = {
@@ -35,7 +35,7 @@ export function VideoPlaylistsSection({ playlists = [], videos = [], onPlayVideo
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">CURATED SERIES</div>
           <h2 id="playlists-heading" className="vg-section-title">
-            Featured Playlists <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-scroll" /></span>
+            Featured Playlists <span className="vg-leaf-accent" aria-hidden="true"><ScrollText size={16} strokeWidth={1.75} /></span>
           </h2>
           <p className="vg-section-subhead">Structured multi-part video series guided by senior physicians</p>
         </div>

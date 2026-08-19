@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, Leaf } from "lucide-react";
 import { DoctorSpeaker, VideoItem } from "./FeaturedVideoCard";
 
 export type PatientStory = {
@@ -53,7 +53,7 @@ export function PatientStoriesSection({ stories = [], onPlayVideo }: PatientStor
         <div className="vg-section-title-group">
           <div className="vg-eyebrow-accent">CLINICAL EVIDENCE & RECOVERIES</div>
           <h2 id="patient-stories-heading" className="vg-section-title">
-            Patient Transformation Stories <span className="vg-leaf-accent" aria-hidden="true"><i className="fa-solid fa-leaf" /></span>
+            Patient Transformation Stories <span className="vg-leaf-accent" aria-hidden="true"><Leaf size={16} strokeWidth={1.75} /></span>
           </h2>
           <p className="vg-section-subhead">Hear directly from patients treated for chronic spine, joint, skin, and autoimmune conditions</p>
         </div>

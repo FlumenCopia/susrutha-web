@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Award, Leaf, Star, Sparkles, ChevronRight } from "lucide-react";
 import { getPublicDoctors, getImageDisplayUrl } from "../../services/api";
 
 interface ChiefDoctor {
@@ -76,12 +77,12 @@ export function AppointmentHero() {
         <div className="apt-hero-left">
           <nav className="apt-breadcrumb-luxury" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
-            <span className="bc-divider">/</span>
+            <ChevronRight size={13} className="bc-divider" style={{ display: "inline-block", verticalAlign: "middle", opacity: 0.6 }} />
             <span className="bc-active">Book Consultation</span>
           </nav>
 
           <div className="apt-luxury-chip">
-            <span className="apt-pulse-beacon" />
+            <Sparkles size={13} strokeWidth={1.75} style={{ marginRight: 6, color: "var(--gold, #d97706)" }} />
             <span className="apt-chip-text">INSTANT DOCTOR SLOTS AVAILABLE TODAY</span>
           </div>
 
@@ -99,6 +100,7 @@ export function AppointmentHero() {
           {/* Quick Lineage Stats Cards */}
           <div className="apt-hero-metrics-bar">
             <div className="apt-metric-card">
+              <Award size={20} strokeWidth={1.5} style={{ color: "var(--gold, #d97706)", marginRight: 8, flexShrink: 0 }} />
               <div>
                 <span className="apt-metric-value">35+ Years</span>
                 <span className="apt-metric-label">Healing Lineage</span>
@@ -106,6 +108,7 @@ export function AppointmentHero() {
             </div>
             <div className="apt-metric-sep" />
             <div className="apt-metric-card">
+              <Leaf size={20} strokeWidth={1.5} style={{ color: "var(--gold, #d97706)", marginRight: 8, flexShrink: 0 }} />
               <div>
                 <span className="apt-metric-value">100% Herbal</span>
                 <span className="apt-metric-label">Classical Medicines</span>
@@ -113,6 +116,7 @@ export function AppointmentHero() {
             </div>
             <div className="apt-metric-sep" />
             <div className="apt-metric-card">
+              <Star size={20} strokeWidth={1.5} style={{ color: "var(--gold, #d97706)", marginRight: 8, flexShrink: 0 }} />
               <div>
                 <span className="apt-metric-value">{doctor.rating} / 5.0</span>
                 <span className="apt-metric-label">Patient Rating</span>

@@ -1,5 +1,20 @@
 "use client";
 import React from "react";
+import {
+  UserCheck,
+  Flower2,
+  Stethoscope,
+  Activity,
+  Brain,
+  ShieldCheck,
+  Heart,
+  Flame,
+  Sparkles,
+  Leaf,
+  Eye,
+  Hospital,
+  LucideIcon,
+} from "lucide-react";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 export type DynamicDepartment = {
@@ -16,27 +31,27 @@ type DoctorsDepartmentGridProps = {
   departments: DynamicDepartment[];
 };
 
-const FALLBACK_ICON_MAP: Record<string, string> = {
-  all: "fa-solid fa-user-doctor",
-  "panchakarma-bio-purification": "fa-solid fa-spa",
-  "kayachikitsa-internal-medicine": "fa-solid fa-stethoscope",
-  "neck-back-joint-problems": "fa-solid fa-bone",
-  "stroke-neurological-rehabilitation": "fa-solid fa-brain",
-  "preventive-medicine-rejuvenation": "fa-solid fa-shield-heart",
-  "prasooti-tantra-stree-roga": "fa-solid fa-venus",
-  "rheumatology-autoimmune-care": "fa-solid fa-person-running",
-  "susrutha-proctology-unit": "fa-solid fa-briefcase-medical",
-  "skin-hair-care": "fa-solid fa-wand-magic-sparkles",
-  panchakarma: "fa-solid fa-spa",
-  "spine-joints": "fa-solid fa-bone",
-  "womens-health": "fa-solid fa-venus",
-  "lifestyle-detox": "fa-solid fa-leaf",
-  "skin-hair": "fa-solid fa-wand-magic-sparkles",
-  kayachikitsa: "fa-solid fa-stethoscope",
-  "preventive-medicine": "fa-solid fa-shield-heart",
-  rheumatology: "fa-solid fa-person-running",
-  neurology: "fa-solid fa-brain",
-  "ent-eye": "fa-solid fa-eye",
+const DEPT_ICON_MAP: Record<string, LucideIcon> = {
+  all: UserCheck,
+  "panchakarma-bio-purification": Flower2,
+  "kayachikitsa-internal-medicine": Stethoscope,
+  "neck-back-joint-problems": Activity,
+  "stroke-neurological-rehabilitation": Brain,
+  "preventive-medicine-rejuvenation": ShieldCheck,
+  "prasooti-tantra-stree-roga": Heart,
+  "rheumatology-autoimmune-care": Flame,
+  "susrutha-proctology-unit": ShieldCheck,
+  "skin-hair-care": Sparkles,
+  panchakarma: Flower2,
+  "spine-joints": Activity,
+  "womens-health": Heart,
+  "lifestyle-detox": Leaf,
+  "skin-hair": Sparkles,
+  kayachikitsa: Stethoscope,
+  "preventive-medicine": ShieldCheck,
+  rheumatology: Flame,
+  neurology: Brain,
+  "ent-eye": Eye,
 };
 
 export function DoctorsDepartmentGrid({
@@ -44,12 +59,9 @@ export function DoctorsDepartmentGrid({
   onSelectDepartment,
   departments,
 }: DoctorsDepartmentGridProps) {
-  const getIconClass = (dept: DynamicDepartment) => {
-    if (dept.icon && dept.icon.startsWith("fa-")) {
-      return dept.icon;
-    }
+  const getDeptIcon = (dept: DynamicDepartment): LucideIcon => {
     const slugKey = (dept.id || "").toLowerCase();
-    return FALLBACK_ICON_MAP[slugKey] || "fa-solid fa-hospital-user";
+    return DEPT_ICON_MAP[slugKey] || Hospital;
   };
 
   return (
@@ -64,7 +76,7 @@ export function DoctorsDepartmentGrid({
       <div className="doctors-dept-grid">
         {departments.map((dept: DynamicDepartment) => {
           const isActive = selectedDeptId === dept.id;
-          const iconClass = getIconClass(dept);
+          const IconComponent = getDeptIcon(dept);
 
           return (
             <div
@@ -78,7 +90,7 @@ export function DoctorsDepartmentGrid({
               }}
             >
               <div className="doctors-dept-icon-box">
-                <i className={iconClass} aria-hidden="true" />
+                <IconComponent size={22} strokeWidth={1.75} aria-hidden="true" />
               </div>
               <div className="doctors-dept-name">{dept.name}</div>
               <div className="doctors-dept-count">

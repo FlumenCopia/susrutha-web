@@ -2,69 +2,35 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Phone, Mail, MapPin, Globe, Leaf, Clock, ShieldCheck } from "lucide-react";
 import { submitContactEnquiry } from "@/app/services/api";
 
 function ContactIcon({ type }: { type: "phone" | "mail" | "pin" | "globe" | "leaf" | "clock" | "shield" }) {
   if (type === "phone") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M8 4 5.5 6.5c-.8.8-.4 4.8 3.6 8.8s8 4.4 8.8 3.6L20 16l-4-3-2 2c-1.4-.7-3.3-2.5-4-4l2-2-4-5Z" />
-      </svg>
-    );
+    return <Phone size={22} strokeWidth={1.75} aria-hidden="true" />;
   }
   if (type === "mail") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 6h16v12H4z" />
-        <path d="m4 7 8 6 8-6" />
-      </svg>
-    );
+    return <Mail size={22} strokeWidth={1.75} aria-hidden="true" />;
   }
   if (type === "pin") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z" />
-        <circle cx="12" cy="9" r="2.5" />
-      </svg>
-    );
+    return <MapPin size={22} strokeWidth={1.75} aria-hidden="true" />;
   }
   if (type === "leaf") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 4C11 4 6 9 6 17c8 0 13-5 14-13Z" />
-        <path d="M6 17c3-4 6-6 10-8" />
-      </svg>
-    );
+    return <Leaf size={22} strokeWidth={1.75} aria-hidden="true" />;
   }
   if (type === "clock") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="8" />
-        <path d="M12 7v5l3 2" />
-      </svg>
-    );
+    return <Clock size={22} strokeWidth={1.75} aria-hidden="true" />;
   }
   if (type === "shield") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z" />
-        <path d="m9 12 2 2 4-5" />
-      </svg>
-    );
+    return <ShieldCheck size={22} strokeWidth={1.75} aria-hidden="true" />;
   }
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="8" />
-      <path d="M4 12h16" />
-      <path d="M12 4c2 2.2 3 4.9 3 8s-1 5.8-3 8c-2-2.2-3-4.9-3-8s1-5.8 3-8Z" />
-    </svg>
-  );
+  return <Globe size={22} strokeWidth={1.75} aria-hidden="true" />;
 }
 
 const supportItems = [
-  { faIcon: "fa-solid fa-leaf", title: "Personalized", text: "Support" },
-  { faIcon: "fa-regular fa-clock", title: "Timely", text: "Response" },
-  { faIcon: "fa-solid fa-shield-halved", title: "Confidential &", text: "Secure" },
+  { icon: <Leaf size={20} strokeWidth={1.75} />, title: "Personalized", text: "Support" },
+  { icon: <Clock size={20} strokeWidth={1.75} />, title: "Timely", text: "Response" },
+  { icon: <ShieldCheck size={20} strokeWidth={1.75} />, title: "Confidential &", text: "Secure" },
 ];
 
 const contactCards = [
@@ -146,12 +112,6 @@ export function ContactReferencePage() {
           <div className="contact-booking-hero-content">
             {/* Left Original Title & Content */}
             <div className="contact-booking-left-copy">
-              {/* <nav className="contact-booking-breadcrumb" aria-label="Breadcrumb">
-                <Link href="/">Home</Link>
-                <span>/</span>
-                <span>Contact</span>
-              </nav> */}
-
               <h1 id="contact-booking-title" className="contact-booking-hero-h1">
                 We&rsquo;re Here
                 <span>to Help You</span>
@@ -165,7 +125,7 @@ export function ContactReferencePage() {
                 {supportItems.map((item, idx) => (
                   <article key={idx} className="contact-booking-support-item">
                     <span className="contact-booking-support-icon">
-                      <i className={item.faIcon} />
+                      {item.icon}
                     </span>
                     <p>
                       <strong>{item.title}</strong>
@@ -178,9 +138,9 @@ export function ContactReferencePage() {
 
             {/* Right Appointment Form */}
             <div className="contact-booking-form-wrap">
-              {/* <span className="contact-booking-eyebrow">Contact With Us</span> */}
               <h2 className="contact-booking-title">
-Contact With Us              </h2>
+                Contact With Us
+              </h2>
 
               {isSubmitted ? (
                 <div className="contact-booking-success">
@@ -222,10 +182,10 @@ Contact With Us              </h2>
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       >
                         <option value="Tranquil Radiance Facial">Tranquil Radiance Facial</option>
-                        <option value="Ayurvedic Consultation">Ayurvedic Consultation</option>
-                        <option value="Panchakarma Detox">Panchakarma Detox</option>
-                        <option value="Spine & Joint Care">Spine & Joint Care</option>
-                        <option value="Rejuvenation Therapy">Rejuvenation Therapy</option>
+                        <option value="Panchakarma Consultation">Panchakarma Consultation</option>
+                        <option value="Spine & Joint Care">Spine &amp; Joint Care</option>
+                        <option value="Ayurvedic Rejuvenation">Ayurvedic Rejuvenation</option>
+                        <option value="Doctor Appointment Request">Doctor Appointment Request</option>
                       </select>
                     </div>
 

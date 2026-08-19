@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Sparkles, Check, X, Home, ArrowRight } from "lucide-react";
+import { Sparkles, Check, X, Home, ArrowRight, Award } from "lucide-react";
 import { getImageDisplayUrl } from "../../services/api";
 
 type PackageDetailReferencePageProps = {
@@ -113,7 +113,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
               />
               <div className="treatment-media-overlay" />
               <div className="treatment-floating-badge">
-                <span className="floating-badge-icon"><i className="fa-solid fa-certificate" /></span>
+                <span className="floating-badge-icon"><Award size={18} strokeWidth={1.75} /></span>
                 <div>
                   <strong>{currentOption.label || `${selectedDuration} Days Package`}</strong>
                   <span>Hospital Admission</span>

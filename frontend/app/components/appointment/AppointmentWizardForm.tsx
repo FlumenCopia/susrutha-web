@@ -716,7 +716,7 @@ function AppointmentWizardContent() {
                             border: "1px solid rgba(196, 146, 42, 0.3)",
                           }}
                         >
-                          <i className="fa-solid fa-location-dot" style={{ fontSize: "24px" }} />
+                          <MapPin size={24} strokeWidth={1.5} style={{ color: "#d97706" }} />
                         </div>
                         <h4
                           style={{
@@ -976,8 +976,8 @@ function AppointmentWizardContent() {
                                   textDecoration: "none",
                                 }}
                               >
-                                <span><i className="fa-solid fa-calendar-days" style={{ marginRight: "6px" }} /> Jump to Next Available Working Day</span>
-                                <i className="fa-solid fa-arrow-right" aria-hidden="true" style={{ marginLeft: "6px" }} />
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Calendar size={14} strokeWidth={1.75} /> Jump to Next Available Working Day</span>
+                                <ArrowRight size={14} strokeWidth={1.75} aria-hidden="true" />
                               </button>
                             </div>
                           </div>
