@@ -9,7 +9,7 @@ export function BlogPremiumPage() {
       <BlogHero />
       <FeaturedBlog />
       <BlogGrid />
-      <BlogEngagementPanel />
+      {/* <BlogEngagementPanel /> */}
     </div>
   );
 }
