@@ -89,6 +89,15 @@ export function BlogDetailPageView({ post, slug }: BlogDetailPageViewProps) {
         </div>
       </section>
 
+
+
+
+
+
+
+
+
+
       {/* Main Editorial Content Container */}
       <div className="blog-detail-body-container">
         <div className="blog-detail-layout-grid">
