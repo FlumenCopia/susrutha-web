@@ -187,6 +187,7 @@ export function VideoGalleryPage() {
           {/* Single Dynamic Video Gallery Section Filtered by Tabs */}
           <FeaturedVideosSection
             videos={filteredVideos}
+            activeCategory={activeCategory}
             onPlayVideo={(video) => setActiveModalVideo(video)}
           />
         </div>
