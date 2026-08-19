@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Globe, ChevronUp } from "lucide-react";
+import { Globe, ChevronUp, FileText } from "lucide-react";
 
 const navSections = [
   {
@@ -102,6 +102,16 @@ export function Footer() {
             <p className="luxury-footer-desc">
               Relax your body and mind with authentic Ayurvedic therapies and classical healing designed to release stress, restore energy, and enhance overall well-being in a calm, soothing atmosphere.
             </p>
+            <div className="luxury-footer-brochure-wrap">
+              <a
+                href="/brochure"
+                className="luxury-footer-brochure-btn"
+                aria-label="Download Hospital Brochure"
+              >
+                <FileText size={16} strokeWidth={2} />
+                <span>Hospital Brochure</span>
+              </a>
+            </div>
           </div>
         </div>
 

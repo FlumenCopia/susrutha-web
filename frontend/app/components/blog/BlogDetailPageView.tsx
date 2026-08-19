@@ -54,11 +54,6 @@ export function BlogDetailPageView({ post, slug }: BlogDetailPageViewProps) {
             <span>{category}</span>
           </nav>
 
-          {/* Category Chip */}
-          <div className="blog-detail-category-chip">
-            {category}
-          </div>
-
           {/* Main Title */}
           <h1 className="blog-detail-title">{title}</h1>
 

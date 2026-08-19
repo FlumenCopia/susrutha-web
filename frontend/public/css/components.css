@@ -8327,6 +8327,33 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   max-width: 440px;
 }
 
+.luxury-footer-brochure-wrap {
+  margin-top: 22px;
+}
+
+.luxury-footer-brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: #c88922 !important;
+  color: #ffffff !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #c88922;
+  box-shadow: 0 4px 16px rgba(200, 137, 34, 0.28);
+  transition: all 0.25s ease;
+}
+
+.luxury-footer-brochure-btn:hover {
+  background: #b0771a !important;
+  border-color: #b0771a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(176, 119, 26, 0.38);
+}
+
 /* Bottom Bar */
 .luxury-footer-bottom {
   display: flex;
