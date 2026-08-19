@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { X } from "lucide-react";
 import type { VideoCategory } from "./VideoGalleryPage";
 
-const videoCategories: VideoCategory[] = ["All", "Panchakarma", "Clinical", "Patient Stories", "Wellness", "Podcasts"];
+const videoCategories: VideoCategory[] = ["All", "Gallery", "Videos", "Podcasts"];
 
 type VideoCategoryFiltersProps = {
   activeCategory: VideoCategory;
@@ -13,6 +13,7 @@ type VideoCategoryFiltersProps = {
   onSearchChange: (query: string) => void;
   sortBy: string;
   onSortChange: (sort: string) => void;
+  categoryCounts?: Record<string, number>;
 };
 
 export function VideoCategoryFilters({
@@ -22,6 +23,7 @@ export function VideoCategoryFilters({
   onSearchChange,
   sortBy,
   onSortChange,
+  categoryCounts = {},
 }: VideoCategoryFiltersProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
@@ -29,7 +31,7 @@ export function VideoCategoryFilters({
   const scrollLeftRef = useRef(0);
 
   const getCategoryCount = (category: VideoCategory) => {
-    return 0;
+    return categoryCounts[category] ?? 0;
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
