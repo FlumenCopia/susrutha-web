@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: "Susrutha Ayurveda | Panchakarma Hospital in Thiruvananthapuram",
   description:
     "Premium Ayurveda hospital care, Panchakarma treatments, specialist doctors, and wellness services in Kattakada and Kowdiar.",
+  icons: {
+    icon: "/images/favicon.webp",
+    shortcut: "/images/favicon.webp",
+    apple: "/images/favicon.webp",
+  },
 };
 
 export default function RootLayout({
@@ -20,6 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/webp" href="/images/favicon.webp" />
+        <link rel="shortcut icon" href="/images/favicon.webp" />
+        <link rel="apple-touch-icon" href="/images/favicon.webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
