@@ -10,16 +10,6 @@ type DoctorDetailPageProps = {
 
 export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  try {
-    const docs = await getPublicDoctors();
-    if (Array.isArray(docs)) {
-      return docs.map((item: any) => ({ slug: item.slug || item._id }));
-    }
-  } catch (err) {}
-  return [];
-}
-
 export default async function DoctorDetailPage({ params }: DoctorDetailPageProps) {
   const { slug } = await params;
   const doctor = await getPublicDoctorBySlug(slug);

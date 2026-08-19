@@ -9,16 +9,6 @@ type BlogDetailPageProps = {
 
 export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  try {
-    const list = await getPublicBlogs();
-    if (Array.isArray(list)) {
-      return list.map((item: any) => ({ slug: item.slug || item._id }));
-    }
-  } catch (err) {}
-  return [];
-}
-
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
   const post = await getPublicBlogBySlug(slug);

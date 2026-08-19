@@ -11,16 +11,6 @@ type ConditionDetailPageProps = {
 
 export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  try {
-    const list = await getPublicConditions();
-    if (Array.isArray(list)) {
-      return list.map((item: any) => ({ slug: item.slug || item._id }));
-    }
-  } catch (err) {}
-  return [];
-}
-
 export default async function ConditionDetailPage({ params }: ConditionDetailPageProps) {
   const { slug } = await params;
   const condition = await getPublicConditionBySlug(slug);
