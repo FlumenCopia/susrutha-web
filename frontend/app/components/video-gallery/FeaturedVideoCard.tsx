@@ -62,7 +62,18 @@ export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
             onError={() => setImgError(true)}
           />
         ) : (
-          <div className="vg-card-thumb-placeholder" style={{ width: "100%", height: "100%", background: "#102d24" }} />
+          <div
+            className="vg-card-thumb-placeholder"
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "linear-gradient(145deg, #262626 0%, #151515 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "rgba(255, 255, 255, 0.3)",
+            }}
+          />
         )}
         <div className="vg-card-thumb-overlay" />
         <div className="vg-card-shimmer-sweep" />
