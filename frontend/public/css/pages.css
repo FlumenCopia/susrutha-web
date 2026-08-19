@@ -9309,20 +9309,25 @@ label {
   transform: translateY(-1px);
 }
 
-.blog-premium-featured,
+.blog-premium-featured {
+  width: min(calc(100% - 44px), 1640px);
+  margin: 0 auto;
+  padding: clamp(28px, 3.5vw, 48px) 0 0;
+}
+
 .blog-premium-grid-section,
 .blog-premium-trending,
 .blog-premium-authors {
   width: min(calc(100% - 44px), 1640px);
   margin: 0 auto;
-  padding: clamp(76px, 8vw, 128px) 0 0;
+  padding: clamp(64px, 6vw, 96px) 0 0;
 }
 
 .blog-premium-section-head {
   display: grid;
-  gap: 18px;
+  gap: 12px;
   max-width: 760px;
-  margin-bottom: 34px;
+  margin-bottom: 24px;
 }
 
 .blog-premium-section-head h2 {
@@ -9340,20 +9345,71 @@ label {
   gap: 22px;
 }
 
+.blog-premium-featured-layout.has-single-item {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.blog-premium-featured-layout.has-single-item .blog-premium-featured-card-large {
+  min-height: 480px;
+}
+
+.blog-premium-featured-layout.has-two-items {
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 1fr;
+}
+
+.blog-premium-featured-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border-radius: 28px;
+  overflow: hidden;
+  height: 100%;
+}
+
 .blog-premium-featured-card {
   position: relative;
   display: grid;
   align-content: end;
+  width: 100%;
+  height: 100%;
   min-height: 320px;
   border-radius: 28px;
   background: #10261f;
   box-shadow: 0 30px 70px rgba(60, 42, 18, 0.14);
   isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.blog-premium-featured-link:hover .blog-premium-featured-card {
+  transform: translateY(-4px);
+  box-shadow: 0 36px 85px rgba(0, 0, 0, 0.22);
 }
 
 .blog-premium-featured-card-large {
   grid-row: span 2;
   min-height: 600px;
+}
+
+.blog-premium-card-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #1c3329 0%, #0d1e18 100%);
+  z-index: -2;
+}
+
+.blog-premium-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(200, 137, 34, 0.9);
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .blog-premium-featured-card img,
@@ -9380,66 +9436,66 @@ label {
 
 .blog-premium-featured-card h3 {
   max-width: 720px;
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: #fffaf0 !important;
-  font-size: clamp(28px, 3.4vw, 58px);
+  font-size: clamp(24px, 3vw, 48px);
   font-weight: 500;
-  line-height: 1.04;
+  line-height: 1.1;
 }
 
 .blog-premium-featured-card:not(.blog-premium-featured-card-large) h3 {
-  font-size: clamp(24px, 2vw, 32px);
+  font-size: clamp(20px, 1.8vw, 28px);
 }
 
 .blog-premium-featured-card p {
   max-width: 560px;
-  margin: 18px 0 0;
-  color: rgba(255, 250, 240, 0.8) !important;
-  font-size: 15px;
-  line-height: 1.7;
+  margin: 14px 0 0;
+  color: rgba(255, 250, 240, 0.85) !important;
+  font-size: 14.5px;
+  line-height: 1.65;
 }
 
-.blog-premium-featured-card>a {
+.blog-premium-arrow-btn {
   position: absolute;
   right: 24px;
   top: 24px;
   z-index: 2;
   display: grid;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   color: #ffffff !important;
-  background: rgba(37, 30, 26, 0.55);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.blog-premium-featured-card>a:hover {
+.blog-premium-featured-link:hover .blog-premium-arrow-btn {
   background: linear-gradient(135deg, #df7943 0%, #c49a45 100%);
   border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-2px) scale(1.08);
   box-shadow: 0 12px 30px rgba(223, 121, 67, 0.45);
 }
 
-.blog-premium-featured-card>a svg {
+.blog-premium-arrow-btn svg {
   width: 18px;
   height: 18px;
   transition: transform 0.2s ease;
 }
 
-.blog-premium-featured-card>a:hover svg {
+.blog-premium-featured-link:hover .blog-premium-arrow-btn svg {
   transform: translateX(2px);
 }
 
-.blog-premium-featured-card:hover img,
+.blog-premium-featured-link:hover .blog-premium-featured-card img,
 .blog-premium-card:hover img,
 .blog-premium-trend-card:hover img {
   filter: saturate(1.06);
-  transform: scale(1.07);
+  transform: scale(1.05);
 }
 
 .blog-premium-grid {

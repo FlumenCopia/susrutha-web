@@ -55,32 +55,44 @@ export function FeaturedBlog() {
   return (
     <section className="blog-premium-featured" aria-labelledby="featured-articles-title">
       <BlogSectionHeader eyebrow="Featured Articles" title="Magazine-style stories with clinical depth." titleId="featured-articles-title" />
-      <div className="blog-premium-featured-layout">
-        <article className="blog-premium-featured-card blog-premium-featured-card-large">
-          <Image src={primary.image} alt="" fill sizes="(max-width: 900px) 100vw, 58vw" />
-          <div>
-            <span>{primary.category}</span>
-            <h3>{primary.title}</h3>
-            <p>{primary.excerpt}</p>
-            <ArticleMeta article={primary} />
-          </div>
-          <Link href={`/blogs/${primary.slug}`} aria-label={`Read ${primary.title}`}>
-            <ArrowIcon />
-          </Link>
-        </article>
+      <div className={`blog-premium-featured-layout ${sideArticles.length === 0 ? "has-single-item" : sideArticles.length === 1 ? "has-two-items" : ""}`}>
+        <Link href={`/blogs/${primary.slug}`} className="blog-premium-featured-link blog-premium-featured-card-large">
+          <article className="blog-premium-featured-card">
+            {primary.image ? (
+              <Image src={primary.image} alt={primary.title} fill sizes="(max-width: 900px) 100vw, 58vw" priority />
+            ) : (
+              <div className="blog-premium-card-placeholder" />
+            )}
+            <div>
+              <span className="blog-premium-badge">{primary.category}</span>
+              <h3>{primary.title}</h3>
+              {primary.excerpt && <p>{primary.excerpt}</p>}
+              <ArticleMeta article={primary} />
+            </div>
+            <span className="blog-premium-arrow-btn" aria-hidden="true">
+              <ArrowIcon />
+            </span>
+          </article>
+        </Link>
 
         {sideArticles.map((article) => (
-          <article className="blog-premium-featured-card" key={`${article.slug}-${article.category}`}>
-            <Image src={article.image} alt="" fill sizes="(max-width: 900px) 100vw, 30vw" />
-            <div>
-              <span>{article.category}</span>
-              <h3>{article.title}</h3>
-              <ArticleMeta article={article} />
-            </div>
-            <Link href={`/blogs/${article.slug}`} aria-label={`Read ${article.title}`}>
-              <ArrowIcon />
-            </Link>
-          </article>
+          <Link href={`/blogs/${article.slug}`} key={`${article.slug}-${article.category}`} className="blog-premium-featured-link">
+            <article className="blog-premium-featured-card">
+              {article.image ? (
+                <Image src={article.image} alt={article.title} fill sizes="(max-width: 900px) 100vw, 30vw" />
+              ) : (
+                <div className="blog-premium-card-placeholder" />
+              )}
+              <div>
+                <span className="blog-premium-badge">{article.category}</span>
+                <h3>{article.title}</h3>
+                <ArticleMeta article={article} />
+              </div>
+              <span className="blog-premium-arrow-btn" aria-hidden="true">
+                <ArrowIcon />
+              </span>
+            </article>
+          </Link>
         ))}
       </div>
     </section>
