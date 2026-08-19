@@ -12601,56 +12601,106 @@ body:has(.branches-premium-page) {
 }
 
 .branches-cta {
+  position: relative;
   display: flex;
   gap: 24px;
   align-items: center;
   justify-content: space-between;
   margin-top: clamp(26px, 3vw, 44px);
-  padding: clamp(24px, 3vw, 38px) clamp(24px, 4vw, 54px);
-  border: 1px solid rgba(200, 155, 60, 0.25);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 4% 20%, rgba(200, 155, 60, 0.2), transparent 24%),
-    linear-gradient(135deg, #000a04, #082516);
-  box-shadow: 0 30px 86px rgba(18, 63, 36, 0.22);
+  padding: clamp(24px, 3vw, 36px) clamp(24px, 4vw, 48px);
+  border: 1px solid rgba(198, 137, 34, 0.24);
+  border-radius: 24px;
+  background: #fff8ec;
+  box-shadow: 0 20px 54px rgba(70, 45, 22, 0.09);
+  overflow: hidden !important;
 }
 
-.branches-cta>div {
+.branches-cta-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.branches-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 252, 246, 0.98) 0%, rgba(255, 252, 246, 0.9) 42%, rgba(255, 252, 246, 0.2) 72%, transparent 100%);
+  pointer-events: none;
+}
+
+.branches-cta-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
-  gap: 22px;
+  gap: 20px;
   align-items: center;
 }
 
-.branches-cta>div>span {
-  display: grid;
-  width: 64px;
-  height: 64px;
+.branches-cta-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
   flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
-  border-radius: 999px;
-  color: #ffffff !important;
-  font-size: 28px;
+  border-radius: 50%;
+  background: #fff8ec;
+  border: 1.5px solid rgba(181, 122, 37, 0.3) !important;
+  color: #b57a25 !important;
+  box-shadow: 0 4px 12px rgba(181, 122, 37, 0.08);
 }
 
+.branches-cta-icon-badge svg {
+  width: 24px;
+  height: 24px;
+  color: #b57a25 !important;
+  stroke: #b57a25 !important;
+}
+
+.branches-cta-text h2,
 .branches-cta h2,
-.branches-cta>div>div>h2,
-section.branches-cta h2,
-.branches-page section.branches-cta h2 {
+.branches-premium-page .branches-cta h2 {
   margin: 0 !important;
-  color: #ffffff !important;
-  font-size: clamp(24px, 2.5vw, 38px) !important;
-  line-height: 1.05 !important;
+  color: #000000 !important;
+  font-size: clamp(22px, 2.2vw, 32px) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
 }
 
+.branches-cta-text p,
 .branches-cta p,
-.branches-cta>div>div>p,
-section.branches-cta p,
-.branches-page section.branches-cta p {
-  margin: 8px 0 0 !important;
-  color: #ffffff !important;
-  opacity: 0.92 !important;
+.branches-premium-page .branches-cta p {
+  margin: 6px 0 0 !important;
+  color: #222222 !important;
+  font-weight: 500 !important;
   font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.branches-cta-btn {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  background: #d49e54;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 6px 20px rgba(212, 158, 84, 0.35);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  text-decoration: none;
+}
+
+.branches-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(212, 158, 84, 0.45);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13035,9 +13085,9 @@ body:has(.branches-premium-page) {
   color: rgba(168, 117, 52, 0.08);
 }
 
-.branches-premium-page h1:not(.conditions-hero-serene-title):not(.branches-cta h1),
-.branches-premium-page h2:not(.conditions-hero-serene-title):not(.branches-cta h2),
-.branches-premium-page h3:not(.branches-cta h3),
+.branches-premium-page h1:not(.conditions-hero-serene-title),
+.branches-premium-page h2:not(.conditions-hero-serene-title),
+.branches-premium-page h3,
 .branch-location-doctors,
 .branches-route-strip span {
   color: #17231f !important;
@@ -13142,34 +13192,6 @@ body:has(.branches-premium-page) {
 
 .branches-trust-stats strong {
   color: #8a5d20;
-}
-
-.branches-cta {
-  border-color: rgba(198, 148, 75, 0.28);
-  background:
-    radial-gradient(circle at 4% 20%, rgba(198, 148, 75, 0.2), transparent 24%),
-    linear-gradient(135deg, #000a04, #000a04);
-  box-shadow: 0 24px 54px rgba(0, 10, 4, 0.2);
-}
-
-.branches-cta>div>span {
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  color: #ffffff !important;
-}
-
-.branches-cta>div>span svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-.branches-cta h2,
-.branches-premium-page .branches-cta h2 {
-  color: #ffffff !important;
-}
-
-.branches-cta p,
-.branches-premium-page .branches-cta p {
-  color: rgba(255, 255, 255, 0.92) !important;
 }
 
 /* Ayur Village premium page */
