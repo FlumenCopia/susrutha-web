@@ -54,7 +54,12 @@ export function FeaturedBlog() {
 
   return (
     <section className="blog-premium-featured" aria-labelledby="featured-articles-title">
-      <BlogSectionHeader  title="Articles" titleId="featured-articles-title" />
+      <BlogSectionHeader
+        eyebrow="FEATURED"
+        title="Featured Blogs"
+        description="In-depth clinical perspectives, patient recovery stories, and classical Ayurvedic wisdom."
+        titleId="featured-articles-title"
+      />
       <div className={`blog-premium-featured-layout ${sideArticles.length === 0 ? "has-single-item" : sideArticles.length === 1 ? "has-two-items" : ""}`}>
         <Link href={`/blogs/${primary.slug}`} className="blog-premium-featured-link blog-premium-featured-card-large">
           <article className="blog-premium-featured-card">
