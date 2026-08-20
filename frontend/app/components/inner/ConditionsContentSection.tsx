@@ -1,10 +1,38 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getPublicConditions } from "@/app/services/api";
+import { getPublicConditions, getImageDisplayUrl } from "@/app/services/api";
 
 const PAGE_SIZE = 8;
+
+const CONDITION_FALLBACK_IMAGES: Record<string, string> = {
+  psoriasis: "/images/treatment-herbal-medicine.webp",
+  eczema: "/images/treatment-herbal-medicine.webp",
+  arthritis: "/images/treatment-panchakarma.webp",
+  rheumatoid: "/images/treatment-panchakarma.webp",
+  pcos: "/images/treatment-sirodhara.webp",
+  infertility: "/images/treatment-sirodhara.webp",
+  stroke: "/images/banner_calm_retreat.jpg",
+  paralysis: "/images/banner_calm_retreat.jpg",
+  sciatica: "/images/treatment-panchakarma.webp",
+  spondylosis: "/images/treatment-sirodhara.webp",
+  spine: "/images/treatment-sirodhara.webp",
+  default: "/images/treatment-panchakarma.webp",
+};
+
+function resolveConditionImage(c: any): string {
+  if (c.image || c.coverImage || c.photo || c.photoUrl) {
+    const url = getImageDisplayUrl(c.image || c.coverImage || c.photo || c.photoUrl);
+    if (url) return url;
+  }
+  const searchKey = `${c.slug || ""} ${c.name || ""} ${c.title || ""} ${c.category || ""}`.toLowerCase();
+  for (const key of Object.keys(CONDITION_FALLBACK_IMAGES)) {
+    if (searchKey.includes(key)) return CONDITION_FALLBACK_IMAGES[key];
+  }
+  return CONDITION_FALLBACK_IMAGES.default;
+}
 
 const pathways = [
   "Detailed physician consultation",
@@ -46,6 +74,7 @@ export function ConditionsContentSection() {
         text: c.shortDescription || c.description || c.summary || c.text || "Physician-guided Ayurvedic care and recovery.",
         href: `/conditions/${c.slug || c._id || c.id}`,
         category: c.category || "Speciality Care",
+        image: resolveConditionImage(c),
       }));
 
       if (append) {
@@ -89,7 +118,7 @@ export function ConditionsContentSection() {
         {loading ? (
           <div className="conditions-card-grid">
             {Array.from({ length: PAGE_SIZE }).map((_, idx) => (
-              <div className="condition-card shimmer-card" key={idx} style={{ height: "220px", background: "linear-gradient(90deg, #f0ede6 25%, #f8f6f0 50%, #f0ede6 75%)", borderRadius: "16px" }} />
+              <div className="condition-card shimmer-card" key={idx} style={{ height: "320px", background: "linear-gradient(90deg, #f0ede6 25%, #f8f6f0 50%, #f0ede6 75%)", borderRadius: "20px" }} />
             ))}
           </div>
         ) : (
@@ -98,13 +127,27 @@ export function ConditionsContentSection() {
               {conditionsList.map((condition: any, index: number) => {
                 return (
                   <Link
-                    className="condition-card"
+                    className="condition-card condition-card-img-mode"
                     href={condition.href}
                     key={`${condition.title}-${index}`}
                   >
-                    <span>{condition.category}</span>
-                    <h3>{condition.title}</h3>
-                    <p>{condition.text}</p>
+                    <div className="condition-card-img-wrap">
+                      <Image
+                        src={condition.image}
+                        alt={condition.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px"
+                        className="condition-card-img"
+                      />
+                      <div className="condition-card-img-overlay" />
+                    </div>
+
+                    <div className="condition-card-inner-content">
+                      <span className="condition-card-eyebrow">{condition.category}</span>
+                      <h3 className="condition-card-heading">{condition.title}</h3>
+                      <p className="condition-card-copy">{condition.text}</p>
+                    </div>
+
                     <i aria-hidden="true">&rarr;</i>
                   </Link>
                 );

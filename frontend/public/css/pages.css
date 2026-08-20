@@ -4808,7 +4808,7 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
 }
 
 .conditions-content {
-  padding: 176px clamp(22px, 8vw, 208px) 84px;
+  padding: 176px clamp(2px, 6vw, 208px) 34px;
 }
 
 .conditions-section-head {
@@ -4923,6 +4923,115 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
   background: #9d651b;
   transform: translateX(3px) scale(1.05);
   box-shadow: 0 6px 18px rgba(181, 122, 37, 0.45);
+}
+
+/* Image Cover Mode for Condition Cards */
+.condition-card-img-mode {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 340px;
+  padding: 28px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  border: none;
+  background: #101614;
+}
+
+.condition-card-img-mode:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
+}
+
+.condition-card-img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.condition-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.condition-card-img-mode:hover .condition-card-img {
+  transform: scale(1.06);
+}
+
+.condition-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 18, 16, 0.35) 0%,
+    rgba(12, 18, 16, 0.78) 50%,
+    rgba(12, 18, 16, 0.96) 100%
+  );
+}
+
+.condition-card-inner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.condition-card-eyebrow {
+  color: #e2cbb0 !important;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.condition-card-heading {
+  margin: 0;
+  color: #ffffff !important;
+  font-size: clamp(20px, 1.4vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.condition-card-copy {
+  margin: 4px 0 36px 0;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 13.5px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+.condition-card-img-mode i {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 3;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 50%;
+  background: #c88922;
+  color: #ffffff;
+  font-size: 22px;
+  box-shadow: 0 4px 14px rgba(200, 137, 34, 0.45);
+  transition: all 0.25s ease;
+}
+
+.condition-card-img-mode:hover i {
+  background: #b0761a;
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(200, 137, 34, 0.6);
 }
 
 .conditions-care-band {
