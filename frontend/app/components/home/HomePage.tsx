@@ -7,6 +7,8 @@ import { HomeWellnessExpertiseSection } from "./HomeWellnessExpertiseSection";
 import { Counbanner } from "./Counbanner";
 // import Timeloop from "./Timeloop";
 import { HomeFooterBanner } from "./HomeFooterBanner";
+import { AboutFoundersSection } from "../inner/about-premium/AboutFoundersSection";
+// import { AboutFoundersSection } from "./about-premium/AboutFoundersSection";
 
 export function HomePage() {
   return (
@@ -20,6 +22,8 @@ export function HomePage() {
       <SusruthaWaySection />
       {/* <CustodiansOfWisdomSection /> */}
       <HomeFooterBanner />
+      {/* <AboutFoundersSection /> */}
+      <AboutFoundersSection />
     </div>
   );
 }
