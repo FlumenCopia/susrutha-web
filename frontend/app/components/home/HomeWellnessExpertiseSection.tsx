@@ -87,7 +87,7 @@ export function HomeWellnessExpertiseSection() {
         </div>
 
         <div className="home-wellness-badge" aria-label="25 plus years of excellence">
-          <strong>25+</strong>
+          <strong>40+</strong>
           <span>
             Years of
             <br />

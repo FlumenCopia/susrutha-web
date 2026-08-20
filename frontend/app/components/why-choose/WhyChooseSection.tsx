@@ -1,7 +1,7 @@
 const stats = [
   { value: "36+", label: "Years of Experience" },
   { value: "50,000+", label: "Happy Patients" },
-  { value: "25+", label: "Specialized Treatments" },
+  { value: "40+", label: "Specialized Treatments" },
   { value: "NABH", label: "Certified" },
   { value: "100%", label: "Natural & Safe" },
 ];
