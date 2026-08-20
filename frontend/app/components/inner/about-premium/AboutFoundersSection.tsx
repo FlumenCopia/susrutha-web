@@ -113,12 +113,12 @@ export function AboutFoundersSection() {
           ))}
         </div>
 
-        <div className="af-footer-cta">
+        {/* <div className="af-footer-cta">
           <Link href="/doctors" className="af-view-all-btn">
             <span>View All Doctors & Specialists</span>
             <span aria-hidden="true">&rarr;</span>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
