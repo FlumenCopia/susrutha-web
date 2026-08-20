@@ -231,7 +231,7 @@ export async function getPublicSettings() {
   return fetchApiData<Record<string, any>>("/settings", {});
 }
 
-export async function submitContactEnquiry(payload: { name: string; phone: string; email?: string; subject?: string; message?: string }) {
+export async function submitContactEnquiry(payload: { name: string; phone: string; email?: string; subject?: string; message?: string; branchId?: string; leadType?: string; preferredDate?: string }) {
   const res = await fetch(`${API_BASE_URL}/contact`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

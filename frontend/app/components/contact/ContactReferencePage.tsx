@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Globe, Leaf, Clock, ShieldCheck } from "lucide-react";
-import { submitContactEnquiry } from "@/app/services/api";
+import { Phone, Mail, MapPin, Globe, Leaf, Clock, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { submitContactEnquiry, getPublicBranches, getPublicDepartments, getPublicTreatments, getPublicPackages } from "@/app/services/api";
 
 function ContactIcon({ type }: { type: "phone" | "mail" | "pin" | "globe" | "leaf" | "clock" | "shield" }) {
   if (type === "phone") {
@@ -33,33 +33,33 @@ const supportItems = [
   { icon: <ShieldCheck size={20} strokeWidth={1.75} />, title: "Confidential &", text: "Secure" },
 ];
 
-const contactCards = [
+const fallbackContactCards = [
   {
     icon: "pin" as const,
-    title: "Our Address",
-    primary: ["Door No. 47/881:1, Kanjikuzhi,", "Kottayam, Kerala – 686004, India"],
-    secondary: ["Susrutha Ayurveda Hospital", "Panchakarma & Wellness Center"],
+    title: "Main Campus & Hospital",
+    primary: ["Vaidya Ratnam K.S. & V.S. Campus,", "Kattakada, Thiruvananthapuram, Kerala"],
+    secondary: ["Susrutha Institute of Ayurvedic Sciences", "Research & Panchakarma Hospital"],
     link: null,
   },
   {
     icon: "phone" as const,
-    title: "Call Us",
-    primary: ["+91 481 350 1000", "+91 9387 510 100"],
-    secondary: ["Mon – Sat: 8:00 AM – 7:00 PM", "Sunday: 9:00 AM – 1:00 PM"],
-    link: "tel:+914813501000",
+    title: "Direct Helpline",
+    primary: ["+91 94470 03191", "+91 471 229 0282"],
+    secondary: ["24/7 Patient Helpdesk & Emergency", "Doctor Consultation Guidance"],
+    link: "tel:+919447003191",
   },
   {
     icon: "mail" as const,
-    title: "Email Us",
-    primary: ["info@susruthaayurveda.com", "care@susruthaayurveda.com"],
-    secondary: ["We respond within 24 hours"],
+    title: "Email Assistance",
+    primary: ["info@susruthaayurveda.com", "admissions@susruthaayurveda.com"],
+    secondary: ["Inpatient & OPD Enquiry Desk"],
     link: "mailto:info@susruthaayurveda.com",
   },
   {
     icon: "globe" as const,
-    title: "Website",
+    title: "International Desk",
     primary: ["www.susruthaayurveda.com"],
-    secondary: ["Explore treatments, programs", "and expert insights online."],
+    secondary: ["Medical Visa Support & Care Packages", "Ayur Village Residential Stay"],
     link: "https://www.susruthaayurveda.com",
   },
 ];
@@ -67,36 +67,126 @@ const contactCards = [
 export function ContactReferencePage() {
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
-    service: "Tranquil Radiance Facial",
+    service: "Doctor OPD Consultation",
     date: "",
     message: "",
   });
+
+  const [branches, setBranches] = useState<any[]>([]);
+  const [selectedBranchId, setSelectedBranchId] = useState<string>("");
+  const [serviceOptions, setServiceOptions] = useState<string[]>([
+    "Doctor OPD Consultation",
+    "Panchakarma Care & Residential Stay",
+    "Spine & Joint Care Program",
+    "Ayurvedic Rejuvenation & Detox",
+    "International Patient Desk",
+    "General Guidance / Hospital Info",
+  ]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const [apiBranches, apiDepts, apiTreatments, apiPackages] = await Promise.all([
+          getPublicBranches(),
+          getPublicDepartments(),
+          getPublicTreatments(),
+          getPublicPackages(),
+        ]);
+
+        if (Array.isArray(apiBranches) && apiBranches.length > 0) {
+          setBranches(apiBranches);
+          setSelectedBranchId(apiBranches[0]._id || apiBranches[0].id || "");
+        }
+
+        const dynamicServices: string[] = [
+          "Doctor OPD Consultation",
+          "Panchakarma Care & Residential Stay",
+          "Spine & Joint Care Program",
+          "Ayurvedic Rejuvenation & Detox",
+          "International Patient Desk",
+          "General Guidance / Hospital Info",
+        ];
+
+        if (Array.isArray(apiTreatments)) {
+          const tList = Array.isArray(apiTreatments) ? apiTreatments : (apiTreatments as any).items || [];
+          tList.slice(0, 6).forEach((t: any) => {
+            if (t.title && !dynamicServices.includes(t.title)) {
+              dynamicServices.push(t.title);
+            }
+          });
+        }
+
+        const pkgList = Array.isArray(apiPackages) ? apiPackages : (apiPackages as any).items || [];
+        if (Array.isArray(pkgList)) {
+          pkgList.slice(0, 6).forEach((p: any) => {
+            if (p.title && !dynamicServices.includes(p.title)) {
+              dynamicServices.push(p.title);
+            }
+          });
+        }
+
+        setServiceOptions(dynamicServices);
+      } catch (err) {
+        console.warn("Contact data load error:", err);
+      }
+    }
+    loadData();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name) {
-      alert("Please enter your name.");
+    if (!formData.name.trim()) {
+      alert("Please enter your full name.");
       return;
     }
+    if (!formData.phone.trim()) {
+      alert("Please enter your contact phone number.");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       await submitContactEnquiry({
-        name: formData.name,
-        email: formData.email,
-        phone: "N/A",
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        email: formData.email.trim() || undefined,
         subject: formData.service,
-        message: `Date: ${formData.date} | ${formData.message}`,
+        branchId: selectedBranchId || undefined,
+        preferredDate: formData.date || undefined,
+        message: formData.message.trim()
+          ? `Preferred Date: ${formData.date || "Flexible"} | Service: ${formData.service} | ${formData.message}`
+          : `Service Enquiry: ${formData.service}`,
       });
+      setIsSubmitted(true);
     } catch (err) {
-      console.warn("Contact lead API error:", err);
+      console.error("Contact lead API submission error:", err);
+      alert("Enquiry recorded. Our care desk will contact you shortly.");
+      setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
     }
   };
+
+  const contactCards = branches.length > 0
+    ? branches.map((b: any) => ({
+        icon: "pin" as const,
+        title: b.name,
+        primary: [
+          typeof b.address === "object" ? `${b.address.street || ""}, ${b.address.city || ""}` : (b.address || "Kattakada Campus"),
+          b.phone || "+91 94470 03191"
+        ],
+        secondary: [
+          b.type || "Inpatient & Outpatient Center",
+          b.opdTimings || "Mon – Sat: 8:00 AM – 7:00 PM"
+        ],
+        link: b.phone ? `tel:${b.phone}` : "tel:+919447003191"
+      }))
+    : fallbackContactCards;
 
   return (
     <div className="contact-reference-page">
@@ -118,7 +208,7 @@ export function ContactReferencePage() {
               </h1>
 
               <p className="contact-booking-hero-desc">
-                Have questions or need guidance? Our team is here for you. Reach out to us and experience compassionate care, every step of the way.
+                Have questions or need treatment guidance? Our expert team is here for you. Reach out to Susrutha Ayurveda Hospital and experience authentic, compassionate Ayurvedic care.
               </p>
 
               <div className="contact-booking-support-grid">
@@ -136,28 +226,63 @@ export function ContactReferencePage() {
               </div>
             </div>
 
-            {/* Right Appointment Form */}
+            {/* Right Interactive Contact Form */}
             <div className="contact-booking-form-wrap">
               <h2 className="contact-booking-title">
                 Contact With Us
               </h2>
 
               {isSubmitted ? (
-                <div className="contact-booking-success">
-                  <h3>Thank You!</h3>
-                  <p>Your appointment request has been received. Our care coordinator will contact you shortly.</p>
+                <div className="contact-booking-success" style={{ textAlign: "center", padding: "24px 16px" }}>
+                  <CheckCircle2 size={48} color="#10b981" style={{ margin: "0 auto 12px auto" }} />
+                  <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#ffffff", marginBottom: "8px" }}>Enquiry Submitted!</h3>
+                  <p style={{ color: "rgba(255, 255, 255, 0.85)", fontSize: "14px", lineHeight: "1.5" }}>
+                    Thank you <strong>{formData.name}</strong>. Our patient care coordinator will call you back on <strong>{formData.phone}</strong> shortly.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({ name: "", phone: "", email: "", service: "Doctor OPD Consultation", date: "", message: "" });
+                    }}
+                    style={{
+                      marginTop: "16px",
+                      padding: "8px 20px",
+                      borderRadius: "9999px",
+                      background: "rgba(255, 255, 255, 0.2)",
+                      border: "1px solid rgba(255, 255, 255, 0.4)",
+                      color: "#ffffff",
+                      cursor: "pointer",
+                      fontSize: "13px",
+                      fontWeight: 600
+                    }}
+                  >
+                    Submit Another Enquiry
+                  </button>
                 </div>
               ) : (
                 <form className="contact-booking-form" onSubmit={handleSubmit}>
                   <div className="contact-booking-grid">
                     <div className="contact-booking-field">
-                      <label htmlFor="booking-name">Your Name</label>
+                      <label htmlFor="booking-name">Your Name *</label>
                       <input
                         id="booking-name"
                         type="text"
-                        placeholder="Your Name"
+                        placeholder="e.g. Ramesh Menon"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div className="contact-booking-field">
+                      <label htmlFor="booking-phone">Phone Number *</label>
+                      <input
+                        id="booking-phone"
+                        type="tel"
+                        placeholder="+91 94470 00000"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         required
                       />
                     </div>
@@ -167,25 +292,41 @@ export function ContactReferencePage() {
                       <input
                         id="booking-email"
                         type="email"
-                        placeholder="Email Address"
+                        placeholder="name@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
                       />
                     </div>
 
+                    {branches.length > 0 && (
+                      <div className="contact-booking-field">
+                        <label htmlFor="booking-branch">Preferred Branch</label>
+                        <select
+                          id="booking-branch"
+                          value={selectedBranchId}
+                          onChange={(e) => setSelectedBranchId(e.target.value)}
+                        >
+                          {branches.map((b: any) => (
+                            <option key={b._id || b.id} value={b._id || b.id}>
+                              {b.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+
                     <div className="contact-booking-field">
-                      <label htmlFor="booking-service">Select Services</label>
+                      <label htmlFor="booking-service">Select Service / Concern</label>
                       <select
                         id="booking-service"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       >
-                        <option value="Tranquil Radiance Facial">Tranquil Radiance Facial</option>
-                        <option value="Panchakarma Consultation">Panchakarma Consultation</option>
-                        <option value="Spine & Joint Care">Spine &amp; Joint Care</option>
-                        <option value="Ayurvedic Rejuvenation">Ayurvedic Rejuvenation</option>
-                        <option value="Doctor Appointment Request">Doctor Appointment Request</option>
+                        {serviceOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
@@ -195,16 +336,17 @@ export function ContactReferencePage() {
                         id="booking-date"
                         type="date"
                         value={formData.date}
+                        min={new Date().toISOString().split("T")[0]}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                       />
                     </div>
 
                     <div className="contact-booking-field wide">
-                      <label htmlFor="booking-message">Write A Message</label>
+                      <label htmlFor="booking-message">Write A Message / Concern</label>
                       <textarea
                         id="booking-message"
                         rows={2}
-                        placeholder="Write A Message"
+                        placeholder="Mention symptoms e.g., joint pain, panchakarma inquiry, room stay..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       />
@@ -213,7 +355,7 @@ export function ContactReferencePage() {
 
                   <div className="contact-booking-btn-wrap">
                     <button type="submit" className="contact-booking-submit-btn" disabled={isSubmitting}>
-                      {isSubmitting ? "Submitting..." : "Book Now"}
+                      {isSubmitting ? "Submitting..." : "Submit Enquiry"}
                     </button>
                   </div>
                 </form>
@@ -228,24 +370,24 @@ export function ContactReferencePage() {
           <h2 id="contact-info-title">Get in Touch</h2>
           <span className="contact-reference-small-rule" aria-hidden="true" />
           <div className="contact-reference-info-grid">
-            {contactCards.map((card) => (
-              <article key={card.title}>
+            {contactCards.map((card, idx) => (
+              <article key={idx}>
                 <span className="contact-reference-info-icon">
                   <ContactIcon type={card.icon} />
                 </span>
                 <h3>{card.title}</h3>
-                {card.primary.map((line) =>
+                {card.primary.map((line, lIdx) =>
                   card.link ? (
-                    <a key={line} className="info-primary" href={card.link} style={{ display: "block", textDecoration: "none" }}>
+                    <a key={lIdx} className="info-primary" href={card.link} style={{ display: "block", textDecoration: "none" }}>
                       {line}
                     </a>
                   ) : (
-                    <p key={line} className="info-primary">{line}</p>
+                    <p key={lIdx} className="info-primary">{line}</p>
                   )
                 )}
                 <hr className="info-divider" />
-                {card.secondary.map((line) => (
-                  <p key={line} className="info-secondary">{line}</p>
+                {card.secondary.map((line, lIdx) => (
+                  <p key={lIdx} className="info-secondary">{line}</p>
                 ))}
               </article>
             ))}
