@@ -4808,7 +4808,7 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
 }
 
 .conditions-content {
-  padding: 176px clamp(2px, 6vw, 208px) 34px;
+  padding: 52px clamp(2px, 7vw, 208px) 34px;
 }
 
 .conditions-section-head {
@@ -5507,7 +5507,7 @@ body:has(.conditions-page) {
 }
 
 .conditions-page .conditions-content {
-  padding-top: 154px;
+  padding-top: 48px;
 }
 
 @media (max-width: 1320px) {
