@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Check, Award, CalendarCheck } from "lucide-react";
 import { DoctorItem } from "./DoctorCard";
 
+import { getImageDisplayUrl } from "@/app/services/api";
+
 type DoctorMatchAssistantProps = {
   doctors?: DoctorItem[];
 };
@@ -19,35 +21,35 @@ type OptionItem = {
 const healthOptions: OptionItem[] = [
   {
     id: "panchakarma",
-    image: "/images/opt_panchakarma.jpg",
+    image: getImageDisplayUrl("/uploads/treatment-panchakarma.webp"),
     title: "Panchakarma & Body Detox",
     subtitle: "Purification & Rejuvenation",
     deptId: "panchakarma",
   },
   {
     id: "spine-joints",
-    image: "/images/opt_spine.jpg",
+    image: getImageDisplayUrl("/uploads/opt_spine_joint.jpg"),
     title: "Spine, Joints & Bone Care",
     subtitle: "Kati Vasthi & Pain Care",
     deptId: "spine-joints",
   },
   {
     id: "womens-health",
-    image: "/images/opt_women.jpg",
+    image: getImageDisplayUrl("/uploads/dept_fertilization.webp"),
     title: "Women's Health & Wellness",
     subtitle: "Hormonal & Gynaec Care",
     deptId: "womens-health",
   },
   {
     id: "lifestyle-detox",
-    image: "/images/opt_lifestyle.jpg",
+    image: getImageDisplayUrl("/uploads/ayur_nutri.webp"),
     title: "Metabolic & Lifestyle Care",
     subtitle: "Diabetes & Metabolism",
     deptId: "lifestyle-detox",
   },
   {
     id: "skin",
-    image: "/images/opt_skin_allergies.jpg",
+    image: getImageDisplayUrl("/uploads/dept_general.webp"),
     title: "Skin Psoriasis & Allergies",
     subtitle: "Ayurvedic Dermatology",
     deptId: "skin-hair",
