@@ -24,7 +24,7 @@ import {
   Leaf,
   Clock
 } from "lucide-react";
-import { getPublicDoctors, getPublicDoctorsByDepartment, getPublicBranches, getPublicDepartments, getImageDisplayUrl } from "../../services/api";
+import { getPublicDoctors, getPublicDoctorsByDepartment, getPublicBranches, getPublicDepartments, getPublicPackages, getImageDisplayUrl } from "../../services/api";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 const defaultTimeSlots = [
@@ -134,10 +134,19 @@ function AppointmentWizardContent() {
   const doctorQuery = searchParams.get("doctor") || searchParams.get("doctorId") || searchParams.get("doc");
   const branchQuery = searchParams.get("branch") || searchParams.get("branchId");
   const specialtyQuery = searchParams.get("specialty") || searchParams.get("department");
+  const packageQuery = searchParams.get("package") || searchParams.get("packageId") || searchParams.get("pkg");
+  const typeQuery = searchParams.get("type");
+  const durationQuery = searchParams.get("duration");
+
+  const [bookingMode, setBookingMode] = useState<"DOCTOR" | "PACKAGE">(() => {
+    if (packageQuery || typeQuery === "PACKAGE_BOOKING") return "PACKAGE";
+    return "DOCTOR";
+  });
 
   const [doctors, setDoctors] = useState<any[]>([]);
   const [branches, setBranches] = useState<any[]>([]);
   const [specialties, setSpecialties] = useState<any[]>([]);
+  const [packages, setPackages] = useState<any[]>([]);
   const [filteredDoctors, setFilteredDoctors] = useState<any[]>([]);
   const [isDoctorLoading, setIsDoctorLoading] = useState(false);
 
@@ -145,6 +154,9 @@ function AppointmentWizardContent() {
   const [selectedBranchId, setSelectedBranchId] = useState<string>("");
   const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("");
   const [selectedDoctorId, setSelectedDoctorId] = useState<string>("");
+  const [selectedPackageId, setSelectedPackageId] = useState<string>("");
+  const [selectedDurationDays, setSelectedDurationDays] = useState<number>(14);
+  const [selectedAccommodation, setSelectedAccommodation] = useState<string>("Executive Suite");
   const [selectedSlotId, setSelectedSlotId] = useState<string>("slot-m1");
   const [autoSelectedMsg, setAutoSelectedMsg] = useState<string | null>(null);
 
@@ -166,14 +178,15 @@ function AppointmentWizardContent() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [bookingReference, setBookingReference] = useState("");
 
-  // Load Live Doctors, Branches & Departments from Backend API
+  // Load Live Doctors, Branches, Departments & Care Packages from Backend API
   useEffect(() => {
     async function loadData() {
       try {
-        const [apiDocs, apiBranches, apiDepts] = await Promise.all([
+        const [apiDocs, apiBranches, apiDepts, apiPkgs] = await Promise.all([
           getPublicDoctors(),
           getPublicBranches(),
           getPublicDepartments(),
+          getPublicPackages(),
         ]);
 
         if (Array.isArray(apiDocs) && apiDocs.length > 0) {
@@ -195,7 +208,6 @@ function AppointmentWizardContent() {
           }));
           setDoctors(mappedDocs);
           setFilteredDoctors(mappedDocs);
-          // Auto-sync selectedDoctorId to match loaded doctors if current ID does not match
           setSelectedDoctorId((prev) => {
             if (mappedDocs.some((d) => d.id === prev || d._id === prev || d.slug === prev)) return prev;
             return mappedDocs[0].id;
@@ -215,14 +227,12 @@ function AppointmentWizardContent() {
             features: b.features || [],
           }));
           setBranches(mappedBranches);
-          // Auto-sync selectedBranchId to match loaded branches if current ID does not match
           setSelectedBranchId((prev) => {
             if (mappedBranches.some((b) => b.id === prev || b._id === prev)) return prev;
             return mappedBranches[0].id;
           });
         }
 
-        // Load departments from backend as specialties
         if (Array.isArray(apiDepts) && apiDepts.length > 0) {
           const mappedDepts = [
             {
@@ -242,12 +252,31 @@ function AppointmentWizardContent() {
           ];
           setSpecialties(mappedDepts as any);
         }
+
+        // Load Care Packages
+        const pkgData = Array.isArray(apiPkgs) ? apiPkgs : (apiPkgs as any).items || [];
+        if (Array.isArray(pkgData) && pkgData.length > 0) {
+          setPackages(pkgData);
+          if (packageQuery) {
+            const matchPkg = pkgData.find((p: any) => p.slug === packageQuery || p._id === packageQuery || p.title.toLowerCase().includes(packageQuery.toLowerCase()));
+            if (matchPkg) {
+              setSelectedPackageId(matchPkg._id || matchPkg.slug);
+              setBookingMode("PACKAGE");
+              if (durationQuery) setSelectedDurationDays(Number(durationQuery) || 14);
+              setAutoSelectedMsg(`Auto-selected Care Package: ${matchPkg.title}`);
+            } else {
+              setSelectedPackageId(pkgData[0]._id || pkgData[0].slug);
+            }
+          } else {
+            setSelectedPackageId(pkgData[0]._id || pkgData[0].slug);
+          }
+        }
       } catch (err) {
         console.warn("Using default appointment data:", err);
       }
     }
     loadData();
-  }, []);
+  }, [packageQuery, durationQuery]);
 
   // When selected specialty/department OR branch changes, fetch matching doctors from backend
   useEffect(() => {

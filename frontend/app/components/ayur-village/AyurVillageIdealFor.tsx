@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
+import { getImageDisplayUrl } from "@/app/services/api";
 
 const ayurVillageIdealFor = [
-  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: "/images/treatment-panchakarma.webp" },
-  { icon: "leaf", title: "Post-illness Convalescence & Rejuvenation", image: "/images/ayurveda-village-path.webp" },
-  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: "/images/hero-courtyard-ayurveda-v2.webp" },
+  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: getImageDisplayUrl("/uploads/treatment-panchakarma.webp") },
+  { icon: "leaf", title: "Post-illness Convalescence & Rejuvenation", image: getImageDisplayUrl("/uploads/resort_room1.webp") },
+  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: getImageDisplayUrl("/uploads/facility_yoga.webp") },
 ];
 
 export function AyurVillageIdealFor() {
   return (
     <section className="ayur-village-ideal">
       <Image
-        src="/images/banner_calm_retreat.jpg"
+        src={getImageDisplayUrl("/uploads/pub_asotra.webp")}
         alt="Ayurvedic therapy vessels and serene retreat"
         fill
         unoptimized

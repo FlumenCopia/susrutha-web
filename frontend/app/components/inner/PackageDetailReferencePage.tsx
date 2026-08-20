@@ -89,7 +89,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
 
             {/* Action Buttons */}
             <div className="treatment-hero-actions" style={{ marginTop: "24px" }}>
-              <Link className="btn btn-primary treatment-btn-book" href={`/appointment?package=${encodeURIComponent(pkg.slug)}`}>
+              <Link className="btn btn-primary treatment-btn-book" href={`/appointment?package=${encodeURIComponent(pkg.slug)}&duration=${selectedDuration}&type=PACKAGE_BOOKING`}>
                 <span>Book Package Enquiry</span>
                 <ArrowRight size={14} style={{ marginLeft: "6px" }} />
               </Link>
