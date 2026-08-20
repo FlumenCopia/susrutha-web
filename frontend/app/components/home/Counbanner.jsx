@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const metricsData = [
-  { target: 25, suffix: "+", label: "Years of Experience" },
+  { target: 40, suffix: "+", label: "Years of Experience" },
   { target: 50, suffix: "K+", label: "Happy Patients" },
   { target: 20, suffix: "+", label: "Specialised Treatments" },
   { target: 10, suffix: "+", label: "Expert Doctors" },
