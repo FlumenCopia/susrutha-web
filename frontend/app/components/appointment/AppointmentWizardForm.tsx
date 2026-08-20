@@ -1675,26 +1675,36 @@ function AppointmentWizardContent() {
             </h3>
 
             {bookingMode === "PACKAGE" ? (
-              <div className="summary-doc-header" style={{ alignItems: "flex-start" }}>
-                <div>
-                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
+              <div className="summary-doc-header" style={{ display: "flex", flexDirection: "column", gap: "6px", width: "100%", gridTemplateColumns: "1fr" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "linear-gradient(135deg, #b57a25, #9a651e)", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", flexShrink: 0 }}>
+                    <Sparkles size={20} />
+                  </div>
+                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     {selectedPackage?.category || "Residential Program"}
                   </span>
-                  <h4 className="summary-doc-name" style={{ fontSize: "16px", marginTop: "2px" }}>
+                </div>
+                <div style={{ marginTop: "4px" }}>
+                  <h4 className="summary-doc-name" style={{ fontSize: "16px", fontWeight: 700, color: "#1c2a23", lineHeight: 1.35, margin: "0 0 4px 0" }}>
                     {selectedPackage?.title || "Low Back Pain Care Package"}
                   </h4>
-                  <span className="summary-doc-spec" style={{ color: "#2d4d3a", fontWeight: 700 }}>
+                  <span className="summary-doc-spec" style={{ color: "#2d4d3a", fontWeight: 700, fontSize: "13px" }}>
                     Starts at ₹{selectedPackage?.startingPrice ? selectedPackage.startingPrice.toLocaleString("en-IN") : "14,500"}
                   </span>
                 </div>
               </div>
             ) : bookingMode === "TREATMENT" ? (
-              <div className="summary-doc-header" style={{ alignItems: "flex-start" }}>
-                <div>
-                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
+              <div className="summary-doc-header" style={{ display: "flex", flexDirection: "column", gap: "6px", width: "100%", gridTemplateColumns: "1fr" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "linear-gradient(135deg, #b57a25, #9a651e)", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", flexShrink: 0 }}>
+                    <Activity size={20} />
+                  </div>
+                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     {selectedTreatment?.category || "Ayurvedic Therapy"}
                   </span>
-                  <h4 className="summary-doc-name" style={{ fontSize: "16px", marginTop: "2px" }}>
+                </div>
+                <div style={{ marginTop: "4px" }}>
+                  <h4 className="summary-doc-name" style={{ fontSize: "16px", fontWeight: 700, color: "#1c2a23", lineHeight: 1.35, margin: 0 }}>
                     {selectedTreatment?.title || "Abhyangam Therapy"}
                   </h4>
                 </div>
