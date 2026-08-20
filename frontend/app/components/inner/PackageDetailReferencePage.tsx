@@ -239,7 +239,7 @@ export function PackageDetailReferencePage({ pkg }: PackageDetailReferencePagePr
                 <span>Book Package Enquiry</span>
                 <ArrowRight size={14} style={{ marginLeft: "6px" }} />
               </Link>
-              <a href="tel:+919447003191" className="btn btn-outline cta-btn-phone">
+              <a href="tel:+919447003191" className="btn btn-outline cta-btn-phone" style={{ background: "#ffffff", borderColor: "#ffffff", color: "#1c2a23", fontWeight: 800, boxShadow: "0 6px 20px rgba(0,0,0,0.2)" }}>
                 <span>Call Admissions: +91 94470 03191</span>
               </a>
             </div>

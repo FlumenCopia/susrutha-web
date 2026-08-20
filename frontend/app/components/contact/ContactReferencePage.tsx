@@ -233,11 +233,13 @@ export function ContactReferencePage() {
               </h2>
 
               {isSubmitted ? (
-                <div className="contact-booking-success" style={{ textAlign: "center", padding: "24px 16px" }}>
-                  <CheckCircle2 size={48} color="#10b981" style={{ margin: "0 auto 12px auto" }} />
-                  <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#ffffff", marginBottom: "8px" }}>Enquiry Submitted!</h3>
-                  <p style={{ color: "rgba(255, 255, 255, 0.85)", fontSize: "14px", lineHeight: "1.5" }}>
-                    Thank you <strong>{formData.name}</strong>. Our patient care coordinator will call you back on <strong>{formData.phone}</strong> shortly.
+                <div className="contact-booking-success" style={{ textAlign: "center", padding: "32px 20px" }}>
+                  <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "linear-gradient(135deg, #10b981, #059669)", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", margin: "0 auto 16px auto", boxShadow: "0 6px 20px rgba(16, 185, 129, 0.4)" }}>
+                    <CheckCircle2 size={32} />
+                  </div>
+                  <h3 style={{ fontSize: "24px", fontWeight: 800, color: "#ffffff", marginBottom: "10px", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>Enquiry Submitted!</h3>
+                  <p style={{ color: "#ffffff", fontSize: "16px", lineHeight: "1.6", maxWidth: "420px", margin: "0 auto 20px auto", opacity: 1, textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
+                    Thank you <strong style={{ color: "#f7a51a", fontWeight: 800 }}>{formData.name}</strong>. Our patient care coordinator will call you back on <strong style={{ color: "#f7a51a", fontWeight: 800 }}>{formData.phone}</strong> shortly.
                   </p>
                   <button
                     type="button"
@@ -246,15 +248,16 @@ export function ContactReferencePage() {
                       setFormData({ name: "", phone: "", email: "", service: "Doctor OPD Consultation", date: "", message: "" });
                     }}
                     style={{
-                      marginTop: "16px",
-                      padding: "8px 20px",
+                      marginTop: "12px",
+                      padding: "12px 28px",
                       borderRadius: "9999px",
-                      background: "rgba(255, 255, 255, 0.2)",
-                      border: "1px solid rgba(255, 255, 255, 0.4)",
+                      background: "linear-gradient(135deg, #b57a25, #9a651e)",
+                      border: "none",
                       color: "#ffffff",
                       cursor: "pointer",
-                      fontSize: "13px",
-                      fontWeight: 600
+                      fontSize: "14px",
+                      fontWeight: 700,
+                      boxShadow: "0 6px 20px rgba(181, 122, 37, 0.4)",
                     }}
                   >
                     Submit Another Enquiry

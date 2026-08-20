@@ -638,13 +638,13 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               Ready to Begin Your Healing Journey?
             </h2>
 
-            <p style={{ fontSize: "17.5px", color: "#ffffff", fontWeight: 600, lineHeight: 1.7, marginBottom: "36px", textShadow: "0 2px 10px rgba(0,0,0,0.9)", opacity: 1 }}>
+            <p style={{ fontSize: "18px", color: "#ffffff", fontWeight: 700, lineHeight: 1.6, marginBottom: "32px", textShadow: "0 2px 12px rgba(0,0,0,0.95)", opacity: 1 }}>
               Consult with our senior Ayurvedic physicians for an expert diagnosis and personalized treatment plan.
             </p>
 
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
               <Link
-                href="/appointment"
+                href={`/appointment?treatment=${treatment.slug}&type=SINGLE_TREATMENT`}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -669,13 +669,13 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                   alignItems: "center",
                   padding: "16px 32px",
                   borderRadius: "999px",
-                  background: "rgba(255, 255, 255, 0.12)",
-                  border: "1.5px solid rgba(255, 255, 255, 0.3)",
-                  color: "#ffffff",
-                  fontWeight: 700,
+                  background: "#ffffff",
+                  border: "1.5px solid #ffffff",
+                  color: "#1c2a23",
+                  fontWeight: 800,
                   fontSize: "15px",
                   textDecoration: "none",
-                  backdropFilter: "blur(6px)",
+                  boxShadow: "0 6px 20px rgba(0, 0, 0, 0.25)",
                 }}
               >
                 <span>Call +91 96566 56736</span>
