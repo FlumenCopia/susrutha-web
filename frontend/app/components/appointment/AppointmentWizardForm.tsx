@@ -1149,15 +1149,23 @@ function AppointmentWizardContent() {
                                     setAutoSelectedMsg(null);
                                   }}
                                 >
-                                  <div className="doc-portrait-wrapper">
-                                    <Image src={doc.avatar} alt={doc.name} fill sizes="80px" />
-                                    <span className="doc-rating-chip" style={{ display: "inline-flex", alignItems: "center", gap: "2px" }}>
-                                      {doc.rating} <Star size={11} fill="#d97706" color="#d97706" />
-                                    </span>
+                                  <div className="doc-portrait-wrapper" style={{ overflow: "hidden", borderRadius: "50%" }}>
+                                    <Image
+                                      src={doc.avatar}
+                                      alt={doc.name}
+                                      fill
+                                      sizes="80px"
+                                      style={{ objectFit: "cover", objectPosition: "top center", borderRadius: "50%" }}
+                                    />
                                   </div>
 
                                   <div className="doc-card-info">
-                                    <h4>{doc.name}</h4>
+                                    <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                                      <h4 style={{ margin: 0, fontSize: "15px", fontWeight: 800, color: "#1a221f" }}>{doc.name}</h4>
+                                      <span style={{ display: "inline-flex", alignItems: "center", gap: "3px", padding: "1px 7px", background: "#fef3c7", color: "#92400e", borderRadius: "999px", fontSize: "11px", fontWeight: 700, border: "1px solid #fde68a" }}>
+                                        <Star size={10} fill="#d97706" color="#d97706" /> {doc.rating}
+                                      </span>
+                                    </div>
                                     <span className="doc-card-qual">{doc.qualification}</span>
                                     <span className="doc-card-spec">{doc.specialty}</span>
                                     <span className="doc-card-days" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>

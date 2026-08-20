@@ -6204,24 +6204,20 @@
   height: 72px;
   border-radius: 50%;
   flex-shrink: 0;
-  border: 2px solid var(--color-gold, #c88922);
+  border: 2.5px solid var(--color-gold, #c88922);
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: #fdf8f0;
 }
 
 .doc-portrait-wrapper img {
-  object-fit: cover;
+  object-fit: cover !important;
+  object-position: top center !important;
+  border-radius: 50% !important;
 }
 
 .doc-rating-chip {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 1px 6px;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  border-radius: 4px;
-  font-size: 9.5px;
-  font-weight: bold;
+  display: none;
 }
 
 .doc-card-info h4 {
