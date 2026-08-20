@@ -121,13 +121,17 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
   const handleTabClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     setActiveTab(targetId);
-    const element = document.getElementById(targetId);
-    if (element) {
-      const yOffset = -140; // Space for fixed header (76px) + sticky tabs + padding
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const yOffset = -140;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 50);
   };
+
+  const isOverview = activeTab === "overview" || activeTab === "all";
 
   return (
     <div className="treatment-detail-luxury-wrapper">
@@ -226,22 +230,24 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
       {/* Main Content Body */}
       <div className="treatment-detail-body">
         {/* Section 1: Overview */}
-        <section className="treatment-section-block" id="overview">
-          <div className="treatment-overview-grid">
-            <div className="overview-text-col" style={{ maxWidth: "100%" }}>
-              <div className="section-eyebrow">OVERVIEW</div>
-              <h2 className="section-title-luxury">
-                {treatment.title} Clinical Protocol
-              </h2>
-              <p className="overview-paragraph" style={{ whiteSpace: "pre-line" }}>
-                {treatment.fullDescription || treatment.shortDescription}
-              </p>
+        {(isOverview || activeTab === "overview") && (
+          <section className="treatment-section-block" id="overview">
+            <div className="treatment-overview-grid">
+              <div className="overview-text-col" style={{ maxWidth: "100%" }}>
+                <div className="section-eyebrow">OVERVIEW</div>
+                <h2 className="section-title-luxury">
+                  {treatment.title} Clinical Protocol
+                </h2>
+                <p className="overview-paragraph" style={{ whiteSpace: "pre-line" }}>
+                  {treatment.fullDescription || treatment.shortDescription}
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Section 2: Benefits (Only rendered if CMS data exists) */}
-        {benefitCards.length > 0 && (
+        {benefitCards.length > 0 && (isOverview || activeTab === "benefits") && (
           <section className="treatment-section-block" id="benefits">
             <div className="section-start-heading">
               <span className="section-eyebrow">THERAPEUTIC ADVANTAGES</span>
@@ -262,7 +268,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         )}
 
         {/* Section 3: Indications (Only rendered if CMS data exists) */}
-        {idealForItems.length > 0 && (
+        {idealForItems.length > 0 && (isOverview || activeTab === "who-is-it-for") && (
           <section className="treatment-section-block" id="who-is-it-for">
             <div className="ideal-candidates-panel">
               <div className="ideal-content-side">
@@ -289,7 +295,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         )}
 
         {/* Section 4: Treatment Process (Only rendered if CMS data exists) */}
-        {journeySteps.length > 0 && (
+        {journeySteps.length > 0 && (isOverview || activeTab === "treatment-process") && (
           <section className="treatment-section-block" id="treatment-process">
             <div className="section-start-heading">
               <span className="section-eyebrow">THERAPEUTIC ROADMAP</span>
@@ -312,7 +318,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
         )}
 
         {/* Section 5: What to Expect & Inclusions (Only rendered if CMS data exists) */}
-        {(expectItems.length > 0 || includeItems.length > 0) && (
+        {(expectItems.length > 0 || includeItems.length > 0) && (isOverview || activeTab === "what-to-expect") && (
           <section className="treatment-section-block" id="what-to-expect">
             <div className="expect-inclusions-grid">
               {expectItems.length > 0 && (
