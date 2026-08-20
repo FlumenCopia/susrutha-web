@@ -252,8 +252,8 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
 
             {/* Action Buttons */}
             <div className="condition-detail-actions" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link className="condition-detail-primary" href="/appointment" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 32px", borderRadius: "999px", background: "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)", color: "#ffffff", fontWeight: 700, fontSize: "15px", textDecoration: "none" }}>
-                <span>Book Doctor Consultation</span>
+              <Link className="condition-detail-primary" href={`/appointment?treatment=${treatment.slug}&type=SINGLE_TREATMENT`} style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 32px", borderRadius: "999px", background: "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)", color: "#ffffff", fontWeight: 700, fontSize: "15px", textDecoration: "none" }}>
+                <span>Reserve Therapy Session</span>
                 <span aria-hidden="true">&rarr;</span>
               </Link>
               <Link className="condition-detail-secondary" href="/contact-us" style={{ display: "inline-flex", alignItems: "center", padding: "14px 28px", borderRadius: "999px", background: "#ffffff", border: "1.5px solid #d8c8b4", color: "#2c2214", fontWeight: 700, fontSize: "15px", textDecoration: "none" }}>

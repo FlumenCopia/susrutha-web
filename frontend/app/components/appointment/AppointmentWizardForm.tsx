@@ -22,10 +22,18 @@ import {
   UserCheck,
   Stethoscope,
   Leaf,
-  Clock
+  Clock,
+  Activity
 } from "lucide-react";
-import { getPublicDoctors, getPublicDoctorsByDepartment, getPublicBranches, getPublicDepartments, getPublicPackages, getImageDisplayUrl } from "../../services/api";
-import { DataLayerRibbon } from "../common/DataLayerRibbon";
+import {
+  getPublicDoctors,
+  getPublicDoctorsByDepartment,
+  getPublicBranches,
+  getPublicDepartments,
+  getPublicPackages,
+  getPublicTreatments,
+  getImageDisplayUrl
+} from "../../services/api";
 
 const defaultTimeSlots = [
   { id: "slot-1", label: "09:00 AM", period: "Morning" },
@@ -45,11 +53,9 @@ const defaultTimeSlots = [
 const SHORT_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const FULL_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-// Helper to extract doctor working days array
 function getDoctorWorkingDays(doc: any, branchId?: string): string[] {
   if (!doc) return SHORT_DAYS;
 
-  // Check structured backend availability array
   if (Array.isArray(doc.availability) && doc.availability.length > 0) {
     const branchEntry = doc.availability.find(
       (a: any) =>
@@ -62,7 +68,6 @@ function getDoctorWorkingDays(doc: any, branchId?: string): string[] {
     }
   }
 
-  // Check static availableDays string array
   if (Array.isArray(doc.availableDays) && doc.availableDays.length > 0) {
     const days: string[] = [];
     doc.availableDays.forEach((d: string) => {
@@ -76,7 +81,6 @@ function getDoctorWorkingDays(doc: any, branchId?: string): string[] {
   return SHORT_DAYS;
 }
 
-// Checks if doctor is available on a specific YYYY-MM-DD string
 function checkDoctorAvailability(doc: any, dateStr: string, branchId?: string): boolean {
   if (!dateStr || !doc) return true;
   const dateObj = new Date(dateStr + "T00:00:00");
@@ -85,7 +89,6 @@ function checkDoctorAvailability(doc: any, dateStr: string, branchId?: string): 
   return workingDays.some((w) => w.toLowerCase().startsWith(dayName.toLowerCase()));
 }
 
-// Helper to format Date object into local YYYY-MM-DD string without timezone offset bugs
 function formatDateToYYYYMMDD(d: Date): string {
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, "0");
@@ -93,7 +96,6 @@ function formatDateToYYYYMMDD(d: Date): string {
   return `${year}-${month}-${day}`;
 }
 
-// Finds the next valid YYYY-MM-DD working date for a doctor
 function findNextWorkingDate(doc: any, dateStr: string, branchId?: string): string {
   if (!dateStr) return formatDateToYYYYMMDD(new Date());
   let curr = new Date(dateStr + "T00:00:00");
@@ -108,8 +110,6 @@ function findNextWorkingDate(doc: any, dateStr: string, branchId?: string): stri
   return dateStr;
 }
 
-// Extract the doctor's time slots for the selected branch from their availability array
-// Returns slot objects compatible with the slot grid UI
 function getDoctorBranchTimeSlots(doc: any, branchId?: string): { id: string; label: string; period: string }[] {
   if (!doc || !Array.isArray(doc.availability) || doc.availability.length === 0) return [];
 
@@ -135,10 +135,12 @@ function AppointmentWizardContent() {
   const branchQuery = searchParams.get("branch") || searchParams.get("branchId");
   const specialtyQuery = searchParams.get("specialty") || searchParams.get("department");
   const packageQuery = searchParams.get("package") || searchParams.get("packageId") || searchParams.get("pkg");
+  const treatmentQuery = searchParams.get("treatment") || searchParams.get("treatmentId") || searchParams.get("therapy");
   const typeQuery = searchParams.get("type");
   const durationQuery = searchParams.get("duration");
 
-  const [bookingMode, setBookingMode] = useState<"DOCTOR" | "PACKAGE">(() => {
+  const [bookingMode, setBookingMode] = useState<"DOCTOR" | "PACKAGE" | "TREATMENT">(() => {
+    if (treatmentQuery || typeQuery === "SINGLE_TREATMENT") return "TREATMENT";
     if (packageQuery || typeQuery === "PACKAGE_BOOKING") return "PACKAGE";
     return "DOCTOR";
   });
@@ -147,6 +149,7 @@ function AppointmentWizardContent() {
   const [branches, setBranches] = useState<any[]>([]);
   const [specialties, setSpecialties] = useState<any[]>([]);
   const [packages, setPackages] = useState<any[]>([]);
+  const [treatments, setTreatments] = useState<any[]>([]);
   const [filteredDoctors, setFilteredDoctors] = useState<any[]>([]);
   const [isDoctorLoading, setIsDoctorLoading] = useState(false);
 
@@ -155,9 +158,10 @@ function AppointmentWizardContent() {
   const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("");
   const [selectedDoctorId, setSelectedDoctorId] = useState<string>("");
   const [selectedPackageId, setSelectedPackageId] = useState<string>("");
+  const [selectedTreatmentId, setSelectedTreatmentId] = useState<string>("");
   const [selectedDurationDays, setSelectedDurationDays] = useState<number>(14);
   const [selectedAccommodation, setSelectedAccommodation] = useState<string>("Executive Suite");
-  const [selectedSlotId, setSelectedSlotId] = useState<string>("slot-m1");
+  const [selectedSlotId, setSelectedSlotId] = useState<string>("slot-1");
   const [autoSelectedMsg, setAutoSelectedMsg] = useState<string | null>(null);
 
   const [appointmentDate, setAppointmentDate] = useState<string>(() => {
@@ -178,15 +182,16 @@ function AppointmentWizardContent() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [bookingReference, setBookingReference] = useState("");
 
-  // Load Live Doctors, Branches, Departments & Care Packages from Backend API
+  // Load Live Doctors, Branches, Departments, Packages & Treatments from Backend API
   useEffect(() => {
     async function loadData() {
       try {
-        const [apiDocs, apiBranches, apiDepts, apiPkgs] = await Promise.all([
+        const [apiDocs, apiBranches, apiDepts, apiPkgs, apiTreatments] = await Promise.all([
           getPublicDoctors(),
           getPublicBranches(),
           getPublicDepartments(),
           getPublicPackages(),
+          getPublicTreatments(),
         ]);
 
         if (Array.isArray(apiDocs) && apiDocs.length > 0) {
@@ -271,20 +276,36 @@ function AppointmentWizardContent() {
             setSelectedPackageId(pkgData[0]._id || pkgData[0].slug);
           }
         }
+
+        // Load Treatments
+        const trtData = Array.isArray(apiTreatments) ? apiTreatments : (apiTreatments as any).items || [];
+        if (Array.isArray(trtData) && trtData.length > 0) {
+          setTreatments(trtData);
+          if (treatmentQuery) {
+            const matchTrt = trtData.find((t: any) => t.slug === treatmentQuery || t._id === treatmentQuery || t.title.toLowerCase().includes(treatmentQuery.toLowerCase()));
+            if (matchTrt) {
+              setSelectedTreatmentId(matchTrt._id || matchTrt.slug);
+              setBookingMode("TREATMENT");
+              setAutoSelectedMsg(`Auto-selected Therapy: ${matchTrt.title}`);
+            } else {
+              setSelectedTreatmentId(trtData[0]._id || trtData[0].slug);
+            }
+          } else {
+            setSelectedTreatmentId(trtData[0]._id || trtData[0].slug);
+          }
+        }
       } catch (err) {
         console.warn("Using default appointment data:", err);
       }
     }
     loadData();
-  }, [packageQuery, durationQuery]);
+  }, [packageQuery, treatmentQuery, durationQuery]);
 
   // When selected specialty/department OR branch changes, fetch matching doctors from backend
   useEffect(() => {
     if (!selectedSpecialtyId) return;
     const dept = specialties.find((s) => s.id === selectedSpecialtyId || s.slug === selectedSpecialtyId);
     const deptSlug = dept?.slug || selectedSpecialtyId;
-
-    // Get the branch code to filter by — branch.id is the code lowercased
     const branchCode = selectedBranchId ? selectedBranchId.toUpperCase() : undefined;
 
     setIsDoctorLoading(true);
@@ -309,13 +330,11 @@ function AppointmentWizardContent() {
             rating: d.rating || 4.9,
           }));
           setFilteredDoctors(mapped);
-          // Auto-select first doctor in this dept+branch if current doctor isn't in the list
           setSelectedDoctorId((prev) => {
             if (mapped.some((d) => d.id === prev || d._id === prev)) return prev;
             return mapped[0].id;
           });
         } else {
-          // No doctors in this dept at this branch — show empty with a message
           setFilteredDoctors([]);
         }
       })
@@ -325,7 +344,6 @@ function AppointmentWizardContent() {
 
   // Handle URL Search Params Auto-Selection
   useEffect(() => {
-
     if (branchQuery) {
       const matchBranch = branches.find(
         (b) => b.id === branchQuery.toLowerCase() || b._id === branchQuery || b.name.toLowerCase().includes(branchQuery.toLowerCase())
@@ -340,7 +358,7 @@ function AppointmentWizardContent() {
       if (matchSpec) setSelectedSpecialtyId(matchSpec.id);
     }
 
-    if (doctorQuery) {
+    if (doctorQuery && bookingMode === "DOCTOR") {
       const targetDoc = doctors.find(
         (d) =>
           d.slug === doctorQuery ||
@@ -352,10 +370,10 @@ function AppointmentWizardContent() {
       if (targetDoc) {
         setSelectedDoctorId(targetDoc.id);
         setAutoSelectedMsg(`Auto-selected ${targetDoc.name} (${targetDoc.specialty}). Choose your date & slot below.`);
-        setCurrentStep(3); // Jump directly to Step 3 for fast user booking!
+        setCurrentStep(3);
       }
     }
-  }, [doctorQuery, branchQuery, specialtyQuery, doctors, branches, specialties]);
+  }, [doctorQuery, branchQuery, specialtyQuery, doctors, branches, specialties, bookingMode]);
 
   const selectedBranch = useMemo(
     () => branches.find((b) => b.id === selectedBranchId || b._id === selectedBranchId) || branches[0] || null,
@@ -372,8 +390,17 @@ function AppointmentWizardContent() {
     [doctors, selectedDoctorId]
   );
 
+  const selectedPackage = useMemo(
+    () => packages.find((p) => p._id === selectedPackageId || p.slug === selectedPackageId || p.id === selectedPackageId) || packages[0] || null,
+    [packages, selectedPackageId]
+  );
+
+  const selectedTreatment = useMemo(
+    () => treatments.find((t) => t._id === selectedTreatmentId || t.slug === selectedTreatmentId || t.id === selectedTreatmentId) || treatments[0] || null,
+    [treatments, selectedTreatmentId]
+  );
+
   const selectedSlot = useMemo(() => {
-    // Try to find the slot in doctor's branch-specific time slots first
     const branchSlots = getDoctorBranchTimeSlots(selectedDoctor, selectedBranch?._id || selectedBranch?.id);
     if (branchSlots.length > 0) {
       const found = branchSlots.find((s) => s.id === selectedSlotId);
@@ -382,7 +409,6 @@ function AppointmentWizardContent() {
     return defaultTimeSlots.find((t) => t.id === selectedSlotId) || defaultTimeSlots[0];
   }, [selectedSlotId, selectedDoctor, selectedBranch]);
 
-  // Availability Checks for Selected Date
   const isDoctorAvailable = useMemo(
     () => checkDoctorAvailability(selectedDoctor, appointmentDate, selectedBranch?._id || selectedBranch?.id),
     [selectedDoctor, appointmentDate, selectedBranch]
@@ -407,23 +433,23 @@ function AppointmentWizardContent() {
   const handleNextStep = () => {
     if (currentStep === 1) {
       const isBranchValid = branches.some((b) => b.id === selectedBranchId || b._id === selectedBranchId);
-      if (!isBranchValid) {
-        if (branches.length > 0) {
-          setSelectedBranchId(branches[0].id);
-        } else {
-          alert("Please select a hospital branch location to continue.");
-          return;
-        }
+      if (!isBranchValid && branches.length > 0) {
+        setSelectedBranchId(branches[0].id);
       }
       setCurrentStep(2);
     } else if (currentStep === 2) {
-      const isDoctorValid = doctors.some((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId);
-      if (!isDoctorValid) {
-        if (doctors.length > 0) {
+      if (bookingMode === "DOCTOR") {
+        const isDoctorValid = doctors.some((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId);
+        if (!isDoctorValid && doctors.length > 0) {
           setSelectedDoctorId(doctors[0].id);
-        } else {
-          alert("Please select a doctor to continue.");
-          return;
+        }
+      } else if (bookingMode === "PACKAGE") {
+        if (!selectedPackageId && packages.length > 0) {
+          setSelectedPackageId(packages[0]._id || packages[0].slug);
+        }
+      } else if (bookingMode === "TREATMENT") {
+        if (!selectedTreatmentId && treatments.length > 0) {
+          setSelectedTreatmentId(treatments[0]._id || treatments[0].slug);
         }
       }
       setCurrentStep(3);
@@ -437,58 +463,102 @@ function AppointmentWizardContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!patientName || !patientPhone) {
-      alert("Please enter your full name and phone number.");
+      alert("Please enter your full name and contact phone number.");
       return;
     }
     setIsSubmitting(true);
-    const refCode = `APT-${Math.floor(100000 + Math.random() * 900000)}`;
+    const refCode = `SUS-${Math.floor(100000 + Math.random() * 900000)}`;
     setBookingReference(refCode);
 
     try {
       const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1/public";
-      const response = await fetch(`${apiBase}/appointment`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          bookingReference: refCode,
-          // API schema field names
-          name: patientName,
-          phone: patientPhone,
-          email: patientEmail || undefined,
-          date: appointmentDate,
-          symptoms: healthConcern || undefined,
-          // Extra context fields
-          patientAge: patientAge ? parseInt(patientAge, 10) : undefined,
-          patientGender,
-          consultationMode: "IN_PERSON",
-          branchId: selectedBranch?._id || selectedBranch?.id,
-          branchName: selectedBranch?.name,
-          doctorId: selectedDoctor?._id || selectedDoctor?.id,
-          doctorName: selectedDoctor?.name,
-          specialty: selectedSpecialty?.title,
-          appointmentDate,
-          preferredTimeSlot: selectedSlot?.label || "10:00 AM",
-          timeSlot: selectedSlot?.label || "10:00 AM",
-          healthIssueDescription: healthConcern || undefined,
-        }),
-      });
 
-      const data = await response.json().catch(() => null);
+      if (bookingMode === "PACKAGE") {
+        const response = await fetch(`${apiBase}/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: patientName,
+            phone: patientPhone,
+            email: patientEmail || undefined,
+            subject: `Care Package Booking: ${selectedPackage?.title || "Residential Care"}`,
+            leadType: "PACKAGE_BOOKING",
+            packageId: selectedPackage?._id || selectedPackage?.id,
+            branchId: selectedBranch?._id || selectedBranch?.id,
+            preferredDate: appointmentDate,
+            message: `Selected Duration: ${selectedDurationDays} Days Stay | Accommodation: ${selectedAccommodation} | Campus Branch: ${selectedBranch?.name} | Patient Notes: ${healthConcern || "None"}`,
+          }),
+        });
+        if (!response.ok) {
+          const data = await response.json().catch(() => null);
+          alert(`Package Lead Error: ${data?.message || "Submission failed"}`);
+          return;
+        }
+        setIsSubmitted(true);
+      } else if (bookingMode === "TREATMENT") {
+        const response = await fetch(`${apiBase}/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: patientName,
+            phone: patientPhone,
+            email: patientEmail || undefined,
+            subject: `Therapy Reservation: ${selectedTreatment?.title || "Single Procedure"}`,
+            leadType: "SINGLE_TREATMENT",
+            treatmentId: selectedTreatment?._id || selectedTreatment?.id,
+            branchId: selectedBranch?._id || selectedBranch?.id,
+            preferredDate: appointmentDate,
+            preferredTimeSlot: selectedSlot?.label || "09:00 AM",
+            message: `Therapy Title: ${selectedTreatment?.title} | Session Time: ${selectedSlot?.label} | Branch: ${selectedBranch?.name} | Patient Notes: ${healthConcern || "None"}`,
+          }),
+        });
+        if (!response.ok) {
+          const data = await response.json().catch(() => null);
+          alert(`Therapy Lead Error: ${data?.message || "Submission failed"}`);
+          return;
+        }
+        setIsSubmitted(true);
+      } else {
+        // DOCTOR OPD Appointment
+        const response = await fetch(`${apiBase}/appointment`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            bookingReference: refCode,
+            name: patientName,
+            phone: patientPhone,
+            email: patientEmail || undefined,
+            date: appointmentDate,
+            symptoms: healthConcern || undefined,
+            patientAge: patientAge ? parseInt(patientAge, 10) : undefined,
+            patientGender,
+            consultationMode: "IN_PERSON",
+            branchId: selectedBranch?._id || selectedBranch?.id,
+            branchName: selectedBranch?.name,
+            doctorId: selectedDoctor?._id || selectedDoctor?.id,
+            doctorName: selectedDoctor?.name,
+            specialty: selectedSpecialty?.title,
+            appointmentDate,
+            preferredTimeSlot: selectedSlot?.label || "10:00 AM",
+            timeSlot: selectedSlot?.label || "10:00 AM",
+            healthIssueDescription: healthConcern || undefined,
+          }),
+        });
 
-      if (!response.ok) {
-        // Show server error message to user
-        const errMsg =
-          data?.errors?.map((e: any) => `${e.field}: ${e.message}`).join("\n") ||
-          data?.message ||
-          "Booking failed. Please try again.";
-        alert(`Booking Error:\n${errMsg}`);
-        return;
+        const data = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          const errMsg =
+            data?.errors?.map((e: any) => `${e.field}: ${e.message}`).join("\n") ||
+            data?.message ||
+            "Booking failed. Please try again.";
+          alert(`Booking Error:\n${errMsg}`);
+          return;
+        }
+        setIsSubmitted(true);
       }
-
-      // Only mark as submitted on actual success
-      setIsSubmitted(true);
     } catch (err) {
-      console.error("Appointment submission error:", err);
+      console.error("Booking submission error:", err);
       alert("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
@@ -530,7 +600,9 @@ function AppointmentWizardContent() {
                 onClick={() => setCurrentStep(2)}
               >
                 <span className="step-badge">{currentStep > 2 ? <Check size={13} /> : "2"}</span>
-                <span className="step-title-text">Specialty & Doctor</span>
+                <span className="step-title-text">
+                  {bookingMode === "PACKAGE" ? "Care Package" : bookingMode === "TREATMENT" ? "Therapy" : "Specialty & Doctor"}
+                </span>
               </button>
 
               <div className={`apt-step-line ${currentStep > 2 ? "active" : ""}`} />
@@ -548,12 +620,105 @@ function AppointmentWizardContent() {
             <div className="apt-progress-info">
               <span className="progress-percent">Step {currentStep} of 3</span>
               <span className="progress-label">
-                {currentStep === 1 ? "Select Hospital Branch" : currentStep === 2 ? "Choose Specialist" : "Schedule & Contact"}
+                {currentStep === 1
+                  ? "Select Hospital Branch"
+                  : currentStep === 2
+                  ? bookingMode === "PACKAGE" ? "Choose Package & Accommodation" : bookingMode === "TREATMENT" ? "Choose Therapy Procedure" : "Choose Specialist"
+                  : "Schedule & Contact"}
               </span>
             </div>
           </div>
 
-          {/* Auto-Selected Doctor Notice Banner */}
+          {/* Three-Way Mode Switcher Header */}
+          <div
+            className="apt-booking-mode-switcher"
+            style={{
+              display: "flex",
+              gap: "8px",
+              marginBottom: "24px",
+              padding: "6px",
+              background: "#f6ede0",
+              borderRadius: "999px",
+              border: "1px solid rgba(181, 122, 37, 0.25)",
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => { setBookingMode("DOCTOR"); setAutoSelectedMsg(null); }}
+              style={{
+                flex: 1,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px",
+                padding: "10px 14px",
+                borderRadius: "999px",
+                border: "none",
+                background: bookingMode === "DOCTOR" ? "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)" : "transparent",
+                color: bookingMode === "DOCTOR" ? "#ffffff" : "#665544",
+                fontWeight: 700,
+                fontSize: "13px",
+                cursor: "pointer",
+                boxShadow: bookingMode === "DOCTOR" ? "0 4px 14px rgba(181, 122, 37, 0.3)" : "none",
+                transition: "all 0.25s ease",
+              }}
+            >
+              <UserCheck size={14} />
+              <span>Doctor OPD</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setBookingMode("PACKAGE"); setAutoSelectedMsg(null); }}
+              style={{
+                flex: 1,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px",
+                padding: "10px 14px",
+                borderRadius: "999px",
+                border: "none",
+                background: bookingMode === "PACKAGE" ? "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)" : "transparent",
+                color: bookingMode === "PACKAGE" ? "#ffffff" : "#665544",
+                fontWeight: 700,
+                fontSize: "13px",
+                cursor: "pointer",
+                boxShadow: bookingMode === "PACKAGE" ? "0 4px 14px rgba(181, 122, 37, 0.3)" : "none",
+                transition: "all 0.25s ease",
+              }}
+            >
+              <Sparkles size={14} />
+              <span>Care Package</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setBookingMode("TREATMENT"); setAutoSelectedMsg(null); }}
+              style={{
+                flex: 1,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px",
+                padding: "10px 14px",
+                borderRadius: "999px",
+                border: "none",
+                background: bookingMode === "TREATMENT" ? "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)" : "transparent",
+                color: bookingMode === "TREATMENT" ? "#ffffff" : "#665544",
+                fontWeight: 700,
+                fontSize: "13px",
+                cursor: "pointer",
+                boxShadow: bookingMode === "TREATMENT" ? "0 4px 14px rgba(181, 122, 37, 0.3)" : "none",
+                transition: "all 0.25s ease",
+              }}
+            >
+              <Activity size={14} />
+              <span>Single Therapy</span>
+            </button>
+          </div>
+
+          {/* Auto-Selected Notice Banner */}
           {autoSelectedMsg && !isSubmitted && (
             <div className="my-4 p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold flex items-center justify-between">
               <span className="flex items-center gap-1.5">
@@ -566,8 +731,8 @@ function AppointmentWizardContent() {
                 className="apt-change-doctor-btn"
                 style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
               >
-                <UserCheck size={12} />
-                <span>Change Doctor</span>
+                <RefreshCw size={12} />
+                <span>Change Selection</span>
               </button>
             </div>
           )}
@@ -579,7 +744,7 @@ function AppointmentWizardContent() {
                 <div className="apt-step-fade">
                   <div className="step-title-block">
                     <h2>Select Preferred Location</h2>
-                    <p>Choose an in-person hospital visit location</p>
+                    <p>Choose an in-person hospital visit or Ayur Village retreat campus</p>
                   </div>
 
                   {/* Branch Selection Grid */}
@@ -615,22 +780,34 @@ function AppointmentWizardContent() {
 
                   <div className="apt-action-bar">
                     <button type="button" className="btn btn-primary btn-next-step" onClick={handleNextStep}>
-                      <span>Continue to Specialty & Doctor</span>
+                      <span>Continue to {bookingMode === "PACKAGE" ? "Care Package" : bookingMode === "TREATMENT" ? "Therapy Selection" : "Specialty & Doctor"}</span>
                       <ArrowRight size={14} style={{ marginLeft: "6px" }} />
                     </button>
                   </div>
                 </div>
               )}
 
-              {/* STEP 2: SPECIALTY & DOCTOR */}
+              {/* STEP 2: SPECIALTY & DOCTOR / PACKAGE / TREATMENT */}
               {currentStep === 2 && (
                 <div className="apt-step-fade">
                   <div className="step-title-block">
-                    <h2>Choose Specialty & Ayurvedic Specialist</h2>
-                    <p>Select your health department and preferred consulting physician</p>
+                    <h2>
+                      {bookingMode === "PACKAGE"
+                        ? "Choose Care Package & Accommodation"
+                        : bookingMode === "TREATMENT"
+                        ? "Choose Therapy or Treatment Procedure"
+                        : "Choose Specialty & Ayurvedic Specialist"}
+                    </h2>
+                    <p>
+                      {bookingMode === "PACKAGE"
+                        ? "Select your residential treatment package, duration, and room preference"
+                        : bookingMode === "TREATMENT"
+                        ? "Select your required Ayurvedic procedure, therapy category, or wellness treatment"
+                        : "Select your health department and preferred consulting physician"}
+                    </p>
                   </div>
 
-                  {/* Selected Branch Indicator & Change Branch Action */}
+                  {/* Selected Branch Bar */}
                   <div
                     className="apt-selected-branch-bar"
                     style={{
@@ -648,7 +825,7 @@ function AppointmentWizardContent() {
                     <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#4a3e2e" }}>
                       <MapPin size={16} />
                       <span>
-                        Selected Hospital Branch:{" "}
+                        Selected Hospital Campus:{" "}
                         <strong style={{ color: "#9a6528", fontWeight: 700 }}>
                           {selectedBranch?.name || "Kattakada Main Hospital"}
                         </strong>
@@ -670,9 +847,7 @@ function AppointmentWizardContent() {
                         borderRadius: "9999px",
                         fontSize: "12px",
                         fontWeight: 700,
-                        letterSpacing: "0.03em",
                         cursor: "pointer",
-                        boxShadow: "0 2px 8px rgba(154, 101, 40, 0.1)",
                         whiteSpace: "nowrap",
                       }}
                     >
@@ -681,196 +856,324 @@ function AppointmentWizardContent() {
                     </button>
                   </div>
 
-                  {/* Specialty Grid */}
-                  <div className="apt-specialty-section">
-                    <h3 className="section-sublabel">Select Health Specialty / Concern:</h3>
-                    <div className="apt-specialty-pills-grid">
-                      {specialties.map((spec) => (
-                        <div
-                          key={spec.id}
-                          className={`apt-specialty-pill-card ${selectedSpecialtyId === spec.id ? "selected" : ""}`}
-                          onClick={() => setSelectedSpecialtyId(spec.id)}
-                        >
-                          <span className="spec-pill-icon">
-                            {spec.id === "all" ? <Stethoscope size={18} /> : <Leaf size={18} />}
-                          </span>
-                          <div>
-                            <strong>{spec.title}</strong>
-                            <span>{spec.description}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Doctor Cards */}
-                  <div className="apt-doctor-section">
-                    <h3 className="section-sublabel">
-                      {isDoctorLoading
-                        ? "Loading specialists…"
-                        : `Select Senior Specialist (${selectedSpecialty?.title || "All Departments"}):`}
-                    </h3>
-                    {isDoctorLoading ? (
-                      <div className="apt-doctor-loading">
-                        <span className="apt-doctor-loading-spinner" />
-                        <span>Fetching available specialists…</span>
+                  {/* MODE A: CARE PACKAGE SELECTION */}
+                  {bookingMode === "PACKAGE" && (
+                    <div className="apt-package-section" style={{ marginBottom: "24px" }}>
+                      <h3 className="section-sublabel" style={{ fontSize: "15px", fontWeight: 700, color: "#1c2a23", marginBottom: "12px" }}>
+                        Select Residential Care Package:
+                      </h3>
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "14px", marginBottom: "24px" }}>
+                        {packages.map((pkg) => {
+                          const isSelected = selectedPackageId === pkg._id || selectedPackageId === pkg.slug || selectedPackageId === pkg.id;
+                          return (
+                            <div
+                              key={pkg._id || pkg.slug}
+                              onClick={() => setSelectedPackageId(pkg._id || pkg.slug)}
+                              style={{
+                                padding: "16px",
+                                borderRadius: "16px",
+                                border: isSelected ? "2px solid #b57a25" : "1px solid rgba(181, 122, 37, 0.2)",
+                                background: isSelected ? "linear-gradient(145deg, #fffbf4, #f8eedc)" : "#ffffff",
+                                cursor: "pointer",
+                                transition: "all 0.2s ease",
+                                boxShadow: isSelected ? "0 6px 20px rgba(181, 122, 37, 0.18)" : "0 2px 8px rgba(0,0,0,0.03)",
+                              }}
+                            >
+                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                                <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                                  {pkg.category || "Inpatient Care"}
+                                </span>
+                                {isSelected && (
+                                  <span style={{ width: "22px", height: "22px", borderRadius: "50%", background: "#b57a25", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <Check size={13} strokeWidth={2.5} />
+                                  </span>
+                                )}
+                              </div>
+                              <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#1c2a23", marginBottom: "6px" }}>{pkg.title}</h4>
+                              <p style={{ fontSize: "12px", color: "#556655", lineHeight: "1.4", marginBottom: "10px" }}>
+                                {pkg.overview?.slice(0, 90) || pkg.subtitle || pkg.meta || "Physician-directed residential treatment program."}
+                              </p>
+                              {pkg.startingPrice ? (
+                                <span style={{ fontSize: "13px", fontWeight: 800, color: "#2d4d3a" }}>
+                                  Starts at ₹{pkg.startingPrice.toLocaleString("en-IN")}
+                                </span>
+                              ) : null}
+                            </div>
+                          );
+                        })}
                       </div>
-                    ) : filteredDoctors.length === 0 ? (
-                      <div
-                        className="apt-doctor-empty-state"
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          padding: "36px 24px",
-                          background: "linear-gradient(145deg, #ffffff, #fdfaf4)",
-                          border: "1px dashed rgba(196, 146, 42, 0.35)",
-                          borderRadius: "20px",
-                          textAlign: "center",
-                          margin: "20px 0",
-                          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
-                        }}
-                      >
-                        <div
-                          style={{
-                            width: "54px",
-                            height: "54px",
-                            borderRadius: "50%",
-                            background: "linear-gradient(135deg, rgba(196, 146, 42, 0.12), rgba(196, 146, 42, 0.22))",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            marginBottom: "14px",
-                            border: "1px solid rgba(196, 146, 42, 0.3)",
-                          }}
-                        >
-                          <MapPin size={24} strokeWidth={1.5} style={{ color: "#d97706" }} />
-                        </div>
-                        <h4
-                          style={{
-                            fontSize: "18px",
-                            fontWeight: 700,
-                            color: "#2c251e",
-                            margin: "0 0 8px 0",
-                          }}
-                        >
-                          No Specialists Assigned at this Branch
-                        </h4>
-                        <p
-                          style={{
-                            fontSize: "14px",
-                            color: "#6b5a3e",
-                            maxWidth: "480px",
-                            lineHeight: 1.6,
-                            margin: "0 0 20px 0",
-                          }}
-                        >
-                          There are currently no specialists assigned to{" "}
-                          <strong style={{ color: "#9a6528", fontWeight: 700 }}>
-                            {selectedSpecialty?.title || "this department"}
-                          </strong>{" "}
-                          at{" "}
-                          <strong style={{ color: "#9a6528", fontWeight: 700 }}>
-                            {selectedBranch?.name}
-                          </strong>
-                          .
-                        </p>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: "12px",
-                          }}
-                        >
+
+                      {/* Duration Tier Picker */}
+                      <h3 className="section-sublabel" style={{ fontSize: "15px", fontWeight: 700, color: "#1c2a23", marginBottom: "12px" }}>
+                        Select Package Duration:
+                      </h3>
+                      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "24px" }}>
+                        {[7, 14, 21, 28].map((days) => (
                           <button
+                            key={days}
                             type="button"
-                            onClick={() => setCurrentStep(1)}
-                            className="btn btn-primary"
+                            onClick={() => setSelectedDurationDays(days)}
                             style={{
-                              display: "inline-flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              gap: "6px",
-                              padding: "10px 22px",
-                              background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
-                              color: "#ffffff",
+                              flex: "1 1 120px",
+                              padding: "12px 16px",
+                              borderRadius: "12px",
+                              border: selectedDurationDays === days ? "2px solid #b57a25" : "1px solid rgba(181, 122, 37, 0.25)",
+                              background: selectedDurationDays === days ? "linear-gradient(135deg, #b57a25, #9a651e)" : "#ffffff",
+                              color: selectedDurationDays === days ? "#ffffff" : "#4a3e2e",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              cursor: "pointer",
+                              boxShadow: selectedDurationDays === days ? "0 4px 12px rgba(181, 122, 37, 0.3)" : "none",
+                            }}
+                          >
+                            {days} Days Stay
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Accommodation Selection */}
+                      <h3 className="section-sublabel" style={{ fontSize: "15px", fontWeight: 700, color: "#1c2a23", marginBottom: "12px" }}>
+                        Select Suite / Room Preference:
+                      </h3>
+                      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "24px" }}>
+                        {["Executive Suite", "Deluxe AC Cottage", "Private Room", "Standard Ward"].map((acc) => (
+                          <button
+                            key={acc}
+                            type="button"
+                            onClick={() => setSelectedAccommodation(acc)}
+                            style={{
+                              flex: "1 1 140px",
+                              padding: "10px 16px",
+                              borderRadius: "12px",
+                              border: selectedAccommodation === acc ? "2px solid #2d4d3a" : "1px solid rgba(45, 77, 58, 0.2)",
+                              background: selectedAccommodation === acc ? "#2d4d3a" : "#ffffff",
+                              color: selectedAccommodation === acc ? "#ffffff" : "#2d4d3a",
                               fontWeight: 700,
                               fontSize: "13px",
-                              letterSpacing: "0.02em",
-                              border: "none",
-                              borderRadius: "9999px",
                               cursor: "pointer",
-                              boxShadow: "0 4px 14px rgba(154, 101, 40, 0.28)",
+                              boxShadow: selectedAccommodation === acc ? "0 4px 12px rgba(45, 77, 58, 0.25)" : "none",
                             }}
                           >
-                            <Building2 size={14} />
-                            <span>Switch Branch Location</span>
+                            {acc}
                           </button>
-                          <button
-                            type="button"
-                            onClick={() => setSelectedSpecialtyId("all")}
-                            className="btn btn-outline"
-                            style={{
-                              display: "inline-flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              padding: "10px 20px",
-                              background: "#ffffff",
-                              color: "#9a6528",
-                              fontWeight: 600,
-                              fontSize: "13px",
-                              border: "1px solid #d4c5b3",
-                              borderRadius: "9999px",
-                              cursor: "pointer",
-                            }}
-                          >
-                            <span>View All Specialists at this Branch</span>
-                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* MODE B: SINGLE TREATMENT SELECTION */}
+                  {bookingMode === "TREATMENT" && (
+                    <div className="apt-treatment-section" style={{ marginBottom: "24px" }}>
+                      <h3 className="section-sublabel" style={{ fontSize: "15px", fontWeight: 700, color: "#1c2a23", marginBottom: "12px" }}>
+                        Select Treatment / Therapy Procedure:
+                      </h3>
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "14px", marginBottom: "24px" }}>
+                        {treatments.map((trt) => {
+                          const isSelected = selectedTreatmentId === trt._id || selectedTreatmentId === trt.slug || selectedTreatmentId === trt.id;
+                          return (
+                            <div
+                              key={trt._id || trt.slug}
+                              onClick={() => setSelectedTreatmentId(trt._id || trt.slug)}
+                              style={{
+                                padding: "16px",
+                                borderRadius: "16px",
+                                border: isSelected ? "2px solid #b57a25" : "1px solid rgba(181, 122, 37, 0.2)",
+                                background: isSelected ? "linear-gradient(145deg, #fffbf4, #f8eedc)" : "#ffffff",
+                                cursor: "pointer",
+                                transition: "all 0.2s ease",
+                                boxShadow: isSelected ? "0 6px 20px rgba(181, 122, 37, 0.18)" : "0 2px 8px rgba(0,0,0,0.03)",
+                              }}
+                            >
+                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                                <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
+                                  {trt.category || "Panchakarma Therapy"}
+                                </span>
+                                {isSelected && (
+                                  <span style={{ width: "22px", height: "22px", borderRadius: "50%", background: "#b57a25", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <Check size={13} strokeWidth={2.5} />
+                                  </span>
+                                )}
+                              </div>
+                              <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#1c2a23", marginBottom: "6px" }}>{trt.title}</h4>
+                              <p style={{ fontSize: "12px", color: "#556655", lineHeight: "1.4" }}>
+                                {trt.overview?.slice(0, 85) || trt.description?.slice(0, 85) || "Authentic physician-prescribed therapy session."}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* MODE C: DOCTOR OPD SELECTION */}
+                  {bookingMode === "DOCTOR" && (
+                    <div className="apt-doctor-mode-container">
+                      {/* Specialty Grid */}
+                      <div className="apt-specialty-section">
+                        <h3 className="section-sublabel">Select Health Specialty / Concern:</h3>
+                        <div className="apt-specialty-pills-grid">
+                          {specialties.map((spec) => (
+                            <div
+                              key={spec.id}
+                              className={`apt-specialty-pill-card ${selectedSpecialtyId === spec.id ? "selected" : ""}`}
+                              onClick={() => setSelectedSpecialtyId(spec.id)}
+                            >
+                              <span className="spec-pill-icon">
+                                {spec.id === "all" ? <Stethoscope size={18} /> : <Leaf size={18} />}
+                              </span>
+                              <div>
+                                <strong>{spec.title}</strong>
+                                <span>{spec.description}</span>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    ) : (
-                    <div className="apt-doctor-selection-grid">
-                      {filteredDoctors.map((doc) => {
-                        const isSelected =
-                          selectedDoctorId === doc.id ||
-                          selectedDoctorId === doc._id ||
-                          selectedDoctor?._id === doc._id ||
-                          selectedDoctor?.id === doc.id;
-                        return (
+
+                      {/* Doctor Cards */}
+                      <div className="apt-doctor-section">
+                        <h3 className="section-sublabel">
+                          {isDoctorLoading
+                            ? "Loading specialists…"
+                            : `Select Senior Specialist (${selectedSpecialty?.title || "All Departments"}):`}
+                        </h3>
+                        {isDoctorLoading ? (
+                          <div className="apt-doctor-loading">
+                            <span className="apt-doctor-loading-spinner" />
+                            <span>Fetching available specialists…</span>
+                          </div>
+                        ) : filteredDoctors.length === 0 ? (
                           <div
-                            key={doc.id}
-                            className={`apt-doctor-card-deluxe ${isSelected ? "selected" : ""}`}
-                            onClick={() => {
-                              setSelectedDoctorId(doc.id);
-                              setAutoSelectedMsg(null);
+                            className="apt-doctor-empty-state"
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              padding: "36px 24px",
+                              background: "linear-gradient(145deg, #ffffff, #fdfaf4)",
+                              border: "1px dashed rgba(196, 146, 42, 0.35)",
+                              borderRadius: "20px",
+                              textAlign: "center",
+                              margin: "20px 0",
                             }}
                           >
-                            <div className="doc-portrait-wrapper">
-                              <Image src={doc.avatar} alt={doc.name} fill sizes="80px" />
-                              <span className="doc-rating-chip" style={{ display: "inline-flex", alignItems: "center", gap: "2px" }}>
-                                {doc.rating} <Star size={11} fill="#d97706" color="#d97706" />
-                              </span>
+                            <div
+                              style={{
+                                width: "54px",
+                                height: "54px",
+                                borderRadius: "50%",
+                                background: "linear-gradient(135deg, rgba(196, 146, 42, 0.12), rgba(196, 146, 42, 0.22))",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                marginBottom: "14px",
+                                border: "1px solid rgba(196, 146, 42, 0.3)",
+                              }}
+                            >
+                              <MapPin size={24} strokeWidth={1.5} style={{ color: "#d97706" }} />
                             </div>
-
-                            <div className="doc-card-info">
-                              <h4>{doc.name}</h4>
-                              <span className="doc-card-qual">{doc.qualification}</span>
-                              <span className="doc-card-spec">{doc.specialty}</span>
-                              <span className="doc-card-days" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                                <Calendar size={12} /> Days: {getDoctorWorkingDays(doc, selectedBranch?._id || selectedBranch?.id).join(", ")}
-                              </span>
+                            <h4 style={{ fontSize: "18px", fontWeight: 700, color: "#2c251e", margin: "0 0 8px 0" }}>
+                              No Specialists Assigned at this Branch
+                            </h4>
+                            <p style={{ fontSize: "14px", color: "#6b5a3e", maxWidth: "480px", lineHeight: 1.6, margin: "0 0 20px 0" }}>
+                              There are currently no specialists assigned to{" "}
+                              <strong style={{ color: "#9a6528", fontWeight: 700 }}>
+                                {selectedSpecialty?.title || "this department"}
+                              </strong>{" "}
+                              at{" "}
+                              <strong style={{ color: "#9a6528", fontWeight: 700 }}>
+                                {selectedBranch?.name}
+                              </strong>
+                              .
+                            </p>
+                            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+                              <button
+                                type="button"
+                                onClick={() => setCurrentStep(1)}
+                                className="btn btn-primary"
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  gap: "6px",
+                                  padding: "10px 22px",
+                                  background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
+                                  color: "#ffffff",
+                                  fontWeight: 700,
+                                  fontSize: "13px",
+                                  borderRadius: "9999px",
+                                  border: "none",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <Building2 size={14} />
+                                <span>Switch Branch Location</span>
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => setSelectedSpecialtyId("all")}
+                                className="btn btn-outline"
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  padding: "10px 20px",
+                                  background: "#ffffff",
+                                  color: "#9a6528",
+                                  fontWeight: 600,
+                                  fontSize: "13px",
+                                  border: "1px solid #d4c5b3",
+                                  borderRadius: "9999px",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <span>View All Specialists at this Branch</span>
+                              </button>
                             </div>
-
-                            <div className="doc-card-select-icon">{isSelected ? <Check size={14} /> : <Plus size={14} />}</div>
                           </div>
-                        );
-                      })}
+                        ) : (
+                          <div className="apt-doctor-selection-grid">
+                            {filteredDoctors.map((doc) => {
+                              const isSelected =
+                                selectedDoctorId === doc.id ||
+                                selectedDoctorId === doc._id ||
+                                selectedDoctor?._id === doc._id ||
+                                selectedDoctor?.id === doc.id;
+                              return (
+                                <div
+                                  key={doc.id}
+                                  className={`apt-doctor-card-deluxe ${isSelected ? "selected" : ""}`}
+                                  onClick={() => {
+                                    setSelectedDoctorId(doc.id);
+                                    setAutoSelectedMsg(null);
+                                  }}
+                                >
+                                  <div className="doc-portrait-wrapper">
+                                    <Image src={doc.avatar} alt={doc.name} fill sizes="80px" />
+                                    <span className="doc-rating-chip" style={{ display: "inline-flex", alignItems: "center", gap: "2px" }}>
+                                      {doc.rating} <Star size={11} fill="#d97706" color="#d97706" />
+                                    </span>
+                                  </div>
+
+                                  <div className="doc-card-info">
+                                    <h4>{doc.name}</h4>
+                                    <span className="doc-card-qual">{doc.qualification}</span>
+                                    <span className="doc-card-spec">{doc.specialty}</span>
+                                    <span className="doc-card-days" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                                      <Calendar size={12} /> Days: {getDoctorWorkingDays(doc, selectedBranch?._id || selectedBranch?.id).join(", ")}
+                                    </span>
+                                  </div>
+
+                                  <div className="doc-card-select-icon">{isSelected ? <Check size={14} /> : <Plus size={14} />}</div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    )}
-                  </div>
+                  )}
 
                   <div className="apt-action-bar space-between">
                     <button type="button" className="btn btn-outline btn-prev-step" onClick={handlePrevStep} style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
@@ -888,44 +1191,129 @@ function AppointmentWizardContent() {
               {currentStep === 3 && (
                 <div className="apt-step-fade">
                   <div className="step-title-block">
-                    <h2>Schedule & Patient Registration Details</h2>
-                    <p>Select your consultation date, preferred time slot, and patient contact info</p>
+                    <h2>
+                      {bookingMode === "PACKAGE"
+                        ? "Care Package Check-in & Patient Details"
+                        : bookingMode === "TREATMENT"
+                        ? "Therapy Schedule & Patient Details"
+                        : "Schedule & Patient Registration Details"}
+                    </h2>
+                    <p>
+                      {bookingMode === "PACKAGE"
+                        ? "Select your preferred arrival date and patient contact details for admission"
+                        : bookingMode === "TREATMENT"
+                        ? "Select your preferred therapy date and session slot"
+                        : "Select your consultation date, preferred time slot, and patient contact info"}
+                    </p>
                   </div>
 
-                  {/* Selected Doctor & Branch Summary Badge */}
-                  <div className="apt-selected-doctor-badge">
-                    <div className="apt-selected-doctor-info">
-                      <div className="apt-selected-doctor-avatar">
-                        <Image
-                          src={selectedDoctor?.avatar}
-                          alt={selectedDoctor?.name || "Doctor"}
-                          width={52}
-                          height={52}
-                          style={{ objectFit: "cover", width: "52px", height: "52px", borderRadius: "50%" }}
-                        />
-                      </div>
-                      <div className="apt-selected-doctor-text">
-                        <span className="apt-selected-doctor-label">Consulting Doctor</span>
-                        <h4 className="apt-selected-doctor-name">{selectedDoctor?.name}</h4>
-                        <p className="apt-selected-doctor-meta">{selectedDoctor?.specialty} • {selectedBranch?.name}</p>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setCurrentStep(2)}
-                      className="apt-change-doctor-btn"
-                      style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
+                  {/* SUMMARY BADGE AT TOP OF STEP 3 */}
+                  {bookingMode === "PACKAGE" ? (
+                    <div
+                      style={{
+                        padding: "16px 20px",
+                        background: "linear-gradient(145deg, #fffbf4, #f8eedc)",
+                        border: "1px solid rgba(181, 122, 37, 0.35)",
+                        borderRadius: "16px",
+                        marginBottom: "24px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                        gap: "12px"
+                      }}
                     >
-                      <UserCheck size={13} />
-                      <span>Change Doctor</span>
-                    </button>
-                  </div>
+                      <div>
+                        <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                          Selected Care Package
+                        </span>
+                        <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1c2a23", margin: "2px 0 4px 0" }}>
+                          {selectedPackage?.title || "Low Back Pain & Sciatica Care Package"}
+                        </h3>
+                        <p style={{ fontSize: "13px", color: "#556655", margin: 0 }}>
+                          <strong>{selectedDurationDays} Days Residential Stay</strong> • {selectedAccommodation} • {selectedBranch?.name}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setCurrentStep(2)}
+                        className="btn btn-outline"
+                        style={{ padding: "6px 16px", borderRadius: "999px", borderColor: "#b57a25", color: "#9a651e", fontWeight: 700, fontSize: "12px" }}
+                      >
+                        Change Package
+                      </button>
+                    </div>
+                  ) : bookingMode === "TREATMENT" ? (
+                    <div
+                      style={{
+                        padding: "16px 20px",
+                        background: "linear-gradient(145deg, #fffbf4, #f8eedc)",
+                        border: "1px solid rgba(181, 122, 37, 0.35)",
+                        borderRadius: "16px",
+                        marginBottom: "24px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                        gap: "12px"
+                      }}
+                    >
+                      <div>
+                        <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                          Selected Therapy / Procedure
+                        </span>
+                        <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1c2a23", margin: "2px 0 4px 0" }}>
+                          {selectedTreatment?.title || "Abhyangam Therapy"}
+                        </h3>
+                        <p style={{ fontSize: "13px", color: "#556655", margin: 0 }}>
+                          Category: <strong>{selectedTreatment?.category || "Panchakarma Therapy"}</strong> • {selectedBranch?.name}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setCurrentStep(2)}
+                        className="btn btn-outline"
+                        style={{ padding: "6px 16px", borderRadius: "999px", borderColor: "#b57a25", color: "#9a651e", fontWeight: 700, fontSize: "12px" }}
+                      >
+                        Change Therapy
+                      </button>
+                    </div>
+                  ) : (
+                    /* DOCTOR SUMMARY BADGE */
+                    <div className="apt-selected-doctor-badge">
+                      <div className="apt-selected-doctor-info">
+                        <div className="apt-selected-doctor-avatar">
+                          <Image
+                            src={selectedDoctor?.avatar}
+                            alt={selectedDoctor?.name || "Doctor"}
+                            width={52}
+                            height={52}
+                            style={{ objectFit: "cover", width: "52px", height: "52px", borderRadius: "50%" }}
+                          />
+                        </div>
+                        <div className="apt-selected-doctor-text">
+                          <span className="apt-selected-doctor-label">Consulting Doctor</span>
+                          <h4 className="apt-selected-doctor-name">{selectedDoctor?.name}</h4>
+                          <p className="apt-selected-doctor-meta">{selectedDoctor?.specialty} • {selectedBranch?.name}</p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setCurrentStep(2)}
+                        className="apt-change-doctor-btn"
+                        style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
+                      >
+                        <UserCheck size={13} />
+                        <span>Change Doctor</span>
+                      </button>
+                    </div>
+                  )}
 
-                  {/* Date Picker & Doctor Timetable Validation */}
+                  {/* DATE & TIME SCHEDULING SECTION */}
                   <div className="apt-schedule-container">
                     <div className="form-group-luxury">
                       <label htmlFor="apt-date-picker" className="input-label-luxury">
-                        Preferred Consultation Date:
+                        {bookingMode === "PACKAGE" ? "Preferred Arrival / Admission Date:" : bookingMode === "TREATMENT" ? "Preferred Session Date:" : "Preferred Consultation Date:"}
                       </label>
                       <input
                         id="apt-date-picker"
@@ -937,113 +1325,154 @@ function AppointmentWizardContent() {
                         required
                       />
 
-                      {/* Doctor Availability Indicator */}
-                      <div style={{ marginTop: "10px" }}>
-                        {isDoctorAvailable ? (
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "8px",
-                              padding: "10px 16px",
-                              background: "rgba(16, 185, 129, 0.08)",
-                              border: "1px solid rgba(16, 185, 129, 0.3)",
-                              borderRadius: "12px",
-                              color: "#065f46",
-                              fontWeight: 600,
-                              fontSize: "13px",
-                            }}
-                          >
-                            <Check size={16} color="#047857" style={{ flexShrink: 0 }} />
-                            <span>
-                              {selectedDoctor?.name} is <strong style={{ color: "#047857" }}>AVAILABLE</strong> on {selectedDateDayName}s at {selectedBranch?.name}.
-                            </span>
-                          </div>
-                        ) : (
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "8px",
-                              padding: "14px 18px",
-                              background: "linear-gradient(135deg, rgba(196, 146, 42, 0.08), rgba(196, 146, 42, 0.15))",
-                              border: "1px solid rgba(196, 146, 42, 0.35)",
-                              borderRadius: "14px",
-                              color: "#4a3e2e",
-                            }}
-                          >
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 700, fontSize: "13px", color: "#84531e" }}>
-                              <AlertTriangle size={16} color="#d97706" style={{ flexShrink: 0 }} />
+                      {/* Doctor Availability Indicator ONLY for Doctor Mode */}
+                      {bookingMode === "DOCTOR" && (
+                        <div style={{ marginTop: "10px" }}>
+                          {isDoctorAvailable ? (
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                padding: "10px 16px",
+                                background: "rgba(16, 185, 129, 0.08)",
+                                border: "1px solid rgba(16, 185, 129, 0.3)",
+                                borderRadius: "12px",
+                                color: "#065f46",
+                                fontWeight: 600,
+                                fontSize: "13px",
+                              }}
+                            >
+                              <Check size={16} color="#047857" style={{ flexShrink: 0 }} />
                               <span>
-                                {selectedDoctor?.name} does NOT conduct consultations on {selectedDateDayName}s.
+                                {selectedDoctor?.name} is <strong style={{ color: "#047857" }}>AVAILABLE</strong> on {selectedDateDayName}s at {selectedBranch?.name}.
                               </span>
                             </div>
-                            <p style={{ margin: 0, fontSize: "12px", color: "#6b5a3e" }}>
-                              Working Days for this branch: <strong style={{ color: "#9a6528" }}>{doctorWorkingDaysList.join(", ")}</strong>
-                            </p>
-                            <div>
-                              <button
-                                type="button"
-                                onClick={handleJumpToNextAvailableDate}
-                                className="btn btn-primary"
-                                style={{
-                                  display: "inline-flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  gap: "6px",
-                                  padding: "9px 20px",
-                                  background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
-                                  color: "#ffffff",
-                                  fontWeight: 700,
-                                  fontSize: "12px",
-                                  letterSpacing: "0.02em",
-                                  border: "none",
-                                  borderRadius: "9999px",
-                                  cursor: "pointer",
-                                  boxShadow: "0 4px 12px rgba(154, 101, 40, 0.28)",
-                                  marginTop: "4px",
-                                  textDecoration: "none",
-                                }}
-                              >
-                                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Calendar size={14} strokeWidth={1.75} /> Jump to Next Available Working Day</span>
-                                <ArrowRight size={14} strokeWidth={1.75} aria-hidden="true" />
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="form-group-luxury">
-                      {(() => {
-                        const branchSlots = getDoctorBranchTimeSlots(selectedDoctor, selectedBranch?._id || selectedBranch?.id);
-                        const slotsToShow = branchSlots.length > 0 ? branchSlots : defaultTimeSlots;
-                        return (
-                          <>
-                            <label className="input-label-luxury">
-                              Available Time Slots ({selectedDateDayName})
-                              {branchSlots.length > 0 && (
-                                <span className="apt-slot-source-badge">Dr. {selectedDoctor?.name?.split(" ")[1]}&apos;s Schedule</span>
-                              )}
-                              :
-                            </label>
-                            <div className="apt-time-slots-grid">
-                              {slotsToShow.map((slot) => (
+                          ) : (
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "8px",
+                                padding: "14px 18px",
+                                background: "linear-gradient(135deg, rgba(196, 146, 42, 0.08), rgba(196, 146, 42, 0.15))",
+                                border: "1px solid rgba(196, 146, 42, 0.35)",
+                                borderRadius: "14px",
+                                color: "#4a3e2e",
+                              }}
+                            >
+                              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: 700, fontSize: "13px", color: "#84531e" }}>
+                                <AlertTriangle size={16} color="#d97706" style={{ flexShrink: 0 }} />
+                                <span>
+                                  {selectedDoctor?.name} does NOT conduct OPD consultations on {selectedDateDayName}s.
+                                </span>
+                              </div>
+                              <p style={{ margin: 0, fontSize: "12px", color: "#6b5a3e" }}>
+                                Working Days for this branch: <strong style={{ color: "#9a6528" }}>{doctorWorkingDaysList.join(", ")}</strong>
+                              </p>
+                              <div>
                                 <button
                                   type="button"
-                                  key={slot.id}
-                                  className={`apt-slot-btn ${selectedSlot?.id === slot.id || selectedSlot?.label === slot.label ? "active" : ""}`}
-                                  onClick={() => setSelectedSlotId(slot.id)}
+                                  onClick={handleJumpToNextAvailableDate}
+                                  className="btn btn-primary"
+                                  style={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    gap: "6px",
+                                    padding: "9px 20px",
+                                    background: "linear-gradient(135deg, #9a6528 0%, #c4922a 100%)",
+                                    color: "#ffffff",
+                                    fontWeight: 700,
+                                    fontSize: "12px",
+                                    border: "none",
+                                    borderRadius: "9999px",
+                                    cursor: "pointer",
+                                  }}
                                 >
-                                  <span className="slot-t">{slot.label}</span>
-                                  <span className="slot-p">{slot.period}</span>
+                                  <Calendar size={14} />
+                                  <span>Jump to Next Available Working Day</span>
+                                  <ArrowRight size={14} />
                                 </button>
-                              ))}
+                              </div>
                             </div>
-                          </>
-                        );
-                      })()}
+                          )}
+                        </div>
+                      )}
                     </div>
+
+                    {/* Time Slot Selection */}
+                    {bookingMode === "DOCTOR" ? (
+                      <div className="form-group-luxury">
+                        {(() => {
+                          const branchSlots = getDoctorBranchTimeSlots(selectedDoctor, selectedBranch?._id || selectedBranch?.id);
+                          const slotsToShow = branchSlots.length > 0 ? branchSlots : defaultTimeSlots;
+                          return (
+                            <>
+                              <label className="input-label-luxury">
+                                Available Time Slots ({selectedDateDayName}):
+                              </label>
+                              <div className="apt-time-slots-grid">
+                                {slotsToShow.map((slot) => (
+                                  <button
+                                    type="button"
+                                    key={slot.id}
+                                    className={`apt-slot-btn ${selectedSlot?.id === slot.id || selectedSlot?.label === slot.label ? "active" : ""}`}
+                                    onClick={() => setSelectedSlotId(slot.id)}
+                                  >
+                                    <span className="slot-t">{slot.label}</span>
+                                    <span className="slot-p">{slot.period}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            </>
+                          );
+                        })()}
+                      </div>
+                    ) : bookingMode === "PACKAGE" ? (
+                      <div className="form-group-luxury">
+                        <label className="input-label-luxury">Preferred Arrival Time Window:</label>
+                        <div className="apt-time-slots-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))" }}>
+                          {[
+                            { id: "arrival-m1", label: "09:00 AM - 12:00 PM", period: "Morning Check-in" },
+                            { id: "arrival-a1", label: "01:00 PM - 04:00 PM", period: "Afternoon Check-in" },
+                            { id: "arrival-e1", label: "04:00 PM - 07:00 PM", period: "Evening Check-in" },
+                          ].map((slot) => (
+                            <button
+                              type="button"
+                              key={slot.id}
+                              className={`apt-slot-btn ${selectedSlotId === slot.id ? "active" : ""}`}
+                              onClick={() => setSelectedSlotId(slot.id)}
+                            >
+                              <span className="slot-t">{slot.label}</span>
+                              <span className="slot-p">{slot.period}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="form-group-luxury">
+                        <label className="input-label-luxury">Preferred Therapy Session Slot:</label>
+                        <div className="apt-time-slots-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))" }}>
+                          {[
+                            { id: "trt-m1", label: "09:00 AM", period: "Morning Therapy" },
+                            { id: "trt-m2", label: "11:00 AM", period: "Morning Therapy" },
+                            { id: "trt-a1", label: "02:30 PM", period: "Afternoon Therapy" },
+                            { id: "trt-e1", label: "05:00 PM", period: "Evening Therapy" },
+                          ].map((slot) => (
+                            <button
+                              type="button"
+                              key={slot.id}
+                              className={`apt-slot-btn ${selectedSlotId === slot.id ? "active" : ""}`}
+                              onClick={() => setSelectedSlotId(slot.id)}
+                            >
+                              <span className="slot-t">{slot.label}</span>
+                              <span className="slot-p">{slot.period}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Patient Info Fields */}
@@ -1114,11 +1543,11 @@ function AppointmentWizardContent() {
                     </div>
 
                     <div className="form-group-luxury full-width">
-                      <label htmlFor="p-concern" className="input-label-luxury">Describe Health Concern / Symptoms</label>
+                      <label htmlFor="p-concern" className="input-label-luxury">Describe Health Concern / Medical Requirements</label>
                       <textarea
                         id="p-concern"
                         rows={3}
-                        placeholder="Mention symptoms e.g., low back pain, joint stiffness, skin rash, digestion issues..."
+                        placeholder="Mention symptoms e.g., low back pain, joint stiffness, skin rash, digestion issues, room preferences..."
                         value={healthConcern}
                         onChange={(e) => setHealthConcern(e.target.value)}
                         className="apt-field-input"
@@ -1132,11 +1561,19 @@ function AppointmentWizardContent() {
                     </button>
                     <button
                       type="submit"
-                      disabled={isSubmitting || !isDoctorAvailable}
-                      className={`btn btn-primary btn-submit-final ${!isDoctorAvailable ? "opacity-50 cursor-not-allowed" : ""}`}
+                      disabled={isSubmitting || (bookingMode === "DOCTOR" && !isDoctorAvailable)}
+                      className={`btn btn-primary btn-submit-final ${bookingMode === "DOCTOR" && !isDoctorAvailable ? "opacity-50 cursor-not-allowed" : ""}`}
                       style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
                     >
-                      <span>{isSubmitting ? "Confirming Appointment..." : "Confirm & Request Booking"}</span>
+                      <span>
+                        {isSubmitting
+                          ? "Submitting Request..."
+                          : bookingMode === "PACKAGE"
+                          ? "Confirm Package Booking Request"
+                          : bookingMode === "TREATMENT"
+                          ? "Confirm Therapy Reservation"
+                          : "Confirm & Request Booking"}
+                      </span>
                       {!isSubmitting && <Check size={16} />}
                     </button>
                   </div>
@@ -1150,8 +1587,14 @@ function AppointmentWizardContent() {
                 <Check size={32} />
               </div>
               <div>
-                <span className="text-xs uppercase tracking-widest font-bold text-susrutha-brand">Booking Confirmed</span>
-                <h2 className="text-2xl font-bold text-foreground mt-1">Appointment Request Submitted!</h2>
+                <span className="text-xs uppercase tracking-widest font-bold text-susrutha-brand">Request Confirmed</span>
+                <h2 className="text-2xl font-bold text-foreground mt-1">
+                  {bookingMode === "PACKAGE"
+                    ? "Care Package Request Submitted!"
+                    : bookingMode === "TREATMENT"
+                    ? "Therapy Reservation Submitted!"
+                    : "Appointment Request Submitted!"}
+                </h2>
                 <p className="text-sm text-muted-foreground mt-1">
                   Reference Code: <strong className="font-mono text-foreground">{bookingReference}</strong>
                 </p>
@@ -1162,30 +1605,48 @@ function AppointmentWizardContent() {
                   <span className="text-muted-foreground">Patient:</span>
                   <strong className="text-foreground">{patientName} ({patientPhone})</strong>
                 </div>
+                {bookingMode === "PACKAGE" ? (
+                  <>
+                    <div className="flex items-center justify-between border-b border-border pb-2">
+                      <span className="text-muted-foreground">Package:</span>
+                      <strong className="text-foreground">{selectedPackage?.title}</strong>
+                    </div>
+                    <div className="flex items-center justify-between border-b border-border pb-2">
+                      <span className="text-muted-foreground">Duration & Room:</span>
+                      <strong className="text-foreground">{selectedDurationDays} Days Stay • {selectedAccommodation}</strong>
+                    </div>
+                  </>
+                ) : bookingMode === "TREATMENT" ? (
+                  <div className="flex items-center justify-between border-b border-border pb-2">
+                    <span className="text-muted-foreground">Therapy:</span>
+                    <strong className="text-foreground">{selectedTreatment?.title}</strong>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between border-b border-border pb-2">
+                    <span className="text-muted-foreground">Doctor:</span>
+                    <strong className="text-foreground">{selectedDoctor?.name}</strong>
+                  </div>
+                )}
                 <div className="flex items-center justify-between border-b border-border pb-2">
-                  <span className="text-muted-foreground">Doctor:</span>
-                  <strong className="text-foreground">{selectedDoctor?.name}</strong>
-                </div>
-                <div className="flex items-center justify-between border-b border-border pb-2">
-                  <span className="text-muted-foreground">Branch:</span>
+                  <span className="text-muted-foreground">Campus Branch:</span>
                   <strong className="text-foreground">{selectedBranch?.name}</strong>
                 </div>
                 <div className="flex items-center justify-between border-b border-border pb-2">
-                  <span className="text-muted-foreground">Date & Slot:</span>
-                  <strong className="text-foreground">{appointmentDate} • {selectedSlot?.label}</strong>
+                  <span className="text-muted-foreground">Scheduled Date:</span>
+                  <strong className="text-foreground">{appointmentDate}</strong>
                 </div>
               </div>
 
               <p className="text-xs text-muted-foreground max-w-sm mx-auto">
-                Our patient care desk at {selectedBranch?.name} will call you shortly on <strong>{patientPhone}</strong> to confirm your slot time.
+                Our patient care coordinator at {selectedBranch?.name} will call you back shortly on <strong>{patientPhone}</strong> to confirm your schedule.
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
                 <button type="button" className="btn btn-primary" onClick={handleReset}>
-                  Book Another Appointment
+                  Book Another Service
                 </button>
                 <a
-                  href={`https://wa.me/919447003191?text=Hello%20Susrutha%20Ayurveda,%20I%20have%20booked%20an%20appointment%20${bookingReference}%20for%20${patientName}`}
+                  href={`https://wa.me/919447003191?text=Hello%20Susrutha%20Ayurveda,%20I%20have%20submitted%20a%20booking%20request%20${bookingReference}%20for%20${patientName}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition-colors flex items-center space-x-1.5"
@@ -1198,60 +1659,106 @@ function AppointmentWizardContent() {
           )}
         </div>
 
-        {/* Sidebar Summary Card */}
+        {/* Dynamic Sidebar Summary Pass */}
         <aside className="apt-sidebar-summary-luxury">
           <div className="apt-summary-card-inner">
-            <h3 className="summary-title">Consultation Pass</h3>
+            <h3 className="summary-title">
+              {bookingMode === "PACKAGE" ? "Care Package Pass" : bookingMode === "TREATMENT" ? "Therapy Pass" : "Consultation Pass"}
+            </h3>
 
-            <div className="summary-doc-header">
-              <div className="summary-doc-avatar">
-                <Image
-                  src={selectedDoctor?.avatar}
-                  alt={selectedDoctor?.name || "Doctor"}
-                  width={60}
-                  height={60}
-                  style={{ objectFit: "cover", width: "60px", height: "60px", borderRadius: "50%" }}
-                />
+            {bookingMode === "PACKAGE" ? (
+              <div className="summary-doc-header" style={{ alignItems: "flex-start" }}>
+                <div>
+                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
+                    {selectedPackage?.category || "Residential Program"}
+                  </span>
+                  <h4 className="summary-doc-name" style={{ fontSize: "16px", marginTop: "2px" }}>
+                    {selectedPackage?.title || "Low Back Pain Care Package"}
+                  </h4>
+                  <span className="summary-doc-spec" style={{ color: "#2d4d3a", fontWeight: 700 }}>
+                    Starts at ₹{selectedPackage?.startingPrice ? selectedPackage.startingPrice.toLocaleString("en-IN") : "14,500"}
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="summary-doc-name">{selectedDoctor?.name}</h4>
-                <span className="summary-doc-spec">{selectedDoctor?.specialty}</span>
-                <span className="summary-doc-rating" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
-                  <Star size={11} fill="#d97706" color="#d97706" /> {selectedDoctor?.rating} • {selectedDoctor?.experience}
-                </span>
+            ) : bookingMode === "TREATMENT" ? (
+              <div className="summary-doc-header" style={{ alignItems: "flex-start" }}>
+                <div>
+                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
+                    {selectedTreatment?.category || "Ayurvedic Therapy"}
+                  </span>
+                  <h4 className="summary-doc-name" style={{ fontSize: "16px", marginTop: "2px" }}>
+                    {selectedTreatment?.title || "Abhyangam Therapy"}
+                  </h4>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="summary-doc-header">
+                <div className="summary-doc-avatar">
+                  <Image
+                    src={selectedDoctor?.avatar}
+                    alt={selectedDoctor?.name || "Doctor"}
+                    width={60}
+                    height={60}
+                    style={{ objectFit: "cover", width: "60px", height: "60px", borderRadius: "50%" }}
+                  />
+                </div>
+                <div>
+                  <h4 className="summary-doc-name">{selectedDoctor?.name}</h4>
+                  <span className="summary-doc-spec">{selectedDoctor?.specialty}</span>
+                  <span className="summary-doc-rating" style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
+                    <Star size={11} fill="#d97706" color="#d97706" /> {selectedDoctor?.rating} • {selectedDoctor?.experience}
+                  </span>
+                </div>
+              </div>
+            )}
 
             <div className="summary-details-list">
               <div className="summary-item">
-                <span>Consultation Mode:</span>
-                <strong><Hospital size={14} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} /> Hospital Visit</strong>
+                <span>Booking Type:</span>
+                <strong>
+                  {bookingMode === "PACKAGE" ? "Ayur Village Stay" : bookingMode === "TREATMENT" ? "Therapy Session" : "Hospital OPD Visit"}
+                </strong>
               </div>
 
-              <div className="summary-item">
-                <span>Department:</span>
-                <strong>{selectedSpecialty?.title}</strong>
-              </div>
+              {bookingMode === "PACKAGE" ? (
+                <>
+                  <div className="summary-item">
+                    <span>Stay Duration:</span>
+                    <strong>{selectedDurationDays} Days Stay</strong>
+                  </div>
+                  <div className="summary-item">
+                    <span>Accommodation:</span>
+                    <strong>{selectedAccommodation}</strong>
+                  </div>
+                </>
+              ) : bookingMode === "DOCTOR" ? (
+                <div className="summary-item">
+                  <span>Department:</span>
+                  <strong>{selectedSpecialty?.title}</strong>
+                </div>
+              ) : null}
 
               <div className="summary-item">
-                <span>Hospital Branch:</span>
+                <span>Campus Branch:</span>
                 <strong>{selectedBranch?.name}</strong>
               </div>
 
               <div className="summary-item">
-                <span>Scheduled Date:</span>
+                <span>Preferred Date:</span>
                 <strong>{appointmentDate}</strong>
               </div>
 
-              <div className="summary-item">
-                <span>Time Slot:</span>
-                <strong>{selectedSlot?.label}</strong>
-              </div>
+              {bookingMode === "DOCTOR" && (
+                <div className="summary-item">
+                  <span>Time Slot:</span>
+                  <strong>{selectedSlot?.label}</strong>
+                </div>
+              )}
             </div>
 
             <div className="summary-guarantees">
               <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Zero pre-booking charges</div>
-              <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Free cancellation up to 4 hours prior</div>
+              <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Free date modification up to 4 hours prior</div>
               <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Instant SMS & WhatsApp confirmation</div>
             </div>
 
