@@ -21347,6 +21347,7 @@ body:has(.international-page) .international-help-card a {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
   box-sizing: border-box;
   padding: clamp(50px, 6vw, 80px) clamp(24px, 5vw, 60px);
+  background-color: #ffffff;
 }
 
 .home-footer-calm-bg {

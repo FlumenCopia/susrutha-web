@@ -8200,13 +8200,13 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
    Luxury Ivory Cream Footer (Image Reference Style)
    ========================================================================== */
 .luxury-dark-footer {
-  background-color: #FAF7F2 !important;
-  background: linear-gradient(135deg, #FAF7F2 0%, #F4EFE6 100%) !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
   color: #5c5348 !important;
   padding: 100px 32px 44px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(200, 155, 60, 0.22);
+  border-top: 1px solid rgba(200, 155, 60, 0.15);
 }
 
 .luxury-footer-container {
