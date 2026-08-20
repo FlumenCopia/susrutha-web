@@ -4808,7 +4808,7 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
 }
 
 .conditions-content {
-  padding: 52px clamp(2px, 7vw, 208px) 34px;
+  padding: 2px clamp(2px, 7vw, 208px) 34px;
 }
 
 .conditions-section-head {
@@ -5182,7 +5182,7 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
   }
 
   .conditions-content {
-    padding-top: 126px;
+    padding-top: 16px;
   }
 
   .conditions-care-band {
@@ -7622,7 +7622,7 @@ label {
   .about-story-section,
   .about-purpose-section,
   .about-founders-section {
-    padding-inline: 18px !important;
+    padding-inline: 8px !important;
   }
 
   .conditions-filter-panel {
@@ -21527,4 +21527,60 @@ a.home-footer-calm-btn:hover,
   transform: translateY(-3px);
   box-shadow: 0 14px 36px rgba(200, 137, 34, 0.6);
   color: #ffffff !important;
+}
+
+/* Responsive Fixes for 1000px Downward (Conditions Hero & Content Section) */
+@media (max-width: 1000px) {
+  .conditions-hero-serene {
+    min-height: 380px !important;
+    padding-top: 110px !important;
+    padding-bottom: 32px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-top: -80px !important;
+  }
+
+  .conditions-hero-serene-content {
+    gap: 16px !important;
+  }
+
+  .conditions-hero-serene-quote {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  .conditions-hero-serene-title {
+    font-size: clamp(26px, 6.5vw, 42px) !important;
+    line-height: 1.1 !important;
+  }
+
+  .conditions-content,
+  .conditions-page .conditions-content {
+    padding-top: 8px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .conditions-section-head h2 {
+    font-size: clamp(28px, 5vw, 42px) !important;
+  }
+
+  .conditions-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    margin-top: 24px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .conditions-hero-serene {
+    min-height: 340px !important;
+    padding-top: 100px !important;
+    padding-bottom: 24px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .conditions-card-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
