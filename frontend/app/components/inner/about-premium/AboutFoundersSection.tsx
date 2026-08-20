@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getPublicDoctors, getImageDisplayUrl } from "@/app/services/api";
 import "./about-founders.css";
 
@@ -64,13 +65,15 @@ export function AboutFoundersSection() {
     <section className="af-section">
       <div className="af-container">
         <header className="af-header">
-          <span className="af-eyebrow">OUR CORE LEADERSHIP</span>
-          <h2 className="af-title">Rooted in Ayurveda. Driven by Purpose.</h2>
-          <p className="af-subtext">
-            Meet our senior Vaidyas, medical directors, and clinical specialists leading authentic Ayurvedic care.
-          </p>
+          <div className="af-header-left">
+            {/* <span className="af-eyebrow">OUR CORE LEADERSHIP</span> */}
+            <h2 className="af-title">OUR CORE LEADERSHIP</h2>
+            <p className="af-subtext">
+              Meet our senior Vaidyas, medical directors, and clinical specialists leading authentic Ayurvedic care.
+            </p>
+          </div>
 
-          {leaders.length > 4 && (
+          <div className="af-header-right">
             <div className="af-scroll-controls" aria-label="Leadership scroll navigation">
               <button
                 type="button"
@@ -78,7 +81,7 @@ export function AboutFoundersSection() {
                 onClick={() => handleScroll("left")}
                 aria-label="Scroll left"
               >
-                ‹
+                <ChevronLeft size={20} strokeWidth={2.2} />
               </button>
               <button
                 type="button"
@@ -86,10 +89,10 @@ export function AboutFoundersSection() {
                 onClick={() => handleScroll("right")}
                 aria-label="Scroll right"
               >
-                ›
+                <ChevronRight size={20} strokeWidth={2.2} />
               </button>
             </div>
-          )}
+          </div>
         </header>
 
         <div className="af-grid" ref={scrollRef}>

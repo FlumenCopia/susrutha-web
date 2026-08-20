@@ -21,9 +21,10 @@ export function HomePage() {
       <SignatureExperienceSection />
       <SusruthaWaySection />
       {/* <CustodiansOfWisdomSection /> */}
-      <HomeFooterBanner />
       {/* <AboutFoundersSection /> */}
-      <AboutFoundersSection />
+      <AboutFoundersSection />|
+            <HomeFooterBanner />
+
     </div>
   );
 }
