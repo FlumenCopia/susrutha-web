@@ -106,13 +106,39 @@ export function TreatmentsPageContent() {
       let items: any[] = [];
       let paginationMeta: any = { total: 0, hasMore: false };
 
+const TREATMENT_FALLBACK_IMAGES: Record<string, string> = {
+  basti: "/images/treatment-kati-vasti.webp",
+  vasti: "/images/treatment-kati-vasti.webp",
+  dhara: "/images/treatment-sirodhara.webp",
+  shiro: "/images/treatment-sirodhara.webp",
+  kizhi: "/images/treatment-njavarakizhi.webp",
+  herbal: "/images/treatment-herbal-medicine.webp",
+  skin: "/images/banner_cupping_therapy.jpg",
+  joint: "/images/opt_spine_joint.jpg",
+  spine: "/images/opt_spine_joint.jpg",
+  panchakarma: "/images/treatment-panchakarma.webp",
+  default: "/images/treatment-panchakarma.webp",
+};
+
+function resolveTreatmentImage(t: any): string {
+  if (t.coverImage || t.image || t.photo) {
+    const url = getImageDisplayUrl(t.coverImage || t.image || t.photo);
+    if (url) return url;
+  }
+  const searchKey = `${t.slug || ""} ${t.name || ""} ${t.title || ""} ${t.category || ""}`.toLowerCase();
+  for (const key of Object.keys(TREATMENT_FALLBACK_IMAGES)) {
+    if (searchKey.includes(key)) return TREATMENT_FALLBACK_IMAGES[key];
+  }
+  return TREATMENT_FALLBACK_IMAGES.default;
+}
+
       if (res && Array.isArray(res.items)) {
         items = res.items.map((t: any) => ({
           slug: t.slug,
           title: t.name || t.title,
           text: t.shortDescription || t.subtitle || t.overview || "",
           time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
-          image: getImageDisplayUrl(t.coverImage || t.image),
+          image: resolveTreatmentImage(t),
           category: t.category || "Panchakarma",
           isBackendData: true,
         }));
@@ -123,7 +149,7 @@ export function TreatmentsPageContent() {
           title: t.name || t.title,
           text: t.shortDescription || t.subtitle || t.overview || "",
           time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
-          image: getImageDisplayUrl(t.coverImage || t.image),
+          image: resolveTreatmentImage(t),
           category: t.category || "Panchakarma",
           isBackendData: true,
         }));
@@ -314,6 +340,10 @@ export function TreatmentsPageContent() {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)", pointerEvents: "none" }} />
+                    <span style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(181, 122, 37, 0.9)", color: "#ffffff", fontSize: "11px", fontWeight: 800, padding: "4px 12px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.05em", zIndex: 2 }}>
+                      {treatment.category}
+                    </span>
                   </div>
                   <div className="all-treatment-body">
                     <h3>{treatment.title}</h3>

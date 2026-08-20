@@ -49,7 +49,10 @@ function LeafMark() {
 export function ConditionDetailBanner({ condition }: ConditionDetailBannerProps) {
   const rawImage = (condition as any).coverImage || condition.image || (condition as any).photo || (condition as any).photoUrl || "/images/banner_conditions_serene.jpg";
   const displayImage = getImageDisplayUrl(rawImage);
-  const description = condition.summary || condition.shortDescription || condition.overview || condition.subtitle;
+  const description = condition.shortDescription || condition.summary || condition.overview || condition.subtitle;
+  const rawReviewer = (condition as any).reviewerName || condition.reviewer;
+  const reviewer = typeof rawReviewer === "string" && rawReviewer.trim().length > 0 ? rawReviewer.trim() : null;
+  const categoryName = condition.category || "AYURVEDIC CARE";
 
   return (
     <section className="condition-detail-banner" aria-labelledby="condition-detail-title">
@@ -57,16 +60,16 @@ export function ConditionDetailBanner({ condition }: ConditionDetailBannerProps)
         <div className="condition-detail-copy">
           <div className="condition-detail-eyebrow">
             <LeafMark />
-            <span>AYURVEDIC CARE</span>
+            <span>{categoryName.toUpperCase()}</span>
           </div>
 
           <h1 id="condition-detail-title">{condition.title}</h1>
 
           {description && <p className="condition-detail-summary">{description}</p>}
 
-          {condition.reviewer && (
+          {reviewer && (
             <p className="condition-detail-review">
-              Medically reviewed by <em>{condition.reviewer}</em>
+              Medically reviewed by <em>{reviewer}</em>
             </p>
           )}
 

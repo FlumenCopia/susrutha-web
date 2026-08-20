@@ -34,11 +34,27 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
               {searchQuery ? (
                 <button
                   type="button"
-                  className="doctors-hero-tag-btn"
                   onClick={() => onSearchChange("")}
-                  style={{ marginRight: 8, display: "inline-flex", alignItems: "center", gap: "4px" }}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    padding: "8px 16px",
+                    borderRadius: "999px",
+                    background: "#b57a25",
+                    color: "#ffffff",
+                    fontSize: "13px",
+                    fontWeight: 800,
+                    border: "none",
+                    cursor: "pointer",
+                    marginRight: "8px",
+                    boxShadow: "0 2px 8px rgba(181, 122, 37, 0.4)",
+                    flexShrink: 0,
+                  }}
+                  title="Clear Search"
+                  aria-label="Clear Search"
                 >
-                  <X size={13} />
+                  <X size={14} strokeWidth={2.5} />
                   <span>Clear</span>
                 </button>
               ) : null}

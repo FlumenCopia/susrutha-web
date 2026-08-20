@@ -60,22 +60,7 @@ export function DoctorsFilterBar({
         {/* Main Filter Dropdowns Row */}
         <div className="doctors-filter-row">
           <div className="doctors-filter-controls">
-            {/* Department Dropdown */}
-            <div className={`doctors-filter-select-wrap ${isDeptActive ? "is-active" : ""}`}>
-              <select
-                className="doctors-filter-select"
-                value={selectedDeptId}
-                onChange={(e) => onDeptChange(e.target.value)}
-                aria-label="Filter by Department"
-              >
-                {departments.map((dept) => (
-                  <option key={dept.id} value={dept.id}>
-                    {dept.name}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown size={14} className="doctors-filter-select-arrow" />
-            </div>
+
 
             {/* Branch Location Dropdown */}
             <div className={`doctors-filter-select-wrap ${isBranchActive ? "is-active" : ""}`}>

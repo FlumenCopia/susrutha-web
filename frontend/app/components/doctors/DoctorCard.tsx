@@ -62,10 +62,7 @@ export function DoctorCard({ doctor, viewMode, onQuickView }: DoctorCardProps) {
       {/* Top Overlay Badges */}
       <div className="doctor-card-top-badges">
         {doctor.isFounder && (
-          <span className="doctor-card-founder-badge">Founder</span>
-        )}
-        {doctor.isAvailableToday && (
-          <span className="doctor-card-availability-badge">Available Today</span>
+          <span className="doctor-card-founder-badge">Medical Director</span>
         )}
       </div>
 

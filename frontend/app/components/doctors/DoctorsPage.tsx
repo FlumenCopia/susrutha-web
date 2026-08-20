@@ -38,24 +38,24 @@ export function DoctorsPage() {
         const sourceDocs = cleanDocs.length > 0 ? cleanDocs : (Array.isArray(rawDocs) ? rawDocs : []);
 
         const normalizedDocs: DoctorItem[] = sourceDocs.map((d: any) => {
-          const deptObj = typeof d.departmentId === "object" ? d.departmentId : null;
-          const deptId = deptObj?.slug || deptObj?.code?.toLowerCase() || deptObj?._id || (typeof d.departmentId === "string" ? d.departmentId : "panchakarma-bio-purification");
-          const deptName = deptObj?.title || deptObj?.name || d.departmentName || d.specialty || "Panchakarma & Bio-Purification";
+          const rawDept = d.departmentId;
+          const deptName = typeof rawDept === "object" && rawDept ? rawDept.title : typeof rawDept === "string" ? rawDept : "General Medicine";
+          const deptId = typeof rawDept === "object" && rawDept ? rawDept.slug || rawDept._id : typeof rawDept === "string" ? rawDept : "general";
 
           return {
-            id: d._id || d.id || d.slug,
+            id: d._id,
             slug: d.slug,
             name: d.name,
-            title: d.title || d.designation || "Ayurveda Specialist",
-            designation: d.designation || "Senior Consultant",
+            title: d.name,
+            designation: d.designation || "Consultant Physician",
             qualification: d.qualifications || d.qualification || "BAMS",
             departmentId: deptId,
             departmentName: deptName,
-            experienceYears: d.experienceYears || 15,
-            experienceText: d.experienceText || `${d.experienceYears || 15}+ Years`,
-            patientsCount: d.patientsCount || "10K+",
-            rating: d.rating || 4.9,
-            reviewsCount: d.reviewsCount || 120,
+            experienceYears: d.experienceYears || 0,
+            experienceText: d.experienceYears ? `${d.experienceYears}+ Years` : "",
+            patientsCount: "",
+            rating: d.rating || 5.0,
+            reviewsCount: d.reviewCount || 0,
             image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
             location: (() => {
               if (!d.assignedBranchIds || !Array.isArray(d.assignedBranchIds) || d.assignedBranchIds.length === 0) {
@@ -77,22 +77,22 @@ export function DoctorsPage() {
                     .trim();
                   return clean.length > 20 ? clean.slice(0, 20) : clean;
                 }
-                return "Main Branch";
+                return "Main Campus";
               }).filter(Boolean);
               return names.slice(0, 2).join(" & ") || "Kattakada & Kowdiar";
             })(),
             branchIds: d.assignedBranchIds
-              ? d.assignedBranchIds.map((b: any) => (b.code || b._id || "").toLowerCase())
+              ? d.assignedBranchIds.map((b: any) => (typeof b === "string" ? b : b.code || b._id || "").toLowerCase())
               : ["kattakada"],
-            availableDays: d.availability ? d.availability.flatMap((a: any) => a.days || []) : ["Mon", "Wed", "Fri"],
+            availableDays: d.availability ? d.availability.flatMap((a: any) => a.days || []) : [],
             languages: d.languagesSpoken || ["English", "Malayalam"],
             consultationModes: ["in-person"] as ("in-person" | "video")[],
-            focusAreas: d.specialties || d.focusAreas || [deptName],
-            credentials: [d.qualifications || "BAMS"],
-            quote: d.quote || "Healing with authentic Kerala Ayurveda.",
-            bio: d.bio || d.text || "Senior Ayurvedic Physician.",
-            isFounder: d.isDirector || d.isFounder || false,
-            isPopular: d.isFeatured || d.isPopular || true,
+            focusAreas: d.specialties || [],
+            credentials: d.qualifications ? [d.qualifications, d.registrationNumber ? `Reg No: ${d.registrationNumber}` : ''].filter(Boolean) : [],
+            quote: d.quote || "",
+            bio: d.bio || "",
+            isFounder: d.isDirector || false,
+            isPopular: d.isFeatured || false,
             isAvailableToday: true,
             isBackendData: true,
           };
