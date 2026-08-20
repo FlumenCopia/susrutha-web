@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { SiteShell } from "../../components/common/SiteShell";
-import { ConditionApproachSection } from "../../components/inner/ConditionApproachSection";
+// import { ConditionApproachSection } from "../../components/inner/ConditionApproachSection";
 import { ConditionDetailBanner } from "../../components/inner/ConditionDetailBanner";
 import { ConditionDetailCareSection } from "../../components/inner/ConditionDetailCareSection";
 import { getPublicConditionBySlug, getPublicConditions } from "../../services/api";
@@ -24,7 +24,7 @@ export default async function ConditionDetailPage({ params }: ConditionDetailPag
       <div className="condition-detail-page">
         <ConditionDetailBanner condition={condition} />
         <ConditionDetailCareSection condition={condition} />
-        <ConditionApproachSection />
+        {/* <ConditionApproachSection /> */}
       </div>
     </SiteShell>
   );

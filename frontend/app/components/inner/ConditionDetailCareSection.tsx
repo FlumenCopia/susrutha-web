@@ -69,7 +69,7 @@ export function ConditionDetailCareSection({ condition }: ConditionDetailCareSec
 
   return (
     <section className="condition-care-section" aria-labelledby="condition-care-title">
-      <div className="condition-care-top-grid">
+      <div className="condition-care-top-grid" style={{ gridTemplateColumns: doctors.length > 0 ? "repeat(2, minmax(0, 1fr))" : "1fr" }}>
         <article className="condition-care-mini-card condition-care-glance-card">
           <CareIcon name="leaf" />
           <h2>Clinical Summary</h2>
@@ -96,30 +96,6 @@ export function ConditionDetailCareSection({ condition }: ConditionDetailCareSec
             ))}
           </article>
         )}
-
-        {packages.length > 0 && (
-          <article className="condition-care-mini-card">
-            <CareIcon name="home" />
-            <h2>Care Packages</h2>
-            <ul className="condition-package-list">
-              {packages.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-        )}
-
-        <article className="condition-care-consult-card">
-          <span>Need help getting started?</span>
-          <p>Our care team is here to understand and guide you on the right path.</p>
-          <Link href="/appointment" className="condition-care-consult-btn">
-            <span>Request Consultation</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0 }}>
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Link>
-        </article>
       </div>
 
       <div className="condition-care-main-grid">

@@ -47,7 +47,8 @@ function LeafMark() {
 }
 
 export function ConditionDetailBanner({ condition }: ConditionDetailBannerProps) {
-  const displayImage = getImageDisplayUrl(condition.image || "/images/banner_conditions_serene.jpg");
+  const rawImage = (condition as any).coverImage || condition.image || (condition as any).photo || (condition as any).photoUrl || "/images/banner_conditions_serene.jpg";
+  const displayImage = getImageDisplayUrl(rawImage);
   const description = condition.summary || condition.shortDescription || condition.overview || condition.subtitle;
 
   return (
