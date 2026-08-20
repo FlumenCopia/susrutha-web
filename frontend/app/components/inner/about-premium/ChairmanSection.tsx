@@ -25,7 +25,7 @@ export function ChairmanSection() {
         <div className="cm-right">
           <div className="cm-img-wrap">
             <Image
-              src="/images/heritage-master.webp"
+            src="/ch.png"
               alt="Dr. Krishnankutty Nair"
               width={800}
               height={500}
