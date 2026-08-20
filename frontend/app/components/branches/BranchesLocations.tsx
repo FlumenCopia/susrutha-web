@@ -2,15 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { BranchLocationCard } from "./BranchLocationCard";
-import { BranchIcon, type BranchIconName } from "./BranchIcons";
+import { type BranchIconName } from "./BranchIcons";
 import { getPublicBranches, getImageDisplayUrl } from "@/app/services/api";
-
-const branchRouteSteps: Array<{ icon: BranchIconName; label: string }> = [
-  { icon: "calendar", label: "Book Consultation" },
-  { icon: "building", label: "Visit Nearest Branch" },
-  { icon: "shield", label: "Vaidya Assessment" },
-  { icon: "leaf", label: "Personalized Healing" },
-];
 
 export function BranchesLocations() {
   const [branchList, setBranchList] = useState<any[]>([]);
@@ -76,15 +69,6 @@ export function BranchesLocations() {
           ))}
         </div>
       )}
-
-      <div className="branches-route-strip" aria-label="Branch care path">
-        {branchRouteSteps.map((step) => (
-          <span key={step.label}>
-            <BranchIcon name={step.icon} />
-            {step.label}
-          </span>
-        ))}
-      </div>
     </section>
   );
 }
