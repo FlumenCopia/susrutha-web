@@ -36,6 +36,22 @@ function getCategoryIcon(label: string): string {
   return categoryIconMap.default;
 }
 
+function sortTreatmentItems(items: any[], sortKey: string) {
+  const sorted = [...items];
+  if (sortKey === "name") {
+    sorted.sort((a, b) => (a.title || a.name || "").localeCompare(b.title || b.name || ""));
+  } else if (sortKey === "duration") {
+    const parseMins = (str: string) => {
+      const num = parseInt((str || "").toString().replace(/[^0-9]/g, ""), 10);
+      return isNaN(num) ? 60 : num;
+    };
+    sorted.sort((a, b) => parseMins(a.time) - parseMins(b.time));
+  } else if (sortKey === "popular") {
+    sorted.sort((a, b) => (b.rating || 5) - (a.rating || 5));
+  }
+  return sorted;
+}
+
 export function TreatmentsPageContent() {
   const [categories, setCategories] = useState<{ label: string; icon: string }[]>([
     { label: "All Treatments", icon: "apps" },
@@ -117,10 +133,12 @@ export function TreatmentsPageContent() {
         paginationMeta = { total: 0, hasMore: false };
       }
 
+      const sortedItems = sortTreatmentItems(items, sort);
+
       if (append) {
-        setTreatments((prev) => [...prev, ...items]);
+        setTreatments((prev) => sortTreatmentItems([...prev, ...sortedItems], sort));
       } else {
-        setTreatments(items);
+        setTreatments(sortedItems);
       }
 
       setTotalCount(paginationMeta.total || items.length);
