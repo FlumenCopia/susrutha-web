@@ -5146,6 +5146,14 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
     padding: 142px 22px 134px;
   }
 
+
+.condition-card-img-mode i {
+ display: none;
+}
+
+
+
+
   .conditions-hero-copy {
     max-width: 720px;
   }
@@ -21532,8 +21540,8 @@ a.home-footer-calm-btn:hover,
 /* Responsive Fixes for 1000px Downward (Conditions Hero & Content Section) */
 @media (max-width: 1000px) {
   .conditions-hero-serene {
-    min-height: 380px !important;
-    padding-top: 110px !important;
+    min-height: 400px !important;
+    padding-top: 136px !important;
     padding-bottom: 32px !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -21573,8 +21581,8 @@ a.home-footer-calm-btn:hover,
 
 @media (max-width: 640px) {
   .conditions-hero-serene {
-    min-height: 340px !important;
-    padding-top: 100px !important;
+    min-height: 380px !important;
+    padding-top: 136px !important;
     padding-bottom: 24px !important;
     padding-left: 16px !important;
     padding-right: 16px !important;
