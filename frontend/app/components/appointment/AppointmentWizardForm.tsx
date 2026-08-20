@@ -1649,17 +1649,22 @@ function AppointmentWizardContent() {
                 Our patient care coordinator at {selectedBranch?.name} will call you back shortly on <strong>{patientPhone}</strong> to confirm your schedule.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-                <button type="button" className="btn btn-primary" onClick={handleReset}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "14px", marginTop: "24px", paddingTop: "12px" }}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handleReset}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", height: "48px", padding: "0 26px", borderRadius: "999px", fontWeight: 700, fontSize: "14px", cursor: "pointer", background: "linear-gradient(135deg, #b57a25, #9a651e)", color: "#ffffff", border: "none" }}
+                >
                   Book Another Service
                 </button>
                 <a
                   href={`https://wa.me/919447003191?text=Hello%20Susrutha%20Ayurveda,%20I%20have%20submitted%20a%20booking%20request%20${bookingReference}%20for%20${patientName}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition-colors flex items-center space-x-1.5"
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", height: "48px", padding: "0 26px", borderRadius: "999px", fontWeight: 700, fontSize: "14px", background: "#25D366", color: "#ffffff", textDecoration: "none", boxShadow: "0 4px 14px rgba(37, 211, 102, 0.35)", border: "none" }}
                 >
-                  <Phone size={14} style={{ marginRight: "6px" }} />
+                  <Phone size={16} />
                   <span>Confirm via WhatsApp Desk</span>
                 </a>
               </div>
