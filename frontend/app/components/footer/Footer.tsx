@@ -67,14 +67,15 @@ export function Footer() {
             </div>
 
             <div className="luxury-footer-address">
-              <p>Door No. 47/881:1, Kanjikuzhi,</p>
-              <p>Kottayam, Kerala – 686004</p>
+              <p>Vaidya Ratnam K.S. &amp; V.S. Campus,</p>
+              <p>Opposite Christian College, Kattakada,</p>
+              <p>Thiruvananthapuram, Kerala – 695572</p>
             </div>
 
             <div className="luxury-footer-direct">
               <a href="mailto:info@susruthaayurveda.com">info@susruthaayurveda.com</a>
-              <a href="tel:+914813501000">+91 481 350 1000</a>
-              <a href="tel:+919387510100">+91 9387 510 100</a>
+              <a href="tel:+919447003191">+91 94470 03191</a>
+              <a href="tel:+914712290282">+91 471 229 0282</a>
             </div>
           </div>
 

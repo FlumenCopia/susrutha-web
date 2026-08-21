@@ -402,7 +402,7 @@ export function ContactReferencePage() {
           <div className="contact-reference-map" style={{ position: "relative", overflow: "hidden", gridColumn: "1 / -1" }}>
             <iframe
               title="Susrutha Ayurveda Hospital location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.4!2d76.5217!3d9.5916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062ba8b06b3ba5%3A0x7d1a1c9b5b0e6b1!2sSusrutha%20Ayurveda%20Hospital%2C%20Kottayam!5e0!3m2!1sen!2sin!4v1"
+              src="https://maps.google.com/maps?q=Susrutha+Ayurveda+Hospital,+Kattakada,+Thiruvananthapuram,+Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{
