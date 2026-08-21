@@ -7716,7 +7716,13 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .path-wholeness-header {
   text-align: center;
-  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 64px auto;
+  max-width: 800px;
+  width: 100%;
 }
 
 .path-wholeness-header h2 {
@@ -7724,7 +7730,8 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   font-weight: 500;
   line-height: 1.18;
   color: #000a04;
-  margin: 0;
+  text-align: center !important;
+  margin: 0 auto !important;
 }
 
 .path-wholeness-divider {
