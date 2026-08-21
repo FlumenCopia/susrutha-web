@@ -56,7 +56,7 @@ export function AyurVillageRoutineSection() {
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "6px 16px", borderRadius: "999px", background: "rgba(45, 77, 58, 0.1)", color: "#2d4d3a", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px" }}>
             <Sparkles size={14} /> Gramam Dinacharya
           </span>
-          <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#1c2a23", fontFamily: "Playfair Display, Georgia, serif", marginBottom: "14px", lineHeight: "1.2" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#1c2a23", marginBottom: "14px", lineHeight: "1.2" }}>
             A Day at Susrutha Ayur Village
           </h2>
           <p style={{ fontSize: "16px", color: "#556655", lineHeight: "1.6" }}>

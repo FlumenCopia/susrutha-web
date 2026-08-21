@@ -7720,7 +7720,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .path-wholeness-header h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -7799,7 +7798,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .path-wholeness-card h3 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 24px;
   font-weight: 500;
   color: #000a04;
@@ -7845,7 +7843,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .sig-experience-header h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -7924,7 +7921,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .sig-experience-card-body h3 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 24px;
   font-weight: 500;
   color: #000a04;
@@ -7983,7 +7979,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .susrutha-way-header h2 {
-  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: clamp(30px, 3.2vw, 44px);
   font-weight: 500;
   color: #2b1d12;
@@ -8021,7 +8016,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .susrutha-way-card-title {
-  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: clamp(16px, 1.35vw, 22px);
   font-weight: 500;
   color: #2b1d12;
@@ -8096,7 +8090,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .custodians-header h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
   color: #000a04;
@@ -8150,7 +8143,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .custodians-card h3 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 22px;
   font-weight: 500;
   color: #000a04;
@@ -8309,7 +8301,6 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .luxury-footer-heading {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(25px, 2.5vw, 38px);
   font-weight: 500;
   color: #14100c !important;

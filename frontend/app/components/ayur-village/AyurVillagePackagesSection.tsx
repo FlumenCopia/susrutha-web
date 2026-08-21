@@ -78,7 +78,7 @@ export function AyurVillagePackagesSection() {
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "6px 16px", borderRadius: "999px", background: "rgba(181, 122, 37, 0.12)", color: "#9a651e", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px" }}>
             <Sparkles size={14} /> Gramam Residential Programs
           </span>
-          <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#1c2a23", fontFamily: "Playfair Display, Georgia, serif", marginBottom: "14px", lineHeight: "1.2" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#1c2a23", marginBottom: "14px", lineHeight: "1.2" }}>
             Physician-Guided Care Packages
           </h2>
           <p style={{ fontSize: "16px", color: "#556655", lineHeight: "1.6" }}>

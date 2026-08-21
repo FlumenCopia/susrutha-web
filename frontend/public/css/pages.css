@@ -72,7 +72,6 @@
   color: #1a140c;
   font-size: clamp(38px, 3.8vw, 58px);
   font-weight: 800;
-  font-family: serif;
   line-height: 1.1;
 }
 
@@ -4482,7 +4481,6 @@ body:has(.ecosystem-page) .conditions-hero-serene-title,
 body:has(.facilities-page) .conditions-hero-serene-title,
 body:has(.media-page) .conditions-hero-serene-title,
 body:has(.vg-page-wrapper) .conditions-hero-serene-title {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 5.4vw, 78px);
   font-weight: 400;
   line-height: 1.05;
@@ -8064,7 +8062,6 @@ label {
 }
 
 .contact-booking-hero-h1 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(40px, 4.8vw, 64px);
   font-weight: 500;
   color: #ffffff;
@@ -8164,7 +8161,6 @@ label {
 }
 
 .contact-booking-title {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(34px, 4vw, 46px);
   font-weight: 700;
   color: #ffffff;
@@ -10039,7 +10035,6 @@ label {
 }
 
 .blog-premium-footer-cta-heading {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(38px, 5.5vw, 72px);
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -10079,7 +10074,6 @@ label {
 }
 
 .counbanner-metric-item strong {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(2.4rem, 4.2vw, 3.8rem);
   font-weight: 500;
   color: #ffffff;
@@ -15373,7 +15367,6 @@ body:has(.ecosystem-page) {
 }
 
 .ecosystem-section-head h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif !important;
   margin: 14px 0 0;
   font-size: clamp(32px, 3.8vw, 52px) !important;
   font-weight: 500 !important;
@@ -19209,7 +19202,6 @@ body:has(.international-page) .international-strip-head {
 }
 
 body:has(.international-page) .international-strip-head h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(26px, 3.2vw, 42px) !important;
   font-weight: 500;
   color: var(--international-ink);
@@ -19387,7 +19379,6 @@ body:has(.international-page) .international-programs-intro h2 {
   max-width: 600px;
   margin-top: 14px;
   color: #ffffff !important;
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(30px, 3.4vw, 44px) !important;
   font-weight: 500;
   line-height: 1.1 !important;
@@ -19515,7 +19506,6 @@ body:has(.international-page) .international-faq-container {
 }
 
 body:has(.international-page) .international-faq-main-title {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 4vw, 46px) !important;
   font-weight: 700;
   color: #061d13 !important;
@@ -19619,7 +19609,6 @@ body:has(.international-page) .international-support-box {
 }
 
 body:has(.international-page) .international-support-title {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(28px, 3.2vw, 38px) !important;
   font-weight: 700;
   color: #061d13 !important;
@@ -19668,7 +19657,6 @@ body:has(.international-page) .international-direct-help-card {
 
 body:has(.international-page) .international-direct-help-card h3 {
   margin-top: 0;
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 24px !important;
   font-weight: 700;
   color: #061d13 !important;
@@ -19711,7 +19699,6 @@ body:has(.international-page) .international-enquiry-form-card {
 }
 
 body:has(.international-page) .international-enquiry-form-card h2 {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: 32px !important;
   font-weight: 700;
   color: #061d13 !important;
@@ -19851,7 +19838,6 @@ body:has(.international-page) .international-welcome-eyebrow {
 }
 
 body:has(.international-page) .international-welcome-title {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(36px, 4.8vw, 60px) !important;
   font-weight: 400;
   color: #ffffff !important;
@@ -20946,7 +20932,6 @@ body:has(.international-page) .international-help-card a {
 }
 
 .media-events-title {
-  font-family: var(--font-garamond, "EB Garamond", serif);
   font-size: clamp(28px, 3vw, 42px);
   color: #061d13;
   font-weight: 600;
@@ -21058,7 +21043,6 @@ body:has(.international-page) .international-help-card a {
 }
 
 .media-event-card-title {
-  font-family: var(--font-garamond, "EB Garamond", serif);
   font-size: 22px;
   font-weight: 600;
   color: #061d13;
@@ -21189,7 +21173,6 @@ body:has(.international-page) .international-help-card a {
 }
 
 .media-cta-title {
-  font-family: var(--font-garamond, "EB Garamond", serif);
   font-size: clamp(28px, 3.5vw, 44px);
   color: #ffffff !important;
   font-weight: 600;
@@ -21273,7 +21256,6 @@ body:has(.international-page) .international-help-card a {
 }
 
 .facilities-program-copy-deluxe h2 {
-  font-family: var(--font-garamond, "EB Garamond", serif);
   font-size: clamp(30px, 2.8vw, 44px);
   color: #111827;
   font-weight: 600;
@@ -21382,7 +21364,6 @@ body:has(.international-page) .international-help-card a {
 }
 
 .facilities-card-content h3 {
-  font-family: var(--font-garamond, "EB Garamond", serif);
   font-size: 19px;
   font-weight: 700;
   color: #061d13;
@@ -21536,7 +21517,6 @@ body:has(.international-page) .international-help-card a {
 }
 
 .home-footer-calm-heading {
-  font-family: var(--font-heading, 'EB Garamond'), Georgia, serif;
   font-size: clamp(32px, 4.8vw, 60px);
   font-weight: 300;
   letter-spacing: 0.14em;
