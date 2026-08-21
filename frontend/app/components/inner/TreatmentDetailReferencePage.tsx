@@ -410,7 +410,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               {journeySteps.map((stepItem: any, idx: number) => (
                 <article key={idx} style={{ background: "#ffffff", padding: "24px", borderRadius: "20px", border: "1px solid #ebdccb", boxShadow: "0 8px 20px rgba(0,0,0,0.03)" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "12px" }}>
-                    <span style={{ fontSize: "28px", fontWeight: 900, color: "#b57a25", fontFamily: "serif" }}>{stepItem.step}</span>
+                    <span style={{ fontSize: "28px", fontWeight: 900, color: "#b57a25" }}>{stepItem.step}</span>
                     <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", background: "#fff6e5", color: "#b57a25", padding: "4px 10px", borderRadius: "999px" }}>
                       {stepItem.phase}
                     </span>

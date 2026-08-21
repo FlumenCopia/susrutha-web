@@ -190,7 +190,7 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
           {focusAreas.length > 0 && (
             <div style={{ background: "#ffffff", padding: "36px 32px", borderRadius: "24px", border: "1px solid #ebdccb", boxShadow: "0 12px 30px rgba(71, 50, 26, 0.05)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <span style={{ fontSize: "12px", fontWeight: 900, color: "#b57a25", letterSpacing: "0.14em", textTransform: "uppercase", display: "block", marginBottom: "8px" }}>CLINICAL EXPERTISE</span>
-              <h2 style={{ fontSize: "26px", fontWeight: 800, fontFamily: "serif", color: "#1a140c", margin: "0 0 24px" }}>Specialties & Focus Areas</h2>
+              <h2 style={{ fontSize: "26px", fontWeight: 800, color: "#1a140c", margin: "0 0 24px" }}>Specialties & Focus Areas</h2>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                 {focusAreas.map((area: string) => (
                   <span
@@ -222,7 +222,7 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
               <span style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", color: "#d49e54", letterSpacing: "0.12em", display: "block", marginBottom: "12px" }}>
                 MEDICAL PHILOSOPHY
               </span>
-              <h2 style={{ fontSize: "22px", fontWeight: 700, fontFamily: "serif", lineHeight: 1.5, color: "#ffffff", margin: "0 0 16px" }}>
+              <h2 style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.5, color: "#ffffff", margin: "0 0 16px" }}>
                 &ldquo;{doctor.quote}&rdquo;
               </h2>
               <span style={{ fontSize: "13.5px", color: "#d49e54", fontWeight: 800, letterSpacing: "0.05em" }}>— {docName}</span>
