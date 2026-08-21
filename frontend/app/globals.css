@@ -577,4 +577,63 @@ img[style*="position: absolute"] {
     font-size: clamp(26px, 6.5vw, 36px) !important;
     line-height: 1.2 !important;
   }
+}
+
+/* ==========================================================================
+   Unified Standard Section Subtitles & Eyebrow System
+   ========================================================================== */
+.af-subtext,
+.custodians-header p,
+.home-doctors-subtitle-creative,
+.home-page .treatments-showcase-head p,
+.treatments-showcase-head p,
+.home-page .home-wellness-content>p,
+.home-wellness-content>p,
+.home-wellness-content p,
+.path-wholeness-header p,
+.sig-experience-header p,
+.susrutha-way-header p,
+.testimonials-reference-head p,
+.testimonials-reference-heading p,
+.faq-section-head p,
+.why-section p,
+.why-copy p,
+.specialities-head p,
+.village-copy-panel p,
+.facilities-process-head p,
+.doctor-panel-head p,
+.doctor-detail-title-center p,
+.doctor-philosophy-panel p,
+.doctor-faq-panel p,
+.all-treatments-head p,
+.section-sub-luxury,
+.section-subtitle,
+.section-desc {
+  font-size: clamp(15px, 1.1vw, 17px) !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+  color: #555e59 !important;
+}
+
+.home-wellness-eyebrow,
+.sig-experience-eyebrow,
+.susrutha-way-eyebrow,
+.af-eyebrow,
+.treatments-showcase-eyebrow,
+.home-page .treatments-showcase-eyebrow,
+.testimonials-reference-eyebrow,
+.faq-eyebrow,
+.village-eyebrow,
+.village-program-eyebrow,
+.path-wholeness-step-tag,
+.vg-section-eyebrow,
+.doctors-expert-eyebrow,
+.eyebrow,
+.section-eyebrow {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  color: #a87534 !important;
 }

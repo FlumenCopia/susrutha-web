@@ -149,10 +149,10 @@
 
 /* Header & Subtext */
 .af-subtext {
-  font-size: 15px;
-  color: #6b5a3e;
+  font-size: clamp(15px, 1.1vw, 17px);
+  color: #555e59;
   margin: 10px 0 0 0;
-  line-height: 1.5;
+  line-height: 1.65;
   text-align: left;
 }
 

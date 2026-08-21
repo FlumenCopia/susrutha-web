@@ -8098,8 +8098,9 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .custodians-header p {
-  font-size: 17px;
-  color: #645e51;
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.65;
+  color: #555e59;
   text-align: center !important;
   max-width: 600px;
   margin: 0 auto !important;

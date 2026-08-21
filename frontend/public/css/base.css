@@ -86,10 +86,10 @@
   align-items: center;
   gap: 20px;
   color: #a87534;
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  line-height: 1;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -168,10 +168,10 @@
 .home-page .treatments-showcase-head p {
   max-width: 780px;
   margin: 18px 0 0;
-  color: #434a47 !important;
-  font-size: 18px !important;
+  color: #555e59 !important;
+  font-size: clamp(15px, 1.1vw, 17px) !important;
   font-weight: 400 !important;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* Trust Highlights Ribbon */
