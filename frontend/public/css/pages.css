@@ -8600,9 +8600,10 @@ label {
   z-index: 1;
   margin: 0;
   color: var(--contact-ink) !important;
-  font-size: clamp(30px, 2.45vw, 40px);
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
 }
 
 .contact-reference-form h2 {
@@ -8758,10 +8759,10 @@ label {
   position: relative;
   margin: 0 0 6px;
   color: var(--contact-ink) !important;
-  font-size: clamp(34px, 3vw, 52px);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
   text-align: center;
 }
 
