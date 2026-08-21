@@ -105,7 +105,7 @@ export function HomeWellnessExpertiseSection() {
         <h2>
           Your Wellness,
           <br />
-          Our <em>Ancient</em> Expertise
+          Our <span>Ancient</span> Expertise
         </h2>
 
         {/* <div className="home-wellness-divider" aria-hidden="true">

@@ -3950,7 +3950,7 @@ body:has(.treatment-detail-reference) main {
   line-height: 1.04;
 }
 
-.home-page .home-wellness-content h2 em {
+.home-page .home-wellness-content h2 span {
   color: #a87534;
   font-weight: 400;
 }
