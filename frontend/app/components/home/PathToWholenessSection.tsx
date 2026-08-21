@@ -45,7 +45,7 @@ export function PathToWholenessSection() {
                 <div className="path-wholeness-icon-box">
                   <span className="material-symbols-outlined">{s.icon}</span>
                 </div>
-                <span className="path-wholeness-step-tag">{s.step}</span>
+                {/* <span className="path-wholeness-step-tag">{s.step}</span> */}
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
               </div>

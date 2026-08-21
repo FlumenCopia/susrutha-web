@@ -7740,8 +7740,8 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .path-wholeness-line {
   position: absolute;
   top: 56px;
-  left: 0;
-  right: 0;
+  left: 12.5%;
+  right: 12.5%;
   height: 1px;
   background: rgba(194, 200, 194, 0.3);
   z-index: 0;
@@ -8175,6 +8175,9 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   }
   .susrutha-way-card {
     aspect-ratio: 4 / 3;
+  }
+  .path-wholeness-line {
+    display: none;
   }
   .path-wholeness-grid,
   .sig-experience-grid,
