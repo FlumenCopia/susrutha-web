@@ -51,7 +51,6 @@
 }
 
 .af-title {
-  font-family: inherit;
   font-size: clamp(32px, 3.8vw, 48px);
   font-weight: 600;
   color: #1a1a1a;

@@ -451,7 +451,6 @@ body .site-header .nav-actions .nav-book-btn:hover {
   width: 100%;
   text-align: left;
   cursor: pointer;
-  font-family: inherit;
   border-bottom: 1px solid #f2ede4;
   transition: background 0.2s ease, color 0.2s ease;
 }

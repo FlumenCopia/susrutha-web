@@ -433,7 +433,6 @@ img[style*="position: absolute"] {
   font-weight: 700;
   cursor: pointer;
   outline: none;
-  font-family: inherit;
   position: relative;
   z-index: 101;
 }
