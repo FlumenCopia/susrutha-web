@@ -135,9 +135,9 @@
 .home-page .treatments-showcase-head h2 {
   margin-top: 24px;
   color: #000a04;
-  font-size: clamp(38px, 4.2vw, 70px);
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.18;
   text-wrap: balance;
 }
 
@@ -779,7 +779,7 @@
   }
 
   .home-page .treatments-showcase-head h2 {
-    font-size: clamp(38px, 9vw, 54px);
+    font-size: clamp(28px, 6vw, 40px);
   }
 
   .home-page .treatments-showcase-head p {

@@ -1614,10 +1614,10 @@ p {
 
 .testimonials-reference-heading h2 {
   margin: 26px 0 0;
-  color: #192421;
-  font-size: clamp(44px, 4.4vw, 76px);
+  color: #000a04;
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.18;
 }
 
 .testimonials-reference-heading h2 em {
@@ -7722,6 +7722,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .path-wholeness-header h2 {
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
+  line-height: 1.18;
   color: #000a04;
   margin: 0;
 }
@@ -7845,6 +7846,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .sig-experience-header h2 {
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
+  line-height: 1.18;
   color: #000a04;
   margin: 0;
 }
@@ -7979,10 +7981,10 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 }
 
 .susrutha-way-header h2 {
-  font-size: clamp(30px, 3.2vw, 44px);
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
-  color: #2b1d12;
-  line-height: 1.25;
+  color: #000a04;
+  line-height: 1.18;
   margin: 0;
 }
 
@@ -8092,6 +8094,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 .custodians-header h2 {
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
+  line-height: 1.18;
   color: #000a04;
   text-align: center !important;
   margin: 0 0 12px 0 !important;

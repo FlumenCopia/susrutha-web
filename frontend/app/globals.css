@@ -449,3 +449,67 @@ img[style*="position: absolute"] {
   position: relative !important;
   z-index: 50 !important;
 }
+
+/* ==========================================================================
+   Unified Standard Section Titles & Headings System
+   ========================================================================== */
+.home-page .treatments-showcase-head h2,
+.home-page .home-wellness-content h2,
+.home-wellness-content h2,
+.path-wholeness-header h2,
+.sig-experience-header h2,
+.susrutha-way-header h2,
+.af-title,
+.af-header h2,
+.custodians-header h2,
+.home-doctors-title-creative,
+.home-doctors-header-creative h2,
+.testimonials-reference-heading h2,
+.faq-section-head h2,
+.home-faq-title,
+.why-section h2,
+.specialities-head h2,
+.ayurveda-village-section h2,
+.village-copy-panel h2,
+.facilities-process-head h2,
+.timeloop-heading h2,
+.section-title-luxury,
+.apt-section-title-luxury,
+.vg-section-title,
+.international-faq-main-title {
+  font-size: clamp(32px, 3.5vw, 48px) !important;
+  line-height: 1.18 !important;
+  font-weight: 500 !important;
+  color: #000a04 !important;
+  letter-spacing: -0.01em !important;
+}
+
+@media (max-width: 640px) {
+  .home-page .treatments-showcase-head h2,
+  .home-page .home-wellness-content h2,
+  .home-wellness-content h2,
+  .path-wholeness-header h2,
+  .sig-experience-header h2,
+  .susrutha-way-header h2,
+  .af-title,
+  .af-header h2,
+  .custodians-header h2,
+  .home-doctors-title-creative,
+  .home-doctors-header-creative h2,
+  .testimonials-reference-heading h2,
+  .faq-section-head h2,
+  .home-faq-title,
+  .why-section h2,
+  .specialities-head h2,
+  .ayurveda-village-section h2,
+  .village-copy-panel h2,
+  .facilities-process-head h2,
+  .timeloop-heading h2,
+  .section-title-luxury,
+  .apt-section-title-luxury,
+  .vg-section-title,
+  .international-faq-main-title {
+    font-size: clamp(26px, 6.5vw, 36px) !important;
+    line-height: 1.2 !important;
+  }
+}

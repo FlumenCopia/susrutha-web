@@ -3942,12 +3942,12 @@ body:has(.treatment-detail-reference) main {
 }
 
 .home-page .home-wellness-content h2 {
-  max-width: 540px;
+  max-width: 600px;
   margin: clamp(16px, 1.7vw, 26px) 0 0;
   color: #000000;
-  font-size: clamp(32px, 3.15vw, 52px);
+  font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 500;
-  line-height: 1.04;
+  line-height: 1.18;
 }
 
 .home-page .home-wellness-content h2 span {
