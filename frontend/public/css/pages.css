@@ -8612,10 +8612,7 @@ label {
 
 .contact-reference-form-rule,
 .contact-reference-small-rule {
-  display: block;
-  width: 40px;
-  height: 1px;
-  background: var(--contact-gold);
+  display: none !important;
 }
 
 .contact-reference-form-rule {
@@ -8767,12 +8764,7 @@ label {
 }
 
 .contact-reference-info>.contact-reference-small-rule {
-  display: block;
-  width: 48px;
-  height: 3px;
-  margin: 16px auto 0;
-  border-radius: 99px;
-  background: linear-gradient(90deg, var(--contact-gold), rgba(200, 155, 60, 0.4));
+  display: none !important;
 }
 
 .contact-reference-small-rule {

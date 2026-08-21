@@ -371,7 +371,6 @@ export function ContactReferencePage() {
         <section className="contact-reference-info" aria-labelledby="contact-info-title">
           <div className="contact-reference-info-glow" aria-hidden="true" />
           <h2 id="contact-info-title">Get in Touch</h2>
-          <span className="contact-reference-small-rule" aria-hidden="true" />
           <div className="contact-reference-info-grid">
             {contactCards.map((card, idx) => (
               <article key={idx}>

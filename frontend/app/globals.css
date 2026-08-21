@@ -124,7 +124,14 @@ html body .conditions-hero::after,
 html body .conditions-page .conditions-hero::before,
 html body .conditions-page .conditions-hero::after,
 html body .conditions-hero-copy::before,
-html body .conditions-hero-copy::after {
+html body .conditions-hero-copy::after,
+html body .path-wholeness-divider,
+html body .contact-reference-small-rule,
+html body .contact-reference-form-rule,
+html body .treatments-showcase-divider,
+html body .testimonials-reference-divider,
+html body .home-wellness-divider,
+html body .doctor-detail-title-center span {
   display: none !important;
   content: none !important;
   background: none !important;

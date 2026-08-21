@@ -35,7 +35,6 @@ export function PathToWholenessSection() {
       <div className="path-wholeness-container">
         <div className="path-wholeness-header">
           <h2 id="path-wholeness-heading">The Path to Wholeness</h2>
-          <div className="path-wholeness-divider" aria-hidden="true" />
         </div>
 
         <div className="path-wholeness-timeline">
