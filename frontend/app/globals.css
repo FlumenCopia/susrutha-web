@@ -17,7 +17,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #fff !important;
-  color: var(--color-ink, #372718);
+  color: #000 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,7 +31,7 @@ h6,
 .font-display-lg,
 .font-headline-lg,
 .font-headline-md {
-  color: var(--color-ink, #372718);
+  color: #000 !important;
 }
 
 em,

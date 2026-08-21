@@ -3800,7 +3800,6 @@ body:has(.treatment-detail-reference) main {
   margin: 0 calc(50% - 50vw);
   padding: clamp(44px, 4.8vw, 76px) clamp(24px, 4.2vw, 76px);
   background: #ffffff;
-  color: #0b2b21;
 }
 
 .home-page .home-wellness-visual {
@@ -3945,7 +3944,7 @@ body:has(.treatment-detail-reference) main {
 .home-page .home-wellness-content h2 {
   max-width: 540px;
   margin: clamp(16px, 1.7vw, 26px) 0 0;
-  color: #10261f;
+  color: #000000;
   font-size: clamp(32px, 3.15vw, 52px);
   font-weight: 500;
   line-height: 1.04;

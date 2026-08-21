@@ -4,7 +4,7 @@
   --color-deep-red: #8f6128;
   --color-sun: #d7a85f;
   --color-gold: #b17a35;
-  --color-ink: #253f38;
+  --color-ink: #000000;
   --color-muted: #4d504a;
   --color-cream: #fbf7ef;
   --color-ivory: #f4eadb;
@@ -15,13 +15,13 @@ body {
   background:
     radial-gradient(circle at 8% 9%, rgba(177, 122, 53, 0.05), transparent 22%),
     linear-gradient(180deg, #fffdf8 0%, #fbf7ef 46%, #f6eee2 100%);
-  color: #253f38;
+  color: #000000;
 }
 
 h1,
 h2,
 h3 {
-  color: #253f38;
+  color: #000000;
 }
 
 p {
@@ -2704,7 +2704,7 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .home-page .about-susrutha-copy h2 {
   max-width: 710px;
-  color: #20312d;
+  color: #000000;
   font-size: clamp(52px, 4.4vw, 78px);
   line-height: 1.14;
 }
@@ -2879,9 +2879,9 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
   background: rgba(168, 117, 52, 0.06);
 }
 
-.home-page .about-value-card h4 {
+.home-page .about-value-card h3 {
   margin: 24px 0 0;
-  color: #17231f;
+  color: #000000;
   font-size: 18px;
   font-weight: 700;
 }

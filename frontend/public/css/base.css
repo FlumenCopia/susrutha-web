@@ -1,12 +1,12 @@
 :root {
   /* Ayora Inspired Luxury Palette Tokens */
-  --color-ayora-primary: #372718;
-  /* Deep Warm Espresso Dark Ink */
-  --color-ayora-dark: #251e1a;
+  --color-ayora-primary: #000000;
+  /* Deep Dark Ink */
+  --color-ayora-dark: #000000;
   /* Rich Dark Mocha */
   --color-ayora-terracotta: #df7943;
   /* Ayora Terracotta Accent */
-  --color-ayora-lime: #000a04;
+  --color-ayora-lime: #000000;
   /* Ayora Herbal Lime Accent */
   --color-ayora-cream: #fff7f0;
   /* Ayora Soft Signature Cream */
@@ -28,7 +28,7 @@
   /* Brand Gold Accent */
   --color-gold: #c88922;
   /* Brand Gold Accent */
-  --color-ink: #372718;
+  --color-ink: #000000;
   /* Ayora Text Font Color */
   --color-muted: rgba(55, 39, 24, 0.7);
   /* Ayora Muted Text Color */
