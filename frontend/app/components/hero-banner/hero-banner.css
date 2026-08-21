@@ -104,24 +104,25 @@
 }
 
 .ayora-hero-giant-title {
-  font-size: clamp(32px, 5.2vw, 68px);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  color: #ffffff;
-  margin: 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  white-space: normal;
-  word-wrap: break-word;
-  max-width: 1000px;
+  font-size: clamp(32px, 5.2vw, 68px) !important;
+  font-weight: 500 !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  max-width: 1000px !important;
 }
 
 /* Responsive Media Queries */
 @media (max-width: 980px) {
   .ayora-hero-giant-title {
-    font-size: clamp(28px, 6vw, 48px);
-    line-height: 1.08;
+    font-size: clamp(28px, 6vw, 48px) !important;
+    line-height: 1.08 !important;
+    font-weight: 500 !important;
   }
 }
 
@@ -146,6 +147,8 @@
   }
 
   .ayora-hero-giant-title {
-    font-size: clamp(1.8rem, 8vw, 3.2rem);
+    font-size: clamp(28px, 7.5vw, 44px) !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
   }
 }

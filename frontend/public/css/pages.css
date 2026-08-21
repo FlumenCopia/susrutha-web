@@ -4512,7 +4512,10 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
   }
 
   .conditions-hero-serene-title {
-    font-size: clamp(28px, 7.5vw, 44px);
+    font-size: clamp(28px, 7.5vw, 44px) !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.01em !important;
     white-space: normal;
   }
 }
@@ -8063,12 +8066,12 @@ label {
 }
 
 .contact-booking-hero-h1 {
-  font-size: clamp(40px, 4.8vw, 64px);
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.08;
-  margin: 0 0 16px;
-  letter-spacing: -0.01em;
+  font-size: clamp(32px, 5.2vw, 68px) !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  line-height: 1.05 !important;
+  margin: 0 0 16px !important;
+  letter-spacing: 0.01em !important;
 }
 
 .contact-booking-hero-h1 span {
@@ -13587,11 +13590,13 @@ body:has(.ayur-village-page) {
 }
 
 .ayur-village-hero h1 {
-  max-width: 780px;
+  max-width: 1000px;
   margin: 22px 0 0;
   color: #ffffff;
-  font-size: clamp(48px, 5.2vw, 88px);
-  line-height: 1.02;
+  font-size: clamp(32px, 5.2vw, 68px) !important;
+  font-weight: 500 !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.01em !important;
 }
 
 .ayur-village-hero p {
@@ -14665,11 +14670,13 @@ body:has(.packages-page) {
 }
 
 .packages-hero h1 {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 20px 0 0;
   color: #ffffff;
-  font-size: clamp(42px, 4.5vw, 76px);
-  line-height: 1.04;
+  font-size: clamp(32px, 5.2vw, 68px) !important;
+  font-weight: 500 !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.01em !important;
 }
 
 .packages-hero p {
