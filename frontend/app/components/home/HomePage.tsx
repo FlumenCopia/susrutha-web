@@ -22,8 +22,8 @@ export function HomePage() {
       <SusruthaWaySection />
       {/* <CustodiansOfWisdomSection /> */}
       {/* <AboutFoundersSection /> */}
-      <AboutFoundersSection />|
-            <HomeFooterBanner />
+      <AboutFoundersSection />
+      <HomeFooterBanner />
 
     </div>
   );
