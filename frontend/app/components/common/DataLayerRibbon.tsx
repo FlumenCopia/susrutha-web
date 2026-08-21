@@ -35,7 +35,6 @@ export function DataLayerRibbon({
     gap: "4px",
     border: "1px solid rgba(255, 255, 255, 0.3)",
     lineHeight: "1.2",
-    fontFamily: "system-ui, -apple-system, sans-serif",
     whiteSpace: "nowrap",
   };
 

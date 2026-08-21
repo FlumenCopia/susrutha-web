@@ -630,7 +630,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 fontWeight: 900,
                 margin: "12px 0 18px",
                 color: "#ffffff",
-                fontFamily: "serif",
                 lineHeight: 1.2,
                 textShadow: "0 4px 16px rgba(0,0,0,0.8)",
               }}
