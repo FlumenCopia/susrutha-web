@@ -51,7 +51,7 @@ export function EcosystemHero() {
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="ecosystem-title" className="conditions-hero-serene-title">
-            ECOSYSTEM
+            Ecosystem
           </h1>
         </div>
       </div>

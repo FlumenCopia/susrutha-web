@@ -4488,7 +4488,7 @@ body:has(.vg-page-wrapper) .conditions-hero-serene-title {
   color: #ffffff !important;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
   margin: 0 !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
   max-width: 1000px !important;
 }
 

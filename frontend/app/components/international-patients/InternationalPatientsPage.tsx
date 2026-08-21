@@ -70,7 +70,7 @@ export function InternationalPatientsPage() {
 
           <div className="conditions-hero-serene-bottom">
             <h1 id="international-patients-title" className="conditions-hero-serene-title">
-              INTERNATIONAL PATIENTS
+              International Patients
             </h1>
           </div>
         </div>

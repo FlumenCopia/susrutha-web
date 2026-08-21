@@ -81,7 +81,7 @@ export function BranchesHero() {
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="branches-title" className="conditions-hero-serene-title">
-            OUR BRANCHES &amp; CLINICS
+            Our Branches &amp; Clinics
           </h1>
         </div>
       </div>

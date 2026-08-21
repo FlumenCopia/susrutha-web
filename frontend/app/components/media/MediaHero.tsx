@@ -47,7 +47,7 @@ export function MediaHero() {
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="media-title" className="conditions-hero-serene-title">
-            MEDIA & GALLERY
+            Media &amp; Gallery
           </h1>
         </div>
       </div>

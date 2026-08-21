@@ -24,7 +24,7 @@ export function ConditionsBanner() {
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="conditions-title" className="conditions-hero-serene-title">
-            CONDITIONS WE TREAT
+            Conditions We Treat
           </h1>
         </div>
       </div>

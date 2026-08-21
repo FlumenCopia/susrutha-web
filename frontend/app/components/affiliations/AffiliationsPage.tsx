@@ -62,7 +62,7 @@ export function AffiliationsPage() {
 
           <div className="conditions-hero-serene-bottom">
             <h1 id="affiliations-title" className="conditions-hero-serene-title">
-              INTERNATIONAL AFFILIATIONS
+              International Affiliations
             </h1>
           </div>
         </div>

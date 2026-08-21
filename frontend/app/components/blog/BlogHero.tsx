@@ -24,7 +24,7 @@ export function BlogHero() {
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="blog-title" className="conditions-hero-serene-title">
-            BLOGS &amp; INSIGHTS
+            Blogs &amp; Insights
           </h1>
         </div>
       </div>

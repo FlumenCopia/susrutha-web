@@ -14,7 +14,7 @@ interface HeroBannerProps {
 }
 
 export function HeroBanner({
-  giantTitle = "SUSRUTHA AYURVEDA",
+  giantTitle = "Susrutha Ayurveda",
   subtitle = "Step into your personal sanctuary—where expert care meets serene ambience, guiding you toward both inner calm and outer radiance.",
   buttonText = "BOOK AN APPOINTMENT",
   buttonLink = "/appointment",

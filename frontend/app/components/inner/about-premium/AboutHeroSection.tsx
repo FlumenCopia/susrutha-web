@@ -50,9 +50,9 @@ export function AboutHeroSection() {
       {/* Hero Main Content Container */}
       <div className="about-hero-content-container">
         <h1 className="about-hero-giant-heading">
-          HEALING FOR
+          Healing for
           <br />
-          BODY &amp; SOUL
+          Body &amp; Soul
         </h1>
 
         <p className="about-hero-description">

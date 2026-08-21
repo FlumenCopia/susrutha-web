@@ -43,7 +43,7 @@ export function FacilitiesHero() {
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="facilities-title" className="conditions-hero-serene-title">
-            FACILITIES
+            Facilities
           </h1>
         </div>
       </div>

@@ -59,7 +59,7 @@ export function VideoGalleryHeaderHero({ onSpotlightClick, spotlightVideo }: Vid
 
         <div className="conditions-hero-serene-bottom">
           <h1 id="video-gallery-title" className="conditions-hero-serene-title">
-            VIDEO GALLERY
+            Video Gallery
           </h1>
         </div>
       </div>
