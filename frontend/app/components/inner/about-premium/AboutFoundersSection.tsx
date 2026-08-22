@@ -22,23 +22,46 @@ export function AboutFoundersSection() {
           const cleanDocs = docs.filter(
             (d: any) => !d.name?.includes("Test") && !d.name?.match(/\d{5,}/)
           );
-          const sourceDocs = cleanDocs.length > 0 ? cleanDocs : docs;
 
-          // Sort directors/founders or senior doctors first
+          // ONLY show featured doctors in this section
+          const featuredDocs = cleanDocs.filter(
+            (d: any) => d.isFeatured === true || d.featured === true
+          );
+
+          const sourceDocs = featuredDocs.length > 0 
+            ? featuredDocs 
+            : cleanDocs.filter((d: any) => d.isDirector || d.isFounder);
+
+          // Sort by sortOrder first, then directors/founders, then experience
           const sorted = [...sourceDocs].sort((a: any, b: any) => {
+            if (a.sortOrder !== undefined && b.sortOrder !== undefined && a.sortOrder !== b.sortOrder) {
+              return (a.sortOrder || 0) - (b.sortOrder || 0);
+            }
             if (a.isDirector || a.isFounder) return -1;
             if (b.isDirector || b.isFounder) return 1;
             return (b.experienceYears || 0) - (a.experienceYears || 0);
           });
 
-          const normalized = sorted.map((d: any) => ({
-            name: d.name,
-            role: d.designation || d.title || "Senior Ayurvedic Physician",
-            copy: `${d.experienceYears || 15}+ years of experience in ${d.specialties?.[0] || 'Panchakarma & Ayurveda care'}.`,
-            image: getImageDisplayUrl(d.photo || d.photoUrl || d.image),
-            href: `/doctors/${d.slug}`,
-            isBackendData: true,
-          }));
+          const normalized = sorted.map((d: any) => {
+            let img = getImageDisplayUrl(d.photo || d.photoUrl || d.image);
+            if (!img) {
+              const slug = (d.slug || "").toLowerCase();
+              if (slug.includes("krishnakumar")) img = "/images/dr_krishnakumar.webp";
+              else if (slug.includes("sreeja")) img = "/images/dr_sreeja_krishna.webp";
+              else if (slug.includes("sasidharan")) img = "/images/dr_sasidharan.webp";
+              else if (slug.includes("priyanka")) img = "/images/dr_priyanka.webp";
+              else img = "/images/dr_krishnakumar.webp";
+            }
+
+            return {
+              name: d.name,
+              role: d.designation || d.title || "Senior Ayurvedic Physician",
+              copy: `${d.experienceYears || 15}+ years of experience in ${d.specialties?.[0] || 'Panchakarma & Ayurveda care'}.`,
+              image: img,
+              href: `/doctors/${d.slug}`,
+              isBackendData: true,
+            };
+          });
 
           setLeaders(normalized);
         } else {
@@ -56,7 +79,9 @@ export function AboutFoundersSection() {
 
   const handleScroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -340 : 340;
+      const card = scrollRef.current.querySelector<HTMLElement>(".af-card");
+      const cardWidth = card ? card.offsetWidth + 24 : 380;
+      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };

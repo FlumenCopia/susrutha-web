@@ -4,6 +4,12 @@ export function getImageDisplayUrl(url?: string | null): string {
   if (!url || typeof url !== 'string' || url.trim() === '') return '';
   if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
   if (url.startsWith('/images/')) return url;
+  
+  const filename = url.split('/').pop() || '';
+  if (filename.startsWith('dr_') || filename.startsWith('doctor-') || filename.startsWith('founder-')) {
+    return `/images/${filename}`;
+  }
+
   const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1/public';
   const hostBase = apiBase.replace(/\/api\/v1.*$/, '').replace(/\/+$/, '');
   const cleanPath = url.startsWith('/') ? url : `/${url}`;
