@@ -742,7 +742,8 @@ h2.contact-booking-title,
 }
 
 @media (max-width: 768px) {
-  .ayur-village-hero {
+  .ayur-village-hero,
+  .packages-hero {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
@@ -752,13 +753,15 @@ h2.contact-booking-title,
     overflow: hidden !important;
   }
 
-  .ayur-village-hero-features {
+  .ayur-village-hero-features,
+  .packages-hero-features {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
     width: 100% !important;
   }
 
-  .ayur-village-hero-features article {
+  .ayur-village-hero-features article,
+  .packages-hero-features article {
     display: flex !important;
     align-items: center !important;
     gap: 12px !important;
@@ -766,11 +769,21 @@ h2.contact-booking-title,
   }
 
   .ayur-village-hero-features h2,
-  .ayur-village-feature-title {
-    font-size: 13.5px !important;
+  .ayur-village-feature-title,
+  .packages-hero-features h2,
+  .packages-page .packages-hero-features h2 {
+    font-size: 14px !important;
     font-weight: 600 !important;
+    line-height: 1.3 !important;
     color: #ffffff !important;
+    margin: 0 0 2px 0 !important;
+  }
+
+  .packages-hero-features p {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
     margin: 0 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
   }
 }
 
