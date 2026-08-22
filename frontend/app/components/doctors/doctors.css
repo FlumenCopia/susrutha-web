@@ -1539,17 +1539,18 @@
 .doctors-stats-heading {
   font-size: clamp(34px, 3.8vw, 48px);
   font-weight: 500;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.15;
   margin: 0;
   letter-spacing: -0.01em;
   display: flex;
   flex-direction: column;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .doctors-stats-heading span {
   font-style: normal;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .doctors-stats-divider {
@@ -1692,19 +1693,20 @@ p.doctors-stat-label {
 .doctors-cta-heading {
   font-size: clamp(30px, 3.5vw, 42px);
   font-weight: 500;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.2;
   margin: 0 0 14px;
   letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
 .doctors-cta-desc {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
   margin: 0 0 24px;
   font-weight: 400;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 .doctors-cta-btn-wrap {

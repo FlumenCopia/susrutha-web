@@ -21608,14 +21608,17 @@ a.home-footer-calm-btn:hover,
   }
 }
 
-/* Consultation & Treatment Detail CTA Banners - White Heading & Text Fix */
+/* Consultation & Treatment Detail CTA Banners & Doctors Stats - White Heading & Text Fix */
 .treatment-detail-cta-banner h2,
 .treatment-detail-cta-title,
 .doctor-appointment-cta-title,
 .doctor-appointment-banner h2,
 .package-cta-title,
 .treatment-cta-luxury h2,
-.treatment-cta-luxury .cta-heading {
+.treatment-cta-luxury .cta-heading,
+.doctors-stats-heading,
+.doctors-stats-heading span,
+.doctors-cta-heading {
   color: #ffffff !important;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
 }
@@ -21625,7 +21628,10 @@ a.home-footer-calm-btn:hover,
 .doctor-appointment-cta-text,
 .package-cta-text,
 .treatment-cta-luxury p,
-.treatment-cta-luxury .cta-text {
+.treatment-cta-luxury .cta-text,
+.doctors-cta-desc,
+.doctors-stat-label,
+p.doctors-stat-label {
   color: #ffffff !important;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95) !important;
   opacity: 1 !important;
