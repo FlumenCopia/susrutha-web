@@ -9004,13 +9004,7 @@ label {
   transform: rotate(-24deg);
 }
 
-.contact-reference-map::after {
-  right: 20%;
-  top: 17%;
-  width: 108px;
-  height: 74px;
-  transform: rotate(18deg);
-}
+
 
 .contact-reference-map-lines {
   position: absolute;
