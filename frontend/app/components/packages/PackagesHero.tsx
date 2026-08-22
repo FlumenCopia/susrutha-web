@@ -33,8 +33,10 @@ export function PackagesHero() {
         sizes="100vw"
       />
       <div className="packages-hero-copy">
-        <h1>Structured Care Programmes</h1>
-        <p>
+        <h1 style={{ color: "#ffffff", textShadow: "0 3px 18px rgba(0, 0, 0, 0.85)" }}>
+          Structured Care Programmes
+        </h1>
+        <p style={{ color: "rgba(255, 255, 255, 0.95)", textShadow: "0 2px 10px rgba(0, 0, 0, 0.85)" }}>
           From intensive inpatient hospital programmes to restorative wellness and specialty rejuvenation pathways.
         </p>
         <Link className="packages-button packages-button-light" href="/appointment">
@@ -50,8 +52,8 @@ export function PackagesHero() {
               {feature.icon}
             </span>
             <div>
-              <h2>{feature.title}</h2>
-              <p>{feature.text}</p>
+              <h2 style={{ color: "#ffffff", textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)" }}>{feature.title}</h2>
+              <p style={{ color: "rgba(255, 255, 255, 0.9)" }}>{feature.text}</p>
             </div>
           </article>
         ))}

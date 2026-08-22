@@ -21624,7 +21624,13 @@ h2.contact-booking-title,
 .ayur-village-page .ayur-village-hero h1,
 .ayur-village-ideal h2,
 .ayur-village-ideal-title,
-.ayur-village-page .ayur-village-ideal h2 {
+.ayur-village-page .ayur-village-ideal h2,
+.packages-hero h1,
+.packages-hero-copy h1,
+.packages-page .packages-hero h1,
+.packages-cta h2,
+.packages-cta-copy h2,
+.packages-page .packages-cta h2 {
   color: #ffffff !important;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
 }
@@ -21642,12 +21648,31 @@ h2.contact-booking-title,
 .ayur-village-ideal-grid h3,
 .ayur-village-ideal-item-title,
 .ayur-village-ideal-grid article h3,
-.ayur-village-page .ayur-village-ideal-grid h3 {
+.ayur-village-page .ayur-village-ideal-grid h3,
+.packages-hero-features h2,
+.packages-hero-features article h2,
+.packages-page .packages-hero-features h2,
+.packages-cta-benefits h3,
+.packages-page .packages-cta-benefits h3 {
   font-size: 14px !important;
   font-weight: 600 !important;
   line-height: 1.35 !important;
   color: #ffffff !important;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
+}
+
+.packages-hero p,
+.packages-hero-copy p,
+.packages-page .packages-hero p,
+.packages-hero-features p,
+.packages-hero-features article p,
+.packages-page .packages-hero-features p,
+.packages-cta p,
+.packages-cta-copy p,
+.packages-page .packages-cta p {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85) !important;
+  opacity: 1 !important;
 }
 
 @media (max-width: 768px) {

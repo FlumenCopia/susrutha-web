@@ -13,8 +13,12 @@ export function PackagesCTA() {
     <section className="packages-cta">
       <Image src="/images/treatment-herbal-medicine.webp" alt="Ayurvedic herbs and mortar" fill sizes="100vw" />
       <div className="packages-cta-copy">
-        <h2>Not Sure Which Package Is Right for You?</h2>
-        <p>Our experts will guide you to the most suitable care plan.</p>
+        <h2 style={{ color: "#ffffff", textShadow: "0 3px 16px rgba(0, 0, 0, 0.85)" }}>
+          Not Sure Which Package Is Right for You?
+        </h2>
+        <p style={{ color: "rgba(255, 255, 255, 0.95)", textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)" }}>
+          Our experts will guide you to the most suitable care plan.
+        </p>
       </div>
 
       <div className="packages-cta-benefits">
@@ -23,7 +27,7 @@ export function PackagesCTA() {
             <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
               {benefit.icon}
             </span>
-            <h3>{benefit.title}</h3>
+            <h3 style={{ color: "#ffffff", textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)" }}>{benefit.title}</h3>
           </article>
         ))}
       </div>
