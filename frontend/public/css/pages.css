@@ -3195,15 +3195,12 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   color: #000a04;
   font-size: clamp(23px, 1.45vw, 29px);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
 }
 
 .all-treatment-rule {
-  display: block;
-  width: 42px;
-  height: 2px;
-  margin: 18px 0 19px;
-  background: #a46822;
+  display: none !important;
 }
 
 .all-treatment-body p {

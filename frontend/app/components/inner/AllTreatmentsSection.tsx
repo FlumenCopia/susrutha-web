@@ -112,7 +112,6 @@ export function AllTreatmentsSection() {
                 </div>
                 <div className="all-treatment-body">
                   <h3>{treatment.title}</h3>
-                  <span className="all-treatment-rule" aria-hidden="true" />
                   <p>{treatment.text}</p>
                   <div className="all-treatment-time">
                     <span className="material-symbols-outlined" style={{ fontSize: "16px", marginRight: "5px" }} aria-hidden="true">
