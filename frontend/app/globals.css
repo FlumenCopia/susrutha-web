@@ -486,15 +486,12 @@ img[style*="position: absolute"] {
 .international-faq-main-title,
 .contact-reference-info>h2,
 .contact-reference-info h2,
-.contact-reference-form h2,
 .contact-reference-visit-card h2,
 #contact-info-title,
 .doctor-detail-block>h2,
 .doctor-panel-head h2,
 .doctor-detail-title-center h2,
-.doctor-philosophy-panel h2,
 .doctor-experience-copy h2,
-.doctor-appointment-banner h2,
 .all-treatments-head h2,
 .journey-banner-copy h2,
 .ayur-village-routine h2,
@@ -671,7 +668,7 @@ img[style*="position: absolute"] {
   color: #a87534 !important;
 }
 
-/* Consultation & Treatment Detail CTA Banners & Doctors Stats - White Text & Heading Fix */
+/* Consultation, Treatment Detail, Doctor Philosophy & Contact Forms - White Text Fix */
 .treatment-detail-cta-banner h2,
 .treatment-detail-cta-title,
 .doctor-appointment-cta-title,
@@ -681,7 +678,12 @@ img[style*="position: absolute"] {
 .treatment-cta-luxury .cta-heading,
 .doctors-stats-heading,
 .doctors-stats-heading span,
-.doctors-cta-heading {
+.doctors-cta-heading,
+.doctor-philosophy-quote,
+.contact-booking-title,
+.contact-booking-hero h2,
+h2.contact-booking-title,
+.about-hero-value-text h3 {
   color: #ffffff !important;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
 }
@@ -694,7 +696,8 @@ img[style*="position: absolute"] {
 .treatment-cta-luxury .cta-text,
 .doctors-cta-desc,
 .doctors-stat-label,
-p.doctors-stat-label {
+p.doctors-stat-label,
+.about-hero-value-text p {
   color: #ffffff !important;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95) !important;
   opacity: 1 !important;

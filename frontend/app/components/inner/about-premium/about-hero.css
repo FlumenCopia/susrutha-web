@@ -206,17 +206,19 @@
 }
 
 .about-hero-value-text h3 {
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 1px 0;
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 2px 0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
 }
 
 .about-hero-value-text p {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.82);
-  margin: 0;
-  line-height: 1.3;
+  font-size: 0.72rem !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Responsive Media Queries */

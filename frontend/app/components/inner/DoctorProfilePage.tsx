@@ -222,7 +222,10 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
               <span style={{ fontSize: "12px", fontWeight: 800, textTransform: "uppercase", color: "#d49e54", letterSpacing: "0.12em", display: "block", marginBottom: "12px" }}>
                 MEDICAL PHILOSOPHY
               </span>
-              <h2 style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.5, color: "#ffffff", margin: "0 0 16px" }}>
+              <h2
+                className="doctor-philosophy-quote"
+                style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.5, color: "#ffffff", margin: "0 0 16px" }}
+              >
                 &ldquo;{doctor.quote}&rdquo;
               </h2>
               <span style={{ fontSize: "13.5px", color: "#d49e54", fontWeight: 800, letterSpacing: "0.05em" }}>— {docName}</span>
