@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
-import { getImageDisplayUrl } from "@/app/services/api";
 
 const ayurVillageGallery = [
-  { image: getImageDisplayUrl("/uploads/resort_room1.webp"), alt: "Ayurveda Gramam garden pathway and heritage cottage" },
-  { image: getImageDisplayUrl("/uploads/resort_room2.webp"), alt: "Traditional cottage inpatient deluxe suite" },
-  { image: getImageDisplayUrl("/uploads/facility_room1.webp"), alt: "Private Panchakarma treatment suite" },
-  { image: getImageDisplayUrl("/uploads/facility_yoga.webp"), alt: "Open air meditation & Yoga pavilion" },
+  { image: "/images/village_feature_heritage.jpg", alt: "Ayurveda Gramam garden pathway and heritage cottage" },
+  { image: "/images/village_feature_nature.jpg", alt: "Traditional cottage inpatient deluxe suite" },
+  { image: "/images/village_feature_treatment.jpg", alt: "Private Panchakarma treatment suite" },
+  { image: "/images/banner_calm_retreat.jpg", alt: "Open air meditation & Yoga pavilion" },
 ];
 
 const galleryImageSizes = "(max-width: 900px) 50vw, 24vw";
@@ -22,7 +21,7 @@ export function AyurVillageGallery() {
       <div className="ayur-village-gallery" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px" }}>
         {ayurVillageGallery.map((item) => (
           <article key={item.image} style={{ position: "relative", height: "260px", borderRadius: "20px", overflow: "hidden" }}>
-            <Image src={item.image} alt={item.alt} fill unoptimized sizes={galleryImageSizes} style={{ objectFit: "cover" }} />
+            <Image src={item.image} alt={item.alt} fill sizes={galleryImageSizes} style={{ objectFit: "cover" }} />
           </article>
         ))}
       </div>

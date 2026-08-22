@@ -13577,11 +13577,12 @@ body:has(.ayur-village-page) {
 .ayur-village-hero h1 {
   max-width: 1000px;
   margin: 22px 0 0;
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: clamp(32px, 5.2vw, 68px) !important;
   font-weight: 500 !important;
   line-height: 1.05 !important;
   letter-spacing: 0.01em !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7) !important;
 }
 
 .ayur-village-hero p {

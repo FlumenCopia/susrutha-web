@@ -1,22 +1,21 @@
 import Image from "next/image";
 import { AyurVillageIcon } from "./AyurVillageIcon";
-import { getImageDisplayUrl } from "@/app/services/api";
 
 const ayurVillageIdealFor = [
-  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: getImageDisplayUrl("/uploads/treatment-panchakarma.webp") },
-  { icon: "leaf", title: "Post-illness Convalescence & Rejuvenation", image: getImageDisplayUrl("/uploads/resort_room1.webp") },
-  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: getImageDisplayUrl("/uploads/facility_yoga.webp") },
+  { icon: "lotus", title: "Long-term Panchakarma Detox Patients", image: "/images/treatment-panchakarma.webp" },
+  { icon: "leaf", title: "Post-illness Convalescence & Rejuvenation", image: "/images/village_feature_nature.jpg" },
+  { icon: "lotus", title: "Stress Recovery & Mindful Relaxation", image: "/images/about-purpose-mission-bowl.webp" },
 ];
 
 export function AyurVillageIdealFor() {
   return (
     <section className="ayur-village-ideal">
       <Image
-        src={getImageDisplayUrl("/uploads/pub_asotra.webp")}
+        src="/images/ayurveda-hospital-garden.webp"
         alt="Ayurvedic therapy vessels and serene retreat"
         fill
-        unoptimized
         sizes="100vw"
+        style={{ objectFit: "cover" }}
       />
       <div>
         <h2>
@@ -32,7 +31,6 @@ export function AyurVillageIdealFor() {
                 alt={item.title}
                 width={52}
                 height={52}
-                unoptimized
                 style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
               />
             </div>
