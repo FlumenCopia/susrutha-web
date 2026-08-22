@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Calendar, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import { Check, Calendar, ArrowRight, ShieldCheck } from "lucide-react";
 import { getPublicPackages, getImageDisplayUrl } from "@/app/services/api";
 
 export function AyurVillagePackagesSection() {
@@ -32,7 +32,7 @@ export function AyurVillagePackagesSection() {
                 { days: 21, price: 49000, label: "21 Days Deep Tissue Detox" },
               ],
               startingPrice: 18000,
-              image: "/uploads/treatment-panchakarma.webp",
+              image: "/images/treatment-panchakarma.webp",
             },
             {
               _id: "p-spine",
@@ -45,7 +45,7 @@ export function AyurVillagePackagesSection() {
                 { days: 14, price: 29000, label: "14 Days Rehabilitation" },
               ],
               startingPrice: 16000,
-              image: "/uploads/opt_spine_joint.jpg",
+              image: "/images/opt_spine_joint.jpg",
             },
             {
               _id: "p-postnatal",
@@ -58,7 +58,7 @@ export function AyurVillagePackagesSection() {
                 { days: 28, price: 62000, label: "28 Days Full Prasava Raksha" },
               ],
               startingPrice: 32000,
-              image: "/uploads/dept_fertilization.webp",
+              image: "/images/dept_fertilization.webp",
             },
           ]);
         }
@@ -75,8 +75,8 @@ export function AyurVillagePackagesSection() {
     <section className="ayur-village-packages-section" style={{ padding: "80px 24px", background: "linear-gradient(180deg, #fdfaf5 0%, #f7f1e5 100%)" }}>
       <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 52px" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "6px 16px", borderRadius: "999px", background: "rgba(181, 122, 37, 0.12)", color: "#9a651e", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px" }}>
-            <Sparkles size={14} /> Gramam Residential Programs
+          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "6px 18px", borderRadius: "999px", background: "rgba(181, 122, 37, 0.12)", color: "#9a651e", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px" }}>
+            Gramam Residential Programs
           </span>
           <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#1c2a23", marginBottom: "14px", lineHeight: "1.2" }}>
             Physician-Guided Care Packages
