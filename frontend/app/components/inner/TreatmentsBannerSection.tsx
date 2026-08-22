@@ -55,7 +55,6 @@ export function TreatmentsBannerSection() {
 
           <Link className="treatment-hero-cta" href="#treatment-categories">
             Explore Treatments
-            <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>
