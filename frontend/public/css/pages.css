@@ -3019,6 +3019,7 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 350ms ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .all-treatment-card:hover {
@@ -3188,15 +3189,23 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .all-treatment-body {
-  padding: 24px 23px 25px;
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
 }
 
 .all-treatment-body h3 {
   color: #000a04;
-  font-size: clamp(23px, 1.45vw, 29px);
-  font-weight: 500;
-  line-height: 1.2;
-  margin: 0 0 14px 0;
+  font-size: clamp(16px, 1.1vw, 18.5px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px 0;
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
 }
 
 .all-treatment-rule {
@@ -3204,51 +3213,42 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 }
 
 .all-treatment-body p {
-  min-height: 74px;
-  margin: 0;
-  color: #3d4441 !important;
+  min-height: 72px;
+  margin: 0 0 16px 0;
+  color: #555e59 !important;
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .all-treatment-time {
   display: flex;
   align-items: center;
-  gap: 11px;
-  margin-top: 31px;
-  color: #203b34;
-  font-size: 14px;
-  font-weight: 500;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(225, 215, 198, 0.45);
+  color: #8c601e;
+  font-size: 13.5px;
+  font-weight: 600;
 }
 
 .all-treatment-time span {
-  position: relative;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #1f5b4e;
-  border-radius: 50%;
+  width: auto;
+  height: auto;
+  border: none !important;
+  border-radius: 0 !important;
+  display: inline-flex;
+  align-items: center;
 }
 
-.all-treatment-time span::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 3px;
-  width: 1.5px;
-  height: 6px;
-  background: #1f5b4e;
-}
-
+.all-treatment-time span::before,
 .all-treatment-time span::after {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 7px;
-  width: 5px;
-  height: 1.5px;
-  background: #1f5b4e;
-  transform: rotate(-25deg);
-  transform-origin: left center;
+  display: none !important;
+  content: none !important;
 }
 
 .treatment-journey-banner {
@@ -3389,7 +3389,8 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
   }
 
   .all-treatment-body h3 {
-    font-size: 24px;
+    font-size: 18px;
+    min-height: 44px;
   }
 
   .all-treatment-body p,
