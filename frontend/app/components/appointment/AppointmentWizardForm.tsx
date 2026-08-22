@@ -1720,9 +1720,9 @@ function AppointmentWizardContent() {
                   <Image
                     src={selectedDoctor?.avatar}
                     alt={selectedDoctor?.name || "Doctor"}
-                    width={60}
-                    height={60}
-                    style={{ objectFit: "cover", width: "60px", height: "60px", borderRadius: "50%" }}
+                    width={64}
+                    height={64}
+                    style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%", display: "block" }}
                   />
                 </div>
                 <div>

@@ -5816,13 +5816,32 @@
 
 /* Summary sidebar avatar */
 .summary-doc-avatar {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  border: 2px solid rgba(196, 146, 42, 0.45);
-  box-shadow: 0 4px 12px rgba(128, 84, 33, 0.15);
-  background: #f5ead9;
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 64px !important;
+  min-height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  aspect-ratio: 1 / 1 !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(196, 146, 42, 0.6) !important;
+  box-shadow: 0 4px 14px rgba(128, 84, 33, 0.16) !important;
+  background: transparent !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.summary-doc-avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border-radius: 50% !important;
+  display: block !important;
 }
 
 /* Change Doctor themed button */
@@ -7145,11 +7164,13 @@
 }
 
 .summary-doc-avatar {
-  width: 68px;
-  height: 68px;
-  overflow: hidden;
-  border: 2px solid rgba(180, 123, 52, 0.38);
-  border-radius: 50%;
+  width: 64px !important;
+  height: 64px !important;
+  aspect-ratio: 1 / 1 !important;
+  overflow: hidden !important;
+  border: 2px solid rgba(180, 123, 52, 0.45) !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
 }
 
 .summary-doc-name {
