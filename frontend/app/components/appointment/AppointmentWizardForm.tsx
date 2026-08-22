@@ -654,12 +654,12 @@ function AppointmentWizardContent() {
                 padding: "10px 14px",
                 borderRadius: "999px",
                 border: "none",
-                background: bookingMode === "DOCTOR" ? "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)" : "transparent",
+                background: bookingMode === "DOCTOR" ? "linear-gradient(135deg, rgb(154, 101, 40) 0%, rgb(196, 146, 42) 100%)" : "transparent",
                 color: bookingMode === "DOCTOR" ? "#ffffff" : "#665544",
                 fontWeight: 700,
                 fontSize: "13px",
                 cursor: "pointer",
-                boxShadow: bookingMode === "DOCTOR" ? "0 4px 14px rgba(181, 122, 37, 0.3)" : "none",
+                boxShadow: bookingMode === "DOCTOR" ? "0 4px 14px rgba(154, 101, 40, 0.35)" : "none",
                 transition: "all 0.25s ease",
               }}
             >
@@ -679,12 +679,12 @@ function AppointmentWizardContent() {
                 padding: "10px 14px",
                 borderRadius: "999px",
                 border: "none",
-                background: bookingMode === "PACKAGE" ? "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)" : "transparent",
+                background: bookingMode === "PACKAGE" ? "linear-gradient(135deg, rgb(154, 101, 40) 0%, rgb(196, 146, 42) 100%)" : "transparent",
                 color: bookingMode === "PACKAGE" ? "#ffffff" : "#665544",
                 fontWeight: 700,
                 fontSize: "13px",
                 cursor: "pointer",
-                boxShadow: bookingMode === "PACKAGE" ? "0 4px 14px rgba(181, 122, 37, 0.3)" : "none",
+                boxShadow: bookingMode === "PACKAGE" ? "0 4px 14px rgba(154, 101, 40, 0.35)" : "none",
                 transition: "all 0.25s ease",
               }}
             >
@@ -704,12 +704,12 @@ function AppointmentWizardContent() {
                 padding: "10px 14px",
                 borderRadius: "999px",
                 border: "none",
-                background: bookingMode === "TREATMENT" ? "linear-gradient(135deg, #b57a25 0%, #9a651e 100%)" : "transparent",
+                background: bookingMode === "TREATMENT" ? "linear-gradient(135deg, rgb(154, 101, 40) 0%, rgb(196, 146, 42) 100%)" : "transparent",
                 color: bookingMode === "TREATMENT" ? "#ffffff" : "#665544",
                 fontWeight: 700,
                 fontSize: "13px",
                 cursor: "pointer",
-                boxShadow: bookingMode === "TREATMENT" ? "0 4px 14px rgba(181, 122, 37, 0.3)" : "none",
+                boxShadow: bookingMode === "TREATMENT" ? "0 4px 14px rgba(154, 101, 40, 0.35)" : "none",
                 transition: "all 0.25s ease",
               }}
             >
@@ -1294,9 +1294,9 @@ function AppointmentWizardContent() {
                           <Image
                             src={selectedDoctor?.avatar}
                             alt={selectedDoctor?.name || "Doctor"}
-                            width={52}
-                            height={52}
-                            style={{ objectFit: "cover", width: "52px", height: "52px", borderRadius: "50%" }}
+                            width={54}
+                            height={54}
+                            style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%", display: "block" }}
                           />
                         </div>
                         <div className="apt-selected-doctor-text">
