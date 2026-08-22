@@ -2955,26 +2955,30 @@ body:has(.treatment-reference-page) .nav-actions .btn-primary::after {
 .all-treatments-head {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
-  margin-bottom: clamp(32px, 2.8vw, 48px);
-  text-align: left;
+  max-width: 780px;
+  margin: 0 auto clamp(32px, 2.8vw, 48px) auto;
+  text-align: center;
 }
 
 .all-treatments-head h2 {
-  color: #000000;
+  color: #000a04;
   font-size: clamp(38px, 3.05vw, 54px);
   font-weight: 500;
   line-height: 1.15;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center !important;
 }
 
 .all-treatments-head p {
   max-width: 680px;
-  margin: 0;
+  margin: 0 auto;
   color: #4a5552 !important;
   font-size: 16px;
   line-height: 1.7;
+  text-align: center !important;
 }
 
 .all-treatments-sort {

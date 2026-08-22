@@ -627,7 +627,6 @@ img[style*="position: absolute"] {
 .doctor-detail-title-center p,
 .doctor-philosophy-panel p,
 .doctor-faq-panel p,
-.all-treatments-head p,
 .section-sub-luxury,
 .section-subtitle,
 .section-desc {
@@ -636,6 +635,17 @@ img[style*="position: absolute"] {
   font-weight: 400 !important;
   color: #555e59 !important;
   max-width: 680px !important;
+}
+
+.all-treatments-head p {
+  font-size: clamp(15px, 1.1vw, 17px) !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+  color: #555e59 !important;
+  max-width: 680px !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .home-wellness-eyebrow,
