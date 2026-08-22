@@ -42,9 +42,9 @@ export function AboutStorySection() {
       <div className="about-story-copy">
         <span>Our Story</span>
         <h2>
-          Healing traditions,
+          Healing traditions
           <br />
-          built on <em>trust.</em>
+          built on <span>trust</span>
         </h2>
 
         <p>

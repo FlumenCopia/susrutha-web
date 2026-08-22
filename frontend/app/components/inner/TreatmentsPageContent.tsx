@@ -219,9 +219,9 @@ function resolveTreatmentImage(t: any): string {
 
           <div className="treatment-hero-copy">
             <h1 id="treatment-reference-title">
-              <span className="treatment-title-line">Ancient Wisdom.</span>
+              <span className="treatment-title-line">Ancient Wisdom</span>
               <span className="treatment-title-line">
-                <em>Healing</em> for Today.
+                <em>Healing</em> for Today
               </span>
             </h1>
 

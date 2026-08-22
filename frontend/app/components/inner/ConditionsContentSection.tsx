@@ -108,7 +108,7 @@ export function ConditionsContentSection() {
       <section className="conditions-content" aria-labelledby="condition-pathways-title">
         <div className="conditions-section-head">
           <span>Condition Pathways</span>
-          <h2 id="condition-pathways-title">Choose the concern that best matches your health journey.</h2>
+          <h2 id="condition-pathways-title">Choose the concern that best matches your health journey</h2>
           <p>
             Each pathway begins with consultation and is guided by constitution, diagnosis, age, strength, and recovery
             goals.
@@ -184,7 +184,7 @@ export function ConditionsContentSection() {
       <section className="conditions-care-band" aria-labelledby="conditions-care-title">
         <div>
           <span>How Care Works</span>
-          <h2 id="conditions-care-title">Root-cause care, guided by experienced physicians.</h2>
+          <h2 id="conditions-care-title">Root-cause care guided by experienced physicians</h2>
         </div>
         <div className="conditions-pathway-list">
           {pathways.map((item) => (

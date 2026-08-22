@@ -103,7 +103,7 @@ export function HomeWellnessExpertiseSection() {
         </span>
 
         <h2>
-          Your Wellness,
+          Your Wellness
           <br />
           Our <span>Ancient</span> Expertise
         </h2>

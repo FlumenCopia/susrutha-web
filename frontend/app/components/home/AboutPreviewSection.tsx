@@ -20,7 +20,7 @@ export function AboutPreviewSection() {
           </span>
 
           <h2>
-            Your Wellness,
+            Your Wellness
             <br />
             Our <em>Ancient Expertise</em>
           </h2>

@@ -3190,7 +3190,7 @@ a.inner-card:hover {
   line-height: 1.14;
 }
 
-.about-story-copy h2 em {
+.about-story-copy h2 span {
   color: #a87534;
   font-weight: 500;
 }
