@@ -21603,3 +21603,26 @@ a.home-footer-calm-btn:hover,
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Consultation & Treatment Detail CTA Banners - White Heading & Text Fix */
+.treatment-detail-cta-banner h2,
+.treatment-detail-cta-title,
+.doctor-appointment-cta-title,
+.doctor-appointment-banner h2,
+.package-cta-title,
+.treatment-cta-luxury h2,
+.treatment-cta-luxury .cta-heading {
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
+}
+
+.treatment-detail-cta-banner p,
+.treatment-detail-cta-text,
+.doctor-appointment-cta-text,
+.package-cta-text,
+.treatment-cta-luxury p,
+.treatment-cta-luxury .cta-text {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95) !important;
+  opacity: 1 !important;
+}

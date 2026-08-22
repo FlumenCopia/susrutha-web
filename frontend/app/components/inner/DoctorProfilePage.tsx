@@ -282,6 +282,7 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
           </span>
 
           <h2
+            className="doctor-appointment-cta-title"
             style={{
               fontSize: "clamp(28px, 4vw, 42px)",
               fontWeight: 900,

@@ -578,6 +578,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
 
         {/* Section 9: Consultation CTA Banner with Full Background Image */}
         <section
+          className="treatment-detail-cta-banner"
           style={{
             position: "relative",
             borderRadius: "28px",
@@ -625,6 +626,7 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
             </span>
 
             <h2
+              className="treatment-detail-cta-title"
               style={{
                 fontSize: "clamp(28px, 4vw, 42px)",
                 fontWeight: 900,
@@ -637,7 +639,10 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
               Ready to Begin Your Healing Journey?
             </h2>
 
-            <p style={{ fontSize: "18px", color: "#ffffff", fontWeight: 700, lineHeight: 1.6, marginBottom: "32px", textShadow: "0 2px 12px rgba(0,0,0,0.95)", opacity: 1 }}>
+            <p
+              className="treatment-detail-cta-text"
+              style={{ fontSize: "18px", color: "#ffffff", fontWeight: 700, lineHeight: 1.6, marginBottom: "32px", textShadow: "0 2px 12px rgba(0,0,0,0.95)", opacity: 1 }}
+            >
               Consult with our senior Ayurvedic physicians for an expert diagnosis and personalized treatment plan.
             </p>
 
