@@ -683,9 +683,53 @@ img[style*="position: absolute"] {
 .contact-booking-title,
 .contact-booking-hero h2,
 h2.contact-booking-title,
-.about-hero-value-text h3 {
+.about-hero-value-text h3,
+.ayur-village-hero h1,
+.ayur-village-hero-copy h1,
+.ayur-village-hero-title,
+.ayur-village-page .ayur-village-hero h1,
+.ayur-village-hero-features h2,
+.ayur-village-feature-title,
+.ayur-village-hero-features article h2,
+.ayur-village-page .ayur-village-hero-features h2 {
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
   color: #ffffff !important;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
+}
+
+@media (max-width: 768px) {
+  .ayur-village-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 120px 20px 28px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .ayur-village-hero-features {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .ayur-village-hero-features article {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 16px !important;
+  }
+
+  .ayur-village-hero-features h2,
+  .ayur-village-feature-title {
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+  }
 }
 
 .treatment-detail-cta-banner p,

@@ -20,7 +20,7 @@ export function AyurVillageHero() {
         style={{ objectFit: "cover", objectPosition: "center" }}
       />
       <div className="ayur-village-hero-copy">
-        <h1 style={{ color: "#ffffff", textShadow: "0 3px 16px rgba(0, 0, 0, 0.85)" }}>
+        <h1 className="ayur-village-hero-title" style={{ color: "#ffffff", textShadow: "0 3px 16px rgba(0, 0, 0, 0.85)" }}>
           Susrutha Ayurveda Gramam
         </h1>
         <p style={{ color: "rgba(255, 255, 255, 0.95)", textShadow: "0 2px 10px rgba(0, 0, 0, 0.85)" }}>
@@ -44,7 +44,9 @@ export function AyurVillageHero() {
                 style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
               />
             </div>
-            <h2>{feature.title}</h2>
+            <h2 className="ayur-village-feature-title" style={{ color: "#ffffff", textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}>
+              {feature.title}
+            </h2>
           </article>
         ))}
       </div>

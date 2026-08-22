@@ -7419,7 +7419,6 @@
   .condition-detail-page,
   .blog-premium-page,
   .media-page,
-  .ayur-village-page,
   .packages-page,
   .ecosystem-page,
   .facilities-page {
@@ -7430,7 +7429,8 @@
     padding-right: clamp(18px, 4vw, 48px) !important;
   }
 
-  .treatment-reference-page {
+  .treatment-reference-page,
+  .ayur-village-page {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
