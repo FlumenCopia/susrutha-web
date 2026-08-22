@@ -21619,11 +21619,28 @@ h2.contact-booking-title,
 .ayur-village-hero-copy h1,
 .ayur-village-hero-title,
 .ayur-village-page .ayur-village-hero h1,
+.ayur-village-ideal h2,
+.ayur-village-ideal-title,
+.ayur-village-page .ayur-village-ideal h2 {
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85) !important;
+}
+
+.ayur-village-ideal h2 em,
+.ayur-village-ideal-title em {
+  color: #e5be75 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
+}
+
 .ayur-village-hero-features h2,
 .ayur-village-feature-title,
 .ayur-village-hero-features article h2,
-.ayur-village-page .ayur-village-hero-features h2 {
-  font-size: 14.5px !important;
+.ayur-village-page .ayur-village-hero-features h2,
+.ayur-village-ideal-grid h3,
+.ayur-village-ideal-item-title,
+.ayur-village-ideal-grid article h3,
+.ayur-village-page .ayur-village-ideal-grid h3 {
+  font-size: 14px !important;
   font-weight: 600 !important;
   line-height: 1.35 !important;
   color: #ffffff !important;

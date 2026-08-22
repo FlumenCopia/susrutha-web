@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Clock, Sun, Moon, Utensils, HeartPulse, Stethoscope, Sparkles } from "lucide-react";
+import { Clock, Sun, Moon, Utensils, HeartPulse, Stethoscope } from "lucide-react";
 
 const routineTimeline = [
   {
@@ -50,16 +50,16 @@ const routineTimeline = [
 
 export function AyurVillageRoutineSection() {
   return (
-    <section style={{ padding: "80px 24px", background: "#ffffff" }}>
+    <section style={{ padding: "48px 20px", background: "#ffffff" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 52px" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "6px 16px", borderRadius: "999px", background: "rgba(45, 77, 58, 0.1)", color: "#2d4d3a", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "16px" }}>
-            <Sparkles size={14} /> Gramam Dinacharya
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 36px" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "4px 14px", borderRadius: "999px", background: "rgba(181, 122, 37, 0.12)", color: "#9a651e", fontWeight: 800, fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "10px" }}>
+            Gramam Dinacharya
           </span>
-          <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#1c2a23", marginBottom: "14px", lineHeight: "1.2" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: 800, color: "#1c2a23", marginBottom: "8px", lineHeight: "1.25" }}>
             A Day at Susrutha Ayur Village
           </h2>
-          <p style={{ fontSize: "16px", color: "#556655", lineHeight: "1.6" }}>
+          <p style={{ fontSize: "14.5px", color: "#556655", lineHeight: "1.55" }}>
             Healing at Gramam follows the classical Ayurvedic daily rhythm (Dinacharya) designed to maximize metabolic absorption and cellular rejuvenation.
           </p>
         </div>

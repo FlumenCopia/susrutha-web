@@ -18,8 +18,8 @@ export function AyurVillageIdealFor() {
         style={{ objectFit: "cover" }}
       />
       <div>
-        <h2>
-          Who thrives at the <em>Gramam</em>
+        <h2 className="ayur-village-ideal-title" style={{ color: "#ffffff", textShadow: "0 3px 16px rgba(0, 0, 0, 0.85)" }}>
+          Who thrives at the <em style={{ color: "#e5be75", textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)" }}>Gramam</em>
         </h2>
       </div>
       <div className="ayur-village-ideal-grid">
@@ -34,7 +34,9 @@ export function AyurVillageIdealFor() {
                 style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "50%" }}
               />
             </div>
-            <h3>{item.title}</h3>
+            <h3 className="ayur-village-ideal-item-title" style={{ color: "#ffffff", textShadow: "0 2px 8px rgba(0, 0, 0, 0.85)" }}>
+              {item.title}
+            </h3>
           </article>
         ))}
       </div>
