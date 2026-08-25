@@ -36,31 +36,37 @@ const supportItems = [
 const fallbackContactCards = [
   {
     icon: "pin" as const,
-    title: "Main Campus & Hospital",
-    primary: ["Vaidya Ratnam K.S. & V.S. Campus,", "Kattakada, Thiruvananthapuram, Kerala"],
-    secondary: ["Susrutha Institute of Ayurvedic Sciences", "Research & Panchakarma Hospital"],
-    link: null,
+    title: "Kattakada Main Hospital",
+    primary: [
+      "Vaidya Ratnam K.S. & V.S. Campus, Opp. Christian College,",
+      "Kattakada-Killi Road, Kattakada, Trivandrum - 695572"
+    ],
+    secondary: ["24x7 Inpatient Hospital | 0471-2291027", "Helpline: +91 96566 56736"],
+    link: "tel:+919656656736",
+  },
+  {
+    icon: "pin" as const,
+    title: "Kowdiar City OPD Centre",
+    primary: [
+      "Near Trivandrum Tennis Club, Kowdiar Palace Road,",
+      "Kowdiar, Thiruvananthapuram, Kerala - 695003"
+    ],
+    secondary: ["Outpatient OPD Clinic & Daycare Panchakarma", "OP Direct: +91 80754 33728"],
+    link: "tel:+918075433728",
   },
   {
     icon: "phone" as const,
-    title: "Direct Helpline",
-    primary: ["+91 94470 03191", "+91 471 229 0282"],
-    secondary: ["24/7 Patient Helpdesk & Emergency", "Doctor Consultation Guidance"],
-    link: "tel:+919447003191",
+    title: "Customer Care & Registration",
+    primary: ["0471-2291027", "+91 96566 56736"],
+    secondary: ["Doctor Appointments & 24/7 Helpline"],
+    link: "tel:04712291027",
   },
   {
     icon: "mail" as const,
     title: "Email Assistance",
-    primary: ["info@susruthaayurveda.com", "admissions@susruthaayurveda.com"],
-    secondary: ["Inpatient & OPD Enquiry Desk"],
+    primary: ["info@susruthaayurveda.com"],
+    secondary: ["Inpatient Admission & General Enquiries"],
     link: "mailto:info@susruthaayurveda.com",
-  },
-  {
-    icon: "globe" as const,
-    title: "International Desk",
-    primary: ["www.susruthaayurveda.com"],
-    secondary: ["Medical Visa Support & Care Packages", "Ayur Village Residential Stay"],
-    link: "https://www.susruthaayurveda.com",
   },
 ];
 

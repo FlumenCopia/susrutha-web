@@ -1,10 +1,11 @@
-/* About Founders Section - Scoped Modern Cards Layout matching screenshot */
+/* About Founders Section - 3D Coverflow Carousel matching 70yy.in style */
 .af-section {
   position: relative;
   background-color: #ffffff;
-  padding: 100px 24px;
+  padding: 70px 24px 40px;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .af-container {
@@ -19,70 +20,83 @@
 .af-header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 40px;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 16px;
   gap: 24px;
-  max-width: 100%;
 }
 
 .af-header-left {
-  text-align: left;
+  text-align: center;
   max-width: 720px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
-
-.af-header-right {
-  display: flex;
   align-items: center;
-  flex-shrink: 0;
-}
-
-.af-eyebrow {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #8c7659;
-  margin-bottom: 12px;
-  display: block;
 }
 
 .af-title {
-  font-size: clamp(32px, 3.5vw, 48px);
+  font-size: clamp(28px, 3.2vw, 44px);
   font-weight: 500;
   color: #000a04;
   margin: 0;
   line-height: 1.18;
   letter-spacing: -0.01em;
-  text-align: left;
+  text-align: center;
 }
 
-/* Grid */
-.af-grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+.af-subtext {
+  font-size: clamp(14px, 1vw, 16px);
+  color: #555e59;
+  margin: 8px 0 0 0;
+  line-height: 1.6;
+  text-align: center;
 }
 
-/* Card */
-.af-card {
+/* 3D Stacked Coverflow Stage Container */
+.af-carousel-stage {
   position: relative;
-  height: 440px;
+  width: 100%;
+  max-width: 1160px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  perspective: 1200px;
+}
+
+.af-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3D Card Stack Base */
+.af-3d-card {
+  position: absolute;
+  width: 340px;
+  height: 460px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
+  user-select: none;
+  background: #121915;
 }
 
-.af-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+.af-card-inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
 }
 
 .af-card-img {
@@ -93,8 +107,8 @@
   transition: transform 0.6s ease;
 }
 
-.af-card:hover .af-card-img {
-  transform: scale(1.06);
+.af-3d-card:hover .af-card-img {
+  transform: scale(1.05);
 }
 
 .af-card-overlay {
@@ -110,7 +124,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 32px 24px 28px;
+  padding: 28px 22px 24px;
   box-sizing: border-box;
 }
 
@@ -122,7 +136,7 @@
 }
 
 .af-card-name {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   color: #ffffff !important;
   margin: 0;
@@ -131,7 +145,7 @@
 }
 
 .af-card-role {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #e2cbb0 !important;
   margin: 0;
@@ -140,140 +154,252 @@
 }
 
 .af-card-copy {
-  font-size: 13.5px;
+  font-size: 13px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.92) !important;
   margin: 4px 0 0 0;
   font-weight: 400;
 }
 
-/* Header & Subtext */
-.af-subtext {
-  font-size: clamp(15px, 1.1vw, 17px);
-  color: #555e59;
-  margin: 10px 0 0 0;
-  line-height: 1.65;
-  text-align: left;
+/* 3D Offset Transformations */
+
+/* Active / Center Card: offset 0 */
+.af-3d-card[data-offset="0"] {
+  transform: translateX(0) scale(1.04);
+  z-index: 30;
+  opacity: 1;
+  filter: brightness(1);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
 }
 
-.af-scroll-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 0;
+/* Immediate Left: offset -1 */
+.af-3d-card[data-offset="-1"] {
+  transform: translateX(-170px) scale(0.85);
+  z-index: 20;
+  opacity: 0.88;
+  filter: brightness(0.85);
 }
 
-.af-scroll-btn {
+/* Immediate Right: offset 1 */
+.af-3d-card[data-offset="1"] {
+  transform: translateX(170px) scale(0.85);
+  z-index: 20;
+  opacity: 0.88;
+  filter: brightness(0.85);
+}
+
+/* Outer Left: offset -2 */
+.af-3d-card[data-offset="-2"] {
+  transform: translateX(-300px) scale(0.7);
+  z-index: 10;
+  opacity: 0.65;
+  filter: brightness(0.72);
+}
+
+/* Outer Right: offset 2 */
+.af-3d-card[data-offset="2"] {
+  transform: translateX(300px) scale(0.7);
+  z-index: 10;
+  opacity: 0.65;
+  filter: brightness(0.72);
+}
+
+/* Far Left: offset <= -3 */
+.af-3d-card[data-offset="-3"],
+.af-3d-card[data-offset="-4"],
+.af-3d-card[data-offset="-5"] {
+  transform: translateX(-420px) scale(0.55);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Far Right: offset >= 3 */
+.af-3d-card[data-offset="3"],
+.af-3d-card[data-offset="4"],
+.af-3d-card[data-offset="5"] {
+  transform: translateX(420px) scale(0.55);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Floating Navigation Buttons */
+.af-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1.5px solid #d4c5b3;
   background: #ffffff;
   color: #1a1a1a;
-  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.25s ease;
-}
-
-.af-scroll-btn:hover {
-  background: #1a1a1a;
-  color: #ffffff;
-  border-color: #1a1a1a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-/* Grid & Horizontal Scroll Track */
-.af-grid {
-  width: 100%;
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 24px;
-  padding-bottom: 8px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.af-grid::-webkit-scrollbar {
-  display: none;
-}
-
-/* Card: 3 cards visible on desktop */
-.af-card {
-  flex: 0 0 calc((100% - 48px) / 3);
-  min-width: 320px;
-  scroll-snap-align: start;
-  position: relative;
-  height: 480px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
   cursor: pointer;
-}
-
-/* View All CTA Footer */
-.af-footer-cta {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.af-view-all-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, #9a6528 0%, #c4922a 100%);
-  color: #ffffff !important;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  border-radius: 9999px;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(154, 101, 40, 0.25);
   transition: all 0.3s ease;
 }
 
-.af-view-all-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(154, 101, 40, 0.38);
-  background: linear-gradient(135deg, #82531e 0%, #ab7f21 100%);
+.af-nav-prev {
+  left: 16px;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 768px) {
-  .af-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+.af-nav-next {
+  right: 16px;
+}
+
+.af-nav-btn:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.af-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Sleek Dots Navigation */
+.af-dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 0;
+  width: 100%;
+}
+
+.af-dot {
+  width: 7px;
+  height: 7px !important;
+  min-height: 7px !important;
+  max-height: 7px !important;
+  border-radius: 50% !important;
+  background: #d4c5b3;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+  display: inline-block;
+  line-height: 0;
+  outline: none;
+}
+
+.af-dot.active {
+  background: #9a6528;
+  width: 20px;
+  height: 7px !important;
+  border-radius: 4px !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .af-carousel-stage {
+    height: 460px;
   }
-}
 
-@media (max-width: 1024px) {
-  .af-card {
-    flex: 0 0 calc((100% - 24px) / 2);
-    min-width: 280px;
-    height: 440px;
+  .af-3d-card {
+    width: 290px;
+    height: 410px;
+  }
+
+  .af-3d-card[data-offset="-1"] {
+    transform: translateX(-120px) scale(0.85);
+  }
+
+  .af-3d-card[data-offset="1"] {
+    transform: translateX(120px) scale(0.85);
+  }
+
+  .af-3d-card[data-offset="-2"] {
+    transform: translateX(-210px) scale(0.7);
+  }
+
+  .af-3d-card[data-offset="2"] {
+    transform: translateX(210px) scale(0.7);
+  }
+
+  .af-nav-prev {
+    left: 8px;
+  }
+
+  .af-nav-next {
+    right: 8px;
   }
 }
 
 @media (max-width: 640px) {
   .af-section {
-    padding: 60px 16px;
+    padding: 40px 12px 20px;
   }
 
-  .af-card {
-    flex: 0 0 100%;
-    min-width: 100%;
-    height: 400px;
+  .af-carousel-stage {
+    height: 410px;
+  }
+
+  .af-3d-card {
+    width: calc(100vw - 76px);
+    max-width: 280px;
+    height: 380px;
+    border-radius: 20px;
+  }
+
+  .af-3d-card[data-offset="-1"] {
+    transform: translateX(-50px) scale(0.82);
+    opacity: 0.45;
+  }
+
+  .af-3d-card[data-offset="1"] {
+    transform: translateX(50px) scale(0.82);
+    opacity: 0.45;
+  }
+
+  .af-3d-card[data-offset="-2"],
+  .af-3d-card[data-offset="2"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .af-nav-btn {
+    width: 38px;
+    height: 38px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  .af-nav-prev {
+    left: 2px;
+  }
+
+  .af-nav-next {
+    right: 2px;
+  }
+
+  .af-card-overlay {
+    padding: 20px 16px 18px;
+  }
+
+  .af-card-name {
+    font-size: 18px;
+  }
+
+  .af-card-role {
+    font-size: 11px;
+  }
+
+  .af-card-copy {
+    font-size: 12.5px;
+  }
+
+  .af-dots-container {
+    margin-top: 14px;
+    gap: 5px;
   }
 }

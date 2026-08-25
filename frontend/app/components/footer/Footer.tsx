@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Globe, ChevronUp, FileText } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Globe, ChevronUp, FileText, MapPin, Phone, Mail } from "lucide-react";
+import { getPublicBranches } from "@/app/services/api";
 
 const navSections = [
   {
@@ -30,19 +31,62 @@ const navSections = [
     ],
   },
   {
-    title: "Patient Care",
+    title: "Our Locations",
     links: [
+      { label: "Kattakada Main Hospital", href: "/branches/kattakada" },
+      { label: "Kowdiar City OP", href: "/branches/kowdiar" },
+      { label: "Ayurveda Village", href: "/ayurveda-village" },
       { label: "Patient Care", href: "/patient-care" },
       { label: "Departments", href: "/departments" },
-      { label: "Testimonials", href: "/testimonials" },
-      { label: "FAQ", href: "/faq" },
       { label: "Contact Us", href: "/contact-us" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
 ];
 
 export function Footer() {
+  const [mainBranchInfo, setMainBranchInfo] = useState<{
+    name: string;
+    street: string;
+    city: string;
+    pincode: string;
+    phone: string;
+    mobile: string;
+  }>({
+    name: "Kattakada Main Branch",
+    street: "Vaidya Ratnam K.S. & V.S. Campus, Opposite Christian College, Kattakada-Killi Main Road",
+    city: "Kattakada, Thiruvananthapuram",
+    pincode: "695572",
+    phone: "0471-2291027",
+    mobile: "+91 96566 56736",
+  });
+
+  useEffect(() => {
+    async function loadMainBranch() {
+      try {
+        const branches = await getPublicBranches();
+        if (Array.isArray(branches) && branches.length > 0) {
+          const main = branches.find(
+            (b: any) => b.isMainBranch === true || b.code === "KTK" || (b.type && b.type.includes("INPATIENT"))
+          ) || branches[0];
+
+          if (main) {
+            setMainBranchInfo({
+              name: main.name || "Kattakada Main Branch",
+              street: typeof main.address === "object" ? main.address.street || "" : main.address || "",
+              city: typeof main.address === "object" ? main.address.city || "" : "Thiruvananthapuram",
+              pincode: typeof main.address === "object" ? main.address.pincode || "695572" : "695572",
+              phone: main.contact?.phone?.[0] || "0471-2291027",
+              mobile: main.contact?.phone?.[1] || main.contact?.emergencyPhone || "+91 96566 56736",
+            });
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch main branch for footer:", err);
+      }
+    }
+    loadMainBranch();
+  }, []);
+
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -54,28 +98,45 @@ export function Footer() {
       <div className="luxury-footer-container">
         {/* Main Multi-Column Top Section */}
         <div className="luxury-footer-grid">
-          {/* Column 1: Contact & Address with Logo */}
+          {/* Column 1: Contact & ONLY Main Branch Address */}
           <div className="luxury-footer-col-contact">
             <div className="luxury-footer-logo-wrap">
               <Image
                 src="/images/susrutha-logo.webp"
                 alt="Susrutha Ayurveda Logo"
-                width={190}
-                height={58}
-                style={{ width: "auto", height: "48px", objectFit: "contain" }}
+                width={210}
+                height={64}
+                style={{ width: "auto", height: "46px", objectFit: "contain" }}
               />
             </div>
 
-            <div className="luxury-footer-address">
-              <p>Vaidya Ratnam K.S. &amp; V.S. Campus,</p>
-              <p>Opposite Christian College, Kattakada,</p>
-              <p>Thiruvananthapuram, Kerala – 695572</p>
-            </div>
+            {/* Main Branch Location Info - Perfectly Aligned */}
+            <div className="luxury-footer-location-info">
+              <h4 className="luxury-footer-branch-name">{mainBranchInfo.name}</h4>
+              
+              <div className="luxury-footer-address-row">
+                <MapPin size={16} strokeWidth={1.8} className="luxury-footer-icon" />
+                <p className="luxury-footer-address-text">
+                  {mainBranchInfo.street}<br />
+                  {mainBranchInfo.city}, Kerala – {mainBranchInfo.pincode}
+                </p>
+              </div>
 
-            <div className="luxury-footer-direct">
-              <a href="mailto:info@susruthaayurveda.com">info@susruthaayurveda.com</a>
-              <a href="tel:+919447003191">+91 94470 03191</a>
-              <a href="tel:+914712290282">+91 471 229 0282</a>
+              <div className="luxury-footer-contact-lines">
+                <div className="luxury-footer-contact-row">
+                  <Phone size={15} strokeWidth={1.8} className="luxury-footer-icon" />
+                  <div className="luxury-footer-contact-links">
+                    <a href={`tel:${mainBranchInfo.phone.replaceAll(" ", "")}`}>Ph: {mainBranchInfo.phone}</a>
+                    <span className="sep">•</span>
+                    <a href={`tel:${mainBranchInfo.mobile.replaceAll(" ", "")}`}>Mob: {mainBranchInfo.mobile}</a>
+                  </div>
+                </div>
+
+                <div className="luxury-footer-contact-row">
+                  <Mail size={15} strokeWidth={1.8} className="luxury-footer-icon" />
+                  <a href="mailto:info@susruthaayurveda.com" className="luxury-footer-email-link">info@susruthaayurveda.com</a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -121,7 +182,7 @@ export function Footer() {
         {/* Bottom Bar: Social Icons & Copyright & Back to top */}
         <div className="luxury-footer-bottom">
           <div className="luxury-footer-socials" aria-label="Social media links">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/susruthaayurvedatvm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
               </svg>
@@ -132,7 +193,7 @@ export function Footer() {
                 <polygon points="10 15 15 12 10 9" />
               </svg>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/susruthaayurvedatvm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -146,7 +207,7 @@ export function Footer() {
 
           <div className="luxury-footer-bottom-right">
             <span className="luxury-footer-copyright">
-              &copy; Susrutha Ayurveda. {new Date().getFullYear()}. All Rights Reserved.
+              &copy; {new Date().getFullYear()} Susrutha Ayurveda Hospital. All Rights Reserved.
             </span>
 
             <button

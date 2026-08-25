@@ -10,7 +10,9 @@ import "./about-founders.css";
 export function AboutFoundersSection() {
   const [leaders, setLeaders] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     async function loadBackendLeaders() {
@@ -23,17 +25,21 @@ export function AboutFoundersSection() {
             (d: any) => !d.name?.includes("Test") && !d.name?.match(/\d{5,}/)
           );
 
-          // ONLY show featured doctors in this section
+          // ONLY show featured doctors & core leadership in this section
           const featuredDocs = cleanDocs.filter(
-            (d: any) => d.isFeatured === true || d.featured === true
+            (d: any) => d.isFeatured === true || d.featured === true || d.isDirector === true || d.isFounder === true
           );
 
-          const sourceDocs = featuredDocs.length > 0 
+          // If no doctor has featured flag set, show only directors/founders (never all doctors)
+          const directorsOnly = cleanDocs.filter((d: any) => d.isDirector || d.isFounder);
+          const docsToUse = featuredDocs.length > 0 
             ? featuredDocs 
-            : cleanDocs.filter((d: any) => d.isDirector || d.isFounder);
+            : directorsOnly.length > 0 
+              ? directorsOnly 
+              : cleanDocs.slice(0, 3);
 
           // Sort by sortOrder first, then directors/founders, then experience
-          const sorted = [...sourceDocs].sort((a: any, b: any) => {
+          const sorted = [...docsToUse].sort((a: any, b: any) => {
             if (a.sortOrder !== undefined && b.sortOrder !== undefined && a.sortOrder !== b.sortOrder) {
               return (a.sortOrder || 0) - (b.sortOrder || 0);
             }
@@ -77,13 +83,55 @@ export function AboutFoundersSection() {
     loadBackendLeaders();
   }, []);
 
-  const handleScroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const card = scrollRef.current.querySelector<HTMLElement>(".af-card");
-      const cardWidth = card ? card.offsetWidth + 24 : 380;
-      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  // Autoplay functionality - moves cards automatically every 4 seconds
+  useEffect(() => {
+    if (leaders.length <= 1 || isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % leaders.length);
+    }, 1500);
+
+    return () => clearInterval(timer);
+  }, [leaders.length, isPaused]);
+
+  const handlePrev = () => {
+    if (leaders.length === 0) return;
+    setActiveIndex((prev) => (prev - 1 + leaders.length) % leaders.length);
+  };
+
+  const handleNext = () => {
+    if (leaders.length === 0) return;
+    setActiveIndex((prev) => (prev + 1) % leaders.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diffX = touchStartX.current - touchEndX;
+    if (Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
     }
+    touchStartX.current = null;
+  };
+
+  const getCardOffset = (index: number) => {
+    const total = leaders.length;
+    if (total === 0) return 0;
+    let diff = index - activeIndex;
+
+    // Circular wrapping calculation
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+
+    return diff;
   };
 
   return (
@@ -91,62 +139,109 @@ export function AboutFoundersSection() {
       <div className="af-container">
         <header className="af-header">
           <div className="af-header-left">
-            {/* <span className="af-eyebrow">OUR CORE LEADERSHIP</span> */}
             <h2 className="af-title">OUR CORE LEADERSHIP</h2>
             <p className="af-subtext">
               Meet our senior Vaidyas, medical directors, and clinical specialists leading authentic Ayurvedic care.
             </p>
           </div>
-
-          <div className="af-header-right">
-            <div className="af-scroll-controls" aria-label="Leadership scroll navigation">
-              <button
-                type="button"
-                className="af-scroll-btn"
-                onClick={() => handleScroll("left")}
-                aria-label="Scroll left"
-              >
-                <ChevronLeft size={20} strokeWidth={2.2} />
-              </button>
-              <button
-                type="button"
-                className="af-scroll-btn"
-                onClick={() => handleScroll("right")}
-                aria-label="Scroll right"
-              >
-                <ChevronRight size={20} strokeWidth={2.2} />
-              </button>
-            </div>
-          </div>
         </header>
 
-        <div className="af-grid" ref={scrollRef}>
-          {leaders.map((founder) => (
-            <Link href={founder.href} className="af-card" key={founder.name}>
-              <Image
-                src={founder.image}
-                alt={founder.name}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 300px"
-                className="af-card-img"
-              />
-              <div className="af-card-overlay">
-                <div className="af-card-content">
-                  <h3 className="af-card-name">{founder.name}</h3>
-                  <p className="af-card-role">{founder.role}</p>
-                  <p className="af-card-copy">{founder.copy}</p>
+        {/* 3D Stacked Coverflow Carousel matching 70yy.in with Autoplay */}
+        <div 
+          className="af-carousel-stage"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={(e) => {
+            setIsPaused(true);
+            handleTouchStart(e);
+          }}
+          onTouchEnd={(e) => {
+            handleTouchEnd(e);
+            setTimeout(() => setIsPaused(false), 2000);
+          }}
+        >
+          {/* Left Floating Navigation Arrow */}
+          <button
+            type="button"
+            className="af-nav-btn af-nav-prev"
+            onClick={handlePrev}
+            aria-label="Previous doctor"
+          >
+            <ChevronLeft size={24} strokeWidth={2.2} />
+          </button>
+
+          {/* Cards Track */}
+          <div className="af-carousel-track">
+            {leaders.map((founder, idx) => {
+              const offset = getCardOffset(idx);
+              const isCenter = offset === 0;
+
+              return (
+                <div
+                  key={founder.name}
+                  className={`af-3d-card ${isCenter ? "af-card-active" : ""}`}
+                  data-offset={offset}
+                  onClick={() => {
+                    if (!isCenter) {
+                      setActiveIndex(idx);
+                    }
+                  }}
+                >
+                  <Link 
+                    href={founder.href} 
+                    className="af-card-inner" 
+                    onClick={(e) => {
+                      if (!isCenter) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
+                    <Image
+                      src={founder.image}
+                      alt={founder.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px"
+                      className="af-card-img"
+                      priority={isCenter}
+                    />
+                    <div className="af-card-overlay">
+                      <div className="af-card-content">
+                        <h3 className="af-card-name">{founder.name}</h3>
+                        <p className="af-card-role">{founder.role}</p>
+                        <p className="af-card-copy">{founder.copy}</p>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </div>
-            </Link>
-          ))}
+              );
+            })}
+          </div>
+
+          {/* Right Floating Navigation Arrow */}
+          <button
+            type="button"
+            className="af-nav-btn af-nav-next"
+            onClick={handleNext}
+            aria-label="Next doctor"
+          >
+            <ChevronRight size={24} strokeWidth={2.2} />
+          </button>
         </div>
 
-        {/* <div className="af-footer-cta">
-          <Link href="/doctors" className="af-view-all-btn">
-            <span>View All Doctors & Specialists</span>
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div> */}
+        {/* Carousel Indicators / Dots */}
+        {leaders.length > 1 && (
+          <div className="af-dots-container">
+            {leaders.slice(0, 8).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`af-dot ${i === activeIndex % Math.min(leaders.length, 8) ? "active" : ""}`}
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Go to doctor ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

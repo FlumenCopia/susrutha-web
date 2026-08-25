@@ -8220,37 +8220,100 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
 
 .luxury-footer-grid {
   display: grid;
-  grid-template-columns: minmax(230px, 260px) minmax(420px, 1fr) minmax(320px, 460px);
-  gap: clamp(32px, 4vw, 70px);
+  grid-template-columns: minmax(290px, 340px) minmax(360px, 1fr) minmax(300px, 420px);
+  gap: clamp(28px, 3.5vw, 60px);
   align-items: start;
-  padding-bottom: 80px;
+  padding-bottom: 70px;
 }
 
 /* Column 1: Contact & Address */
 .luxury-footer-col-contact {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
   font-size: 14.5px;
   line-height: 1.6;
   color: #5c5348 !important;
+  width: 100%;
 }
 
 .luxury-footer-logo-wrap {
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.luxury-footer-address p {
-  margin: 0;
-  color: #5c5348 !important;
-}
-
-.luxury-footer-direct {
+.luxury-footer-location-info {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+}
+
+.luxury-footer-branch-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #14100c !important;
+  margin: 0 0 2px 0;
+  line-height: 1.35;
+}
+
+.luxury-footer-address-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.luxury-footer-icon {
+  color: #a87534;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.luxury-footer-address-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4a4238 !important;
+  margin: 0;
+}
+
+.luxury-footer-contact-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.luxury-footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.luxury-footer-contact-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.luxury-footer-contact-links .sep {
+  color: #a87534;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.luxury-footer-contact-lines a,
+.luxury-footer-email-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #2c241d !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.luxury-footer-contact-lines a:hover,
+.luxury-footer-email-link:hover {
+  color: #a87534 !important;
 }
 
 .luxury-footer-direct a {
