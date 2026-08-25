@@ -70,7 +70,6 @@ export function AyurVillagePackagesSection() {
     }
     loadPackages();
   }, []);
-frontend/font/fontheading
   return (
     <section className="ayur-village-packages-section" style={{ padding: "48px 20px", background: "linear-gradient(180deg, #fdfaf5 0%, #f7f1e5 100%)" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
