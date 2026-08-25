@@ -105,6 +105,7 @@
 }
 
 .ayora-hero-giant-title {
+  font-family: 'Grift', sans-serif !important;
   font-size: clamp(34px, 6vw, 86px) !important;
   font-weight: 500 !important;
   line-height: 1.16 !important;

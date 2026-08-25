@@ -18,6 +18,7 @@ body {
   min-height: 100vh;
   background-color: #fff !important;
   color: #000 !important;
+  font-family: 'Grift', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -800,4 +801,51 @@ p.doctors-stat-label,
   color: #ffffff !important;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95) !important;
   opacity: 1 !important;
+}
+
+/* ==========================================================================
+   Hero Section Headings Custom Font (Grift)
+   ========================================================================== */
+.ayora-hero-giant-title,
+.ayora-hero-title-box h1,
+.hero-banner-root h1,
+.about-hero-giant-heading,
+.about-hero-fullbleed h1,
+.about-premium-page .about-hero-fullbleed h1,
+.ayur-village-hero h1,
+.ayur-village-hero-title,
+.ayur-village-hero-copy h1,
+.packages-hero h1,
+.packages-hero-copy h1,
+.packages-hero-title,
+.doctors-hero h1,
+.doctors-hero-copy h1,
+.branches-hero h1,
+.branches-hero-copy h1,
+.facilities-hero h1,
+.facilities-hero-copy h1,
+.ecosystem-hero h1,
+.ecosystem-hero-copy h1,
+.appointment-hero h1,
+.appointment-hero-copy h1,
+.blog-hero h1,
+.blog-hero-copy h1,
+.media-hero h1,
+.media-hero-copy h1,
+.video-gallery-hero h1,
+.vg-hero h1,
+.video-gallery-header-hero h1,
+.international-hero h1,
+.international-hero-copy h1,
+.treatments-hero h1,
+.treatments-banner-hero h1,
+.treatment-reference-hero h1,
+.conditions-hero h1,
+.conditions-banner h1,
+.doctor-detail-copy h1,
+.doctor-detail-hero h1,
+.hero-heading,
+.hero-title,
+.hero-banner-heading {
+  font-family: 'Grift', serif, sans-serif !important;
 }

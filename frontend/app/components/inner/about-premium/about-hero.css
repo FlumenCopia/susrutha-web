@@ -116,6 +116,7 @@
 .about-hero-giant-heading,
 .about-hero-fullbleed h1,
 .about-premium-page .about-hero-fullbleed h1 {
+  font-family: 'Grift', sans-serif !important;
   font-size: clamp(32px, 5.2vw, 68px) !important;
   font-weight: 500 !important;
   line-height: 1.05 !important;
