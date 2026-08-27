@@ -7,6 +7,7 @@ import "../public/css/pages.css";
 import "../public/css/responsive.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://susruthaayurveda.com"),
   title: "Susrutha Ayurveda | Panchakarma Hospital in Thiruvananthapuram",
   description:
     "Premium Ayurveda hospital care, Panchakarma treatments, specialist doctors, and wellness services in Kattakada and Kowdiar.",
