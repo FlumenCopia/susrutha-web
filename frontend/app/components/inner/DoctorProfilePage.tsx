@@ -78,7 +78,7 @@ export function DoctorProfilePage({ doctor }: DoctorProfilePageProps) {
   const docName = doctor.title || (doctor as any).name || "Ayurvedic Physician";
   const image = typeof doctor.image === "string" && doctor.image.trim() !== ""
     ? getImageDisplayUrl(doctor.image)
-    : (doctor as any).photoUrl ? getImageDisplayUrl((doctor as any).photoUrl) : (doctor as any).photo ? getImageDisplayUrl((doctor as any).photo) : "/images/doctor-portrait.webp";
+    : (doctor as any).photoUrl ? getImageDisplayUrl((doctor as any).photoUrl) : (doctor as any).photo ? getImageDisplayUrl((doctor as any).photo) : (doctor.slug === "dr-krishnakumar-k" ? "/images/dr_krishnakumar.webp" : "/images/susrutha-logo.webp");
 
   const focusAreas = Array.isArray(doctor.focusAreas) && doctor.focusAreas.length > 0
     ? doctor.focusAreas.map(f => typeof f === 'string' ? f : (f as any).title || String(f))
