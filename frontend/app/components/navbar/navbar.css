@@ -356,14 +356,14 @@ body .site-header .nav-actions .nav-book-btn:hover {
   inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
+  height: 100dvh !important;
   background-color: #ffffff !important;
   background: #ffffff !important;
   z-index: 999999 !important;
   display: flex !important;
   flex-direction: column !important;
-  padding: 18px 20px 32px !important;
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch !important;
+  padding: 18px 20px calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  overflow: hidden !important;
   pointer-events: auto !important;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3) !important;
   animation: mobileOverlayFadeIn 0.25s ease-out !important;
@@ -414,11 +414,13 @@ body .site-header .nav-actions .nav-book-btn:hover {
 }
 
 .mobile-overlay-body {
-  flex: 1;
-  padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex: 1 !important;
+  padding: 16px 0 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 .mobile-overlay-search {
@@ -434,6 +436,51 @@ body .site-header .nav-actions .nav-book-btn:hover {
 .mobile-overlay-group {
   display: flex;
   flex-direction: column;
+}
+
+.mobile-overlay-link-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid #f2ede4 !important;
+  border-radius: 12px !important;
+  transition: background 0.2s ease !important;
+}
+
+.mobile-overlay-link-row.expanded {
+  background: #faf7f2 !important;
+}
+
+.mobile-overlay-link-row .mobile-overlay-main-link {
+  border-bottom: none !important;
+  flex: 1 !important;
+}
+
+.mobile-chevron-toggle {
+  background: transparent !important;
+  border: none !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  color: #888888 !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.mobile-chevron-toggle:hover,
+.mobile-chevron-toggle:focus {
+  background: rgba(200, 137, 34, 0.1) !important;
+  color: #c88922 !important;
+}
+
+.mobile-chevron-toggle.rotated .mobile-chevron {
+  transform: rotate(180deg) !important;
+  color: #c88922 !important;
 }
 
 .mobile-overlay-main-link {

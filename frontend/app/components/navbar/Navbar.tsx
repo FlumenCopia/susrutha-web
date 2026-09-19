@@ -192,17 +192,32 @@ export function Navbar() {
                 <div className="mobile-overlay-group" key={item.label}>
                   {item.children ? (
                     <>
-                      <button
-                        type="button"
-                        className={`mobile-overlay-main-link has-dropdown ${openMobileDropdown === item.label ? "expanded" : ""} ${isActive(item.href) ? "active" : ""}`}
-                        onClick={() => toggleMobileDropdown(item.label)}
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown
-                          size={18}
-                          className={`mobile-chevron ${openMobileDropdown === item.label ? "rotated" : ""}`}
-                        />
-                      </button>
+                      <div className={`mobile-overlay-link-row ${openMobileDropdown === item.label ? "expanded" : ""}`}>
+                        <Link
+                          href={item.href}
+                          className={`mobile-overlay-main-link ${isActive(item.href) ? "active" : ""}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <span>{item.label}</span>
+                          {isActive(item.href) && <Leaf size={12} strokeWidth={2} className="mobile-active-dot" style={{ display: "inline-block", marginLeft: "6px" }} />}
+                        </Link>
+                        <button
+                          type="button"
+                          className={`mobile-chevron-toggle ${openMobileDropdown === item.label ? "rotated" : ""}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleMobileDropdown(item.label);
+                          }}
+                          aria-label={`Toggle ${item.label} submenu`}
+                          aria-expanded={openMobileDropdown === item.label}
+                        >
+                          <ChevronDown
+                            size={20}
+                            className={`mobile-chevron ${openMobileDropdown === item.label ? "rotated" : ""}`}
+                          />
+                        </button>
+                      </div>
                       {openMobileDropdown === item.label && (
                         <div className="mobile-overlay-sub-links">
                           {item.children.map((child) => (
