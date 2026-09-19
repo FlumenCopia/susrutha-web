@@ -39,6 +39,9 @@ export function DoctorQuickViewModal({ doctor, onClose }: DoctorQuickViewModalPr
           <X size={18} />
         </button>
 
+
+
+
         <div className="doctor-modal-grid">
           {/* Left Avatar Column */}
           <div className="doctor-modal-image-col">
