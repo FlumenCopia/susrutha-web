@@ -4,7 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Globe, ChevronUp, FileText, MapPin, Phone, Mail } from "lucide-react";
-import { getPublicBranches } from "@/app/services/api";
+import { getPublicBranches, getPublicSettings } from "@/app/services/api";
+
+function formatExternalUrl(url?: string, fallback = "#"): string {
+  if (!url || typeof url !== "string" || !url.trim()) return fallback;
+  const trimmed = url.trim();
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  return `https://${trimmed}`;
+}
+
 
 const navSections = [
   {
@@ -60,10 +68,26 @@ export function Footer() {
     mobile: "+91 96566 56736",
   });
 
+  const [socialLinks, setSocialLinks] = useState<{
+    facebook: string;
+    youtube: string;
+    instagram: string;
+    website: string;
+  }>({
+    facebook: "https://www.facebook.com/susruthaayurvedatvm",
+    youtube: "https://youtube.com",
+    instagram: "https://www.instagram.com/susruthaayurvedatvm/",
+    website: "https://susruthaayurveda.com",
+  });
+
   useEffect(() => {
-    async function loadMainBranch() {
+    async function loadFooterData() {
       try {
-        const branches = await getPublicBranches();
+        const [branches, settings] = await Promise.all([
+          getPublicBranches(),
+          getPublicSettings(),
+        ]);
+
         if (Array.isArray(branches) && branches.length > 0) {
           const main = branches.find(
             (b: any) => b.isMainBranch === true || b.code === "KTK" || (b.type && b.type.includes("INPATIENT"))
@@ -80,11 +104,21 @@ export function Footer() {
             });
           }
         }
+
+        if (settings && typeof settings === "object") {
+          const social = settings.SOCIAL || {};
+          setSocialLinks({
+            facebook: formatExternalUrl(social.facebook, "https://www.facebook.com/susruthaayurvedatvm"),
+            youtube: formatExternalUrl(social.youtube, "https://youtube.com"),
+            instagram: formatExternalUrl(social.instagram, "https://www.instagram.com/susruthaayurvedatvm/"),
+            website: formatExternalUrl(social.website, "https://susruthaayurveda.com"),
+          });
+        }
       } catch (err) {
-        console.error("Failed to fetch main branch for footer:", err);
+        console.error("Failed to fetch footer data:", err);
       }
     }
-    loadMainBranch();
+    loadFooterData();
   }, []);
 
   const scrollToTop = () => {
@@ -182,25 +216,25 @@ export function Footer() {
         {/* Bottom Bar: Social Icons & Copyright & Back to top */}
         <div className="luxury-footer-bottom">
           <div className="luxury-footer-socials" aria-label="Social media links">
-            <a href="https://www.facebook.com/susruthaayurvedatvm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
               </svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
                 <polygon points="10 15 15 12 10 9" />
               </svg>
             </a>
-            <a href="https://www.instagram.com/susruthaayurvedatvm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
               </svg>
             </a>
-            <a href="https://susruthaayurveda.com" target="_blank" rel="noopener noreferrer" aria-label="Website">
+            <a href={socialLinks.website} target="_blank" rel="noopener noreferrer" aria-label="Website">
               <Globe size={18} strokeWidth={1.75} />
             </a>
           </div>
