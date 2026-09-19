@@ -12,20 +12,23 @@ const nextConfig: NextConfig = {
     imageSizes: [64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30,
     remotePatterns: [
+      { protocol: 'http', hostname: 'localhost', port: '5001', pathname: '/**' },
+      { protocol: 'http', hostname: '127.0.0.1', port: '5001', pathname: '/**' },
       { protocol: 'http', hostname: 'localhost', port: '5000', pathname: '/**' },
       { protocol: 'http', hostname: '127.0.0.1', port: '5000', pathname: '/**' },
       { protocol: 'https', hostname: 'susruthaayurveda.com', pathname: '/**' },
     ],
   },
   async rewrites() {
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
     return [
       {
         source: '/uploads/:path*',
-        destination: 'http://localhost:5000/uploads/:path*',
+        destination: `${backendUrl}/uploads/:path*`,
       },
       {
         source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*',
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },
