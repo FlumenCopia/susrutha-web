@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { getPublicTestimonials, getImageDisplayUrl } from "@/app/services/api";
+import { getPublicTestimonials, getImageDisplayUrl, isVideoFile } from "@/app/services/api";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
 
 type TestimonialItem = {
@@ -44,16 +44,24 @@ export function TestimonialsReferenceSection() {
         setLoading(true);
         const data = await getPublicTestimonials();
         if (Array.isArray(data) && data.length > 0) {
-          const normalized = data.map((t: any) => ({
-            name: t.patientName || t.name,
-            place: t.patientLocation || t.place || 'Kerala',
-            image: (t.patientPhoto || t.image) ? getImageDisplayUrl(t.patientPhoto || t.image) : '',
-            copy: t.reviewText || t.copy || t.message || '',
-            treatment: t.treatmentReceived || 'Authentic Ayurveda Treatment',
-            rating: t.rating || 5,
-            videoUrl: t.videoUrl || null,
-            isBackendData: true,
-          }));
+          const normalized = data.map((t: any) => {
+            const rawPhoto = t.patientPhoto || t.image || '';
+            const rawVideo = t.videoUrl || '';
+            const isPhotoActuallyVideo = isVideoFile(rawPhoto);
+            const actualVideo = rawVideo || (isPhotoActuallyVideo ? rawPhoto : null);
+            const actualPhoto = isPhotoActuallyVideo ? '' : rawPhoto;
+
+            return {
+              name: t.patientName || t.name,
+              place: t.patientLocation || t.place || 'Kerala',
+              image: actualPhoto ? getImageDisplayUrl(actualPhoto) : '',
+              copy: t.reviewText || t.copy || t.message || '',
+              treatment: t.treatmentReceived ? t.treatmentReceived.trim() : '',
+              rating: t.rating || 5,
+              videoUrl: actualVideo ? (actualVideo.startsWith('http') ? actualVideo : getImageDisplayUrl(actualVideo)) : null,
+              isBackendData: true,
+            };
+          });
           setTestimonialList(normalized);
         } else {
           setTestimonialList([]);
@@ -67,6 +75,7 @@ export function TestimonialsReferenceSection() {
     }
     loadTestimonials();
   }, []);
+
 
   if (!loading && testimonialList.length === 0) {
     return null;

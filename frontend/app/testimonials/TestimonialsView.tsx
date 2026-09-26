@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { getPublicTestimonials, getImageDisplayUrl } from "@/app/services/api";
+import { getPublicTestimonials, getImageDisplayUrl, isVideoFile } from "@/app/services/api";
 import "./testimonials.css";
 
 export interface TestimonialItem {
@@ -29,17 +29,25 @@ export function TestimonialsView() {
         setLoading(true);
         const data = await getPublicTestimonials();
         if (Array.isArray(data) && data.length > 0) {
-          const mapped: TestimonialItem[] = data.map((item: any) => ({
-            id: item._id || item.id || String(Math.random()),
-            patientName: item.patientName || item.name || "Verified Patient",
-            patientLocation: item.patientLocation || item.place || "Kerala, India",
-            treatmentReceived: item.treatmentReceived || item.treatment || "Authentic Ayurvedic Care",
-            rating: typeof item.rating === "number" ? item.rating : 5,
-            reviewText: item.reviewText || item.copy || item.message || "",
-            patientPhoto: item.patientPhoto ? getImageDisplayUrl(item.patientPhoto) : undefined,
-            videoUrl: item.videoUrl ? getImageDisplayUrl(item.videoUrl) : undefined,
-            isFeatured: Boolean(item.isFeatured),
-          }));
+          const mapped: TestimonialItem[] = data.map((item: any) => {
+            const rawPhoto = item.patientPhoto || item.image || '';
+            const rawVideo = item.videoUrl || '';
+            const isPhotoActuallyVideo = isVideoFile(rawPhoto);
+            const actualVideo = rawVideo || (isPhotoActuallyVideo ? rawPhoto : undefined);
+            const actualPhoto = isPhotoActuallyVideo ? undefined : (rawPhoto ? getImageDisplayUrl(rawPhoto) : undefined);
+
+            return {
+              id: item._id || item.id || String(Math.random()),
+              patientName: item.patientName || item.name || "Verified Patient",
+              patientLocation: item.patientLocation || item.place || "Kerala, India",
+              treatmentReceived: (item.treatmentReceived || item.treatment || "").trim(),
+              rating: typeof item.rating === "number" ? item.rating : 5,
+              reviewText: item.reviewText || item.copy || item.message || "",
+              patientPhoto: actualPhoto,
+              videoUrl: actualVideo ? (actualVideo.startsWith('http') ? actualVideo : getImageDisplayUrl(actualVideo)) : undefined,
+              isFeatured: Boolean(item.isFeatured),
+            };
+          });
           setTestimonials(mapped);
         }
       } catch (err) {
@@ -152,7 +160,9 @@ export function TestimonialsView() {
                   {"★".repeat(videoSpotlight.rating)}
                 </div>
 
-                <span className="spotlight-treatment">{videoSpotlight.treatmentReceived}</span>
+                {videoSpotlight.treatmentReceived && (
+                  <span className="spotlight-treatment">{videoSpotlight.treatmentReceived}</span>
+                )}
 
                 <blockquote className="spotlight-quote">
                   {videoSpotlight.reviewText}
@@ -246,7 +256,9 @@ export function TestimonialsView() {
                     </span>
                   </div>
 
-                  <div className="card-treatment">{item.treatmentReceived}</div>
+                  {item.treatmentReceived && (
+                    <div className="card-treatment">{item.treatmentReceived}</div>
+                  )}
 
                   <p className="card-text">
                     &ldquo;{item.reviewText}&rdquo;
