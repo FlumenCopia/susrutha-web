@@ -8,7 +8,7 @@ import { Counbanner } from "./Counbanner";
 // import Timeloop from "./Timeloop";
 import { HomeFooterBanner } from "./HomeFooterBanner";
 import { AboutFoundersSection } from "../inner/about-premium/AboutFoundersSection";
-// import { AboutFoundersSection } from "./about-premium/AboutFoundersSection";
+import { TestimonialsReferenceSection } from "./TestimonialsReferenceSection";
 
 export function HomePage() {
   return (
@@ -23,8 +23,8 @@ export function HomePage() {
       {/* <CustodiansOfWisdomSection /> */}
       {/* <AboutFoundersSection /> */}
       <AboutFoundersSection />
+      <TestimonialsReferenceSection />
       <HomeFooterBanner />
-
     </div>
   );
 }

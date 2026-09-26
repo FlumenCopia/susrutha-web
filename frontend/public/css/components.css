@@ -1881,10 +1881,15 @@ p {
 
 .testimonials-reference-decor-left {
   left: 0;
-  top: 0;
-  width: min(38vw, 590px);
-  height: 470px;
+  top: 10px;
+  width: min(22vw, 290px);
+  height: 360px;
   overflow: hidden;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse at 15% 35%, rgba(0, 0, 0, 1) 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 15% 35%, rgba(0, 0, 0, 1) 25%, transparent 75%);
+  pointer-events: none;
 }
 
 .testimonials-reference-decor-left img {
@@ -1894,17 +1899,23 @@ p {
 }
 
 .testimonials-reference-decor-right {
-  right: -28px;
-  bottom: 92px;
-  width: min(32vw, 455px);
-  height: 330px;
+  right: 0;
+  top: 10px;
+  width: min(22vw, 290px);
+  height: 360px;
   overflow: hidden;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  transform: scaleX(-1);
+  -webkit-mask-image: radial-gradient(ellipse at 15% 35%, rgba(0, 0, 0, 1) 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 15% 35%, rgba(0, 0, 0, 1) 25%, transparent 75%);
+  pointer-events: none;
 }
 
 .testimonials-reference-decor-right img {
-  object-position: 90% 70%;
-  transform: scale(1.55);
-  transform-origin: 90% 78%;
+  object-position: left top;
+  transform: scale(1.02);
+  transform-origin: left top;
 }
 
 @media (max-width: 1180px) {
@@ -2065,8 +2076,10 @@ p {
 }
 
 .testimonials-reference-decor-right {
-  width: min(28vw, 390px);
-  height: 285px;
+  right: 0;
+  top: 10px;
+  width: min(22vw, 290px);
+  height: 360px;
 }
 
 @media (max-width: 1180px) {
@@ -8181,17 +8194,21 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .susrutha-way-card {
     aspect-ratio: 4 / 3;
   }
+
   .path-wholeness-line {
     display: none;
   }
+
   .path-wholeness-grid,
   .sig-experience-grid,
   .custodians-grid {
     grid-template-columns: 1fr;
   }
+
   .sig-experience-header {
     flex-direction: column;
     align-items: flex-start;
@@ -8534,6 +8551,4 @@ body:has(.about-premium-page) .nav-actions .btn-primary {
     width: 100%;
     justify-content: space-between;
   }
-}
-
-
+}
