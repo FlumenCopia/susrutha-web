@@ -6,7 +6,7 @@ import { VideoGalleryHeaderHero } from "./VideoGalleryHeaderHero";
 import { VideoCategoryFilters } from "./VideoCategoryFilters";
 import { FeaturedVideosSection } from "./FeaturedVideosSection";
 import { VideoModal } from "./VideoModal";
-import { getPublicVideos, getPublicGalleryAlbums, getImageDisplayUrl } from "@/app/services/api";
+import { getPublicVideos, getPublicGalleryAlbums, getImageDisplayUrl, isVideoFile } from "@/app/services/api";
 
 export type VideoCategory = "All" | "Images" | "Videos" | "Podcasts";
 
@@ -48,6 +48,9 @@ export function VideoGalleryPage() {
               categoryName = "Videos";
             }
 
+            const videoUrlResolved = v.videoUrl ? (v.videoUrl.startsWith('http') ? v.videoUrl : getImageDisplayUrl(v.videoUrl)) : undefined;
+            const thumbResolved = getImageDisplayUrl(v.thumbnailUrl || v.thumbnail || v.coverImage || v.image);
+
             combinedItems.push({
               id: v._id || v.id || `v-${idx}`,
               title: v.title || v.name || "",
@@ -56,7 +59,8 @@ export function VideoGalleryPage() {
               rating: v.rating ? `${v.rating}★` : "",
               views: v.viewsCount ? `${v.viewsCount} Views` : (v.views ? `${v.views}` : ""),
               description: v.description || v.summary || "",
-              thumbnail: getImageDisplayUrl(v.thumbnailUrl || v.thumbnail || v.coverImage || v.image),
+              thumbnail: thumbResolved,
+              videoUrl: videoUrlResolved,
               youtubeId: ytId || "",
               level: v.level || "",
               speaker: {
@@ -75,20 +79,25 @@ export function VideoGalleryPage() {
         // 2. Process Live Backend Gallery / Photo Albums
         if (galleryRes.status === "fulfilled" && Array.isArray(galleryRes.value)) {
           galleryRes.value.forEach((g: any, idx: number) => {
+            const rawCover = g.coverImage || g.thumbnail || g.image || (g.photos && g.photos[0]) || "";
+            const isVideo = isVideoFile(rawCover);
+            const resolvedCover = getImageDisplayUrl(rawCover);
+
             combinedItems.push({
               id: g._id || g.id || `gal-${idx}`,
               title: g.title || g.name || "Gallery Album",
-              category: "Images",
-              duration: g.photos?.length ? `${g.photos.length} Photos` : "",
+              category: isVideo ? "Videos" : "Images",
+              duration: isVideo ? "Video Clip" : (g.photos?.length ? `${g.photos.length} Photos` : ""),
               rating: g.rating ? `${g.rating}★` : "",
               views: g.views ? `${g.views}` : "",
               description: g.description || g.summary || "",
-              thumbnail: getImageDisplayUrl(g.coverImage || g.thumbnail || g.image || (g.photos && g.photos[0])),
+              thumbnail: resolvedCover,
+              videoUrl: isVideo ? resolvedCover : undefined,
               youtubeId: "",
-              level: "",
+              level: isVideo ? "Clinical Class" : "",
               speaker: {
                 name: typeof g.author === 'object' ? (g.author?.name || "") : (g.author || ""),
-                role: "Photo Gallery",
+                role: isVideo ? "Clinical Media" : "Photo Gallery",
                 avatar: "",
                 verified: false,
               },
@@ -196,6 +205,7 @@ export function VideoGalleryPage() {
       {/* Deluxe Cinema Modal Player with Transcripts & Speed Controls */}
       <VideoModal
         video={activeModalVideo}
+        allVideos={videoList}
         onClose={() => setActiveModalVideo(null)}
         onSelectRelated={(v) => setActiveModalVideo(v)}
       />

@@ -1,8 +1,20 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1/public";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api/v1/public";
+
+export function isVideoFile(url?: string | null): boolean {
+  if (!url || typeof url !== 'string') return false;
+  return /\.(mp4|webm|mov|m4v|ogg)$/i.test(url.trim());
+}
 
 export function getImageDisplayUrl(url?: string | null): string {
   if (!url || typeof url !== 'string' || url.trim() === '') return '';
   if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
+  
+  if (url.includes('kowdiar')) {
+    const match = url.match(/(\d+)/);
+    const num = match ? match[1].padStart(2, '0') : '06';
+    return `/images/kowdiar_gallery_${num}.webp`;
+  }
+
   if (url.startsWith('/images/')) return url;
   
   const filename = url.split('/').pop() || '';
@@ -10,7 +22,7 @@ export function getImageDisplayUrl(url?: string | null): string {
     return `/images/${filename}`;
   }
 
-  const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1/public';
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api/v1/public';
   const hostBase = apiBase.replace(/\/api\/v1.*$/, '').replace(/\/+$/, '');
   const cleanPath = url.startsWith('/') ? url : `/${url}`;
   return `${hostBase}${cleanPath}`;

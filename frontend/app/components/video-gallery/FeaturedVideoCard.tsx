@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Check, Maximize2, Eye } from "lucide-react";
 import { DataLayerRibbon } from "../common/DataLayerRibbon";
+import { isVideoFile } from "@/app/services/api";
 
 export type VideoChapter = {
   timestamp: string;
@@ -24,6 +25,7 @@ export type VideoItem = {
   category: string;
   duration: string;
   thumbnail: string;
+  videoUrl?: string;
   youtubeId: string;
   views: string;
   rating: string;
@@ -44,15 +46,24 @@ export function FeaturedVideoCard({ video, onPlay }: FeaturedVideoCardProps) {
   const [imgError, setImgError] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
 
-  const isImage =
-    video.category?.toLowerCase() === "images" ||
-    video.category?.toLowerCase() === "gallery" ||
-    (!video.youtubeId && Boolean(video.thumbnail));
+  const isDirectVideo = isVideoFile(video.videoUrl) || isVideoFile(video.thumbnail);
+  const isVideo = Boolean(video.youtubeId) || isDirectVideo;
+  const isImage = !isVideo;
+  const mediaSource = video.videoUrl || video.thumbnail;
 
   return (
     <article className="vg-featured-card-deluxe" onClick={() => onPlay(video)}>
       <div className="vg-card-thumb-wrapper">
-        {video.thumbnail && !imgError ? (
+        {isDirectVideo && mediaSource ? (
+          <video
+            src={mediaSource}
+            className="vg-card-thumb-img"
+            muted
+            playsInline
+            preload="metadata"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        ) : video.thumbnail && !imgError ? (
           <Image
             src={video.thumbnail}
             alt={video.title}
