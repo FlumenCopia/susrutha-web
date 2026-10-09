@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 /* Design System Core Overrides & Global Reset */
 *,
 *::before,
@@ -18,7 +20,7 @@ body {
   min-height: 100vh;
   background-color: #fff !important;
   color: #000 !important;
-  font-family: 'Grift', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,6 +34,7 @@ h6,
 .font-display-lg,
 .font-headline-lg,
 .font-headline-md {
+  font-family: 'Poppins', sans-serif !important;
   color: #000 !important;
 }
 
@@ -804,7 +807,7 @@ p.doctors-stat-label,
 }
 
 /* ==========================================================================
-   Hero Section Headings Custom Font (Grift)
+   Hero Section Headings
    ========================================================================== */
 .ayora-hero-giant-title,
 .ayora-hero-title-box h1,
@@ -847,5 +850,5 @@ p.doctors-stat-label,
 .hero-heading,
 .hero-title,
 .hero-banner-heading {
-  font-family: 'Grift', serif, sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
