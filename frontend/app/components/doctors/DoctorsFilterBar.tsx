@@ -55,7 +55,7 @@ export function DoctorsFilterBar({
   const isSortActive = sortBy !== "rating";
 
   return (
-    <div className="doctors-filter-sticky">
+    <div className="doctors-filter-sticky doctors-filter-section" id="doctors-filter-section" style={{ scrollMarginTop: "90px" }}>
       <div className="doctors-filter-container">
         {/* Main Filter Dropdowns Row */}
         <div className="doctors-filter-row">

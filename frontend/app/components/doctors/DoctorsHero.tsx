@@ -13,9 +13,10 @@ type DoctorsHeroProps = {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   onTagClick: (tag: string) => void;
+  onSearchSubmit?: () => void;
 };
 
-export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: DoctorsHeroProps) {
+export function DoctorsHero({ searchQuery, onSearchChange, onTagClick, onSearchSubmit }: DoctorsHeroProps) {
   return (
     <section className="doctors-hero">
       <div className="doctors-hero-container">
@@ -30,6 +31,11 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
                 placeholder="Search by doctor name, specialty (Panchakarma, Spine), qualification..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    onSearchSubmit?.();
+                  }
+                }}
               />
               {searchQuery ? (
                 <button
@@ -58,7 +64,11 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick }: Doctors
                   <span>Clear</span>
                 </button>
               ) : null}
-              <button type="button" className="doctors-hero-search-btn">
+              <button
+                type="button"
+                className="doctors-hero-search-btn"
+                onClick={onSearchSubmit}
+              >
                 Find Doctor
               </button>
             </div>

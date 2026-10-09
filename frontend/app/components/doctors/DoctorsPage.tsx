@@ -185,14 +185,24 @@ export function DoctorsPage() {
     return count;
   }, [selectedDeptId, selectedBranchId, selectedMode, quickFilter, searchQuery]);
 
+  // Scroll smoothly to filter / results section
+  const scrollToResults = () => {
+    const el = document.getElementById("doctors-filter-section") || document.querySelector(".doctors-filter-sticky");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   // Handle Tag click from Hero
   const handleTagClick = (tag: string) => {
     setSearchQuery(tag);
-    // Scroll smoothly to filter section
-    const el = document.querySelector(".doctors-filter-section");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollToResults();
+  };
+
+  // Handle Department click from Grid
+  const handleSelectDepartment = (deptId: string) => {
+    setSelectedDeptId(deptId);
+    scrollToResults();
   };
 
   // Clear all filters
@@ -281,12 +291,13 @@ export function DoctorsPage() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onTagClick={handleTagClick}
+        onSearchSubmit={scrollToResults}
       />
 
       {/* 2. Department Category Grid */}
       <DoctorsDepartmentGrid
         selectedDeptId={selectedDeptId}
-        onSelectDepartment={setSelectedDeptId}
+        onSelectDepartment={handleSelectDepartment}
         departments={departments}
       />
 
