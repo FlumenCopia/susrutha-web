@@ -23,7 +23,7 @@ const facilityFaqs = [
 
 function RunningStatNumber({ targetValue }: { targetValue: string }) {
   const [displayValue, setDisplayValue] = useState("0");
-  const containerRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -35,20 +35,20 @@ function RunningStatNumber({ targetValue }: { targetValue: string }) {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          if (targetValue === "24x7") {
+          if (targetValue === "24/7" || targetValue === "24x7") {
             let n1 = 0;
-            let n2 = 0;
             const timer = setInterval(() => {
-              if (n1 < 24) n1 += 1;
-              if (n2 < 7) n2 += 1;
-              setDisplayValue(`${n1}x${n2}`);
-              if (n1 >= 24 && n2 >= 7) {
+              n1 += 1;
+              setDisplayValue(`${n1}/7`);
+              if (n1 >= 24) {
+                setDisplayValue("24/7");
                 clearInterval(timer);
               }
-            }, 45);
+            }, 30);
             return;
           }
 
+          const hasPercent = targetValue.includes("%");
           const targetNum = parseInt(targetValue, 10);
           if (isNaN(targetNum)) {
             setDisplayValue(targetValue);
@@ -56,14 +56,17 @@ function RunningStatNumber({ targetValue }: { targetValue: string }) {
           }
 
           let current = 0;
-          const duration = 1000;
-          const stepTime = Math.max(25, Math.floor(duration / targetNum));
+          const duration = 800;
+          const step = targetNum > 50 ? 5 : 1;
+          const stepTime = Math.max(20, Math.floor(duration / (targetNum / step)));
+
           const timer = setInterval(() => {
-            current += 1;
-            setDisplayValue(`${current}`);
+            current += step;
             if (current >= targetNum) {
+              current = targetNum;
               clearInterval(timer);
             }
+            setDisplayValue(`${current}${hasPercent ? "%" : ""}`);
           }, stepTime);
         }
       },
@@ -75,9 +78,9 @@ function RunningStatNumber({ targetValue }: { targetValue: string }) {
   }, [targetValue, hasAnimated]);
 
   return (
-    <span ref={containerRef} className="facilities-stat-number">
+    <div ref={containerRef} className="facilities-stat-number">
       {displayValue}
-    </span>
+    </div>
   );
 }
 
@@ -109,10 +112,10 @@ export function FacilitiesInfo() {
         <p>Patients can review the setting before they book a consultation or inpatient programme.</p>
         <div className="facilities-stats-container">
           {facilityHeroStats.map((stat) => (
-            <span key={stat.label} className="facilities-stat-item">
+            <div key={stat.label} className="facilities-stat-item">
               <RunningStatNumber targetValue={stat.value} />
-              <span className="facilities-stat-label">{stat.label}</span>
-            </span>
+              <div className="facilities-stat-label">{stat.label}</div>
+            </div>
           ))}
         </div>
       </article>

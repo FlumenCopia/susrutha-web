@@ -18,9 +18,6 @@ export function AyurVillageExperience() {
           fill
           sizes={experienceImageSizes}
         />
-        <button type="button" aria-label="Play Ayurveda Village experience video">
-          <AyurVillageIcon name="play" />
-        </button>
         <strong>Experience Ayur Village</strong>
       </div>
 

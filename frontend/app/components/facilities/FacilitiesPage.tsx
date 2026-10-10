@@ -1,4 +1,3 @@
-import { FacilitiesEnquiry } from "./FacilitiesEnquiry";
 import { FacilitiesGrid } from "./FacilitiesGrid";
 import { FacilitiesHero } from "./FacilitiesHero";
 import { FacilitiesInfo } from "./FacilitiesInfo";
@@ -11,7 +10,6 @@ export function FacilitiesPage() {
       <FacilitiesGrid />
       <FacilitiesPrograms />
       <FacilitiesInfo />
-      <FacilitiesEnquiry />
     </div>
   );
 }
