@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { TrendingUp, Activity, X, ArrowRight, UserCheck, Leaf, ClipboardList, Search } from "lucide-react";
+import { Activity, X, UserCheck, Leaf, Search } from "lucide-react";
 import { desktopNavigation } from "../../data/architecture";
 import { getPublicDoctors, getPublicTreatments, getPublicConditions, getImageDisplayUrl } from "../../services/api";
 
@@ -18,15 +18,6 @@ type SearchResultItem = {
   badge?: string;
 };
 
-const POPULAR_SEARCHES = [
-  { label: "Panchakarma", href: "/treatments/panchakarma" },
-  { label: "Shirodhara", href: "/treatments/shirodhara" },
-  { label: "Dr. Krishnakumar K.", href: "/doctors/dr-krishnakumar-k" },
-  { label: "Spine & Joints Care", href: "/conditions/spine-joints" },
-  { label: "Women's Health", href: "/treatments/womens-health" },
-  { label: "Abhyangam Massage", href: "/treatments/abhyangam" },
-];
-
 export function NavbarSearch() {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -35,9 +26,26 @@ export function NavbarSearch() {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   // Live data fetched from API
-  const [liveDoctors, setLiveDoctors] = useState<{ slug: string; name: string; designation: string; image: string }[]>([]);
-  const [liveTreatments, setLiveTreatments] = useState<{ slug: string; title: string; description: string }[]>([]);
-  const [liveConditions, setLiveConditions] = useState<{ slug: string; title: string; description: string }[]>([]);
+  const [liveDoctors, setLiveDoctors] = useState<{
+    slug: string;
+    name: string;
+    designation: string;
+    qualifications?: string;
+    specialties?: string[];
+    image: string;
+  }[]>([]);
+  const [liveTreatments, setLiveTreatments] = useState<{
+    slug: string;
+    title: string;
+    category?: string;
+    description: string;
+    image?: string;
+  }[]>([]);
+  const [liveConditions, setLiveConditions] = useState<{
+    slug: string;
+    title: string;
+    description: string;
+  }[]>([]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -52,29 +60,46 @@ export function NavbarSearch() {
           getPublicTreatments(),
           getPublicConditions(),
         ]);
-        if (Array.isArray(docs)) {
-          setLiveDoctors(docs.map((d: any) => ({
-            slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
-            name: d.name || "Doctor",
-            designation: d.designation || d.title || "Ayurveda Specialist",
-            image: getImageDisplayUrl(d.photo || d.photoUrl),
-          })));
+        const rawDocs = Array.isArray(docs) ? docs : (docs as any)?.items || [];
+        if (Array.isArray(rawDocs) && rawDocs.length > 0) {
+          setLiveDoctors(
+            rawDocs
+              .filter((d: any) => !d.name?.includes("Test") && !d.name?.match(/\d{5,}/))
+              .map((d: any) => ({
+                slug: d.slug || `dr-${(d.name || "").toLowerCase().replace(/\s+/g, "-")}`,
+                name: d.name || "Doctor",
+                designation: d.designation || d.title || "Ayurveda Specialist",
+                qualifications: d.qualifications || d.qualification || "",
+                specialties: Array.isArray(d.specialties) ? d.specialties : [],
+                image: getImageDisplayUrl(d.photo || d.photoUrl),
+              }))
+          );
         }
-        if (Array.isArray(treats)) {
-          setLiveTreatments(treats.map((t: any) => ({
-            slug: t.slug || "",
-            title: t.title || t.name || "",
-            description: t.shortDescription || t.description || t.meta || "",
-          })));
+        const rawTreats = Array.isArray(treats) ? treats : (treats as any)?.items || [];
+        if (Array.isArray(rawTreats) && rawTreats.length > 0) {
+          setLiveTreatments(
+            rawTreats.map((t: any) => ({
+              slug: t.slug || "",
+              title: t.title || t.name || "",
+              category: t.category || "",
+              description: t.shortDescription || t.description || t.meta || "",
+              image: getImageDisplayUrl(t.coverImage || t.image || t.photo) || "/images/treatment-panchakarma.webp",
+            }))
+          );
         }
-        if (Array.isArray(conds)) {
-          setLiveConditions(conds.map((c: any) => ({
-            slug: c.slug || "",
-            title: c.name || c.title || "",
-            description: c.description || c.summary || c.text || "",
-          })));
+        const rawConds = Array.isArray(conds) ? conds : (conds as any)?.items || [];
+        if (Array.isArray(rawConds) && rawConds.length > 0) {
+          setLiveConditions(
+            rawConds.map((c: any) => ({
+              slug: c.slug || "",
+              title: c.name || c.title || "",
+              description: c.description || c.summary || c.text || "",
+            }))
+          );
         }
-      } catch {}
+      } catch (err) {
+        console.error("Failed to load search data:", err);
+      }
     }
     loadSearchData();
   }, []);
@@ -88,6 +113,7 @@ export function NavbarSearch() {
     }));
   }, []);
 
+
   // Compute search results matching query
   const results = useMemo(() => {
     const trimmed = query.trim().toLowerCase();
@@ -97,7 +123,7 @@ export function NavbarSearch() {
 
     const matchedDoctors: SearchResultItem[] = liveDoctors
       .filter((doc) => {
-        const text = `${doc.name} ${doc.designation}`.toLowerCase();
+        const text = `${doc.name} ${doc.designation} ${doc.qualifications || ""} ${(doc.specialties || []).join(" ")}`.toLowerCase();
         return text.includes(trimmed);
       })
       .slice(0, 4)
@@ -113,7 +139,7 @@ export function NavbarSearch() {
 
     const matchedTreatments: SearchResultItem[] = liveTreatments
       .filter((t) => {
-        const text = `${t.title} ${t.description}`.toLowerCase();
+        const text = `${t.title} ${t.category || ""} ${t.description}`.toLowerCase();
         return text.includes(trimmed);
       })
       .slice(0, 5)
@@ -121,15 +147,16 @@ export function NavbarSearch() {
         id: `trt-${t.slug}`,
         type: "treatment",
         title: t.title,
-        subtitle: t.description || "Ayurvedic Therapy",
+        subtitle: t.category ? `${t.category} • ${t.description || "Ayurvedic Therapy"}` : (t.description || "Ayurvedic Therapy"),
         href: `/treatments/${t.slug}`,
-        image: "/images/treatment-panchakarma.webp",
-        badge: "Therapy",
+        image: t.image || "/images/treatment-panchakarma.webp",
+        badge: t.category || "Therapy",
       }));
 
-    const condSource = liveConditions.length > 0
-      ? liveConditions.map((c) => ({ title: c.title, href: `/conditions/${c.slug}` }))
-      : conditions;
+    const condSource =
+      liveConditions.length > 0
+        ? liveConditions.map((c) => ({ title: c.title, href: `/conditions/${c.slug}` }))
+        : conditions;
 
     const matchedConditions: SearchResultItem[] = condSource
       .filter((c) => c.title.toLowerCase().includes(trimmed))
@@ -252,11 +279,14 @@ export function NavbarSearch() {
           type="text"
           value={query}
           onChange={(e) => {
-            setQuery(e.target.value);
-            setIsOpen(true);
+            const val = e.target.value;
+            setQuery(val);
+            setIsOpen(Boolean(val.trim()));
             setSelectedIndex(-1);
           }}
-          onFocus={() => setIsOpen(true)}
+          onFocus={() => {
+            if (query.trim()) setIsOpen(true);
+          }}
           onKeyDown={handleKeyDown}
           placeholder="Search treatments, doctors..."
           aria-label="Search treatments and doctors"
@@ -292,30 +322,8 @@ export function NavbarSearch() {
       </div>
 
       {/* Desktop Search Dropdown Overlay */}
-      {isOpen && (
+      {isOpen && Boolean(query.trim()) && (
         <div className="nav-search-dropdown" role="listbox" id="nav-search-results">
-          {/* Case 1: Empty query - Popular Searches */}
-          {!query.trim() && (
-            <div className="search-popular-section">
-              <div className="search-group-title" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                <TrendingUp size={15} style={{ color: "#d97706" }} />
-                <span>Popular Searches</span>
-              </div>
-              <div className="search-popular-tags">
-                {POPULAR_SEARCHES.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => handleSelectResult(item.href)}
-                    className="search-popular-tag"
-                  >
-                    <span>{item.label}</span>
-                    <span className="tag-arrow">&rarr;</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Case 2: Query entered with matches */}
           {query.trim() && results.all.length > 0 && (
@@ -431,7 +439,7 @@ export function NavbarSearch() {
               <div className="no-results-icon"><Search size={28} strokeWidth={1.5} /></div>
               <div className="no-results-title">No matching results for &quot;{query}&quot;</div>
               <p className="no-results-desc">
-                Try searching for Panchakarma, Shirodhara, Back Pain, or Dr. Krishnakumar.
+                Try searching for doctor names, specialized treatments, or clinical conditions.
               </p>
             </div>
           )}
@@ -476,26 +484,6 @@ export function NavbarSearch() {
           </div>
 
           <div className="mobile-search-body">
-            {!query.trim() && (
-              <div className="search-popular-section">
-                <div className="search-group-title">
-                  <span>Popular Searches</span>
-                </div>
-                <div className="search-popular-tags">
-                  {POPULAR_SEARCHES.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => handleSelectResult(item.href)}
-                      className="search-popular-tag"
-                    >
-                      <span>{item.label}</span>
-                      <span className="tag-arrow">&rarr;</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {query.trim() && results.all.length > 0 && (
               <div className="search-results-list">

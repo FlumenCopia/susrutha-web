@@ -7195,6 +7195,8 @@ body .site-header .nav-actions .btn-primary::after {
   font-size: 12px;
   font-weight: 600;
   text-decoration: none !important;
+  cursor: pointer;
+  font-family: inherit;
   transition: all 180ms ease;
 }
 
