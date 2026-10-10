@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Activity, X, UserCheck, Leaf, Search } from "lucide-react";
+import { Activity, X, UserCheck, Leaf, Search, ClipboardList } from "lucide-react";
 import { desktopNavigation } from "../../data/architecture";
 import { getPublicDoctors, getPublicTreatments, getPublicConditions, getImageDisplayUrl } from "../../services/api";
 
