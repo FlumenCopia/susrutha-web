@@ -273,11 +273,6 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
                 sizes="(max-width: 980px) 100vw, 48vw"
                 style={{ objectFit: "cover", objectPosition: "center" }}
               />
-              <div className="condition-detail-media-overlay" />
-              <div className="condition-detail-badge">
-                <span>Authentic Kerala Protocol</span>
-                <em>Physician Prescribed</em>
-              </div>
             </div>
           </div>
         </div>

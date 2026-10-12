@@ -1,22 +1,15 @@
 import React from "react";
 import { X, Search } from "lucide-react";
 
-const quickSearchTags = [
-  "Panchakarma",
-  "Spine & Joints",
-  "Women's Health",
-  "Skin & Hair",
-  "Detox & Wellness",
-];
 
 type DoctorsHeroProps = {
   searchQuery: string;
   onSearchChange: (query: string) => void;
-  onTagClick: (tag: string) => void;
+  onTagClick?: (tag: string) => void;
   onSearchSubmit?: () => void;
 };
 
-export function DoctorsHero({ searchQuery, onSearchChange, onTagClick, onSearchSubmit }: DoctorsHeroProps) {
+export function DoctorsHero({ searchQuery, onSearchChange, onSearchSubmit }: DoctorsHeroProps) {
   return (
     <section className="doctors-hero">
       <div className="doctors-hero-container">
@@ -71,23 +64,6 @@ export function DoctorsHero({ searchQuery, onSearchChange, onTagClick, onSearchS
               >
                 Find Doctor
               </button>
-            </div>
-          </div>
-
-          {/* Quick Filter Tags */}
-          <div className="doctors-hero-tags">
-            <span className="doctors-hero-tags-label">Popular Searches:</span>
-            <div className="doctors-hero-tags-list">
-              {quickSearchTags.map((tag) => (
-                <button
-                  key={tag}
-                  type="button"
-                  className="doctors-hero-tag-btn"
-                  onClick={() => onTagClick(tag)}
-                >
-                  {tag}
-                </button>
-              ))}
             </div>
           </div>
         </div>
