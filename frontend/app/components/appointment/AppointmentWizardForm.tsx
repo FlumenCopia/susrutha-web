@@ -985,9 +985,11 @@ function AppointmentWizardContent() {
                               }}
                             >
                               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-                                <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
-                                  {trt.category || "Panchakarma Therapy"}
-                                </span>
+                                {trt.category ? (
+                                  <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase" }}>
+                                    {trt.category}
+                                  </span>
+                                ) : <span />}
                                 {isSelected && (
                                   <span style={{ width: "22px", height: "22px", borderRadius: "50%", background: "#b57a25", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                     <Check size={13} strokeWidth={2.5} />
@@ -1274,7 +1276,10 @@ function AppointmentWizardContent() {
                           {selectedTreatment?.title || "Abhyangam Therapy"}
                         </h3>
                         <p style={{ fontSize: "13px", color: "#556655", margin: 0 }}>
-                          Category: <strong>{selectedTreatment?.category || "Panchakarma Therapy"}</strong> • {selectedBranch?.name}
+                          {selectedTreatment?.category ? (
+                            <>Category: <strong>{selectedTreatment.category}</strong> • </>
+                          ) : null}
+                          {selectedBranch?.name}
                         </p>
                       </div>
                       <button

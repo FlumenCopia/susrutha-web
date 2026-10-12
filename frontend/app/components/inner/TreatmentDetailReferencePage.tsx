@@ -108,10 +108,14 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
     resolveRelations();
   }, [treatment]);
 
-  const categoryName = treatment.category || "AYURVEDIC THERAPY";
+  const categoryName = treatment.category || "";
   const subtitle = treatment.slug === "panchakarma" ? "The Ultimate Ayurvedic Detox" : treatment.shortDescription || treatment.meta || "";
-  const duration = treatment.slug === "panchakarma" ? "7 - 21 Days" : treatment.durationMinutes ? `${treatment.durationMinutes} Mins` : "45 - 60 Mins";
-  const recommendedDays = treatment.recommendedDays ? `${treatment.recommendedDays} Days` : null;
+  const duration = treatment.durationMinutes
+    ? `${treatment.durationMinutes}${typeof treatment.durationMinutes === 'number' || !isNaN(Number(treatment.durationMinutes)) ? ' Mins' : ''}`
+    : null;
+  const recommendedDays = treatment.recommendedDays
+    ? `${treatment.recommendedDays}${typeof treatment.recommendedDays === 'number' || !isNaN(Number(treatment.recommendedDays)) ? ' Days' : ''}`
+    : null;
   const bannerImage = getTreatmentDisplayImage(treatment);
 
   const benefitCards = Array.isArray(treatment.benefits) && treatment.benefits.length > 0
@@ -211,9 +215,11 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
       <section className="condition-detail-banner" aria-labelledby="treatment-detail-title">
         <div className="condition-detail-container">
           <div className="condition-detail-copy">
-            <div className="condition-detail-eyebrow">
-              <span>{categoryName.toUpperCase()}</span>
-            </div>
+            {categoryName ? (
+              <div className="condition-detail-eyebrow">
+                <span>{categoryName.toUpperCase()}</span>
+              </div>
+            ) : null}
 
             <h1 id="treatment-detail-title" style={{ fontSize: "clamp(32px, 3.5vw, 48px)", fontWeight: 800, color: "#1a221f", margin: "0 0 16px" }}>
               {treatment.title}
@@ -227,10 +233,15 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
 
             {/* Quick Metrics Bar */}
             <div style={{ display: "inline-flex", gap: "20px", background: "#ffffff", padding: "14px 24px", borderRadius: "16px", border: "1px solid #ebdccb", boxShadow: "0 6px 20px rgba(71, 50, 26, 0.05)", margin: "0 0 28px", flexWrap: "wrap" }}>
-              <div>
-                <span style={{ display: "block", fontSize: "11px", textTransform: "uppercase", color: "#777", fontWeight: 700 }}>Duration</span>
-                <strong style={{ fontSize: "14px", color: "#111" }}>{duration}</strong>
-              </div>
+              {duration ? (
+                <>
+                  <div>
+                    <span style={{ display: "block", fontSize: "11px", textTransform: "uppercase", color: "#777", fontWeight: 700 }}>Duration</span>
+                    <strong style={{ fontSize: "14px", color: "#111" }}>{duration}</strong>
+                  </div>
+                  <div style={{ width: "1px", height: "32px", background: "#eee4d6" }} />
+                </>
+              ) : null}
 
               {recommendedDays && (
                 <>

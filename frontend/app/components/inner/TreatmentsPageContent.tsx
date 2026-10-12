@@ -137,9 +137,9 @@ function resolveTreatmentImage(t: any): string {
           slug: t.slug,
           title: t.name || t.title,
           text: t.shortDescription || t.subtitle || t.overview || "",
-          time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
+          time: t.durationMinutes ? `${t.durationMinutes}${typeof t.durationMinutes === 'number' || !isNaN(Number(t.durationMinutes)) ? ' Mins' : ''}` : '',
           image: resolveTreatmentImage(t),
-          category: t.category || "Panchakarma",
+          category: t.category || "",
           isBackendData: true,
         }));
         paginationMeta = res.pagination || { total: items.length, hasMore: false };
@@ -148,9 +148,9 @@ function resolveTreatmentImage(t: any): string {
           slug: t.slug,
           title: t.name || t.title,
           text: t.shortDescription || t.subtitle || t.overview || "",
-          time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
+          time: t.durationMinutes ? `${t.durationMinutes}${typeof t.durationMinutes === 'number' || !isNaN(Number(t.durationMinutes)) ? ' Mins' : ''}` : '',
           image: resolveTreatmentImage(t),
-          category: t.category || "Panchakarma",
+          category: t.category || "",
           isBackendData: true,
         }));
         paginationMeta = { total: items.length, hasMore: false };
@@ -340,19 +340,23 @@ function resolveTreatmentImage(t: any): string {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)", pointerEvents: "none" }} />
-                    <span style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(181, 122, 37, 0.9)", color: "#ffffff", fontSize: "11px", fontWeight: 800, padding: "4px 12px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.05em", zIndex: 2 }}>
-                      {treatment.category}
-                    </span>
+                    {treatment.category ? (
+                      <span style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(181, 122, 37, 0.9)", color: "#ffffff", fontSize: "11px", fontWeight: 800, padding: "4px 12px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.05em", zIndex: 2 }}>
+                        {treatment.category}
+                      </span>
+                    ) : null}
                   </div>
                   <div className="all-treatment-body">
                     <h3>{treatment.title}</h3>
                     <p>{treatment.text}</p>
-                    <div className="all-treatment-time">
-                      <span className="material-symbols-outlined" style={{ fontSize: "16px", marginRight: "5px" }} aria-hidden="true">
-                        schedule
-                      </span>
-                      {treatment.time}
-                    </div>
+                    {treatment.time ? (
+                      <div className="all-treatment-time">
+                        <span className="material-symbols-outlined" style={{ fontSize: "16px", marginRight: "5px" }} aria-hidden="true">
+                          schedule
+                        </span>
+                        {treatment.time}
+                      </div>
+                    ) : null}
                   </div>
                 </Link>
               );

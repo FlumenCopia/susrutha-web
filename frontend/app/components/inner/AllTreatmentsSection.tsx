@@ -28,7 +28,7 @@ export function AllTreatmentsSection() {
         slug: t.slug || `tr-${(t.title || t.name || '').toLowerCase().replace(/\s+/g, '-')}`,
         title: t.title || t.name,
         text: t.shortDescription || t.text || t.description || 'Ayurvedic therapeutic treatment.',
-        time: t.durationMinutes ? `${t.durationMinutes} Mins` : '60 Mins',
+        time: t.durationMinutes ? `${t.durationMinutes}${typeof t.durationMinutes === 'number' || !isNaN(Number(t.durationMinutes)) ? ' Mins' : ''}` : '',
         image: getImageDisplayUrl(t.coverImage || t.image),
         icon: "spa",
       }));
@@ -113,12 +113,14 @@ export function AllTreatmentsSection() {
                 <div className="all-treatment-body">
                   <h3>{treatment.title}</h3>
                   <p>{treatment.text}</p>
-                  <div className="all-treatment-time">
-                    <span className="material-symbols-outlined" style={{ fontSize: "16px", marginRight: "5px" }} aria-hidden="true">
-                      schedule
-                    </span>
-                    {treatment.time}
-                  </div>
+                  {treatment.time ? (
+                    <div className="all-treatment-time">
+                      <span className="material-symbols-outlined" style={{ fontSize: "16px", marginRight: "5px" }} aria-hidden="true">
+                        schedule
+                      </span>
+                      {treatment.time}
+                    </div>
+                  ) : null}
                 </div>
               </Link>
             );

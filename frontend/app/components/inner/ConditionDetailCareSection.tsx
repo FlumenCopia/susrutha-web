@@ -296,8 +296,8 @@ export function ConditionDetailCareSection({ condition }: ConditionDetailCareSec
                 {resolvedTreatments.map((tx: any, idx: number) => {
                   const txTitle = typeof tx === "string" ? tx : tx.title || tx.name || "Ayurvedic Therapy";
                   const txSlug = typeof tx === "object" ? tx.slug || tx._id : "";
-                  const txCategory = typeof tx === "object" ? tx.category : "Ayurvedic Care";
-                  const txDuration = typeof tx === "object" && tx.durationMinutes ? `${tx.durationMinutes} mins` : "";
+                  const txCategory = typeof tx === "object" ? (tx.category || "") : "";
+                  const txDuration = typeof tx === "object" && tx.durationMinutes ? `${tx.durationMinutes}${typeof tx.durationMinutes === 'number' || !isNaN(Number(tx.durationMinutes)) ? ' mins' : ''}` : "";
                   const txDesc = typeof tx === "object" ? tx.shortDescription || "" : "";
                   const txImg = resolveTreatmentImage(tx);
 

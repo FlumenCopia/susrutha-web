@@ -52,16 +52,18 @@ export function ConditionDetailBanner({ condition }: ConditionDetailBannerProps)
   const description = condition.shortDescription || condition.summary || condition.overview || condition.subtitle;
   const rawReviewer = (condition as any).reviewerName || condition.reviewer;
   const reviewer = typeof rawReviewer === "string" && rawReviewer.trim().length > 0 ? rawReviewer.trim() : null;
-  const categoryName = condition.category || "AYURVEDIC CARE";
+  const categoryName = condition.category || "";
 
   return (
     <section className="condition-detail-banner" aria-labelledby="condition-detail-title">
       <div className="condition-detail-container">
         <div className="condition-detail-copy">
-          <div className="condition-detail-eyebrow">
-            <LeafMark />
-            <span>{categoryName.toUpperCase()}</span>
-          </div>
+          {categoryName ? (
+            <div className="condition-detail-eyebrow">
+              <LeafMark />
+              <span>{categoryName.toUpperCase()}</span>
+            </div>
+          ) : null}
 
           <h1 id="condition-detail-title">{condition.title}</h1>
 

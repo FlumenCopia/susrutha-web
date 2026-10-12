@@ -73,7 +73,7 @@ export function ConditionsContentSection() {
         title: c.name || c.title,
         text: c.shortDescription || c.description || c.summary || c.text || "Physician-guided Ayurvedic care and recovery.",
         href: `/conditions/${c.slug || c._id || c.id}`,
-        category: c.category || "Speciality Care",
+        category: c.category || "",
         image: resolveConditionImage(c),
       }));
 
@@ -143,7 +143,7 @@ export function ConditionsContentSection() {
                     </div>
 
                     <div className="condition-card-inner-content">
-                      <span className="condition-card-eyebrow">{condition.category}</span>
+                      {condition.category ? <span className="condition-card-eyebrow">{condition.category}</span> : null}
                       <h3 className="condition-card-heading">{condition.title}</h3>
                       <p className="condition-card-copy">{condition.text}</p>
                     </div>
