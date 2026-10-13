@@ -155,7 +155,7 @@ function AppointmentWizardContent() {
 
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [selectedBranchId, setSelectedBranchId] = useState<string>("");
-  const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("");
+  const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("all");
   const [selectedDoctorId, setSelectedDoctorId] = useState<string>("");
   const [selectedPackageId, setSelectedPackageId] = useState<string>("");
   const [selectedTreatmentId, setSelectedTreatmentId] = useState<string>("");
@@ -194,6 +194,30 @@ function AppointmentWizardContent() {
           getPublicTreatments(),
         ]);
 
+        let initialBranchCode = "kattakada";
+        if (Array.isArray(apiBranches) && apiBranches.length > 0) {
+          const mappedBranches = apiBranches.map((b: any) => ({
+            id: b.code ? b.code.toLowerCase() : (b._id || b.id),
+            _id: b._id || b.id,
+            code: b.code || (b.id ? b.id.toUpperCase() : ""),
+            name: b.name,
+            type: b.type || "Inpatient & Outpatient Center",
+            address: typeof b.address === "object" ? `${b.address.street}, ${b.address.city}` : (b.address || ""),
+            phone: Array.isArray(b.contact?.phone) ? b.contact.phone[0] : (b.phone || "+91 94470 03191"),
+            timing: b.opdTimings || "09:00 AM - 07:00 PM",
+            image: getImageDisplayUrl(b.coverImage || "/images/kattakada-branch-hero.webp"),
+            features: b.features || [],
+          }));
+          setBranches(mappedBranches);
+
+          const matchBranch = branchQuery
+            ? mappedBranches.find((b: any) => b.id === branchQuery.toLowerCase() || b._id === branchQuery || b.name?.toLowerCase().includes(branchQuery.toLowerCase()))
+            : mappedBranches[0];
+          const activeBranch = matchBranch || mappedBranches[0];
+          initialBranchCode = activeBranch.code || activeBranch.id;
+          setSelectedBranchId(activeBranch.id);
+        }
+
         if (Array.isArray(apiDocs) && apiDocs.length > 0) {
           const mappedDocs = apiDocs.map((d: any) => ({
             id: d._id || d.id || d.slug,
@@ -208,33 +232,26 @@ function AppointmentWizardContent() {
             avatar: getImageDisplayUrl(d.photo || d.photoUrl),
             availableDays: d.availability ? d.availability.flatMap((a: any) => a.days || []) : (d.availableDays || ["Daily"]),
             availability: d.availability,
+            assignedBranchIds: d.assignedBranchIds || [],
             location: d.assignedBranchIds ? d.assignedBranchIds.map((b: any) => b.name || b).join(" & ") : "Main Hospital",
             rating: d.rating || 4.9,
           }));
           setDoctors(mappedDocs);
-          setFilteredDoctors(mappedDocs);
-          setSelectedDoctorId((prev) => {
-            if (mappedDocs.some((d) => d.id === prev || d._id === prev || d.slug === prev)) return prev;
-            return mappedDocs[0].id;
-          });
-        }
 
-        if (Array.isArray(apiBranches) && apiBranches.length > 0) {
-          const mappedBranches = apiBranches.map((b: any) => ({
-            id: b.code ? b.code.toLowerCase() : (b._id || b.id),
-            _id: b._id || b.id,
-            name: b.name,
-            type: b.type || "Inpatient & Outpatient Center",
-            address: typeof b.address === "object" ? `${b.address.street}, ${b.address.city}` : (b.address || ""),
-            phone: Array.isArray(b.contact?.phone) ? b.contact.phone[0] : (b.phone || "+91 94470 03191"),
-            timing: b.opdTimings || "09:00 AM - 07:00 PM",
-            image: getImageDisplayUrl(b.coverImage || "/images/kattakada-branch-hero.webp"),
-            features: b.features || [],
-          }));
-          setBranches(mappedBranches);
-          setSelectedBranchId((prev) => {
-            if (mappedBranches.some((b) => b.id === prev || b._id === prev)) return prev;
-            return mappedBranches[0].id;
+          const branchUpper = (initialBranchCode || "kattakada").toUpperCase();
+          const branchSpecificDocs = mappedDocs.filter((d: any) => {
+            if (!d.assignedBranchIds || !Array.isArray(d.assignedBranchIds) || d.assignedBranchIds.length === 0) return true;
+            return d.assignedBranchIds.some((b: any) => {
+              const bCode = typeof b === "string" ? b.toUpperCase() : (b.code || b._id || "").toUpperCase();
+              return bCode === branchUpper || bCode.includes(branchUpper);
+            });
+          });
+
+          const initialDocs = branchSpecificDocs.length > 0 ? branchSpecificDocs : mappedDocs;
+          setFilteredDoctors(initialDocs);
+          setSelectedDoctorId((prev) => {
+            if (initialDocs.some((d: any) => d.id === prev || d._id === prev || d.slug === prev)) return prev;
+            return initialDocs[0]?.id || mappedDocs[0].id;
           });
         }
 
@@ -303,13 +320,18 @@ function AppointmentWizardContent() {
 
   // When selected specialty/department OR branch changes, fetch matching doctors from backend
   useEffect(() => {
-    if (!selectedSpecialtyId) return;
-    const dept = specialties.find((s) => s.id === selectedSpecialtyId || s.slug === selectedSpecialtyId);
-    const deptSlug = dept?.slug || selectedSpecialtyId;
-    const branchCode = selectedBranchId ? selectedBranchId.toUpperCase() : undefined;
+    if (!selectedBranchId && branches.length > 0) return;
+
+    const specId = selectedSpecialtyId || "all";
+    const dept = specialties.find((s) => s.id === specId || s.slug === specId);
+    const deptSlug = (specId && specId !== "all") ? (dept?.slug || specId) : "all";
+
+    const currentBranch = branches.find((b) => b.id === selectedBranchId || b._id === selectedBranchId);
+    const branchCode = currentBranch?.code || currentBranch?.id || selectedBranchId;
+    const formattedBranchCode = branchCode ? branchCode.toUpperCase() : undefined;
 
     setIsDoctorLoading(true);
-    getPublicDoctorsByDepartment(deptSlug, branchCode)
+    getPublicDoctorsByDepartment(deptSlug, formattedBranchCode)
       .then((docs: any) => {
         if (Array.isArray(docs) && docs.length > 0) {
           const mapped = docs.map((d: any) => ({
@@ -331,16 +353,30 @@ function AppointmentWizardContent() {
           }));
           setFilteredDoctors(mapped);
           setSelectedDoctorId((prev) => {
-            if (mapped.some((d) => d.id === prev || d._id === prev)) return prev;
+            if (mapped.some((d) => d.id === prev || d._id === prev || d.slug === prev)) return prev;
             return mapped[0].id;
           });
         } else {
           setFilteredDoctors([]);
         }
       })
-      .catch(() => setFilteredDoctors(doctors))
+      .catch(() => {
+        if (selectedBranchId && doctors.length > 0) {
+          const bCodeUpper = (formattedBranchCode || selectedBranchId || "").toUpperCase();
+          const localFiltered = doctors.filter((d: any) => {
+            if (!d.assignedBranchIds || !Array.isArray(d.assignedBranchIds) || d.assignedBranchIds.length === 0) return true;
+            return d.assignedBranchIds.some((b: any) => {
+              const code = typeof b === "string" ? b.toUpperCase() : (b.code || b._id || "").toUpperCase();
+              return code === bCodeUpper || code.includes(bCodeUpper);
+            });
+          });
+          setFilteredDoctors(localFiltered.length > 0 ? localFiltered : doctors);
+        } else {
+          setFilteredDoctors(doctors);
+        }
+      })
       .finally(() => setIsDoctorLoading(false));
-  }, [selectedSpecialtyId, selectedBranchId, specialties]);
+  }, [selectedSpecialtyId, selectedBranchId, specialties, branches, doctors]);
 
   // Handle URL Search Params Auto-Selection
   useEffect(() => {
@@ -386,8 +422,13 @@ function AppointmentWizardContent() {
   );
 
   const selectedDoctor = useMemo(
-    () => doctors.find((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId) || doctors[0] || null,
-    [doctors, selectedDoctorId]
+    () =>
+      filteredDoctors.find((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId) ||
+      filteredDoctors[0] ||
+      doctors.find((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId) ||
+      doctors[0] ||
+      null,
+    [filteredDoctors, doctors, selectedDoctorId]
   );
 
   const selectedPackage = useMemo(
@@ -439,9 +480,9 @@ function AppointmentWizardContent() {
       setCurrentStep(2);
     } else if (currentStep === 2) {
       if (bookingMode === "DOCTOR") {
-        const isDoctorValid = doctors.some((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId);
-        if (!isDoctorValid && doctors.length > 0) {
-          setSelectedDoctorId(doctors[0].id);
+        const isDoctorValid = filteredDoctors.some((d) => d.id === selectedDoctorId || d._id === selectedDoctorId || d.slug === selectedDoctorId);
+        if (!isDoctorValid && filteredDoctors.length > 0) {
+          setSelectedDoctorId(filteredDoctors[0].id);
         }
       } else if (bookingMode === "PACKAGE") {
         if (!selectedPackageId && packages.length > 0) {
@@ -761,7 +802,10 @@ function AppointmentWizardContent() {
                           <div
                             key={branch.id}
                             className={`apt-branch-card-option ${isSelected ? "active" : ""}`}
-                            onClick={() => setSelectedBranchId(branch.id)}
+                            onClick={() => {
+                              setSelectedBranchId(branch.id);
+                              setAutoSelectedMsg(null);
+                            }}
                           >
                             <div className="branch-card-thumb">
                               <Image src={branch.image} alt={branch.name} fill sizes="140px" />
