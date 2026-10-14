@@ -10,7 +10,7 @@ import { DynamicDepartment } from "./DoctorsDepartmentGrid";
 import { DoctorsFilterBar } from "./DoctorsFilterBar";
 import { DynamicBranch } from "./DoctorsFilterBar";
 import { DoctorQuickViewModal } from "./DoctorQuickViewModal";
-import { DoctorMatchAssistant } from "./DoctorMatchAssistant";
+// import { DoctorMatchAssistant } from "./DoctorMatchAssistant";
 import { DoctorsStatsBanner } from "./DoctorsStatsBanner";
 import { DoctorsCTA } from "./DoctorsCTA";
 import { getPublicDoctors, getPublicDepartments, getPublicBranches, getImageDisplayUrl } from "@/app/services/api";
@@ -364,7 +364,7 @@ export function DoctorsPage() {
       </main>
 
       {/* 5. Doctor Match Assistant Recommendation Widget */}
-      <DoctorMatchAssistant />
+      {/* <DoctorMatchAssistant /> */}
 
       {/* 6. Clinical Heritage & Trust Stats */}
       <DoctorsStatsBanner />
