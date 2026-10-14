@@ -89,7 +89,7 @@ export function AyurVillagePackagesSection() {
           {packages.slice(0, 6).map((pkg) => {
             const rawImg = pkg.coverImage || pkg.image || "/images/treatment-panchakarma.webp";
             const imageSrc = rawImg.startsWith("/uploads/") ? rawImg.replace("/uploads/", "/images/") : rawImg;
-            const lowestPrice = pkg.startingPrice || (pkg.durationOptions?.[0]?.price) || null;
+            const lowestPrice = pkg.startingPrice || (pkg.durationOptions?.[0]?.price) || pkg.price || null;
 
             return (
               <article

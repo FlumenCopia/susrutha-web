@@ -937,9 +937,9 @@ function AppointmentWizardContent() {
                               <p style={{ fontSize: "12px", color: "#556655", lineHeight: "1.4", marginBottom: "10px" }}>
                                 {pkg.overview?.slice(0, 90) || pkg.subtitle || pkg.meta || "Physician-directed residential treatment program."}
                               </p>
-                              {pkg.startingPrice ? (
+                              {(pkg.startingPrice || pkg.price || pkg.durationOptions?.[0]?.price) ? (
                                 <span style={{ fontSize: "13px", fontWeight: 800, color: "#2d4d3a" }}>
-                                  Starts at ₹{pkg.startingPrice.toLocaleString("en-IN")}
+                                  Starts at ₹{(pkg.startingPrice || pkg.price || pkg.durationOptions?.[0]?.price).toLocaleString("en-IN")}
                                 </span>
                               ) : null}
                             </div>
@@ -1282,7 +1282,7 @@ function AppointmentWizardContent() {
                           Selected Care Package
                         </span>
                         <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1c2a23", margin: "2px 0 4px 0" }}>
-                          {selectedPackage?.title || "Low Back Pain & Sciatica Care Package"}
+                          {selectedPackage?.title || "Care Package"}
                         </h3>
                         <p style={{ fontSize: "13px", color: "#556655", margin: 0 }}>
                           <strong>{selectedDurationDays} Days Residential Stay</strong> • {selectedAccommodation} • {selectedBranch?.name}
@@ -1317,7 +1317,7 @@ function AppointmentWizardContent() {
                           Selected Therapy / Procedure
                         </span>
                         <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1c2a23", margin: "2px 0 4px 0" }}>
-                          {selectedTreatment?.title || "Abhyangam Therapy"}
+                          {selectedTreatment?.title || "Ayurvedic Therapy"}
                         </h3>
                         <p style={{ fontSize: "13px", color: "#556655", margin: 0 }}>
                           {selectedTreatment?.category ? (
@@ -1735,16 +1735,18 @@ function AppointmentWizardContent() {
                     <Sparkles size={20} />
                   </div>
                   <span style={{ fontSize: "11px", fontWeight: 800, color: "#b57a25", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                    {selectedPackage?.category || "Residential Program"}
+                    {selectedPackage?.category || selectedPackage?.badge || "Residential Program"}
                   </span>
                 </div>
                 <div style={{ marginTop: "4px" }}>
                   <h4 className="summary-doc-name" style={{ fontSize: "16px", fontWeight: 700, color: "#1c2a23", lineHeight: 1.35, margin: "0 0 4px 0" }}>
-                    {selectedPackage?.title || "Low Back Pain Care Package"}
+                    {selectedPackage?.title || "Care Package"}
                   </h4>
-                  <span className="summary-doc-spec" style={{ color: "#2d4d3a", fontWeight: 700, fontSize: "13px" }}>
-                    Starts at ₹{selectedPackage?.startingPrice ? selectedPackage.startingPrice.toLocaleString("en-IN") : "14,500"}
-                  </span>
+                  {(selectedPackage?.startingPrice || selectedPackage?.price || selectedPackage?.durationOptions?.[0]?.price) ? (
+                    <span className="summary-doc-spec" style={{ color: "#2d4d3a", fontWeight: 700, fontSize: "13px" }}>
+                      Starts at ₹{(selectedPackage.startingPrice || selectedPackage.price || selectedPackage.durationOptions?.[0]?.price).toLocaleString("en-IN")}
+                    </span>
+                  ) : null}
                 </div>
               </div>
             ) : bookingMode === "TREATMENT" ? (
@@ -1759,7 +1761,7 @@ function AppointmentWizardContent() {
                 </div>
                 <div style={{ marginTop: "4px" }}>
                   <h4 className="summary-doc-name" style={{ fontSize: "16px", fontWeight: 700, color: "#1c2a23", lineHeight: 1.35, margin: 0 }}>
-                    {selectedTreatment?.title || "Abhyangam Therapy"}
+                    {selectedTreatment?.title || "Therapy / Procedure"}
                   </h4>
                 </div>
               </div>
