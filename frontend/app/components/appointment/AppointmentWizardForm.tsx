@@ -1707,15 +1707,21 @@ function AppointmentWizardContent() {
                 >
                   Book Another Service
                 </button>
-                <a
-                  href={`https://wa.me/919447003191?text=Hello%20Susrutha%20Ayurveda,%20I%20have%20submitted%20a%20booking%20request%20${bookingReference}%20for%20${patientName}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", height: "48px", padding: "0 26px", borderRadius: "999px", fontWeight: 700, fontSize: "14px", background: "#25D366", color: "#ffffff", textDecoration: "none", boxShadow: "0 4px 14px rgba(37, 211, 102, 0.35)", border: "none" }}
-                >
-                  <Phone size={16} />
-                  <span>Confirm via WhatsApp Desk</span>
-                </a>
+                {(() => {
+                  const rawPhone = (selectedBranch?.phone || "919656656736").replace(/[^0-9]/g, "");
+                  const targetWaNumber = rawPhone.length === 10 ? `91${rawPhone}` : (rawPhone || "919656656736");
+                  return (
+                    <a
+                      href={`https://wa.me/${targetWaNumber}?text=Hello%20Susrutha%20Ayurveda,%20I%20have%20submitted%20a%20booking%20request%20${bookingReference}%20for%20${patientName}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", height: "48px", padding: "0 26px", borderRadius: "999px", fontWeight: 700, fontSize: "14px", background: "#25D366", color: "#ffffff", textDecoration: "none", boxShadow: "0 4px 14px rgba(37, 211, 102, 0.35)", border: "none" }}
+                    >
+                      <Phone size={16} />
+                      <span>Confirm via WhatsApp Desk</span>
+                    </a>
+                  );
+                })()}
               </div>
             </div>
           )}
