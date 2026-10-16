@@ -203,7 +203,7 @@ function AppointmentWizardContent() {
             name: b.name,
             type: b.type || "Inpatient & Outpatient Center",
             address: typeof b.address === "object" ? `${b.address.street}, ${b.address.city}` : (b.address || ""),
-            phone: Array.isArray(b.contact?.phone) ? b.contact.phone[0] : (b.phone || "+91 94470 03191"),
+            phone: (Array.isArray(b.contact?.phone) && b.contact.phone[0]) ? b.contact.phone[0] : (b.phone || ""),
             timing: b.opdTimings || "09:00 AM - 07:00 PM",
             image: getImageDisplayUrl(b.coverImage || "/images/kattakada-branch-hero.webp"),
             features: b.features || [],
@@ -1834,14 +1834,6 @@ function AppointmentWizardContent() {
               <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Zero pre-booking charges</div>
               <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Free date modification up to 4 hours prior</div>
               <div className="guarantee-line"><Check size={13} color="#16a34a" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "6px" }} /> Instant SMS & WhatsApp confirmation</div>
-            </div>
-
-            <div className="summary-support-box">
-              <span>Need Direct Booking Assistance?</span>
-              <a href="tel:+919447003191" className="support-phone-link">
-                <Phone size={15} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px", color: "#c88922" }} />
-                Call Helpline: +91 94470 03191
-              </a>
             </div>
           </div>
         </aside>
