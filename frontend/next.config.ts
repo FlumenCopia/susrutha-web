@@ -58,6 +58,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/branches/kattakada',
+        destination: '/branches#kattakada',
+        permanent: true,
+      },
+      {
+        source: '/branches/kowdiar',
+        destination: '/branches#kowdiar',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -43,9 +43,9 @@ export function EcosystemVerticals() {
       <div className="ecosystem-section-head">
         {/* <span className="ecosystem-eyebrow">OUR VERTICALS</span> */}
         <h2>
-          Explore <em>each vertical</em>
+          Hospital <em>Departments</em>
         </h2>
-        <p>Dedicated pages include services, FAQs, maps, galleries and enquiry forms for answer-engine clarity.</p>
+        <p>Specialized clinical care departments and verticals working together with an authentic healing philosophy.</p>
       </div>
 
       {!loading && verticals.length === 0 ? (

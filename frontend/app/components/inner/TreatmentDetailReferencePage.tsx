@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { getPublicDoctors, getPublicBranches, getImageDisplayUrl } from "../../services/api";
 
 type TreatmentDetailReferencePageProps = {
@@ -215,6 +216,33 @@ export function TreatmentDetailReferencePage({ treatment }: TreatmentDetailRefer
       <section className="condition-detail-banner" aria-labelledby="treatment-detail-title">
         <div className="condition-detail-container">
           <div className="condition-detail-copy">
+            {/* Back to All Treatments Navigation Button */}
+            <div style={{ marginBottom: "20px" }}>
+              <Link
+                href="/treatments"
+                className="treatment-back-btn"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  color: "#6b4f1d",
+                  textDecoration: "none",
+                  padding: "8px 18px",
+                  borderRadius: "999px",
+                  background: "#ffffff",
+                  border: "1.5px solid #ded3c5",
+                  boxShadow: "0 2px 8px rgba(71, 50, 26, 0.05)",
+                  transition: "all 0.2s ease",
+                  cursor: "pointer",
+                }}
+              >
+                <ArrowLeft size={16} strokeWidth={2.4} />
+                <span>Back to All Treatments</span>
+              </Link>
+            </div>
+
             {categoryName ? (
               <div className="condition-detail-eyebrow">
                 <span>{categoryName.toUpperCase()}</span>

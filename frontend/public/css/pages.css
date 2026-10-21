@@ -6180,6 +6180,31 @@ body:has(.conditions-page) {
   z-index: 2;
 }
 
+.treatment-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b4f1d;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1.5px solid #ded3c5;
+  box-shadow: 0 2px 8px rgba(71, 50, 26, 0.05);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.treatment-back-btn:hover {
+  background: #faf3eb !important;
+  border-color: #b57a25 !important;
+  color: #8c5b16 !important;
+  box-shadow: 0 4px 14px rgba(181, 122, 37, 0.15) !important;
+  transform: translateX(-4px);
+}
+
 .condition-detail-breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -8230,6 +8255,57 @@ label {
 .contact-booking-field select:focus,
 .contact-booking-field textarea:focus {
   border-bottom-color: #f7a51a !important;
+}
+
+.contact-date-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-booking-field input[type="date"] {
+  color-scheme: dark !important;
+  cursor: pointer;
+  padding-right: 38px;
+  position: relative;
+}
+
+/* Hide native WebKit calendar indicator completely so there are no duplicate icons */
+.contact-booking-field input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0 !important;
+  cursor: pointer;
+}
+
+.contact-date-addon-btn {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  background: rgba(247, 165, 26, 0.2);
+  border: 1px solid rgba(247, 165, 26, 0.5);
+  color: #f7a51a;
+  border-radius: 6px;
+  width: 32px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.contact-date-input-wrap:hover .contact-date-addon-btn {
+  background: rgba(247, 165, 26, 0.45);
+  border-color: #f7a51a;
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(247, 165, 26, 0.4);
 }
 
 .contact-booking-btn-wrap {
@@ -12610,12 +12686,18 @@ body:has(.branches-premium-page) {
   box-shadow: 0 16px 48px rgba(35, 35, 35, 0.07);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   overflow: hidden;
+  scroll-margin-top: 110px;
 }
 
 .branch-location-card:hover {
   border-color: rgba(200, 155, 60, 0.34);
   box-shadow: 0 24px 64px rgba(35, 35, 35, 0.11);
   transform: translateY(-4px);
+}
+
+.branch-location-card:target {
+  border-color: #c89b3c;
+  box-shadow: 0 0 0 2px rgba(200, 155, 60, 0.4), 0 24px 64px rgba(35, 35, 35, 0.14);
 }
 
 .branch-location-image {

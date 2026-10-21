@@ -35,8 +35,8 @@ export const navigation = [
     label: "Branches",
     href: "/branches",
     children: [
-      { label: "Kattakada Hospital", href: "/branches/kattakada" },
-      { label: "Kowdiar OP Outlet", href: "/branches/kowdiar" },
+      { label: "Kattakada Hospital", href: "/branches#kattakada" },
+      { label: "Kowdiar OP Outlet", href: "/branches#kowdiar" },
       { label: "Ayurveda Village", href: "/ayurveda-village" },
     ],
   },
@@ -92,8 +92,8 @@ export const footerLinks = [
   {
     title: "Branches",
     links: [
-      { label: "Kattakada", href: "/branches/kattakada" },
-      { label: "Kowdiar", href: "/branches/kowdiar" },
+      { label: "Kattakada", href: "/branches#kattakada" },
+      { label: "Kowdiar", href: "/branches#kowdiar" },
       { label: "Ayurveda Village", href: "/ayurveda-village" },
     ],
   },

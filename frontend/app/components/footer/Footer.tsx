@@ -31,7 +31,6 @@ const navSections = [
     title: "Treatments",
     links: [
       { label: "All Treatments", href: "/treatments" },
-      { label: "Panchakarma Detox", href: "/treatments/panchakarma" },
       { label: "Conditions We Treat", href: "/conditions" },
       { label: "Wellness Packages", href: "/packages" },
       { label: "International Patients", href: "/international-patients" },
@@ -41,8 +40,8 @@ const navSections = [
   {
     title: "Our Locations",
     links: [
-      { label: "Kattakada Main Hospital", href: "/branches/kattakada" },
-      { label: "Kowdiar City OP", href: "/branches/kowdiar" },
+      { label: "Kattakada Main Hospital", href: "/branches#kattakada" },
+      { label: "Kowdiar City OP", href: "/branches#kowdiar" },
       { label: "Ayurveda Village", href: "/ayurveda-village" },
       { label: "Patient Care", href: "/patient-care" },
       { label: "Departments", href: "/departments" },
@@ -146,13 +145,17 @@ export function Footer() {
 
             {/* Main Branch Location Info - Perfectly Aligned */}
             <div className="luxury-footer-location-info">
-              <h4 className="luxury-footer-branch-name">{mainBranchInfo.name}</h4>
-              
+              <h4 className="luxury-footer-branch-name">
+                {mainBranchInfo.name && mainBranchInfo.name.toLowerCase().includes("susrutha")
+                  ? "Kattakada Main Hospital Campus"
+                  : mainBranchInfo.name}
+              </h4>
+
               <div className="luxury-footer-address-row">
                 <MapPin size={16} strokeWidth={1.8} className="luxury-footer-icon" />
                 <p className="luxury-footer-address-text">
-                  {mainBranchInfo.street}<br />
-                  {mainBranchInfo.city}, Kerala – {mainBranchInfo.pincode}
+                  Opposite Christian College, Kattakada,<br />
+                  Thiruvananthapuram, Kerala – 695572
                 </p>
               </div>
 
@@ -180,7 +183,25 @@ export function Footer() {
               <nav className="luxury-footer-col-nav" key={sec.title} aria-label={sec.title}>
                 <span className="luxury-footer-nav-heading">{sec.title}</span>
                 {sec.links.map((link) => (
-                  <Link href={link.href} key={link.label}>
+                  <Link
+                    href={link.href}
+                    key={link.label}
+                    onClick={() => {
+                      if (typeof window !== "undefined") {
+                        if (link.href.startsWith("/branches#")) {
+                          const hash = link.href.split("#")[1];
+                          if (window.location.pathname === "/branches") {
+                            const el = document.getElementById(hash);
+                            if (el) {
+                              el.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }
+                          }
+                        } else if (window.location.pathname === link.href) {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }
+                    }}
+                  >
                     {link.label}
                   </Link>
                 ))}

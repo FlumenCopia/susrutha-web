@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Globe, Leaf, Clock, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Globe, Leaf, Clock, ShieldCheck, CheckCircle2, Calendar } from "lucide-react";
 import { submitContactEnquiry, getPublicBranches, getPublicDepartments, getPublicTreatments, getPublicPackages } from "@/app/services/api";
 
 function ContactIcon({ type }: { type: "phone" | "mail" | "pin" | "globe" | "leaf" | "clock" | "shield" }) {
@@ -341,13 +341,26 @@ export function ContactReferencePage() {
 
                     <div className="contact-booking-field">
                       <label htmlFor="booking-date">Select Date</label>
-                      <input
-                        id="booking-date"
-                        type="date"
-                        value={formData.date}
-                        min={new Date().toISOString().split("T")[0]}
-                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      />
+                      <div className="contact-date-input-wrap">
+                        <input
+                          id="booking-date"
+                          type="date"
+                          value={formData.date}
+                          min={new Date().toISOString().split("T")[0]}
+                          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                          onClick={(e) => {
+                            try {
+                              (e.currentTarget as HTMLInputElement).showPicker?.();
+                            } catch (_) {}
+                          }}
+                        />
+                        <div
+                          className="contact-date-addon-btn"
+                          aria-hidden="true"
+                        >
+                          <Calendar size={18} />
+                        </div>
+                      </div>
                     </div>
 
                     <div className="contact-booking-field wide">

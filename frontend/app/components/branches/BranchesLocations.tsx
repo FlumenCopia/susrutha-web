@@ -15,31 +15,41 @@ export function BranchesLocations() {
         setLoading(true);
         const data = await getPublicBranches();
         if (Array.isArray(data) && data.length > 0) {
-          // STRICTLY filter to show ONLY the Main Branch from the backend
-          const mainBranchData = data.filter(
-            (b: any) => b.isMainBranch === true || b.code === "KTK" || (b.type && b.type.includes("INPATIENT"))
-          );
+          // Sort to put Main Hospital Campus (KTK) first, followed by Kowdiar (KWR)
+          const sorted = [...data].sort((a: any, b: any) => (b.isMainBranch ? 1 : 0) - (a.isMainBranch ? 1 : 0));
 
-          const source = mainBranchData.length > 0 ? mainBranchData : [data[0]];
+          const normalized = sorted.map((b: any, idx: number) => {
+            const branchCode = (b.code || "").toUpperCase();
+            const isKowdiar = branchCode === "KWR" || (b.name && b.name.toLowerCase().includes("kowdiar"));
+            const branchSlug = isKowdiar ? "kowdiar" : "kattakada";
 
-          const normalized = source.map((b: any, idx: number) => {
             return {
-              id: b.code ? b.code.toLowerCase() : `main-b-${idx}`,
-              title: b.name || "Susrutha Institute of Ayurvedic Sciences & Panchakarma Hospital",
-              label: b.tagline || "Main Hospital & Inpatient Campus",
-              description: b.overview || b.tagline || "Flagship 40-bed inpatient hospital campus, research center, and Panchakarma suites.",
+              id: branchSlug,
+              title: b.name || (isKowdiar ? "Susrutha Panchakarma Hospital OP Outlet" : "Susrutha Institute of Ayurvedic Sciences & Panchakarma Hospital"),
+              label: b.tagline || (isKowdiar ? "Executive City Clinic & OP Outlet" : "Main Hospital & Inpatient Campus"),
+              description: b.overview || b.tagline || (isKowdiar
+                ? "Executive OPD consultation, daycare Panchakarma therapies, and medicine counter in the heart of Trivandrum."
+                : "Flagship 40-bed inpatient hospital campus, research center, and Panchakarma suites."),
               location: typeof b.address === 'object' 
                 ? `${b.address.street || ''}, ${b.address.city || ''}, Kerala ${b.address.pincode ? '- ' + b.address.pincode : ''}` 
-                : (b.address || "Opposite Christian College, Kattakada, Thiruvananthapuram, Kerala - 695572"),
-              hours: b.opdTimings || "24x7 Inpatient Care | OPD: 09:00 AM - 07:00 PM",
-              phone: (b.contact && b.contact.phone && b.contact.phone[0]) ? b.contact.phone[0] : "0471-2291027",
-              image: (b.coverImage || b.image) ? getImageDisplayUrl(b.coverImage || b.image) : "/images/banner_welcome.webp",
-              icon: "building" as BranchIconName,
+                : (b.address || (isKowdiar 
+                    ? "Ground Floor, Urbon Heights, Opposite Income Tax Office, Pipelane Road, Kowdiar, Trivandrum - 695003"
+                    : "Opposite Christian College, Kattakada, Thiruvananthapuram, Kerala - 695572")),
+              hours: b.opdTimings || (isKowdiar ? "09:00 AM - 07:00 PM (Mon - Sun)" : "24x7 Inpatient Care | OPD: 09:00 AM - 07:00 PM"),
+              phone: (b.contact && b.contact.phone && b.contact.phone[0]) ? b.contact.phone[0] : (isKowdiar ? "+91 80754 33728" : "0471-2291027"),
+              image: (b.coverImage || b.image) ? getImageDisplayUrl(b.coverImage || b.image) : (isKowdiar ? "/images/opt_spine_joint.jpg" : "/images/banner_welcome.webp"),
+              icon: (isKowdiar ? "lotus" : "building") as BranchIconName,
               details: b.features && b.features.length > 0 
                 ? b.features.slice(0, 4) 
-                : ["24x7 Inpatient Care", "NABH Accredited Suites", "Susrutha Pharmacy", "Clinical Research Unit"],
-              doctors: ["Dr. Krishnakumar K.", "Dr. Sreeja Krishna S.", "Dr. Priyanka R."],
-              mapsHref: b.mapsUrl || "https://maps.google.com/?q=Susrutha+Institute+of+Ayurvedic+Sciences+and+Panchakarma+Hospital+Kattakada",
+                : (isKowdiar
+                    ? ["Specialist OPD Consultation", "Daycare Panchakarma", "Nadi Pariksha", "Medicine Counter"]
+                    : ["24x7 Inpatient Care", "NABH Accredited Suites", "Susrutha Pharmacy", "Clinical Research Unit"]),
+              doctors: isKowdiar 
+                ? ["Dr. Krishnakumar K.", "Dr. Sreeja Krishna S."]
+                : ["Dr. Krishnakumar K.", "Dr. Sreeja Krishna S.", "Dr. Priyanka R."],
+              mapsHref: b.mapsUrl || (isKowdiar
+                ? "https://maps.google.com/?q=Susrutha+Panchakarma+Hospital+OP+Outlet+Kowdiar"
+                : "https://maps.google.com/?q=Susrutha+Institute+of+Ayurvedic+Sciences+and+Panchakarma+Hospital+Kattakada"),
               isBackendData: true,
             };
           });
@@ -48,7 +58,7 @@ export function BranchesLocations() {
           setBranchList([]);
         }
       } catch (err) {
-        console.error("Failed to load main branch from backend:", err);
+        console.error("Failed to load branches from backend:", err);
         setBranchList([]);
       } finally {
         setLoading(false);
@@ -57,24 +67,44 @@ export function BranchesLocations() {
     loadMainBranchFromBackend();
   }, []);
 
+  // Smooth scroll to anchor hash (e.g. #kattakada or #kowdiar) after branches load or hash changes
+  useEffect(() => {
+    const scrollToHash = () => {
+      if (typeof window !== "undefined" && window.location.hash) {
+        const targetId = window.location.hash.replace("#", "").toLowerCase();
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+
+    if (branchList.length > 0) {
+      setTimeout(scrollToHash, 180);
+    }
+
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, [branchList]);
+
   return (
     <section className="branches-locations" id="branch-locations">
       <div className="branches-section-heading">
         <span>
           <i />
-          Main Hospital Campus
+          Hospital & Clinic Locations
           <i />
         </span>
-        <h2>Our Flagship Main Branch</h2>
-        <p>Comprehensive 24x7 inpatient care, research-backed Panchakarma suites, and specialist consultations.</p>
+        <h2>Our Hospital & Clinic Campuses</h2>
+        <p>Comprehensive 24x7 inpatient care, research-backed Panchakarma suites, and specialist consultations across our campuses.</p>
       </div>
 
       {!loading && branchList.length === 0 ? (
         <div style={{ padding: "40px 0", textAlign: "center", opacity: 0.7 }}>
-          <p>Loading main hospital location from backend...</p>
+          <p>Loading hospital locations from backend...</p>
         </div>
       ) : (
-        <div className="branches-location-grid" style={{ display: "flex", justifyContent: "center" }}>
+        <div className="branches-location-grid">
           {branchList.map((branch) => (
             <BranchLocationCard branch={branch} key={branch.id} />
           ))}

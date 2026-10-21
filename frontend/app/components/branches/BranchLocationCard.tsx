@@ -67,7 +67,7 @@ export function BranchLocationCard({ branch }: BranchLocationCardProps) {
 
         <div className="branch-location-actions">
           <Link className="branches-button branches-button-primary" href="/contact-us">
-            Branch Details
+            Connect With Us
             <BranchIcon name="arrow" />
           </Link>
           <a className="branches-button branches-button-secondary" href={branch.mapsHref} target="_blank" rel="noreferrer">

@@ -82,7 +82,7 @@ export function AppointmentBranchesSection() {
                   <Phone size={14} strokeWidth={1.5} style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }} />
                   {mainBranch.phone}
                 </a>
-                <Link href="/branches/kattakada" className="branch-explore-link">
+                <Link href="/branches#kattakada" className="branch-explore-link">
                   Explore Hospital <ArrowRight size={13} strokeWidth={1.5} style={{ display: "inline-block", verticalAlign: "-1px", marginLeft: "4px" }} />
                 </Link>
               </div>
