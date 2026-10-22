@@ -1,11 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
+import { getPublicPackages, getImageDisplayUrl } from "@/app/services/api";
 
 const internationalFacilities = [
-  { title: "Inpatient Suites", subtitle: "Private air-conditioned rooms", text: "Comfortable private suites with attendant beds and attached washrooms.", image: "/images/ayurveda-village-room.webp" },
+  { title: "Inpatient Suites", subtitle: "Private air-conditioned rooms", text: "Comfortable private suites with attendant beds and attached washrooms.", image: "/images/kowdiar_gallery_01.webp" },
   { title: "Panchakarma Units", subtitle: "Traditional wooden therapy tables", text: "Dedicated Panchakarma therapy suites with traditional wooden droni.", image: "/images/treatment-panchakarma.webp" },
 ];
 
@@ -16,7 +18,7 @@ const internationalFaqsList = [
 
 const internationalPrograms: Array<{ title: string; text: string; image: string; icon?: InternationalPatientsIconName }> = [
   { title: "14-Day Panchakarma Rejuvenation", text: "Comprehensive body detox and rejuvenation.", image: "/images/treatment-panchakarma.webp" },
-  { title: "Spine & Joint Rehabilitation", text: "Targeted Kati Vasthi and pain care.", image: "/images/ayurveda-village-room.webp" },
+  { title: "Spine & Joint Rehabilitation", text: "Targeted Kati Vasthi and pain care.", image: "/images/treatment-kati-vasti.webp" },
 ];
 
 const internationalStats: Array<{ value: string; label: string; icon: InternationalPatientsIconName }> = [
@@ -31,8 +33,36 @@ const internationalSupportItems: Array<{ title: string; icon: InternationalPatie
 ];
 
 export function InternationalPatientsPage() {
+  const [packages, setPackages] = useState<any[]>(internationalPrograms);
+  const [loadingPackages, setLoadingPackages] = useState(true);
+
+  useEffect(() => {
+    async function loadCmsPackages() {
+      try {
+        setLoadingPackages(true);
+        const data = await getPublicPackages();
+        const items = Array.isArray(data) ? data : (data as any)?.items || [];
+        if (items.length > 0) {
+          const mapped = items.slice(0, 4).map((p: any) => ({
+            title: p.title || p.name || "Ayurvedic Treatment Package",
+            text: p.subtitle || p.overview || p.tagline || (p.durationOptions && p.durationOptions[0]?.label) || "Authentic residential healing and care program.",
+            image: (p.image || p.coverImage) ? getImageDisplayUrl(p.image || p.coverImage) : "/images/treatment-panchakarma.webp",
+            href: p.slug ? `/packages/${p.slug}` : `/packages`,
+          }));
+          setPackages(mapped);
+        }
+      } catch (err) {
+        console.error("Failed to load packages from CMS:", err);
+      } finally {
+        setLoadingPackages(false);
+      }
+    }
+    loadCmsPackages();
+  }, []);
+
   return (
     <div className="international-page">
+      {/* Hero Section */}
       <section className="conditions-hero-serene" aria-labelledby="international-patients-title">
         <div
           className="conditions-hero-serene-bg"
@@ -41,12 +71,6 @@ export function InternationalPatientsPage() {
         <div className="conditions-hero-serene-overlay" />
 
         <div className="conditions-hero-serene-content">
-          {/* <nav className="conditions-hero-serene-nav" aria-label="Breadcrumb">
-            <Link href="/">HOME</Link>
-            <span>/</span>
-            <span>INTERNATIONAL PATIENTS</span>
-          </nav> */}
-
           <div className="conditions-hero-serene-middle-wrapper">
             <div className="conditions-hero-serene-middle">
               <p className="conditions-hero-serene-quote">
@@ -76,158 +100,7 @@ export function InternationalPatientsPage() {
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <section className="international-facilities" aria-labelledby="international-facilities-title">
-        <div className="international-strip-head">
-          <h2 id="international-facilities-title">Facilities that support classical care</h2>
-        </div>
-
-        <div className="international-facility-grid">
-          {internationalFacilities.map((facility) => {
-            const isPopular = "popular" in facility && facility.popular;
-
-            return (
-              <article className="international-facility-card" data-popular={isPopular ? "true" : undefined} key={facility.title}>
-                <h3>{facility.title}</h3>
-                {isPopular ? <b>Popular</b> : null}
-                <p>{facility.text}</p>
-                <div className="international-facility-image">
-                  <Image src={facility.image} alt={facility.title} fill sizes="(max-width: 760px) 100vw, 16vw" />
-                </div>
-                <Link href="/facilities">
-                  Explore
-                  <InternationalPatientsIcon name="arrow" />
-                </Link>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="international-programs-banner">
-        <Image
-          src="/images/banner_calm_retreat.jpg"
-          alt="Peaceful Kerala Ayurveda retreat environment"
-          fill
-          priority
-          sizes="100vw"
-          className="international-programs-bg"
-        />
-        <div className="international-programs-overlay" />
-
-        <div className="international-programs-content">
-          <div className="international-programs-intro">
-            {/* <span className="international-eyebrow">Programs Designed For You</span> */}
-            <h2>Programs often chosen by travellers</h2>
-            <Link href="/packages">
-              View all programs
-              <InternationalPatientsIcon name="arrow" />
-            </Link>
-          </div>
-
-          <div className="international-program-grid">
-            {internationalPrograms.map((program) => (
-              <article className="international-program-card" key={program.title}>
-                <div className="international-program-image">
-                  <Image src={program.image} alt={program.title} fill sizes="(max-width: 760px) 100vw, 25vw" />
-                </div>
-                <h3>{program.title}</h3>
-                <p>{program.text}</p>
-                <Link href="/packages" aria-label={`Explore ${program.title}`}>
-                  <span>Explore Program</span>
-                  <InternationalPatientsIcon name="arrow" />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
-      <section className="international-faq-section" aria-labelledby="faq-section-title">
-        <div className="international-faq-container">
-          <h2 id="faq-section-title" className="international-faq-main-title">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="international-faq-accordion-list">
-            {internationalFaqsList.map((item) => (
-              <details className="international-faq-item" key={item.q}>
-                <summary className="international-faq-summary">
-                  <span className="international-faq-question">{item.q}</span>
-                  <span className="international-faq-toggle-icon" aria-hidden="true" />
-                </summary>
-                <p className="international-faq-answer">{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="international-welcome-banner" aria-labelledby="international-welcome-title">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/images/about-susrutha-wellness.webp"
-          className="international-welcome-bg"
-        >
-          <source src="/bannervideo.mp4" type="video/mp4" />
-        </video>
-        <div className="international-welcome-overlay" />
-
-        <div className="international-welcome-content">
-          {/* <span className="international-welcome-eyebrow">Trusted By Patients Worldwide</span> */}
-          <h2 id="international-welcome-title" className="international-welcome-title">
-            We welcome you
-          </h2>
-          <p className="international-welcome-desc">
-            Patients from around the world trust Susrutha Gramam for safe, effective and compassionate care.
-          </p>
-
-          <div className="international-welcome-stats-row">
-            {internationalStats.map((item) => (
-              <div className="international-welcome-stat-card" key={item.label}>
-                <span className="international-welcome-stat-icon">
-                  <InternationalPatientsIcon name={item.icon} />
-                </span>
-                <div className="international-welcome-stat-info">
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Core USP & Enquiry Form - Positioned near the top for international visitors */}
       <section className="international-enquiry-section" id="international-enquiry">
         <div className="international-enquiry-grid">
           <div className="international-support-box">
@@ -285,10 +158,15 @@ export function InternationalPatientsPage() {
                     <option value="" disabled>Select your country</option>
                     <option>India</option>
                     <option>United Arab Emirates</option>
+                    <option>Saudi Arabia</option>
+                    <option>Qatar</option>
+                    <option>Kuwait</option>
+                    <option>Oman</option>
+                    <option>Bahrain</option>
                     <option>United States</option>
                     <option>United Kingdom</option>
-                    <option>Singapore</option>
                     <option>Germany</option>
+                    <option>Singapore</option>
                     <option>Australia</option>
                     <option>Other</option>
                   </select>
@@ -315,6 +193,132 @@ export function InternationalPatientsPage() {
                 <InternationalPatientsIcon name="plane" />
               </button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs Chosen by Travellers */}
+      <section className="international-programs-banner">
+        <Image
+          src="/images/banner_calm_retreat.jpg"
+          alt="Peaceful Kerala Ayurveda retreat environment"
+          fill
+          priority
+          sizes="100vw"
+          className="international-programs-bg"
+        />
+        <div className="international-programs-overlay" />
+
+        <div className="international-programs-content">
+          <div className="international-programs-intro">
+            <h2>Programs often chosen by travellers</h2>
+            <Link href="/packages">
+              View all programs
+              <InternationalPatientsIcon name="arrow" />
+            </Link>
+          </div>
+
+          <div className="international-program-grid">
+            {packages.map((program) => (
+              <article className="international-program-card" key={program.title}>
+                <div className="international-program-image">
+                  <Image src={program.image} alt={program.title} fill sizes="(max-width: 760px) 100vw, 25vw" />
+                </div>
+                <h3>{program.title}</h3>
+                <p>{program.text}</p>
+                <Link href={program.href || "/packages"} aria-label={`Explore ${program.title}`}>
+                  <span>Explore Program</span>
+                  <InternationalPatientsIcon name="arrow" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities Preview */}
+      <section className="international-facilities" aria-labelledby="international-facilities-title">
+        <div className="international-strip-head">
+          <h2 id="international-facilities-title">Facilities that support classical care</h2>
+        </div>
+
+        <div className="international-facility-grid">
+          {internationalFacilities.map((facility) => {
+            const isPopular = "popular" in facility && facility.popular;
+
+            return (
+              <article className="international-facility-card" data-popular={isPopular ? "true" : undefined} key={facility.title}>
+                <h3>{facility.title}</h3>
+                {isPopular ? <b>Popular</b> : null}
+                <p>{facility.text}</p>
+                <div className="international-facility-image">
+                  <Image src={facility.image} alt={facility.title} fill sizes="(max-width: 760px) 100vw, 16vw" />
+                </div>
+                <Link href="/facilities">
+                  Explore
+                  <InternationalPatientsIcon name="arrow" />
+                </Link>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Welcome Video Banner */}
+      <section className="international-welcome-banner" aria-labelledby="international-welcome-title">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/about-susrutha-wellness.webp"
+          className="international-welcome-bg"
+        >
+          <source src="/bannervideo.mp4" type="video/mp4" />
+        </video>
+        <div className="international-welcome-overlay" />
+
+        <div className="international-welcome-content">
+          <h2 id="international-welcome-title" className="international-welcome-title">
+            We welcome you
+          </h2>
+          <p className="international-welcome-desc">
+            Patients from around the world trust Susrutha Gramam for safe, effective and compassionate care.
+          </p>
+
+          <div className="international-welcome-stats-row">
+            {internationalStats.map((item) => (
+              <div className="international-welcome-stat-card" key={item.label}>
+                <span className="international-welcome-stat-icon">
+                  <InternationalPatientsIcon name={item.icon} />
+                </span>
+                <div className="international-welcome-stat-info">
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="international-faq-section" aria-labelledby="faq-section-title">
+        <div className="international-faq-container">
+          <h2 id="faq-section-title" className="international-faq-main-title">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="international-faq-accordion-list">
+            {internationalFaqsList.map((item) => (
+              <details className="international-faq-item" key={item.q}>
+                <summary className="international-faq-summary">
+                  <span className="international-faq-question">{item.q}</span>
+                  <span className="international-faq-toggle-icon" aria-hidden="true" />
+                </summary>
+                <p className="international-faq-answer">{item.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
