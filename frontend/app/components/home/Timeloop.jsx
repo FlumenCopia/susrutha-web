@@ -58,7 +58,7 @@ const FEATURES = [
 
   {
     year: "2019",
-    text: "Susrutha can a cancer care awareness movement.",
+    text: "Susrutha launched a Cancer Care Awareness Initiative.",
   },
 
   {
