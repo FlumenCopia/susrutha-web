@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
-import { getPublicPackages, getImageDisplayUrl } from "@/app/services/api";
+import { getPublicPackages, getImageDisplayUrl, submitContactEnquiry } from "@/app/services/api";
 
 const internationalFacilities = [
   { title: "Inpatient Suites", subtitle: "Private air-conditioned rooms", text: "Comfortable private suites with attendant beds and attached washrooms.", image: "/images/kowdiar_gallery_01.webp" },
@@ -35,6 +35,19 @@ const internationalSupportItems: Array<{ title: string; icon: InternationalPatie
 export function InternationalPatientsPage() {
   const [packages, setPackages] = useState<any[]>(internationalPrograms);
   const [loadingPackages, setLoadingPackages] = useState(true);
+
+  // International Patient Enquiry Form State
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    country: "",
+    phone: "",
+    arrival: "",
+    requirements: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadCmsPackages() {
@@ -139,60 +152,252 @@ export function InternationalPatientsPage() {
           </div>
 
           <div className="international-enquiry-form-card">
-            <h2>Plan Your Treatment Journey</h2>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div className="international-form-grid">
-                <label className="international-form-field">
-                  <span>Full Name</span>
-                  <input type="text" name="name" placeholder="Enter your full name" required />
-                </label>
+            <div style={{ marginBottom: "1.25rem" }}>
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                padding: "0.25rem 0.65rem",
+                borderRadius: "9999px",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                backgroundColor: "#ecfdf5",
+                color: "#065f46",
+                border: "1px solid #a7f3d0",
+                marginBottom: "0.5rem"
+              }}>
+                🌍 International Care Desk
+              </span>
+              <h2 style={{ margin: "0.25rem 0 0.5rem", fontSize: "1.875rem", fontWeight: 700, color: "#061d13" }}>
+                International Patient Journey & Treatment Enquiry
+              </h2>
+              <p style={{ margin: 0, fontSize: "0.875rem", color: "#64748b" }}>
+                Connect directly with our Overseas Patient Coordinator for treatment planning, medical visas, accommodation, and airport transfers.
+              </p>
+            </div>
 
-                <label className="international-form-field">
-                  <span>Email Address</span>
-                  <input type="email" name="email" placeholder="Enter your email" required />
-                </label>
-
-                <label className="international-form-field">
-                  <span>Country</span>
-                  <select name="country" defaultValue="">
-                    <option value="" disabled>Select your country</option>
-                    <option>India</option>
-                    <option>United Arab Emirates</option>
-                    <option>Saudi Arabia</option>
-                    <option>Qatar</option>
-                    <option>Kuwait</option>
-                    <option>Oman</option>
-                    <option>Bahrain</option>
-                    <option>United States</option>
-                    <option>United Kingdom</option>
-                    <option>Germany</option>
-                    <option>Singapore</option>
-                    <option>Australia</option>
-                    <option>Other</option>
-                  </select>
-                </label>
-
-                <label className="international-form-field">
-                  <span>Phone / WhatsApp</span>
-                  <input type="tel" name="phone" placeholder="+91 Phone / WhatsApp" required />
-                </label>
-
-                <label className="international-form-field international-form-full">
-                  <span>Preferred Arrival Date</span>
-                  <input type="date" name="arrival" />
-                </label>
-
-                <label className="international-form-field international-form-full">
-                  <span>Medical Condition / Requirements</span>
-                  <textarea name="requirements" rows={4} placeholder="Briefly describe your health condition or treatment preferences" />
-                </label>
+            {submitted ? (
+              <div style={{
+                padding: "2.5rem 1.5rem",
+                textAlign: "center",
+                backgroundColor: "#f0fdf4",
+                borderRadius: "1rem",
+                border: "1px solid #bbf7d0",
+                color: "#166534"
+              }}>
+                <div style={{
+                  width: "3.5rem",
+                  height: "3.5rem",
+                  margin: "0 auto 1rem",
+                  borderRadius: "50%",
+                  backgroundColor: "#16a34a",
+                  color: "#ffffff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "1.75rem",
+                  boxShadow: "0 4px 12px rgba(22, 163, 74, 0.25)"
+                }}>
+                  ✓
+                </div>
+                <h3 style={{ fontSize: "1.35rem", fontWeight: 700, margin: "0 0 0.5rem", color: "#14532d" }}>
+                  Enquiry Received Successfully!
+                </h3>
+                <p style={{ fontSize: "0.925rem", lineHeight: 1.6, color: "#166534", margin: "0 auto 1.75rem", maxWidth: "460px" }}>
+                  Thank you for contacting Susrutha Ayurveda. Your international enquiry has been registered with our Overseas Care Desk. A dedicated coordinator will reach out via WhatsApp / Email with doctors&apos; advice, treatment estimate, and visa documentation.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setSubmitError(null);
+                  }}
+                  className="international-form-submit-btn"
+                  style={{ display: "inline-flex", width: "auto", margin: "0 auto", padding: "0.75rem 2rem" }}
+                >
+                  Submit Another Enquiry
+                </button>
               </div>
+            ) : (
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                if (!formData.name.trim() || !formData.phone.trim()) {
+                  setSubmitError("Please provide your name and phone / WhatsApp number.");
+                  return;
+                }
 
-              <button type="submit" className="international-form-submit-btn">
-                Submit Enquiry
-                <InternationalPatientsIcon name="plane" />
-              </button>
-            </form>
+                try {
+                  setSubmitting(true);
+                  setSubmitError(null);
+
+                  const countrySelected = formData.country.trim() || "Overseas";
+                  const formattedMessage = [
+                    `[Form: International Patient Enquiry]`,
+                    `Country of Residence: ${countrySelected}`,
+                    formData.arrival ? `Preferred Arrival Date: ${formData.arrival}` : null,
+                    formData.requirements.trim() ? `Medical Requirements & Details:\n${formData.requirements.trim()}` : null,
+                  ].filter(Boolean).join("\n\n");
+
+                  const res = await submitContactEnquiry({
+                    name: formData.name.trim(),
+                    phone: formData.phone.trim(),
+                    email: formData.email.trim() || undefined,
+                    subject: `🌍 International Patient Enquiry - ${countrySelected}`,
+                    message: formattedMessage,
+                    leadType: "INTERNATIONAL_PATIENT",
+                    preferredDate: formData.arrival || undefined,
+                  });
+
+                  if (res && (res.success || res.status === "success" || res.data?.id)) {
+                    setSubmitted(true);
+                    setFormData({
+                      name: "",
+                      email: "",
+                      country: "",
+                      phone: "",
+                      arrival: "",
+                      requirements: "",
+                    });
+                  } else {
+                    setSubmitError(res?.message || "Could not submit your enquiry. Please verify details or message us on WhatsApp.");
+                  }
+                } catch (err: any) {
+                  console.error("Enquiry submission error:", err);
+                  setSubmitError("Network connection error. Please try again or reach our International Desk on WhatsApp.");
+                } finally {
+                  setSubmitting(false);
+                }
+              }}>
+                {submitError && (
+                  <div style={{
+                    padding: "0.75rem 1rem",
+                    marginBottom: "1.25rem",
+                    borderRadius: "0.5rem",
+                    backgroundColor: "#fef2f2",
+                    border: "1px solid #fecaca",
+                    color: "#991b1b",
+                    fontSize: "0.875rem"
+                  }}>
+                    ⚠️ {submitError}
+                  </div>
+                )}
+
+                <div className="international-form-grid">
+                  <label className="international-form-field">
+                    <span>Full Name *</span>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        if (submitError) setSubmitError(null);
+                      }}
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </label>
+
+                  <label className="international-form-field">
+                    <span>Email Address</span>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value });
+                        if (submitError) setSubmitError(null);
+                      }}
+                      placeholder="Enter your email"
+                    />
+                  </label>
+
+                  <label className="international-form-field">
+                    <span>Country of Residence *</span>
+                    <select
+                      name="country"
+                      value={formData.country}
+                      onChange={(e) => {
+                        setFormData({ ...formData, country: e.target.value });
+                        if (submitError) setSubmitError(null);
+                      }}
+                      required
+                    >
+                      <option value="" disabled>Select your country</option>
+                      <option value="United Arab Emirates">United Arab Emirates</option>
+                      <option value="Saudi Arabia">Saudi Arabia</option>
+                      <option value="Qatar">Qatar</option>
+                      <option value="Kuwait">Kuwait</option>
+                      <option value="Oman">Oman</option>
+                      <option value="Bahrain">Bahrain</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="United States">United States</option>
+                      <option value="Germany">Germany</option>
+                      <option value="Australia">Australia</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="Malaysia">Malaysia</option>
+                      <option value="Canada">Canada</option>
+                      <option value="India">India (Non-Resident / Overseas Visitor)</option>
+                      <option value="Other">Other Country</option>
+                    </select>
+                  </label>
+
+                  <label className="international-form-field">
+                    <span>Phone / WhatsApp *</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        setFormData({ ...formData, phone: e.target.value });
+                        if (submitError) setSubmitError(null);
+                      }}
+                      placeholder="Enter phone number"
+                      required
+                    />
+                  </label>
+
+                  <label className="international-form-field international-form-full">
+                    <span>Preferred Arrival Date</span>
+                    <input
+                      type="date"
+                      name="arrival"
+                      value={formData.arrival}
+                      onChange={(e) => {
+                        setFormData({ ...formData, arrival: e.target.value });
+                        if (submitError) setSubmitError(null);
+                      }}
+                    />
+                  </label>
+
+                  <label className="international-form-field international-form-full">
+                    <span>Medical Condition / Treatment Requirements</span>
+                    <textarea
+                      name="requirements"
+                      rows={4}
+                      value={formData.requirements}
+                      onChange={(e) => {
+                        setFormData({ ...formData, requirements: e.target.value });
+                        if (submitError) setSubmitError(null);
+                      }}
+                      placeholder="Briefly describe your health condition, desired stay duration, or treatment preferences (e.g. Spine & joint rehabilitation, Panchakarma rejuvenation, stress relief)"
+                    />
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="international-form-submit-btn"
+                  style={{ opacity: submitting ? 0.75 : 1, cursor: submitting ? "not-allowed" : "pointer" }}
+                >
+                  {submitting ? "Submitting Journey Request..." : "Submit Enquiry"}
+                  <InternationalPatientsIcon name="plane" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
