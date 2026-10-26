@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/app/data/site";
 import { InternationalPatientsIcon } from "./InternationalPatientsIcon";
 
 export function InternationalEnquiry() {
@@ -51,7 +52,7 @@ export function InternationalEnquiry() {
           </li>
           <li>
             <InternationalPatientsIcon name="mail" />
-            international@susruthaayurveda.com
+            <a href={`mailto:${siteConfig.email}`} style={{ color: "inherit", textDecoration: "none" }}>{siteConfig.email}</a>
           </li>
           <li>
             <InternationalPatientsIcon name="chat" />

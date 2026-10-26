@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { InternationalPatientsIcon, type InternationalPatientsIconName } from "./InternationalPatientsIcon";
-import { getPublicPackages, getImageDisplayUrl, submitContactEnquiry } from "@/app/services/api";
+import { getPublicPackages, getPublicSettings, getImageDisplayUrl, submitContactEnquiry } from "@/app/services/api";
 
 const internationalFacilities = [
   { title: "Inpatient Suites", subtitle: "Private air-conditioned rooms", text: "Comfortable private suites with attendant beds and attached washrooms.", image: "/images/kowdiar_gallery_01.webp" },
@@ -45,15 +45,28 @@ export function InternationalPatientsPage() {
     arrival: "",
     requirements: "",
   });
+  const [contactEmail, setContactEmail] = useState<string>("susruthaayurveda@gmail.com");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function loadCmsPackages() {
+    async function loadCmsData() {
       try {
         setLoadingPackages(true);
-        const data = await getPublicPackages();
+        const [data, settings] = await Promise.all([
+          getPublicPackages().catch(() => []),
+          getPublicSettings().catch(() => null),
+        ]);
+
+        if (settings && typeof settings === "object") {
+          const general = (settings as any).GENERAL || (settings as any).GENERAL_SETTINGS || {};
+          const emailVal = general.email || general.mainEmail;
+          if (emailVal) {
+            setContactEmail(emailVal);
+          }
+        }
+
         const items = Array.isArray(data) ? data : (data as any)?.items || [];
         if (items.length > 0) {
           const mapped = items.slice(0, 4).map((p: any) => ({
@@ -70,7 +83,7 @@ export function InternationalPatientsPage() {
         setLoadingPackages(false);
       }
     }
-    loadCmsPackages();
+    loadCmsData();
   }, []);
 
   return (
@@ -141,7 +154,7 @@ export function InternationalPatientsPage() {
                 </div>
                 <div className="international-contact-row">
                   <InternationalPatientsIcon name="mail" />
-                  <span>international@susruthaayurveda.com</span>
+                  <a href={`mailto:${contactEmail}`} style={{ color: "inherit", textDecoration: "none" }}>{contactEmail}</a>
                 </div>
                 <div className="international-contact-row">
                   <InternationalPatientsIcon name="chat" />
