@@ -130,7 +130,7 @@ export function FaqSection() {
             <p>
               <a href="tel:+919447003191">+91 94470 03191</a>
               <span>|</span>
-              <a href="mailto:info@susruthaayurveda.com">info@susruthaayurveda.com</a>
+              <a href="mailto:susruthaayurveda@gmail.com">susruthaayurveda@gmail.com</a>
             </p>
           </div>
         </div>

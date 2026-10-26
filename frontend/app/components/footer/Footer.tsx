@@ -67,6 +67,7 @@ export function Footer() {
     mobile: "+91 96566 56736",
   });
 
+  const [contactEmail, setContactEmail] = useState<string>("susruthaayurveda@gmail.com");
   const [socialLinks, setSocialLinks] = useState<{
     facebook: string;
     youtube: string;
@@ -105,6 +106,11 @@ export function Footer() {
         }
 
         if (settings && typeof settings === "object") {
+          const general = settings.GENERAL || settings.GENERAL_SETTINGS || {};
+          const emailVal = general.email || general.mainEmail;
+          if (emailVal) {
+            setContactEmail(emailVal);
+          }
           const social = settings.SOCIAL || {};
           setSocialLinks({
             facebook: formatExternalUrl(social.facebook, "https://www.facebook.com/susruthaayurvedatvm"),
@@ -171,7 +177,7 @@ export function Footer() {
 
                 <div className="luxury-footer-contact-row">
                   <Mail size={15} strokeWidth={1.8} className="luxury-footer-icon" />
-                  <a href="mailto:info@susruthaayurveda.com" className="luxury-footer-email-link">info@susruthaayurveda.com</a>
+                  <a href={`mailto:${contactEmail}`} className="luxury-footer-email-link">{contactEmail}</a>
                 </div>
               </div>
             </div>

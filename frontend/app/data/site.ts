@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Susrutha Ayurveda",
   tagline: "Institute of Ayurvedic Sciences and Panchakarma Hospital",
-  phone: "+91 9645 555 888",
+  phone: "+91 96566 56736",
   registrationPhone: "0471-2291027",
-  email: "info@susruthaayurveda.com",
+  email: "susruthaayurveda@gmail.com",
   address: "Opposite Christian College, Kattakada, Thiruvananthapuram",
 };
 

@@ -64,9 +64,9 @@ const fallbackContactCards = [
   {
     icon: "mail" as const,
     title: "Email Assistance",
-    primary: ["info@susruthaayurveda.com"],
+    primary: ["susruthaayurveda@gmail.com"],
     secondary: ["Inpatient Admission & General Enquiries"],
-    link: "mailto:info@susruthaayurveda.com",
+    link: "mailto:susruthaayurveda@gmail.com",
   },
 ];
 
