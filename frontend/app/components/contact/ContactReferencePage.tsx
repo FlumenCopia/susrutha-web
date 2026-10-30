@@ -184,13 +184,13 @@ export function ContactReferencePage() {
         title: b.name,
         primary: [
           typeof b.address === "object" ? `${b.address.street || ""}, ${b.address.city || ""}` : (b.address || "Kattakada Campus"),
-          b.phone || "+91 94470 03191"
+          (b.contact?.phone && b.contact.phone[0]) || b.phone || b.contact?.emergencyPhone || "+91 96566 56736"
         ],
         secondary: [
           b.type || "Inpatient & Outpatient Center",
           b.opdTimings || "Mon – Sat: 8:00 AM – 7:00 PM"
         ],
-        link: b.phone ? `tel:${b.phone}` : "tel:+919447003191"
+        link: ((b.contact?.phone && b.contact.phone[0]) || b.phone || b.contact?.emergencyPhone) ? `tel:${String((b.contact?.phone && b.contact.phone[0]) || b.phone || b.contact?.emergencyPhone).replace(/[\s-]/g, "")}` : "tel:+919656656736"
       }))
     : fallbackContactCards;
 
