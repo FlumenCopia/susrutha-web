@@ -21,21 +21,6 @@ export function AboutPurposeSection() {
             <div className="ap-mission-content">
               <div className="ap-mission-header">
                 <h2 className="ap-title">Our Mission</h2>
-                <a href="#mission" className="ap-arrow-btn" aria-label="Learn more about our mission">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
               </div>
               <p className="ap-desc ap-desc-ml" lang="ml">
                 ആയുർവേദത്തിന്റെ മഹാനായ ആചാര്യൻ സുശ്രുതന്റെ നാമത്തിൽ നമ്മുടെ സ്ഥാപനത്തെ ഒരു ആഗോള ആയുർവേദ ബ്രാൻഡായി വളർത്തുകയും, ഭാരതത്തിന്റെ പ്രാചീന ആരോഗ്യപരിപാലന രീതികളെ ലോകമെമ്പാടും പ്രചരിപ്പിക്കുകയും ചെയ്യുന്നതാണ്.
