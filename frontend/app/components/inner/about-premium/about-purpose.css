@@ -97,6 +97,19 @@
   max-width: 480px;
 }
 
+.ap-desc-ml {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #2d2d2d;
+  margin-bottom: 12px;
+}
+
+.ap-desc-en {
+  font-size: 15px;
+  line-height: 1.68;
+  color: #5a5a5a;
+}
+
 .ap-actions {
   display: flex;
   align-items: center;

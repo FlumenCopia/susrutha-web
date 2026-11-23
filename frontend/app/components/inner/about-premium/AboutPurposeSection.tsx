@@ -37,8 +37,11 @@ export function AboutPurposeSection() {
                   </svg>
                 </a>
               </div>
-              <p className="ap-desc">
-               To deliver authentic Ayurvedic treatments with compassion, innovation and excellence while empowering conscious, balanced living.
+              <p className="ap-desc ap-desc-ml" lang="ml">
+                ആയുർവേദത്തിന്റെ മഹാനായ ആചാര്യൻ സുശ്രുതന്റെ നാമത്തിൽ നമ്മുടെ സ്ഥാപനത്തെ ഒരു ആഗോള ആയുർവേദ ബ്രാൻഡായി വളർത്തുകയും, ഭാരതത്തിന്റെ പ്രാചീന ആരോഗ്യപരിപാലന രീതികളെ ലോകമെമ്പാടും പ്രചരിപ്പിക്കുകയും ചെയ്യുന്നതാണ്.
+              </p>
+              <p className="ap-desc ap-desc-en">
+                Our Mission, in the name of Susrutha, the great Ayurveda exponent, is to change our institution into a global Ayurvedic brand and spread the ancient Indian health practices around the globe.
               </p>
             </div>
           </div>
@@ -119,8 +122,11 @@ export function AboutPurposeSection() {
             <div className="ap-vision-header">
               <h2 className="ap-title">Our Vision</h2>
             </div>
-            <p className="ap-desc">
-To be a global leader in Ayurvedic care, recognized for restoring health, harmony and happiness naturally.
+            <p className="ap-desc ap-desc-ml" lang="ml">
+              ഉയർന്ന നിലവാരമുള്ള ഔഷധങ്ങളും എല്ലാവർക്കും കൈവശപ്പെടുന്ന ചെലവിൽ ചികിത്സകളും നൽകിക്കൊണ്ട്, ആരോഗ്യപൂർണ്ണമായ ഒരു നാളെയെന്ന സ്വപ്നം സാക്ഷാത്കരിക്കുകയാണ് നമ്മുടെ ദർശനം
+            </p>
+            <p className="ap-desc ap-desc-en">
+              Our Vision is to deliver high quality medicines and affordable treatments for every one and realizing the dream of a healthy tomorrow
             </p>
           </div>
         </div>
