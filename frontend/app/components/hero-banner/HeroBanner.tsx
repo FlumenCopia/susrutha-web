@@ -15,7 +15,7 @@ interface HeroBannerProps {
 
 export function HeroBanner({
   giantTitle = "Susrutha Ayurveda",
-  subtitle = "Step into your personal sanctuary—where expert care meets serene ambience, guiding you toward both inner calm and outer radiance.",
+  subtitle = "Authentic Kerala Ayurveda Hospital & Panchakarma Clinic in Thiruvananthapuram (Kowdiar & Kattakada). Specialized care for spine, joint disorders, and stroke rehabilitation by MD physicians.",
   buttonText = "BOOK AN APPOINTMENT",
   buttonLink = "/appointment",
   imageSrc = "/images/hero-courtyard-ayurveda-v2.webp",
