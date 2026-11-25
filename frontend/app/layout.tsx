@@ -65,6 +65,9 @@ export const metadata: Metadata = {
       "Authentic Panchakarma, spine & joint care, and stroke rehabilitation in Thiruvananthapuram, Kerala.",
     images: ["/images/hero-courtyard-ayurveda-v2.webp"],
   },
+  verification: {
+    google: "oiolOARtO3TLSzq2FSX5dxhWsmBJowVSUfWNbziAUis",
+  },
   robots: {
     index: true,
     follow: true,
@@ -89,6 +92,9 @@ export default function RootLayout({
         <link rel="icon" type="image/webp" href="/images/favicon.webp" />
         <link rel="shortcut icon" href="/images/favicon.webp" />
         <link rel="apple-touch-icon" href="/images/favicon.webp" />
+
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="oiolOARtO3TLSzq2FSX5dxhWsmBJowVSUfWNbziAUis" />
 
         {/* Local Geo-Targeting Metadata (Kowdiar & Thiruvananthapuram, Kerala) */}
         <meta name="geo.region" content="IN-KL" />
