@@ -1,7 +1,29 @@
-# Allow search engines to crawl and index all public pages
+# Allow search engines and AI crawlers to index all public content
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
-# XML Sitemap
+# Explicitly allow AI Answer Engines & Generative Search Bots (GEO/AEO)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Host & Sitemap specification
+Host: https://susruthaayurveda.com
 Sitemap: https://susruthaayurveda.com/sitemap.xml

@@ -1,0 +1,39 @@
+# Susrutha Institute of Ayurvedic Sciences & Panchakarma Hospital
+
+> Premier authentic Kerala Ayurveda hospital, clinical research center, and city outpatient clinic located in Thiruvananthapuram (Trivandrum), Kerala, India.
+
+## Institutional Overview
+- **Founded By:** Late Prof. Dr. Krishnankutty Nair (Former Superintendent & Head of Department of Panchakarma, Government Ayurveda College, Thiruvananthapuram).
+- **Core Facilities:** 
+  1. **Main Hospital & Inpatient Campus (Kattakada):** 40-bed NABH-standard inpatient hospital, specialized Panchakarma suites, intensive stroke/neuro rehabilitation wing, pharmacy, and herbal gardens located opposite Christian College, Kattakada, Thiruvananthapuram, Kerala 695572.
+  2. **Executive Outpatient Clinic & Panchakarma Daycare (Kowdiar):** Prime city center clinic located at Ground Floor, Urbon Heights, Opposite Income Tax Office, Pipelane Road, Kowdiar, Thiruvananthapuram, Kerala 695003. Offers specialist consultations, Nadi Pariksha, daycare therapies (Abhyangam, Shirodhara, Kizhi), and medicine dispensary.
+  3. **Ayurveda Village:** Residential rejuvenation and lifestyle retreat for long-term recovery and international patients.
+- **Official Website:** https://susruthaayurveda.com
+- **Phone:** +91 96566 56736 (General / Kattakada), +91 80754 33728 (Kowdiar Clinic)
+- **Email:** susruthaayurveda@gmail.com
+
+## Senior Clinical Faculty
+- **Dr. Krishnakumar K., MD (Ayur):** Chief Consultant Physician specializing in Kayachikitsa (General Medicine), chronic spine disorders, arthritis, and Panchakarma protocols.
+- **Dr. Sreeja Krishna S., BAMS, MBA (Hospital Management):** Senior Consultant Physician with extensive expertise in lifestyle disorders, metabolic management, and preventative healthcare.
+- **Dr. Priyanka R., BAMS, MS (Ayur):** Consultant Ayurvedic Gynaecologist & Obstetrician specializing in women's health, PCOD/PCOS, fertility (Garbhadhana Sanskar), and postnatal confinement care (Prasava Raksha).
+
+## Core Clinical Specialities & Treatments
+1. **Classical Panchakarma:** Authentic five-fold bio-cleansing therapies including Vamana, Virechana, Basti (Kashaya & Sneha), Nasya, and Raktamokshana.
+2. **Spine, Neck & Joint Care:** Non-surgical Ayurvedic management of lumbar disc herniation (slip disc), sciatica, cervical spondylosis, osteoarthritis, and ankylosing spondylitis.
+3. **Stroke & Neurological Rehabilitation:** Intensive clinical neuro-rehabilitation protocols for post-stroke hemiplegia, facial palsy (Bell's palsy), neuropathy, and motor recovery.
+4. **Ayurvedic Gynaecology & Fertility:** Holistic therapies for irregular cycles, PCOD/PCOS, uterine fibroids, preconception cleansing, and postpartum rejuvenation.
+5. **International Patient Care:** Full medical concierge including visa assistance letters, airport pickup from Trivandrum International Airport (TRV, 20 mins from Kowdiar), curated dietary management, and English-speaking care coordinators.
+
+## Canonical Website Structure
+- Home: https://susruthaayurveda.com/
+- About Susrutha: https://susruthaayurveda.com/about-us
+- Branches & Locations: https://susruthaayurveda.com/branches
+- Doctors & Specialists: https://susruthaayurveda.com/doctors
+- Treatments Index: https://susruthaayurveda.com/treatments
+- Conditions Index: https://susruthaayurveda.com/conditions
+- Care Packages: https://susruthaayurveda.com/packages
+- International Patients: https://susruthaayurveda.com/international-patients
+- Facilities: https://susruthaayurveda.com/facilities
+- Patient Testimonials: https://susruthaayurveda.com/testimonials
+- Book Appointment: https://susruthaayurveda.com/appointment
+- Contact Us: https://susruthaayurveda.com/contact-us
