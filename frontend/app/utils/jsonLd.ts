@@ -119,6 +119,70 @@ export function generateMedicalClinicSchema() {
             "closes": "19:00"
           }
         ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://susruthaayurveda.com/#website",
+        "url": "https://susruthaayurveda.com",
+        "name": "Susrutha Ayurveda",
+        "alternateName": [
+          "Susrutha Institute of Ayurvedic Sciences",
+          "Susrutha Ayurveda Hospital Trivandrum"
+        ],
+        "description": "Best Ayurvedic Hospital & Panchakarma Clinic in Trivandrum & Kowdiar, Kerala.",
+        "publisher": {
+          "@id": "https://susruthaayurveda.com/#hospital-kattakada"
+        },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://susruthaayurveda.com/#navigation",
+        "name": "Main Site Navigation",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Authentic Ayurvedic Treatments",
+            "description": "Classical Panchakarma, spine care, and stroke rehabilitation",
+            "url": "https://susruthaayurveda.com/treatments"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Ayurvedic Doctors & Specialists",
+            "description": "Senior MD Ayurvedic physicians and consultants",
+            "url": "https://susruthaayurveda.com/doctors"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Hospital & Clinic Branches",
+            "description": "Executive OPD in Kowdiar and 40-bed Inpatient Hospital in Kattakada",
+            "url": "https://susruthaayurveda.com/branches"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Panchakarma Treatment Packages",
+            "description": "7, 14, and 21-day residential rejuvenation packages",
+            "url": "https://susruthaayurveda.com/packages"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 5,
+            "name": "Hospital Facilities",
+            "description": "NABH-standard Panchakarma suites and inpatient rooms",
+            "url": "https://susruthaayurveda.com/facilities"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 6,
+            "name": "Book Consultation Appointment",
+            "description": "Doctor appointments and hospital admissions",
+            "url": "https://susruthaayurveda.com/appointment"
+          }
+        ]
       }
     ]
   };
