@@ -71,7 +71,7 @@ export async function fetchApiDataWithPagination<T>(endpoint: string): Promise<P
       const page = rawMeta.page ?? 1;
       const limit = rawMeta.limit ?? (items.length || 8);
       const totalPages = rawMeta.totalPages ?? (Math.ceil(total / limit) || 1);
-      const hasMore = page < totalPages;
+      const hasMore = rawMeta.hasMore ?? (rawMeta.totalPages !== undefined ? page < rawMeta.totalPages : items.length === limit);
 
       return {
         items,

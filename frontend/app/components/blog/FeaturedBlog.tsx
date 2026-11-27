@@ -19,7 +19,14 @@ export function FeaturedBlog() {
         setLoading(true);
         const data = await getPublicBlogs();
         if (Array.isArray(data) && data.length > 0) {
-          const normalized = data.map((b: any, idx: number) => ({
+          const sorted = [...data].sort((a: any, b: any) => {
+            if (a.isFeatured && !b.isFeatured) return -1;
+            if (!a.isFeatured && b.isFeatured) return 1;
+            const timeA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+            const timeB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+            return timeB - timeA;
+          });
+          const normalized = sorted.map((b: any, idx: number) => ({
             slug: b.slug || `blog-${idx}`,
             title: b.title || b.name || "Ayurveda Blog",
             category: b.category || "Wellness",

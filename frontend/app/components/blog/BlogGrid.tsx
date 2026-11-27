@@ -13,7 +13,7 @@ function getArticleCardSize(index: number): "large" | "wide" | "standard" {
   return "standard";
 }
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 12;
 
 export function BlogGrid() {
   const [articles, setArticles] = useState<any[]>([]);
@@ -31,7 +31,13 @@ export function BlogGrid() {
       const rawData = Array.isArray(res) ? res : res.items || [];
       const pagination = (res as any).pagination || {};
 
-      const normalized = rawData.map((b: any, idx: number) => ({
+      const sortedRaw = [...rawData].sort((a: any, b: any) => {
+        const timeA = a.publishedAt ? new Date(a.publishedAt).getTime() : (a.createdAt ? new Date(a.createdAt).getTime() : 0);
+        const timeB = b.publishedAt ? new Date(b.publishedAt).getTime() : (b.createdAt ? new Date(b.createdAt).getTime() : 0);
+        return timeB - timeA;
+      });
+
+      const normalized = sortedRaw.map((b: any, idx: number) => ({
         slug: b.slug || `blog-${idx}`,
         title: b.title || b.name || "Ayurveda Blog",
         category: b.category || "Wellness",
@@ -50,7 +56,10 @@ export function BlogGrid() {
         setArticles(normalized);
       }
 
-      setHasMore(pagination.hasMore ?? (normalized.length === PAGE_SIZE));
+      const hasMoreArticles = typeof pagination.hasMore === "boolean"
+        ? pagination.hasMore
+        : (pagination.totalPages ? targetPage < pagination.totalPages : rawData.length === PAGE_SIZE);
+      setHasMore(hasMoreArticles);
     } catch (err) {
       console.error("Failed to load live blogs:", err);
     } finally {
